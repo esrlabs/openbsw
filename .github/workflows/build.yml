@@ -28,4 +28,3 @@ jobs:
           cmake -B cmake-build-unit-tests -S executables/unitTest -DBUILD_UNIT_TESTS=ON
           cmake --build cmake-build-unit-tests -j4
           ctest --test-dir cmake-build-unit-tests -j4
-

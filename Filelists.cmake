@@ -21,6 +21,7 @@ project(
     DESCRIPTION
         "BSW workspace with reference application for multiple platforms"
     LANGUAGES CXX C ASM)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/admin/cmake")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/admin/cmake")
 
@@ -43,6 +44,8 @@ set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_RELEASE})
 if (BUILD_UNIT_TESTS)
     add_compile_definitions(UNIT_TEST=1)
     include(GoogleTest)
+    include(CodeCoverage)
+    append_coverage_compiler_flags()
     include(CTest)
     include(CodeCoverage)
     append_coverage_compiler_flags()
