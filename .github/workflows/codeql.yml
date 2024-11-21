@@ -1,0 +1,38 @@
+name: CodeQL Analysis
+
+on: [push,pull_request]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+  # schedule:
+  #   - cron: '0 0 * * *'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: cpp
+
+      - name: Configure CMake
+        run: cmake -B cmake-build-posix -S executables/referenceApp -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    
+      - name: Build
+        run: cmake --build cmake-build-posix --target app.referenceApp -j --config ${{env.BUILD_TYPE}}
+    
+      - name: Test
+          # Execute tests defined by the CMake configuration.
+          # build type debug yet to be added
+        run: |
+              cmake -B cmake-build-unit-tests -S executables/unitTest -DBUILD_UNIT_TESTS=ON
+              cmake --build cmake-build-unit-tests -j4
+              ctest --test-dir cmake-build-unit-tests -j4
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
