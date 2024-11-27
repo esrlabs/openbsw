@@ -1,0 +1,43 @@
+{
+    "rules": {
+      "type-enum": [2, "always", [
+      "build",
+      "chore",
+      "ci",
+      "docs",
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert",
+      "style",
+      "test"
+    ]],
+      "header-full-stop": [2, "never"],
+      "header-trim": [2, "always"],
+      "subject-empty": [2, "never"],
+      "subject-full-stop": [2, "never", "."],
+      "subject-max-length": [2, "always", 50],
+      "subject-case": [2, "always", "sentence-case"],
+      "subject-exclamation-mark": [2, "never"],
+      "body-leading-blank": [2, "always"],
+      "body-max-line-length": [2, "always", 72],
+      "body-case": [2, "always", "sentence-case"],
+      "signed-off-by": [2, "always", "Signed-off-by:"],
+      "footer-leading-blank": [2, "always"],
+      "footer-empty": [2, "never"]
+    },
+    "prompt": {
+      "questions": {
+        "header": {
+          "description": "Write a short, imperative tense description of the change"
+        },
+        "body": {
+          "description": "Provide a longer description of the change (optional)"
+        },
+        "footer": {
+          "description": "Ensure the footer includes a Signed-off-by line"
+        }
+      }
+    }
+  }
