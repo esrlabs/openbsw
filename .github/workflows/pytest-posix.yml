@@ -1,0 +1,49 @@
+name: Github actions for integration tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '3.22.x'
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install python dependencies
+      run: |
+          cd test/pyTest
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+    - name: Install tmux
+      run: sudo apt-get update && sudo apt-get install -y tmux
+
+    - name: posix build
+      run: |
+          cmake -B cmake-build-posix -S executables/referenceApp
+          cmake --build cmake-build-posix --target app.referenceApp -j
+
+    - name: uds tool installation
+      run: |
+          cd tools/UdsTool
+          pip install .
+
+    - name: set up vcan0
+      run: |
+        ./tools/can/bring-up-vcan0.sh
+
+    - name: Run tests
+      run: |
+          cd test/pyTest
+          pytest
