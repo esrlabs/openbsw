@@ -1,0 +1,61 @@
+name: IWYU Analysis
+
+on: [push, pull_request]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '3.22.x'
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+          python-version: '3.10'
+    
+    - name: Install Python
+      run: |
+            sudo apt-get update
+            sudo apt-get install -y python3 python3-pip
+  
+    - name: Install iwyu
+      run: |
+            sudo apt-get update 
+            sudo apt-get install -y iwyu
+
+    - name: Generate compiler database
+      run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON executables/referenceApp
+
+    - name: Export CXXFLAGS
+
+    #Since Clang 17 is installed in usr/bin, it will search for built-ins in /usr/lib/clang/17/include.
+    #The purpose of this step is to help the clang toolchain used by IWYU to locate the correct system
+    #header directories.
+
+      run: |
+        export CXXFLAGS="-isystem /usr/lib/llvm-17/lib/clang/17/include/"
+    
+    - name: Run IWYU
+      run: python3 iwyu_tool.py -p compile_commands.json > iwyu_output.txt
+   
+    - name: Parse and annotate IWYU output
+      run: |
+        python3 iwyu_tool.py -p path/to/compile_commands.json | while IFS= read -r line; do
+          if [[ "$line" =~ ^(.+):([0-9]+):([0-9]+):\ (.+)$ ]]; then
+            FILE="${BASH_REMATCH[1]}"
+            LINE="${BASH_REMATCH[2]}"
+            COL="${BASH_REMATCH[3]}"
+            MESSAGE="${BASH_REMATCH[4]}"
+            # warning annotation
+            echo "::warning file=$FILE,line=$LINE,col=$COL::$MESSAGE"
+          fi
+        done
