@@ -2,6 +2,9 @@ name: Integration Tests
 
 on: [ merge_group, pull_request, push ]
 
+env:
+  NIX_BUILD_CORES: 2
+
 jobs:
   integration-test:
     # The integration tests run on macos because the referenceApp freezes on a nested vm on linux
