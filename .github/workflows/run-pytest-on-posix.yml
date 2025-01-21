@@ -50,10 +50,7 @@ jobs:
             cd tools/UdsTool
             pip install .
 
-        - name: Install tmux (used in tests involving UdsTool)
-          run: sudo apt install -y tmux
-
         - name: Run tests
           run: |
             cd test/pyTest
-            pytest
+            pytest --target=posix
