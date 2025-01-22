@@ -8,7 +8,7 @@ jobs:
 
       steps:
 
-        - name: Install linux-modules-extra-$(uname -r)
+        - name: Install missing kernel module file for vcan
           run: sudo apt install linux-modules-extra-$(uname -r)
 
         - name: Install can kernel modules
@@ -17,13 +17,13 @@ jobs:
             sudo modprobe can-raw
             sudo modprobe vcan
 
-        - name: Set up vcan0
+        - name: Set up vcan0 interface
           run: |
             sudo ip link add dev vcan0 type vcan
             sudo ip link set vcan0 mtu 16
             sudo ip link set up vcan0
 
-        - name: Show interface info
+        - name: Show all interface info, vcan0 should be set up
           run: ip a
 
         - name: Checkout repository
@@ -44,7 +44,7 @@ jobs:
           with:
             python-version: '3.10'
 
-        - name: Install python dependencies
+        - name: Install python dependencies for tests
           run: |
             pip install -r test/pyTest/requirements.txt
             cd tools/UdsTool
