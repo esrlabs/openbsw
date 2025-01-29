@@ -1,11 +1,12 @@
 name: Code Coverage 
 
-on:
-  workflow_call:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [workflow_call, push, pull_request]
+# on:
+#   workflow_call:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -59,7 +60,10 @@ jobs:
           # Generate HTML coverage report
           genhtml cmake-build-unit-tests/coverage.info \
                   --output-directory cmake-build-unit-tests/coverage &&
-
+          
+          rm -rf code_coverage/coverage &&
+          mkdir -p coverage_badges &&
+          
           mv cmake-build-unit-tests/coverage code_coverage &&
           zip -r code_coverage.zip code_coverage &&
 
@@ -71,8 +75,6 @@ jobs:
           FunctionPercentage=\$(lcov --summary cmake-build-unit-tests/coverage.info | grep 'functions' | awk '{print \$2}') &&
           echo \"Function Percentage: \$FunctionPercentage\"  # Debug print &&
           wget \"https://img.shields.io/badge/coverage-\${FunctionPercentage}25-brightgreen.svg\" -O function_coverage_badge.svg &&
-
-          mkdir coverage_badges &&
 
           mv line_coverage_badge.svg coverage_badges/ &&
           mv function_coverage_badge.svg coverage_badges/ &&
