@@ -25,10 +25,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cmake-${{ matrix.platform }}-${{ matrix.cpp-standard }}-
 
-      - name: Set up CMake
+      - name: Setup CMake
         uses: jwlawson/actions-setup-cmake@v2
         with:
-          cmake-version: '3.22.x'
+            cmake-version: '3.22.x'
+            github-api-token: ${{ secrets.GERRIT_JENKINS_RATE_LIMIT_ACCESS }}
+            
 
       - name: Set up ARM GCC
         if: ${{ matrix.platform == 's32k148' }}
