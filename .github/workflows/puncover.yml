@@ -1,0 +1,74 @@
+name: Generate Puncover HTML Report
+
+on: [workflow_call, pull_request]
+
+jobs:
+  puncoverhtml:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: '3.22.x'
+
+      - name: Install Puncover
+        run: |
+          pip install puncover requests
+
+      # - name: Clone puncover_html repository
+      #   run: |
+      #     git clone https://github.com/vChavezB/puncover_html.git
+  
+      - name: Set up ARM GCC
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '10.3-2021.10'
+
+      - name: Run Puncover in Background
+        run: |
+          cmake -B cmake-build-s32k148 -S executables/referenceApp -DBUILD_TARGET_PLATFORM="S32K148EVB" --toolchain ../../admin/cmake/ArmNoneEabi.cmake
+          cmake --build cmake-build-s32k148 --target app.referenceApp -j
+          puncover --elf_file cmake-build-s32k148/application/app.referenceApp.elf &
+          puncover_pid=$!
+          trap "kill $puncover_pid" EXIT
+
+          if [ "$1" = "--wget" ]; then
+              sleep 60 
+              echo "-------------------------"
+              echo "wget"
+              rm -rf wget
+              mkdir wget
+              cd wget
+              wget -e robots=off -r -l 2 localhost:5000
+          else
+              wait
+          fi
+
+      # - name: Generate HTML Output
+      #   run: |
+      #     cd /tmp/puncover_html
+      #     python puncover_html.py out
+  
+      - name: Zip puncover documentation
+        run: |
+          mv wget puncover_docs
+          zip -r puncover_docs.zip puncover_docs
+
+      - name: Upload puncover_docs_docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: puncover_docs
+          path: puncover_docs.zip
+
+      - name: Kill Background puncover Web Server
+        run: |
+          pkill -f 'puncover --elf_file cmake-build-s32k148/application/app.referenceApp.elf'

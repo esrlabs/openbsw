@@ -1,9 +1,11 @@
 name: Publish Documentation
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
+
+# on:
+#   push:
+#     branches:
+#       - main
 
 permissions:
   contents: write
@@ -18,9 +20,12 @@ jobs:
   build-code-coverage:
     uses: ./.github/workflows/code-coverage.yml
 
+  build-puncover-docs:
+    uses: ./.github/workflows/puncover.yml
+
   publish-docs:
     runs-on: ubuntu-latest
-    needs: [build-sphinx-docs, build-doxygen-docs, build-code-coverage]
+    needs: [build-sphinx-docs, build-doxygen-docs, build-code-coverage, build-puncover-docs]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -72,6 +77,18 @@ jobs:
         run: |
             unzip coverage_badges.zip 
             rm coverage_badges.zip
+
+      - name: Download puncover documentation
+        uses: actions/download-artifact@v4
+        with:
+          name: puncover_docs
+          path: ./doc/github_pages
+
+      - name: Unzip puncover documentation
+        working-directory: ./doc/github_pages
+        run: |
+          unzip puncover_docs.zip
+          rm puncover_docs.zip
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
