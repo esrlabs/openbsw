@@ -13,12 +13,16 @@
 
 #include <lifecycle/LifecycleManager.h>
 #include <safeLifecycle/SafeSupervisor.h>
+#include <safeWatchdog/SafeWatchdog.h>
+#include <watchdog/Watchdog.h>
 #include <watchdogManager/watchdogManager.h>
 
 #include <estd/indestructible.h>
 #include <estd/optional.h>
 
 extern void app_main();
+
+extern safety::SafeWatchdog safeWatchdog;
 
 extern "C"
 {
@@ -32,6 +36,9 @@ void ExceptionHandler()
 
 void boardInit()
 {
+    /* Disables the watchdog early before the timeout occurs, which is then enabled later in the
+       main function. */
+    bsp::Watchdog::disableWatchdog();
     configurPll();
     cacheEnable();
 }
@@ -87,9 +94,6 @@ namespace systems
 
 int main()
 {
-    /* StaticBsp::init() disables the watchdog for the startup checks. The watchdog is then enabled
-     by the method SafeWatchdog::init(), which is called later during the startup phase.*/
-    ::platform::staticBsp.init();
     auto& safeSupervisor = safety::SafeSupervisor::getInstance();
     safeSupervisor.enterLimpHome();
     bool watchdogTest = safety::WatchdogManager::startTest();
@@ -101,6 +105,8 @@ int main()
     {
         safeSupervisor.watchdogStartupCheckMonitor.trigger();
     }
+    safeWatchdog.enableMcuWatchdog();
+    ::platform::staticBsp.init();
     printf("main(RCM::SRS 0x%lx)\r\n", *reinterpret_cast<uint32_t volatile*>(0x4007F008));
     app_main(); // entry point for the generic part
     return (1); // we never reach this point
