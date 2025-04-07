@@ -1,14 +1,11 @@
 add_executable(
     estdExamples
-    algorithm.cpp
     array.cpp
     big_endian.cpp
     constructor.cpp
-    deque.cpp
     functional.cpp
     index_sequence.cpp
     indestructible.cpp
-    iterator.cpp
     little_endian.cpp
     math.cpp
     memory.cpp
