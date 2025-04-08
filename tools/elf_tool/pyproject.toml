@@ -1,0 +1,23 @@
+[project]
+name = "elf-tool"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Suhashini Naik",email = "suhashini.naik@accenture.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "puncover (>=0.4.2,<0.5.0)"
+]
+
+[tool.poetry]
+packages = [{include = "elf_tool", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+puncover-tool = "elf_tool.generate_html:main"

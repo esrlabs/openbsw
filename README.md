@@ -70,7 +70,7 @@ allowing developers to get up and running quickly.
 
 The [documentation](https://eclipse-openbsw.github.io/openbsw)
 describes Eclipse OpenBSW in detail and provides simple setup guides to build and use it.
-
+(https://esrlabs.github.io/openbsw)
 ## Contributing
 
 It is expected that this respository will be used as a starting point for many custom developments.
