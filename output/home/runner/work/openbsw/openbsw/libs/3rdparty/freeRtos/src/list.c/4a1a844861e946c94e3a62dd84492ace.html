@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../freeRtos.html">freeRtos</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../list.c.html">list.c</a>:128
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">vListInsert</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009484</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>48</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (4)</th>
+                <td colspan="5">
+                
+                    <a href="../timers.c/d35f72ab680b9bc7eb2ff3e6cd07ece5.html">prvTimerTask (488)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../tasks.c/a2700cf07d00ca1673883a9bd6c17b5a.html">prvAddCurrentTaskToDelayedList (168)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../timers.c/7d53b7478873e191a805386b7b6a469e.html">prvReloadTimer (88)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../tasks.c/0975a0d61c9f6b0e61639c753c84406d.html">vTaskPlaceOnEventList (32)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a3d4e7dbbd5797f8a8e40ad4850a23d6.html">vListInitialiseItem (8)</a></pre>
+    
+
+    <pre>
+
+    vListInsert():
+
+        9484:	b430      	push	{r4, r5}
+
+        9486:	680d      	ldr	r5, [r1, #0]
+
+        9488:	1c6b      	adds	r3, r5, #1
+
+        948a:	d010      	beq.n	94ae <<a href="./4a1a844861e946c94e3a62dd84492ace.html">vListInsert</a>+0x2a>
+
+        948c:	f100 0308 	add.w	r3, r0, #8
+
+        9490:	461c      	mov	r4, r3
+
+        9492:	685b      	ldr	r3, [r3, #4]
+
+        9494:	681a      	ldr	r2, [r3, #0]
+
+        9496:	42aa      	cmp	r2, r5
+
+        9498:	d9fa      	bls.n	9490 <<a href="./4a1a844861e946c94e3a62dd84492ace.html">vListInsert</a>+0xc>
+
+        949a:	6802      	ldr	r2, [r0, #0]
+
+        949c:	604b      	str	r3, [r1, #4]
+
+        949e:	3201      	adds	r2, #1
+
+        94a0:	6099      	str	r1, [r3, #8]
+
+        94a2:	608c      	str	r4, [r1, #8]
+
+        94a4:	6061      	str	r1, [r4, #4]
+
+        94a6:	6108      	str	r0, [r1, #16]
+
+        94a8:	bc30      	pop	{r4, r5}
+
+        94aa:	6002      	str	r2, [r0, #0]
+
+        94ac:	4770      	bx	lr
+
+        94ae:	6904      	ldr	r4, [r0, #16]
+
+        94b0:	6863      	ldr	r3, [r4, #4]
+
+        94b2:	e7f2      	b.n	949a <<a href="./4a1a844861e946c94e3a62dd84492ace.html">vListInsert</a>+0x16>
+
+    </pre>
+
+    
+    <pre><a href="./1abc5ae8b61049fbb0433232e839935f.html">uxListRemove (40)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../../../bspConfiguration.html">bspConfiguration</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../bsp.html">bsp</a></li>
+        
+        <li ><a href="../../adc.html">adc</a>
+            </li>
+
+        
+        <li class="active"><a href="../AnalogInput.cpp.html">AnalogInput.cpp</a>:66
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::AnalogInput::get(unsigned short, unsigned long&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00011fa8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>112</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (4)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../platforms/s32k1xx/bsp/bspAdc/src/tester/AnalogTester.cpp/4d46e7d46d94ef1c3210f83dc740f177.html">bios::AnalogTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (488)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../application/src/systems/DemoSystem.cpp/57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic() (272)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../application/src/uds/ReadIdentifierPot.cpp/dafc07d1e9d353fb0c841ff973b1d8bb.html">uds::ReadIdentifierPot::process(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short) (144)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../platforms/s32k1xx/bsp/bspAdc/include/adc/AnalogInputScaleImplementation.hpp/3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation&lt;unsigned long, unsigned short&gt;::get(unsigned short, unsigned long&amp;) (68)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./f9ba954667950579ad25dae7689b4527.html">bios::AnalogInput::start() (20)</a></pre>
+    
+
+    <pre>
+
+    _ZN4bios11AnalogInput3getEtRt():
+
+       11fa8:	4b19      	ldr	r3, [pc, #100]	; (12010 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x68>)
+
+       11faa:	681b      	ldr	r3, [r3, #0]
+
+       11fac:	f813 2020 	ldrb.w	r2, [r3, r0, lsl #2]
+
+       11fb0:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+
+       11fb4:	b122      	cbz	r2, 11fc0 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x18>
+
+    _ZNK4bios3AdcINS_15AdcInResolutionItLNS_12tAdcDataMaskE4095ELNS_18tAdcDataResolutionE0EEENS_21Adc12BitConfigurationELh16EE12getValueSyncEhRt():
+
+       11fb6:	2300      	movs	r3, #0
+
+    _ZN4bios11AnalogInput3getEtRt():
+
+       11fb8:	2201      	movs	r2, #1
+
+    bios::AnalogInput::get(unsigned short, unsigned long&):
+
+       11fba:	600b      	str	r3, [r1, #0]
+
+       11fbc:	4610      	mov	r0, r2
+
+       11fbe:	4770      	bx	lr
+
+       11fc0:	b430      	push	{r4, r5}
+
+    _ZNK4bios3AdcINS_15AdcInResolutionItLNS_12tAdcDataMaskE4095ELNS_18tAdcDataResolutionE0EEENS_21Adc12BitConfigurationELh16EE12getValueSyncEhRt():
+
+       11fc2:	4814      	ldr	r0, [pc, #80]	; (12014 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x6c>)
+
+       11fc4:	7a44      	ldrb	r4, [r0, #9]
+
+    bios::AnalogInput::get(unsigned short, unsigned long&):
+
+       11fc6:	b082      	sub	sp, #8
+
+    _ZNK4bios3AdcINS_15AdcInResolutionItLNS_12tAdcDataMaskE4095ELNS_18tAdcDataResolutionE0EEENS_21Adc12BitConfigurationELh16EE12getValueSyncEhRt():
+
+       11fc8:	b1d4      	cbz	r4, 12000 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x58>
+
+       11fca:	7a04      	ldrb	r4, [r0, #8]
+
+       11fcc:	b1c4      	cbz	r4, 12000 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x58>
+
+       11fce:	6844      	ldr	r4, [r0, #4]
+
+       11fd0:	f8d4 0090 	ldr.w	r0, [r4, #144]	; 0x90
+
+       11fd4:	0640      	lsls	r0, r0, #25
+
+       11fd6:	d413      	bmi.n	12000 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x58>
+
+       11fd8:	f8d4 0090 	ldr.w	r0, [r4, #144]	; 0x90
+
+       11fdc:	0705      	lsls	r5, r0, #28
+
+       11fde:	d40f      	bmi.n	12000 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x58>
+
+       11fe0:	6ca5      	ldr	r5, [r4, #72]	; 0x48
+
+    _ZN4bios11AnalogInput3getEtRt():
+
+       11fe2:	7858      	ldrb	r0, [r3, #1]
+
+    _ZNK4bios3AdcINS_15AdcInResolutionItLNS_12tAdcDataMaskE4095ELNS_18tAdcDataResolutionE0EEENS_21Adc12BitConfigurationELh16EE12getValueSyncEhRt():
+
+       11fe4:	9501      	str	r5, [sp, #4]
+
+       11fe6:	f06f 03ff 	mvn.w	r3, #255	; 0xff
+
+       11fea:	6020      	str	r0, [r4, #0]
+
+       11fec:	e001      	b.n	11ff2 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x4a>
+
+       11fee:	3b01      	subs	r3, #1
+
+       11ff0:	d006      	beq.n	12000 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x58>
+
+       11ff2:	6820      	ldr	r0, [r4, #0]
+
+       11ff4:	0600      	lsls	r0, r0, #24
+
+       11ff6:	d5fa      	bpl.n	11fee <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x46>
+
+       11ff8:	6ca3      	ldr	r3, [r4, #72]	; 0x48
+
+    bios::AnalogInput::get(unsigned short, unsigned long&):
+
+       11ffa:	f3c3 030b 	ubfx	r3, r3, #0, #12
+
+    _ZNK4bios3AdcINS_15AdcInResolutionItLNS_12tAdcDataMaskE4095ELNS_18tAdcDataResolutionE0EEENS_21Adc12BitConfigurationELh16EE12getValueSyncEhRt():
+
+       11ffe:	e001      	b.n	12004 <<a href="./080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>+0x5c>
+
+       12000:	2300      	movs	r3, #0
+
+    _ZN4bios11AnalogInput3getEtRt():
+
+       12002:	2201      	movs	r2, #1
+
+    bios::AnalogInput::get(unsigned short, unsigned long&):
+
+       12004:	4610      	mov	r0, r2
+
+       12006:	600b      	str	r3, [r1, #0]
+
+       12008:	b002      	add	sp, #8
+
+       1200a:	bc30      	pop	{r4, r5}
+
+       1200c:	4770      	bx	lr
+
+       1200e:	bf00      	nop
+
+       12010:	1ffee784 	.word	0x1ffee784
+
+       12014:	1ffee788 	.word	0x1ffee788
+
+    </pre>
+
+    
+    <pre><a href="./5235092217f75e447f9f86c8d9b41fde.html">bios::AnalogInput::cyclic() (4)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

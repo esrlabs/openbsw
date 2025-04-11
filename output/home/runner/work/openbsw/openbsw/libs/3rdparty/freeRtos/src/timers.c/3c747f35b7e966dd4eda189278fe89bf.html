@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../freeRtos.html">freeRtos</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../timers.c.html">timers.c</a>:233
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">xTimerCreateTimerTask</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009404</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>84</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../tasks.c/f63e0c737b2bc0ba20133fcf0cb62874.html">vTaskStartScheduler (152)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=696
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./25fd83c3d905940072a19718ff477a03.html">prvCheckForValidListAndQueue (108)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bsw/asyncFreeRtos/src/async/Async.cpp/969fa3803577a7054a0fca784f9c20f7.html">vApplicationGetTimerTaskMemory (80)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../tasks.c/a56b3291178fbc8037383670ab7415bb.html">xTaskCreateStatic (508)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./d35f72ab680b9bc7eb2ff3e6cd07ece5.html">prvTimerTask (488)</a></pre>
+    
+
+    <pre>
+
+    xTimerCreateTimerTask():
+
+        9404:	b510      	push	{r4, lr}
+
+        9406:	b088      	sub	sp, #32
+
+        9408:	f7ff fe82 	bl	9110 <<a href="./25fd83c3d905940072a19718ff477a03.html">prvCheckForValidListAndQueue</a>>
+
+        940c:	4b0e      	ldr	r3, [pc, #56]	; (9448 <<a href="./3c747f35b7e966dd4eda189278fe89bf.html">xTimerCreateTimerTask</a>+0x44>)
+
+        940e:	6818      	ldr	r0, [r3, #0]
+
+        9410:	b1c0      	cbz	r0, 9444 <<a href="./3c747f35b7e966dd4eda189278fe89bf.html">xTimerCreateTimerTask</a>+0x40>
+
+        9412:	2400      	movs	r4, #0
+
+        9414:	aa07      	add	r2, sp, #28
+
+        9416:	a906      	add	r1, sp, #24
+
+        9418:	a805      	add	r0, sp, #20
+
+        941a:	9405      	str	r4, [sp, #20]
+
+        941c:	9406      	str	r4, [sp, #24]
+
+        941e:	f000 fa53 	bl	98c8 <<a href="../../../../bsw/asyncFreeRtos/src/async/Async.cpp/969fa3803577a7054a0fca784f9c20f7.html">vApplicationGetTimerTaskMemory</a>>
+
+        9422:	9805      	ldr	r0, [sp, #20]
+
+        9424:	9906      	ldr	r1, [sp, #24]
+
+        9426:	9002      	str	r0, [sp, #8]
+
+        9428:	2308      	movs	r3, #8
+
+        942a:	9101      	str	r1, [sp, #4]
+
+        942c:	9300      	str	r3, [sp, #0]
+
+        942e:	9a07      	ldr	r2, [sp, #28]
+
+        9430:	4906      	ldr	r1, [pc, #24]	; (944c <<a href="./3c747f35b7e966dd4eda189278fe89bf.html">xTimerCreateTimerTask</a>+0x48>)
+
+        9432:	4807      	ldr	r0, [pc, #28]	; (9450 <<a href="./3c747f35b7e966dd4eda189278fe89bf.html">xTimerCreateTimerTask</a>+0x4c>)
+
+        9434:	4623      	mov	r3, r4
+
+        9436:	f7ff f9b5 	bl	87a4 <<a href="../tasks.c/a56b3291178fbc8037383670ab7415bb.html">xTaskCreateStatic</a>>
+
+        943a:	4b06      	ldr	r3, [pc, #24]	; (9454 <<a href="./3c747f35b7e966dd4eda189278fe89bf.html">xTimerCreateTimerTask</a>+0x50>)
+
+        943c:	6018      	str	r0, [r3, #0]
+
+        943e:	1b00      	subs	r0, r0, r4
+
+        9440:	bf18      	it	ne
+
+        9442:	2001      	movne	r0, #1
+
+        9444:	b008      	add	sp, #32
+
+        9446:	bd10      	pop	{r4, pc}
+
+        9448:	1ffee57c 	.word	0x1ffee57c
+
+        944c:	000166ac 	.word	0x000166ac
+
+        9450:	0000921d 	.word	0x0000921d
+
+        9454:	1ffee580 	.word	0x1ffee580
+
+    </pre>
+
+    
+    <pre><a href="./72b980470cd099aab787d558fcab569a.html">xTimerGetTimerDaemonTaskHandle (12)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

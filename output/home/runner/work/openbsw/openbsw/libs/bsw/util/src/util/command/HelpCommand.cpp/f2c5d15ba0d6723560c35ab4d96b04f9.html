@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../HelpCommand.cpp.html">HelpCommand.cpp</a>:97
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000b10c</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>144</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./c7c3242828d980f5c6709814e1f7a544.html">util::command::HelpCommand::CallbackHelper::startCommand(char const*, char const*, bool) (100)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=92
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../format/StringWriter.cpp/03aebf6331ff8b3f51ee4a5bd2467e06.html">util::format::StringWriter::write(util::string::ConstString const&amp;) (32)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...) (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../estd/include/estd/functional.h/cbfbee1c6b94849b587e24e674bd5916.html">void estd::function&lt;void (util::command::CommandContext&amp;)&gt;::member_function_caller&lt;util::command::HelpCommand, &amp;(util::command::HelpCommand::help(util::command::CommandContext&amp;) const)&gt;(void*, util::command::CommandContext&amp;) (4)</a></pre>
+    
+
+    <pre>
+
+    util::command::HelpCommand::CallbackHelper::printDescription(char const*):
+
+        b10c:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+
+        b110:	4f1f      	ldr	r7, [pc, #124]	; (b190 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x84>)
+
+        b112:	f8df 9080 	ldr.w	r9, [pc, #128]	; b194 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x88>
+
+        b116:	f8df 8080 	ldr.w	r8, [pc, #128]	; b198 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x8c>
+
+        b11a:	b083      	sub	sp, #12
+
+        b11c:	460c      	mov	r4, r1
+
+        b11e:	4606      	mov	r6, r0
+
+        b120:	460d      	mov	r5, r1
+
+        b122:	7823      	ldrb	r3, [r4, #0]
+
+        b124:	2b0d      	cmp	r3, #13
+
+        b126:	d904      	bls.n	b132 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x26>
+
+        b128:	7863      	ldrb	r3, [r4, #1]
+
+        b12a:	2b0d      	cmp	r3, #13
+
+        b12c:	f104 0401 	add.w	r4, r4, #1
+
+        b130:	d8fa      	bhi.n	b128 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x1c>
+
+        b132:	f242 4201 	movw	r2, #9217	; 0x2401
+
+        b136:	fa22 f303 	lsr.w	r3, r2, r3
+
+        b13a:	07db      	lsls	r3, r3, #31
+
+        b13c:	d5f4      	bpl.n	b128 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x1c>
+
+        b13e:	6870      	ldr	r0, [r6, #4]
+
+    _ZN4util6string11ConstStringC4EPKcj():
+
+        b140:	9500      	str	r5, [sp, #0]
+
+        b142:	b105      	cbz	r5, b146 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x3a>
+
+    util::command::HelpCommand::CallbackHelper::printDescription(char const*):
+
+        b144:	1b65      	subs	r5, r4, r5
+
+        b146:	4669      	mov	r1, sp
+
+    _ZN4util6string11ConstStringC4EPKcj():
+
+        b148:	9501      	str	r5, [sp, #4]
+
+    util::command::HelpCommand::CallbackHelper::printDescription(char const*):
+
+        b14a:	f7ff fa7d 	bl	a648 <<a href="../../format/StringWriter.cpp/03aebf6331ff8b3f51ee4a5bd2467e06.html">util::format::StringWriter::write(util::string::ConstString const&)</a>>
+
+        b14e:	4639      	mov	r1, r7
+
+        b150:	6870      	ldr	r0, [r6, #4]
+
+        b152:	f7ff fa89 	bl	a668 <<a href="../../format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+        b156:	4621      	mov	r1, r4
+
+        b158:	460d      	mov	r5, r1
+
+        b15a:	f811 3b01 	ldrb.w	r3, [r1], #1
+
+    _ZN4util7command11HelpCommand14CallbackHelper6isCrLfEc():
+
+        b15e:	2b0d      	cmp	r3, #13
+
+        b160:	d0fa      	beq.n	b158 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x4c>
+
+        b162:	2b0a      	cmp	r3, #10
+
+        b164:	d0f8      	beq.n	b158 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x4c>
+
+    _ZN4util7command11HelpCommand14CallbackHelper12isWhitespaceEc():
+
+        b166:	2b20      	cmp	r3, #32
+
+        b168:	d00b      	beq.n	b182 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x76>
+
+        b16a:	2b09      	cmp	r3, #9
+
+        b16c:	d009      	beq.n	b182 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x76>
+
+    util::command::HelpCommand::CallbackHelper::printDescription(char const*):
+
+        b16e:	b15b      	cbz	r3, b188 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x7c>
+
+        b170:	68f2      	ldr	r2, [r6, #12]
+
+        b172:	6870      	ldr	r0, [r6, #4]
+
+        b174:	464b      	mov	r3, r9
+
+        b176:	3203      	adds	r2, #3
+
+        b178:	4641      	mov	r1, r8
+
+        b17a:	f7ff fa75 	bl	a668 <<a href="../../format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+        b17e:	462c      	mov	r4, r5
+
+        b180:	e7cf      	b.n	b122 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x16>
+
+        b182:	f815 3f01 	ldrb.w	r3, [r5, #1]!
+
+        b186:	e7ee      	b.n	b166 <<a href="./f2c5d15ba0d6723560c35ab4d96b04f9.html">util::command::HelpCommand::CallbackHelper::printDescription(char const*)</a>+0x5a>
+
+        b188:	b003      	add	sp, #12
+
+        b18a:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+        b18e:	bf00      	nop
+
+        b190:	00018178 	.word	0x00018178
+
+        b194:	00018190 	.word	0x00018190
+
+        b198:	00016944 	.word	0x00016944
+
+    </pre>
+
+    
+    <pre><a href="./c7c3242828d980f5c6709814e1f7a544.html">util::command::HelpCommand::CallbackHelper::startCommand(char const*, char const*, bool) (100)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

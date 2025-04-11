@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../OutgoingDiagConnection.cpp.html">OutgoingDiagConnection.cpp</a>:248
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener::ProcessingResult)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000dfa8</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>80</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=56
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../NestedDiagRequest.cpp/f35b0e8677ad1717055dc6444156b27d.html">uds::NestedDiagRequest::addIdentifier() (12)</a></pre>
+    
+
+    <pre>
+
+    uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+        dfa8:	b510      	push	{r4, lr}
+
+        dfaa:	4604      	mov	r4, r0
+
+        dfac:	69c0      	ldr	r0, [r0, #28]
+
+        dfae:	b1b0      	cbz	r0, dfde <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x36>
+
+        dfb0:	468c      	mov	ip, r1
+
+        dfb2:	2100      	movs	r1, #0
+
+        dfb4:	f884 1071 	strb.w	r1, [r4, #113]	; 0x71
+
+        dfb8:	b92a      	cbnz	r2, dfc6 <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x1e>
+
+        dfba:	6803      	ldr	r3, [r0, #0]
+
+        dfbc:	4621      	mov	r1, r4
+
+        dfbe:	689b      	ldr	r3, [r3, #8]
+
+        dfc0:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        dfc4:	4718      	bx	r3
+
+        dfc6:	4b09      	ldr	r3, [pc, #36]	; (dfec <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x44>)
+
+        dfc8:	f8bc 200c 	ldrh.w	r2, [ip, #12]
+
+        dfcc:	7818      	ldrb	r0, [r3, #0]
+
+        dfce:	4908      	ldr	r1, [pc, #32]	; (dff0 <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x48>)
+
+        dfd0:	f8bc 300e 	ldrh.w	r3, [ip, #14]
+
+        dfd4:	f7f4 fec6 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        dfd8:	69e0      	ldr	r0, [r4, #28]
+
+        dfda:	2201      	movs	r2, #1
+
+        dfdc:	e7ed      	b.n	dfba <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x12>
+
+        dfde:	4b03      	ldr	r3, [pc, #12]	; (dfec <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x44>)
+
+        dfe0:	4904      	ldr	r1, [pc, #16]	; (dff4 <<a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult)</a>+0x4c>)
+
+        dfe2:	7818      	ldrb	r0, [r3, #0]
+
+        dfe4:	f7f4 febe 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        dfe8:	bd10      	pop	{r4, pc}
+
+        dfea:	bf00      	nop
+
+        dfec:	1ffe0081 	.word	0x1ffe0081
+
+        dff0:	0001743c 	.word	0x0001743c
+
+        dff4:	0001747c 	.word	0x0001747c
+
+    </pre>
+
+    
+    <pre><a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&amp;) (120)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

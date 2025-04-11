@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../services.html">services</a></li>
+        
+        <li ><a href="../../sessioncontrol.html">sessioncontrol</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagnosticSessionControl.cpp.html">DiagnosticSessionControl.cpp</a>:168
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&amp;, uds::AbstractDiagJob const&amp;, unsigned char const*, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000eac0</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>124</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../../unknown/unknown/75bfe28b186698616a0d6967dcb3c5de.html">non-virtual thunk to uds::DiagnosticSessionControl::acceptedJob(uds::IncomingDiagConnection&amp;, uds::AbstractDiagJob const&amp;, unsigned char const*, unsigned short) (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./dad55115fb9f4eea2168cf987a433856.html">uds::DiagnosticSessionControl::acceptedJob(uds::IncomingDiagConnection&amp;, uds::AbstractDiagJob const&amp;, unsigned char const*, unsigned short) (16)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=188
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../base/AbstractDiagJob.cpp/406488fcd0381ad72fd968b5cab7b9ff.html">uds::AbstractDiagJob::getRequestId() const (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (96)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./dafc3fba897ef4acf7834c1db7be7394.html">uds::DiagnosticSessionControl::shutdown() (20)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short):
+
+        eac0:	b570      	push	{r4, r5, r6, lr}
+
+        eac2:	4b1a      	ldr	r3, [pc, #104]	; (eb2c <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x6c>)
+
+        eac4:	4604      	mov	r4, r0
+
+        eac6:	b082      	sub	sp, #8
+
+        eac8:	4610      	mov	r0, r2
+
+        eaca:	781e      	ldrb	r6, [r3, #0]
+
+        eacc:	4615      	mov	r5, r2
+
+        eace:	f7fd ff6d 	bl	c9ac <<a href="../../../base/AbstractDiagJob.cpp/406488fcd0381ad72fd968b5cab7b9ff.html">uds::AbstractDiagJob::getRequestId() const</a>>
+
+        ead2:	6823      	ldr	r3, [r4, #0]
+
+        ead4:	4916      	ldr	r1, [pc, #88]	; (eb30 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x70>)
+
+        ead6:	699b      	ldr	r3, [r3, #24]
+
+        ead8:	428b      	cmp	r3, r1
+
+        eada:	4602      	mov	r2, r0
+
+        eadc:	d11b      	bne.n	eb16 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x56>
+
+    uds::DiagnosticSessionControl::getActiveSession() const():
+
+        eade:	6be0      	ldr	r0, [r4, #60]	; 0x3c
+
+    uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short):
+
+        eae0:	7903      	ldrb	r3, [r0, #4]
+
+        eae2:	4914      	ldr	r1, [pc, #80]	; (eb34 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x74>)
+
+        eae4:	4630      	mov	r0, r6
+
+        eae6:	f7f2 fe55 	bl	1794 <<a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        eaea:	6823      	ldr	r3, [r4, #0]
+
+        eaec:	6c62      	ldr	r2, [r4, #68]	; 0x44
+
+        eaee:	6a1b      	ldr	r3, [r3, #32]
+
+        eaf0:	4911      	ldr	r1, [pc, #68]	; (eb38 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x78>)
+
+        eaf2:	1b52      	subs	r2, r2, r5
+
+        eaf4:	fab2 f282 	clz	r2, r2
+
+        eaf8:	0952      	lsrs	r2, r2, #5
+
+        eafa:	428b      	cmp	r3, r1
+
+        eafc:	f884 205b 	strb.w	r2, [r4, #91]	; 0x5b
+
+        eb00:	d10e      	bne.n	eb20 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x60>
+
+    uds::DiagnosticSessionControl::stopTimeout():
+
+        eb02:	f104 005c 	add.w	r0, r4, #92	; 0x5c
+
+        eb06:	f7fb f95b 	bl	9dc0 <<a href="../../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+        eb0a:	2301      	movs	r3, #1
+
+    uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short):
+
+        eb0c:	20ff      	movs	r0, #255	; 0xff
+
+    uds::DiagnosticSessionControl::stopTimeout():
+
+        eb0e:	f884 3074 	strb.w	r3, [r4, #116]	; 0x74
+
+    uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short):
+
+        eb12:	b002      	add	sp, #8
+
+        eb14:	bd70      	pop	{r4, r5, r6, pc}
+
+        eb16:	9001      	str	r0, [sp, #4]
+
+        eb18:	4620      	mov	r0, r4
+
+        eb1a:	4798      	blx	r3
+
+        eb1c:	9a01      	ldr	r2, [sp, #4]
+
+        eb1e:	e7df      	b.n	eae0 <<a href="./56be3ce9b8a6fccda62c9d14678fa96f.html">uds::DiagnosticSessionControl::acceptedJob_ext(uds::IncomingDiagConnection const&, uds::AbstractDiagJob const&, unsigned char const*, unsigned short)</a>+0x20>
+
+        eb20:	4620      	mov	r0, r4
+
+        eb22:	4798      	blx	r3
+
+        eb24:	20ff      	movs	r0, #255	; 0xff
+
+        eb26:	b002      	add	sp, #8
+
+        eb28:	bd70      	pop	{r4, r5, r6, pc}
+
+        eb2a:	bf00      	nop
+
+        eb2c:	1ffe0081 	.word	0x1ffe0081
+
+        eb30:	0000e745 	.word	0x0000e745
+
+        eb34:	00017714 	.word	0x00017714
+
+        eb38:	0000e76d 	.word	0x0000e76d
+
+    </pre>
+
+    
+    <pre><a href="./dad55115fb9f4eea2168cf987a433856.html">uds::DiagnosticSessionControl::acceptedJob(uds::IncomingDiagConnection&amp;, uds::AbstractDiagJob const&amp;, unsigned char const*, unsigned short) (16)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

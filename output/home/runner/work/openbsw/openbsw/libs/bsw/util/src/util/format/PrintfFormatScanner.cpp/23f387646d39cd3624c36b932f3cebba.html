@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../PrintfFormatScanner.cpp.html">PrintfFormatScanner.cpp</a>:163
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a7a4</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>284</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./962f55895db2c42f69d95be4d514171b.html">util::format::PrintfFormatScanner::scanParam() (76)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a3001d5a19592198f088061933967d7c.html">util::format::PrintfFormatScanner::scanParamLength() (60)</a></pre>
+    
+
+    <pre>
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a7a4:	b410      	push	{r4}
+
+        a7a6:	6844      	ldr	r4, [r0, #4]
+
+        a7a8:	4622      	mov	r2, r4
+
+        a7aa:	f812 3b01 	ldrb.w	r3, [r2], #1
+
+        a7ae:	6042      	str	r2, [r0, #4]
+
+        a7b0:	2b00      	cmp	r3, #0
+
+        a7b2:	d037      	beq.n	a824 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x80>
+
+        a7b4:	3b53      	subs	r3, #83	; 0x53
+
+        a7b6:	fa5f fc83 	uxtb.w	ip, r3
+
+        a7ba:	f1bc 0f25 	cmp.w	ip, #37	; 0x25
+
+        a7be:	d816      	bhi.n	a7ee <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x4a>
+
+        a7c0:	2b25      	cmp	r3, #37	; 0x25
+
+        a7c2:	d814      	bhi.n	a7ee <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x4a>
+
+        a7c4:	e8df f003 	tbb	[pc, r3]
+
+        a7c8:	1313135e 	.word	0x1313135e
+
+        a7cc:	13136413 	.word	0x13136413
+
+        a7d0:	13131313 	.word	0x13131313
+
+        a7d4:	13131313 	.word	0x13131313
+
+        a7d8:	13132548 	.word	0x13132548
+
+        a7dc:	13251313 	.word	0x13251313
+
+        a7e0:	36131313 	.word	0x36131313
+
+        a7e4:	1313523c 	.word	0x1313523c
+
+        a7e8:	134c1358 	.word	0x134c1358
+
+        a7ec:	4213      	.short	0x4213
+
+        a7ee:	6044      	str	r4, [r0, #4]
+
+    _ZN4util6format19PrintfFormatScanner10scanStringEm():
+
+        a7f0:	6004      	str	r4, [r0, #0]
+
+        a7f2:	7823      	ldrb	r3, [r4, #0]
+
+        a7f4:	b1db      	cbz	r3, a82e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x8a>
+
+        a7f6:	2300      	movs	r3, #0
+
+        a7f8:	7203      	strb	r3, [r0, #8]
+
+        a7fa:	6042      	str	r2, [r0, #4]
+
+        a7fc:	7863      	ldrb	r3, [r4, #1]
+
+        a7fe:	b91b      	cbnz	r3, a808 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x64>
+
+        a800:	e00d      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a802:	6042      	str	r2, [r0, #4]
+
+        a804:	7813      	ldrb	r3, [r2, #0]
+
+        a806:	b153      	cbz	r3, a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a808:	2b25      	cmp	r3, #37	; 0x25
+
+        a80a:	f102 0201 	add.w	r2, r2, #1
+
+        a80e:	d1f8      	bne.n	a802 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x5e>
+
+        a810:	e005      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a812:	2204      	movs	r2, #4
+
+        a814:	230a      	movs	r3, #10
+
+    _ZN4util6format19PrintfFormatScanner15setIntParamTypeEhNS0_13ParamDatatypeEh():
+
+        a816:	4411      	add	r1, r2
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a818:	7302      	strb	r2, [r0, #12]
+
+        a81a:	7383      	strb	r3, [r0, #14]
+
+        a81c:	73c1      	strb	r1, [r0, #15]
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a81e:	f85d 4b04 	ldr.w	r4, [sp], #4
+
+        a822:	4770      	bx	lr
+
+        a824:	6044      	str	r4, [r0, #4]
+
+    _ZN4util6format19PrintfFormatScanner10scanStringEm():
+
+        a826:	6004      	str	r4, [r0, #0]
+
+        a828:	7822      	ldrb	r2, [r4, #0]
+
+        a82a:	2a00      	cmp	r2, #0
+
+        a82c:	d13a      	bne.n	a8a4 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x100>
+
+        a82e:	2302      	movs	r3, #2
+
+        a830:	7203      	strb	r3, [r0, #8]
+
+        a832:	e7f4      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a834:	2203      	movs	r2, #3
+
+        a836:	f44f 6330 	mov.w	r3, #2816	; 0xb00
+
+        a83a:	7302      	strb	r2, [r0, #12]
+
+        a83c:	81c3      	strh	r3, [r0, #14]
+
+        a83e:	e7ee      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a840:	2204      	movs	r2, #4
+
+        a842:	2308      	movs	r3, #8
+
+        a844:	7302      	strb	r2, [r0, #12]
+
+        a846:	7383      	strb	r3, [r0, #14]
+
+        a848:	73c1      	strb	r1, [r0, #15]
+
+    _ZN4util6format19PrintfFormatScanner15setIntParamTypeEhNS0_13ParamDatatypeEh():
+
+        a84a:	e7e8      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a84c:	2204      	movs	r2, #4
+
+        a84e:	2310      	movs	r3, #16
+
+        a850:	7302      	strb	r2, [r0, #12]
+
+        a852:	7383      	strb	r3, [r0, #14]
+
+        a854:	73c1      	strb	r1, [r0, #15]
+
+    _ZN4util6format19PrintfFormatScanner15setIntParamTypeEhNS0_13ParamDatatypeEh():
+
+        a856:	e7e2      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a858:	2300      	movs	r3, #0
+
+        a85a:	7303      	strb	r3, [r0, #12]
+
+        a85c:	81c3      	strh	r3, [r0, #14]
+
+        a85e:	e7de      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a860:	2204      	movs	r2, #4
+
+        a862:	230a      	movs	r3, #10
+
+        a864:	7302      	strb	r2, [r0, #12]
+
+        a866:	7383      	strb	r3, [r0, #14]
+
+        a868:	73c1      	strb	r1, [r0, #15]
+
+    _ZN4util6format19PrintfFormatScanner15setIntParamTypeEhNS0_13ParamDatatypeEh():
+
+        a86a:	e7d8      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a86c:	2202      	movs	r2, #2
+
+        a86e:	f44f 6301 	mov.w	r3, #2064	; 0x810
+
+        a872:	7302      	strb	r2, [r0, #12]
+
+        a874:	81c3      	strh	r3, [r0, #14]
+
+        a876:	e7d2      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a878:	2201      	movs	r2, #1
+
+        a87a:	f44f 6310 	mov.w	r3, #2304	; 0x900
+
+        a87e:	7302      	strb	r2, [r0, #12]
+
+        a880:	81c3      	strh	r3, [r0, #14]
+
+        a882:	e7cc      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a884:	2201      	movs	r2, #1
+
+        a886:	f44f 6320 	mov.w	r3, #2560	; 0xa00
+
+        a88a:	7302      	strb	r2, [r0, #12]
+
+        a88c:	81c3      	strh	r3, [r0, #14]
+
+        a88e:	e7c6      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a890:	7b43      	ldrb	r3, [r0, #13]
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a892:	73c1      	strb	r1, [r0, #15]
+
+        a894:	2404      	movs	r4, #4
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a896:	f043 0320 	orr.w	r3, r3, #32
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a89a:	2210      	movs	r2, #16
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a89c:	7343      	strb	r3, [r0, #13]
+
+    _ZN4util6format19PrintfFormatScanner12setParamTypeENS0_9ParamTypeENS0_13ParamDatatypeEh():
+
+        a89e:	7304      	strb	r4, [r0, #12]
+
+        a8a0:	7382      	strb	r2, [r0, #14]
+
+    _ZN4util6format19PrintfFormatScanner15setIntParamTypeEhNS0_13ParamDatatypeEh():
+
+        a8a2:	e7bc      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    _ZN4util6format19PrintfFormatScanner10scanStringEm():
+
+        a8a4:	7203      	strb	r3, [r0, #8]
+
+        a8a6:	7823      	ldrb	r3, [r4, #0]
+
+        a8a8:	b923      	cbnz	r3, a8b4 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x110>
+
+        a8aa:	e7b8      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a8ac:	6044      	str	r4, [r0, #4]
+
+        a8ae:	7823      	ldrb	r3, [r4, #0]
+
+        a8b0:	2b00      	cmp	r3, #0
+
+        a8b2:	d0b4      	beq.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+        a8b4:	2b25      	cmp	r3, #37	; 0x25
+
+        a8b6:	f104 0401 	add.w	r4, r4, #1
+
+        a8ba:	d1f7      	bne.n	a8ac <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x108>
+
+        a8bc:	e7af      	b.n	a81e <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>+0x7a>
+
+    util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char):
+
+        a8be:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./962f55895db2c42f69d95be4d514171b.html">util::format::PrintfFormatScanner::scanParam() (76)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

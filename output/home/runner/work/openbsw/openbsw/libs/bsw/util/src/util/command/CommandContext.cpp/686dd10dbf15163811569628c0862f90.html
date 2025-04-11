@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommandContext.cpp.html">CommandContext.cpp</a>:28
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::command::CommandContext::scanToken()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000acf8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../GroupCommand.cpp/84b1b62fbb13191e89ca47d393f271b1.html">util::command::GroupCommand::execute(util::string::ConstString const&amp;, util::stream::ISharedOutputStream*) (156)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=68
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace() (68)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace() (68)</a></pre>
+    
+
+    <pre>
+
+    util::command::CommandContext::scanToken():
+
+        acf8:	f891 2020 	ldrb.w	r2, [r1, #32]
+
+        acfc:	2a01      	cmp	r2, #1
+
+        acfe:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+
+        ad00:	4604      	mov	r4, r0
+
+        ad02:	d004      	beq.n	ad0e <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x16>
+
+    _ZN4util6string11ConstStringC4Ev():
+
+        ad04:	2300      	movs	r3, #0
+
+        ad06:	6023      	str	r3, [r4, #0]
+
+        ad08:	6063      	str	r3, [r4, #4]
+
+    util::command::CommandContext::scanToken():
+
+        ad0a:	4620      	mov	r0, r4
+
+        ad0c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+        ad0e:	694d      	ldr	r5, [r1, #20]
+
+        ad10:	698e      	ldr	r6, [r1, #24]
+
+        ad12:	61cd      	str	r5, [r1, #28]
+
+        ad14:	42ae      	cmp	r6, r5
+
+        ad16:	d01b      	beq.n	ad50 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x58>
+
+        ad18:	4f0f      	ldr	r7, [pc, #60]	; (ad58 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x60>)
+
+        ad1a:	4628      	mov	r0, r5
+
+        ad1c:	f810 3b01 	ldrb.w	r3, [r0], #1
+
+        ad20:	3b09      	subs	r3, #9
+
+        ad22:	b2db      	uxtb	r3, r3
+
+        ad24:	2b17      	cmp	r3, #23
+
+        ad26:	fa02 fc03 	lsl.w	ip, r2, r3
+
+        ad2a:	d802      	bhi.n	ad32 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x3a>
+
+        ad2c:	ea1c 0f07 	tst.w	ip, r7
+
+        ad30:	d10b      	bne.n	ad4a <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x52>
+
+        ad32:	42b0      	cmp	r0, r6
+
+        ad34:	6148      	str	r0, [r1, #20]
+
+        ad36:	d1f1      	bne.n	ad1c <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x24>
+
+        ad38:	4608      	mov	r0, r1
+
+        ad3a:	f7ff ffbb 	bl	acb4 <<a href="./1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace()</a>>
+
+    _ZN4util6string11ConstStringC4EPKcj():
+
+        ad3e:	6025      	str	r5, [r4, #0]
+
+        ad40:	b105      	cbz	r5, ad44 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x4c>
+
+    util::command::CommandContext::scanToken():
+
+        ad42:	1b75      	subs	r5, r6, r5
+
+    _ZN4util6string11ConstStringC4EPKcj():
+
+        ad44:	6065      	str	r5, [r4, #4]
+
+    util::command::CommandContext::scanToken():
+
+        ad46:	4620      	mov	r0, r4
+
+        ad48:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+        ad4a:	694e      	ldr	r6, [r1, #20]
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+        ad4c:	42ae      	cmp	r6, r5
+
+        ad4e:	d1f3      	bne.n	ad38 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0x40>
+
+        ad50:	2302      	movs	r3, #2
+
+        ad52:	f881 3020 	strb.w	r3, [r1, #32]
+
+        ad56:	e7d5      	b.n	ad04 <<a href="./686dd10dbf15163811569628c0862f90.html">util::command::CommandContext::scanToken()</a>+0xc>
+
+        ad58:	00800013 	.word	0x00800013
+
+    </pre>
+
+    
+    <pre><a href="./74c51ebf813b1f4a7dc14ee9e4ad4d7d.html">util::command::CommandContext::scanIdentifierToken() (132)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

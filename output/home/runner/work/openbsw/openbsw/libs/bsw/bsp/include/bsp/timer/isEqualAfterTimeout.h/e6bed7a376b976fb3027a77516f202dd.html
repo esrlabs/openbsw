@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../include.html">include</a></li>
+        
+        <li><a href="../../../bsp.html">bsp</a></li>
+        
+        <li ><a href="../../timer.html">timer</a>
+            </li>
+
+        
+        <li class="active"><a href="../isEqualAfterTimeout.h.html">isEqualAfterTimeout.h</a>:22
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bool bsp::isEqualAfterTimeout&lt;unsigned long volatile&gt;(unsigned long volatile const*, unsigned long volatile, unsigned long volatile, unsigned long)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00010b34</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>76</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/857396a19ed691dd05fe4d4419b1328e.html">bios::FlexCANDevice::init() (504)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/47957dd6917c7f67d5ab2cace17fe52d.html">bios::FlexCANDevice::start() (80)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=60
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/d027c03bcf336287081f759d27e7e7b6.html">getSystemTimeUs (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/75676e3eaa4aa5c6fb9f06bb71383ad9.html">bios::FlexCANDevice::transmitISR() (32)</a></pre>
+    
+
+    <pre>
+
+    bool bsp::isEqualAfterTimeout<unsigned long volatile>(unsigned long volatile const*, unsigned long volatile, unsigned long volatile, unsigned long):
+
+       10b34:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       10b36:	b083      	sub	sp, #12
+
+       10b38:	461d      	mov	r5, r3
+
+       10b3a:	9101      	str	r1, [sp, #4]
+
+       10b3c:	4606      	mov	r6, r0
+
+       10b3e:	9200      	str	r2, [sp, #0]
+
+       10b40:	f001 fd32 	bl	125a8 <<a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/d027c03bcf336287081f759d27e7e7b6.html">getSystemTimeUs</a>>
+
+       10b44:	182d      	adds	r5, r5, r0
+
+       10b46:	f141 0700 	adc.w	r7, r1, #0
+
+       10b4a:	e005      	b.n	10b58 <<a href="./e6bed7a376b976fb3027a77516f202dd.html">bool bsp::isEqualAfterTimeout<unsigned long volatile>(unsigned long volatile const*, unsigned long volatile, unsigned long volatile, unsigned long)</a>+0x24>
+
+       10b4c:	f001 fd2c 	bl	125a8 <<a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/d027c03bcf336287081f759d27e7e7b6.html">getSystemTimeUs</a>>
+
+       10b50:	4285      	cmp	r5, r0
+
+       10b52:	eb77 0301 	sbcs.w	r3, r7, r1
+
+       10b56:	d307      	bcc.n	10b68 <<a href="./e6bed7a376b976fb3027a77516f202dd.html">bool bsp::isEqualAfterTimeout<unsigned long volatile>(unsigned long volatile const*, unsigned long volatile, unsigned long volatile, unsigned long)</a>+0x34>
+
+       10b58:	6832      	ldr	r2, [r6, #0]
+
+       10b5a:	9901      	ldr	r1, [sp, #4]
+
+       10b5c:	9b00      	ldr	r3, [sp, #0]
+
+       10b5e:	9c01      	ldr	r4, [sp, #4]
+
+       10b60:	400a      	ands	r2, r1
+
+       10b62:	4023      	ands	r3, r4
+
+       10b64:	429a      	cmp	r2, r3
+
+       10b66:	d0f1      	beq.n	10b4c <<a href="./e6bed7a376b976fb3027a77516f202dd.html">bool bsp::isEqualAfterTimeout<unsigned long volatile>(unsigned long volatile const*, unsigned long volatile, unsigned long volatile, unsigned long)</a>+0x18>
+
+       10b68:	6830      	ldr	r0, [r6, #0]
+
+       10b6a:	9901      	ldr	r1, [sp, #4]
+
+       10b6c:	9b00      	ldr	r3, [sp, #0]
+
+       10b6e:	9a01      	ldr	r2, [sp, #4]
+
+       10b70:	4008      	ands	r0, r1
+
+       10b72:	4013      	ands	r3, r2
+
+       10b74:	1ac0      	subs	r0, r0, r3
+
+       10b76:	fab0 f080 	clz	r0, r0
+
+       10b7a:	0940      	lsrs	r0, r0, #5
+
+       10b7c:	b003      	add	sp, #12
+
+       10b7e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/857396a19ed691dd05fe4d4419b1328e.html">bios::FlexCANDevice::init() (504)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

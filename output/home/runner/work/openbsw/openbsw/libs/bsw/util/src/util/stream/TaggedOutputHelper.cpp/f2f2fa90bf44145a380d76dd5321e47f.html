@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../stream.html">stream</a>
+            </li>
+
+        
+        <li class="active"><a href="../TaggedOutputHelper.cpp.html">TaggedOutputHelper.cpp</a>:19
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&amp;, estd::slice&lt;unsigned char const, 0u&gt; const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000b474</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>168</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (4)</th>
+                <td colspan="5">
+                
+                    <a href="../TaggedSharedOutputStream.cpp/bdadf468ece79ab87e7b30165d325c46.html">util::stream::TaggedSharedOutputStream::write(unsigned char) (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/2f3daa0720c1ac912e54bd08cc6d7592.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::write(unsigned char) (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../TaggedSharedOutputStream.cpp/537065c3af86fccade3475735b9f55b0.html">util::stream::TaggedSharedOutputStream::write(estd::slice&lt;unsigned char const, 0u&gt; const&amp;) (16)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/9bb82ca92b367bc6d6241d011365823f.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::write(estd::slice&lt;unsigned char const, 0u&gt; const&amp;) (16)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./1356012ce847e147ffcafe904d1136f0.html">util::stream::TaggedOutputHelper::isLineStart() const (4)</a></pre>
+    
+
+    <pre>
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b474:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+    _ZNK4estd5sliceIKhLj0EE5beginEv():
+
+        b478:	6854      	ldr	r4, [r2, #4]
+
+    _ZNK4estd5sliceIKhLj0EE3endEv():
+
+        b47a:	6816      	ldr	r6, [r2, #0]
+
+        b47c:	4426      	add	r6, r4
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b47e:	42a6      	cmp	r6, r4
+
+        b480:	b082      	sub	sp, #8
+
+        b482:	d048      	beq.n	b516 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0xa2>
+
+        b484:	4605      	mov	r5, r0
+
+        b486:	4689      	mov	r9, r1
+
+        b488:	2700      	movs	r7, #0
+
+        b48a:	f04f 0801 	mov.w	r8, #1
+
+        b48e:	e00a      	b.n	b4a6 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x32>
+
+        b490:	f814 1b01 	ldrb.w	r1, [r4], #1
+
+        b494:	290a      	cmp	r1, #10
+
+        b496:	d024      	beq.n	b4e2 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x6e>
+
+        b498:	f8d9 3000 	ldr.w	r3, [r9]
+
+        b49c:	4648      	mov	r0, r9
+
+        b49e:	685b      	ldr	r3, [r3, #4]
+
+        b4a0:	4798      	blx	r3
+
+        b4a2:	42a6      	cmp	r6, r4
+
+        b4a4:	d037      	beq.n	b516 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0xa2>
+
+        b4a6:	7a2b      	ldrb	r3, [r5, #8]
+
+        b4a8:	2b00      	cmp	r3, #0
+
+        b4aa:	d0f1      	beq.n	b490 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x1c>
+
+        b4ac:	f8d5 c000 	ldr.w	ip, [r5]
+
+        b4b0:	722f      	strb	r7, [r5, #8]
+
+        b4b2:	f8d9 3000 	ldr.w	r3, [r9]
+
+    _ZN4estd8make_strEPKc():
+
+        b4b6:	f89c 1000 	ldrb.w	r1, [ip]
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b4ba:	f8d3 a008 	ldr.w	sl, [r3, #8]
+
+    _ZN4estd8make_strEPKc():
+
+        b4be:	b139      	cbz	r1, b4d0 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x5c>
+
+        b4c0:	4663      	mov	r3, ip
+
+        b4c2:	f1cc 0001 	rsb	r0, ip, #1
+
+        b4c6:	18c1      	adds	r1, r0, r3
+
+        b4c8:	f813 2f01 	ldrb.w	r2, [r3, #1]!
+
+        b4cc:	2a00      	cmp	r2, #0
+
+        b4ce:	d1fa      	bne.n	b4c6 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x52>
+
+    _ZN4estd5sliceIKhLj0EEC4EPS1_j():
+
+        b4d0:	e9cd 1c00 	strd	r1, ip, [sp]
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b4d4:	4648      	mov	r0, r9
+
+        b4d6:	4669      	mov	r1, sp
+
+        b4d8:	47d0      	blx	sl
+
+        b4da:	f814 1b01 	ldrb.w	r1, [r4], #1
+
+        b4de:	290a      	cmp	r1, #10
+
+        b4e0:	d1da      	bne.n	b498 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x24>
+
+        b4e2:	f8d5 c004 	ldr.w	ip, [r5, #4]
+
+        b4e6:	f8d9 3000 	ldr.w	r3, [r9]
+
+    _ZN4estd8make_strEPKc():
+
+        b4ea:	f89c 1000 	ldrb.w	r1, [ip]
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b4ee:	f8d3 a008 	ldr.w	sl, [r3, #8]
+
+    _ZN4estd8make_strEPKc():
+
+        b4f2:	b139      	cbz	r1, b504 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x90>
+
+        b4f4:	4663      	mov	r3, ip
+
+        b4f6:	f1cc 0001 	rsb	r0, ip, #1
+
+        b4fa:	18c1      	adds	r1, r0, r3
+
+        b4fc:	f813 2f01 	ldrb.w	r2, [r3, #1]!
+
+        b500:	2a00      	cmp	r2, #0
+
+        b502:	d1fa      	bne.n	b4fa <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x86>
+
+    _ZN4estd5sliceIKhLj0EEC4EPS1_j():
+
+        b504:	e9cd 1c00 	strd	r1, ip, [sp]
+
+    util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&):
+
+        b508:	4648      	mov	r0, r9
+
+        b50a:	4669      	mov	r1, sp
+
+        b50c:	47d0      	blx	sl
+
+        b50e:	42a6      	cmp	r6, r4
+
+        b510:	f885 8008 	strb.w	r8, [r5, #8]
+
+        b514:	d1c7      	bne.n	b4a6 <<a href="./f2f2fa90bf44145a380d76dd5321e47f.html">util::stream::TaggedOutputHelper::writeBytes(util::stream::IOutputStream&, estd::slice<unsigned char const, 0u> const&)</a>+0x32>
+
+        b516:	b002      	add	sp, #8
+
+        b518:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+    </pre>
+
+    
+    <pre><a href="./4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&amp;) (60)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

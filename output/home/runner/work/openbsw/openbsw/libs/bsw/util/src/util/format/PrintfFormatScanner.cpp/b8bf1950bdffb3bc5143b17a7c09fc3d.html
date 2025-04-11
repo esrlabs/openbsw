@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../PrintfFormatScanner.cpp.html">PrintfFormatScanner.cpp</a>:69
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::PrintfFormatScanner::scanWidthOrPrecision()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a6cc</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>68</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./962f55895db2c42f69d95be4d514171b.html">util::format::PrintfFormatScanner::scanParam() (76)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../StringWriter.cpp/9707790f9c18c03c5d8a56f1e8f69ab7.html">util::format::StringWriter::vprintf(char const*, util::format::IPrintfArgumentReader&amp;) (40)</a></pre>
+    
+
+    <pre>
+
+    util::format::PrintfFormatScanner::scanWidthOrPrecision():
+
+        a6cc:	6843      	ldr	r3, [r0, #4]
+
+        a6ce:	7819      	ldrb	r1, [r3, #0]
+
+    _ZN4util6format19PrintfFormatScanner7isDigitEc():
+
+        a6d0:	f1a1 0230 	sub.w	r2, r1, #48	; 0x30
+
+    util::format::PrintfFormatScanner::scanWidthOrPrecision():
+
+        a6d4:	4684      	mov	ip, r0
+
+        a6d6:	b2d0      	uxtb	r0, r2
+
+        a6d8:	2809      	cmp	r0, #9
+
+        a6da:	d80e      	bhi.n	a6fa <<a href="./b8bf1950bdffb3bc5143b17a7c09fc3d.html">util::format::PrintfFormatScanner::scanWidthOrPrecision()</a>+0x2e>
+
+        a6dc:	2000      	movs	r0, #0
+
+        a6de:	3301      	adds	r3, #1
+
+        a6e0:	f8cc 3004 	str.w	r3, [ip, #4]
+
+        a6e4:	7819      	ldrb	r1, [r3, #0]
+
+        a6e6:	eb00 0080 	add.w	r0, r0, r0, lsl #2
+
+        a6ea:	eb02 0040 	add.w	r0, r2, r0, lsl #1
+
+    _ZN4util6format19PrintfFormatScanner7isDigitEc():
+
+        a6ee:	f1a1 0230 	sub.w	r2, r1, #48	; 0x30
+
+    util::format::PrintfFormatScanner::scanWidthOrPrecision():
+
+        a6f2:	b2d1      	uxtb	r1, r2
+
+        a6f4:	2909      	cmp	r1, #9
+
+        a6f6:	d9f2      	bls.n	a6de <<a href="./b8bf1950bdffb3bc5143b17a7c09fc3d.html">util::format::PrintfFormatScanner::scanWidthOrPrecision()</a>+0x12>
+
+        a6f8:	4770      	bx	lr
+
+        a6fa:	292a      	cmp	r1, #42	; 0x2a
+
+        a6fc:	bf03      	ittte	eq
+
+        a6fe:	3301      	addeq	r3, #1
+
+        a700:	f06f 0001 	mvneq.w	r0, #1
+
+        a704:	f8cc 3004 	streq.w	r3, [ip, #4]
+
+        a708:	f04f 30ff 	movne.w	r0, #4294967295	; 0xffffffff
+
+        a70c:	4770      	bx	lr
+
+        a70e:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./60b9b17810bbfc7fe2e3978b7b2653f5.html">util::format::PrintfFormatScanner::scanParamFlags() (88)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

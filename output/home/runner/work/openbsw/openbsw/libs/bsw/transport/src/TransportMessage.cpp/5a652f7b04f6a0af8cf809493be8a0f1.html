@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportMessage.cpp.html">TransportMessage.cpp</a>:56
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportMessage::setServiceId(unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000c33c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>60</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../uds/src/uds/connection/IncomingDiagConnection.cpp/8ac52a8ef893970f6cdb881eda2fc634.html">uds::IncomingDiagConnection::asyncSendPositiveResponse(unsigned short, uds::AbstractDiagJob*) (308)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=148
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./cb5b10ad13382cc8967f9f8eab50a0b4.html">transport::TransportMessage::increaseValidBytes(unsigned short) (76)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html">util::logger::Logger::critical(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*) (16)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./cb5b10ad13382cc8967f9f8eab50a0b4.html">transport::TransportMessage::increaseValidBytes(unsigned short) (76)</a></pre>
+    
+
+    <pre>
+
+    transport::TransportMessage::setServiceId(unsigned char):
+
+        c33c:	b510      	push	{r4, lr}
+
+        c33e:	6844      	ldr	r4, [r0, #4]
+
+        c340:	b14c      	cbz	r4, c356 <<a href="./5a652f7b04f6a0af8cf809493be8a0f1.html">transport::TransportMessage::setServiceId(unsigned char)</a>+0x1a>
+
+    _ZNK4estd5sliceIhLj0EEixEj():
+
+        c342:	6882      	ldr	r2, [r0, #8]
+
+    transport::TransportMessage::setServiceId(unsigned char):
+
+        c344:	7011      	strb	r1, [r2, #0]
+
+        c346:	8a43      	ldrh	r3, [r0, #18]
+
+        c348:	b103      	cbz	r3, c34c <<a href="./5a652f7b04f6a0af8cf809493be8a0f1.html">transport::TransportMessage::setServiceId(unsigned char)</a>+0x10>
+
+        c34a:	bd10      	pop	{r4, pc}
+
+        c34c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        c350:	2101      	movs	r1, #1
+
+        c352:	f7ff bfcd 	b.w	c2f0 <<a href="./cb5b10ad13382cc8967f9f8eab50a0b4.html">transport::TransportMessage::increaseValidBytes(unsigned short)</a>>
+
+        c356:	4b05      	ldr	r3, [pc, #20]	; (c36c <<a href="./5a652f7b04f6a0af8cf809493be8a0f1.html">transport::TransportMessage::setServiceId(unsigned char)</a>+0x30>)
+
+        c358:	4905      	ldr	r1, [pc, #20]	; (c370 <<a href="./5a652f7b04f6a0af8cf809493be8a0f1.html">transport::TransportMessage::setServiceId(unsigned char)</a>+0x34>)
+
+        c35a:	7818      	ldrb	r0, [r3, #0]
+
+        c35c:	f7ff ff66 	bl	c22c <<a href="../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html">util::logger::Logger::critical(unsigned char, char const*, ...)</a>>
+
+        c360:	4a04      	ldr	r2, [pc, #16]	; (c374 <<a href="./5a652f7b04f6a0af8cf809493be8a0f1.html">transport::TransportMessage::setServiceId(unsigned char)</a>+0x38>)
+
+        c362:	213d      	movs	r1, #61	; 0x3d
+
+        c364:	4620      	mov	r0, r4
+
+        c366:	f7f9 fcf9 	bl	5d5c <<a href="../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*)</a>>
+
+        c36a:	bf00      	nop
+
+        c36c:	1ffe00a8 	.word	0x1ffe00a8
+
+        c370:	00016d28 	.word	0x00016d28
+
+        c374:	00015fe4 	.word	0x00015fe4
+
+    </pre>
+
+    
+    <pre><a href="./4676b1e784ac36fff34fb835f91376b8.html">transport::TransportMessage::append(unsigned char) (40)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

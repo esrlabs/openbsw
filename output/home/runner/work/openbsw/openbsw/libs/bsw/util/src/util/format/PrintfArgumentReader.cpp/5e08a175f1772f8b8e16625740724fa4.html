@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../PrintfArgumentReader.cpp.html">PrintfArgumentReader.cpp</a>:11
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a9e8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>128</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../logger/include/logger/EntrySerializer.h/a6726a55b90f36ebba2982c963ba6796.html">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::serialize(estd::slice&lt;unsigned char, 0u&gt; const&amp;, unsigned long, unsigned char, util::logger::Level, char const*, std::__va_list) const (404)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../AttributedString.cpp/ba128b49c2d6e96534a3dc6fd7dfdb20.html">util::format::StringAttributes::isAttributed() const (24)</a></pre>
+    
+
+    <pre>
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        a9e8:	290b      	cmp	r1, #11
+
+        a9ea:	d835      	bhi.n	aa58 <<a href="./5e08a175f1772f8b8e16625740724fa4.html">util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype)</a>+0x70>
+
+        a9ec:	e8df f001 	tbb	[pc, r1]
+
+        a9f0:	261e160e 	.word	0x261e160e
+
+        a9f4:	261e160e 	.word	0x261e160e
+
+        a9f8:	06060606 	.word	0x06060606
+
+    _ZNK4estd8internal12_va_list_refISt9__va_listE3getEv():
+
+        a9fc:	6842      	ldr	r2, [r0, #4]
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        a9fe:	6813      	ldr	r3, [r2, #0]
+
+        aa00:	1d19      	adds	r1, r3, #4
+
+        aa02:	6011      	str	r1, [r2, #0]
+
+        aa04:	681b      	ldr	r3, [r3, #0]
+
+        aa06:	6083      	str	r3, [r0, #8]
+
+        aa08:	3008      	adds	r0, #8
+
+        aa0a:	4770      	bx	lr
+
+    _ZNK4estd8internal12_va_list_refISt9__va_listE3getEv():
+
+        aa0c:	6842      	ldr	r2, [r0, #4]
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        aa0e:	6813      	ldr	r3, [r2, #0]
+
+        aa10:	6819      	ldr	r1, [r3, #0]
+
+        aa12:	3304      	adds	r3, #4
+
+        aa14:	6013      	str	r3, [r2, #0]
+
+        aa16:	3008      	adds	r0, #8
+
+        aa18:	7001      	strb	r1, [r0, #0]
+
+        aa1a:	4770      	bx	lr
+
+    _ZNK4estd8internal12_va_list_refISt9__va_listE3getEv():
+
+        aa1c:	6842      	ldr	r2, [r0, #4]
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        aa1e:	6813      	ldr	r3, [r2, #0]
+
+        aa20:	6819      	ldr	r1, [r3, #0]
+
+        aa22:	3304      	adds	r3, #4
+
+        aa24:	6013      	str	r3, [r2, #0]
+
+        aa26:	3008      	adds	r0, #8
+
+        aa28:	8001      	strh	r1, [r0, #0]
+
+        aa2a:	4770      	bx	lr
+
+    _ZNK4estd8internal12_va_list_refISt9__va_listE3getEv():
+
+        aa2c:	6842      	ldr	r2, [r0, #4]
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        aa2e:	6813      	ldr	r3, [r2, #0]
+
+        aa30:	6819      	ldr	r1, [r3, #0]
+
+        aa32:	3304      	adds	r3, #4
+
+        aa34:	6013      	str	r3, [r2, #0]
+
+        aa36:	3008      	adds	r0, #8
+
+        aa38:	6001      	str	r1, [r0, #0]
+
+        aa3a:	4770      	bx	lr
+
+    _ZNK4estd8internal12_va_list_refISt9__va_listE3getEv():
+
+        aa3c:	6842      	ldr	r2, [r0, #4]
+
+    util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype):
+
+        aa3e:	6813      	ldr	r3, [r2, #0]
+
+        aa40:	3307      	adds	r3, #7
+
+        aa42:	f023 0307 	bic.w	r3, r3, #7
+
+        aa46:	ed93 7b00 	vldr	d7, [r3]
+
+        aa4a:	f103 0108 	add.w	r1, r3, #8
+
+        aa4e:	6011      	str	r1, [r2, #0]
+
+        aa50:	3008      	adds	r0, #8
+
+        aa52:	ed80 7b00 	vstr	d7, [r0]
+
+        aa56:	4770      	bx	lr
+
+        aa58:	2200      	movs	r2, #0
+
+        aa5a:	2300      	movs	r3, #0
+
+        aa5c:	e9c0 2302 	strd	r2, r3, [r0, #8]
+
+        aa60:	e7d2      	b.n	aa08 <<a href="./5e08a175f1772f8b8e16625740724fa4.html">util::format::PrintfArgumentReader::readArgument(util::format::ParamDatatype)</a>+0x20>
+
+        aa62:	bf00      	nop
+
+        aa64:	ffff ffff 			; <UNDEFINED> instruction: 0xffffffff
+
+    </pre>
+
+    
+    <pre><a href="./3978f963a885df700870d63157b69f0c.html">util::format::PrintfArgumentReader::PrintfArgumentReader(estd::internal::_va_list_ref&lt;std::__va_list&gt;) (20)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

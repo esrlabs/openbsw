@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../AbstractTransportLayer.cpp.html">AbstractTransportLayer.cpp</a>:37
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice&lt;unsigned char const, 0u&gt; const&amp;, transport::TransportMessage*&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000c0f8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>108</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../unknown/unknown/54d08c9f8240c1bc423894f81e8a6cb6.html">non-virtual thunk to transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice&lt;unsigned char const, 0u&gt; const&amp;, transport::TransportMessage*&amp;) (100)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=92
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../executables/referenceApp/configuration/common/src/busid/BusId.cpp/782471e4f443e8ce061ae5f22d3d51a9.html">common::busid::BusIdTraits::getName(unsigned char) (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../../../../unknown/unknown/f9cf89b75693e1ccaea889121fc72912.html">non-virtual thunk to transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&amp;) (28)</a></pre>
+    
+
+    <pre>
+
+    transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&):
+
+        c0f8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        c0fc:	68c4      	ldr	r4, [r0, #12]
+
+        c0fe:	f8bd c018 	ldrh.w	ip, [sp, #24]
+
+        c102:	f8dd e01c 	ldr.w	lr, [sp, #28]
+
+        c106:	9f08      	ldr	r7, [sp, #32]
+
+        c108:	b1b4      	cbz	r4, c138 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x40>
+
+        c10a:	6820      	ldr	r0, [r4, #0]
+
+        c10c:	4e12      	ldr	r6, [pc, #72]	; (c158 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x60>)
+
+        c10e:	6805      	ldr	r5, [r0, #0]
+
+        c110:	42b5      	cmp	r5, r6
+
+        c112:	d106      	bne.n	c122 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x2a>
+
+        c114:	68a0      	ldr	r0, [r4, #8]
+
+        c116:	b170      	cbz	r0, c136 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x3e>
+
+        c118:	4604      	mov	r4, r0
+
+        c11a:	6820      	ldr	r0, [r4, #0]
+
+        c11c:	6805      	ldr	r5, [r0, #0]
+
+        c11e:	42b5      	cmp	r5, r6
+
+        c120:	d0f8      	beq.n	c114 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x1c>
+
+        c122:	f8cd c018 	str.w	ip, [sp, #24]
+
+        c126:	9708      	str	r7, [sp, #32]
+
+        c128:	f8cd e01c 	str.w	lr, [sp, #28]
+
+        c12c:	4620      	mov	r0, r4
+
+        c12e:	46ac      	mov	ip, r5
+
+        c130:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+        c134:	4760      	bx	ip
+
+        c136:	1f20      	subs	r0, r4, #4
+
+        c138:	4b08      	ldr	r3, [pc, #32]	; (c15c <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x64>)
+
+        c13a:	7a00      	ldrb	r0, [r0, #8]
+
+        c13c:	781c      	ldrb	r4, [r3, #0]
+
+        c13e:	f007 fc23 	bl	13988 <<a href="../../../../../executables/referenceApp/configuration/common/src/busid/BusId.cpp/782471e4f443e8ce061ae5f22d3d51a9.html">common::busid::BusIdTraits::getName(unsigned char)</a>>
+
+        c142:	4907      	ldr	r1, [pc, #28]	; (c160 <<a href="./9e1f2f2c1ab1f09ed39113c6a6955336.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice<unsigned char const, 0u> const&, transport::TransportMessage*&)</a>+0x68>)
+
+        c144:	4602      	mov	r2, r0
+
+        c146:	4620      	mov	r0, r4
+
+        c148:	f7f6 fe0c 	bl	2d64 <<a href="../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        c14c:	2300      	movs	r3, #0
+
+        c14e:	603b      	str	r3, [r7, #0]
+
+        c150:	2003      	movs	r0, #3
+
+        c152:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        c156:	bf00      	nop
+
+        c158:	0000c199 	.word	0x0000c199
+
+        c15c:	1ffe00a8 	.word	0x1ffe00a8
+
+        c160:	00016bb4 	.word	0x00016bb4
+
+    </pre>
+
+    
+    <pre><a href="./95b7df615e72f80e0520bff6278a138e.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::messageReceived(unsigned char, transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (52)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

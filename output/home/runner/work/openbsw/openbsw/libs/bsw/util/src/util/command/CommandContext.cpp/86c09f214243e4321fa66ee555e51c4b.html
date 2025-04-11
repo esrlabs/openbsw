@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommandContext.cpp.html">CommandContext.cpp</a>:128
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000ab04</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>84</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./4b4f8dec224e64f0488c6135d9ec88c7.html">util::command::CommandContext::releaseContinuousUser(util::stream::ISharedOutputStream::IContinuousUser&amp;) (4)</a></pre>
+    
+
+    <pre>
+
+    util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        ab04:	b570      	push	{r4, r5, r6, lr}
+
+        ab06:	6885      	ldr	r5, [r0, #8]
+
+        ab08:	4604      	mov	r4, r0
+
+        ab0a:	b1a5      	cbz	r5, ab36 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x32>
+
+        ab0c:	682b      	ldr	r3, [r5, #0]
+
+        ab0e:	4a11      	ldr	r2, [pc, #68]	; (ab54 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x50>)
+
+        ab10:	681b      	ldr	r3, [r3, #0]
+
+        ab12:	4293      	cmp	r3, r2
+
+        ab14:	d111      	bne.n	ab3a <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x36>
+
+        ab16:	68ae      	ldr	r6, [r5, #8]
+
+        ab18:	b19e      	cbz	r6, ab42 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x3e>
+
+        ab1a:	6832      	ldr	r2, [r6, #0]
+
+        ab1c:	6812      	ldr	r2, [r2, #0]
+
+        ab1e:	429a      	cmp	r2, r3
+
+        ab20:	d113      	bne.n	ab4a <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x46>
+
+        ab22:	68b0      	ldr	r0, [r6, #8]
+
+        ab24:	b178      	cbz	r0, ab46 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x42>
+
+        ab26:	6803      	ldr	r3, [r0, #0]
+
+        ab28:	2100      	movs	r1, #0
+
+        ab2a:	681b      	ldr	r3, [r3, #0]
+
+        ab2c:	4798      	blx	r3
+
+        ab2e:	60f0      	str	r0, [r6, #12]
+
+        ab30:	60e8      	str	r0, [r5, #12]
+
+        ab32:	60e0      	str	r0, [r4, #12]
+
+        ab34:	bd70      	pop	{r4, r5, r6, pc}
+
+        ab36:	3004      	adds	r0, #4
+
+        ab38:	bd70      	pop	{r4, r5, r6, pc}
+
+        ab3a:	2100      	movs	r1, #0
+
+        ab3c:	4628      	mov	r0, r5
+
+        ab3e:	4798      	blx	r3
+
+        ab40:	e7f7      	b.n	ab32 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x2e>
+
+        ab42:	1d28      	adds	r0, r5, #4
+
+        ab44:	e7f5      	b.n	ab32 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x2e>
+
+        ab46:	1d30      	adds	r0, r6, #4
+
+        ab48:	e7f2      	b.n	ab30 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x2c>
+
+        ab4a:	2100      	movs	r1, #0
+
+        ab4c:	4630      	mov	r0, r6
+
+        ab4e:	4790      	blx	r2
+
+        ab50:	e7ee      	b.n	ab30 <<a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x2c>
+
+        ab52:	bf00      	nop
+
+        ab54:	0000ab05 	.word	0x0000ab05
+
+    </pre>
+
+    
+    <pre><a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*) (108)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

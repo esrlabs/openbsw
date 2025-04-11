@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../stream.html">stream</a>
+            </li>
+
+        
+        <li class="active"><a href="../StringBufferOutputStream.cpp.html">StringBufferOutputStream.cpp</a>:38
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::stream::StringBufferOutputStream::write(estd::slice&lt;unsigned char const, 0u&gt; const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a030</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>96</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a5c903bd547c262f094e611e498f1550.html">util::stream::StringBufferOutputStream::write(unsigned char) (20)</a></pre>
+    
+
+    <pre>
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a030:	b538      	push	{r3, r4, r5, lr}
+
+        a032:	6942      	ldr	r2, [r0, #20]
+
+        a034:	680d      	ldr	r5, [r1, #0]
+
+    _ZNK4estd5sliceIcLj0EE4sizeEv():
+
+        a036:	6843      	ldr	r3, [r0, #4]
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a038:	6849      	ldr	r1, [r1, #4]
+
+        a03a:	4604      	mov	r4, r0
+
+        a03c:	1950      	adds	r0, r2, r5
+
+        a03e:	4298      	cmp	r0, r3
+
+        a040:	d905      	bls.n	a04e <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x1e>
+
+        a042:	2001      	movs	r0, #1
+
+        a044:	7620      	strb	r0, [r4, #24]
+
+        a046:	1a98      	subs	r0, r3, r2
+
+    _ZN4estd5sliceIKhLj0EE4trimEj():
+
+        a048:	42a8      	cmp	r0, r5
+
+        a04a:	d816      	bhi.n	a07a <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x4a>
+
+        a04c:	4605      	mov	r5, r0
+
+    _ZN4estd5sliceIcLj0EE7advanceEj():
+
+        a04e:	429a      	cmp	r2, r3
+
+        a050:	4694      	mov	ip, r2
+
+        a052:	bf28      	it	cs
+
+        a054:	469c      	movcs	ip, r3
+
+        a056:	68a0      	ldr	r0, [r4, #8]
+
+        a058:	eba3 030c 	sub.w	r3, r3, ip
+
+    _ZN4estd5sliceIcLj0EE4trimEj():
+
+        a05c:	42ab      	cmp	r3, r5
+
+    _ZN4estd5sliceIcLj0EE7advanceEj():
+
+        a05e:	4460      	add	r0, ip
+
+    _ZN4estd5sliceIcLj0EE4trimEj():
+
+        a060:	d203      	bcs.n	a06a <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x3a>
+
+    _ZN4estd5sliceIhLj0EE4trimEj():
+
+        a062:	b195      	cbz	r5, a08a <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x5a>
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a064:	1953      	adds	r3, r2, r5
+
+        a066:	6163      	str	r3, [r4, #20]
+
+        a068:	bd38      	pop	{r3, r4, r5, pc}
+
+    _ZN4estd6memory4copyENS_5sliceIhLj0EEENS1_IKhLj0EEE():
+
+        a06a:	b175      	cbz	r5, a08a <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x5a>
+
+        a06c:	462a      	mov	r2, r5
+
+        a06e:	f7f6 fa66 	bl	53e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a072:	6963      	ldr	r3, [r4, #20]
+
+        a074:	442b      	add	r3, r5
+
+        a076:	6163      	str	r3, [r4, #20]
+
+        a078:	bd38      	pop	{r3, r4, r5, pc}
+
+    _ZN4estd5sliceIcLj0EE7advanceEj():
+
+        a07a:	429a      	cmp	r2, r3
+
+        a07c:	bf94      	ite	ls
+
+        a07e:	1a99      	subls	r1, r3, r2
+
+        a080:	1ad9      	subhi	r1, r3, r3
+
+    _ZN4estd5sliceIcLj0EE4trimEj():
+
+        a082:	4288      	cmp	r0, r1
+
+        a084:	d9ef      	bls.n	a066 <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x36>
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a086:	1813      	adds	r3, r2, r0
+
+        a088:	e7ed      	b.n	a066 <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x36>
+
+    _ZN4estd5sliceIhLj0EE4trimEj():
+
+        a08a:	4628      	mov	r0, r5
+
+    _ZN4estd6memory4copyENS_5sliceIhLj0EEENS1_IKhLj0EEE():
+
+        a08c:	e7fb      	b.n	a086 <<a href="./f4d11e8c34f74a851b8d656e8b7c72e7.html">util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&)</a>+0x56>
+
+    util::stream::StringBufferOutputStream::write(estd::slice<unsigned char const, 0u> const&):
+
+        a08e:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./31cb7eef7af9e43f1fa8e5d210ba6d6d.html">util::stream::StringBufferOutputStream::StringBufferOutputStream(estd::slice&lt;char, 0u&gt;, char const*, char const*) (80)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspOutputPwm.html">bspOutputPwm</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../outputPwm.html">outputPwm</a>
+            </li>
+
+        
+        <li class="active"><a href="../OutputPwm.cpp.html">OutputPwm.cpp</a>:104
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00012910</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>140</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/io/outputPwm/PwmSupport.cpp/a62878f1512e9bcda8d1359803735beb.html">bios::PwmSupport::init() (300)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./fcab3554d3b587de59cc2df1b5d6f619.html">bios::OutputPwm::setPeriod(unsigned short, unsigned short) (68)</a></pre>
+    
+
+    <pre>
+
+    bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*):
+
+       12910:	3801      	subs	r0, #1
+
+       12912:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       12914:	fa1f fe80 	uxth.w	lr, r0
+
+       12918:	f1be 0f02 	cmp.w	lr, #2
+
+       1291c:	d837      	bhi.n	1298e <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x7e>
+
+       1291e:	f3ef 8610 	mrs	r6, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       12922:	b672      	cpsid	i
+
+    _ZN13dynamicClientItN4bios9OutputPwm17IDynamicPwmClientELl4ELl3ELl0EE16setDynamicClientEttPS2_():
+
+       12924:	f640 73fe 	movw	r3, #4094	; 0xffe
+
+       12928:	4299      	cmp	r1, r3
+
+       1292a:	d82c      	bhi.n	12986 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x76>
+
+       1292c:	4f19      	ldr	r7, [pc, #100]	; (12994 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x84>)
+
+       1292e:	2300      	movs	r3, #0
+
+       12930:	46bc      	mov	ip, r7
+
+       12932:	25ff      	movs	r5, #255	; 0xff
+
+       12934:	e005      	b.n	12942 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x32>
+
+       12936:	2b0f      	cmp	r3, #15
+
+       12938:	f103 0301 	add.w	r3, r3, #1
+
+       1293c:	d011      	beq.n	12962 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x52>
+
+       1293e:	28ff      	cmp	r0, #255	; 0xff
+
+       12940:	d116      	bne.n	12970 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x60>
+
+       12942:	f85c 4b04 	ldr.w	r4, [ip], #4
+
+       12946:	42a2      	cmp	r2, r4
+
+       12948:	bf0c      	ite	eq
+
+       1294a:	4618      	moveq	r0, r3
+
+       1294c:	20ff      	movne	r0, #255	; 0xff
+
+       1294e:	b2c0      	uxtb	r0, r0
+
+       12950:	2c00      	cmp	r4, #0
+
+       12952:	d1f0      	bne.n	12936 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x26>
+
+       12954:	2dff      	cmp	r5, #255	; 0xff
+
+       12956:	bf08      	it	eq
+
+       12958:	b2dd      	uxtbeq	r5, r3
+
+       1295a:	2b0f      	cmp	r3, #15
+
+       1295c:	f103 0301 	add.w	r3, r3, #1
+
+       12960:	d1ed      	bne.n	1293e <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x2e>
+
+       12962:	28ff      	cmp	r0, #255	; 0xff
+
+       12964:	d104      	bne.n	12970 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x60>
+
+       12966:	2dff      	cmp	r5, #255	; 0xff
+
+       12968:	d00d      	beq.n	12986 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x76>
+
+       1296a:	f847 2025 	str.w	r2, [r7, r5, lsl #2]
+
+       1296e:	4628      	mov	r0, r5
+
+       12970:	4b09      	ldr	r3, [pc, #36]	; (12998 <<a href="./02631b13123420d6d16977f664c904dc.html">bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*)</a>+0x88>)
+
+       12972:	f3c1 010b 	ubfx	r1, r1, #0, #12
+
+       12976:	ea41 3000 	orr.w	r0, r1, r0, lsl #12
+
+       1297a:	f823 001e 	strh.w	r0, [r3, lr, lsl #1]
+
+    bios::OutputPwm::setDynamicClient(unsigned short, unsigned short, bios::OutputPwm::IDynamicPwmClient*):
+
+       1297e:	f386 8810 	msr	PRIMASK, r6
+
+       12982:	2000      	movs	r0, #0
+
+       12984:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       12986:	f386 8810 	msr	PRIMASK, r6
+
+       1298a:	2001      	movs	r0, #1
+
+       1298c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       1298e:	2001      	movs	r0, #1
+
+       12990:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       12992:	bf00      	nop
+
+       12994:	1ffee92c 	.word	0x1ffee92c
+
+       12998:	1ffee96c 	.word	0x1ffee96c
+
+    </pre>
+
+    
+    <pre><a href="./6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short) (24)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

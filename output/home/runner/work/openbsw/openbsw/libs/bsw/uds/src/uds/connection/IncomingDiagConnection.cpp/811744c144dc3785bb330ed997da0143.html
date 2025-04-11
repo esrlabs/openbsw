@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../IncomingDiagConnection.cpp.html">IncomingDiagConnection.cpp</a>:29
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::IncomingDiagConnection::addIdentifier()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000d0d8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>72</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../base/AbstractDiagJob.cpp/5a23070d11bede7b58b261cabd659029.html">uds::AbstractDiagJob::execute(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short) (720)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../services/sessioncontrol/DiagnosticSessionControl.cpp/9d86a388e5efc7491b1adb4fdf5952b7.html">uds::DiagnosticSessionControl::process(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short) (228)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../NestedDiagRequest.cpp/f35b0e8677ad1717055dc6444156b27d.html">uds::NestedDiagRequest::addIdentifier() (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*) (16)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../include/uds/connection/IncomingDiagConnection.h/acee66157c814626566aaa12149aaf04.html">uds::IncomingDiagConnection::~IncomingDiagConnection() (16)</a></pre>
+    
+
+    <pre>
+
+    uds::IncomingDiagConnection::addIdentifier():
+
+        d0d8:	b508      	push	{r3, lr}
+
+        d0da:	f890 3073 	ldrb.w	r3, [r0, #115]	; 0x73
+
+        d0de:	b9bb      	cbnz	r3, d110 <<a href="./811744c144dc3785bb330ed997da0143.html">uds::IncomingDiagConnection::addIdentifier()</a>+0x38>
+
+        d0e0:	f8d0 310c 	ldr.w	r3, [r0, #268]	; 0x10c
+
+        d0e4:	b123      	cbz	r3, d0f0 <<a href="./811744c144dc3785bb330ed997da0143.html">uds::IncomingDiagConnection::addIdentifier()</a>+0x18>
+
+        d0e6:	4618      	mov	r0, r3
+
+        d0e8:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+
+        d0ec:	f000 bf56 	b.w	df9c <<a href="../NestedDiagRequest.cpp/f35b0e8677ad1717055dc6444156b27d.html">uds::NestedDiagRequest::addIdentifier()</a>>
+
+        d0f0:	6842      	ldr	r2, [r0, #4]
+
+        d0f2:	b11a      	cbz	r2, d0fc <<a href="./811744c144dc3785bb330ed997da0143.html">uds::IncomingDiagConnection::addIdentifier()</a>+0x24>
+
+    _ZNK4estd3vecIhLj6EE4sizeEv():
+
+        d0f4:	f8d0 3118 	ldr.w	r3, [r0, #280]	; 0x118
+
+    uds::IncomingDiagConnection::addIdentifier():
+
+        d0f8:	2b05      	cmp	r3, #5
+
+        d0fa:	d900      	bls.n	d0fe <<a href="./811744c144dc3785bb330ed997da0143.html">uds::IncomingDiagConnection::addIdentifier()</a>+0x26>
+
+        d0fc:	bd08      	pop	{r3, pc}
+
+    _ZN4estd3vecIhLj6EE9push_backERKh():
+
+        d0fe:	6891      	ldr	r1, [r2, #8]
+
+        d100:	18c2      	adds	r2, r0, r3
+
+        d102:	5cc9      	ldrb	r1, [r1, r3]
+
+        d104:	f882 111c 	strb.w	r1, [r2, #284]	; 0x11c
+
+        d108:	3301      	adds	r3, #1
+
+        d10a:	f8c0 3118 	str.w	r3, [r0, #280]	; 0x118
+
+    uds::IncomingDiagConnection::addIdentifier():
+
+        d10e:	bd08      	pop	{r3, pc}
+
+        d110:	4a02      	ldr	r2, [pc, #8]	; (d11c <<a href="./811744c144dc3785bb330ed997da0143.html">uds::IncomingDiagConnection::addIdentifier()</a>+0x44>)
+
+        d112:	211f      	movs	r1, #31
+
+        d114:	2000      	movs	r0, #0
+
+        d116:	f7f8 fe21 	bl	5d5c <<a href="../../../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*)</a>>
+
+        d11a:	bf00      	nop
+
+        d11c:	00016f1c 	.word	0x00016f1c
+
+    </pre>
+
+    
+    <pre><a href="./e435e08a2dfb9f6a47ff5a06d3788c4f.html">uds::IncomingDiagConnection::sendPositiveResponseInternal(unsigned short, uds::AbstractDiagJob&amp;) (108)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

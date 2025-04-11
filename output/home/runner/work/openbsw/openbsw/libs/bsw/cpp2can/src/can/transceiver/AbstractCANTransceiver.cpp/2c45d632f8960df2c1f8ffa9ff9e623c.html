@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../cpp2can.html">cpp2can</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../can.html">can</a></li>
+        
+        <li ><a href="../../transceiver.html">transceiver</a>
+            </li>
+
+        
+        <li class="active"><a href="../AbstractCANTransceiver.cpp.html">AbstractCANTransceiver.cpp</a>:38
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000134a8</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>72</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../3rdparty/printf/src/printf/printf.c/5312ec35df88995f2f21271b5c68c054.html">vfctprintf (36)</a></pre>
+    
+
+    <pre>
+
+    can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&):
+
+       134a8:	b538      	push	{r3, r4, r5, lr}
+
+       134aa:	4604      	mov	r4, r0
+
+       134ac:	4608      	mov	r0, r1
+
+       134ae:	f3ef 8510 	mrs	r5, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       134b2:	b672      	cpsid	i
+
+    _ZNK4estd12forward_listIN3can17ICANFrameListenerEE13contains_nodeERKNS_17forward_list_nodeIS2_EE():
+
+       134b4:	684b      	ldr	r3, [r1, #4]
+
+       134b6:	2b01      	cmp	r3, #1
+
+    can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&):
+
+       134b8:	f101 0204 	add.w	r2, r1, #4
+
+    _ZN4estd17forward_list_nodeIN3can17ICANFrameListenerEE4nextEv():
+
+       134bc:	f8d4 310c 	ldr.w	r3, [r4, #268]	; 0x10c
+
+    _ZNK4estd12forward_listIN3can17ICANFrameListenerEE13contains_nodeERKNS_17forward_list_nodeIS2_EE():
+
+       134c0:	d008      	beq.n	134d4 <<a href="./2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&)</a>+0x2c>
+
+       134c2:	b913      	cbnz	r3, 134ca <<a href="./2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&)</a>+0x22>
+
+       134c4:	e009      	b.n	134da <<a href="./2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&)</a>+0x32>
+
+    _ZNK4estd17forward_list_nodeIN3can17ICANFrameListenerEE4nextEv():
+
+       134c6:	681b      	ldr	r3, [r3, #0]
+
+    _ZNK4estd12forward_listIN3can17ICANFrameListenerEE13contains_nodeERKNS_17forward_list_nodeIS2_EE():
+
+       134c8:	b13b      	cbz	r3, 134da <<a href="./2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&)</a>+0x32>
+
+       134ca:	429a      	cmp	r2, r3
+
+       134cc:	d1fb      	bne.n	134c6 <<a href="./2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&)</a>+0x1e>
+
+    can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&):
+
+       134ce:	f385 8810 	msr	PRIMASK, r5
+
+       134d2:	bd38      	pop	{r3, r4, r5, pc}
+
+    _ZN4estd17forward_list_nodeIN3can17ICANFrameListenerEE8set_nextEPS3_():
+
+       134d4:	604b      	str	r3, [r1, #4]
+
+       134d6:	f8c4 210c 	str.w	r2, [r4, #268]	; 0x10c
+
+    can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&):
+
+       134da:	6803      	ldr	r3, [r0, #0]
+
+       134dc:	685b      	ldr	r3, [r3, #4]
+
+       134de:	4798      	blx	r3
+
+       134e0:	6803      	ldr	r3, [r0, #0]
+
+       134e2:	f104 0108 	add.w	r1, r4, #8
+
+       134e6:	695b      	ldr	r3, [r3, #20]
+
+       134e8:	4798      	blx	r3
+
+    resumeAllInterrupts():
+
+       134ea:	f385 8810 	msr	PRIMASK, r5
+
+    can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&):
+
+       134ee:	bd38      	pop	{r3, r4, r5, pc}
+
+    </pre>
+
+    
+    <pre><a href="./f88630a57e31d4e417b83134f11362a6.html">can::AbstractCANTransceiver::addCANFrameSentListener(can::IFilteredCANFrameSentListener&amp;) (36)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

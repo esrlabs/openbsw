@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../base.html">base</a>
+            </li>
+
+        
+        <li class="active"><a href="../AbstractDiagJob.cpp.html">AbstractDiagJob.cpp</a>:137
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000ca60</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>332</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/application/src/systems/UdsSystem.cpp/2c7a945138badb38f0d3fa8e2ec10edb.html">uds::UdsSystem::addDiagJobs() (140)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=220
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./51edf7c1f4b6980fb84a3423ee928b31.html">uds::operator==(uds::AbstractDiagJob const&amp;, uds::AbstractDiagJob const&amp;) (52)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/4287a4df4ae50ebfb8cb668ef27e7b98.html">memcmp (32)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./f61b36725c1f73d637736d241aa827fe.html">uds::AbstractDiagJob::setNextJob(uds::AbstractDiagJob*) (80)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./b28d848957aeba1857a3b8dd21862d2c.html">uds::AbstractDiagJob::removeAbstractDiagJob(uds::AbstractDiagJob&amp;) (64)</a></pre>
+    
+
+    <pre>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        ca60:	4281      	cmp	r1, r0
+
+        ca62:	d029      	beq.n	cab8 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x58>
+
+        ca64:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+
+        ca66:	460c      	mov	r4, r1
+
+        ca68:	4605      	mov	r5, r0
+
+        ca6a:	4601      	mov	r1, r0
+
+        ca6c:	4620      	mov	r0, r4
+
+        ca6e:	f7ff ff7d 	bl	c96c <<a href="./51edf7c1f4b6980fb84a3423ee928b31.html">uds::operator==(uds::AbstractDiagJob const&, uds::AbstractDiagJob const&)</a>>
+
+        ca72:	b960      	cbnz	r0, ca8e <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2e>
+
+        ca74:	68ae      	ldr	r6, [r5, #8]
+
+        ca76:	42a6      	cmp	r6, r4
+
+        ca78:	d009      	beq.n	ca8e <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2e>
+
+        ca7a:	7caa      	ldrb	r2, [r5, #18]
+
+    _ZNK3uds15AbstractDiagJob7isChildEPKht():
+
+        ca7c:	7ce3      	ldrb	r3, [r4, #19]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        ca7e:	6868      	ldr	r0, [r5, #4]
+
+    _ZNK3uds15AbstractDiagJob7isChildEPKht():
+
+        ca80:	429a      	cmp	r2, r3
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        ca82:	b297      	uxth	r7, r2
+
+    _ZNK3uds15AbstractDiagJob7isChildEPKht():
+
+        ca84:	d033      	beq.n	caee <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x8e>
+
+    _ZNK3uds15AbstractDiagJob8isFamilyEPKht():
+
+        ca86:	429f      	cmp	r7, r3
+
+        ca88:	d918      	bls.n	cabc <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x5c>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        ca8a:	2001      	movs	r0, #1
+
+        ca8c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+        ca8e:	4a45      	ldr	r2, [pc, #276]	; (cba4 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x144>)
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        ca90:	6863      	ldr	r3, [r4, #4]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        ca92:	7810      	ldrb	r0, [r2, #0]
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        ca94:	b34b      	cbz	r3, caea <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x8a>
+
+        ca96:	7ca1      	ldrb	r1, [r4, #18]
+
+        ca98:	1d1d      	adds	r5, r3, #4
+
+        ca9a:	4419      	add	r1, r3
+
+        ca9c:	2200      	movs	r2, #0
+
+        ca9e:	428b      	cmp	r3, r1
+
+        caa0:	d005      	beq.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+        caa2:	f813 4b01 	ldrb.w	r4, [r3], #1
+
+        caa6:	42ab      	cmp	r3, r5
+
+        caa8:	eb04 2202 	add.w	r2, r4, r2, lsl #8
+
+        caac:	d1f7      	bne.n	ca9e <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x3e>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        caae:	493e      	ldr	r1, [pc, #248]	; (cba8 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x148>)
+
+        cab0:	f7f4 fe70 	bl	1794 <<a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        cab4:	2001      	movs	r0, #1
+
+        cab6:	e7e9      	b.n	ca8c <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2c>
+
+        cab8:	2001      	movs	r0, #1
+
+        caba:	4770      	bx	lr
+
+        cabc:	6861      	ldr	r1, [r4, #4]
+
+    uds::AbstractDiagJob::compare(unsigned char const*, unsigned char const*, unsigned short):
+
+        cabe:	b13f      	cbz	r7, cad0 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x70>
+
+        cac0:	2800      	cmp	r0, #0
+
+        cac2:	d066      	beq.n	cb92 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x132>
+
+        cac4:	2900      	cmp	r1, #0
+
+        cac6:	d0e0      	beq.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+        cac8:	f006 ffee 	bl	13aa8 <<a href="../../../../../../../../../../../../unknown/unknown/4287a4df4ae50ebfb8cb668ef27e7b98.html">memcmp</a>>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cacc:	2800      	cmp	r0, #0
+
+        cace:	d1dc      	bne.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+        cad0:	68ad      	ldr	r5, [r5, #8]
+
+        cad2:	2d00      	cmp	r5, #0
+
+        cad4:	d0d9      	beq.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+        cad6:	4628      	mov	r0, r5
+
+        cad8:	4621      	mov	r1, r4
+
+        cada:	f7ff ffc1 	bl	ca60 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>>
+
+        cade:	2800      	cmp	r0, #0
+
+        cae0:	d0d4      	beq.n	ca8c <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2c>
+
+    _ZNK3uds15AbstractDiagJob10getNextJobEv():
+
+        cae2:	68ed      	ldr	r5, [r5, #12]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cae4:	2d00      	cmp	r5, #0
+
+        cae6:	d1f6      	bne.n	cad6 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x76>
+
+        cae8:	e7cf      	b.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        caea:	461a      	mov	r2, r3
+
+        caec:	e7df      	b.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+    uds::AbstractDiagJob::compare(unsigned char const*, unsigned char const*, unsigned short):
+
+        caee:	b16f      	cbz	r7, cb0c <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xac>
+
+        caf0:	6861      	ldr	r1, [r4, #4]
+
+        caf2:	2800      	cmp	r0, #0
+
+        caf4:	d045      	beq.n	cb82 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x122>
+
+        caf6:	2900      	cmp	r1, #0
+
+        caf8:	d0c7      	beq.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+        cafa:	f006 ffd5 	bl	13aa8 <<a href="../../../../../../../../../../../../unknown/unknown/4287a4df4ae50ebfb8cb668ef27e7b98.html">memcmp</a>>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cafe:	b120      	cbz	r0, cb0a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xaa>
+
+        cb00:	7caa      	ldrb	r2, [r5, #18]
+
+        cb02:	6868      	ldr	r0, [r5, #4]
+
+    _ZNK3uds15AbstractDiagJob8isFamilyEPKht():
+
+        cb04:	7ce3      	ldrb	r3, [r4, #19]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb06:	b297      	uxth	r7, r2
+
+        cb08:	e7bd      	b.n	ca86 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x26>
+
+        cb0a:	68ae      	ldr	r6, [r5, #8]
+
+        cb0c:	2e00      	cmp	r6, #0
+
+        cb0e:	d03b      	beq.n	cb88 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x128>
+
+        cb10:	42a6      	cmp	r6, r4
+
+        cb12:	4630      	mov	r0, r6
+
+        cb14:	4621      	mov	r1, r4
+
+        cb16:	d022      	beq.n	cb5e <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xfe>
+
+        cb18:	f7ff ff28 	bl	c96c <<a href="./51edf7c1f4b6980fb84a3423ee928b31.html">uds::operator==(uds::AbstractDiagJob const&, uds::AbstractDiagJob const&)</a>>
+
+        cb1c:	b9f8      	cbnz	r0, cb5e <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xfe>
+
+    _ZNK3uds15AbstractDiagJob10getNextJobEv():
+
+        cb1e:	68f3      	ldr	r3, [r6, #12]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb20:	b11b      	cbz	r3, cb2a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xca>
+
+        cb22:	68da      	ldr	r2, [r3, #12]
+
+        cb24:	461e      	mov	r6, r3
+
+        cb26:	2a00      	cmp	r2, #0
+
+        cb28:	d1f2      	bne.n	cb10 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xb0>
+
+        cb2a:	42b4      	cmp	r4, r6
+
+        cb2c:	d005      	beq.n	cb3a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xda>
+
+        cb2e:	4621      	mov	r1, r4
+
+        cb30:	4630      	mov	r0, r6
+
+        cb32:	f7ff ff1b 	bl	c96c <<a href="./51edf7c1f4b6980fb84a3423ee928b31.html">uds::operator==(uds::AbstractDiagJob const&, uds::AbstractDiagJob const&)</a>>
+
+        cb36:	2800      	cmp	r0, #0
+
+        cb38:	d02e      	beq.n	cb98 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x138>
+
+        cb3a:	4a1a      	ldr	r2, [pc, #104]	; (cba4 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x144>)
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        cb3c:	6863      	ldr	r3, [r4, #4]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb3e:	7810      	ldrb	r0, [r2, #0]
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        cb40:	2b00      	cmp	r3, #0
+
+        cb42:	d0d2      	beq.n	caea <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x8a>
+
+        cb44:	7ca1      	ldrb	r1, [r4, #18]
+
+        cb46:	1d1d      	adds	r5, r3, #4
+
+        cb48:	4419      	add	r1, r3
+
+        cb4a:	2200      	movs	r2, #0
+
+        cb4c:	4299      	cmp	r1, r3
+
+        cb4e:	d0ae      	beq.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+        cb50:	f813 4b01 	ldrb.w	r4, [r3], #1
+
+        cb54:	429d      	cmp	r5, r3
+
+        cb56:	eb04 2202 	add.w	r2, r4, r2, lsl #8
+
+        cb5a:	d1f7      	bne.n	cb4c <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xec>
+
+        cb5c:	e7a7      	b.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb5e:	4a11      	ldr	r2, [pc, #68]	; (cba4 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x144>)
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        cb60:	6863      	ldr	r3, [r4, #4]
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb62:	7810      	ldrb	r0, [r2, #0]
+
+    uds::AbstractDiagJob::getRequestId() const():
+
+        cb64:	2b00      	cmp	r3, #0
+
+        cb66:	d0c0      	beq.n	caea <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x8a>
+
+        cb68:	7ca1      	ldrb	r1, [r4, #18]
+
+        cb6a:	1d1d      	adds	r5, r3, #4
+
+        cb6c:	4419      	add	r1, r3
+
+        cb6e:	2200      	movs	r2, #0
+
+        cb70:	4299      	cmp	r1, r3
+
+        cb72:	d09c      	beq.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+        cb74:	f813 4b01 	ldrb.w	r4, [r3], #1
+
+        cb78:	429d      	cmp	r5, r3
+
+        cb7a:	eb04 2202 	add.w	r2, r4, r2, lsl #8
+
+        cb7e:	d1f7      	bne.n	cb70 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x110>
+
+        cb80:	e795      	b.n	caae <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x4e>
+
+    uds::AbstractDiagJob::compare(unsigned char const*, unsigned char const*, unsigned short):
+
+        cb82:	2900      	cmp	r1, #0
+
+        cb84:	d181      	bne.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+        cb86:	e7c1      	b.n	cb0c <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0xac>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb88:	60ac      	str	r4, [r5, #8]
+
+        cb8a:	2000      	movs	r0, #0
+
+        cb8c:	60e0      	str	r0, [r4, #12]
+
+        cb8e:	60a0      	str	r0, [r4, #8]
+
+        cb90:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+    uds::AbstractDiagJob::compare(unsigned char const*, unsigned char const*, unsigned short):
+
+        cb92:	2900      	cmp	r1, #0
+
+        cb94:	d09c      	beq.n	cad0 <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x70>
+
+        cb96:	e778      	b.n	ca8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x2a>
+
+    uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&):
+
+        cb98:	4621      	mov	r1, r4
+
+        cb9a:	4630      	mov	r0, r6
+
+        cb9c:	f7ff ff18 	bl	c9d0 <<a href="./f61b36725c1f73d637736d241aa827fe.html">uds::AbstractDiagJob::setNextJob(uds::AbstractDiagJob*)</a>>
+
+        cba0:	e7f3      	b.n	cb8a <<a href="./c64de2d82925442974d632b6ca3eaf21.html">uds::AbstractDiagJob::addAbstractDiagJob(uds::AbstractDiagJob&)</a>+0x12a>
+
+        cba2:	bf00      	nop
+
+        cba4:	1ffe0081 	.word	0x1ffe0081
+
+        cba8:	00016ea4 	.word	0x00016ea4
+
+    </pre>
+
+    
+    <pre><a href="./5f3dd1685303b5c6b507e9f5e7b1fb94.html">uds::AbstractDiagJob::compare(unsigned char const*, unsigned char const*, unsigned short) (36)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

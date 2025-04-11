@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../asyncFreeRtos.html">asyncFreeRtos</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../async.html">async</a>
+            </li>
+
+        
+        <li class="active"><a href="../FreeRtosAdapter.h.html">FreeRtosAdapter.h</a>:234
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">_GLOBAL__sub_D_asyncInitialized</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009d5c</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>56</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./175f2f9d927bc9574215dc7cde91d4c9.html">_GLOBAL__sub_I_asyncInitialized (32)</a></pre>
+    
+
+    <pre>
+
+    _GLOBAL__sub_D_asyncInitialized():
+
+        9d5c:	4a0b      	ldr	r2, [pc, #44]	; (9d8c <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x30>)
+
+        9d5e:	6813      	ldr	r3, [r2, #0]
+
+        9d60:	3b01      	subs	r3, #1
+
+        9d62:	6013      	str	r3, [r2, #0]
+
+        9d64:	b983      	cbnz	r3, 9d88 <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x2c>
+
+        9d66:	480a      	ldr	r0, [pc, #40]	; (9d90 <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x34>)
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE8set_freeEv():
+
+        9d68:	2101      	movs	r1, #1
+
+        9d6a:	f5a0 7cc4 	sub.w	ip, r0, #392	; 0x188
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        9d6e:	69c3      	ldr	r3, [r0, #28]
+
+    _ZN4estd12forward_listIN5timer7TimeoutEE5clearEv():
+
+        9d70:	b123      	cbz	r3, 9d7c <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x20>
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        9d72:	461a      	mov	r2, r3
+
+        9d74:	681b      	ldr	r3, [r3, #0]
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE8set_freeEv():
+
+        9d76:	6011      	str	r1, [r2, #0]
+
+    _ZN4estd12forward_listIN5timer7TimeoutEE5clearEv():
+
+        9d78:	2b00      	cmp	r3, #0
+
+        9d7a:	d1fa      	bne.n	9d72 <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x16>
+
+    _ZN4estd5arrayIN5async11TaskContextINS1_15FreeRtosAdapterINS1_12AsyncBindingEEEEELj8EED4Ev():
+
+        9d7c:	4560      	cmp	r0, ip
+
+        9d7e:	f1a0 0338 	sub.w	r3, r0, #56	; 0x38
+
+        9d82:	d001      	beq.n	9d88 <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x2c>
+
+        9d84:	4618      	mov	r0, r3
+
+        9d86:	e7f2      	b.n	9d6e <<a href="./e69e9226d637f752f928c87fcbbf9a6d.html">_GLOBAL__sub_D_asyncInitialized</a>+0x12>
+
+    _GLOBAL__sub_D_asyncInitialized():
+
+        9d88:	4770      	bx	lr
+
+        9d8a:	bf00      	nop
+
+        9d8c:	1ffe01a4 	.word	0x1ffe01a4
+
+        9d90:	1ffe0330 	.word	0x1ffe0330
+
+    </pre>
+
+    
+    <pre><a href="../../../src/async/Types.cpp/0486e0713bb94a98d8e287f28ad39b27.html">async::TimeoutType::expired() (12)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

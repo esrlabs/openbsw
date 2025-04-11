@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../uds.html">uds</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagDispatcher.cpp.html">DiagDispatcher.cpp</a>:117
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagDispatcher2::resume(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000ef5c</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>88</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=188
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./d2e8e15b8e3fc0172c1bdb87a61e9a05.html">uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (132)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./d2e8e15b8e3fc0172c1bdb87a61e9a05.html">uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (132)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef5c:	b510      	push	{r4, lr}
+
+        ef5e:	6b44      	ldr	r4, [r0, #52]	; 0x34
+
+    _ZNK9transport16TransportMessage13targetAddressEv():
+
+        ef60:	f8b1 c00e 	ldrh.w	ip, [r1, #14]
+
+    uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef64:	89a3      	ldrh	r3, [r4, #12]
+
+        ef66:	4563      	cmp	r3, ip
+
+        ef68:	d00e      	beq.n	ef88 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x2c>
+
+        ef6a:	89e4      	ldrh	r4, [r4, #14]
+
+        ef6c:	f64f 7eff 	movw	lr, #65535	; 0xffff
+
+        ef70:	4574      	cmp	r4, lr
+
+        ef72:	d001      	beq.n	ef78 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x1c>
+
+        ef74:	4564      	cmp	r4, ip
+
+        ef76:	d007      	beq.n	ef88 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x2c>
+
+        ef78:	4a0c      	ldr	r2, [pc, #48]	; (efac <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x50>)
+
+        ef7a:	490d      	ldr	r1, [pc, #52]	; (efb0 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x54>)
+
+        ef7c:	7810      	ldrb	r0, [r2, #0]
+
+        ef7e:	4662      	mov	r2, ip
+
+        ef80:	f7f3 ff0c 	bl	2d9c <<a href="../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...)</a>>
+
+        ef84:	2001      	movs	r0, #1
+
+        ef86:	bd10      	pop	{r4, pc}
+
+    uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef88:	7b03      	ldrb	r3, [r0, #12]
+
+    _ZN9transport16TransportMessage11setTargetIdEt():
+
+        ef8a:	f64f 74ff 	movw	r4, #65535	; 0xffff
+
+        ef8e:	81cc      	strh	r4, [r1, #14]
+
+    uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef90:	b13b      	cbz	r3, efa2 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x46>
+
+        ef92:	8a4c      	ldrh	r4, [r1, #18]
+
+        ef94:	8a0b      	ldrh	r3, [r1, #16]
+
+        ef96:	429c      	cmp	r4, r3
+
+        ef98:	d305      	bcc.n	efa6 <<a href="./040cc2cd6745294b781a2af114bf3989.html">uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x4a>
+
+    uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef9a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+    uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ef9e:	f7ff bf9b 	b.w	eed8 <<a href="./d2e8e15b8e3fc0172c1bdb87a61e9a05.html">uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>.part.0>
+
+        efa2:	2001      	movs	r0, #1
+
+    uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        efa4:	bd10      	pop	{r4, pc}
+
+    uds::DiagDispatcher2::enqueueMessage(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        efa6:	2003      	movs	r0, #3
+
+    uds::DiagDispatcher2::resume(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        efa8:	bd10      	pop	{r4, pc}
+
+        efaa:	bf00      	nop
+
+        efac:	1ffe0081 	.word	0x1ffe0081
+
+        efb0:	00017930 	.word	0x00017930
+
+    </pre>
+
+    
+    <pre><a href="./1f5d2c3818f46f08420701a6d289efe9.html">uds::DiagDispatcher2::DiagDispatcher2(uds::AbstractDiagnosisConfiguration&amp;, uds::IDiagSessionManager&amp;, uds::DiagJobRoot&amp;, unsigned char) (208)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportMessage.cpp.html">TransportMessage.cpp</a>:37
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportMessage::init(unsigned char*, unsigned long)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000c278</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>68</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (5)</th>
+                <td colspan="5">
+                
+                    <a href="../../../uds/src/uds/connection/DiagConnectionManager.cpp/9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&amp;) (636)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../transportRouterSimple/src/transport/routing/TransportRouterSimple.cpp/337a75d4cc261d37c0b51ff8dc413419.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice&lt;unsigned char const, 0u&gt; const&amp;, transport::TransportMessage*&amp;) (240)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../transportRouterSimple/src/transport/routing/TransportRouterSimple.cpp/4b0d4e565010983f1d03a676bd2fff2a.html">transport::TransportRouterSimple::TransportRouterSimple() (208)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../uds/src/uds/DiagDispatcher.cpp/1f5d2c3818f46f08420701a6d289efe9.html">uds::DiagDispatcher2::DiagDispatcher2(uds::AbstractDiagnosisConfiguration&amp;, uds::IDiagSessionManager&amp;, uds::DiagJobRoot&amp;, unsigned char) (208)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../uds/src/uds/connection/IncomingDiagConnection.cpp/0fe53b60d36c4df2208186bc82166758.html">uds::IncomingDiagConnection::releaseRequestGetResponse() (104)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=72
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html">util::logger::Logger::critical(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*) (16)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage() (20)</a></pre>
+    
+
+    <pre>
+
+    transport::TransportMessage::init(unsigned char*, unsigned long):
+
+        c278:	b510      	push	{r4, lr}
+
+        c27a:	4613      	mov	r3, r2
+
+        c27c:	460c      	mov	r4, r1
+
+        c27e:	b139      	cbz	r1, c290 <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x18>
+
+        c280:	2200      	movs	r2, #0
+
+        c282:	e880 001c 	stmia.w	r0, {r2, r3, r4}
+
+        c286:	8242      	strh	r2, [r0, #18]
+
+        c288:	b903      	cbnz	r3, c28c <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x14>
+
+        c28a:	bd10      	pop	{r4, pc}
+
+    transport::TransportMessage::setPayloadLength(unsigned short):
+
+        c28c:	8202      	strh	r2, [r0, #16]
+
+    transport::TransportMessage::init(unsigned char*, unsigned long):
+
+        c28e:	bd10      	pop	{r4, pc}
+
+        c290:	b922      	cbnz	r2, c29c <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x24>
+
+        c292:	6002      	str	r2, [r0, #0]
+
+        c294:	6042      	str	r2, [r0, #4]
+
+        c296:	6082      	str	r2, [r0, #8]
+
+        c298:	8242      	strh	r2, [r0, #18]
+
+        c29a:	bd10      	pop	{r4, pc}
+
+        c29c:	4b04      	ldr	r3, [pc, #16]	; (c2b0 <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x38>)
+
+        c29e:	4905      	ldr	r1, [pc, #20]	; (c2b4 <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x3c>)
+
+        c2a0:	7818      	ldrb	r0, [r3, #0]
+
+        c2a2:	f7ff ffc3 	bl	c22c <<a href="../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html">util::logger::Logger::critical(unsigned char, char const*, ...)</a>>
+
+        c2a6:	4a04      	ldr	r2, [pc, #16]	; (c2b8 <<a href="./eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>+0x40>)
+
+        c2a8:	212d      	movs	r1, #45	; 0x2d
+
+        c2aa:	4620      	mov	r0, r4
+
+        c2ac:	f7f9 fd56 	bl	5d5c <<a href="../../../estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*)</a>>
+
+        c2b0:	1ffe00a8 	.word	0x1ffe00a8
+
+        c2b4:	00016c90 	.word	0x00016c90
+
+        c2b8:	00015fe4 	.word	0x00015fe4
+
+    </pre>
+
+    
+    <pre><a href="./015d887b65e4e2abda950a7ebf753854.html">transport::TransportMessage::setPayloadLength(unsigned short) (52)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

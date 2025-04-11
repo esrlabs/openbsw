@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../IncomingDiagConnection.cpp.html">IncomingDiagConnection.cpp</a>:629
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::IncomingDiagConnection::open(bool)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000d960</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>132</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../DiagConnectionManager.cpp/9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&amp;) (636)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=284
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (96)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../estd/include/estd/functional.h/e936efc0206af90e6b50dd3219781e15.html">void estd::function&lt;void (unsigned short, uds::AbstractDiagJob*)&gt;::member_function_caller&lt;uds::IncomingDiagConnection, &amp;uds::IncomingDiagConnection::asyncSendPositiveResponse&gt;(void*, unsigned short, uds::AbstractDiagJob*) (4)</a></pre>
+    
+
+    <pre>
+
+    uds::IncomingDiagConnection::open(bool):
+
+        d960:	b570      	push	{r4, r5, r6, lr}
+
+        d962:	7d43      	ldrb	r3, [r0, #21]
+
+        d964:	b082      	sub	sp, #8
+
+        d966:	b9d3      	cbnz	r3, d99e <<a href="./c6937137d8eeb9402b05c34d86ffb339.html">uds::IncomingDiagConnection::open(bool)</a>+0x3e>
+
+        d968:	4604      	mov	r4, r0
+
+        d96a:	2201      	movs	r2, #1
+
+        d96c:	f100 0524 	add.w	r5, r0, #36	; 0x24
+
+        d970:	7542      	strb	r2, [r0, #21]
+
+        d972:	f880 306e 	strb.w	r3, [r0, #110]	; 0x6e
+
+        d976:	f880 3071 	strb.w	r3, [r0, #113]	; 0x71
+
+        d97a:	f8a0 3072 	strh.w	r3, [r0, #114]	; 0x72
+
+    _ZN4estd3vecIhLj6EE5clearEv():
+
+        d97e:	f8c0 3118 	str.w	r3, [r0, #280]	; 0x118
+
+    uds::IncomingDiagConnection::open(bool):
+
+        d982:	f880 106f 	strb.w	r1, [r0, #111]	; 0x6f
+
+        d986:	4628      	mov	r0, r5
+
+        d988:	f7fc fa1a 	bl	9dc0 <<a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+        d98c:	f894 306f 	ldrb.w	r3, [r4, #111]	; 0x6f
+
+    _ZN3uds22IncomingDiagConnection22changeRespPendingTimerEl():
+
+        d990:	f241 1294 	movw	r2, #4500	; 0x1194
+
+        d994:	f8c4 2128 	str.w	r2, [r4, #296]	; 0x128
+
+    uds::IncomingDiagConnection::open(bool):
+
+        d998:	b943      	cbnz	r3, d9ac <<a href="./c6937137d8eeb9402b05c34d86ffb339.html">uds::IncomingDiagConnection::open(bool)</a>+0x4c>
+
+        d99a:	b002      	add	sp, #8
+
+        d99c:	bd70      	pop	{r4, r5, r6, pc}
+
+        d99e:	4b0e      	ldr	r3, [pc, #56]	; (d9d8 <<a href="./c6937137d8eeb9402b05c34d86ffb339.html">uds::IncomingDiagConnection::open(bool)</a>+0x78>)
+
+        d9a0:	490e      	ldr	r1, [pc, #56]	; (d9dc <<a href="./c6937137d8eeb9402b05c34d86ffb339.html">uds::IncomingDiagConnection::open(bool)</a>+0x7c>)
+
+        d9a2:	7818      	ldrb	r0, [r3, #0]
+
+        d9a4:	f7f5 f9fa 	bl	2d9c <<a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...)</a>>
+
+        d9a8:	b002      	add	sp, #8
+
+        d9aa:	bd70      	pop	{r4, r5, r6, pc}
+
+        d9ac:	f44f 767a 	mov.w	r6, #1000	; 0x3e8
+
+        d9b0:	7d20      	ldrb	r0, [r4, #20]
+
+        d9b2:	9600      	str	r6, [sp, #0]
+
+        d9b4:	462a      	mov	r2, r5
+
+        d9b6:	f104 011c 	add.w	r1, r4, #28
+
+        d9ba:	2328      	movs	r3, #40	; 0x28
+
+        d9bc:	f7fb ffd6 	bl	996c <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+        d9c0:	9600      	str	r6, [sp, #0]
+
+        d9c2:	4b07      	ldr	r3, [pc, #28]	; (d9e0 <<a href="./c6937137d8eeb9402b05c34d86ffb339.html">uds::IncomingDiagConnection::open(bool)</a>+0x80>)
+
+        d9c4:	7d20      	ldrb	r0, [r4, #20]
+
+        d9c6:	f104 0248 	add.w	r2, r4, #72	; 0x48
+
+        d9ca:	f104 0140 	add.w	r1, r4, #64	; 0x40
+
+        d9ce:	f7fb ffcd 	bl	996c <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+        d9d2:	b002      	add	sp, #8
+
+        d9d4:	bd70      	pop	{r4, r5, r6, pc}
+
+        d9d6:	bf00      	nop
+
+        d9d8:	1ffe0081 	.word	0x1ffe0081
+
+        d9dc:	0001716c 	.word	0x0001716c
+
+        d9e0:	0002e630 	.word	0x0002e630
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/uds/connection/OutgoingDiagConnection.h/69947255fad27e90edd7396e49c38b1e.html">uds::OutgoingDiagConnection::Timeout::execute() (8)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

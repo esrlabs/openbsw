@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../bspClock.html">bspClock</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../clockConfig.cpp.html">clockConfig.cpp</a>:336
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">configurPll</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000114c4</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>964</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/e1601aa9c9101f5167f5233c773d1a54.html">boardInit (16)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../libs/bsp/bspOutputManager/src/outputManager/OutputTester.cpp/d7864bdbf6c9e990d64455c7dba7aa5a.html">bios::OutputTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (364)</a></pre>
+    
+
+    <pre>
+
+    configurPll():
+
+       114c4:	4bbc      	ldr	r3, [pc, #752]	; (117b8 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2f4>)
+
+       114c6:	49bd      	ldr	r1, [pc, #756]	; (117bc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2f8>)
+
+       114c8:	2200      	movs	r2, #0
+
+       114ca:	b430      	push	{r4, r5}
+
+       114cc:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
+
+       114d0:	f8c3 2084 	str.w	r2, [r3, #132]	; 0x84
+
+       114d4:	f8c3 2090 	str.w	r2, [r3, #144]	; 0x90
+
+       114d8:	f8c3 2094 	str.w	r2, [r3, #148]	; 0x94
+
+       114dc:	f8c3 2098 	str.w	r2, [r3, #152]	; 0x98
+
+       114e0:	f8c3 209c 	str.w	r2, [r3, #156]	; 0x9c
+
+       114e4:	f8c3 20ac 	str.w	r2, [r3, #172]	; 0xac
+
+       114e8:	f8c3 20b0 	str.w	r2, [r3, #176]	; 0xb0
+
+       114ec:	f8c3 20b4 	str.w	r2, [r3, #180]	; 0xb4
+
+       114f0:	f8c3 20b8 	str.w	r2, [r3, #184]	; 0xb8
+
+       114f4:	f8c3 20c4 	str.w	r2, [r3, #196]	; 0xc4
+
+       114f8:	f8c3 20c8 	str.w	r2, [r3, #200]	; 0xc8
+
+       114fc:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+
+       11500:	f8c3 20dc 	str.w	r2, [r3, #220]	; 0xdc
+
+       11504:	f8c3 20e0 	str.w	r2, [r3, #224]	; 0xe0
+
+       11508:	f8c3 20e4 	str.w	r2, [r3, #228]	; 0xe4
+
+       1150c:	f8c3 20e8 	str.w	r2, [r3, #232]	; 0xe8
+
+       11510:	f8c3 20ec 	str.w	r2, [r3, #236]	; 0xec
+
+       11514:	f8c3 20f4 	str.w	r2, [r3, #244]	; 0xf4
+
+       11518:	f8c3 2100 	str.w	r2, [r3, #256]	; 0x100
+
+       1151c:	f8c3 2124 	str.w	r2, [r3, #292]	; 0x124
+
+       11520:	f8c3 2128 	str.w	r2, [r3, #296]	; 0x128
+
+       11524:	f8c3 212c 	str.w	r2, [r3, #300]	; 0x12c
+
+       11528:	f8c3 2130 	str.w	r2, [r3, #304]	; 0x130
+
+       1152c:	f8c3 2134 	str.w	r2, [r3, #308]	; 0x134
+
+       11530:	f8c3 2168 	str.w	r2, [r3, #360]	; 0x168
+
+       11534:	f8c3 2184 	str.w	r2, [r3, #388]	; 0x184
+
+       11538:	f8c3 2198 	str.w	r2, [r3, #408]	; 0x198
+
+       1153c:	f8c3 21a8 	str.w	r2, [r3, #424]	; 0x1a8
+
+       11540:	f8c3 21ac 	str.w	r2, [r3, #428]	; 0x1ac
+
+       11544:	f8c3 21b0 	str.w	r2, [r3, #432]	; 0x1b0
+
+       11548:	f8c3 21b8 	str.w	r2, [r3, #440]	; 0x1b8
+
+       1154c:	f8c3 21bc 	str.w	r2, [r3, #444]	; 0x1bc
+
+       11550:	f8c3 21cc 	str.w	r2, [r3, #460]	; 0x1cc
+
+       11554:	69ca      	ldr	r2, [r1, #28]
+
+       11556:	f5a3 5380 	sub.w	r3, r3, #4096	; 0x1000
+
+       1155a:	f042 028f 	orr.w	r2, r2, #143	; 0x8f
+
+       1155e:	201c      	movs	r0, #28
+
+       11560:	61ca      	str	r2, [r1, #28]
+
+       11562:	6188      	str	r0, [r1, #24]
+
+    isSircSysClk():
+
+       11564:	f8d3 1200 	ldr.w	r1, [r3, #512]	; 0x200
+
+    configurPll():
+
+       11568:	f011 7100 	ands.w	r1, r1, #33554432	; 0x2000000
+
+       1156c:	f000 812e 	beq.w	117cc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x308>
+
+       11570:	f8d3 3300 	ldr.w	r3, [r3, #768]	; 0x300
+
+       11574:	0199      	lsls	r1, r3, #6
+
+       11576:	f140 817c 	bpl.w	11872 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3ae>
+
+       1157a:	4b91      	ldr	r3, [pc, #580]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+    sircStop():
+
+       1157c:	2100      	movs	r1, #0
+
+       1157e:	f8c3 1200 	str.w	r1, [r3, #512]	; 0x200
+
+       11582:	f8d3 2200 	ldr.w	r2, [r3, #512]	; 0x200
+
+       11586:	07d2      	lsls	r2, r2, #31
+
+       11588:	d4f9      	bmi.n	1157e <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xba>
+
+    configurPll():
+
+       1158a:	2001      	movs	r0, #1
+
+    sircConfig():
+
+       1158c:	f240 1101 	movw	r1, #257	; 0x101
+
+    configurPll():
+
+       11590:	4a8b      	ldr	r2, [pc, #556]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+    sircConfig():
+
+       11592:	f8c3 0208 	str.w	r0, [r3, #520]	; 0x208
+
+       11596:	f8c3 1204 	str.w	r1, [r3, #516]	; 0x204
+
+    sircStart():
+
+       1159a:	f8d2 3200 	ldr.w	r3, [r2, #512]	; 0x200
+
+       1159e:	f043 0301 	orr.w	r3, r3, #1
+
+       115a2:	f8c2 3200 	str.w	r3, [r2, #512]	; 0x200
+
+       115a6:	f8d2 3200 	ldr.w	r3, [r2, #512]	; 0x200
+
+       115aa:	01dd      	lsls	r5, r3, #7
+
+       115ac:	d5f5      	bpl.n	1159a <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xd6>
+
+    configurPll():
+
+       115ae:	4b84      	ldr	r3, [pc, #528]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+    spllStop():
+
+       115b0:	f8d3 2600 	ldr.w	r2, [r3, #1536]	; 0x600
+
+       115b4:	f422 3240 	bic.w	r2, r2, #196608	; 0x30000
+
+       115b8:	f04f 6180 	mov.w	r1, #67108864	; 0x4000000
+
+       115bc:	f8c3 2600 	str.w	r2, [r3, #1536]	; 0x600
+
+       115c0:	f8c3 1600 	str.w	r1, [r3, #1536]	; 0x600
+
+       115c4:	f8d3 2600 	ldr.w	r2, [r3, #1536]	; 0x600
+
+       115c8:	07d4      	lsls	r4, r2, #31
+
+       115ca:	d4f9      	bmi.n	115c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xfc>
+
+    configurPll():
+
+       115cc:	f8d3 2100 	ldr.w	r2, [r3, #256]	; 0x100
+
+    soscStop():
+
+       115d0:	497b      	ldr	r1, [pc, #492]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+       115d2:	f422 3240 	bic.w	r2, r2, #196608	; 0x30000
+
+       115d6:	f8c3 2100 	str.w	r2, [r3, #256]	; 0x100
+
+       115da:	f04f 6280 	mov.w	r2, #67108864	; 0x4000000
+
+       115de:	f8c1 2100 	str.w	r2, [r1, #256]	; 0x100
+
+       115e2:	f8d1 3100 	ldr.w	r3, [r1, #256]	; 0x100
+
+       115e6:	07d8      	lsls	r0, r3, #31
+
+       115e8:	d4f9      	bmi.n	115de <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x11a>
+
+    configurPll():
+
+       115ea:	2434      	movs	r4, #52	; 0x34
+
+    soscConfig():
+
+       115ec:	f240 1301 	movw	r3, #257	; 0x101
+
+    configurPll():
+
+       115f0:	4a73      	ldr	r2, [pc, #460]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+    soscStart():
+
+       115f2:	4874      	ldr	r0, [pc, #464]	; (117c4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x300>)
+
+    soscConfig():
+
+       115f4:	f8c1 4108 	str.w	r4, [r1, #264]	; 0x108
+
+       115f8:	f8c1 3104 	str.w	r3, [r1, #260]	; 0x104
+
+    soscStart():
+
+       115fc:	f8d2 3100 	ldr.w	r3, [r2, #256]	; 0x100
+
+       11600:	4303      	orrs	r3, r0
+
+       11602:	f8c2 3100 	str.w	r3, [r2, #256]	; 0x100
+
+       11606:	f8d2 3100 	ldr.w	r3, [r2, #256]	; 0x100
+
+       1160a:	01d9      	lsls	r1, r3, #7
+
+       1160c:	d5f6      	bpl.n	115fc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x138>
+
+    configurPll():
+
+       1160e:	f8d2 3100 	ldr.w	r3, [r2, #256]	; 0x100
+
+       11612:	496b      	ldr	r1, [pc, #428]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+       11614:	f44f 10c0 	mov.w	r0, #1572864	; 0x180000
+
+    soscMon():
+
+       11618:	f443 3340 	orr.w	r3, r3, #196608	; 0x30000
+
+       1161c:	f8c2 3100 	str.w	r3, [r2, #256]	; 0x100
+
+    spllConfig():
+
+       11620:	f240 1401 	movw	r4, #257	; 0x101
+
+       11624:	f8c2 0608 	str.w	r0, [r2, #1544]	; 0x608
+
+    spllStart():
+
+       11628:	4866      	ldr	r0, [pc, #408]	; (117c4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x300>)
+
+    spllConfig():
+
+       1162a:	f8c2 4604 	str.w	r4, [r2, #1540]	; 0x604
+
+    spllStart():
+
+       1162e:	f8d1 3600 	ldr.w	r3, [r1, #1536]	; 0x600
+
+       11632:	4303      	orrs	r3, r0
+
+       11634:	f8c1 3600 	str.w	r3, [r1, #1536]	; 0x600
+
+       11638:	f8d1 3600 	ldr.w	r3, [r1, #1536]	; 0x600
+
+       1163c:	01db      	lsls	r3, r3, #7
+
+       1163e:	d5f6      	bpl.n	1162e <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x16a>
+
+    configurPll():
+
+       11640:	f8d1 0600 	ldr.w	r0, [r1, #1536]	; 0x600
+
+       11644:	4a5e      	ldr	r2, [pc, #376]	; (117c0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2fc>)
+
+    rccrConfig():
+
+       11646:	4b60      	ldr	r3, [pc, #384]	; (117c8 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x304>)
+
+    spllMon():
+
+       11648:	f440 3040 	orr.w	r0, r0, #196608	; 0x30000
+
+       1164c:	f8c1 0600 	str.w	r0, [r1, #1536]	; 0x600
+
+    rccrConfig():
+
+       11650:	6153      	str	r3, [r2, #20]
+
+       11652:	6911      	ldr	r1, [r2, #16]
+
+       11654:	4299      	cmp	r1, r3
+
+       11656:	d1fb      	bne.n	11650 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x18c>
+
+    configurPll():
+
+       11658:	4b57      	ldr	r3, [pc, #348]	; (117b8 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2f4>)
+
+       1165a:	4858      	ldr	r0, [pc, #352]	; (117bc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x2f8>)
+
+       1165c:	2500      	movs	r5, #0
+
+    enablePeripheralClocks():
+
+       1165e:	f04f 4140 	mov.w	r1, #3221225472	; 0xc0000000
+
+    configurPll():
+
+       11662:	6215      	str	r5, [r2, #32]
+
+    enablePeripheralClocks():
+
+       11664:	f04f 64c0 	mov.w	r4, #100663296	; 0x6000000
+
+    configurPll():
+
+       11668:	22a3      	movs	r2, #163	; 0xa3
+
+       1166a:	61c2      	str	r2, [r0, #28]
+
+    enablePeripheralClocks():
+
+       1166c:	f8c3 1080 	str.w	r1, [r3, #128]	; 0x80
+
+       11670:	f8c3 1084 	str.w	r1, [r3, #132]	; 0x84
+
+       11674:	f8c3 1090 	str.w	r1, [r3, #144]	; 0x90
+
+       11678:	f8c3 1094 	str.w	r1, [r3, #148]	; 0x94
+
+       1167c:	f8c3 4098 	str.w	r4, [r3, #152]	; 0x98
+
+       11680:	f8d3 2098 	ldr.w	r2, [r3, #152]	; 0x98
+
+       11684:	f04f 7040 	mov.w	r0, #50331648	; 0x3000000
+
+       11688:	430a      	orrs	r2, r1
+
+       1168a:	f8c3 2098 	str.w	r2, [r3, #152]	; 0x98
+
+       1168e:	f8c3 009c 	str.w	r0, [r3, #156]	; 0x9c
+
+       11692:	f8d3 209c 	ldr.w	r2, [r3, #156]	; 0x9c
+
+       11696:	430a      	orrs	r2, r1
+
+       11698:	f8c3 209c 	str.w	r2, [r3, #156]	; 0x9c
+
+       1169c:	f8c3 10ac 	str.w	r1, [r3, #172]	; 0xac
+
+       116a0:	f8c3 00b0 	str.w	r0, [r3, #176]	; 0xb0
+
+       116a4:	f8d3 20b0 	ldr.w	r2, [r3, #176]	; 0xb0
+
+       116a8:	430a      	orrs	r2, r1
+
+       116aa:	f8c3 20b0 	str.w	r2, [r3, #176]	; 0xb0
+
+       116ae:	f8c3 00b4 	str.w	r0, [r3, #180]	; 0xb4
+
+       116b2:	f8d3 20b4 	ldr.w	r2, [r3, #180]	; 0xb4
+
+       116b6:	430a      	orrs	r2, r1
+
+       116b8:	f8c3 20b4 	str.w	r2, [r3, #180]	; 0xb4
+
+       116bc:	f8c3 00b8 	str.w	r0, [r3, #184]	; 0xb8
+
+       116c0:	f8d3 20b8 	ldr.w	r2, [r3, #184]	; 0xb8
+
+       116c4:	430a      	orrs	r2, r1
+
+       116c6:	f8c3 20b8 	str.w	r2, [r3, #184]	; 0xb8
+
+       116ca:	f04f 7200 	mov.w	r2, #33554432	; 0x2000000
+
+       116ce:	f8c3 10c4 	str.w	r1, [r3, #196]	; 0xc4
+
+       116d2:	f8c3 10c8 	str.w	r1, [r3, #200]	; 0xc8
+
+       116d6:	f8c3 10d8 	str.w	r1, [r3, #216]	; 0xd8
+
+       116da:	f8c3 20dc 	str.w	r2, [r3, #220]	; 0xdc
+
+       116de:	f8d3 20dc 	ldr.w	r2, [r3, #220]	; 0xdc
+
+       116e2:	430a      	orrs	r2, r1
+
+       116e4:	f8c3 20dc 	str.w	r2, [r3, #220]	; 0xdc
+
+       116e8:	f04f 7280 	mov.w	r2, #16777216	; 0x1000000
+
+       116ec:	f8c3 20e0 	str.w	r2, [r3, #224]	; 0xe0
+
+       116f0:	f8d3 50e0 	ldr.w	r5, [r3, #224]	; 0xe0
+
+       116f4:	430d      	orrs	r5, r1
+
+       116f6:	f8c3 50e0 	str.w	r5, [r3, #224]	; 0xe0
+
+       116fa:	f8c3 40e4 	str.w	r4, [r3, #228]	; 0xe4
+
+       116fe:	f8d3 50e4 	ldr.w	r5, [r3, #228]	; 0xe4
+
+       11702:	430d      	orrs	r5, r1
+
+       11704:	f8c3 50e4 	str.w	r5, [r3, #228]	; 0xe4
+
+       11708:	f8c3 20e8 	str.w	r2, [r3, #232]	; 0xe8
+
+       1170c:	f8d3 50e8 	ldr.w	r5, [r3, #232]	; 0xe8
+
+       11710:	430d      	orrs	r5, r1
+
+       11712:	f8c3 50e8 	str.w	r5, [r3, #232]	; 0xe8
+
+       11716:	f8c3 00ec 	str.w	r0, [r3, #236]	; 0xec
+
+       1171a:	f8d3 50ec 	ldr.w	r5, [r3, #236]	; 0xec
+
+       1171e:	430d      	orrs	r5, r1
+
+       11720:	f8c3 50ec 	str.w	r5, [r3, #236]	; 0xec
+
+       11724:	f8c3 10f4 	str.w	r1, [r3, #244]	; 0xf4
+
+       11728:	f8c3 2100 	str.w	r2, [r3, #256]	; 0x100
+
+       1172c:	f8d3 5100 	ldr.w	r5, [r3, #256]	; 0x100
+
+       11730:	430d      	orrs	r5, r1
+
+       11732:	f8c3 5100 	str.w	r5, [r3, #256]	; 0x100
+
+       11736:	f8c3 1124 	str.w	r1, [r3, #292]	; 0x124
+
+       1173a:	f8c3 1128 	str.w	r1, [r3, #296]	; 0x128
+
+       1173e:	f8c3 112c 	str.w	r1, [r3, #300]	; 0x12c
+
+       11742:	f8c3 1130 	str.w	r1, [r3, #304]	; 0x130
+
+       11746:	f8c3 1134 	str.w	r1, [r3, #308]	; 0x134
+
+       1174a:	f8c3 2168 	str.w	r2, [r3, #360]	; 0x168
+
+       1174e:	f8d3 5168 	ldr.w	r5, [r3, #360]	; 0x168
+
+       11752:	430d      	orrs	r5, r1
+
+       11754:	f8c3 5168 	str.w	r5, [r3, #360]	; 0x168
+
+       11758:	f8c3 1184 	str.w	r1, [r3, #388]	; 0x184
+
+       1175c:	f8c3 2198 	str.w	r2, [r3, #408]	; 0x198
+
+       11760:	f8d3 5198 	ldr.w	r5, [r3, #408]	; 0x198
+
+       11764:	430d      	orrs	r5, r1
+
+       11766:	f8c3 5198 	str.w	r5, [r3, #408]	; 0x198
+
+       1176a:	f8c3 21a8 	str.w	r2, [r3, #424]	; 0x1a8
+
+       1176e:	f8d3 51a8 	ldr.w	r5, [r3, #424]	; 0x1a8
+
+       11772:	430d      	orrs	r5, r1
+
+       11774:	f8c3 51a8 	str.w	r5, [r3, #424]	; 0x1a8
+
+       11778:	f8c3 01ac 	str.w	r0, [r3, #428]	; 0x1ac
+
+       1177c:	f8d3 51ac 	ldr.w	r5, [r3, #428]	; 0x1ac
+
+       11780:	430d      	orrs	r5, r1
+
+       11782:	f8c3 51ac 	str.w	r5, [r3, #428]	; 0x1ac
+
+       11786:	f8c3 01b0 	str.w	r0, [r3, #432]	; 0x1b0
+
+       1178a:	f8d3 01b0 	ldr.w	r0, [r3, #432]	; 0x1b0
+
+       1178e:	4308      	orrs	r0, r1
+
+       11790:	f8c3 01b0 	str.w	r0, [r3, #432]	; 0x1b0
+
+       11794:	f8c3 41b8 	str.w	r4, [r3, #440]	; 0x1b8
+
+       11798:	f8d3 01b8 	ldr.w	r0, [r3, #440]	; 0x1b8
+
+       1179c:	4308      	orrs	r0, r1
+
+       1179e:	f8c3 01b8 	str.w	r0, [r3, #440]	; 0x1b8
+
+       117a2:	f8c3 21bc 	str.w	r2, [r3, #444]	; 0x1bc
+
+       117a6:	f8d3 21bc 	ldr.w	r2, [r3, #444]	; 0x1bc
+
+       117aa:	430a      	orrs	r2, r1
+
+       117ac:	f8c3 21bc 	str.w	r2, [r3, #444]	; 0x1bc
+
+    configurPll():
+
+       117b0:	bc30      	pop	{r4, r5}
+
+    enablePeripheralClocks():
+
+       117b2:	f8c3 11cc 	str.w	r1, [r3, #460]	; 0x1cc
+
+    configurPll():
+
+       117b6:	4770      	bx	lr
+
+       117b8:	40065000 	.word	0x40065000
+
+       117bc:	4007f000 	.word	0x4007f000
+
+       117c0:	40064000 	.word	0x40064000
+
+       117c4:	04000001 	.word	0x04000001
+
+       117c8:	06010012 	.word	0x06010012
+
+       117cc:	f8c3 1200 	str.w	r1, [r3, #512]	; 0x200
+
+    sircStop():
+
+       117d0:	f8d3 2200 	ldr.w	r2, [r3, #512]	; 0x200
+
+       117d4:	07d2      	lsls	r2, r2, #31
+
+       117d6:	d4f9      	bmi.n	117cc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x308>
+
+    configurPll():
+
+       117d8:	2001      	movs	r0, #1
+
+    sircConfig():
+
+       117da:	f240 1101 	movw	r1, #257	; 0x101
+
+    configurPll():
+
+       117de:	4a26      	ldr	r2, [pc, #152]	; (11878 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b4>)
+
+    sircConfig():
+
+       117e0:	f8c3 0208 	str.w	r0, [r3, #520]	; 0x208
+
+       117e4:	f8c3 1204 	str.w	r1, [r3, #516]	; 0x204
+
+    sircStart():
+
+       117e8:	f8d2 3200 	ldr.w	r3, [r2, #512]	; 0x200
+
+       117ec:	f043 0301 	orr.w	r3, r3, #1
+
+       117f0:	f8c2 3200 	str.w	r3, [r2, #512]	; 0x200
+
+       117f4:	f8d2 3200 	ldr.w	r3, [r2, #512]	; 0x200
+
+       117f8:	01dd      	lsls	r5, r3, #7
+
+       117fa:	d5f5      	bpl.n	117e8 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x324>
+
+    configurPll():
+
+       117fc:	4b1e      	ldr	r3, [pc, #120]	; (11878 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b4>)
+
+    sircSysClk():
+
+       117fe:	4a1f      	ldr	r2, [pc, #124]	; (1187c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b8>)
+
+       11800:	615a      	str	r2, [r3, #20]
+
+       11802:	6919      	ldr	r1, [r3, #16]
+
+       11804:	4291      	cmp	r1, r2
+
+       11806:	d1fb      	bne.n	11800 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x33c>
+
+       11808:	f04f 22e0 	mov.w	r2, #3758153728	; 0xe000e000
+
+       1180c:	f641 713f 	movw	r1, #7999	; 0x1f3f
+
+       11810:	6151      	str	r1, [r2, #20]
+
+    isFircSysClk():
+
+       11812:	f8d3 0300 	ldr.w	r0, [r3, #768]	; 0x300
+
+    configurPll():
+
+       11816:	f010 7000 	ands.w	r0, r0, #33554432	; 0x2000000
+
+       1181a:	f47f aec8 	bne.w	115ae <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xea>
+
+       1181e:	4916      	ldr	r1, [pc, #88]	; (11878 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b4>)
+
+    fircStop():
+
+       11820:	f04f 6280 	mov.w	r2, #67108864	; 0x4000000
+
+       11824:	f8c1 2300 	str.w	r2, [r1, #768]	; 0x300
+
+       11828:	f8d1 3300 	ldr.w	r3, [r1, #768]	; 0x300
+
+       1182c:	f013 0301 	ands.w	r3, r3, #1
+
+       11830:	d1f8      	bne.n	11824 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x360>
+
+    configurPll():
+
+       11832:	f240 1401 	movw	r4, #257	; 0x101
+
+    fircConfig():
+
+       11836:	f8c1 3308 	str.w	r3, [r1, #776]	; 0x308
+
+    configurPll():
+
+       1183a:	4a0f      	ldr	r2, [pc, #60]	; (11878 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b4>)
+
+    fircConfig():
+
+       1183c:	f8c1 4304 	str.w	r4, [r1, #772]	; 0x304
+
+    fircStart():
+
+       11840:	490f      	ldr	r1, [pc, #60]	; (11880 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3bc>)
+
+       11842:	f8d2 3300 	ldr.w	r3, [r2, #768]	; 0x300
+
+       11846:	430b      	orrs	r3, r1
+
+       11848:	f8c2 3300 	str.w	r3, [r2, #768]	; 0x300
+
+       1184c:	f8d2 3300 	ldr.w	r3, [r2, #768]	; 0x300
+
+       11850:	01dc      	lsls	r4, r3, #7
+
+       11852:	d5f6      	bpl.n	11842 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x37e>
+
+    configurPll():
+
+       11854:	4a08      	ldr	r2, [pc, #32]	; (11878 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3b4>)
+
+    fircSysClk():
+
+       11856:	4b0b      	ldr	r3, [pc, #44]	; (11884 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c0>)
+
+       11858:	6153      	str	r3, [r2, #20]
+
+       1185a:	6911      	ldr	r1, [r2, #16]
+
+       1185c:	4299      	cmp	r1, r3
+
+       1185e:	d1fb      	bne.n	11858 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x394>
+
+       11860:	f04f 23e0 	mov.w	r3, #3758153728	; 0xe000e000
+
+       11864:	f64b 327f 	movw	r2, #47999	; 0xbb7f
+
+       11868:	615a      	str	r2, [r3, #20]
+
+    configurPll():
+
+       1186a:	2800      	cmp	r0, #0
+
+       1186c:	f47f ae85 	bne.w	1157a <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xb6>
+
+       11870:	e69d      	b.n	115ae <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xea>
+
+       11872:	2001      	movs	r0, #1
+
+       11874:	e7d3      	b.n	1181e <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x35a>
+
+       11876:	bf00      	nop
+
+       11878:	40064000 	.word	0x40064000
+
+       1187c:	02000001 	.word	0x02000001
+
+       11880:	04000001 	.word	0x04000001
+
+       11884:	03000001 	.word	0x03000001
+
+    </pre>
+
+    
+    <pre><a href="../../../bspCore/src/cache/cache.cpp/c892cc265c66bdad73f8e6821a8c38e4.html">cacheEnable (16)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

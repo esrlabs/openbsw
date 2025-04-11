@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../PrintfFormatScanner.cpp.html">PrintfFormatScanner.cpp</a>:48
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::PrintfFormatScanner::scanParam()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a8c0</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>76</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="./ccd636cd5a0dc4c7046a42f9280eacca.html">util::format::PrintfFormatScanner::PrintfFormatScanner(char const*) (88)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./e3061f747afadd1732a6fb9ae6054c32.html">util::format::PrintfFormatScanner::nextToken() (52)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=500
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./60b9b17810bbfc7fe2e3978b7b2653f5.html">util::format::PrintfFormatScanner::scanParamFlags() (88)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./b8bf1950bdffb3bc5143b17a7c09fc3d.html">util::format::PrintfFormatScanner::scanWidthOrPrecision() (68)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./a3001d5a19592198f088061933967d7c.html">util::format::PrintfFormatScanner::scanParamLength() (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char) (284)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char) (284)</a></pre>
+    
+
+    <pre>
+
+    util::format::PrintfFormatScanner::scanParam():
+
+        a8c0:	6843      	ldr	r3, [r0, #4]
+
+        a8c2:	2101      	movs	r1, #1
+
+        a8c4:	b510      	push	{r4, lr}
+
+        a8c6:	2200      	movs	r2, #0
+
+        a8c8:	6003      	str	r3, [r0, #0]
+
+        a8ca:	440b      	add	r3, r1
+
+        a8cc:	7342      	strb	r2, [r0, #13]
+
+        a8ce:	6043      	str	r3, [r0, #4]
+
+        a8d0:	7201      	strb	r1, [r0, #8]
+
+        a8d2:	f7ff ff1d 	bl	a710 <<a href="./60b9b17810bbfc7fe2e3978b7b2653f5.html">util::format::PrintfFormatScanner::scanParamFlags()</a>>
+
+        a8d6:	4604      	mov	r4, r0
+
+        a8d8:	f7ff fef8 	bl	a6cc <<a href="./b8bf1950bdffb3bc5143b17a7c09fc3d.html">util::format::PrintfFormatScanner::scanWidthOrPrecision()</a>>
+
+        a8dc:	6863      	ldr	r3, [r4, #4]
+
+        a8de:	6120      	str	r0, [r4, #16]
+
+        a8e0:	781a      	ldrb	r2, [r3, #0]
+
+        a8e2:	2a2e      	cmp	r2, #46	; 0x2e
+
+        a8e4:	d00b      	beq.n	a8fe <<a href="./962f55895db2c42f69d95be4d514171b.html">util::format::PrintfFormatScanner::scanParam()</a>+0x3e>
+
+        a8e6:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
+
+        a8ea:	6163      	str	r3, [r4, #20]
+
+        a8ec:	4620      	mov	r0, r4
+
+        a8ee:	f7ff ff3b 	bl	a768 <<a href="./a3001d5a19592198f088061933967d7c.html">util::format::PrintfFormatScanner::scanParamLength()</a>>
+
+        a8f2:	4601      	mov	r1, r0
+
+        a8f4:	4620      	mov	r0, r4
+
+        a8f6:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        a8fa:	f7ff bf53 	b.w	a7a4 <<a href="./23f387646d39cd3624c36b932f3cebba.html">util::format::PrintfFormatScanner::scanParamFormatSpecifier(unsigned char)</a>>
+
+        a8fe:	3301      	adds	r3, #1
+
+        a900:	6063      	str	r3, [r4, #4]
+
+        a902:	4620      	mov	r0, r4
+
+        a904:	f7ff fee2 	bl	a6cc <<a href="./b8bf1950bdffb3bc5143b17a7c09fc3d.html">util::format::PrintfFormatScanner::scanWidthOrPrecision()</a>>
+
+        a908:	6160      	str	r0, [r4, #20]
+
+        a90a:	e7ef      	b.n	a8ec <<a href="./962f55895db2c42f69d95be4d514171b.html">util::format::PrintfFormatScanner::scanParam()</a>+0x2c>
+
+    </pre>
+
+    
+    <pre><a href="./e3061f747afadd1732a6fb9ae6054c32.html">util::format::PrintfFormatScanner::nextToken() (52)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../../../canflex2Transceiver.html">canflex2Transceiver</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../can.html">can</a></li>
+        
+        <li><a href="../../../transceiver.html">transceiver</a></li>
+        
+        <li ><a href="../../canflex2.html">canflex2</a>
+            </li>
+
+        
+        <li class="active"><a href="../CanFlex2Transceiver.cpp.html">CanFlex2Transceiver.cpp</a>:243
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::CanFlex2Transceiver::open()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00010114</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>104</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/systems/CanSystem.cpp/c8aeefa6b106453e995765444f89f55b.html">systems::CanSystem::run() (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../../../unknown/unknown/56fe0bb89ce39be7615e72105acac378.html">non-virtual thunk to systems::CanSystem::run() (36)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=212
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../bspFlexCan/src/can/FlexCANDevice.cpp/47957dd6917c7f67d5ab2cace17fe52d.html">bios::FlexCANDevice::start() (80)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Async.cpp/f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./5695fe265719d8b622e65b37de20fc5d.html">bios::CanFlex2Transceiver::init() (92)</a></pre>
+    
+
+    <pre>
+
+    bios::CanFlex2Transceiver::open():
+
+       10114:	b530      	push	{r4, r5, lr}
+
+       10116:	f890 311c 	ldrb.w	r3, [r0, #284]	; 0x11c
+
+       1011a:	2b01      	cmp	r3, #1
+
+       1011c:	b083      	sub	sp, #12
+
+       1011e:	d821      	bhi.n	10164 <<a href="./d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open()</a>+0x50>
+
+       10120:	4604      	mov	r4, r0
+
+       10122:	f500 7096 	add.w	r0, r0, #300	; 0x12c
+
+       10126:	f000 fe27 	bl	10d78 <<a href="../../../../../../bspFlexCan/src/can/FlexCANDevice.cpp/47957dd6917c7f67d5ab2cace17fe52d.html">bios::FlexCANDevice::start()</a>>
+
+       1012a:	4605      	mov	r5, r0
+
+       1012c:	b9d0      	cbnz	r0, 10164 <<a href="./d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open()</a>+0x50>
+
+    _ZN4bios13FlexCANDevice6getPhyEv():
+
+       1012e:	f8d4 0130 	ldr.w	r0, [r4, #304]	; 0x130
+
+       10132:	4a11      	ldr	r2, [pc, #68]	; (10178 <<a href="./d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open()</a>+0x64>)
+
+    bios::CanFlex2Transceiver::open():
+
+       10134:	6803      	ldr	r3, [r0, #0]
+
+       10136:	685b      	ldr	r3, [r3, #4]
+
+       10138:	4293      	cmp	r3, r2
+
+       1013a:	d117      	bne.n	1016c <<a href="./d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open()</a>+0x58>
+
+    bios::CanPhyDummy::setMode(bios::CanPhy::Mode, unsigned long):
+
+       1013c:	2302      	movs	r3, #2
+
+       1013e:	7103      	strb	r3, [r0, #4]
+
+    bios::CanFlex2Transceiver::open():
+
+       10140:	2203      	movs	r2, #3
+
+       10142:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+
+       10146:	f884 211c 	strb.w	r2, [r4, #284]	; 0x11c
+
+       1014a:	9300      	str	r3, [sp, #0]
+
+       1014c:	f894 0446 	ldrb.w	r0, [r4, #1094]	; 0x446
+
+       10150:	230a      	movs	r3, #10
+
+       10152:	f504 628b 	add.w	r2, r4, #1112	; 0x458
+
+       10156:	f504 6189 	add.w	r1, r4, #1096	; 0x448
+
+       1015a:	f7f9 fc49 	bl	99f0 <<a href="../../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Async.cpp/f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+       1015e:	4628      	mov	r0, r5
+
+       10160:	b003      	add	sp, #12
+
+       10162:	bd30      	pop	{r4, r5, pc}
+
+       10164:	2504      	movs	r5, #4
+
+       10166:	4628      	mov	r0, r5
+
+       10168:	b003      	add	sp, #12
+
+       1016a:	bd30      	pop	{r4, r5, pc}
+
+       1016c:	f8d4 2128 	ldr.w	r2, [r4, #296]	; 0x128
+
+       10170:	2102      	movs	r1, #2
+
+       10172:	6952      	ldr	r2, [r2, #20]
+
+       10174:	4798      	blx	r3
+
+       10176:	e7e3      	b.n	10140 <<a href="./d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open()</a>+0x2c>
+
+       10178:	0000ff89 	.word	0x0000ff89
+
+    </pre>
+
+    
+    <pre><a href="./1090fa8356bc7a6bb4a390b77f2be1ab.html">bios::CanFlex2Transceiver::close() (100)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

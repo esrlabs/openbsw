@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../services.html">services</a></li>
+        
+        <li ><a href="../../sessioncontrol.html">sessioncontrol</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagnosticSessionControl.cpp.html">DiagnosticSessionControl.cpp</a>:333
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagnosticSessionControl::sessionRead(unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000e8d4</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>64</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=100
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/c0f75617ea8910ea2368bdb98cfb70d9.html">uds::DiagSession::APPLICATION_DEFAULT_SESSION() (44)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./9d86a388e5efc7491b1adb4fdf5952b7.html">uds::DiagnosticSessionControl::process(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short) (228)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagnosticSessionControl::sessionRead(unsigned char):
+
+        e8d4:	b538      	push	{r3, r4, r5, lr}
+
+    _ZNK3uds11DiagSession14getSessionByteEv():
+
+        e8d6:	6bc2      	ldr	r2, [r0, #60]	; 0x3c
+
+    uds::DiagnosticSessionControl::sessionRead(unsigned char):
+
+        e8d8:	4b0b      	ldr	r3, [pc, #44]	; (e908 <<a href="./7074b0233c368f7a2ff25cb75a3377f4.html">uds::DiagnosticSessionControl::sessionRead(unsigned char)</a>+0x34>)
+
+        e8da:	7912      	ldrb	r2, [r2, #4]
+
+        e8dc:	490b      	ldr	r1, [pc, #44]	; (e90c <<a href="./7074b0233c368f7a2ff25cb75a3377f4.html">uds::DiagnosticSessionControl::sessionRead(unsigned char)</a>+0x38>)
+
+        e8de:	4604      	mov	r4, r0
+
+        e8e0:	7818      	ldrb	r0, [r3, #0]
+
+        e8e2:	f7f2 ff57 	bl	1794 <<a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        e8e6:	6823      	ldr	r3, [r4, #0]
+
+        e8e8:	6c9d      	ldr	r5, [r3, #72]	; 0x48
+
+        e8ea:	f7fd f8c3 	bl	ba74 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/c0f75617ea8910ea2368bdb98cfb70d9.html">uds::DiagSession::APPLICATION_DEFAULT_SESSION()</a>>
+
+        e8ee:	4601      	mov	r1, r0
+
+        e8f0:	4620      	mov	r0, r4
+
+        e8f2:	47a8      	blx	r5
+
+    _ZNK4estd8functionIFvvEE9has_valueEv():
+
+        e8f4:	6a63      	ldr	r3, [r4, #36]	; 0x24
+
+    uds::DiagnosticSessionControl::sessionRead(unsigned char):
+
+        e8f6:	4a06      	ldr	r2, [pc, #24]	; (e910 <<a href="./7074b0233c368f7a2ff25cb75a3377f4.html">uds::DiagnosticSessionControl::sessionRead(unsigned char)</a>+0x3c>)
+
+        e8f8:	4293      	cmp	r3, r2
+
+        e8fa:	d001      	beq.n	e900 <<a href="./7074b0233c368f7a2ff25cb75a3377f4.html">uds::DiagnosticSessionControl::sessionRead(unsigned char)</a>+0x2c>
+
+    _ZNK4estd8functionIFvvEEclEv():
+
+        e8fc:	6aa0      	ldr	r0, [r4, #40]	; 0x28
+
+        e8fe:	4798      	blx	r3
+
+    uds::DiagnosticSessionControl::sessionRead(unsigned char):
+
+        e900:	2300      	movs	r3, #0
+
+        e902:	f884 3058 	strb.w	r3, [r4, #88]	; 0x58
+
+        e906:	bd38      	pop	{r3, r4, r5, pc}
+
+        e908:	1ffe0081 	.word	0x1ffe0081
+
+        e90c:	000176a8 	.word	0x000176a8
+
+        e910:	00000c81 	.word	0x00000c81
+
+    </pre>
+
+    
+    <pre><a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&amp;) (240)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

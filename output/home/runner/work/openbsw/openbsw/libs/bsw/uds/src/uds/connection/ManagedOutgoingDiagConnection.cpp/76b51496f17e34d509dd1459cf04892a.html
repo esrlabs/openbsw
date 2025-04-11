@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../ManagedOutgoingDiagConnection.cpp.html">ManagedOutgoingDiagConnection.cpp</a>:111
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000dd0c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>264</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../DiagDispatcher.cpp/7ba11d22d39fda2c3e456e9c34fe1995.html">uds::DiagDispatcher2::processQueue() (124)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=388
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../OutgoingDiagConnection.cpp/712304c520b7d8c5fadbf7a0a13b8ec0.html">uds::OutgoingDiagConnection::setTimeout(unsigned long) (124)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./4d2d449e800e84ee8aa53393bc940339.html">uds::ManagedOutgoingDiagConnection::processResponseQueue() (152)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./4d2d449e800e84ee8aa53393bc940339.html">uds::ManagedOutgoingDiagConnection::processResponseQueue() (12)</a></pre>
+    
+
+    <pre>
+
+    uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        dd0c:	69c3      	ldr	r3, [r0, #28]
+
+        dd0e:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        dd12:	4604      	mov	r4, r0
+
+        dd14:	460e      	mov	r6, r1
+
+        dd16:	4615      	mov	r5, r2
+
+        dd18:	b33b      	cbz	r3, dd6a <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x5e>
+
+    _ZNK4estd5sliceIhLj0EE4dataEv():
+
+        dd1a:	688b      	ldr	r3, [r1, #8]
+
+    uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        dd1c:	781a      	ldrb	r2, [r3, #0]
+
+        dd1e:	2a7f      	cmp	r2, #127	; 0x7f
+
+        dd20:	d02e      	beq.n	dd80 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x74>
+
+        dd22:	8b23      	ldrh	r3, [r4, #24]
+
+        dd24:	2bdf      	cmp	r3, #223	; 0xdf
+
+        dd26:	d057      	beq.n	ddd8 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xcc>
+
+        dd28:	f8d4 3080 	ldr.w	r3, [r4, #128]	; 0x80
+
+        dd2c:	b16b      	cbz	r3, dd4a <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x3e>
+
+        dd2e:	6819      	ldr	r1, [r3, #0]
+
+    _ZNK4estd5dequeIN9transport12TransportJobEE4sizeEv():
+
+        dd30:	684a      	ldr	r2, [r1, #4]
+
+        dd32:	68cf      	ldr	r7, [r1, #12]
+
+        dd34:	6888      	ldr	r0, [r1, #8]
+
+        dd36:	19d3      	adds	r3, r2, r7
+
+        dd38:	3301      	adds	r3, #1
+
+        dd3a:	1a1b      	subs	r3, r3, r0
+
+    _ZNK4estd5dequeIN9transport12TransportJobEE8max_sizeEv():
+
+        dd3c:	1e50      	subs	r0, r2, #1
+
+    _ZNK4estd5dequeIN9transport12TransportJobEE4sizeEv():
+
+        dd3e:	fbb3 fcf2 	udiv	ip, r3, r2
+
+        dd42:	fb02 331c 	mls	r3, r2, ip, r3
+
+    uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        dd46:	4283      	cmp	r3, r0
+
+        dd48:	d131      	bne.n	ddae <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xa2>
+
+        dd4a:	492e      	ldr	r1, [pc, #184]	; (de04 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xf8>)
+
+        dd4c:	8b23      	ldrh	r3, [r4, #24]
+
+        dd4e:	7808      	ldrb	r0, [r1, #0]
+
+        dd50:	8ae2      	ldrh	r2, [r4, #22]
+
+        dd52:	492d      	ldr	r1, [pc, #180]	; (de08 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xfc>)
+
+        dd54:	f7f5 f806 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        dd58:	b185      	cbz	r5, dd7c <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x70>
+
+        dd5a:	682b      	ldr	r3, [r5, #0]
+
+        dd5c:	4631      	mov	r1, r6
+
+        dd5e:	4628      	mov	r0, r5
+
+        dd60:	681b      	ldr	r3, [r3, #0]
+
+        dd62:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+        dd66:	2204      	movs	r2, #4
+
+        dd68:	4718      	bx	r3
+
+        dd6a:	4926      	ldr	r1, [pc, #152]	; (de04 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xf8>)
+
+        dd6c:	8b03      	ldrh	r3, [r0, #24]
+
+        dd6e:	8ac2      	ldrh	r2, [r0, #22]
+
+        dd70:	7808      	ldrb	r0, [r1, #0]
+
+        dd72:	4926      	ldr	r1, [pc, #152]	; (de0c <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x100>)
+
+        dd74:	f7f5 f812 	bl	2d9c <<a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...)</a>>
+
+        dd78:	2d00      	cmp	r5, #0
+
+        dd7a:	d1ee      	bne.n	dd5a <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x4e>
+
+        dd7c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        dd80:	789b      	ldrb	r3, [r3, #2]
+
+        dd82:	2b78      	cmp	r3, #120	; 0x78
+
+        dd84:	d1cd      	bne.n	dd22 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x16>
+
+        dd86:	f241 3188 	movw	r1, #5000	; 0x1388
+
+        dd8a:	f000 f971 	bl	e070 <<a href="../OutgoingDiagConnection.cpp/712304c520b7d8c5fadbf7a0a13b8ec0.html">uds::OutgoingDiagConnection::setTimeout(unsigned long)</a>>
+
+        dd8e:	2800      	cmp	r0, #0
+
+        dd90:	d130      	bne.n	ddf4 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xe8>
+
+        dd92:	f894 3073 	ldrb.w	r3, [r4, #115]	; 0x73
+
+        dd96:	2b00      	cmp	r3, #0
+
+        dd98:	d0c6      	beq.n	dd28 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x1c>
+
+        dd9a:	2d00      	cmp	r5, #0
+
+        dd9c:	d0ee      	beq.n	dd7c <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x70>
+
+        dd9e:	682b      	ldr	r3, [r5, #0]
+
+        dda0:	4631      	mov	r1, r6
+
+        dda2:	4628      	mov	r0, r5
+
+        dda4:	681b      	ldr	r3, [r3, #0]
+
+        dda6:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+        ddaa:	2200      	movs	r2, #0
+
+        ddac:	4718      	bx	r3
+
+    _ZN4estd5dequeIN9transport12TransportJobEE9push_backEv():
+
+        ddae:	3701      	adds	r7, #1
+
+    _ZN4estd11constructorIN9transport12TransportJobEEC4EPhj():
+
+        ddb0:	680b      	ldr	r3, [r1, #0]
+
+    _ZN4estd5dequeIN9transport12TransportJobEE9push_backEv():
+
+        ddb2:	fbb7 f0f2 	udiv	r0, r7, r2
+
+        ddb6:	fb02 7210 	mls	r2, r2, r0, r7
+
+        ddba:	60ca      	str	r2, [r1, #12]
+
+    _ZN9transport12TransportJob19setTransportMessageERNS_16TransportMessageE():
+
+        ddbc:	f843 6032 	str.w	r6, [r3, r2, lsl #3]
+
+    _ZN4estd11constructorIN9transport12TransportJobEEC4EPhj():
+
+        ddc0:	eb03 02c2 	add.w	r2, r3, r2, lsl #3
+
+    uds::ManagedOutgoingDiagConnection::processResponseQueue():
+
+        ddc4:	f894 3084 	ldrb.w	r3, [r4, #132]	; 0x84
+
+    _ZN9transport12TransportJob20setProcessedListenerEPNS_34ITransportMessageProcessedListenerE():
+
+        ddc8:	6055      	str	r5, [r2, #4]
+
+    uds::ManagedOutgoingDiagConnection::processResponseQueue():
+
+        ddca:	2b00      	cmp	r3, #0
+
+        ddcc:	d1d6      	bne.n	dd7c <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x70>
+
+        ddce:	4620      	mov	r0, r4
+
+    uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ddd0:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+    uds::ManagedOutgoingDiagConnection::processResponseQueue():
+
+        ddd4:	f7ff beaa 	b.w	db2c <<a href="./4d2d449e800e84ee8aa53393bc940339.html">uds::ManagedOutgoingDiagConnection::processResponseQueue()</a>.part.0>
+
+    uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+        ddd8:	6fa1      	ldr	r1, [r4, #120]	; 0x78
+
+        ddda:	4620      	mov	r0, r4
+
+        dddc:	f000 f948 	bl	e070 <<a href="../OutgoingDiagConnection.cpp/712304c520b7d8c5fadbf7a0a13b8ec0.html">uds::OutgoingDiagConnection::setTimeout(unsigned long)</a>>
+
+        dde0:	2800      	cmp	r0, #0
+
+        dde2:	d0a1      	beq.n	dd28 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x1c>
+
+        dde4:	4a07      	ldr	r2, [pc, #28]	; (de04 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xf8>)
+
+        dde6:	8b23      	ldrh	r3, [r4, #24]
+
+        dde8:	7810      	ldrb	r0, [r2, #0]
+
+        ddea:	4909      	ldr	r1, [pc, #36]	; (de10 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x104>)
+
+        ddec:	8ae2      	ldrh	r2, [r4, #22]
+
+        ddee:	f7f4 ffd5 	bl	2d9c <<a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...)</a>>
+
+        ddf2:	e799      	b.n	dd28 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x1c>
+
+        ddf4:	4a03      	ldr	r2, [pc, #12]	; (de04 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xf8>)
+
+        ddf6:	8b23      	ldrh	r3, [r4, #24]
+
+        ddf8:	7810      	ldrb	r0, [r2, #0]
+
+        ddfa:	4905      	ldr	r1, [pc, #20]	; (de10 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x104>)
+
+        ddfc:	8ae2      	ldrh	r2, [r4, #22]
+
+        ddfe:	f7f4 ffcd 	bl	2d9c <<a href="../../../../../util/include/util/logger/Logger.h/e675253f5bfedd299c26bd0145e28698.html">util::logger::Logger::error(unsigned char, char const*, ...)</a>>
+
+        de02:	e7c6      	b.n	dd92 <<a href="./76b51496f17e34d509dd1459cf04892a.html">uds::ManagedOutgoingDiagConnection::responseReceived(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x86>
+
+        de04:	1ffe0081 	.word	0x1ffe0081
+
+        de08:	0001730c 	.word	0x0001730c
+
+        de0c:	00017364 	.word	0x00017364
+
+        de10:	000173bc 	.word	0x000173bc
+
+    </pre>
+
+    
+    <pre><a href="../NestedDiagRequest.cpp/323b3a3d5552a5c802e746153fd093f7.html">uds::NestedDiagRequest::handleOverflow() (8)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

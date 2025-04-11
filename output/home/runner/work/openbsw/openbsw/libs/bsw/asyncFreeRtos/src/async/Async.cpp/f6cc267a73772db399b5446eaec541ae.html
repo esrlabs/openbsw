@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../asyncFreeRtos.html">asyncFreeRtos</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../async.html">async</a>
+            </li>
+
+        
+        <li class="active"><a href="../Async.cpp.html">Async.cpp</a>:24
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">async::scheduleAtFixedRate(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000099f0</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>132</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (8)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/DoCanSystem.cpp/bcedc3fc313b5c8f64caf6d9e70ef343.html">docan::DoCanSystem::run() (108)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/canflex2Transceiver/src/can/transceiver/canflex2/CanFlex2Transceiver.cpp/d7dff5862f869b799494c5b4075ba335.html">bios::CanFlex2Transceiver::open() (104)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/DemoSystem.cpp/d4151b57e04a0bc6ff45b7e0a3304979.html">systems::DemoSystem::run() (48)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/UdsSystem.cpp/abafbc00643f4a4368242801214f42d4.html">uds::UdsSystem::run() (44)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/RuntimeSystem.cpp/b7e98721fecb558fff551c1b09e8935e.html">systems::RuntimeSystem::run() (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/SysAdminSystem.cpp/457de08ca354cf7cf6479c442a8e4b78.html">systems::SysAdminSystem::run() (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/SafetySystem.cpp/2504851ca85d98354a44ce0fd0adffaf.html">systems::SafetySystem::run() (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/systems/BspSystem.cpp/7a9dcbc237e51c89b845e6a74a235f0a.html">systems::BspSystem::run() (40)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=724
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/e7f55a9d953f32b1317f54c0d66911d5.html">getSystemTimeUs32Bit (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../timer/include/timer/Timer.h/429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer&lt;async::Lock&gt;::addTimeout(timer::Timeout&amp;, unsigned long, unsigned long, unsigned long) (84)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../3rdparty/freeRtos/src/tasks.c/93cf08902933433b019fa92be1247054.html">xTaskGenericNotifyFromISR (316)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../3rdparty/freeRtos/src/tasks.c/5822df0c752554b0290890c533493c1a.html">xTaskGenericNotify (264)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a></pre>
+    
+
+    <pre>
+
+    async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type):
+
+        99f0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        99f4:	6857      	ldr	r7, [r2, #4]
+
+    async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type):
+
+        99f6:	b082      	sub	sp, #8
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        99f8:	2f01      	cmp	r7, #1
+
+    async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type):
+
+        99fa:	9e08      	ldr	r6, [sp, #32]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        99fc:	d002      	beq.n	9a04 <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0x14>
+
+    async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type):
+
+        99fe:	b002      	add	sp, #8
+
+        9a00:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        9a04:	f8df 8068 	ldr.w	r8, [pc, #104]	; 9a70 <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0x80>
+
+        9a08:	6111      	str	r1, [r2, #16]
+
+        9a0a:	fb03 f606 	mul.w	r6, r3, r6
+
+        9a0e:	ebc0 03c0 	rsb	r3, r0, r0, lsl #3
+
+        9a12:	eb08 03c3 	add.w	r3, r8, r3, lsl #3
+
+        9a16:	ebc0 00c0 	rsb	r0, r0, r0, lsl #3
+
+        9a1a:	f893 3034 	ldrb.w	r3, [r3, #52]	; 0x34
+
+        9a1e:	7513      	strb	r3, [r2, #20]
+
+        9a20:	4615      	mov	r5, r2
+
+        9a22:	00c4      	lsls	r4, r0, #3
+
+        9a24:	f008 fdde 	bl	125e4 <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/e7f55a9d953f32b1317f54c0d66911d5.html">getSystemTimeUs32Bit</a>>
+
+    _ZN5timer5TimerIN5async4LockEE9setCyclicERNS_7TimeoutEmm():
+
+        9a28:	9000      	str	r0, [sp, #0]
+
+        9a2a:	1832      	adds	r2, r6, r0
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        9a2c:	f104 001c 	add.w	r0, r4, #28
+
+    _ZN5timer5TimerIN5async4LockEE9setCyclicERNS_7TimeoutEmm():
+
+        9a30:	4633      	mov	r3, r6
+
+        9a32:	4629      	mov	r1, r5
+
+        9a34:	4440      	add	r0, r8
+
+        9a36:	f7ff ff6f 	bl	9918 <<a href="../../../../timer/include/timer/Timer.h/429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>>
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE19scheduleAtFixedRateERNS_9IRunnableERNS_11TimeoutTypeEmNS_8TimeUnit4TypeE():
+
+        9a3a:	2800      	cmp	r0, #0
+
+        9a3c:	d0df      	beq.n	99fe <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0xe>
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE26getHigherPriorityTaskWokenEv():
+
+        9a3e:	4b0b      	ldr	r3, [pc, #44]	; (9a6c <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0x7c>)
+
+    _ZN5async11EventPolicyINS_11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEELj1EE8setEventEv():
+
+        9a40:	4444      	add	r4, r8
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE26getHigherPriorityTaskWokenEv():
+
+        9a42:	681d      	ldr	r5, [r3, #0]
+
+    _ZN5async11EventPolicyINS_11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEELj1EE8setEventEv():
+
+        9a44:	6a23      	ldr	r3, [r4, #32]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE9setEventsEm():
+
+        9a46:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
+
+        9a48:	b13d      	cbz	r5, 9a5a <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0x6a>
+
+        9a4a:	2100      	movs	r1, #0
+
+        9a4c:	e9cd 1500 	strd	r1, r5, [sp]
+
+        9a50:	463b      	mov	r3, r7
+
+        9a52:	2202      	movs	r2, #2
+
+        9a54:	f7ff fabe 	bl	8fd4 <<a href="../../../../../3rdparty/freeRtos/src/tasks.c/93cf08902933433b019fa92be1247054.html">xTaskGenericNotifyFromISR</a>>
+
+        9a58:	e7d1      	b.n	99fe <<a href="./f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>+0xe>
+
+        9a5a:	463b      	mov	r3, r7
+
+        9a5c:	2202      	movs	r2, #2
+
+        9a5e:	4629      	mov	r1, r5
+
+        9a60:	9508      	str	r5, [sp, #32]
+
+    async::scheduleAtFixedRate(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type):
+
+        9a62:	b002      	add	sp, #8
+
+        9a64:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE9setEventsEm():
+
+        9a68:	f7ff ba30 	b.w	8ecc <<a href="../../../../../3rdparty/freeRtos/src/tasks.c/5822df0c752554b0290890c533493c1a.html">xTaskGenericNotify</a>>
+
+        9a6c:	1ffee674 	.word	0x1ffee674
+
+        9a70:	1ffe01a8 	.word	0x1ffe01a8
+
+    </pre>
+
+    
+    <pre><a href="../../../include/async/FreeRtosAdapter.h/b2425fb9d43464786ef792861455bc1b.html">_GLOBAL__sub_I__ZN5async7executeEhRNS_9IRunnableE (32)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

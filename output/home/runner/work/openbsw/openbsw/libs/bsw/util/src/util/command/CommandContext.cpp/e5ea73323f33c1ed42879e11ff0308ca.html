@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommandContext.cpp.html">CommandContext.cpp</a>:139
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000ab58</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>108</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./86c09f214243e4321fa66ee555e51c4b.html">util::command::CommandContext::startOutput(util::stream::ISharedOutputStream::IContinuousUser*) (84)</a></pre>
+    
+
+    <pre>
+
+    util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        ab58:	6883      	ldr	r3, [r0, #8]
+
+        ab5a:	2b00      	cmp	r3, #0
+
+        ab5c:	d02b      	beq.n	abb6 <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x5e>
+
+        ab5e:	b510      	push	{r4, lr}
+
+        ab60:	4604      	mov	r4, r0
+
+        ab62:	4608      	mov	r0, r1
+
+        ab64:	68e1      	ldr	r1, [r4, #12]
+
+        ab66:	b121      	cbz	r1, ab72 <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x1a>
+
+        ab68:	b118      	cbz	r0, ab72 <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x1a>
+
+        ab6a:	6803      	ldr	r3, [r0, #0]
+
+        ab6c:	681b      	ldr	r3, [r3, #0]
+
+        ab6e:	4798      	blx	r3
+
+        ab70:	68a3      	ldr	r3, [r4, #8]
+
+        ab72:	681a      	ldr	r2, [r3, #0]
+
+        ab74:	4812      	ldr	r0, [pc, #72]	; (abc0 <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x68>)
+
+        ab76:	6852      	ldr	r2, [r2, #4]
+
+        ab78:	2100      	movs	r1, #0
+
+        ab7a:	4282      	cmp	r2, r0
+
+        ab7c:	60e1      	str	r1, [r4, #12]
+
+        ab7e:	d116      	bne.n	abae <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x56>
+
+        ab80:	6898      	ldr	r0, [r3, #8]
+
+        ab82:	b198      	cbz	r0, abac <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x54>
+
+        ab84:	6804      	ldr	r4, [r0, #0]
+
+        ab86:	60d9      	str	r1, [r3, #12]
+
+        ab88:	6864      	ldr	r4, [r4, #4]
+
+        ab8a:	4294      	cmp	r4, r2
+
+        ab8c:	d114      	bne.n	abb8 <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x60>
+
+        ab8e:	6883      	ldr	r3, [r0, #8]
+
+        ab90:	b163      	cbz	r3, abac <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x54>
+
+        ab92:	681a      	ldr	r2, [r3, #0]
+
+        ab94:	60c1      	str	r1, [r0, #12]
+
+        ab96:	6852      	ldr	r2, [r2, #4]
+
+        ab98:	42a2      	cmp	r2, r4
+
+        ab9a:	d108      	bne.n	abae <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x56>
+
+        ab9c:	6898      	ldr	r0, [r3, #8]
+
+        ab9e:	b128      	cbz	r0, abac <<a href="./e5ea73323f33c1ed42879e11ff0308ca.html">util::command::CommandContext::endOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x54>
+
+        aba0:	6802      	ldr	r2, [r0, #0]
+
+        aba2:	60d9      	str	r1, [r3, #12]
+
+        aba4:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        aba8:	6853      	ldr	r3, [r2, #4]
+
+        abaa:	4718      	bx	r3
+
+        abac:	bd10      	pop	{r4, pc}
+
+        abae:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        abb2:	4618      	mov	r0, r3
+
+        abb4:	4710      	bx	r2
+
+        abb6:	4770      	bx	lr
+
+        abb8:	4623      	mov	r3, r4
+
+        abba:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+
+        abbe:	4718      	bx	r3
+
+        abc0:	0000ab59 	.word	0x0000ab59
+
+    </pre>
+
+    
+    <pre><a href="./a2e88281f1a7818314a9da4403f6c0d4.html">util::command::CommandContext::CommandContext(util::string::ConstString const&amp;, util::stream::ISharedOutputStream*) (88)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

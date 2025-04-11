@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../Vt100AttributedStringFormatter.cpp.html">Vt100AttributedStringFormatter.cpp</a>:55
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&amp;, unsigned char*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a5b0</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>96</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../loggerIntegration/include/logger/ConsoleEntryFormatter.h/f7bef4ea111af74944d523cabf371e1d.html">logger::ConsoleEntryFormatter&lt;unsigned long, unsigned long&gt;::formatEntry(util::stream::IOutputStream&amp;, unsigned long, unsigned long, util::logger::ComponentInfo const&amp;, util::logger::LevelInfo const&amp;, char const*, util::format::IPrintfArgumentReader&amp;) const (824)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./f6fedb3b53aef99ac20095ce2dca5c68.html">util::format::Vt100AttributedStringFormatter::write(util::format::AttributedString const&amp;) (28)</a></pre>
+    
+
+    <pre>
+
+    _ZNK4util6format16StringAttributes18getForegroundColorEv():
+
+        a5b0:	7803      	ldrb	r3, [r0, #0]
+
+    util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*):
+
+        a5b2:	b530      	push	{r4, r5, lr}
+
+        a5b4:	4684      	mov	ip, r0
+
+        a5b6:	b313      	cbz	r3, a5fe <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x4e>
+
+        a5b8:	4812      	ldr	r0, [pc, #72]	; (a604 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x54>)
+
+        a5ba:	460a      	mov	r2, r1
+
+        a5bc:	5cc3      	ldrb	r3, [r0, r3]
+
+        a5be:	f802 3b01 	strb.w	r3, [r2], #1
+
+    _ZNK4util6format16StringAttributes18getBackgroundColorEv():
+
+        a5c2:	f89c 3002 	ldrb.w	r3, [ip, #2]
+
+    util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*):
+
+        a5c6:	b11b      	cbz	r3, a5d0 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x20>
+
+        a5c8:	480f      	ldr	r0, [pc, #60]	; (a608 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x58>)
+
+        a5ca:	5cc3      	ldrb	r3, [r0, r3]
+
+        a5cc:	f802 3b01 	strb.w	r3, [r2], #1
+
+    _ZNK4util6format16StringAttributes9getFormatEv():
+
+        a5d0:	f89c 4001 	ldrb.w	r4, [ip, #1]
+
+    util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*):
+
+        a5d4:	b184      	cbz	r4, a5f8 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x48>
+
+        a5d6:	4d0d      	ldr	r5, [pc, #52]	; (a60c <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x5c>)
+
+        a5d8:	2300      	movs	r3, #0
+
+        a5da:	2001      	movs	r0, #1
+
+        a5dc:	e001      	b.n	a5e2 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x32>
+
+    _ZNK4util6format16StringAttributes9getFormatEv():
+
+        a5de:	f89c 4001 	ldrb.w	r4, [ip, #1]
+
+    util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*):
+
+        a5e2:	fa00 fe03 	lsl.w	lr, r0, r3
+
+        a5e6:	ea14 0f0e 	tst.w	r4, lr
+
+        a5ea:	bf1c      	itt	ne
+
+        a5ec:	5d5c      	ldrbne	r4, [r3, r5]
+
+        a5ee:	f802 4b01 	strbne.w	r4, [r2], #1
+
+        a5f2:	3301      	adds	r3, #1
+
+        a5f4:	2b06      	cmp	r3, #6
+
+        a5f6:	d1f2      	bne.n	a5de <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x2e>
+
+        a5f8:	1a50      	subs	r0, r2, r1
+
+        a5fa:	b2c0      	uxtb	r0, r0
+
+        a5fc:	bd30      	pop	{r4, r5, pc}
+
+        a5fe:	460a      	mov	r2, r1
+
+        a600:	e7df      	b.n	a5c2 <<a href="./fa6ae0c2969f76aadc01ddc1af3d4e8a.html">util::format::Vt100AttributedStringFormatter::getFormatCodes(util::format::StringAttributes const&, unsigned char*)</a>+0x12>
+
+        a602:	bf00      	nop
+
+        a604:	000168ac 	.word	0x000168ac
+
+        a608:	00016898 	.word	0x00016898
+
+        a60c:	00016890 	.word	0x00016890
+
+    </pre>
+
+    
+    <pre><a href="../StringWriter.cpp/608a21799fb0c463e4cd3beadb74ab09.html">util::format::StringWriter::write(char) (16)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

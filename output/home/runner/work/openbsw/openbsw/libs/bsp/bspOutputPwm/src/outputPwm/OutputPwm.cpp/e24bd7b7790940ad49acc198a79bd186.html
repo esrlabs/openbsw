@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspOutputPwm.html">bspOutputPwm</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../outputPwm.html">outputPwm</a>
+            </li>
+
+        
+        <li class="active"><a href="../OutputPwm.cpp.html">OutputPwm.cpp</a>:30
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00012870</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>92</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../OutputPwmTester.cpp/fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (364)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/systems/DemoSystem.cpp/57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic() (272)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../bspCharInputOutput/src/charInputOutput/charIoSerial.cpp/82ff3f30904ed0923b5ade29ff8df33a.html">SerialLogger__inchar (28)</a></pre>
+    
+
+    <pre>
+
+    bios::OutputPwm::setDuty(unsigned short, unsigned short, bool):
+
+       12870:	b330      	cbz	r0, 128c0 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x50>
+
+       12872:	2803      	cmp	r0, #3
+
+       12874:	d81e      	bhi.n	128b4 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x44>
+
+       12876:	b410      	push	{r4}
+
+       12878:	3801      	subs	r0, #1
+
+    _ZN13dynamicClientItN4bios9OutputPwm17IDynamicPwmClientELl4ELl3ELl0EE14getClientValidEt():
+
+       1287a:	4c12      	ldr	r4, [pc, #72]	; (128c4 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x54>)
+
+       1287c:	b280      	uxth	r0, r0
+
+       1287e:	4613      	mov	r3, r2
+
+       12880:	eb04 0240 	add.w	r2, r4, r0, lsl #1
+
+       12884:	7852      	ldrb	r2, [r2, #1]
+
+       12886:	0912      	lsrs	r2, r2, #4
+
+       12888:	2a0f      	cmp	r2, #15
+
+       1288a:	d015      	beq.n	128b8 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x48>
+
+       1288c:	f834 c010 	ldrh.w	ip, [r4, r0, lsl #1]
+
+       12890:	f640 70ff 	movw	r0, #4095	; 0xfff
+
+       12894:	f3cc 0c0b 	ubfx	ip, ip, #0, #12
+
+       12898:	4584      	cmp	ip, r0
+
+       1289a:	d00d      	beq.n	128b8 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x48>
+
+       1289c:	480a      	ldr	r0, [pc, #40]	; (128c8 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x58>)
+
+       1289e:	f850 0022 	ldr.w	r0, [r0, r2, lsl #2]
+
+       128a2:	b148      	cbz	r0, 128b8 <<a href="./e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>+0x48>
+
+    bios::OutputPwm::setDuty(unsigned short, unsigned short, bool):
+
+       128a4:	6802      	ldr	r2, [r0, #0]
+
+       128a6:	6814      	ldr	r4, [r2, #0]
+
+       128a8:	460a      	mov	r2, r1
+
+       128aa:	4661      	mov	r1, ip
+
+       128ac:	46a4      	mov	ip, r4
+
+       128ae:	f85d 4b04 	ldr.w	r4, [sp], #4
+
+       128b2:	4760      	bx	ip
+
+       128b4:	2001      	movs	r0, #1
+
+       128b6:	4770      	bx	lr
+
+       128b8:	2001      	movs	r0, #1
+
+       128ba:	f85d 4b04 	ldr.w	r4, [sp], #4
+
+       128be:	4770      	bx	lr
+
+       128c0:	4770      	bx	lr
+
+       128c2:	bf00      	nop
+
+       128c4:	1ffee96c 	.word	0x1ffee96c
+
+       128c8:	1ffee92c 	.word	0x1ffee92c
+
+    </pre>
+
+    
+    <pre><a href="./fcab3554d3b587de59cc2df1b5d6f619.html">bios::OutputPwm::setPeriod(unsigned short, unsigned short) (68)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

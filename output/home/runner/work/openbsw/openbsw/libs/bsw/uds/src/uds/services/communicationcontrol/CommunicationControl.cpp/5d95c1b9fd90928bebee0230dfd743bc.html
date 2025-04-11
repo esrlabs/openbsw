@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../services.html">services</a></li>
+        
+        <li ><a href="../../communicationcontrol.html">communicationcontrol</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommunicationControl.cpp.html">CommunicationControl.cpp</a>:34
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000e54c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>44</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../../unknown/unknown/8260210e091f41070ac19e05093c15fa.html">non-virtual thunk to uds::CommunicationControl::addCommunicationStateListener(uds::ICommunicationStateListener&amp;) (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./daae27f950f07545c11941975d3061ce.html">uds::CommunicationControl::addCommunicationStateListener(uds::ICommunicationStateListener&amp;) (4)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./9fa587fc2be314ccc3436b44c8d74cf7.html">uds::CommunicationControl::CommunicationControl(Mask&lt;uds::DiagSession, unsigned char&gt;) (68)</a></pre>
+    
+
+    <pre>
+
+    _ZN4estd12forward_listIN3uds27ICommunicationStateListenerEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        e54c:	684b      	ldr	r3, [r1, #4]
+
+        e54e:	2b01      	cmp	r3, #1
+
+        e550:	d000      	beq.n	e554 <<a href="./5d95c1b9fd90928bebee0230dfd743bc.html">uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&)</a>+0x8>
+
+        e552:	4770      	bx	lr
+
+        e554:	6a43      	ldr	r3, [r0, #36]	; 0x24
+
+    uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&):
+
+        e556:	b410      	push	{r4}
+
+        e558:	1d0c      	adds	r4, r1, #4
+
+    _ZN4estd12forward_listIN3uds27ICommunicationStateListenerEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        e55a:	b153      	cbz	r3, e572 <<a href="./5d95c1b9fd90928bebee0230dfd743bc.html">uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&)</a>+0x26>
+
+    _ZN4estd17forward_list_nodeIN3uds27ICommunicationStateListenerEE8set_nextEPS3_():
+
+        e55c:	2300      	movs	r3, #0
+
+        e55e:	604b      	str	r3, [r1, #4]
+
+    _ZN4estd17forward_list_nodeIN3uds27ICommunicationStateListenerEE4nextEv():
+
+        e560:	6a43      	ldr	r3, [r0, #36]	; 0x24
+
+        e562:	461a      	mov	r2, r3
+
+        e564:	681b      	ldr	r3, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds27ICommunicationStateListenerEE8lastItemEv():
+
+        e566:	2b00      	cmp	r3, #0
+
+        e568:	d1fb      	bne.n	e562 <<a href="./5d95c1b9fd90928bebee0230dfd743bc.html">uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&)</a>+0x16>
+
+    _ZN4estd17forward_list_nodeIN3uds27ICommunicationStateListenerEE8set_nextEPS3_():
+
+        e56a:	6014      	str	r4, [r2, #0]
+
+    uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&):
+
+        e56c:	f85d 4b04 	ldr.w	r4, [sp], #4
+
+        e570:	4770      	bx	lr
+
+    _ZN4estd17forward_list_nodeIN3uds27ICommunicationStateListenerEE8set_nextEPS3_():
+
+        e572:	604b      	str	r3, [r1, #4]
+
+        e574:	6244      	str	r4, [r0, #36]	; 0x24
+
+    _ZN4estd12forward_listIN3uds27ICommunicationStateListenerEE10push_frontERNS_17forward_list_nodeIS2_EE():
+
+        e576:	e7f9      	b.n	e56c <<a href="./5d95c1b9fd90928bebee0230dfd743bc.html">uds::CommunicationControl::addCommunicationStateListener_local(uds::ICommunicationStateListener&)</a>+0x20>
+
+    </pre>
+
+    
+    <pre><a href="./daae27f950f07545c11941975d3061ce.html">uds::CommunicationControl::addCommunicationStateListener(uds::ICommunicationStateListener&amp;) (4)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

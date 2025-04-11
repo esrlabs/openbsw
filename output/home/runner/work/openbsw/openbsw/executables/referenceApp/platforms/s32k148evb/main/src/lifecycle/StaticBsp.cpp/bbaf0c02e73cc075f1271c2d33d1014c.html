@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../../main.html">main</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../lifecycle.html">lifecycle</a>
+            </li>
+
+        
+        <li class="active"><a href="../StaticBsp.cpp.html">StaticBsp.cpp</a>:46
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">StaticBsp::hwInit()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00007ed4</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>208</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./f42c098a5d902487276fda6a241ec854.html">StaticBsp::init() (24)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (8,
+                            <span title="sum of used bytes by all callees">
+                            Σ=1192
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/5e5ad08421198791e5741a8fb005bdfb.html">initSystemTimerHelper (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../libs/bsp/bspOutputManager/src/outputManager/Output.cpp/1ce5d16925d94ced789eb0e6fd7f893c.html">bios::Output::init(unsigned char, bool) (108)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInput.cpp/7a097eef37bc2011fc9703d5630f4de8.html">bios::DigitalInput::init(unsigned char, bool) (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/35425094d4e9dc32f9e47f58106b4135.html">sysDelayUs (128)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bspConfiguration/src/bsp/adc/AnalogInput.cpp/e25ac7183b719446a35efa6d9002a69e.html">bios::AnalogInput::init() (268)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bspConfiguration/src/bsp/adc/AnalogInput.cpp/f9ba954667950579ad25dae7689b4527.html">bios::AnalogInput::start() (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bspConfiguration/src/bsp/io/outputPwm/PwmSupport.cpp/a62878f1512e9bcda8d1359803735beb.html">bios::PwmSupport::init() (300)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../bspConfiguration/src/bsp/io/outputPwm/PwmSupport.cpp/94a05f78912d5444a12d8fa34c10899f.html">bios::PwmSupport::start() (264)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./568defa6d3c5321bae4f8323c975656b.html">StaticBsp::StaticBsp() (76)</a></pre>
+    
+
+    <pre>
+
+    StaticBsp::hwInit():
+
+        7ed4:	b530      	push	{r4, r5, lr}
+
+        7ed6:	4604      	mov	r4, r0
+
+        7ed8:	b083      	sub	sp, #12
+
+        7eda:	2000      	movs	r0, #0
+
+        7edc:	f00a faf6 	bl	124cc <<a href="../../../../bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/5e5ad08421198791e5741a8fb005bdfb.html">initSystemTimerHelper</a>>
+
+        7ee0:	1d60      	adds	r0, r4, #5
+
+        7ee2:	2201      	movs	r2, #1
+
+        7ee4:	2100      	movs	r1, #0
+
+        7ee6:	f009 f9af 	bl	11248 <<a href="../../../../../../../../libs/bsp/bspOutputManager/src/outputManager/Output.cpp/1ce5d16925d94ced789eb0e6fd7f893c.html">bios::Output::init(unsigned char, bool)</a>>
+
+        7eea:	2201      	movs	r2, #1
+
+        7eec:	2100      	movs	r1, #0
+
+        7eee:	1da0      	adds	r0, r4, #6
+
+        7ef0:	f009 f8d4 	bl	1109c <<a href="../../../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInput.cpp/7a097eef37bc2011fc9703d5630f4de8.html">bios::DigitalInput::init(unsigned char, bool)</a>>
+
+        7ef4:	f104 0540 	add.w	r5, r4, #64	; 0x40
+
+        7ef8:	2096      	movs	r0, #150	; 0x96
+
+        7efa:	f00a fbb7 	bl	1266c <<a href="../../../../bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/35425094d4e9dc32f9e47f58106b4135.html">sysDelayUs</a>>
+
+        7efe:	4628      	mov	r0, r5
+
+        7f00:	f009 ffc2 	bl	11e88 <<a href="../../../../bspConfiguration/src/bsp/adc/AnalogInput.cpp/e25ac7183b719446a35efa6d9002a69e.html">bios::AnalogInput::init()</a>>
+
+        7f04:	4628      	mov	r0, r5
+
+        7f06:	f00a f845 	bl	11f94 <<a href="../../../../bspConfiguration/src/bsp/adc/AnalogInput.cpp/f9ba954667950579ad25dae7689b4527.html">bios::AnalogInput::start()</a>>
+
+    _ZN4bios3FtmILh8EE4initEPKNS1_17tFtmConfigurationEb():
+
+        7f0a:	6923      	ldr	r3, [r4, #16]
+
+        7f0c:	4824      	ldr	r0, [pc, #144]	; (7fa0 <<a href="./bbaf0c02e73cc075f1271c2d33d1014c.html">StaticBsp::hwInit()</a>+0xcc>)
+
+        7f0e:	6d59      	ldr	r1, [r3, #84]	; 0x54
+
+        7f10:	6160      	str	r0, [r4, #20]
+
+        7f12:	2504      	movs	r5, #4
+
+        7f14:	4329      	orrs	r1, r5
+
+        7f16:	6559      	str	r1, [r3, #84]	; 0x54
+
+        7f18:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+
+        7f1c:	64d9      	str	r1, [r3, #76]	; 0x4c
+
+        7f1e:	2200      	movs	r2, #0
+
+        7f20:	f640 31b7 	movw	r1, #2999	; 0xbb7
+
+        7f24:	6099      	str	r1, [r3, #8]
+
+    StaticBsp::hwInit():
+
+        7f26:	f104 0018 	add.w	r0, r4, #24
+
+    _ZN4bios3FtmILh8EE4initEPKNS1_17tFtmConfigurationEb():
+
+        7f2a:	655d      	str	r5, [r3, #84]	; 0x54
+
+        7f2c:	659a      	str	r2, [r3, #88]	; 0x58
+
+        7f2e:	65da      	str	r2, [r3, #92]	; 0x5c
+
+        7f30:	661a      	str	r2, [r3, #96]	; 0x60
+
+        7f32:	665a      	str	r2, [r3, #100]	; 0x64
+
+        7f34:	669a      	str	r2, [r3, #104]	; 0x68
+
+        7f36:	66da      	str	r2, [r3, #108]	; 0x6c
+
+        7f38:	671a      	str	r2, [r3, #112]	; 0x70
+
+        7f3a:	679a      	str	r2, [r3, #120]	; 0x78
+
+        7f3c:	67da      	str	r2, [r3, #124]	; 0x7c
+
+        7f3e:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
+
+        7f42:	f8c3 2084 	str.w	r2, [r3, #132]	; 0x84
+
+        7f46:	f8c3 2088 	str.w	r2, [r3, #136]	; 0x88
+
+        7f4a:	f8c3 208c 	str.w	r2, [r3, #140]	; 0x8c
+
+        7f4e:	f8c3 2090 	str.w	r2, [r3, #144]	; 0x90
+
+        7f52:	f8c3 2094 	str.w	r2, [r3, #148]	; 0x94
+
+        7f56:	f8c3 2098 	str.w	r2, [r3, #152]	; 0x98
+
+        7f5a:	f8c3 209c 	str.w	r2, [r3, #156]	; 0x9c
+
+        7f5e:	f8c3 20a0 	str.w	r2, [r3, #160]	; 0xa0
+
+        7f62:	f8c3 20a8 	str.w	r2, [r3, #168]	; 0xa8
+
+        7f66:	f8c3 20b0 	str.w	r2, [r3, #176]	; 0xb0
+
+        7f6a:	f8c3 20b8 	str.w	r2, [r3, #184]	; 0xb8
+
+    StaticBsp::hwInit():
+
+        7f6e:	9001      	str	r0, [sp, #4]
+
+        7f70:	f00a f952 	bl	12218 <<a href="../../../../bspConfiguration/src/bsp/io/outputPwm/PwmSupport.cpp/a62878f1512e9bcda8d1359803735beb.html">bios::PwmSupport::init()</a>>
+
+        7f74:	6923      	ldr	r3, [r4, #16]
+
+        7f76:	6961      	ldr	r1, [r4, #20]
+
+    _ZN4bios3FtmILh8EE5startEv():
+
+        7f78:	6d5a      	ldr	r2, [r3, #84]	; 0x54
+
+    StaticBsp::hwInit():
+
+        7f7a:	9801      	ldr	r0, [sp, #4]
+
+    _ZN4bios3FtmILh8EE5startEv():
+
+        7f7c:	432a      	orrs	r2, r5
+
+        7f7e:	655a      	str	r2, [r3, #84]	; 0x54
+
+    _ZN4bios3FtmILh8EE16clrOverflowEventEv():
+
+        7f80:	681a      	ldr	r2, [r3, #0]
+
+        7f82:	f422 7200 	bic.w	r2, r2, #512	; 0x200
+
+        7f86:	601a      	str	r2, [r3, #0]
+
+    _ZN4bios3FtmILh8EE14clrReloadEventEv():
+
+        7f88:	681a      	ldr	r2, [r3, #0]
+
+        7f8a:	f022 0280 	bic.w	r2, r2, #128	; 0x80
+
+        7f8e:	601a      	str	r2, [r3, #0]
+
+    _ZN4bios3FtmILh8EE5startEv():
+
+        7f90:	680a      	ldr	r2, [r1, #0]
+
+        7f92:	601a      	str	r2, [r3, #0]
+
+    StaticBsp::hwInit():
+
+        7f94:	f00a f9d6 	bl	12344 <<a href="../../../../bspConfiguration/src/bsp/io/outputPwm/PwmSupport.cpp/94a05f78912d5444a12d8fa34c10899f.html">bios::PwmSupport::start()</a>>
+
+        7f98:	f884 5042 	strb.w	r5, [r4, #66]	; 0x42
+
+        7f9c:	b003      	add	sp, #12
+
+        7f9e:	bd30      	pop	{r4, r5, pc}
+
+        7fa0:	000165bc 	.word	0x000165bc
+
+    </pre>
+
+    
+    <pre><a href="./f42c098a5d902487276fda6a241ec854.html">StaticBsp::init() (24)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

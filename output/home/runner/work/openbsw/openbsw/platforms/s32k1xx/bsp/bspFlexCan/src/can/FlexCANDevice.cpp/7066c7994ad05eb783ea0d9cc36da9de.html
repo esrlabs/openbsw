@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspFlexCan.html">bspFlexCan</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../can.html">can</a>
+            </li>
+
+        
+        <li class="active"><a href="../FlexCANDevice.cpp.html">FlexCANDevice.cpp</a>:203
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::FlexCANDevice::stop()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001080c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>48</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../canflex2Transceiver/src/can/transceiver/canflex2/CanFlex2Transceiver.cpp/1090fa8356bc7a6bb4a390b77f2be1ab.html">bios::CanFlex2Transceiver::close() (100)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./7edcd2a94e92742c81f6092a567ecbad.html">bios::FlexCANDevice::FlexCANDevice(bios::FlexCANDevice::Config const&amp;, bios::CanPhy&amp;, estd::function&lt;void ()&gt;, bios::IEcuPowerStateController&amp;) (208)</a></pre>
+    
+
+    <pre>
+
+    bios::FlexCANDevice::stop():
+
+       1080c:	b538      	push	{r3, r4, r5, lr}
+
+       1080e:	f3ef 8410 	mrs	r4, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       10812:	b672      	cpsid	i
+
+    bios::FlexCANDevice::stop():
+
+       10814:	6883      	ldr	r3, [r0, #8]
+
+       10816:	f8d0 22d4 	ldr.w	r2, [r0, #724]	; 0x2d4
+
+       1081a:	6801      	ldr	r1, [r0, #0]
+
+       1081c:	2000      	movs	r0, #0
+
+       1081e:	6298      	str	r0, [r3, #40]	; 0x28
+
+       10820:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+
+       10824:	6318      	str	r0, [r3, #48]	; 0x30
+
+       10826:	6810      	ldr	r0, [r2, #0]
+
+       10828:	6989      	ldr	r1, [r1, #24]
+
+       1082a:	6905      	ldr	r5, [r0, #16]
+
+       1082c:	2301      	movs	r3, #1
+
+       1082e:	4610      	mov	r0, r2
+
+       10830:	461a      	mov	r2, r3
+
+       10832:	47a8      	blx	r5
+
+       10834:	f384 8810 	msr	PRIMASK, r4
+
+       10838:	bd38      	pop	{r3, r4, r5, pc}
+
+       1083a:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./65ccc34776894ca0254b0ba85a0a2177.html">bios::FlexCANDevice::mute() (60)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

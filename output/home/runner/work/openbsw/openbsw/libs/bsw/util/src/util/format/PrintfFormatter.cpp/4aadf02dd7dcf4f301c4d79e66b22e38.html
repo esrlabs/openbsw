@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../format.html">format</a>
+            </li>
+
+        
+        <li class="active"><a href="../PrintfFormatter.cpp.html">PrintfFormatter.cpp</a>:195
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000b574</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>420</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./a55fbe8aa7abfc498675bef9f2e3bbf3.html">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;) (392)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=48
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod (48)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./2c41aa7037e51c743d545c8c51cbc75d.html">util::format::PrintfFormatter::PrintfFormatter(util::stream::IOutputStream&amp;, bool) (16)</a></pre>
+    
+
+    <pre>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b574:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        b578:	784c      	ldrb	r4, [r1, #1]
+
+        b57a:	4e65      	ldr	r6, [pc, #404]	; (b710 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x19c>)
+
+        b57c:	4d65      	ldr	r5, [pc, #404]	; (b714 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x1a0>)
+
+        b57e:	f014 0f20 	tst.w	r4, #32
+
+        b582:	78cc      	ldrb	r4, [r1, #3]
+
+        b584:	f104 34ff 	add.w	r4, r4, #4294967295	; 0xffffffff
+
+        b588:	bf18      	it	ne
+
+        b58a:	4635      	movne	r5, r6
+
+        b58c:	2c07      	cmp	r4, #7
+
+        b58e:	f200 80ae 	bhi.w	b6ee <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17a>
+
+        b592:	e8df f004 	tbb	[pc, r4]
+
+        b596:	2e1a      	.short	0x2e1a
+
+        b598:	765dac41 	.word	0x765dac41
+
+        b59c:	048e      	.short	0x048e
+
+        b59e:	6812      	ldr	r2, [r2, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5a0:	2a00      	cmp	r2, #0
+
+        b5a2:	f000 80a6 	beq.w	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b5a6:	4604      	mov	r4, r0
+
+        b5a8:	2001      	movs	r0, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b5aa:	7889      	ldrb	r1, [r1, #2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5ac:	7018      	strb	r0, [r3, #0]
+
+        b5ae:	fbb2 f3f1 	udiv	r3, r2, r1
+
+        b5b2:	fb01 2613 	mls	r6, r1, r3, r2
+
+        b5b6:	4610      	mov	r0, r2
+
+        b5b8:	4281      	cmp	r1, r0
+
+        b5ba:	5daa      	ldrb	r2, [r5, r6]
+
+        b5bc:	f804 2d01 	strb.w	r2, [r4, #-1]!
+
+        b5c0:	461a      	mov	r2, r3
+
+        b5c2:	d9f4      	bls.n	b5ae <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x3a>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b5c4:	4620      	mov	r0, r4
+
+        b5c6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        b5ca:	8812      	ldrh	r2, [r2, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5cc:	2a00      	cmp	r2, #0
+
+        b5ce:	f000 8090 	beq.w	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b5d2:	4604      	mov	r4, r0
+
+        b5d4:	2001      	movs	r0, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b5d6:	7889      	ldrb	r1, [r1, #2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5d8:	7018      	strb	r0, [r3, #0]
+
+        b5da:	fbb2 f3f1 	udiv	r3, r2, r1
+
+        b5de:	fb01 2613 	mls	r6, r1, r3, r2
+
+        b5e2:	4610      	mov	r0, r2
+
+        b5e4:	4281      	cmp	r1, r0
+
+        b5e6:	5daa      	ldrb	r2, [r5, r6]
+
+        b5e8:	f804 2d01 	strb.w	r2, [r4, #-1]!
+
+        b5ec:	461a      	mov	r2, r3
+
+        b5ee:	d9f4      	bls.n	b5da <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x66>
+
+        b5f0:	e7e8      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b5f2:	6812      	ldr	r2, [r2, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5f4:	2a00      	cmp	r2, #0
+
+        b5f6:	d07c      	beq.n	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b5f8:	4604      	mov	r4, r0
+
+        b5fa:	2001      	movs	r0, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b5fc:	7889      	ldrb	r1, [r1, #2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b5fe:	7018      	strb	r0, [r3, #0]
+
+        b600:	fbb2 f3f1 	udiv	r3, r2, r1
+
+        b604:	fb01 2613 	mls	r6, r1, r3, r2
+
+        b608:	4610      	mov	r0, r2
+
+        b60a:	4281      	cmp	r1, r0
+
+        b60c:	5daa      	ldrb	r2, [r5, r6]
+
+        b60e:	f804 2d01 	strb.w	r2, [r4, #-1]!
+
+        b612:	461a      	mov	r2, r3
+
+        b614:	d9f4      	bls.n	b600 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x8c>
+
+        b616:	e7d5      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b618:	e9d2 6700 	ldrd	r6, r7, [r2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsIyEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b61c:	ea56 0207 	orrs.w	r2, r6, r7
+
+        b620:	d067      	beq.n	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b622:	2201      	movs	r2, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b624:	f891 8002 	ldrb.w	r8, [r1, #2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsIyEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b628:	701a      	strb	r2, [r3, #0]
+
+        b62a:	4604      	mov	r4, r0
+
+        b62c:	4630      	mov	r0, r6
+
+        b62e:	4639      	mov	r1, r7
+
+        b630:	4642      	mov	r2, r8
+
+        b632:	2300      	movs	r3, #0
+
+        b634:	f7f5 f92e 	bl	894 <<a href="../../../../../../../../../../../../unknown/unknown/1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod</a>>
+
+        b638:	5cab      	ldrb	r3, [r5, r2]
+
+        b63a:	f804 3d01 	strb.w	r3, [r4, #-1]!
+
+        b63e:	4632      	mov	r2, r6
+
+        b640:	463b      	mov	r3, r7
+
+        b642:	4542      	cmp	r2, r8
+
+        b644:	f173 0300 	sbcs.w	r3, r3, #0
+
+        b648:	4606      	mov	r6, r0
+
+        b64a:	460f      	mov	r7, r1
+
+        b64c:	d2ee      	bcs.n	b62c <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0xb8>
+
+        b64e:	e7b9      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b650:	f9b2 2000 	ldrsh.w	r2, [r2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b654:	2a00      	cmp	r2, #0
+
+        b656:	d04c      	beq.n	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b658:	bfb4      	ite	lt
+
+        b65a:	f04f 34ff 	movlt.w	r4, #4294967295	; 0xffffffff
+
+        b65e:	2401      	movge	r4, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b660:	7889      	ldrb	r1, [r1, #2]
+
+        b662:	701c      	strb	r4, [r3, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b664:	bfb8      	it	lt
+
+        b666:	4252      	neglt	r2, r2
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b668:	4604      	mov	r4, r0
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b66a:	fbb2 f3f1 	udiv	r3, r2, r1
+
+        b66e:	fb01 2613 	mls	r6, r1, r3, r2
+
+        b672:	4610      	mov	r0, r2
+
+        b674:	4281      	cmp	r1, r0
+
+        b676:	5daa      	ldrb	r2, [r5, r6]
+
+        b678:	f804 2d01 	strb.w	r2, [r4, #-1]!
+
+        b67c:	461a      	mov	r2, r3
+
+        b67e:	d9f4      	bls.n	b66a <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0xf6>
+
+        b680:	e7a0      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b682:	6812      	ldr	r2, [r2, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b684:	2a00      	cmp	r2, #0
+
+        b686:	d034      	beq.n	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b688:	bfb4      	ite	lt
+
+        b68a:	f04f 34ff 	movlt.w	r4, #4294967295	; 0xffffffff
+
+        b68e:	2401      	movge	r4, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b690:	7889      	ldrb	r1, [r1, #2]
+
+        b692:	701c      	strb	r4, [r3, #0]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b694:	bfb8      	it	lt
+
+        b696:	4252      	neglt	r2, r2
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b698:	4604      	mov	r4, r0
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b69a:	fbb2 f3f1 	udiv	r3, r2, r1
+
+        b69e:	fb01 2613 	mls	r6, r1, r3, r2
+
+        b6a2:	4610      	mov	r0, r2
+
+        b6a4:	4281      	cmp	r1, r0
+
+        b6a6:	5daa      	ldrb	r2, [r5, r6]
+
+        b6a8:	f804 2d01 	strb.w	r2, [r4, #-1]!
+
+        b6ac:	461a      	mov	r2, r3
+
+        b6ae:	d9f4      	bls.n	b69a <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x126>
+
+        b6b0:	e788      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b6b2:	e9d2 6700 	ldrd	r6, r7, [r2]
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsIyEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b6b6:	ea56 0207 	orrs.w	r2, r6, r7
+
+        b6ba:	d01a      	beq.n	b6f2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x17e>
+
+        b6bc:	2f00      	cmp	r7, #0
+
+        b6be:	db21      	blt.n	b704 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x190>
+
+        b6c0:	2201      	movs	r2, #1
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b6c2:	f891 8002 	ldrb.w	r8, [r1, #2]
+
+        b6c6:	701a      	strb	r2, [r3, #0]
+
+        b6c8:	4604      	mov	r4, r0
+
+        b6ca:	4630      	mov	r0, r6
+
+        b6cc:	4639      	mov	r1, r7
+
+        b6ce:	4642      	mov	r2, r8
+
+        b6d0:	2300      	movs	r3, #0
+
+        b6d2:	f7f5 f8df 	bl	894 <<a href="../../../../../../../../../../../../unknown/unknown/1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod</a>>
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsIyEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b6d6:	5cab      	ldrb	r3, [r5, r2]
+
+        b6d8:	f804 3d01 	strb.w	r3, [r4, #-1]!
+
+        b6dc:	4632      	mov	r2, r6
+
+        b6de:	463b      	mov	r3, r7
+
+        b6e0:	4542      	cmp	r2, r8
+
+        b6e2:	f173 0300 	sbcs.w	r3, r3, #0
+
+        b6e6:	4606      	mov	r6, r0
+
+        b6e8:	460f      	mov	r7, r1
+
+        b6ea:	d2ee      	bcs.n	b6ca <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x156>
+
+        b6ec:	e76a      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b6ee:	4604      	mov	r4, r0
+
+        b6f0:	e768      	b.n	b5c4 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x50>
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsImEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b6f2:	2100      	movs	r1, #0
+
+        b6f4:	2230      	movs	r2, #48	; 0x30
+
+        b6f6:	7019      	strb	r1, [r3, #0]
+
+        b6f8:	1e44      	subs	r4, r0, #1
+
+        b6fa:	f800 2c01 	strb.w	r2, [r0, #-1]
+
+    util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&):
+
+        b6fe:	4620      	mov	r0, r4
+
+        b700:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    _ZN4util6format15PrintfFormatter15formatIntDigitsIyEEPcS3_PKcT_bNSt13make_unsignedIS6_E4typeERa():
+
+        b704:	4276      	negs	r6, r6
+
+        b706:	eb67 0747 	sbc.w	r7, r7, r7, lsl #1
+
+        b70a:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+
+        b70e:	e7d8      	b.n	b6c2 <<a href="./4aadf02dd7dcf4f301c4d79e66b22e38.html">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&, util::format::ParamVariant const&, signed char&)</a>+0x14e>
+
+        b710:	000169b8 	.word	0x000169b8
+
+        b714:	000169cc 	.word	0x000169cc
+
+    </pre>
+
+    
+    <pre><a href="./6f3fcb2590a4c0bfa8d6acc0bfe7acb4.html">util::format::PrintfFormatter::fillWidth(util::format::ParamInfo const&amp;, long, bool) (52)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

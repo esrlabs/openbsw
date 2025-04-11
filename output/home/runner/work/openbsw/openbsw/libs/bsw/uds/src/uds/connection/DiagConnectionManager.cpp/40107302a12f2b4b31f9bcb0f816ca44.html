@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagConnectionManager.cpp.html">DiagConnectionManager.cpp</a>:90
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000f988</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>408</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../DiagDispatcher.cpp/b72cb15d95e453410f134558ec179e04.html">uds::DiagDispatcher2::getOutgoingDiagConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*) (56)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=56
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a7f7cf12c5edcdda219a6fa99cee7894.html">uds::DiagConnectionManager::diagConnectionTerminated(uds::ManagedOutgoingDiagConnection&amp;) (140)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        f988:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+
+        f98c:	b089      	sub	sp, #36	; 0x24
+
+        f98e:	460e      	mov	r6, r1
+
+        f990:	9305      	str	r3, [sp, #20]
+
+        f992:	f3ef 8110 	mrs	r1, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        f996:	b672      	cpsid	i
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        f998:	2300      	movs	r3, #0
+
+        f99a:	6013      	str	r3, [r2, #0]
+
+        f99c:	69c3      	ldr	r3, [r0, #28]
+
+    _ZNK4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE4nextEv():
+
+        f99e:	681d      	ldr	r5, [r3, #0]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        f9a0:	2d00      	cmp	r5, #0
+
+        f9a2:	d03b      	beq.n	fa1c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x94>
+
+        f9a4:	4617      	mov	r7, r2
+
+        f9a6:	f890 2024 	ldrb.w	r2, [r0, #36]	; 0x24
+
+        f9aa:	4604      	mov	r4, r0
+
+        f9ac:	2a00      	cmp	r2, #0
+
+        f9ae:	d135      	bne.n	fa1c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x94>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE4nextEv():
+
+        f9b0:	6828      	ldr	r0, [r5, #0]
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        f9b2:	6018      	str	r0, [r3, #0]
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_freeEv():
+
+        f9b4:	2001      	movs	r0, #1
+
+        f9b6:	6028      	str	r0, [r5, #0]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        f9b8:	f381 8810 	msr	PRIMASK, r1
+
+        f9bc:	f8dd 8014 	ldr.w	r8, [sp, #20]
+
+        f9c0:	2edf      	cmp	r6, #223	; 0xdf
+
+        f9c2:	f640 73ff 	movw	r3, #4095	; 0xfff
+
+        f9c6:	bf08      	it	eq
+
+        f9c8:	2306      	moveq	r3, #6
+
+        f9ca:	f1b8 0f00 	cmp.w	r8, #0
+
+        f9ce:	d045      	beq.n	fa5c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xd4>
+
+        f9d0:	f8b8 1004 	ldrh.w	r1, [r8, #4]
+
+        f9d4:	428b      	cmp	r3, r1
+
+        f9d6:	d82d      	bhi.n	fa34 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xac>
+
+        f9d8:	68a3      	ldr	r3, [r4, #8]
+
+        f9da:	f845 4c6c 	str.w	r4, [r5, #-108]
+
+        f9de:	8999      	ldrh	r1, [r3, #12]
+
+        f9e0:	68e3      	ldr	r3, [r4, #12]
+
+        f9e2:	f845 3c70 	str.w	r3, [r5, #-112]
+
+    _ZN9transport16TransportMessage15resetValidBytesEv():
+
+        f9e6:	2200      	movs	r2, #0
+
+    _ZN3uds29ManagedOutgoingDiagConnection4openEv():
+
+        f9e8:	2301      	movs	r3, #1
+
+    _ZN9transport16TransportMessage15resetValidBytesEv():
+
+        f9ea:	f8a8 2012 	strh.w	r2, [r8, #18]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        f9ee:	f845 8c78 	str.w	r8, [r5, #-120]
+
+        f9f2:	f825 1c66 	strh.w	r1, [r5, #-102]
+
+        f9f6:	f825 6c64 	strh.w	r6, [r5, #-100]
+
+    _ZN3uds29ManagedOutgoingDiagConnection4openEv():
+
+        f9fa:	f805 3c67 	strb.w	r3, [r5, #-103]
+
+        f9fe:	f805 3c09 	strb.w	r3, [r5, #-9]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fa02:	f3ef 8110 	mrs	r1, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        fa06:	b672      	cpsid	i
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fa08:	4298      	cmp	r0, r3
+
+        fa0a:	d06d      	beq.n	fae8 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x160>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fa0c:	f381 8810 	msr	PRIMASK, r1
+
+        fa10:	2000      	movs	r0, #0
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE5frontEv():
+
+        fa12:	3d7c      	subs	r5, #124	; 0x7c
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fa14:	603d      	str	r5, [r7, #0]
+
+        fa16:	b009      	add	sp, #36	; 0x24
+
+        fa18:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+        fa1c:	f381 8810 	msr	PRIMASK, r1
+
+        fa20:	4b3b      	ldr	r3, [pc, #236]	; (fb10 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x188>)
+
+        fa22:	493c      	ldr	r1, [pc, #240]	; (fb14 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x18c>)
+
+        fa24:	7818      	ldrb	r0, [r3, #0]
+
+        fa26:	4632      	mov	r2, r6
+
+        fa28:	f7f3 f99c 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        fa2c:	2002      	movs	r0, #2
+
+        fa2e:	b009      	add	sp, #36	; 0x24
+
+        fa30:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+        fa34:	9205      	str	r2, [sp, #20]
+
+        fa36:	2204      	movs	r2, #4
+
+        fa38:	4935      	ldr	r1, [pc, #212]	; (fb10 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x188>)
+
+        fa3a:	4633      	mov	r3, r6
+
+        fa3c:	7808      	ldrb	r0, [r1, #0]
+
+        fa3e:	4936      	ldr	r1, [pc, #216]	; (fb18 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x190>)
+
+        fa40:	f7f3 f990 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        fa44:	f3ef 8110 	mrs	r1, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        fa48:	b672      	cpsid	i
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fa4a:	682b      	ldr	r3, [r5, #0]
+
+        fa4c:	2b01      	cmp	r3, #1
+
+        fa4e:	d01e      	beq.n	fa8e <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x106>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fa50:	f381 8810 	msr	PRIMASK, r1
+
+        fa54:	2002      	movs	r0, #2
+
+        fa56:	b009      	add	sp, #36	; 0x24
+
+        fa58:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+        fa5c:	6920      	ldr	r0, [r4, #16]
+
+        fa5e:	68a2      	ldr	r2, [r4, #8]
+
+        fa60:	6801      	ldr	r1, [r0, #0]
+
+        fa62:	f8d1 9000 	ldr.w	r9, [r1]
+
+        fa66:	7c91      	ldrb	r1, [r2, #18]
+
+        fa68:	8992      	ldrh	r2, [r2, #12]
+
+        fa6a:	9300      	str	r3, [sp, #0]
+
+        fa6c:	ab05      	add	r3, sp, #20
+
+        fa6e:	9302      	str	r3, [sp, #8]
+
+        fa70:	ab06      	add	r3, sp, #24
+
+        fa72:	9301      	str	r3, [sp, #4]
+
+        fa74:	e9cd 8806 	strd	r8, r8, [sp, #24]
+
+        fa78:	4633      	mov	r3, r6
+
+        fa7a:	47c8      	blx	r9
+
+        fa7c:	4602      	mov	r2, r0
+
+        fa7e:	b998      	cbnz	r0, faa8 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x120>
+
+        fa80:	f8dd 8014 	ldr.w	r8, [sp, #20]
+
+        fa84:	f1b8 0f00 	cmp.w	r8, #0
+
+        fa88:	d0d6      	beq.n	fa38 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xb0>
+
+    _ZN4estd9is_in_useIN3uds29ManagedOutgoingDiagConnectionEEEbRKNS_17forward_list_nodeIT_EE():
+
+        fa8a:	6828      	ldr	r0, [r5, #0]
+
+        fa8c:	e7a4      	b.n	f9d8 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x50>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fa8e:	69e3      	ldr	r3, [r4, #28]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fa90:	681a      	ldr	r2, [r3, #0]
+
+        fa92:	2a00      	cmp	r2, #0
+
+        fa94:	d032      	beq.n	fafc <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x174>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fa96:	2200      	movs	r2, #0
+
+        fa98:	602a      	str	r2, [r5, #0]
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE4nextEv():
+
+        fa9a:	681b      	ldr	r3, [r3, #0]
+
+        fa9c:	461a      	mov	r2, r3
+
+        fa9e:	681b      	ldr	r3, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE8lastItemEv():
+
+        faa0:	2b00      	cmp	r3, #0
+
+        faa2:	d1fb      	bne.n	fa9c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x114>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        faa4:	6015      	str	r5, [r2, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        faa6:	e7d3      	b.n	fa50 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xc8>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        faa8:	2803      	cmp	r0, #3
+
+        faaa:	d1c5      	bne.n	fa38 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xb0>
+
+        faac:	4b18      	ldr	r3, [pc, #96]	; (fb10 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x188>)
+
+        faae:	491b      	ldr	r1, [pc, #108]	; (fb1c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x194>)
+
+        fab0:	7818      	ldrb	r0, [r3, #0]
+
+        fab2:	4632      	mov	r2, r6
+
+        fab4:	f7f3 f956 	bl	2d64 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+        fab8:	f3ef 8110 	mrs	r1, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        fabc:	b672      	cpsid	i
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fabe:	682b      	ldr	r3, [r5, #0]
+
+        fac0:	2b01      	cmp	r3, #1
+
+        fac2:	d005      	beq.n	fad0 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x148>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+        fac4:	f381 8810 	msr	PRIMASK, r1
+
+        fac8:	2001      	movs	r0, #1
+
+        faca:	b009      	add	sp, #36	; 0x24
+
+        facc:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+        fad0:	69e3      	ldr	r3, [r4, #28]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fad2:	681a      	ldr	r2, [r3, #0]
+
+        fad4:	b1aa      	cbz	r2, fb02 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x17a>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fad6:	f8c5 8000 	str.w	r8, [r5]
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE4nextEv():
+
+        fada:	681b      	ldr	r3, [r3, #0]
+
+        fadc:	461a      	mov	r2, r3
+
+        fade:	681b      	ldr	r3, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE8lastItemEv():
+
+        fae0:	2b00      	cmp	r3, #0
+
+        fae2:	d1fb      	bne.n	fadc <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x154>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fae4:	6015      	str	r5, [r2, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fae6:	e7ed      	b.n	fac4 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x13c>
+
+        fae8:	6a23      	ldr	r3, [r4, #32]
+
+        faea:	b16b      	cbz	r3, fb08 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x180>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        faec:	602a      	str	r2, [r5, #0]
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE4nextEv():
+
+        faee:	6a23      	ldr	r3, [r4, #32]
+
+        faf0:	461a      	mov	r2, r3
+
+        faf2:	681b      	ldr	r3, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE8lastItemEv():
+
+        faf4:	2b00      	cmp	r3, #0
+
+        faf6:	d1fb      	bne.n	faf0 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x168>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        faf8:	6015      	str	r5, [r2, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE9push_backERNS_17forward_list_nodeIS2_EE():
+
+        fafa:	e787      	b.n	fa0c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x84>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fafc:	602a      	str	r2, [r5, #0]
+
+        fafe:	601d      	str	r5, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE10push_frontERNS_17forward_list_nodeIS2_EE():
+
+        fb00:	e7a6      	b.n	fa50 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xc8>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fb02:	602a      	str	r2, [r5, #0]
+
+        fb04:	601d      	str	r5, [r3, #0]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE10push_frontERNS_17forward_list_nodeIS2_EE():
+
+        fb06:	e7dd      	b.n	fac4 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x13c>
+
+    _ZN4estd17forward_list_nodeIN3uds29ManagedOutgoingDiagConnectionEE8set_nextEPS3_():
+
+        fb08:	602b      	str	r3, [r5, #0]
+
+        fb0a:	6225      	str	r5, [r4, #32]
+
+    _ZN4estd12forward_listIN3uds29ManagedOutgoingDiagConnectionEE10push_frontERNS_17forward_list_nodeIS2_EE():
+
+        fb0c:	e77e      	b.n	fa0c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x84>
+
+        fb0e:	bf00      	nop
+
+        fb10:	1ffe0081 	.word	0x1ffe0081
+
+        fb14:	00017cdc 	.word	0x00017cdc
+
+        fb18:	00017c90 	.word	0x00017c90
+
+        fb1c:	00017c54 	.word	0x00017c54
+
+    </pre>
+
+    
+    <pre><a href="./9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&amp;) (636)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

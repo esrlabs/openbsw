@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../safety.html">safety</a></li>
+        
+        <li><a href="../../../../safeWatchdog.html">safeWatchdog</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../safeWatchdog.html">safeWatchdog</a>
+            </li>
+
+        
+        <li class="active"><a href="../SafeWatchdog.cpp.html">SafeWatchdog.cpp</a>:27
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">safety::SafeWatchdog::cyclic()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00010f88</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>164</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../safeLifecycle/src/safeLifecycle/SafetyManager.cpp/b2a77e5f09d16f15691afd3fe6bffa29.html">safety::SafetyManager::cyclic() (184)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=356
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/c982d8ed9b2ddc2e49c8dea2234a5466.html">safety::SafeSupervisor::getInstance() (112)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/9b5804dfc8710759bc63ecd487094e86.html">safety::SafeSupervisor::handle(safety::SafeSupervisor::Event const&amp;) (188)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/fff07a348238cd74d4994a626935e58f.html">bsp::Watchdog::getWatchdogServiceCounter() (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/221a76b9167056a282c79db9adda3675.html">bsp::Watchdog::serviceWatchdog() (44)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./044f31027170149684e50943f3d841d7.html">safety::SafeWatchdog::init() (16)</a></pre>
+    
+
+    <pre>
+
+    safety::SafeWatchdog::cyclic():
+
+       10f88:	b570      	push	{r4, r5, r6, lr}
+
+       10f8a:	4605      	mov	r5, r0
+
+       10f8c:	f7fa fffe 	bl	bf8c <<a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/c982d8ed9b2ddc2e49c8dea2234a5466.html">safety::SafeSupervisor::getInstance()</a>>
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       10f90:	6b03      	ldr	r3, [r0, #48]	; 0x30
+
+    safety::SafeWatchdog::cyclic():
+
+       10f92:	4604      	mov	r4, r0
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       10f94:	2b00      	cmp	r3, #0
+
+       10f96:	d131      	bne.n	10ffc <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x74>
+
+       10f98:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+
+       10f9a:	2b00      	cmp	r3, #0
+
+       10f9c:	d041      	beq.n	11022 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x9a>
+
+       10f9e:	2301      	movs	r3, #1
+
+       10fa0:	6303      	str	r3, [r0, #48]	; 0x30
+
+    _ZN6safety12SafeWatchdog14checkWdConfigsEv():
+
+       10fa2:	4b21      	ldr	r3, [pc, #132]	; (11028 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0xa0>)
+
+       10fa4:	681a      	ldr	r2, [r3, #0]
+
+       10fa6:	689b      	ldr	r3, [r3, #8]
+
+       10fa8:	f402 7260 	and.w	r2, r2, #896	; 0x380
+
+       10fac:	f5b2 7fc0 	cmp.w	r2, #384	; 0x180
+
+       10fb0:	d02a      	beq.n	11008 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x80>
+
+       10fb2:	2300      	movs	r3, #0
+
+    _ZN11safeMonitor5ValueIN6safety14SafeSupervisorENS2_5EventEbNS_12DefaultMutexENS_14DefaultContextEE5checkERKbRKS5_():
+
+       10fb4:	f894 203d 	ldrb.w	r2, [r4, #61]	; 0x3d
+
+       10fb8:	429a      	cmp	r2, r3
+
+       10fba:	d004      	beq.n	10fc6 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x3e>
+
+       10fbc:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+
+       10fbe:	f104 013c 	add.w	r1, r4, #60	; 0x3c
+
+       10fc2:	f7fa ff85 	bl	bed0 <<a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/9b5804dfc8710759bc63ecd487094e86.html">safety::SafeSupervisor::handle(safety::SafeSupervisor::Event const&)</a>>
+
+    safety::SafeWatchdog::cyclic():
+
+       10fc6:	f000 fd19 	bl	119fc <<a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/fff07a348238cd74d4994a626935e58f.html">bsp::Watchdog::getWatchdogServiceCounter()</a>>
+
+       10fca:	686b      	ldr	r3, [r5, #4]
+
+       10fcc:	3301      	adds	r3, #1
+
+       10fce:	4283      	cmp	r3, r0
+
+       10fd0:	4606      	mov	r6, r0
+
+       10fd2:	d320      	bcc.n	11016 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x8e>
+
+       10fd4:	606e      	str	r6, [r5, #4]
+
+       10fd6:	f000 fcab 	bl	11930 <<a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/221a76b9167056a282c79db9adda3675.html">bsp::Watchdog::serviceWatchdog()</a>>
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       10fda:	6b23      	ldr	r3, [r4, #48]	; 0x30
+
+       10fdc:	2b01      	cmp	r3, #1
+
+       10fde:	d006      	beq.n	10fee <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x66>
+
+       10fe0:	6a20      	ldr	r0, [r4, #32]
+
+       10fe2:	f104 0124 	add.w	r1, r4, #36	; 0x24
+
+    safety::SafeWatchdog::cyclic():
+
+       10fe6:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       10fea:	f7fa bf71 	b.w	bed0 <<a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/9b5804dfc8710759bc63ecd487094e86.html">safety::SafeSupervisor::handle(safety::SafeSupervisor::Event const&)</a>>
+
+       10fee:	6ae3      	ldr	r3, [r4, #44]	; 0x2c
+
+       10ff0:	2b01      	cmp	r3, #1
+
+       10ff2:	bf0c      	ite	eq
+
+       10ff4:	6aa3      	ldreq	r3, [r4, #40]	; 0x28
+
+       10ff6:	2302      	movne	r3, #2
+
+       10ff8:	6323      	str	r3, [r4, #48]	; 0x30
+
+    safety::SafeWatchdog::cyclic():
+
+       10ffa:	bd70      	pop	{r4, r5, r6, pc}
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       10ffc:	6a00      	ldr	r0, [r0, #32]
+
+       10ffe:	f104 0124 	add.w	r1, r4, #36	; 0x24
+
+       11002:	f7fa ff65 	bl	bed0 <<a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/9b5804dfc8710759bc63ecd487094e86.html">safety::SafeSupervisor::handle(safety::SafeSupervisor::Event const&)</a>>
+
+       11006:	e7cc      	b.n	10fa2 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x1a>
+
+    _ZN6safety12SafeWatchdog14checkWdConfigsEv():
+
+       11008:	b29b      	uxth	r3, r3
+
+       1100a:	f5a3 43fa 	sub.w	r3, r3, #32000	; 0x7d00
+
+       1100e:	fab3 f383 	clz	r3, r3
+
+       11012:	095b      	lsrs	r3, r3, #5
+
+       11014:	e7ce      	b.n	10fb4 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x2c>
+
+    _ZN11safeMonitor7TriggerIN6safety14SafeSupervisorENS2_5EventENS_12DefaultMutexENS_14DefaultContextEE7triggerERKS5_():
+
+       11016:	6c20      	ldr	r0, [r4, #64]	; 0x40
+
+       11018:	f104 0144 	add.w	r1, r4, #68	; 0x44
+
+       1101c:	f7fa ff58 	bl	bed0 <<a href="../../../../safeLifecycle/src/safeLifecycle/SafeSupervisor.cpp/9b5804dfc8710759bc63ecd487094e86.html">safety::SafeSupervisor::handle(safety::SafeSupervisor::Event const&)</a>>
+
+       11020:	e7d8      	b.n	10fd4 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x4c>
+
+    _ZN11safeMonitor8SequenceIN6safety14SafeSupervisorENS2_5EventENS2_18EnterLeaveSequenceENS_12DefaultMutexENS_14DefaultContextEE3hitERKS4_RKS6_():
+
+       11022:	6a83      	ldr	r3, [r0, #40]	; 0x28
+
+       11024:	6303      	str	r3, [r0, #48]	; 0x30
+
+       11026:	e7bc      	b.n	10fa2 <<a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic()</a>+0x1a>
+
+       11028:	40052000 	.word	0x40052000
+
+    </pre>
+
+    
+    <pre><a href="../../../../../bsp/bspInputManager/src/inputManager/DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&amp;) (64)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../../main.html">main</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../systems.html">systems</a>
+            </li>
+
+        
+        <li class="active"><a href="../CanSystem.cpp.html">CanSystem.cpp</a>:96
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">call_can_isr_TX</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000082bc</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>36</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../os/isr/isr_can.cpp/6280ab8f4384c9dbe3c9d1e8404f89f5.html">CAN0_ORed_16_31_MB_IRQHandler (4)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=376
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Hook.cpp/9ae8cac48ad6c58751623005c6bd92ef.html">asyncEnterIsrGroup (136)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/75676e3eaa4aa5c6fb9f06bb71383ad9.html">bios::FlexCANDevice::transmitISR() (32)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Hook.cpp/b9408dd518758e610c00201ee08f321c.html">asyncLeaveIsrGroup (208)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./62cfef291a40896c53ab359c7bf84f02.html">call_can_isr_RX (84)</a></pre>
+    
+
+    <pre>
+
+    call_can_isr_TX():
+
+        82bc:	b508      	push	{r3, lr}
+
+        82be:	2001      	movs	r0, #1
+
+        82c0:	f001 fc90 	bl	9be4 <<a href="../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Hook.cpp/9ae8cac48ad6c58751623005c6bd92ef.html">asyncEnterIsrGroup</a>>
+
+    _ZN4bios19CanFlex2Transceiver17transmitInterruptEh():
+
+        82c4:	4b05      	ldr	r3, [pc, #20]	; (82dc <<a href="./0fe596cbd2385865a4429183a1cee479.html">call_can_isr_TX</a>+0x20>)
+
+        82c6:	6818      	ldr	r0, [r3, #0]
+
+        82c8:	f500 7096 	add.w	r0, r0, #300	; 0x12c
+
+        82cc:	f008 fc22 	bl	10b14 <<a href="../../../../../../../../platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/75676e3eaa4aa5c6fb9f06bb71383ad9.html">bios::FlexCANDevice::transmitISR()</a>>
+
+    call_can_isr_TX():
+
+        82d0:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+
+        82d4:	2001      	movs	r0, #1
+
+        82d6:	f001 bcc9 	b.w	9c6c <<a href="../../../../../../../../libs/bsw/asyncFreeRtos/src/async/Hook.cpp/b9408dd518758e610c00201ee08f321c.html">asyncLeaveIsrGroup</a>>
+
+        82da:	bf00      	nop
+
+        82dc:	1ffee6cc 	.word	0x1ffee6cc
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../../libs/bsw/estd/include/estd/functional.h/a4d3cc59a3a1f4eb664b8ae4208439a4.html">void estd::function&lt;void (util::stream::ISharedOutputStream&amp;, estd::string const&amp;, estd::function&lt;void ()&gt; const&amp;)&gt;::member_function_caller&lt;console::StdioConsoleInput, &amp;console::StdioConsoleInput::onLineReceived&gt;(void*, util::stream::ISharedOutputStream&amp;, estd::string const&amp;, estd::function&lt;void ()&gt; const&amp;) (8)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

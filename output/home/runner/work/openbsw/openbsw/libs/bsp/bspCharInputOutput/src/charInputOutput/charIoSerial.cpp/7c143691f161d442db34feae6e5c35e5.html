@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspCharInputOutput.html">bspCharInputOutput</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../charInputOutput.html">charInputOutput</a>
+            </li>
+
+        
+        <li class="active"><a href="../charIoSerial.cpp.html">charIoSerial.cpp</a>:44
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">SerialLogger_putc</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00012768</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>44</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout (4)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=116
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/1aa4ed991e9ba2adf624b140f32b8ae6.html">sciGetInitState (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/6292ce493227a3ee7a5f7175681b1864.html">sciGetTxNotReady (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/de32ce3e5bd833dc858de35eedb7b6f2.html">sciPuth (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/e6e261f1047bc6cb2d1ba76aaec8c3a7.html">sciInit (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./44b8eb916fa2aca44d783c810d408d4f.html">SerialLogger_init (8)</a></pre>
+    
+
+    <pre>
+
+    SerialLogger_putc():
+
+       12768:	b538      	push	{r3, r4, r5, lr}
+
+       1276a:	4605      	mov	r5, r0
+
+       1276c:	f7ff fb6c 	bl	11e48 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/1aa4ed991e9ba2adf624b140f32b8ae6.html">sciGetInitState</a>>
+
+       12770:	b168      	cbz	r0, 1278e <<a href="./7c143691f161d442db34feae6e5c35e5.html">SerialLogger_putc</a>+0x26>
+
+       12772:	f242 7411 	movw	r4, #10001	; 0x2711
+
+       12776:	e001      	b.n	1277c <<a href="./7c143691f161d442db34feae6e5c35e5.html">SerialLogger_putc</a>+0x14>
+
+       12778:	3c01      	subs	r4, #1
+
+       1277a:	d003      	beq.n	12784 <<a href="./7c143691f161d442db34feae6e5c35e5.html">SerialLogger_putc</a>+0x1c>
+
+       1277c:	f7ff fb54 	bl	11e28 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/6292ce493227a3ee7a5f7175681b1864.html">sciGetTxNotReady</a>>
+
+       12780:	2800      	cmp	r0, #0
+
+       12782:	d1f9      	bne.n	12778 <<a href="./7c143691f161d442db34feae6e5c35e5.html">SerialLogger_putc</a>+0x10>
+
+       12784:	4628      	mov	r0, r5
+
+       12786:	f7ff fb59 	bl	11e3c <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/de32ce3e5bd833dc858de35eedb7b6f2.html">sciPuth</a>>
+
+       1278a:	2001      	movs	r0, #1
+
+       1278c:	bd38      	pop	{r3, r4, r5, pc}
+
+       1278e:	f7ff fb17 	bl	11dc0 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/e6e261f1047bc6cb2d1ba76aaec8c3a7.html">sciInit</a>>
+
+    SerialLogger_init():
+
+       12792:	e7ee      	b.n	12772 <<a href="./7c143691f161d442db34feae6e5c35e5.html">SerialLogger_putc</a>+0xa>
+
+    </pre>
+
+    
+    <pre><a href="./dafa510df63194c0b2e05bf2513dc998.html">SerialLogger_getc (16)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

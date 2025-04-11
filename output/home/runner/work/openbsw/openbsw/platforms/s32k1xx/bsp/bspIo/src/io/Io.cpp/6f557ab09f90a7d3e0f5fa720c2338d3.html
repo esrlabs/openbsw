@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspIo.html">bspIo</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../io.html">io</a>
+            </li>
+
+        
+        <li class="active"><a href="../Io.cpp.html">Io.cpp</a>:130
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::Io::getPin(unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00011d3c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>56</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&amp;) (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../libs/bsp/bspOutputManager/src/outputManager/Output.cpp/25ea937636825ffe7bc1b973cac53615.html">bios::Output::get(bios::Output::OutputId, bool&amp;) (60)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./cec6484b130ee51f1f05d1885b5b84f0.html">bios::Io::setDefaultConfiguration(unsigned short) (24)</a></pre>
+    
+
+    <pre>
+
+    bios::Io::getPin(unsigned short):
+
+       11d3c:	285d      	cmp	r0, #93	; 0x5d
+
+       11d3e:	d812      	bhi.n	11d66 <<a href="./6f557ab09f90a7d3e0f5fa720c2338d3.html">bios::Io::getPin(unsigned short)</a>+0x2a>
+
+       11d40:	4b0a      	ldr	r3, [pc, #40]	; (11d6c <<a href="./6f557ab09f90a7d3e0f5fa720c2338d3.html">bios::Io::getPin(unsigned short)</a>+0x30>)
+
+       11d42:	eb03 02c0 	add.w	r2, r3, r0, lsl #3
+
+       11d46:	7852      	ldrb	r2, [r2, #1]
+
+       11d48:	2aff      	cmp	r2, #255	; 0xff
+
+       11d4a:	d00c      	beq.n	11d66 <<a href="./6f557ab09f90a7d3e0f5fa720c2338d3.html">bios::Io::getPin(unsigned short)</a>+0x2a>
+
+       11d4c:	f813 0030 	ldrb.w	r0, [r3, r0, lsl #3]
+
+       11d50:	4907      	ldr	r1, [pc, #28]	; (11d70 <<a href="./6f557ab09f90a7d3e0f5fa720c2338d3.html">bios::Io::getPin(unsigned short)</a>+0x34>)
+
+       11d52:	f851 1020 	ldr.w	r1, [r1, r0, lsl #2]
+
+       11d56:	2301      	movs	r3, #1
+
+       11d58:	4093      	lsls	r3, r2
+
+       11d5a:	690a      	ldr	r2, [r1, #16]
+
+       11d5c:	4213      	tst	r3, r2
+
+       11d5e:	bf14      	ite	ne
+
+       11d60:	2001      	movne	r0, #1
+
+       11d62:	2000      	moveq	r0, #0
+
+       11d64:	4770      	bx	lr
+
+       11d66:	2000      	movs	r0, #0
+
+       11d68:	4770      	bx	lr
+
+       11d6a:	bf00      	nop
+
+       11d6c:	000184e4 	.word	0x000184e4
+
+       11d70:	000187d4 	.word	0x000187d4
+
+    </pre>
+
+    
+    <pre><a href="./757e7b3b6dcd143bff32c57d7506caa4.html">bios::Io::setPin(unsigned short, bool) (76)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

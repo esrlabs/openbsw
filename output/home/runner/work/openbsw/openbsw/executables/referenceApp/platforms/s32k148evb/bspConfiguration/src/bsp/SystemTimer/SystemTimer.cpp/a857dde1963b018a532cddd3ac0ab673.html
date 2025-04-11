@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../../../bspConfiguration.html">bspConfiguration</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../bsp.html">bsp</a></li>
+        
+        <li ><a href="../../SystemTimer.html">SystemTimer</a>
+            </li>
+
+        
+        <li class="active"><a href="../SystemTimer.cpp.html">SystemTimer.cpp</a>:82
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">getSystemTimeMs32Bit</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00012620</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>64</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../application/src/systems/DemoSystem.cpp/57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic() (272)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=48
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../../../unknown/unknown/1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod (48)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./e7f55a9d953f32b1317f54c0d66911d5.html">getSystemTimeUs32Bit (60)</a></pre>
+    
+
+    <pre>
+
+    getSystemTimeMs32Bit():
+
+       12620:	b508      	push	{r3, lr}
+
+       12622:	f3ef 8c10 	mrs	ip, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       12626:	b672      	cpsid	i
+
+    getSystemTimeMs32Bit():
+
+       12628:	4b0b      	ldr	r3, [pc, #44]	; (12658 <<a href="./a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>+0x38>)
+
+    updateTicks():
+
+       1262a:	4a0c      	ldr	r2, [pc, #48]	; (1265c <<a href="./a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>+0x3c>)
+
+       1262c:	6898      	ldr	r0, [r3, #8]
+
+       1262e:	6852      	ldr	r2, [r2, #4]
+
+       12630:	68d9      	ldr	r1, [r3, #12]
+
+       12632:	609a      	str	r2, [r3, #8]
+
+       12634:	1a10      	subs	r0, r2, r0
+
+       12636:	fbb0 f0f1 	udiv	r0, r0, r1
+
+       1263a:	e9d3 2100 	ldrd	r2, r1, [r3]
+
+       1263e:	1880      	adds	r0, r0, r2
+
+       12640:	f141 0100 	adc.w	r1, r1, #0
+
+       12644:	e9c3 0100 	strd	r0, r1, [r3]
+
+    getSystemTimeMs32Bit():
+
+       12648:	f38c 8810 	msr	PRIMASK, ip
+
+       1264c:	f44f 527a 	mov.w	r2, #16000	; 0x3e80
+
+       12650:	2300      	movs	r3, #0
+
+       12652:	f7ee f91f 	bl	894 <<a href="../../../../../../../../../../../../../../unknown/unknown/1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod</a>>
+
+       12656:	bd08      	pop	{r3, pc}
+
+       12658:	1ffe00b0 	.word	0x1ffe00b0
+
+       1265c:	e0001000 	.word	0xe0001000
+
+    </pre>
+
+    
+    <pre><a href="./1e3ec6cc8505539c750405f8d898bbdd.html">systemTicksToTimeUs (12)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../transportRouterSimple.html">transportRouterSimple</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../routing.html">routing</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportRouterSimple.cpp.html">TransportRouterSimple.cpp</a>:17
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportRouterSimple::TransportRouterSimple()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000c5bc</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>208</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/application/src/systems/TransportSystem.cpp/f42fd3f357bdae05dd817cdb0afc0047.html">transport::TransportSystem::TransportSystem(unsigned char) (84)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=88
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../transport/src/TransportMessage.cpp/419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage() (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long) (68)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../include/transport/routing/TransportRouterSimple.h/755d3acbd4661f1b8a46643060f50bd4.html">non-virtual thunk to transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, estd::slice&lt;unsigned char const, 0u&gt; const&amp;, transport::TransportMessage*&amp;) (8)</a></pre>
+    
+
+    <pre>
+
+    _ZN9transport21TransportRouterSimpleC2Ev():
+
+        c5bc:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+        c5c0:	4b31      	ldr	r3, [pc, #196]	; (c688 <<a href="./4b0d4e565010983f1d03a676bd2fff2a.html">transport::TransportRouterSimple::TransportRouterSimple()</a>+0xcc>)
+
+        c5c2:	6003      	str	r3, [r0, #0]
+
+        c5c4:	f500 5941 	add.w	r9, r0, #12352	; 0x3040
+
+        c5c8:	4607      	mov	r7, r0
+
+        c5ca:	f103 0218 	add.w	r2, r3, #24
+
+        c5ce:	f500 5b41 	add.w	fp, r0, #12352	; 0x3040
+
+        c5d2:	f109 0910 	add.w	r9, r9, #16
+
+        c5d6:	6042      	str	r2, [r0, #4]
+
+        c5d8:	f10b 0b24 	add.w	fp, fp, #36	; 0x24
+
+        c5dc:	4648      	mov	r0, r9
+
+        c5de:	f507 5641 	add.w	r6, r7, #12352	; 0x3040
+
+        c5e2:	f7ff fe3f 	bl	c264 <<a href="../../../../../transport/src/TransportMessage.cpp/419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage()</a>>
+
+        c5e6:	3638      	adds	r6, #56	; 0x38
+
+        c5e8:	4658      	mov	r0, fp
+
+        c5ea:	f7ff fe3b 	bl	c264 <<a href="../../../../../transport/src/TransportMessage.cpp/419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage()</a>>
+
+        c5ee:	4630      	mov	r0, r6
+
+        c5f0:	f507 5542 	add.w	r5, r7, #12416	; 0x3080
+
+        c5f4:	f7ff fe36 	bl	c264 <<a href="../../../../../transport/src/TransportMessage.cpp/419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage()</a>>
+
+        c5f8:	350c      	adds	r5, #12
+
+        c5fa:	f507 5844 	add.w	r8, r7, #12544	; 0x3100
+
+        c5fe:	f108 082c 	add.w	r8, r8, #44	; 0x2c
+
+        c602:	462c      	mov	r4, r5
+
+        c604:	4620      	mov	r0, r4
+
+        c606:	3414      	adds	r4, #20
+
+        c608:	f7ff fe2c 	bl	c264 <<a href="../../../../../transport/src/TransportMessage.cpp/419bf932e75973441f5df7f566fe159b.html">transport::TransportMessage::TransportMessage()</a>>
+
+        c60c:	4544      	cmp	r4, r8
+
+        c60e:	d1f9      	bne.n	c604 <<a href="./4b0d4e565010983f1d03a676bd2fff2a.html">transport::TransportRouterSimple::TransportRouterSimple()</a>+0x48>
+
+    _ZN4estd12forward_listIN9transport22AbstractTransportLayerEEC4Ev():
+
+        c610:	f507 5a40 	add.w	sl, r7, #12288	; 0x3000
+
+        c614:	f04f 0800 	mov.w	r8, #0
+
+    _ZN9transport21TransportRouterSimpleC2Ev():
+
+        c618:	4648      	mov	r0, r9
+
+        c61a:	f107 0913 	add.w	r9, r7, #19
+
+    _ZN4estd12forward_listIN9transport22AbstractTransportLayerEEC4Ev():
+
+        c61e:	f8ca 812c 	str.w	r8, [sl, #300]	; 0x12c
+
+    _ZN9transport21TransportRouterSimpleC2Ev():
+
+        c622:	f640 72ff 	movw	r2, #4095	; 0xfff
+
+        c626:	4649      	mov	r1, r9
+
+        c628:	f887 8008 	strb.w	r8, [r7, #8]
+
+        c62c:	f7ff fe24 	bl	c278 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        c630:	f507 5180 	add.w	r1, r7, #4096	; 0x1000
+
+        c634:	4658      	mov	r0, fp
+
+        c636:	3112      	adds	r1, #18
+
+        c638:	f640 72ff 	movw	r2, #4095	; 0xfff
+
+        c63c:	f887 8009 	strb.w	r8, [r7, #9]
+
+        c640:	f7ff fe1a 	bl	c278 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        c644:	f507 5100 	add.w	r1, r7, #8192	; 0x2000
+
+        c648:	4630      	mov	r0, r6
+
+        c64a:	f887 800a 	strb.w	r8, [r7, #10]
+
+        c64e:	3111      	adds	r1, #17
+
+        c650:	f640 72ff 	movw	r2, #4095	; 0xfff
+
+        c654:	f7ff fe10 	bl	c278 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        c658:	4654      	mov	r4, sl
+
+        c65a:	3410      	adds	r4, #16
+
+        c65c:	f107 060b 	add.w	r6, r7, #11
+
+        c660:	f806 8b01 	strb.w	r8, [r6], #1
+
+        c664:	4621      	mov	r1, r4
+
+        c666:	4628      	mov	r0, r5
+
+        c668:	2208      	movs	r2, #8
+
+        c66a:	f7ff fe05 	bl	c278 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        c66e:	454e      	cmp	r6, r9
+
+        c670:	f105 0514 	add.w	r5, r5, #20
+
+        c674:	f104 0408 	add.w	r4, r4, #8
+
+        c678:	d1f2      	bne.n	c660 <<a href="./4b0d4e565010983f1d03a676bd2fff2a.html">transport::TransportRouterSimple::TransportRouterSimple()</a>+0xa4>
+
+        c67a:	2301      	movs	r3, #1
+
+        c67c:	f88a 3130 	strb.w	r3, [sl, #304]	; 0x130
+
+        c680:	4638      	mov	r0, r7
+
+        c682:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+        c686:	bf00      	nop
+
+        c688:	00016dec 	.word	0x00016dec
+
+    </pre>
+
+    
+    <pre><a href="./0037b1c8cfc911c32aafd48e6a849731.html">transport::TransportRouterSimple::init() (32)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

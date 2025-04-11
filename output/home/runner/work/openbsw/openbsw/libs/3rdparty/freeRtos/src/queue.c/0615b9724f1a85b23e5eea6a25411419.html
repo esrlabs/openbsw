@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../freeRtos.html">freeRtos</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../queue.c.html">queue.c</a>:365
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">xQueueGenericCreateStatic</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000095ec</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>76</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../timers.c/25fd83c3d905940072a19718ff477a03.html">prvCheckForValidListAndQueue (108)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=132
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./ab8b1461e5c95d9bc2914feae28c9534.html">xQueueGenericReset (132)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./ab8b1461e5c95d9bc2914feae28c9534.html">xQueueGenericReset (132)</a></pre>
+    
+
+    <pre>
+
+    xQueueGenericCreateStatic():
+
+        95ec:	b530      	push	{r4, r5, lr}
+
+        95ee:	b083      	sub	sp, #12
+
+        95f0:	f89d 5018 	ldrb.w	r5, [sp, #24]
+
+        95f4:	b180      	cbz	r0, 9618 <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x2c>
+
+        95f6:	461c      	mov	r4, r3
+
+        95f8:	b1cb      	cbz	r3, 962e <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x42>
+
+        95fa:	b17a      	cbz	r2, 961c <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x30>
+
+        95fc:	b1a1      	cbz	r1, 9628 <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x3c>
+
+        95fe:	2350      	movs	r3, #80	; 0x50
+
+        9600:	9301      	str	r3, [sp, #4]
+
+        9602:	9b01      	ldr	r3, [sp, #4]
+
+    prvInitialiseNewQueue():
+
+        9604:	63e0      	str	r0, [r4, #60]	; 0x3c
+
+        9606:	6421      	str	r1, [r4, #64]	; 0x40
+
+        9608:	6022      	str	r2, [r4, #0]
+
+        960a:	2101      	movs	r1, #1
+
+        960c:	4620      	mov	r0, r4
+
+        960e:	f7ff ffab 	bl	9568 <<a href="./ab8b1461e5c95d9bc2914feae28c9534.html">xQueueGenericReset</a>>
+
+        9612:	f884 504c 	strb.w	r5, [r4, #76]	; 0x4c
+
+        9616:	4620      	mov	r0, r4
+
+    xQueueGenericCreateStatic():
+
+        9618:	b003      	add	sp, #12
+
+        961a:	bd30      	pop	{r4, r5, pc}
+
+        961c:	b951      	cbnz	r1, 9634 <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x48>
+
+        961e:	2350      	movs	r3, #80	; 0x50
+
+        9620:	9301      	str	r3, [sp, #4]
+
+        9622:	9b01      	ldr	r3, [sp, #4]
+
+        9624:	4622      	mov	r2, r4
+
+        9626:	e7ed      	b.n	9604 <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x18>
+
+        9628:	4608      	mov	r0, r1
+
+        962a:	b003      	add	sp, #12
+
+        962c:	bd30      	pop	{r4, r5, pc}
+
+        962e:	4618      	mov	r0, r3
+
+        9630:	b003      	add	sp, #12
+
+        9632:	bd30      	pop	{r4, r5, pc}
+
+        9634:	4610      	mov	r0, r2
+
+        9636:	e7ef      	b.n	9618 <<a href="./0615b9724f1a85b23e5eea6a25411419.html">xQueueGenericCreateStatic</a>+0x2c>
+
+    </pre>
+
+    
+    <pre><a href="./e175bc34f19fb5ab84d573af67f2b746.html">xQueueReceive (292)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

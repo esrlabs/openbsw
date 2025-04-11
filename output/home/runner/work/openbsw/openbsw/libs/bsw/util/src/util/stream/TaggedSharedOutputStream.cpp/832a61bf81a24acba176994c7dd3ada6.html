@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../stream.html">stream</a>
+            </li>
+
+        
+        <li class="active"><a href="../TaggedSharedOutputStream.cpp.html">TaggedSharedOutputStream.cpp</a>:35
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000a278</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=60
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&amp;) (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../../../../../../unknown/unknown/ca249422d71614ccb058ed35771cefb5.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::endContinuousOutput(util::stream::IOutputStream&amp;) (8)</a></pre>
+    
+
+    <pre>
+
+    util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        a278:	b538      	push	{r3, r4, r5, lr}
+
+        a27a:	4604      	mov	r4, r0
+
+        a27c:	6980      	ldr	r0, [r0, #24]
+
+        a27e:	f894 3024 	ldrb.w	r3, [r4, #36]	; 0x24
+
+        a282:	6802      	ldr	r2, [r0, #0]
+
+        a284:	460d      	mov	r5, r1
+
+        a286:	6812      	ldr	r2, [r2, #0]
+
+        a288:	b303      	cbz	r3, a2cc <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x54>
+
+        a28a:	f104 0114 	add.w	r1, r4, #20
+
+        a28e:	4790      	blx	r2
+
+        a290:	f894 3024 	ldrb.w	r3, [r4, #36]	; 0x24
+
+        a294:	61e0      	str	r0, [r4, #28]
+
+        a296:	b1bb      	cbz	r3, a2c8 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x50>
+
+        a298:	b1b5      	cbz	r5, a2c8 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x50>
+
+        a29a:	6a23      	ldr	r3, [r4, #32]
+
+        a29c:	42ab      	cmp	r3, r5
+
+        a29e:	d00f      	beq.n	a2c0 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x48>
+
+        a2a0:	b153      	cbz	r3, a2b8 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x40>
+
+        a2a2:	681a      	ldr	r2, [r3, #0]
+
+        a2a4:	490c      	ldr	r1, [pc, #48]	; (a2d8 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x60>)
+
+        a2a6:	6812      	ldr	r2, [r2, #0]
+
+        a2a8:	428a      	cmp	r2, r1
+
+    util::stream::TaggedSharedOutputStream::endContinuousOutput(util::stream::IOutputStream&):
+
+        a2aa:	4601      	mov	r1, r0
+
+        a2ac:	d110      	bne.n	a2d0 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x58>
+
+        a2ae:	f1a3 0010 	sub.w	r0, r3, #16
+
+        a2b2:	f001 f933 	bl	b51c <<a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&)</a>>
+
+    util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        a2b6:	69e0      	ldr	r0, [r4, #28]
+
+        a2b8:	4601      	mov	r1, r0
+
+        a2ba:	1d20      	adds	r0, r4, #4
+
+        a2bc:	f001 f92e 	bl	b51c <<a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&)</a>>
+
+        a2c0:	6225      	str	r5, [r4, #32]
+
+        a2c2:	f104 0010 	add.w	r0, r4, #16
+
+        a2c6:	bd38      	pop	{r3, r4, r5, pc}
+
+        a2c8:	6a23      	ldr	r3, [r4, #32]
+
+        a2ca:	e7e9      	b.n	a2a0 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x28>
+
+        a2cc:	4619      	mov	r1, r3
+
+        a2ce:	e7de      	b.n	a28e <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x16>
+
+        a2d0:	4618      	mov	r0, r3
+
+        a2d2:	4790      	blx	r2
+
+        a2d4:	69e0      	ldr	r0, [r4, #28]
+
+        a2d6:	e7ef      	b.n	a2b8 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x40>
+
+        a2d8:	0000a271 	.word	0x0000a271
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../../../../../../unknown/unknown/9bb82ca92b367bc6d6241d011365823f.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::write(estd::slice&lt;unsigned char const, 0u&gt; const&amp;) (16)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../main.html">main</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../main.cpp.html">main.cpp</a>:84
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">systems::getCanSystem()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00007cc8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html">app::run() (456)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=16
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../libs/bsw/estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*) (16)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char) (128)</a></pre>
+    
+
+    <pre>
+
+    _ZNK4estd9typed_memIN7systems9CanSystemEE9has_valueEv():
+
+        7cc8:	4805      	ldr	r0, [pc, #20]	; (7ce0 <<a href="./24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem()</a>+0x18>)
+
+    systems::getCanSystem():
+
+        7cca:	b508      	push	{r3, lr}
+
+    _ZN4estd9typed_memIN7systems9CanSystemEEptEv():
+
+        7ccc:	f8d0 34a0 	ldr.w	r3, [r0, #1184]	; 0x4a0
+
+        7cd0:	b103      	cbz	r3, 7cd4 <<a href="./24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem()</a>+0xc>
+
+    systems::getCanSystem():
+
+        7cd2:	bd08      	pop	{r3, pc}
+
+    _ZN4estd9typed_memIN7systems9CanSystemEEptEv():
+
+        7cd4:	4a03      	ldr	r2, [pc, #12]	; (7ce4 <<a href="./24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem()</a>+0x1c>)
+
+        7cd6:	2192      	movs	r1, #146	; 0x92
+
+        7cd8:	4618      	mov	r0, r3
+
+        7cda:	f7fe f83f 	bl	5d5c <<a href="../../../../../../../libs/bsw/estd/src/estd/assert.cpp/38ac861630520857582cce4f749c5937.html">estd::assert_func(char const*, int, char const*)</a>>
+
+        7cde:	bf00      	nop
+
+        7ce0:	1ffedcd0 	.word	0x1ffedcd0
+
+        7ce4:	00014b3c 	.word	0x00014b3c
+
+    </pre>
+
+    
+    <pre><a href="./fad58de7366495db4650cfefac2fcd61.html">main (72)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

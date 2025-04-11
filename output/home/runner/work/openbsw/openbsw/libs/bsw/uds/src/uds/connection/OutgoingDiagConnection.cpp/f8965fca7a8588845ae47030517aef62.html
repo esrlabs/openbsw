@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../OutgoingDiagConnection.cpp.html">OutgoingDiagConnection.cpp</a>:151
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000dff8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>120</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../ManagedOutgoingDiagConnection.cpp/b0f778336b0e82ba83a5bfc1cde7110d.html">uds::ManagedOutgoingDiagConnection::isExpectedResponse(transport::TransportMessage const&amp;) (52)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./986030456a937dd87ec6ddcec584f796.html">uds::OutgoingDiagConnection::transportMessageProcessed(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener::ProcessingResult) (80)</a></pre>
+    
+
+    <pre>
+
+    _ZNK9transport16TransportMessage13payloadLengthEv():
+
+        dff8:	8a0b      	ldrh	r3, [r1, #16]
+
+    uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&):
+
+        dffa:	b38b      	cbz	r3, e060 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x68>
+
+    _ZNK4estd5sliceIhLj0EEixEj():
+
+        dffc:	6889      	ldr	r1, [r1, #8]
+
+    uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&):
+
+        dffe:	780a      	ldrb	r2, [r1, #0]
+
+        e000:	2a7f      	cmp	r2, #127	; 0x7f
+
+        e002:	d020      	beq.n	e046 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x4e>
+
+        e004:	f890 c01a 	ldrb.w	ip, [r0, #26]
+
+        e008:	f10c 0c40 	add.w	ip, ip, #64	; 0x40
+
+        e00c:	4594      	cmp	ip, r2
+
+        e00e:	d126      	bne.n	e05e <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x66>
+
+        e010:	b430      	push	{r4, r5}
+
+        e012:	f8b0 4076 	ldrh.w	r4, [r0, #118]	; 0x76
+
+        e016:	3b01      	subs	r3, #1
+
+        e018:	429c      	cmp	r4, r3
+
+        e01a:	d823      	bhi.n	e064 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x6c>
+
+        e01c:	b334      	cbz	r4, e06c <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x74>
+
+    _ZNK4estd5sliceIhLj0EE4dataEv():
+
+        e01e:	6843      	ldr	r3, [r0, #4]
+
+    uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&):
+
+        e020:	2201      	movs	r2, #1
+
+    _ZNK4estd5sliceIhLj0EE4dataEv():
+
+        e022:	689d      	ldr	r5, [r3, #8]
+
+    uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&):
+
+        e024:	4613      	mov	r3, r2
+
+        e026:	f815 c002 	ldrb.w	ip, [r5, r2]
+
+        e02a:	1c50      	adds	r0, r2, #1
+
+        e02c:	5c8a      	ldrb	r2, [r1, r2]
+
+        e02e:	4594      	cmp	ip, r2
+
+        e030:	bf08      	it	eq
+
+        e032:	3301      	addeq	r3, #1
+
+        e034:	b282      	uxth	r2, r0
+
+        e036:	bf08      	it	eq
+
+        e038:	b29b      	uxtheq	r3, r3
+
+        e03a:	4294      	cmp	r4, r2
+
+        e03c:	d2f3      	bcs.n	e026 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x2e>
+
+        e03e:	429c      	cmp	r4, r3
+
+        e040:	bf28      	it	cs
+
+        e042:	2300      	movcs	r3, #0
+
+        e044:	e00f      	b.n	e066 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x6e>
+
+        e046:	2b03      	cmp	r3, #3
+
+        e048:	d109      	bne.n	e05e <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x66>
+
+        e04a:	f890 3072 	ldrb.w	r3, [r0, #114]	; 0x72
+
+        e04e:	b13b      	cbz	r3, e060 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x68>
+
+        e050:	7e83      	ldrb	r3, [r0, #26]
+
+        e052:	7848      	ldrb	r0, [r1, #1]
+
+        e054:	1a1b      	subs	r3, r3, r0
+
+        e056:	fab3 f383 	clz	r3, r3
+
+        e05a:	095b      	lsrs	r3, r3, #5
+
+        e05c:	e000      	b.n	e060 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x68>
+
+        e05e:	2300      	movs	r3, #0
+
+        e060:	4618      	mov	r0, r3
+
+        e062:	4770      	bx	lr
+
+        e064:	2300      	movs	r3, #0
+
+        e066:	4618      	mov	r0, r3
+
+        e068:	bc30      	pop	{r4, r5}
+
+        e06a:	4770      	bx	lr
+
+        e06c:	2301      	movs	r3, #1
+
+        e06e:	e7fa      	b.n	e066 <<a href="./f8965fca7a8588845ae47030517aef62.html">uds::OutgoingDiagConnection::verifyResponse(transport::TransportMessage const&)</a>+0x6e>
+
+    </pre>
+
+    
+    <pre><a href="./712304c520b7d8c5fadbf7a0a13b8ec0.html">uds::OutgoingDiagConnection::setTimeout(unsigned long) (124)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

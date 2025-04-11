@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspAdc.html">bspAdc</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../adc.html">adc</a>
+            </li>
+
+        
+        <li class="active"><a href="../AnalogInputScaleImplementation.hpp.html">AnalogInputScaleImplementation.hpp</a>:24
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::AnalogInputScaleImplementation&lt;unsigned long, unsigned short&gt;::get(unsigned short, unsigned long&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00011a10</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>68</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../src/tester/AnalogTester.cpp/4d46e7d46d94ef1c3210f83dc740f177.html">bios::AnalogTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (488)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=112
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/adc/AnalogInput.cpp/080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&amp;) (112)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../src/tester/AnalogTester.cpp/46c28ba46e4c3bd512bb8220d8c0bbb5.html">bios::AnalogTester::getInfo() const (8)</a></pre>
+    
+
+    <pre>
+
+    bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&):
+
+       11a10:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       11a12:	4e0e      	ldr	r6, [pc, #56]	; (11a4c <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x3c>)
+
+       11a14:	6833      	ldr	r3, [r6, #0]
+
+       11a16:	b083      	sub	sp, #12
+
+       11a18:	b123      	cbz	r3, 11a24 <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x14>
+
+       11a1a:	4b0d      	ldr	r3, [pc, #52]	; (11a50 <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x40>)
+
+       11a1c:	881b      	ldrh	r3, [r3, #0]
+
+       11a1e:	4283      	cmp	r3, r0
+
+       11a20:	4604      	mov	r4, r0
+
+       11a22:	d803      	bhi.n	11a2c <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x1c>
+
+       11a24:	2501      	movs	r5, #1
+
+       11a26:	4628      	mov	r0, r5
+
+       11a28:	b003      	add	sp, #12
+
+       11a2a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       11a2c:	460f      	mov	r7, r1
+
+       11a2e:	a901      	add	r1, sp, #4
+
+       11a30:	f000 faba 	bl	11fa8 <<a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/adc/AnalogInput.cpp/080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>>
+
+       11a34:	4605      	mov	r5, r0
+
+       11a36:	2800      	cmp	r0, #0
+
+       11a38:	d1f5      	bne.n	11a26 <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x16>
+
+       11a3a:	6833      	ldr	r3, [r6, #0]
+
+       11a3c:	f8bd 0004 	ldrh.w	r0, [sp, #4]
+
+       11a40:	f853 3024 	ldr.w	r3, [r3, r4, lsl #2]
+
+       11a44:	4798      	blx	r3
+
+       11a46:	6038      	str	r0, [r7, #0]
+
+       11a48:	e7ed      	b.n	11a26 <<a href="./3066b9ede29d77b596e5c4f3dde194f5.html">bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&)</a>+0x16>
+
+       11a4a:	bf00      	nop
+
+       11a4c:	1ffedb78 	.word	0x1ffedb78
+
+       11a50:	1ffedb76 	.word	0x1ffedb76
+
+    </pre>
+
+    
+    <pre><a href="../../../src/tester/AnalogTester.cpp/4d46e7d46d94ef1c3210f83dc740f177.html">bios::AnalogTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (488)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

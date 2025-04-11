@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../timer.html">timer</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../timer.html">timer</a>
+            </li>
+
+        
+        <li class="active"><a href="../Timer.h.html">Timer.h</a>:191
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">timer::Timer&lt;async::Lock&gt;::addTimeout(timer::Timeout&amp;, unsigned long, unsigned long, unsigned long)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009918</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>84</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../asyncFreeRtos/src/async/Async.cpp/f6cc267a73772db399b5446eaec541ae.html">async::scheduleAtFixedRate(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../asyncFreeRtos/src/async/Async.cpp/969fa3803577a7054a0fca784f9c20f7.html">vApplicationGetTimerTaskMemory (80)</a></pre>
+    
+
+    <pre>
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        9918:	b570      	push	{r4, r5, r6, lr}
+
+        991a:	9c04      	ldr	r4, [sp, #16]
+
+        991c:	608a      	str	r2, [r1, #8]
+
+        991e:	60cb      	str	r3, [r1, #12]
+
+        9920:	f3ef 8610 	mrs	r6, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        9924:	b672      	cpsid	i
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        9926:	6805      	ldr	r5, [r0, #0]
+
+    _ZN5timer5TimerIN5async4LockEE4diffEmm():
+
+        9928:	eba2 0c04 	sub.w	ip, r2, r4
+
+    _ZN4estd12forward_listIN5timer7TimeoutEE12before_beginEv():
+
+        992c:	4686      	mov	lr, r0
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        992e:	b14d      	cbz	r5, 9944 <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x2c>
+
+        9930:	462a      	mov	r2, r5
+
+        9932:	e003      	b.n	993c <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x24>
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        9934:	6813      	ldr	r3, [r2, #0]
+
+    _ZN4estd21forward_list_iteratorIN5timer7TimeoutEEC4EPNS_17forward_list_nodeIS2_EE():
+
+        9936:	4696      	mov	lr, r2
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        9938:	b123      	cbz	r3, 9944 <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x2c>
+
+        993a:	461a      	mov	r2, r3
+
+    _ZN5timer5TimerIN5async4LockEE4diffEmm():
+
+        993c:	6853      	ldr	r3, [r2, #4]
+
+        993e:	1b1b      	subs	r3, r3, r4
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        9940:	459c      	cmp	ip, r3
+
+        9942:	daf7      	bge.n	9934 <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x1c>
+
+    _ZN4estd12forward_listIN5timer7TimeoutEE12insert_afterENS_21forward_list_iteratorIS2_EERNS_17forward_list_nodeIS2_EE():
+
+        9944:	684b      	ldr	r3, [r1, #4]
+
+        9946:	2b01      	cmp	r3, #1
+
+        9948:	d007      	beq.n	995a <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x42>
+
+        994a:	2300      	movs	r3, #0
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        994c:	f386 8810 	msr	PRIMASK, r6
+
+        9950:	1b58      	subs	r0, r3, r5
+
+        9952:	fab0 f080 	clz	r0, r0
+
+        9956:	0940      	lsrs	r0, r0, #5
+
+        9958:	bd70      	pop	{r4, r5, r6, pc}
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        995a:	f8de 2000 	ldr.w	r2, [lr]
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE8set_nextEPS3_():
+
+        995e:	604a      	str	r2, [r1, #4]
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        9960:	1d0b      	adds	r3, r1, #4
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE8set_nextEPS3_():
+
+        9962:	f8ce 3000 	str.w	r3, [lr]
+
+    _ZN4estd17forward_list_nodeIN5timer7TimeoutEE4nextEv():
+
+        9966:	6805      	ldr	r5, [r0, #0]
+
+        9968:	e7f0      	b.n	994c <<a href="./429dfbd729c359cdbf1ea3c3e800f954.html">timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long)</a>+0x34>
+
+    timer::Timer<async::Lock>::addTimeout(timer::Timeout&, unsigned long, unsigned long, unsigned long):
+
+        996a:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (132)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

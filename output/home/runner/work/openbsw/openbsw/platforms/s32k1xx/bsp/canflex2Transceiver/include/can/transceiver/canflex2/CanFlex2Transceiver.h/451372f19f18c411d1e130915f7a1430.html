@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../../../canflex2Transceiver.html">canflex2Transceiver</a></li>
+        
+        <li><a href="../../../../../include.html">include</a></li>
+        
+        <li><a href="../../../../can.html">can</a></li>
+        
+        <li><a href="../../../transceiver.html">transceiver</a></li>
+        
+        <li ><a href="../../canflex2.html">canflex2</a>
+            </li>
+
+        
+        <li class="active"><a href="../CanFlex2Transceiver.h.html">CanFlex2Transceiver.h</a>:89
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::CanFlex2Transceiver::getRxAlive() const</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001005c</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../../../libs/bsw/cpp2can/include/can/transceiver/AbstractCANTransceiver.h/945b3c0b15fde4a27d398a154b79df9c.html">can::AbstractCANTransceiver::setCANFrameSentListener(can::IFilteredCANFrameSentListener*) (40)</a></pre>
+    
+
+    <pre>
+
+    bios::CanFlex2Transceiver::getRxAlive() const():
+
+       1005c:	f890 311c 	ldrb.w	r3, [r0, #284]	; 0x11c
+
+       10060:	2b04      	cmp	r3, #4
+
+       10062:	f890 3445 	ldrb.w	r3, [r0, #1093]	; 0x445
+
+       10066:	d100      	bne.n	1006a <<a href="./451372f19f18c411d1e130915f7a1430.html">bios::CanFlex2Transceiver::getRxAlive() const</a>+0xe>
+
+       10068:	b10b      	cbz	r3, 1006e <<a href="./451372f19f18c411d1e130915f7a1430.html">bios::CanFlex2Transceiver::getRxAlive() const</a>+0x12>
+
+       1006a:	4618      	mov	r0, r3
+
+       1006c:	4770      	bx	lr
+
+       1006e:	f8d0 33ec 	ldr.w	r3, [r0, #1004]	; 0x3ec
+
+       10072:	3b00      	subs	r3, #0
+
+       10074:	bf18      	it	ne
+
+       10076:	2301      	movne	r3, #1
+
+       10078:	4618      	mov	r0, r3
+
+       1007a:	4770      	bx	lr
+
+    </pre>
+
+    
+    <pre><a href="../../../../../src/can/transceiver/canflex2/CanFlex2Transceiver.cpp/400511cbd750fbf69afa5149e4573c9f.html">bios::CanFlex2Transceiver::mute() (60)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../safety.html">safety</a></li>
+        
+        <li><a href="../../../../safeWatchdog.html">safeWatchdog</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../safeWatchdog.html">safeWatchdog</a>
+            </li>
+
+        
+        <li class="active"><a href="../SafeWatchdog.cpp.html">SafeWatchdog.cpp</a>:20
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">safety::SafeWatchdog::init()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00010f78</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>16</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../safeLifecycle/src/safeLifecycle/SafetyManager.cpp/2fd28864cd3d251b39391c695418582b.html">safety::SafetyManager::init() (60)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=104
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/610fca6a355c9951c3b2954c7b2b6b6e.html">bsp::Watchdog::enableWatchdog(unsigned long, bool, unsigned long) (104)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./3874561af613db65c732c36e06ba9084.html">safety::SafeWatchdog::SafeWatchdog() (12)</a></pre>
+    
+
+    <pre>
+
+    safety::SafeWatchdog::init():
+
+       10f78:	6803      	ldr	r3, [r0, #0]
+
+       10f7a:	6043      	str	r3, [r0, #4]
+
+    _ZN6safety12SafeWatchdog17enableMcuWatchdogEv():
+
+       10f7c:	f44f 32fa 	mov.w	r2, #128000	; 0x1f400
+
+       10f80:	2101      	movs	r1, #1
+
+       10f82:	20fa      	movs	r0, #250	; 0xfa
+
+       10f84:	f000 bc88 	b.w	11898 <<a href="../../../../../../platforms/s32k1xx/bsp/bspMcuWatchdog/src/watchdog/Watchdog.cpp/610fca6a355c9951c3b2954c7b2b6b6e.html">bsp::Watchdog::enableWatchdog(unsigned long, bool, unsigned long)</a>>
+
+    </pre>
+
+    
+    <pre><a href="./dac703c40c075b303001e2b6b04f7571.html">safety::SafeWatchdog::cyclic() (164)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

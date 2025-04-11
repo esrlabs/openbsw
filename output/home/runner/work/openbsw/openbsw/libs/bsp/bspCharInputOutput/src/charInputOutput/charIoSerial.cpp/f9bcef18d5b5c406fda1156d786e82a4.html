@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspCharInputOutput.html">bspCharInputOutput</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../charInputOutput.html">charInputOutput</a>
+            </li>
+
+        
+        <li class="active"><a href="../charIoSerial.cpp.html">charIoSerial.cpp</a>:86
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">SerialLogger__outchar</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000127fc</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>88</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=116
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/1aa4ed991e9ba2adf624b140f32b8ae6.html">sciGetInitState (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/6292ce493227a3ee7a5f7175681b1864.html">sciGetTxNotReady (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/de32ce3e5bd833dc858de35eedb7b6f2.html">sciPuth (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/e6e261f1047bc6cb2d1ba76aaec8c3a7.html">sciInit (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./e10ac5f1e908219edc5051ca88af79d7.html">SerialLogger_Idle (88)</a></pre>
+    
+
+    <pre>
+
+    SerialLogger__outchar():
+
+       127fc:	b538      	push	{r3, r4, r5, lr}
+
+       127fe:	4b12      	ldr	r3, [pc, #72]	; (12848 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x4c>)
+
+       12800:	681b      	ldr	r3, [r3, #0]
+
+       12802:	4605      	mov	r5, r0
+
+       12804:	b163      	cbz	r3, 12820 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x24>
+
+       12806:	4b11      	ldr	r3, [pc, #68]	; (1284c <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x50>)
+
+       12808:	4811      	ldr	r0, [pc, #68]	; (12850 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x54>)
+
+       1280a:	681a      	ldr	r2, [r3, #0]
+
+       1280c:	1c51      	adds	r1, r2, #1
+
+       1280e:	f5b1 7fc8 	cmp.w	r1, #400	; 0x190
+
+       12812:	5485      	strb	r5, [r0, r2]
+
+       12814:	bfaa      	itet	ge
+
+       12816:	2200      	movge	r2, #0
+
+       12818:	6019      	strlt	r1, [r3, #0]
+
+       1281a:	601a      	strge	r2, [r3, #0]
+
+       1281c:	2000      	movs	r0, #0
+
+       1281e:	bd38      	pop	{r3, r4, r5, pc}
+
+       12820:	f7ff fb12 	bl	11e48 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/1aa4ed991e9ba2adf624b140f32b8ae6.html">sciGetInitState</a>>
+
+       12824:	b168      	cbz	r0, 12842 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x46>
+
+       12826:	f242 7411 	movw	r4, #10001	; 0x2711
+
+       1282a:	e001      	b.n	12830 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x34>
+
+    SerialLogger_putc():
+
+       1282c:	3c01      	subs	r4, #1
+
+       1282e:	d003      	beq.n	12838 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x3c>
+
+       12830:	f7ff fafa 	bl	11e28 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/6292ce493227a3ee7a5f7175681b1864.html">sciGetTxNotReady</a>>
+
+       12834:	2800      	cmp	r0, #0
+
+       12836:	d1f9      	bne.n	1282c <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x30>
+
+       12838:	4628      	mov	r0, r5
+
+       1283a:	f7ff faff 	bl	11e3c <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/de32ce3e5bd833dc858de35eedb7b6f2.html">sciPuth</a>>
+
+    SerialLogger__outchar():
+
+       1283e:	2000      	movs	r0, #0
+
+       12840:	bd38      	pop	{r3, r4, r5, pc}
+
+       12842:	f7ff fabd 	bl	11dc0 <<a href="../../../../../../platforms/s32k1xx/bsp/bspSci/src/SciDevice.cpp/e6e261f1047bc6cb2d1ba76aaec8c3a7.html">sciInit</a>>
+
+    SerialLogger_init():
+
+       12846:	e7ee      	b.n	12826 <<a href="./f9bcef18d5b5c406fda1156d786e82a4.html">SerialLogger__outchar</a>+0x2a>
+
+       12848:	1ffee928 	.word	0x1ffee928
+
+       1284c:	1ffee924 	.word	0x1ffee924
+
+       12850:	1ffee794 	.word	0x1ffee794
+
+    </pre>
+
+    
+    <pre><a href="./82ff3f30904ed0923b5ade29ff8df33a.html">SerialLogger__inchar (28)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../freeRtos.html">freeRtos</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../queue.c.html">queue.c</a>:2831
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">vQueueAddToRegistry</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000975c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>88</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../timers.c/25fd83c3d905940072a19718ff477a03.html">prvCheckForValidListAndQueue (108)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./e175bc34f19fb5ab84d573af67f2b746.html">xQueueReceive (292)</a></pre>
+    
+
+    <pre>
+
+    vQueueAddToRegistry():
+
+        975c:	b331      	cbz	r1, 97ac <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x50>
+
+        975e:	b430      	push	{r4, r5}
+
+        9760:	2500      	movs	r5, #0
+
+        9762:	4c13      	ldr	r4, [pc, #76]	; (97b0 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x54>)
+
+        9764:	462b      	mov	r3, r5
+
+        9766:	e002      	b.n	976e <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x12>
+
+        9768:	3301      	adds	r3, #1
+
+        976a:	2b1e      	cmp	r3, #30
+
+        976c:	d017      	beq.n	979e <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x42>
+
+        976e:	eb04 02c3 	add.w	r2, r4, r3, lsl #3
+
+        9772:	ea4f 0cc3 	mov.w	ip, r3, lsl #3
+
+        9776:	6852      	ldr	r2, [r2, #4]
+
+        9778:	4282      	cmp	r2, r0
+
+        977a:	d00e      	beq.n	979a <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x3e>
+
+        977c:	2d00      	cmp	r5, #0
+
+        977e:	d1f3      	bne.n	9768 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0xc>
+
+        9780:	f854 2033 	ldr.w	r2, [r4, r3, lsl #3]
+
+        9784:	b17a      	cbz	r2, 97a6 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x4a>
+
+        9786:	3301      	adds	r3, #1
+
+        9788:	2b1e      	cmp	r3, #30
+
+        978a:	eb04 02c3 	add.w	r2, r4, r3, lsl #3
+
+        978e:	ea4f 0cc3 	mov.w	ip, r3, lsl #3
+
+        9792:	d006      	beq.n	97a2 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x46>
+
+        9794:	6852      	ldr	r2, [r2, #4]
+
+        9796:	4290      	cmp	r0, r2
+
+        9798:	d1f2      	bne.n	9780 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0x24>
+
+        979a:	eb04 050c 	add.w	r5, r4, ip
+
+        979e:	6029      	str	r1, [r5, #0]
+
+        97a0:	6068      	str	r0, [r5, #4]
+
+        97a2:	bc30      	pop	{r4, r5}
+
+        97a4:	4770      	bx	lr
+
+        97a6:	eb04 050c 	add.w	r5, r4, ip
+
+        97aa:	e7dd      	b.n	9768 <<a href="./2c24014a9b883e91f57e7cd512f03895.html">vQueueAddToRegistry</a>+0xc>
+
+        97ac:	4770      	bx	lr
+
+        97ae:	bf00      	nop
+
+        97b0:	1ffee584 	.word	0x1ffee584
+
+    </pre>
+
+    
+    <pre><a href="./7db3134b2fb4931db01a8567fd79567a.html">vQueueWaitForMessageRestricted (80)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

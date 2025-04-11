@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../../printf.html">printf</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../printf.html">printf</a>
+            </li>
+
+        
+        <li class="active"><a href="../printf.c.html">printf.c</a>:1179
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">vfctprintf</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00013484</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>36</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf (40)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=1572
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./6d7d630ec5529648e33ae989eebb2cb7.html">_vsnprintf (1572)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./6d7d630ec5529648e33ae989eebb2cb7.html">_vsnprintf (1572)</a></pre>
+    
+
+    <pre>
+
+    vfctprintf():
+
+       13484:	b510      	push	{r4, lr}
+
+       13486:	b084      	sub	sp, #16
+
+       13488:	4604      	mov	r4, r0
+
+       1348a:	e9cd 4102 	strd	r4, r1, [sp, #8]
+
+       1348e:	9300      	str	r3, [sp, #0]
+
+       13490:	a902      	add	r1, sp, #8
+
+       13492:	4613      	mov	r3, r2
+
+       13494:	4803      	ldr	r0, [pc, #12]	; (134a4 <<a href="./5312ec35df88995f2f21271b5c68c054.html">vfctprintf</a>+0x20>)
+
+       13496:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+
+       1349a:	f7ff fce1 	bl	12e60 <<a href="./6d7d630ec5529648e33ae989eebb2cb7.html">_vsnprintf</a>>
+
+       1349e:	b004      	add	sp, #16
+
+       134a0:	bd10      	pop	{r4, pc}
+
+       134a2:	bf00      	nop
+
+       134a4:	00012e55 	.word	0x00012e55
+
+    </pre>
+
+    
+    <pre><a href="../../../../../bsw/cpp2can/src/can/transceiver/AbstractCANTransceiver.cpp/2c45d632f8960df2c1f8ffa9ff9e623c.html">can::AbstractCANTransceiver::addVIPCANFrameListener(can::ICANFrameListener&amp;) (72)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

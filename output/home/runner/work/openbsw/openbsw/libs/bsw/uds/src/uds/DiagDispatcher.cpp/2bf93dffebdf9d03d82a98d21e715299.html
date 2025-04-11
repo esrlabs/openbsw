@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="../../../../../../../../../../../static/js/bootstrap.min.js"></script>
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../uds.html">uds</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagDispatcher.cpp.html">DiagDispatcher.cpp</a>:232
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000f390</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>224</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (6,
+                            <span title="sum of used bytes by all callees">
+                            Σ=1028
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./d8604744054991bb0de45e45600942e1.html">uds::DiagDispatcher2::copyFunctionalRequest(transport::TransportMessage&amp;) (88)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../connection/DiagConnectionManager.cpp/9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&amp;) (636)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/f9cf89b75693e1ccaea889121fc72912.html">non-virtual thunk to transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&amp;) (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../connection/IncomingDiagConnection.cpp/98aa1036e1899478fd44d0933f659743.html">uds::IncomingDiagConnection::sendNegativeResponse(unsigned char, uds::AbstractDiagJob&amp;) (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./f53ea407a0e4886803008b58e9a431f2.html">uds::DiagDispatcher2::sendBusyResponse(transport::TransportMessage const*) (100)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../estd/include/estd/functional.h/00d4d29c4bba6e1a24dc7fae717862a2.html">void estd::function&lt;void ()&gt;::member_function_caller&lt;uds::DiagDispatcher2, &amp;uds::DiagDispatcher2::processQueue&gt;(void*) (4)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f390:	6b43      	ldr	r3, [r0, #52]	; 0x34
+
+    _ZNK4estd5queueIN9transport12TransportJobENS_5dequeIS2_EEE5emptyEv():
+
+        f392:	689b      	ldr	r3, [r3, #8]
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f394:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+    _ZNK4estd5queueIN9transport12TransportJobENS_5dequeIS2_EEE5emptyEv():
+
+        f396:	681d      	ldr	r5, [r3, #0]
+
+    _ZNK4estd5dequeIN9transport12TransportJobEE4sizeEv():
+
+        f398:	686a      	ldr	r2, [r5, #4]
+
+        f39a:	68eb      	ldr	r3, [r5, #12]
+
+        f39c:	68ad      	ldr	r5, [r5, #8]
+
+        f39e:	4413      	add	r3, r2
+
+        f3a0:	3301      	adds	r3, #1
+
+        f3a2:	1b5b      	subs	r3, r3, r5
+
+        f3a4:	fbb3 f5f2 	udiv	r5, r3, r2
+
+        f3a8:	fb02 3315 	mls	r3, r2, r5, r3
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f3ac:	b083      	sub	sp, #12
+
+        f3ae:	b913      	cbnz	r3, f3b6 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x26>
+
+        f3b0:	7b03      	ldrb	r3, [r0, #12]
+
+        f3b2:	4604      	mov	r4, r0
+
+        f3b4:	b913      	cbnz	r3, f3bc <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x2c>
+
+        f3b6:	2001      	movs	r0, #1
+
+        f3b8:	b003      	add	sp, #12
+
+        f3ba:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+        f3bc:	460e      	mov	r6, r1
+
+        f3be:	f7ff feb3 	bl	f128 <<a href="./d8604744054991bb0de45e45600942e1.html">uds::DiagDispatcher2::copyFunctionalRequest(transport::TransportMessage&)</a>>
+
+        f3c2:	4605      	mov	r5, r0
+
+        f3c4:	2800      	cmp	r0, #0
+
+        f3c6:	d046      	beq.n	f456 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xc6>
+
+        f3c8:	4601      	mov	r1, r0
+
+        f3ca:	f104 0038 	add.w	r0, r4, #56	; 0x38
+
+        f3ce:	f000 fba7 	bl	fb20 <<a href="../connection/DiagConnectionManager.cpp/9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&)</a>>
+
+        f3d2:	4606      	mov	r6, r0
+
+        f3d4:	b1e8      	cbz	r0, f412 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x82>
+
+        f3d6:	4923      	ldr	r1, [pc, #140]	; (f464 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xd4>)
+
+        f3d8:	8b03      	ldrh	r3, [r0, #24]
+
+        f3da:	8ac2      	ldrh	r2, [r0, #22]
+
+        f3dc:	7808      	ldrb	r0, [r1, #0]
+
+        f3de:	7eb1      	ldrb	r1, [r6, #26]
+
+        f3e0:	9100      	str	r1, [sp, #0]
+
+        f3e2:	4921      	ldr	r1, [pc, #132]	; (f468 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xd8>)
+
+        f3e4:	f7f2 f9d6 	bl	1794 <<a href="../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f3e8:	6860      	ldr	r0, [r4, #4]
+
+        f3ea:	68aa      	ldr	r2, [r5, #8]
+
+        f3ec:	6803      	ldr	r3, [r0, #0]
+
+        f3ee:	4631      	mov	r1, r6
+
+        f3f0:	699f      	ldr	r7, [r3, #24]
+
+        f3f2:	8a2b      	ldrh	r3, [r5, #16]
+
+        f3f4:	47b8      	blx	r7
+
+        f3f6:	28ff      	cmp	r0, #255	; 0xff
+
+        f3f8:	d117      	bne.n	f42a <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x9a>
+
+        f3fa:	6823      	ldr	r3, [r4, #0]
+
+        f3fc:	4a1b      	ldr	r2, [pc, #108]	; (f46c <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xdc>)
+
+        f3fe:	69db      	ldr	r3, [r3, #28]
+
+        f400:	4293      	cmp	r3, r2
+
+        f402:	d11c      	bne.n	f43e <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xae>
+
+    uds::DiagDispatcher2::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+        f404:	f104 0020 	add.w	r0, r4, #32
+
+        f408:	4629      	mov	r1, r5
+
+        f40a:	f7fc fe67 	bl	c0dc <<a href="../../../../../../../../../../../unknown/unknown/f9cf89b75693e1ccaea889121fc72912.html">non-virtual thunk to transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&)</a>>
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f40e:	2000      	movs	r0, #0
+
+    uds::DiagDispatcher2::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+        f410:	e7d2      	b.n	f3b8 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x28>
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f412:	6823      	ldr	r3, [r4, #0]
+
+        f414:	4a15      	ldr	r2, [pc, #84]	; (f46c <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xdc>)
+
+        f416:	69db      	ldr	r3, [r3, #28]
+
+        f418:	4293      	cmp	r3, r2
+
+        f41a:	d116      	bne.n	f44a <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xba>
+
+    uds::DiagDispatcher2::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+        f41c:	f104 0020 	add.w	r0, r4, #32
+
+        f420:	4629      	mov	r1, r5
+
+        f422:	f7fc fe5b 	bl	c0dc <<a href="../../../../../../../../../../../unknown/unknown/f9cf89b75693e1ccaea889121fc72912.html">non-virtual thunk to transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&)</a>>
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f426:	2001      	movs	r0, #1
+
+    uds::DiagDispatcher2::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+        f428:	e7c6      	b.n	f3b8 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x28>
+
+    uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+        f42a:	4601      	mov	r1, r0
+
+        f42c:	6862      	ldr	r2, [r4, #4]
+
+        f42e:	4630      	mov	r0, r6
+
+        f430:	f7fd ff14 	bl	d25c <<a href="../connection/IncomingDiagConnection.cpp/98aa1036e1899478fd44d0933f659743.html">uds::IncomingDiagConnection::sendNegativeResponse(unsigned char, uds::AbstractDiagJob&)</a>>
+
+        f434:	6833      	ldr	r3, [r6, #0]
+
+        f436:	4630      	mov	r0, r6
+
+        f438:	68db      	ldr	r3, [r3, #12]
+
+        f43a:	4798      	blx	r3
+
+        f43c:	e7dd      	b.n	f3fa <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x6a>
+
+        f43e:	4620      	mov	r0, r4
+
+        f440:	2200      	movs	r2, #0
+
+        f442:	4629      	mov	r1, r5
+
+        f444:	4798      	blx	r3
+
+        f446:	2000      	movs	r0, #0
+
+        f448:	e7b6      	b.n	f3b8 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x28>
+
+        f44a:	4620      	mov	r0, r4
+
+        f44c:	2204      	movs	r2, #4
+
+        f44e:	4629      	mov	r1, r5
+
+        f450:	4798      	blx	r3
+
+        f452:	2001      	movs	r0, #1
+
+        f454:	e7b0      	b.n	f3b8 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x28>
+
+        f456:	4620      	mov	r0, r4
+
+        f458:	4631      	mov	r1, r6
+
+        f45a:	f7ff fe91 	bl	f180 <<a href="./f53ea407a0e4886803008b58e9a431f2.html">uds::DiagDispatcher2::sendBusyResponse(transport::TransportMessage const*)</a>>
+
+        f45e:	2001      	movs	r0, #1
+
+        f460:	e7aa      	b.n	f3b8 <<a href="./2bf93dffebdf9d03d82a98d21e715299.html">uds::DiagDispatcher2::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x28>
+
+        f462:	bf00      	nop
+
+        f464:	1ffe0081 	.word	0x1ffe0081
+
+        f468:	00017aa8 	.word	0x00017aa8
+
+        f46c:	0000f119 	.word	0x0000f119
+
+    </pre>
+
+    
+    <pre><a href="./f252fb71971771b90de8f71e99de827b.html">uds::DiagDispatcher2::send_local(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (352)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>
