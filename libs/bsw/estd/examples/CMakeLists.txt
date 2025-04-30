@@ -3,7 +3,6 @@ add_executable(
     algorithm.cpp
     array.cpp
     big_endian.cpp
-    constructor.cpp
     deque.cpp
     functional.cpp
     index_sequence.cpp

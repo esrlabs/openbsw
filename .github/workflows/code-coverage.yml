@@ -1,6 +1,6 @@
 name: Code Coverage 
 
-on: [workflow_call, pull_request]
+on: [workflow_call, pull_request, push]
 
 jobs:
   build:
@@ -16,24 +16,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install GCC 11.4.0 and LCOV
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y gcc-11 g++-11 lcov wget zip
-        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100
-        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 100
-        sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-11 100
-
-    - name: Set up sccache
-      uses: mozilla-actions/sccache-action@v0.0.8
-      with:
-        version: "v0.10.0"
-
-    - name: Set up CMake
-      uses: jwlawson/actions-setup-cmake@v2
-      with:
-          cmake-version: '3.22.x'
-
     - name: Cache CMake files
       id: cache-build
       uses: actions/cache@v3
@@ -41,56 +23,34 @@ jobs:
           path: cmake-build-unit-tests
           key: ${{ runner.os }}-cmake-build-unit-tests-${{ hashFiles('**/*.cpp', '**/*.h',  '**/*.cmake', '**/*.txt', '**/*.c', '**/*.s') }}
 
-    - name: Configure with cmake
-      if: steps.cache-build.outputs.cache-hit != 'true'
+    - name: Build the dockerfile
       run: |
-        rm -rf cmake-build-unit-tests
-        cmake -B cmake-build-unit-tests -S executables/unitTest \
-              -DBUILD_UNIT_TESTS=ON \
-              -DCMAKE_BUILD_TYPE=${{ github.event.inputs.BUILD_TYPE }}\
-              -DCMAKE_C_COMPILER_LAUNCHER=sccache \
-              -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
+          docker build --build-arg user_id=$(id -u) -f docker/Dockerfile.dev -t dev .
 
-    - name: Build with cmake
-      if: steps.cache-build.outputs.cache-hit != 'true'
-      run: cmake --build cmake-build-unit-tests -j4
-
-    - name: Run tests
-      if: steps.cache-build.outputs.cache-hit != 'true'
-      run: ctest --test-dir cmake-build-unit-tests -j4
-
-    - name: Capture code coverage
-      if: steps.cache-build.outputs.cache-hit != 'true'
-      run: lcov --no-external --capture --directory . --output-file cmake-build-unit-tests/coverage_unfiltered.info
-
-    - name: Filter out 3rd party and mock files
-      if: steps.cache-build.outputs.cache-hit != 'true'
-      run: lcov --remove cmake-build-unit-tests/coverage_unfiltered.info '*libs/3rdparty/googletest/*' '*/mock/*' '*/gmock/*' '*/gtest/*' '*/test/*' --output-file cmake-build-unit-tests/coverage.info
-
-    - name: Generate HTML coverage report
-      run:  |
-          chmod 744 cmake-build-unit-tests/coverage.info
-          genhtml cmake-build-unit-tests/coverage.info --output-directory cmake-build-unit-tests/coverage --ignore-errors source
-
-    - name: Zip coverage html
+    - name: Run the build.py inside the docker container
       run: |
-          mv cmake-build-unit-tests/coverage code_coverage
+          docker run --rm -v "$PWD:/home/jenkins" -w /home/jenkins --user $(id -u):4996 dev bash -c "
+          python3 .ci/unit-test-build.py &&
+          lcov --no-external --capture --directory . \
+               --output-file cmake-build-unit-tests/coverage_unfiltered.info &&
+
+          # Filter out 3rd party and mock files
+          lcov --remove cmake-build-unit-tests/coverage_unfiltered.info \
+               '*libs/3rdparty/googletest/*' \
+               '*/mock/*' \
+               '*/gmock/*' \
+               '*/gtest/*' \
+               '*/test/*' \
+               --output-file cmake-build-unit-tests/coverage.info &&
+
+          # Generate HTML coverage report
+          genhtml cmake-build-unit-tests/coverage.info \
+                  --output-directory cmake-build-unit-tests/coverage &&
+
+          # Zip the coverage report
+          mv cmake-build-unit-tests/coverage code_coverage &&
           zip -r code_coverage.zip code_coverage
-
-    - name: Badges
-      run: |
-          LinePercentage=$(lcov --summary cmake-build-unit-tests/coverage.info | grep 'lines' | awk '{print $2}') &&
-          echo "Line Percentage: $LinePercentage" &&
-          wget "https://img.shields.io/badge/coverage-${LinePercentage}25-brightgreen.svg" -O line_coverage_badge.svg &&
-
-          FunctionPercentage=$(lcov --summary cmake-build-unit-tests/coverage.info | grep 'functions' | awk '{print $2}') &&
-          echo "Function Percentage: $FunctionPercentage" &&
-          wget "https://img.shields.io/badge/coverage-${FunctionPercentage}25-brightgreen.svg" -O function_coverage_badge.svg &&
-
-          mkdir coverage_badges &&
-          mv line_coverage_badge.svg coverage_badges/ &&
-          mv function_coverage_badge.svg coverage_badges/ &&
-          zip -r coverage_badges.zip coverage_badges
+          "
 
     - name: Upload code coverage artifact
       uses: actions/upload-artifact@v4

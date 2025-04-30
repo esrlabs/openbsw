@@ -1,6 +1,6 @@
 name: Build Sphinx Documentation
 
-on: [workflow_call, pull_request]
+on: [workflow_call, pull_request, push]
 
 permissions:
   contents: write
@@ -10,40 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    defaults:
-      run:
-        working-directory: ./doc
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-    - name: Install python dependencies
+    - name: Build the dockerfile
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+          docker build --build-arg user_id=$(id -u) -f docker/Dockerfile.docs -t docs .
 
-    - name: Set up Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'adopt'
-        java-version: '11'
-
-    - name: Install plantuml
+    - name: Run the build.py inside the docker container
       run: |
-        sudo apt-get update
-        sudo apt-get install -y plantuml
-
-    - name: Build Sphinx documentation
-      run: make html OFFICIAL_BUILD=1
-
-    - name: Zip Sphinx documentation
-      run: |
-        mv build/html sphinx_docs
-        zip -r sphinx_docs.zip sphinx_docs
+          docker run --rm -v "$PWD:/home/jenkins" -w /home/jenkins --user $(id -u):4996 docs bash -c "
+          python3 .ci/sphinx-docs.py &&
+          mv build/html sphinx_docs &&
+          zip -r sphinx_docs.zip sphinx_docs
+          "
 
     - name: Upload sphinx_docs
       uses: actions/upload-artifact@v4
