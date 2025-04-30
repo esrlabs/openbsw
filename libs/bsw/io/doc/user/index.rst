@@ -28,7 +28,6 @@ Data Structures
 
    join_reader
    forwarding_reader
-   buffered_writer
    split_writer
    memory_queue
    variant_queue
@@ -39,7 +38,6 @@ Data Structures
 
    :ref:`io_JoinReader`, "Read from multiple readers"
    :ref:`io_ForwardingReader`, "Read from reader and forward data to writer"
-   :ref:`io_BufferedWriter`, "Writer with an internal buffer"
    :ref:`io_SplitWriter`, "Write to multiple writers"
    :ref:`io_MemoryQueue`, "Single producer single consumer shared memory queue"
    :ref:`io_VariantQueue`, "(De)serialization mechanism to pass typed structs via ``MemoryQueue``"

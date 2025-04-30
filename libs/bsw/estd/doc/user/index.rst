@@ -128,7 +128,6 @@ Other utilities
    typed_mem
    static_assert
    big_endian
-   constructor
    limits
    index_sequence
    little_endian
@@ -148,7 +147,6 @@ Other utilities
    :ref:`memory <estd_memory>`, "Utility functions which operate on slices."
    :ref:`typed_mem <estd_typed_mem>`, "Typed memory for delayed creation of objects."
    :ref:`big_endian <estd_big_endian>`, "Big-endian encoding (data serialization)."
-   :ref:`constructor <estd_constructor>`, "Helper struct providing a way to construct objects in pre-allocated memory (‘placement new’ wrapper)."
    :ref:`index_sequence <estd_index_sequence>`, "Compile-time integer sequence to represent a sequence of indices."
    :ref:`static_assert <estd_static_assert>`, "Checking assertions at compile time."
    :ref:`singleton<estd_singleton>`, "Templated implementation of the singleton pattern."

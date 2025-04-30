@@ -1,6 +1,5 @@
 add_executable(
     ioExamples
-    BufferedWriterExample.cpp
     ForwardingReaderExample.cpp
     JoinReaderExample.cpp
     MemoryQueueExample.cpp
