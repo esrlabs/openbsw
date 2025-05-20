@@ -21,7 +21,7 @@ struct AsyncBinding : public Config
     using RuntimeMonitorType = ::runtime::declare::RuntimeMonitor<
         ::runtime::RuntimeStatistics,
         ::runtime::RuntimeStatistics,
-        AdapterType::FREERTOS_TASK_COUNT,
+        AdapterType::OS_TASK_COUNT,
         ISR_GROUP_COUNT>;
 
     using ContextHookType = StaticContextHook<RuntimeMonitorType>;

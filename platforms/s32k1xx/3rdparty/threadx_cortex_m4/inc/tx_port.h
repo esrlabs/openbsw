@@ -136,6 +136,11 @@ typedef unsigned short                          USHORT;
 #define TX_MINIMUM_STACK                        200         /* Minimum stack size for this port  */
 #endif
 
+/* Faster system timer (100 ticks per second is the default) */
+
+#ifndef TX_TIMER_TICKS_PER_SECOND
+#define TX_TIMER_TICKS_PER_SECOND       (1000UL)
+#endif
 
 /* Define the system timer thread's default stack size and priority.  These are only applicable
    if TX_TIMER_PROCESS_IN_ISR is not defined.  */
