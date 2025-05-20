@@ -15,24 +15,41 @@ option(PLATFORM_SUPPORT_IO "Turn IO support on or off" OFF)
 option(PLATFORM_SUPPORT_UDS "Turn UDS support on or off" OFF)
 
 set(BUILD_TARGET_PLATFORM
-    "POSIX"
+    "POSIX_FREERTOS"
     CACHE STRING "Target Platform")
 
-set(SUPPORTED_PLATFORMS POSIX S32K148EVB)
+set(SUPPORTED_PLATFORMS POSIX_FREERTOS POSIX_THREADX S32K148EVB_FREERTOS
+                        S32K148EVB_THREADX)
 if (NOT (BUILD_TARGET_PLATFORM IN_LIST SUPPORTED_PLATFORMS))
     message(FATAL_ERROR "Unknown target platform <${BUILD_TARGET_PLATFORM}>")
 endif ()
 
 message(STATUS "Target platform: <${BUILD_TARGET_PLATFORM}>")
 
-if (BUILD_TARGET_PLATFORM STREQUAL "POSIX" AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+if (BUILD_TARGET_PLATFORM STREQUAL "POSIX_FREERTOS"
+    AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(PLATFORM_SUPPORT_CAN
         ON
         CACHE BOOL "Turn CAN support on or off" FORCE)
     set(PLATFORM_SUPPORT_IO
         OFF
         CACHE BOOL "Turn IO support on or off" FORCE)
-elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB")
+elseif (BUILD_TARGET_PLATFORM STREQUAL "POSIX_THREADX"
+        AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(PLATFORM_SUPPORT_CAN
+        ON
+        CACHE BOOL "Turn CAN support on or off" FORCE)
+    set(PLATFORM_SUPPORT_IO
+        OFF
+        CACHE BOOL "Turn IO support on or off" FORCE)
+elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB_FREERTOS")
+    set(PLATFORM_SUPPORT_CAN
+        ON
+        CACHE BOOL "Turn CAN support on or off" FORCE)
+    set(PLATFORM_SUPPORT_IO
+        ON
+        CACHE BOOL "Turn IO support on or off" FORCE)
+elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB_THREADX")
     set(PLATFORM_SUPPORT_CAN
         ON
         CACHE BOOL "Turn CAN support on or off" FORCE)
@@ -65,18 +82,30 @@ endif ()
 
 include(${OPENBSW_DIR}/Filelists.cmake)
 
-# Configure async and freeRtos libs depending on build type.
-add_library(asyncPlatform ALIAS asyncFreeRtos)
-add_library(osFreeRtos ALIAS freeRtos)
-
-if (BUILD_TARGET_PLATFORM STREQUAL "POSIX")
+if (BUILD_TARGET_PLATFORM STREQUAL "POSIX_FREERTOS")
+    # Configure async and freeRtos libs depending on build type.
+    add_library(asyncPlatform ALIAS asyncFreeRtos)
+    add_library(osFreeRtos ALIAS freeRtos)
     add_subdirectory(platforms/posix)
     add_library(freeRtosPort ALIAS freeRtosPosixPort)
     add_library(freeRtosPortImpl ALIAS freeRtosPosix)
-elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB")
+elseif (BUILD_TARGET_PLATFORM STREQUAL "POSIX_THREADX")
+    add_library(asyncPlatform ALIAS asyncThreadX)
+    add_subdirectory(platforms/posix)
+    add_library(threadXPort ALIAS threadXLinuxPort)
+    add_library(threadXPortImpl ALIAS threadXLinux)
+elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB_FREERTOS")
+    # Configure async and freeRtos libs depending on build type.
+    add_library(asyncPlatform ALIAS asyncFreeRtos)
+    add_library(osFreeRtos ALIAS freeRtos)
     add_subdirectory(platforms/s32k148evb)
     add_library(freeRtosPort ALIAS freeRtosCm4SysTickPort)
     add_library(freeRtosPortImpl ALIAS freeRtosCm4SysTick)
+elseif (BUILD_TARGET_PLATFORM STREQUAL "S32K148EVB_THREADX")
+    add_library(asyncPlatform ALIAS asyncThreadX)
+    add_subdirectory(platforms/s32k148evb)
+    add_library(threadXPort ALIAS threadXCortexM4Port)
+    add_library(threadXPortImpl ALIAS threadXCortexM4)
 endif ()
 
 add_subdirectory(application)

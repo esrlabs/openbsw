@@ -66,7 +66,7 @@ class FreeRtosAdapter
 {
 public:
     static size_t const TASK_COUNT          = Binding::TASK_COUNT;
-    static size_t const FREERTOS_TASK_COUNT = TASK_COUNT + 1U;
+    static size_t const OS_TASK_COUNT = TASK_COUNT + 1U;
     static TickType_t const WAIT_EVENTS_TICK_COUNT
         = static_cast<TickType_t>(Binding::WAIT_EVENTS_TICK_COUNT);
     static ContextType const TASK_IDLE  = 0U;
@@ -77,7 +77,7 @@ public:
     using TaskContextType  = TaskContext<AdapterType>;
     using TaskFunctionType = typename TaskContextType::TaskFunctionType;
 
-    using TaskConfigsType = internal::TaskConfigHolder<FREERTOS_TASK_COUNT>;
+    using TaskConfigsType = internal::TaskConfigHolder<OS_TASK_COUNT>;
     using TaskConfigType  = typename TaskConfigsType::TaskConfigType;
 
     template<size_t StackSize>
@@ -212,7 +212,7 @@ private:
     static TaskInitializer* _idleTaskInitializer;
     static TaskInitializer* _timerTaskInitializer;
     static ::estd::array<TaskContextType, TASK_COUNT> _taskContexts;
-    static ::estd::array<uint32_t, FREERTOS_TASK_COUNT> _stackSizes;
+    static ::estd::array<uint32_t, OS_TASK_COUNT> _stackSizes;
     static char const* _timerTaskName;
     static BaseType_t _higherPriorityTaskWokenFlag;
     static BaseType_t* _higherPriorityTaskWoken;
@@ -233,7 +233,7 @@ template<class Binding>
     array<typename FreeRtosAdapter<Binding>::TaskContextType, FreeRtosAdapter<Binding>::TASK_COUNT>
         FreeRtosAdapter<Binding>::_taskContexts;
 template<class Binding>
-::estd::array<uint32_t, FreeRtosAdapter<Binding>::FREERTOS_TASK_COUNT>
+::estd::array<uint32_t, FreeRtosAdapter<Binding>::OS_TASK_COUNT>
     FreeRtosAdapter<Binding>::_stackSizes;
 template<class Binding>
 char const* FreeRtosAdapter<Binding>::_timerTaskName;
@@ -345,7 +345,7 @@ void FreeRtosAdapter<Binding>::runningHook()
 template<class Binding>
 bool FreeRtosAdapter<Binding>::getStackUsage(size_t const taskIdx, StackUsage& stackUsage)
 {
-    if (taskIdx < FREERTOS_TASK_COUNT)
+    if (taskIdx < OS_TASK_COUNT)
     {
         stackUsage._stackSize = _stackSizes[taskIdx];
         uint32_t const unusedSize

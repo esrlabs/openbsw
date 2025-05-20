@@ -35,3 +35,5 @@ set(SUPPORT_EXPONENTIAL_SPECIFIERS
 add_subdirectory(printf EXCLUDE_FROM_ALL)
 
 add_subdirectory(freeRtos EXCLUDE_FROM_ALL)
+
+add_subdirectory(threadx EXCLUDE_FROM_ALL)

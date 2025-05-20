@@ -1,11 +1,11 @@
 // Copyright 2024 Accenture.
 
 #include "app/app.h"
-
 #include "console/console.h"
 #include "estd/typed_mem.h"
 #include "logger/logger.h"
 #include "reset/softwareSystemReset.h"
+#include "systems/BackgroundSystem.h"
 #include "systems/DemoSystem.h"
 #include "systems/RuntimeSystem.h"
 #include "systems/SafetySystem.h"
@@ -71,9 +71,10 @@ LifecycleManager lifecycleManager{
     ::lifecycle::LifecycleManager::GetTimestampType::create<&getSystemTimeUs32Bit>()};
 
 ::estd::typed_mem<::systems::RuntimeSystem> runtimeSystem;
+::estd::typed_mem<::systems::BackgroundSystem> backgroundSystem;
+::estd::typed_mem<::systems::SafetySystem> safetySystem;
 ::estd::typed_mem<::systems::SysAdminSystem> sysAdminSystem;
 ::estd::typed_mem<::systems::DemoSystem> demoSystem;
-::estd::typed_mem<::systems::SafetySystem> safetySystem;
 
 #ifdef PLATFORM_SUPPORT_UDS
 ::estd::typed_mem<::transport::TransportSystem> transportSystem;
@@ -131,16 +132,29 @@ void run()
 {
     printf("hello\r\n");
     staticInit();
+    tx_kernel_enter();
+}
+
+extern "C"
+{
+void tx_application_define(void* first_unused_memory)
+{
+    (void)first_unused_memory;
+
     AsyncAdapter::init();
 
     /* runlevel 1 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 1U);
     lifecycleManager.addComponent(
-        "runtime", runtimeSystem.emplace(TASK_BACKGROUND, runtimeMonitor), 1U);
+        "background", backgroundSystem.emplace(TASK_BACKGROUND, lifecycleManager), 1U);
+
     /* runlevel 2 */
     ::platform::platformLifecycleAdd(lifecycleManager, 2U);
+    lifecycleManager.addComponent(
+        "runtime", runtimeSystem.emplace(TASK_BACKGROUND, runtimeMonitor), 2U);
+
     /* runlevel 3 */
     ::platform::platformLifecycleAdd(lifecycleManager, 3U);
+
     /* runlevel 4 */
 #ifdef PLATFORM_SUPPORT_UDS
     lifecycleManager.addComponent("transport", transportSystem.emplace(TASK_UDS), 4U);
@@ -185,35 +199,11 @@ void run()
 
     runtimeMonitor.start();
     AsyncAdapter::run();
-
-    while (true)
-    {
-        ;
-    }
 }
-
-void idle(AsyncAdapter::TaskContextType& taskContext)
-{
-    taskContext.dispatchWhileWork();
-    ::logger::run();
-    ::console::run();
-    if (lifecycleMonitor.isReadyForReset())
-    {
-        staticShutdown();
-    }
 }
-
-using IdleTask = AsyncAdapter::IdleTask<1024 * 2>;
-IdleTask idleTask{"idle", AsyncAdapter::TaskFunctionType::create<&idle>()};
-
-using TimerTask = AsyncAdapter::TimerTask<1024 * 1>;
-TimerTask timerTask{"timer"};
 
 using UdsTask = AsyncAdapter::Task<TASK_UDS, 1024 * 2>;
 UdsTask udsTask{"uds"};
-
-using SysadminTask = AsyncAdapter::Task<TASK_SYSADMIN, 1024 * 2>;
-SysadminTask sysadminTask{"sysadmin"};
 
 using CanTask = AsyncAdapter::Task<TASK_CAN, 1024 * 2>;
 CanTask canTask{"can"};
@@ -221,14 +211,17 @@ CanTask canTask{"can"};
 using BspTask = AsyncAdapter::Task<TASK_BSP, 1024 * 2>;
 BspTask bspTask{"bsp"};
 
+using SysadminTask = AsyncAdapter::Task<TASK_SYSADMIN, 1024 * 2>;
+SysadminTask sysadminTask{"sysadmin"};
+
 using DemoTask = AsyncAdapter::Task<TASK_DEMO, 1024 * 2>;
 DemoTask demoTask{"demo"};
 
-using BackgroundTask = AsyncAdapter::Task<TASK_BACKGROUND, 1024 * 2>;
-BackgroundTask backgroundTask{"background"};
-
 using SafetyTask = AsyncAdapter::Task<TASK_SAFETY, 1024 * 2>;
 SafetyTask safetyTask{"safety"};
+
+using BackgroundTask = AsyncAdapter::Task<TASK_BACKGROUND, 1024 * 2>;
+BackgroundTask backgroundTask{"background"};
 
 AsyncContextHook contextHook{runtimeMonitor};
 

@@ -11,7 +11,7 @@ project(
     LANGUAGES CXX C ASM)
 
 set(BUILD_TARGET_PLATFORM
-    "POSIX"
+    "POSIX_FREERTOS"
     CACHE STRING "Target Platform")
 
 add_compile_definitions(PLATFORM_SUPPORT_CAN=1)

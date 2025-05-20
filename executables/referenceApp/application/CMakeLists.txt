@@ -13,11 +13,9 @@ if (PLATFORM_SUPPORT_UDS)
     endif ()
 endif ()
 
-add_executable(
-    app.referenceApp
-    src/app/app.cpp
+# Base sources
+set(BASE_SOURCES
     src/app/CanDemoListener.cpp
-    src/logger/logger.cpp
     src/console/console.cpp
     src/systems/DemoSystem.cpp
     src/systems/RuntimeSystem.cpp
@@ -25,6 +23,25 @@ add_executable(
     src/systems/SafetySystem.cpp
     ${app.referenceAppExtraSources}
     src/main.cpp)
+
+if (BUILD_TARGET_PLATFORM MATCHES "FREERTOS")
+    list(APPEND BASE_SOURCES src/app/app-freertos.cpp
+         src/logger/logger-freertos.cpp)
+elseif (BUILD_TARGET_PLATFORM MATCHES "THREADX")
+    list(
+        APPEND
+        BASE_SOURCES
+        src/app/app-threadx.cpp
+        src/systems/BackgroundSystem.cpp
+        src/logger/logger-threadx.cpp)
+else ()
+    message(
+        FATAL_ERROR
+            "The target_build_platform '${target_build_platform}' is not included in the suppported platforms."
+    )
+endif ()
+
+add_executable(app.referenceApp ${BASE_SOURCES})
 
 set_target_properties(app.referenceApp PROPERTIES SUFFIX ".elf")
 
@@ -51,13 +68,22 @@ target_link_libraries(
             loggerIntegration
             main
             stdioConsoleInput
-            osFreeRtos
-            asyncFreeRtosImpl
             util
             udsConfigurationImpl
             runtime
             safeLifecycle
             socBsp)
+
+if (BUILD_TARGET_PLATFORM MATCHES "FREERTOS")
+    target_link_libraries(app.referenceApp PRIVATE osFreeRtos asyncFreeRtosImpl)
+elseif (BUILD_TARGET_PLATFORM MATCHES "THREADX")
+    target_link_libraries(app.referenceApp PRIVATE threadX)
+else ()
+    message(
+        FATAL_ERROR
+            "The target_build_platform '${target_build_platform}' is not included in the suppported platforms."
+    )
+endif ()
 
 if (PLATFORM_SUPPORT_UDS)
 

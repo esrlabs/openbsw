@@ -9,6 +9,7 @@
 #endif
 #include "cache/cache.h"
 #include "clock/clockConfig.h"
+#include "async/Config.h"
 #include "commonDebug.h"
 #include "interrupt_manager.h"
 #include "lifecycle/StaticBsp.h"
