@@ -21,3 +21,4 @@ doc/doxygenOut
 doc/doc-coverage.info
 doc/DoxygenWarningLog.txt
 .bash_history
+flask-app

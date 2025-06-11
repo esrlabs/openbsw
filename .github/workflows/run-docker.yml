@@ -1,0 +1,27 @@
+name: Run Docker Web Server
+
+on: [push, pull_request]
+
+jobs:
+  run-webserver:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker image
+      run: |
+        cd hello-world
+        docker build -t hello-web .
+        docker run -d -p 8080:80 --name container hello-web
+
+    # - name: Run container
+    #   run: docker run -d -p 8080:80 --name web-container hello-web
+
+    - name: Wait for container to be ready
+      run: sleep 5
+
+    - name: Test Hello World page
+      run: |
+        curl -s http://localhost:8080 | grep "Hello, World!"
