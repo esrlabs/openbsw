@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspOutputPwm.html">bspOutputPwm</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../outputPwm.html">outputPwm</a>
+            </li>
+
+        
+        <li class="active"><a href="../OutputPwmTester.cpp.html">OutputPwmTester.cpp</a>:28
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::OutputPwmTester::executeCommand(util::command::CommandContext&amp;, unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001333c</td>
+                <td>
+    
+    
+</td>
+                <td>48 (static)</td>
+                <td>388</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (7,
+                            <span title="sum of used bytes by all callees">
+                            Σ=496
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&amp;) (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken&lt;unsigned long&gt;() (208)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool) (92)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../OutputPwm.cpp/6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short) (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter() (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../OutputPwm.cpp/fcab3554d3b587de59cc2df1b5d6f619.html">bios::OutputPwm::setPeriod(unsigned short, unsigned short) (68)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./931caa1373d9eae3850dde831912eb7b.html">bios::OutputPwmTester::OutputPwmTester() (16)</a></pre>
+    
+
+    <pre>
+
+    bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char):
+
+       1333c:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+       13340:	2a02      	cmp	r2, #2
+
+       13342:	b084      	sub	sp, #16
+
+       13344:	460c      	mov	r4, r1
+
+       13346:	d006      	beq.n	13356 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x1a>
+
+       13348:	2a03      	cmp	r2, #3
+
+       1334a:	d051      	beq.n	133f0 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb4>
+
+       1334c:	2a01      	cmp	r2, #1
+
+       1334e:	d039      	beq.n	133c4 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x88>
+
+       13350:	b004      	add	sp, #16
+
+       13352:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       13356:	ad02      	add	r5, sp, #8
+
+       13358:	4628      	mov	r0, r5
+
+       1335a:	f7f7 ff97 	bl	b28c <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       1335e:	4620      	mov	r0, r4
+
+       13360:	f7f3 fe3a 	bl	6fd8 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken<unsigned long>()</a>>
+
+       13364:	2803      	cmp	r0, #3
+
+       13366:	4606      	mov	r6, r0
+
+       13368:	d968      	bls.n	1343c <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x100>
+
+       1336a:	28ff      	cmp	r0, #255	; 0xff
+
+       1336c:	d124      	bne.n	133b8 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x7c>
+
+       1336e:	4620      	mov	r0, r4
+
+       13370:	f7f3 fe32 	bl	6fd8 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken<unsigned long>()</a>>
+
+       13374:	f242 7310 	movw	r3, #10000	; 0x2710
+
+       13378:	4298      	cmp	r0, r3
+
+       1337a:	bf28      	it	cs
+
+       1337c:	4618      	movcs	r0, r3
+
+       1337e:	f8df a11c 	ldr.w	sl, [pc, #284]	; 1349c <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x160>
+
+       13382:	f8df 9120 	ldr.w	r9, [pc, #288]	; 134a4 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x168>
+
+       13386:	4607      	mov	r7, r0
+
+       13388:	fa1f f880 	uxth.w	r8, r0
+
+       1338c:	2400      	movs	r4, #0
+
+       1338e:	b2a6      	uxth	r6, r4
+
+       13390:	4641      	mov	r1, r8
+
+       13392:	2200      	movs	r2, #0
+
+       13394:	4630      	mov	r0, r6
+
+       13396:	f7ff ff23 	bl	131e0 <<a href="../OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>>
+
+       1339a:	2800      	cmp	r0, #0
+
+       1339c:	d16a      	bne.n	13474 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x138>
+
+       1339e:	4630      	mov	r0, r6
+
+       133a0:	f7ff ffb4 	bl	1330c <<a href="../OutputPwm.cpp/6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short)</a>>
+
+       133a4:	9700      	str	r7, [sp, #0]
+
+       133a6:	4603      	mov	r3, r0
+
+       133a8:	4622      	mov	r2, r4
+
+       133aa:	4649      	mov	r1, r9
+
+       133ac:	4628      	mov	r0, r5
+
+       133ae:	f7f7 fd5f 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       133b2:	3401      	adds	r4, #1
+
+       133b4:	2c04      	cmp	r4, #4
+
+       133b6:	d1ea      	bne.n	1338e <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x52>
+
+       133b8:	4628      	mov	r0, r5
+
+       133ba:	f7f7 ff73 	bl	b2a4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter()</a>>
+
+       133be:	b004      	add	sp, #16
+
+       133c0:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       133c4:	ad02      	add	r5, sp, #8
+
+       133c6:	4628      	mov	r0, r5
+
+       133c8:	f7f7 ff60 	bl	b28c <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       133cc:	4e31      	ldr	r6, [pc, #196]	; (13494 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x158>)
+
+       133ce:	2400      	movs	r4, #0
+
+       133d0:	b2a0      	uxth	r0, r4
+
+       133d2:	f7ff ff9b 	bl	1330c <<a href="../OutputPwm.cpp/6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short)</a>>
+
+       133d6:	4622      	mov	r2, r4
+
+       133d8:	4603      	mov	r3, r0
+
+       133da:	4631      	mov	r1, r6
+
+       133dc:	4628      	mov	r0, r5
+
+       133de:	3401      	adds	r4, #1
+
+       133e0:	f7f7 fd46 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       133e4:	2c04      	cmp	r4, #4
+
+       133e6:	d1f3      	bne.n	133d0 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x94>
+
+       133e8:	4628      	mov	r0, r5
+
+       133ea:	f7f7 ff5b 	bl	b2a4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter()</a>>
+
+       133ee:	e7e6      	b.n	133be <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x82>
+
+       133f0:	ad02      	add	r5, sp, #8
+
+       133f2:	4628      	mov	r0, r5
+
+       133f4:	f7f7 ff4a 	bl	b28c <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       133f8:	4620      	mov	r0, r4
+
+       133fa:	f7f3 fded 	bl	6fd8 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken<unsigned long>()</a>>
+
+       133fe:	2803      	cmp	r0, #3
+
+       13400:	4606      	mov	r6, r0
+
+       13402:	d832      	bhi.n	1346a <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x12e>
+
+       13404:	4620      	mov	r0, r4
+
+       13406:	f7f3 fde7 	bl	6fd8 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken<unsigned long>()</a>>
+
+       1340a:	f64f 74ff 	movw	r4, #65535	; 0xffff
+
+       1340e:	4284      	cmp	r4, r0
+
+       13410:	bf28      	it	cs
+
+       13412:	4604      	movcs	r4, r0
+
+       13414:	b2b7      	uxth	r7, r6
+
+       13416:	b2a1      	uxth	r1, r4
+
+       13418:	4638      	mov	r0, r7
+
+       1341a:	f7ff ff0f 	bl	1323c <<a href="../OutputPwm.cpp/fcab3554d3b587de59cc2df1b5d6f619.html">bios::OutputPwm::setPeriod(unsigned short, unsigned short)</a>>
+
+       1341e:	b9e0      	cbnz	r0, 1345a <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x11e>
+
+       13420:	4638      	mov	r0, r7
+
+       13422:	f7ff ff73 	bl	1330c <<a href="../OutputPwm.cpp/6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short)</a>>
+
+       13426:	491c      	ldr	r1, [pc, #112]	; (13498 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x15c>)
+
+       13428:	9400      	str	r4, [sp, #0]
+
+       1342a:	4603      	mov	r3, r0
+
+       1342c:	4632      	mov	r2, r6
+
+       1342e:	4628      	mov	r0, r5
+
+       13430:	f7f7 fd1e 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       13434:	4628      	mov	r0, r5
+
+       13436:	f7f7 ff35 	bl	b2a4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter()</a>>
+
+       1343a:	e7c0      	b.n	133be <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x82>
+
+       1343c:	4620      	mov	r0, r4
+
+       1343e:	f7f3 fdcb 	bl	6fd8 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/41cbf6e7d93c981ba7638352d8cf0e1d.html">unsigned long util::command::CommandContext::scanIntToken<unsigned long>()</a>>
+
+       13442:	f242 7410 	movw	r4, #10000	; 0x2710
+
+       13446:	4284      	cmp	r4, r0
+
+       13448:	bf28      	it	cs
+
+       1344a:	4604      	movcs	r4, r0
+
+       1344c:	b2b7      	uxth	r7, r6
+
+       1344e:	2200      	movs	r2, #0
+
+       13450:	b2a1      	uxth	r1, r4
+
+       13452:	4638      	mov	r0, r7
+
+       13454:	f7ff fec4 	bl	131e0 <<a href="../OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>>
+
+       13458:	b188      	cbz	r0, 1347e <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x142>
+
+       1345a:	4910      	ldr	r1, [pc, #64]	; (1349c <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x160>)
+
+       1345c:	4628      	mov	r0, r5
+
+       1345e:	f7f7 fd07 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       13462:	4628      	mov	r0, r5
+
+       13464:	f7f7 ff1e 	bl	b2a4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter()</a>>
+
+       13468:	e7a9      	b.n	133be <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x82>
+
+       1346a:	490d      	ldr	r1, [pc, #52]	; (134a0 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x164>)
+
+       1346c:	4628      	mov	r0, r5
+
+       1346e:	f7f7 fcff 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       13472:	e7c7      	b.n	13404 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xc8>
+
+       13474:	4651      	mov	r1, sl
+
+       13476:	4628      	mov	r0, r5
+
+       13478:	f7f7 fcfa 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       1347c:	e799      	b.n	133b2 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x76>
+
+       1347e:	4638      	mov	r0, r7
+
+       13480:	f7ff ff44 	bl	1330c <<a href="../OutputPwm.cpp/6e21ac69301dcc9db818781adc17c331.html">bios::OutputPwm::getName(unsigned short)</a>>
+
+       13484:	4907      	ldr	r1, [pc, #28]	; (134a4 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x168>)
+
+       13486:	9400      	str	r4, [sp, #0]
+
+       13488:	4603      	mov	r3, r0
+
+       1348a:	4632      	mov	r2, r6
+
+       1348c:	4628      	mov	r0, r5
+
+       1348e:	f7f7 fcef 	bl	ae70 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       13492:	e791      	b.n	133b8 <<a href="./fc81ccee23666ba99a68beb06b26358a.html">bios::OutputPwmTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x7c>
+
+       13494:	00019598 	.word	0x00019598
+
+       13498:	000195e4 	.word	0x000195e4
+
+       1349c:	00018ef8 	.word	0x00018ef8
+
+       134a0:	000195d0 	.word	0x000195d0
+
+       134a4:	000195a4 	.word	0x000195a4
+
+       134a8:	ffffffff 	.word	0xffffffff
+
+       134ac:	ffffffff 	.word	0xffffffff
+
+       134b0:	ffffffff 	.word	0xffffffff
+
+       134b4:	ffffffff 	.word	0xffffffff
+
+       134b8:	ffffffff 	.word	0xffffffff
+
+       134bc:	ffffffff 	.word	0xffffffff
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../platforms/s32k1xx/bsp/bspEepromDriver/src/eeprom/EepromDriver.cpp/7acc955605e5b99ad3d2b0a86fb34c6c.html">eeprom::launchCommandFromRAM() (60)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 292</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,228</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    292
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,228
+                    
+                    
+                </td>
+                <td class="col_size">420</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/4aadf02dd7dcf4f301c4d79e66b22e38.html" class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    268
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    808
+                    
+                    
+                </td>
+                <td class="col_size">420</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/a55fbe8aa7abfc498675bef9f2e3bbf3.html" class="icon-function">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    172
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    388
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/1fd658a3cadf7a6a384e16e0b788aef4.html" class="icon-function">util::format::PrintfFormatter::formatParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    148
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    252
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/54d7602074146c5884ce6c1e97059b8b.html" class="icon-function">util::format::PrintfFormatter::format(char const*, util::format::IPrintfArgumentReader&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    92
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                44 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html" class="icon-function">util::format::StringWriter::printf(char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">48
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

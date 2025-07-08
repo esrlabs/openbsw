@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../stream.html">stream</a>
+            </li>
+
+        
+        <li class="active"><a href="../TaggedSharedOutputStream.cpp.html">TaggedSharedOutputStream.cpp</a>:35
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000ab1c</td>
+                <td>
+    
+    
+</td>
+                <td>16 (static)</td>
+                <td>100</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=52
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&amp;) (52)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../../../../../../unknown/unknown/ca249422d71614ccb058ed35771cefb5.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::endContinuousOutput(util::stream::IOutputStream&amp;) (8)</a></pre>
+    
+
+    <pre>
+
+    util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        ab1c:	b538      	push	{r3, r4, r5, lr}
+
+        ab1e:	4604      	mov	r4, r0
+
+        ab20:	6980      	ldr	r0, [r0, #24]
+
+        ab22:	f894 3024 	ldrb.w	r3, [r4, #36]	; 0x24
+
+        ab26:	6802      	ldr	r2, [r0, #0]
+
+        ab28:	460d      	mov	r5, r1
+
+        ab2a:	6812      	ldr	r2, [r2, #0]
+
+        ab2c:	b303      	cbz	r3, ab70 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x54>
+
+        ab2e:	f104 0114 	add.w	r1, r4, #20
+
+        ab32:	4790      	blx	r2
+
+        ab34:	f894 3024 	ldrb.w	r3, [r4, #36]	; 0x24
+
+        ab38:	61e0      	str	r0, [r4, #28]
+
+        ab3a:	b1bb      	cbz	r3, ab6c <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x50>
+
+        ab3c:	b1b5      	cbz	r5, ab6c <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x50>
+
+        ab3e:	6a23      	ldr	r3, [r4, #32]
+
+        ab40:	42ab      	cmp	r3, r5
+
+        ab42:	d00f      	beq.n	ab64 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x48>
+
+        ab44:	b153      	cbz	r3, ab5c <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x40>
+
+        ab46:	681a      	ldr	r2, [r3, #0]
+
+        ab48:	490c      	ldr	r1, [pc, #48]	; (ab7c <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x60>)
+
+        ab4a:	6812      	ldr	r2, [r2, #0]
+
+        ab4c:	428a      	cmp	r2, r1
+
+    util::stream::TaggedSharedOutputStream::endContinuousOutput(util::stream::IOutputStream&):
+
+        ab4e:	4601      	mov	r1, r0
+
+        ab50:	d110      	bne.n	ab74 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x58>
+
+        ab52:	f1a3 0010 	sub.w	r0, r3, #16
+
+        ab56:	f001 f90f 	bl	bd78 <<a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&)</a>>
+
+    util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*):
+
+        ab5a:	69e0      	ldr	r0, [r4, #28]
+
+        ab5c:	4601      	mov	r1, r0
+
+        ab5e:	1d20      	adds	r0, r4, #4
+
+        ab60:	f001 f90a 	bl	bd78 <<a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&)</a>>
+
+        ab64:	6225      	str	r5, [r4, #32]
+
+        ab66:	f104 0010 	add.w	r0, r4, #16
+
+        ab6a:	bd38      	pop	{r3, r4, r5, pc}
+
+        ab6c:	6a23      	ldr	r3, [r4, #32]
+
+        ab6e:	e7e9      	b.n	ab44 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x28>
+
+        ab70:	4619      	mov	r1, r3
+
+        ab72:	e7de      	b.n	ab32 <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x16>
+
+        ab74:	4618      	mov	r0, r3
+
+        ab76:	4790      	blx	r2
+
+        ab78:	69e0      	ldr	r0, [r4, #28]
+
+        ab7a:	e7ef      	b.n	ab5c <<a href="./832a61bf81a24acba176994c7dd3ada6.html">util::stream::TaggedSharedOutputStream::startOutput(util::stream::ISharedOutputStream::IContinuousUser*)</a>+0x40>
+
+        ab7c:	0000ab15 	.word	0x0000ab15
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../../../../../../unknown/unknown/70cfeb272460f5fc9606ea8d8664075b.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::write(etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;) (16)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 32</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 52</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    32
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">52</td>
+                <td><a href="../TaggedOutputHelper.cpp/4d00df641cea46c7b232c98021c6b113.html" class="icon-function">util::stream::TaggedOutputHelper::endLine(util::stream::IOutputStream&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">16
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

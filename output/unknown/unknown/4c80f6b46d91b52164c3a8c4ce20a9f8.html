@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li class="active"><a href="../../unknown.html">&lt;unknown&gt;</a>
+            </li>
+
+        
+        <li class="active">&lt;unknown&gt;
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">_vfiprintf_r</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00014910</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>608</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./b7f884a63512d29acd09bc7c7023f8d3.html">fiprintf (36)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (7,
+                            <span title="sum of used bytes by all callees">
+                            Σ=1120
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./b6eeecba90bb5fa5769c661acacd6426.html">__sinit (112)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./6a7fb5de78ba62511b7f0b590f8edfa4.html">__retarget_lock_acquire_recursive (2)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./ddb6c397a973a81eb635d1056771d221.html">__swsetup_r (220)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./679d17cc768f384df471c08cf808f317.html">__retarget_lock_release_recursive (2)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./ebf936d99cbf57f2cb032840f8b2a353.html">__sfputs_r (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./8861021ea041394f627e3a1b60c3e92c.html">memchr (160)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./b25614e10f494542c05819bca25d1c80.html">_printf_i (588)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+    <pre>
+
+    _vfiprintf_r():
+
+       14910:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       14914:	460d      	mov	r5, r1
+
+       14916:	b09d      	sub	sp, #116	; 0x74
+
+       14918:	4614      	mov	r4, r2
+
+       1491a:	4698      	mov	r8, r3
+
+       1491c:	4606      	mov	r6, r0
+
+       1491e:	b118      	cbz	r0, 14928 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x18>
+
+       14920:	6983      	ldr	r3, [r0, #24]
+
+       14922:	b90b      	cbnz	r3, 14928 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x18>
+
+       14924:	f000 fd04 	bl	15330 <<a href="./b6eeecba90bb5fa5769c661acacd6426.html">__sinit</a>>
+
+       14928:	4b89      	ldr	r3, [pc, #548]	; (14b50 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x240>)
+
+       1492a:	429d      	cmp	r5, r3
+
+       1492c:	d11b      	bne.n	14966 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x56>
+
+       1492e:	6875      	ldr	r5, [r6, #4]
+
+       14930:	6e6b      	ldr	r3, [r5, #100]	; 0x64
+
+       14932:	07d9      	lsls	r1, r3, #31
+
+       14934:	d405      	bmi.n	14942 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x32>
+
+       14936:	89ab      	ldrh	r3, [r5, #12]
+
+       14938:	059a      	lsls	r2, r3, #22
+
+       1493a:	d402      	bmi.n	14942 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x32>
+
+       1493c:	6da8      	ldr	r0, [r5, #88]	; 0x58
+
+       1493e:	f000 fd95 	bl	1546c <<a href="./6a7fb5de78ba62511b7f0b590f8edfa4.html">__retarget_lock_acquire_recursive</a>>
+
+       14942:	89ab      	ldrh	r3, [r5, #12]
+
+       14944:	071b      	lsls	r3, r3, #28
+
+       14946:	d501      	bpl.n	1494c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x3c>
+
+       14948:	692b      	ldr	r3, [r5, #16]
+
+       1494a:	b9eb      	cbnz	r3, 14988 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x78>
+
+       1494c:	4629      	mov	r1, r5
+
+       1494e:	4630      	mov	r0, r6
+
+       14950:	f000 fb04 	bl	14f5c <<a href="./ddb6c397a973a81eb635d1056771d221.html">__swsetup_r</a>>
+
+       14954:	b1c0      	cbz	r0, 14988 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x78>
+
+       14956:	6e6b      	ldr	r3, [r5, #100]	; 0x64
+
+       14958:	07dc      	lsls	r4, r3, #31
+
+       1495a:	d50e      	bpl.n	1497a <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x6a>
+
+       1495c:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+
+       14960:	b01d      	add	sp, #116	; 0x74
+
+       14962:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       14966:	4b7b      	ldr	r3, [pc, #492]	; (14b54 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x244>)
+
+       14968:	429d      	cmp	r5, r3
+
+       1496a:	d101      	bne.n	14970 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x60>
+
+       1496c:	68b5      	ldr	r5, [r6, #8]
+
+       1496e:	e7df      	b.n	14930 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x20>
+
+       14970:	4b79      	ldr	r3, [pc, #484]	; (14b58 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x248>)
+
+       14972:	429d      	cmp	r5, r3
+
+       14974:	bf08      	it	eq
+
+       14976:	68f5      	ldreq	r5, [r6, #12]
+
+       14978:	e7da      	b.n	14930 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x20>
+
+       1497a:	89ab      	ldrh	r3, [r5, #12]
+
+       1497c:	0598      	lsls	r0, r3, #22
+
+       1497e:	d4ed      	bmi.n	1495c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x4c>
+
+       14980:	6da8      	ldr	r0, [r5, #88]	; 0x58
+
+       14982:	f000 fd75 	bl	15470 <<a href="./679d17cc768f384df471c08cf808f317.html">__retarget_lock_release_recursive</a>>
+
+       14986:	e7e9      	b.n	1495c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x4c>
+
+       14988:	2300      	movs	r3, #0
+
+       1498a:	9309      	str	r3, [sp, #36]	; 0x24
+
+       1498c:	2320      	movs	r3, #32
+
+       1498e:	f88d 3029 	strb.w	r3, [sp, #41]	; 0x29
+
+       14992:	f8cd 800c 	str.w	r8, [sp, #12]
+
+       14996:	2330      	movs	r3, #48	; 0x30
+
+       14998:	f8df 81c0 	ldr.w	r8, [pc, #448]	; 14b5c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x24c>
+
+       1499c:	f88d 302a 	strb.w	r3, [sp, #42]	; 0x2a
+
+       149a0:	f04f 0901 	mov.w	r9, #1
+
+       149a4:	4623      	mov	r3, r4
+
+       149a6:	469a      	mov	sl, r3
+
+       149a8:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+       149ac:	b10a      	cbz	r2, 149b2 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0xa2>
+
+       149ae:	2a25      	cmp	r2, #37	; 0x25
+
+       149b0:	d1f9      	bne.n	149a6 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x96>
+
+       149b2:	ebba 0b04 	subs.w	fp, sl, r4
+
+       149b6:	d00b      	beq.n	149d0 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0xc0>
+
+       149b8:	465b      	mov	r3, fp
+
+       149ba:	4622      	mov	r2, r4
+
+       149bc:	4629      	mov	r1, r5
+
+       149be:	4630      	mov	r0, r6
+
+       149c0:	f7ff ff93 	bl	148ea <<a href="./ebf936d99cbf57f2cb032840f8b2a353.html">__sfputs_r</a>>
+
+       149c4:	3001      	adds	r0, #1
+
+       149c6:	f000 80aa 	beq.w	14b1e <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x20e>
+
+       149ca:	9a09      	ldr	r2, [sp, #36]	; 0x24
+
+       149cc:	445a      	add	r2, fp
+
+       149ce:	9209      	str	r2, [sp, #36]	; 0x24
+
+       149d0:	f89a 3000 	ldrb.w	r3, [sl]
+
+       149d4:	2b00      	cmp	r3, #0
+
+       149d6:	f000 80a2 	beq.w	14b1e <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x20e>
+
+       149da:	2300      	movs	r3, #0
+
+       149dc:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+
+       149e0:	e9cd 2305 	strd	r2, r3, [sp, #20]
+
+       149e4:	f10a 0a01 	add.w	sl, sl, #1
+
+       149e8:	9304      	str	r3, [sp, #16]
+
+       149ea:	9307      	str	r3, [sp, #28]
+
+       149ec:	f88d 3053 	strb.w	r3, [sp, #83]	; 0x53
+
+       149f0:	931a      	str	r3, [sp, #104]	; 0x68
+
+       149f2:	4654      	mov	r4, sl
+
+       149f4:	2205      	movs	r2, #5
+
+       149f6:	f814 1b01 	ldrb.w	r1, [r4], #1
+
+       149fa:	4858      	ldr	r0, [pc, #352]	; (14b5c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x24c>)
+
+       149fc:	f7ec f8e8 	bl	bd0 <<a href="./8861021ea041394f627e3a1b60c3e92c.html">memchr</a>>
+
+       14a00:	9a04      	ldr	r2, [sp, #16]
+
+       14a02:	b9d8      	cbnz	r0, 14a3c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x12c>
+
+       14a04:	06d1      	lsls	r1, r2, #27
+
+       14a06:	bf44      	itt	mi
+
+       14a08:	2320      	movmi	r3, #32
+
+       14a0a:	f88d 3053 	strbmi.w	r3, [sp, #83]	; 0x53
+
+       14a0e:	0713      	lsls	r3, r2, #28
+
+       14a10:	bf44      	itt	mi
+
+       14a12:	232b      	movmi	r3, #43	; 0x2b
+
+       14a14:	f88d 3053 	strbmi.w	r3, [sp, #83]	; 0x53
+
+       14a18:	f89a 3000 	ldrb.w	r3, [sl]
+
+       14a1c:	2b2a      	cmp	r3, #42	; 0x2a
+
+       14a1e:	d015      	beq.n	14a4c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x13c>
+
+       14a20:	9a07      	ldr	r2, [sp, #28]
+
+       14a22:	4654      	mov	r4, sl
+
+       14a24:	2000      	movs	r0, #0
+
+       14a26:	f04f 0c0a 	mov.w	ip, #10
+
+       14a2a:	4621      	mov	r1, r4
+
+       14a2c:	f811 3b01 	ldrb.w	r3, [r1], #1
+
+       14a30:	3b30      	subs	r3, #48	; 0x30
+
+       14a32:	2b09      	cmp	r3, #9
+
+       14a34:	d94e      	bls.n	14ad4 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1c4>
+
+       14a36:	b1b0      	cbz	r0, 14a66 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x156>
+
+       14a38:	9207      	str	r2, [sp, #28]
+
+       14a3a:	e014      	b.n	14a66 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x156>
+
+       14a3c:	eba0 0308 	sub.w	r3, r0, r8
+
+       14a40:	fa09 f303 	lsl.w	r3, r9, r3
+
+       14a44:	4313      	orrs	r3, r2
+
+       14a46:	9304      	str	r3, [sp, #16]
+
+       14a48:	46a2      	mov	sl, r4
+
+       14a4a:	e7d2      	b.n	149f2 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0xe2>
+
+       14a4c:	9b03      	ldr	r3, [sp, #12]
+
+       14a4e:	1d19      	adds	r1, r3, #4
+
+       14a50:	681b      	ldr	r3, [r3, #0]
+
+       14a52:	9103      	str	r1, [sp, #12]
+
+       14a54:	2b00      	cmp	r3, #0
+
+       14a56:	bfbb      	ittet	lt
+
+       14a58:	425b      	neglt	r3, r3
+
+       14a5a:	f042 0202 	orrlt.w	r2, r2, #2
+
+       14a5e:	9307      	strge	r3, [sp, #28]
+
+       14a60:	9307      	strlt	r3, [sp, #28]
+
+       14a62:	bfb8      	it	lt
+
+       14a64:	9204      	strlt	r2, [sp, #16]
+
+       14a66:	7823      	ldrb	r3, [r4, #0]
+
+       14a68:	2b2e      	cmp	r3, #46	; 0x2e
+
+       14a6a:	d10c      	bne.n	14a86 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x176>
+
+       14a6c:	7863      	ldrb	r3, [r4, #1]
+
+       14a6e:	2b2a      	cmp	r3, #42	; 0x2a
+
+       14a70:	d135      	bne.n	14ade <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1ce>
+
+       14a72:	9b03      	ldr	r3, [sp, #12]
+
+       14a74:	1d1a      	adds	r2, r3, #4
+
+       14a76:	681b      	ldr	r3, [r3, #0]
+
+       14a78:	9203      	str	r2, [sp, #12]
+
+       14a7a:	2b00      	cmp	r3, #0
+
+       14a7c:	bfb8      	it	lt
+
+       14a7e:	f04f 33ff 	movlt.w	r3, #4294967295	; 0xffffffff
+
+       14a82:	3402      	adds	r4, #2
+
+       14a84:	9305      	str	r3, [sp, #20]
+
+       14a86:	f8df a0e4 	ldr.w	sl, [pc, #228]	; 14b6c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x25c>
+
+       14a8a:	7821      	ldrb	r1, [r4, #0]
+
+       14a8c:	2203      	movs	r2, #3
+
+       14a8e:	4650      	mov	r0, sl
+
+       14a90:	f7ec f89e 	bl	bd0 <<a href="./8861021ea041394f627e3a1b60c3e92c.html">memchr</a>>
+
+       14a94:	b140      	cbz	r0, 14aa8 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x198>
+
+       14a96:	2340      	movs	r3, #64	; 0x40
+
+       14a98:	eba0 000a 	sub.w	r0, r0, sl
+
+       14a9c:	fa03 f000 	lsl.w	r0, r3, r0
+
+       14aa0:	9b04      	ldr	r3, [sp, #16]
+
+       14aa2:	4303      	orrs	r3, r0
+
+       14aa4:	3401      	adds	r4, #1
+
+       14aa6:	9304      	str	r3, [sp, #16]
+
+       14aa8:	f814 1b01 	ldrb.w	r1, [r4], #1
+
+       14aac:	482c      	ldr	r0, [pc, #176]	; (14b60 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x250>)
+
+       14aae:	f88d 1028 	strb.w	r1, [sp, #40]	; 0x28
+
+       14ab2:	2206      	movs	r2, #6
+
+       14ab4:	f7ec f88c 	bl	bd0 <<a href="./8861021ea041394f627e3a1b60c3e92c.html">memchr</a>>
+
+       14ab8:	2800      	cmp	r0, #0
+
+       14aba:	d03f      	beq.n	14b3c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x22c>
+
+       14abc:	4b29      	ldr	r3, [pc, #164]	; (14b64 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x254>)
+
+       14abe:	bb1b      	cbnz	r3, 14b08 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1f8>
+
+       14ac0:	9b03      	ldr	r3, [sp, #12]
+
+       14ac2:	3307      	adds	r3, #7
+
+       14ac4:	f023 0307 	bic.w	r3, r3, #7
+
+       14ac8:	3308      	adds	r3, #8
+
+       14aca:	9303      	str	r3, [sp, #12]
+
+       14acc:	9b09      	ldr	r3, [sp, #36]	; 0x24
+
+       14ace:	443b      	add	r3, r7
+
+       14ad0:	9309      	str	r3, [sp, #36]	; 0x24
+
+       14ad2:	e767      	b.n	149a4 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x94>
+
+       14ad4:	fb0c 3202 	mla	r2, ip, r2, r3
+
+       14ad8:	460c      	mov	r4, r1
+
+       14ada:	2001      	movs	r0, #1
+
+       14adc:	e7a5      	b.n	14a2a <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x11a>
+
+       14ade:	2300      	movs	r3, #0
+
+       14ae0:	3401      	adds	r4, #1
+
+       14ae2:	9305      	str	r3, [sp, #20]
+
+       14ae4:	4619      	mov	r1, r3
+
+       14ae6:	f04f 0c0a 	mov.w	ip, #10
+
+       14aea:	4620      	mov	r0, r4
+
+       14aec:	f810 2b01 	ldrb.w	r2, [r0], #1
+
+       14af0:	3a30      	subs	r2, #48	; 0x30
+
+       14af2:	2a09      	cmp	r2, #9
+
+       14af4:	d903      	bls.n	14afe <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1ee>
+
+       14af6:	2b00      	cmp	r3, #0
+
+       14af8:	d0c5      	beq.n	14a86 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x176>
+
+       14afa:	9105      	str	r1, [sp, #20]
+
+       14afc:	e7c3      	b.n	14a86 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x176>
+
+       14afe:	fb0c 2101 	mla	r1, ip, r1, r2
+
+       14b02:	4604      	mov	r4, r0
+
+       14b04:	2301      	movs	r3, #1
+
+       14b06:	e7f0      	b.n	14aea <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1da>
+
+       14b08:	ab03      	add	r3, sp, #12
+
+       14b0a:	9300      	str	r3, [sp, #0]
+
+       14b0c:	462a      	mov	r2, r5
+
+       14b0e:	4b16      	ldr	r3, [pc, #88]	; (14b68 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x258>)
+
+       14b10:	a904      	add	r1, sp, #16
+
+       14b12:	4630      	mov	r0, r6
+
+       14b14:	f3af 8000 	nop.w
+
+       14b18:	4607      	mov	r7, r0
+
+       14b1a:	1c78      	adds	r0, r7, #1
+
+       14b1c:	d1d6      	bne.n	14acc <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x1bc>
+
+       14b1e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
+
+       14b20:	07d9      	lsls	r1, r3, #31
+
+       14b22:	d405      	bmi.n	14b30 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x220>
+
+       14b24:	89ab      	ldrh	r3, [r5, #12]
+
+       14b26:	059a      	lsls	r2, r3, #22
+
+       14b28:	d402      	bmi.n	14b30 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x220>
+
+       14b2a:	6da8      	ldr	r0, [r5, #88]	; 0x58
+
+       14b2c:	f000 fca0 	bl	15470 <<a href="./679d17cc768f384df471c08cf808f317.html">__retarget_lock_release_recursive</a>>
+
+       14b30:	89ab      	ldrh	r3, [r5, #12]
+
+       14b32:	065b      	lsls	r3, r3, #25
+
+       14b34:	f53f af12 	bmi.w	1495c <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x4c>
+
+       14b38:	9809      	ldr	r0, [sp, #36]	; 0x24
+
+       14b3a:	e711      	b.n	14960 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x50>
+
+       14b3c:	ab03      	add	r3, sp, #12
+
+       14b3e:	9300      	str	r3, [sp, #0]
+
+       14b40:	462a      	mov	r2, r5
+
+       14b42:	4b09      	ldr	r3, [pc, #36]	; (14b68 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x258>)
+
+       14b44:	a904      	add	r1, sp, #16
+
+       14b46:	4630      	mov	r0, r6
+
+       14b48:	f000 f880 	bl	14c4c <<a href="./b25614e10f494542c05819bca25d1c80.html">_printf_i</a>>
+
+       14b4c:	e7e4      	b.n	14b18 <<a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html">_vfiprintf_r</a>+0x208>
+
+       14b4e:	bf00      	nop
+
+       14b50:	00019854 	.word	0x00019854
+
+       14b54:	00019874 	.word	0x00019874
+
+       14b58:	00019834 	.word	0x00019834
+
+       14b5c:	00019800 	.word	0x00019800
+
+       14b60:	0001980a 	.word	0x0001980a
+
+       14b64:	00000000 	.word	0x00000000
+
+       14b68:	000148eb 	.word	0x000148eb
+
+       14b6c:	00019806 	.word	0x00019806
+
+    </pre>
+
+    
+    <pre><a href="./81de69d259e235ef8de9136c08782210.html">_printf_common (218)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 128</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,764</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,764
+                    
+                    
+                </td>
+                <td class="col_size">608</td>
+                <td><a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html" class="icon-function">_vfiprintf_r</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,156
+                    
+                    
+                </td>
+                <td class="col_size">36</td>
+                <td><a href="./b7f884a63512d29acd09bc7c7023f8d3.html" class="icon-function">fiprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,120
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="./18989ee4aad345b8b598568f851bfc76.html" class="icon-function">__assert_func</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,060
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/b15b0010147a9c97308f4e1a02c92279.html" class="icon-function">bios::FlexCANDevice::FlexCANDevice(bios::FlexCANDevice::Config const&amp;, bios::CanPhy&amp;, etl::delegate&lt;void ()&gt;, bios::IEcuPowerStateController&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    868
+                    
+                    
+                </td>
+                <td class="col_size">212</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/platforms/s32k1xx/bsp/canflex2Transceiver/src/can/transceiver/canflex2/CanFlex2Transceiver.cpp/7cb8fadcdab70f36cecf385ce3259a07.html" class="icon-function">bios::CanFlex2Transceiver::CanFlex2Transceiver(unsigned char, unsigned char, bios::FlexCANDevice::Config const&amp;, bios::CanPhy&amp;, bios::IEcuPowerStateController&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    72
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    656
+                    
+                    
+                </td>
+                <td class="col_size">100</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/systems/CanSystem.cpp/2e1c47610716b2f99c81f4d19b0a6836.html" class="icon-function">systems::CanSystem::CanSystem(unsigned char, StaticBsp&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    40
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    556
+                    
+                    
+                </td>
+                <td class="col_size">104</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html" class="icon-function">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char)</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    24
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    452
+                    
+                    
+                </td>
+                <td class="col_size">372</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html" class="icon-function">app::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">4</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/application/src/main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html" class="icon-function">app_main()</a></td>
+            </tr>
+        
+            <tr>
+                <th>10</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">76</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/fad58de7366495db4650cfefac2fcd61.html" class="icon-function">main</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

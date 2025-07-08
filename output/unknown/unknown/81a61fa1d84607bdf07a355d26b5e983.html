@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li class="active"><a href="../../unknown.html">&lt;unknown&gt;</a>
+            </li>
+
+        
+        <li class="active">&lt;unknown&gt;
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">non-virtual thunk to systems::CanSystem::~CanSystem()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000086d0</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>100</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/include/systems/CanSystem.h/86597d427d18c8ae5e9df16850657a7a.html">systems::CanSystem::~CanSystem() (104)</a></pre>
+    
+
+    <pre>
+
+    non-virtual thunk to systems::CanSystem::~CanSystem():
+
+        86d0:	b430      	push	{r4, r5}
+
+        86d2:	f8d0 3128 	ldr.w	r3, [r0, #296]	; 0x128
+
+        86d6:	4a13      	ldr	r2, [pc, #76]	; (8724 <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x54>)
+
+        86d8:	4c13      	ldr	r4, [pc, #76]	; (8728 <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x58>)
+
+        86da:	4601      	mov	r1, r0
+
+        86dc:	f102 0520 	add.w	r5, r2, #32
+
+        86e0:	4812      	ldr	r0, [pc, #72]	; (872c <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x5c>)
+
+        86e2:	60c8      	str	r0, [r1, #12]
+
+        86e4:	42a3      	cmp	r3, r4
+
+        86e6:	600d      	str	r5, [r1, #0]
+
+        86e8:	f841 2c04 	str.w	r2, [r1, #-4]
+
+        86ec:	f1a1 0004 	sub.w	r0, r1, #4
+
+        86f0:	d005      	beq.n	86fe <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x2e>
+
+        86f2:	2500      	movs	r5, #0
+
+        86f4:	461a      	mov	r2, r3
+
+        86f6:	681b      	ldr	r3, [r3, #0]
+
+        86f8:	6015      	str	r5, [r2, #0]
+
+        86fa:	42a3      	cmp	r3, r4
+
+        86fc:	d1fa      	bne.n	86f4 <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x24>
+
+        86fe:	f8d1 311c 	ldr.w	r3, [r1, #284]	; 0x11c
+
+        8702:	f501 718c 	add.w	r1, r1, #280	; 0x118
+
+        8706:	428b      	cmp	r3, r1
+
+        8708:	d006      	beq.n	8718 <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x48>
+
+        870a:	2400      	movs	r4, #0
+
+        870c:	461a      	mov	r2, r3
+
+        870e:	685b      	ldr	r3, [r3, #4]
+
+        8710:	6014      	str	r4, [r2, #0]
+
+        8712:	428b      	cmp	r3, r1
+
+        8714:	6054      	str	r4, [r2, #4]
+
+        8716:	d1f9      	bne.n	870c <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x3c>
+
+        8718:	4b05      	ldr	r3, [pc, #20]	; (8730 <<a href="./81a61fa1d84607bdf07a355d26b5e983.html">non-virtual thunk to systems::CanSystem::~CanSystem()</a>+0x60>)
+
+        871a:	2200      	movs	r2, #0
+
+        871c:	bc30      	pop	{r4, r5}
+
+        871e:	601a      	str	r2, [r3, #0]
+
+        8720:	4770      	bx	lr
+
+        8722:	bf00      	nop
+
+        8724:	000171f4 	.word	0x000171f4
+
+        8728:	1ffe01ac 	.word	0x1ffe01ac
+
+        872c:	00018980 	.word	0x00018980
+
+        8730:	1ffee43c 	.word	0x1ffee43c
+
+    </pre>
+
+    
+    <pre><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/include/systems/CanSystem.h/5204644b6c27787af379468abed12871.html">systems::CanSystem::~CanSystem() (92)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

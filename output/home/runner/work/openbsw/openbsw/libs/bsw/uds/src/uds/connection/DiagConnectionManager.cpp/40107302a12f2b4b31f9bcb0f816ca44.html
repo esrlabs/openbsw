@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../connection.html">connection</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagConnectionManager.cpp.html">DiagConnectionManager.cpp</a>:91
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00010344</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>64 (static)</td>
+                <td>476</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../DiagDispatcher.cpp/b72cb15d95e453410f134558ec179e04.html">uds::DiagDispatcher2::getOutgoingDiagConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*) (56)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=56
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a7f7cf12c5edcdda219a6fa99cee7894.html">uds::DiagConnectionManager::diagConnectionTerminated(uds::ManagedOutgoingDiagConnection&amp;) (144)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       10344:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+
+       10348:	b089      	sub	sp, #36	; 0x24
+
+       1034a:	4605      	mov	r5, r0
+
+       1034c:	460e      	mov	r6, r1
+
+       1034e:	9305      	str	r3, [sp, #20]
+
+       10350:	f3ef 8010 	mrs	r0, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       10354:	b672      	cpsid	i
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       10356:	2300      	movs	r3, #0
+
+       10358:	6013      	str	r3, [r2, #0]
+
+       1035a:	69eb      	ldr	r3, [r5, #28]
+
+    _ZNK3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE5emptyEv():
+
+       1035c:	685c      	ldr	r4, [r3, #4]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       1035e:	42a3      	cmp	r3, r4
+
+       10360:	d074      	beq.n	1044c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x108>
+
+       10362:	4617      	mov	r7, r2
+
+       10364:	f895 202c 	ldrb.w	r2, [r5, #44]	; 0x2c
+
+       10368:	2a00      	cmp	r2, #0
+
+       1036a:	d16f      	bne.n	1044c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x108>
+
+    _ZN3etl14intrusive_listIN3uds29ManagedOutgoingDiagConnectionENS_18bidirectional_linkILj0EEEE5frontEv():
+
+       1036c:	2c00      	cmp	r4, #0
+
+       1036e:	f000 80b8 	beq.w	104e2 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x19e>
+
+       10372:	f1a4 087c 	sub.w	r8, r4, #124	; 0x7c
+
+    _ZN3etl18bidirectional_linkILj0EE6unlinkEv():
+
+       10376:	6822      	ldr	r2, [r4, #0]
+
+       10378:	b10a      	cbz	r2, 1037e <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x3a>
+
+       1037a:	6861      	ldr	r1, [r4, #4]
+
+       1037c:	6051      	str	r1, [r2, #4]
+
+       1037e:	6861      	ldr	r1, [r4, #4]
+
+       10380:	b101      	cbz	r1, 10384 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x40>
+
+       10382:	600a      	str	r2, [r1, #0]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+       10384:	689a      	ldr	r2, [r3, #8]
+
+    _ZN3etl18bidirectional_linkILj0EE5clearEv():
+
+       10386:	2100      	movs	r1, #0
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+       10388:	3a01      	subs	r2, #1
+
+    _ZN3etl18bidirectional_linkILj0EE5clearEv():
+
+       1038a:	6021      	str	r1, [r4, #0]
+
+       1038c:	6061      	str	r1, [r4, #4]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+       1038e:	609a      	str	r2, [r3, #8]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       10390:	f380 8810 	msr	PRIMASK, r0
+
+       10394:	9b05      	ldr	r3, [sp, #20]
+
+       10396:	2edf      	cmp	r6, #223	; 0xdf
+
+       10398:	f640 72ff 	movw	r2, #4095	; 0xfff
+
+       1039c:	bf0c      	ite	eq
+
+       1039e:	2406      	moveq	r4, #6
+
+       103a0:	4614      	movne	r4, r2
+
+       103a2:	b1d3      	cbz	r3, 103da <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x96>
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+       103a4:	689a      	ldr	r2, [r3, #8]
+
+       103a6:	6858      	ldr	r0, [r3, #4]
+
+       103a8:	1a12      	subs	r2, r2, r0
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       103aa:	b292      	uxth	r2, r2
+
+       103ac:	4294      	cmp	r4, r2
+
+       103ae:	d92a      	bls.n	10406 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xc2>
+
+       103b0:	9105      	str	r1, [sp, #20]
+
+       103b2:	2204      	movs	r2, #4
+
+       103b4:	4956      	ldr	r1, [pc, #344]	; (10510 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1cc>)
+
+       103b6:	4633      	mov	r3, r6
+
+       103b8:	7808      	ldrb	r0, [r1, #0]
+
+       103ba:	4956      	ldr	r1, [pc, #344]	; (10514 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1d0>)
+
+       103bc:	f7f2 fde0 	bl	2f80 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       103c0:	f3ef 8310 	mrs	r3, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       103c4:	b672      	cpsid	i
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       103c6:	f8d8 207c 	ldr.w	r2, [r8, #124]	; 0x7c
+
+       103ca:	2a00      	cmp	r2, #0
+
+       103cc:	d05f      	beq.n	1048e <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x14a>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       103ce:	f383 8810 	msr	PRIMASK, r3
+
+       103d2:	2002      	movs	r0, #2
+
+       103d4:	b009      	add	sp, #36	; 0x24
+
+       103d6:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+       103da:	6928      	ldr	r0, [r5, #16]
+
+       103dc:	68aa      	ldr	r2, [r5, #8]
+
+       103de:	6801      	ldr	r1, [r0, #0]
+
+       103e0:	f8d1 9000 	ldr.w	r9, [r1]
+
+       103e4:	7e91      	ldrb	r1, [r2, #26]
+
+       103e6:	8a92      	ldrh	r2, [r2, #20]
+
+       103e8:	9400      	str	r4, [sp, #0]
+
+    _ZN3etl4spanIKhLj4294967295EEC4Ev():
+
+       103ea:	e9cd 3306 	strd	r3, r3, [sp, #24]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       103ee:	ab05      	add	r3, sp, #20
+
+       103f0:	9302      	str	r3, [sp, #8]
+
+       103f2:	ab06      	add	r3, sp, #24
+
+       103f4:	9301      	str	r3, [sp, #4]
+
+       103f6:	4633      	mov	r3, r6
+
+       103f8:	47c8      	blx	r9
+
+       103fa:	4602      	mov	r2, r0
+
+       103fc:	2800      	cmp	r0, #0
+
+       103fe:	d131      	bne.n	10464 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x120>
+
+       10400:	9b05      	ldr	r3, [sp, #20]
+
+       10402:	2b00      	cmp	r3, #0
+
+       10404:	d0d6      	beq.n	103b4 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x70>
+
+       10406:	68aa      	ldr	r2, [r5, #8]
+
+       10408:	f8c8 5010 	str.w	r5, [r8, #16]
+
+       1040c:	8a91      	ldrh	r1, [r2, #20]
+
+       1040e:	68ea      	ldr	r2, [r5, #12]
+
+       10410:	f8c8 200c 	str.w	r2, [r8, #12]
+
+    _ZN9transport16TransportMessage15resetValidBytesEv():
+
+       10414:	2000      	movs	r0, #0
+
+    _ZN3uds29ManagedOutgoingDiagConnection4openEv():
+
+       10416:	2201      	movs	r2, #1
+
+    _ZN9transport16TransportMessage15resetValidBytesEv():
+
+       10418:	8258      	strh	r0, [r3, #18]
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       1041a:	f8c8 3004 	str.w	r3, [r8, #4]
+
+       1041e:	f8a8 1016 	strh.w	r1, [r8, #22]
+
+       10422:	f8a8 6018 	strh.w	r6, [r8, #24]
+
+    _ZN3uds29ManagedOutgoingDiagConnection4openEv():
+
+       10426:	f888 2015 	strb.w	r2, [r8, #21]
+
+       1042a:	f888 2073 	strb.w	r2, [r8, #115]	; 0x73
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       1042e:	f3ef 8310 	mrs	r3, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       10432:	b672      	cpsid	i
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       10434:	f8d8 207c 	ldr.w	r2, [r8, #124]	; 0x7c
+
+       10438:	2a00      	cmp	r2, #0
+
+       1043a:	d03d      	beq.n	104b8 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x174>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       1043c:	f383 8810 	msr	PRIMASK, r3
+
+       10440:	2000      	movs	r0, #0
+
+       10442:	f8c7 8000 	str.w	r8, [r7]
+
+       10446:	b009      	add	sp, #36	; 0x24
+
+       10448:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+       1044c:	f380 8810 	msr	PRIMASK, r0
+
+       10450:	4b2f      	ldr	r3, [pc, #188]	; (10510 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1cc>)
+
+       10452:	4931      	ldr	r1, [pc, #196]	; (10518 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1d4>)
+
+       10454:	7818      	ldrb	r0, [r3, #0]
+
+       10456:	4632      	mov	r2, r6
+
+       10458:	f7f2 fd92 	bl	2f80 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       1045c:	2002      	movs	r0, #2
+
+       1045e:	b009      	add	sp, #36	; 0x24
+
+       10460:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+       10464:	2803      	cmp	r0, #3
+
+       10466:	d1a5      	bne.n	103b4 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x70>
+
+       10468:	4b29      	ldr	r3, [pc, #164]	; (10510 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1cc>)
+
+       1046a:	492c      	ldr	r1, [pc, #176]	; (1051c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1d8>)
+
+       1046c:	7818      	ldrb	r0, [r3, #0]
+
+       1046e:	4632      	mov	r2, r6
+
+       10470:	f7f2 fd86 	bl	2f80 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       10474:	f3ef 8310 	mrs	r3, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       10478:	b672      	cpsid	i
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       1047a:	f8d8 207c 	ldr.w	r2, [r8, #124]	; 0x7c
+
+       1047e:	2a00      	cmp	r2, #0
+
+       10480:	d031      	beq.n	104e6 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1a2>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       10482:	f383 8810 	msr	PRIMASK, r3
+
+       10486:	2001      	movs	r0, #1
+
+       10488:	b009      	add	sp, #36	; 0x24
+
+       1048a:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       1048e:	f8d8 2080 	ldr.w	r2, [r8, #128]	; 0x80
+
+       10492:	2a00      	cmp	r2, #0
+
+       10494:	d19b      	bne.n	103ce <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x8a>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       10496:	69e9      	ldr	r1, [r5, #28]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE9push_backERS2_():
+
+       10498:	680a      	ldr	r2, [r1, #0]
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       1049a:	b14a      	cbz	r2, 104b0 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x16c>
+
+       1049c:	6850      	ldr	r0, [r2, #4]
+
+       1049e:	f8c8 0080 	str.w	r0, [r8, #128]	; 0x80
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       104a2:	f108 047c 	add.w	r4, r8, #124	; 0x7c
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       104a6:	f8c8 207c 	str.w	r2, [r8, #124]	; 0x7c
+
+       104aa:	b100      	cbz	r0, 104ae <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x16a>
+
+       104ac:	6004      	str	r4, [r0, #0]
+
+       104ae:	6054      	str	r4, [r2, #4]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE11insert_linkEPS2_RS2_():
+
+       104b0:	688a      	ldr	r2, [r1, #8]
+
+       104b2:	3201      	adds	r2, #1
+
+       104b4:	608a      	str	r2, [r1, #8]
+
+       104b6:	e78a      	b.n	103ce <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x8a>
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       104b8:	f8d8 2080 	ldr.w	r2, [r8, #128]	; 0x80
+
+       104bc:	2a00      	cmp	r2, #0
+
+       104be:	d1bd      	bne.n	1043c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xf8>
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE9push_backERS2_():
+
+       104c0:	6a2a      	ldr	r2, [r5, #32]
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       104c2:	b152      	cbz	r2, 104da <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x196>
+
+       104c4:	6851      	ldr	r1, [r2, #4]
+
+       104c6:	f8c8 1080 	str.w	r1, [r8, #128]	; 0x80
+
+       104ca:	6850      	ldr	r0, [r2, #4]
+
+       104cc:	f8c8 207c 	str.w	r2, [r8, #124]	; 0x7c
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       104d0:	f108 017c 	add.w	r1, r8, #124	; 0x7c
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       104d4:	b100      	cbz	r0, 104d8 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x194>
+
+       104d6:	6001      	str	r1, [r0, #0]
+
+       104d8:	6051      	str	r1, [r2, #4]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE11insert_linkEPS2_RS2_():
+
+       104da:	6aaa      	ldr	r2, [r5, #40]	; 0x28
+
+       104dc:	3201      	adds	r2, #1
+
+       104de:	62aa      	str	r2, [r5, #40]	; 0x28
+
+       104e0:	e7ac      	b.n	1043c <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0xf8>
+
+    _ZN3etl14intrusive_listIN3uds29ManagedOutgoingDiagConnectionENS_18bidirectional_linkILj0EEEE5frontEv():
+
+       104e2:	46a0      	mov	r8, r4
+
+       104e4:	e747      	b.n	10376 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x32>
+
+    _ZNK3etl18bidirectional_linkILj0EE9is_linkedEv():
+
+       104e6:	f8d8 2080 	ldr.w	r2, [r8, #128]	; 0x80
+
+       104ea:	2a00      	cmp	r2, #0
+
+       104ec:	d1c9      	bne.n	10482 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x13e>
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       104ee:	69e9      	ldr	r1, [r5, #28]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE9push_backERS2_():
+
+       104f0:	680a      	ldr	r2, [r1, #0]
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       104f2:	b14a      	cbz	r2, 10508 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1c4>
+
+       104f4:	6850      	ldr	r0, [r2, #4]
+
+       104f6:	f8c8 0080 	str.w	r0, [r8, #128]	; 0x80
+
+    uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*):
+
+       104fa:	f108 047c 	add.w	r4, r8, #124	; 0x7c
+
+    _ZN3etl11link_spliceINS_18bidirectional_linkILj0EEEEENS_9enable_ifIXsrNS_7is_sameIT_NS1_IXsrS5_2IDEEEEE5valueEvE4typeEPS5_RS5_():
+
+       104fe:	f8c8 207c 	str.w	r2, [r8, #124]	; 0x7c
+
+       10502:	b100      	cbz	r0, 10506 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x1c2>
+
+       10504:	6004      	str	r4, [r0, #0]
+
+       10506:	6054      	str	r4, [r2, #4]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE11insert_linkEPS2_RS2_():
+
+       10508:	688a      	ldr	r2, [r1, #8]
+
+       1050a:	3201      	adds	r2, #1
+
+       1050c:	608a      	str	r2, [r1, #8]
+
+       1050e:	e7b8      	b.n	10482 <<a href="./40107302a12f2b4b31f9bcb0f816ca44.html">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&, transport::TransportMessage*)</a>+0x13e>
+
+       10510:	1ffe0081 	.word	0x1ffe0081
+
+       10514:	000187c8 	.word	0x000187c8
+
+       10518:	00018814 	.word	0x00018814
+
+       1051c:	0001878c 	.word	0x0001878c
+
+    </pre>
+
+    
+    <pre><a href="./9e441d98338966d18ba65dfae6e0f652.html">uds::DiagConnectionManager::requestIncomingConnection(transport::TransportMessage&amp;) (136)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 148</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    148
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    100
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html" class="icon-function">util::logger::Logger::warn(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">80
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 80</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 532</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    532
+                    
+                    
+                </td>
+                <td class="col_size">476</td>
+                <td><a href="./40107302a12f2b4b31f9bcb0f816ca44.html" class="icon-function">uds::DiagConnectionManager::requestOutgoingConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../DiagDispatcher.cpp/b72cb15d95e453410f134558ec179e04.html" class="icon-function">uds::DiagDispatcher2::getOutgoingDiagConnection(unsigned short, uds::OutgoingDiagConnection*&amp;, transport::TransportMessage*)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

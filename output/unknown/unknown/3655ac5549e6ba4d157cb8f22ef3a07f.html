@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li class="active"><a href="../../unknown.html">&lt;unknown&gt;</a>
+            </li>
+
+        
+        <li class="active">&lt;unknown&gt;
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">__smakebuf_r</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000154bc</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>128</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./ddb6c397a973a81eb635d1056771d221.html">__swsetup_r (220)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=338
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./21d1112dea231bed3aab76cdcbc76833.html">__swhatbuf_r (74)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./f5137e47f9ddfeffe7b8dfbd0dbdc9bf.html">_malloc_r (232)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./dab4888231565979727ee7de00d9b98b.html">_isatty_r (32)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./21d1112dea231bed3aab76cdcbc76833.html">__swhatbuf_r (74)</a></pre>
+    
+
+    <pre>
+
+    __smakebuf_r():
+
+       154bc:	898b      	ldrh	r3, [r1, #12]
+
+       154be:	b573      	push	{r0, r1, r4, r5, r6, lr}
+
+       154c0:	079d      	lsls	r5, r3, #30
+
+       154c2:	4606      	mov	r6, r0
+
+       154c4:	460c      	mov	r4, r1
+
+       154c6:	d507      	bpl.n	154d8 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x1c>
+
+       154c8:	f104 0347 	add.w	r3, r4, #71	; 0x47
+
+       154cc:	6023      	str	r3, [r4, #0]
+
+       154ce:	6123      	str	r3, [r4, #16]
+
+       154d0:	2301      	movs	r3, #1
+
+       154d2:	6163      	str	r3, [r4, #20]
+
+       154d4:	b002      	add	sp, #8
+
+       154d6:	bd70      	pop	{r4, r5, r6, pc}
+
+       154d8:	ab01      	add	r3, sp, #4
+
+       154da:	466a      	mov	r2, sp
+
+       154dc:	f7ff ffc9 	bl	15472 <<a href="./21d1112dea231bed3aab76cdcbc76833.html">__swhatbuf_r</a>>
+
+       154e0:	9900      	ldr	r1, [sp, #0]
+
+       154e2:	4605      	mov	r5, r0
+
+       154e4:	4630      	mov	r0, r6
+
+       154e6:	f7ff f975 	bl	147d4 <<a href="./f5137e47f9ddfeffe7b8dfbd0dbdc9bf.html">_malloc_r</a>>
+
+       154ea:	b948      	cbnz	r0, 15500 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x44>
+
+       154ec:	f9b4 300c 	ldrsh.w	r3, [r4, #12]
+
+       154f0:	059a      	lsls	r2, r3, #22
+
+       154f2:	d4ef      	bmi.n	154d4 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x18>
+
+       154f4:	f023 0303 	bic.w	r3, r3, #3
+
+       154f8:	f043 0302 	orr.w	r3, r3, #2
+
+       154fc:	81a3      	strh	r3, [r4, #12]
+
+       154fe:	e7e3      	b.n	154c8 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0xc>
+
+       15500:	4b0d      	ldr	r3, [pc, #52]	; (15538 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x7c>)
+
+       15502:	62b3      	str	r3, [r6, #40]	; 0x28
+
+       15504:	89a3      	ldrh	r3, [r4, #12]
+
+       15506:	6020      	str	r0, [r4, #0]
+
+       15508:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+
+       1550c:	81a3      	strh	r3, [r4, #12]
+
+       1550e:	9b00      	ldr	r3, [sp, #0]
+
+       15510:	6163      	str	r3, [r4, #20]
+
+       15512:	9b01      	ldr	r3, [sp, #4]
+
+       15514:	6120      	str	r0, [r4, #16]
+
+       15516:	b15b      	cbz	r3, 15530 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x74>
+
+       15518:	f9b4 100e 	ldrsh.w	r1, [r4, #14]
+
+       1551c:	4630      	mov	r0, r6
+
+       1551e:	f000 f891 	bl	15644 <<a href="./dab4888231565979727ee7de00d9b98b.html">_isatty_r</a>>
+
+       15522:	b128      	cbz	r0, 15530 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x74>
+
+       15524:	89a3      	ldrh	r3, [r4, #12]
+
+       15526:	f023 0303 	bic.w	r3, r3, #3
+
+       1552a:	f043 0301 	orr.w	r3, r3, #1
+
+       1552e:	81a3      	strh	r3, [r4, #12]
+
+       15530:	89a0      	ldrh	r0, [r4, #12]
+
+       15532:	4305      	orrs	r5, r0
+
+       15534:	81a5      	strh	r5, [r4, #12]
+
+       15536:	e7cd      	b.n	154d4 <<a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html">__smakebuf_r</a>+0x18>
+
+       15538:	000152c9 	.word	0x000152c9
+
+    </pre>
+
+    
+    <pre><a href="./73fc8c83e515aa7c32577968232a6680.html">__malloc_lock (12)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 128</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 2,112</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,112
+                    
+                    
+                </td>
+                <td class="col_size">128</td>
+                <td><a href="./3655ac5549e6ba4d157cb8f22ef3a07f.html" class="icon-function">__smakebuf_r</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,984
+                    
+                    
+                </td>
+                <td class="col_size">220</td>
+                <td><a href="./ddb6c397a973a81eb635d1056771d221.html" class="icon-function">__swsetup_r</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,764
+                    
+                    
+                </td>
+                <td class="col_size">608</td>
+                <td><a href="./4c80f6b46d91b52164c3a8c4ce20a9f8.html" class="icon-function">_vfiprintf_r</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,156
+                    
+                    
+                </td>
+                <td class="col_size">36</td>
+                <td><a href="./b7f884a63512d29acd09bc7c7023f8d3.html" class="icon-function">fiprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,120
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="./18989ee4aad345b8b598568f851bfc76.html" class="icon-function">__assert_func</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,060
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/platforms/s32k1xx/bsp/bspFlexCan/src/can/FlexCANDevice.cpp/b15b0010147a9c97308f4e1a02c92279.html" class="icon-function">bios::FlexCANDevice::FlexCANDevice(bios::FlexCANDevice::Config const&amp;, bios::CanPhy&amp;, etl::delegate&lt;void ()&gt;, bios::IEcuPowerStateController&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    868
+                    
+                    
+                </td>
+                <td class="col_size">212</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/platforms/s32k1xx/bsp/canflex2Transceiver/src/can/transceiver/canflex2/CanFlex2Transceiver.cpp/7cb8fadcdab70f36cecf385ce3259a07.html" class="icon-function">bios::CanFlex2Transceiver::CanFlex2Transceiver(unsigned char, unsigned char, bios::FlexCANDevice::Config const&amp;, bios::CanPhy&amp;, bios::IEcuPowerStateController&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    72
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    656
+                    
+                    
+                </td>
+                <td class="col_size">100</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/systems/CanSystem.cpp/2e1c47610716b2f99c81f4d19b0a6836.html" class="icon-function">systems::CanSystem::CanSystem(unsigned char, StaticBsp&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    40
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    556
+                    
+                    
+                </td>
+                <td class="col_size">104</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html" class="icon-function">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char)</a></td>
+            </tr>
+        
+            <tr>
+                <th>10</th>
+                <td class="col_size">
+                    
+                    24
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    452
+                    
+                    
+                </td>
+                <td class="col_size">372</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html" class="icon-function">app::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>11</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">4</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/application/src/main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html" class="icon-function">app_main()</a></td>
+            </tr>
+        
+            <tr>
+                <th>12</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">76</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/fad58de7366495db4650cfefac2fcd61.html" class="icon-function">main</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../transportRouterSimple.html">transportRouterSimple</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../routing.html">routing</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportRouterSimple.cpp.html">TransportRouterSimple.cpp</a>:161
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000d000</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>4 (static)</td>
+                <td>108</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/application/src/systems/TransportSystem.cpp/1b572bcc46932a2322ac1f983fa8b5e0.html">transport::TransportSystem::removeTransportLayer(transport::AbstractTransportLayer&amp;) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./34024dc8e4118fa02029d712029928ff.html">transport::TransportRouterSimple::addTransportLayer(transport::AbstractTransportLayer&amp;) (128)</a></pre>
+    
+
+    <pre>
+
+    transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&):
+
+        d000:	b500      	push	{lr}
+
+    _ZNK3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15is_link_in_listEPKS2_():
+
+        d002:	f500 5e40 	add.w	lr, r0, #12288	; 0x3000
+
+        d006:	f500 5044 	add.w	r0, r0, #12544	; 0x3100
+
+        d00a:	f8de 2130 	ldr.w	r2, [lr, #304]	; 0x130
+
+        d00e:	302c      	adds	r0, #44	; 0x2c
+
+        d010:	4282      	cmp	r2, r0
+
+        d012:	d00a      	beq.n	d02a <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x2a>
+
+        d014:	f101 0c04 	add.w	ip, r1, #4
+
+        d018:	4594      	cmp	ip, r2
+
+        d01a:	d023      	beq.n	d064 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x64>
+
+        d01c:	4613      	mov	r3, r2
+
+        d01e:	e001      	b.n	d024 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x24>
+
+        d020:	459c      	cmp	ip, r3
+
+        d022:	d004      	beq.n	d02e <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x2e>
+
+        d024:	685b      	ldr	r3, [r3, #4]
+
+        d026:	4283      	cmp	r3, r0
+
+        d028:	d1fa      	bne.n	d020 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x20>
+
+    transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&):
+
+        d02a:	f85d fb04 	ldr.w	pc, [sp], #4
+
+    _ZN9transport22AbstractTransportLayer39TransportMessageProvidingListenerHelper27setTransportMessageListenerEPNS_25ITransportMessageListenerE():
+
+        d02e:	2300      	movs	r3, #0
+
+    _ZNK3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15is_link_in_listEPKS2_():
+
+        d030:	4594      	cmp	ip, r2
+
+    _ZN9transport22AbstractTransportLayer39TransportMessageProvidingListenerHelper27setTransportMessageListenerEPNS_25ITransportMessageListenerE():
+
+        d032:	620b      	str	r3, [r1, #32]
+
+    _ZN9transport22AbstractTransportLayer39TransportMessageProvidingListenerHelper27setTransportMessageProviderEPNS_25ITransportMessageProviderE():
+
+        d034:	61cb      	str	r3, [r1, #28]
+
+    _ZNK3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15is_link_in_listEPKS2_():
+
+        d036:	d004      	beq.n	d042 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x42>
+
+        d038:	6852      	ldr	r2, [r2, #4]
+
+        d03a:	4282      	cmp	r2, r0
+
+        d03c:	d0f5      	beq.n	d02a <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x2a>
+
+        d03e:	4594      	cmp	ip, r2
+
+        d040:	d1fa      	bne.n	d038 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x38>
+
+    _ZN3etl18bidirectional_linkILj0EE6unlinkEv():
+
+        d042:	684a      	ldr	r2, [r1, #4]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE11remove_linkEPS2_():
+
+        d044:	688b      	ldr	r3, [r1, #8]
+
+    _ZN3etl18bidirectional_linkILj0EE6unlinkEv():
+
+        d046:	b10a      	cbz	r2, d04c <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x4c>
+
+        d048:	6053      	str	r3, [r2, #4]
+
+        d04a:	688b      	ldr	r3, [r1, #8]
+
+        d04c:	b103      	cbz	r3, d050 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x50>
+
+        d04e:	601a      	str	r2, [r3, #0]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+        d050:	f8de 3134 	ldr.w	r3, [lr, #308]	; 0x134
+
+    _ZN3etl18bidirectional_linkILj0EE5clearEv():
+
+        d054:	2200      	movs	r2, #0
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+        d056:	3b01      	subs	r3, #1
+
+    _ZN3etl18bidirectional_linkILj0EE5clearEv():
+
+        d058:	604a      	str	r2, [r1, #4]
+
+        d05a:	608a      	str	r2, [r1, #8]
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15disconnect_linkEPS2_():
+
+        d05c:	f8ce 3134 	str.w	r3, [lr, #308]	; 0x134
+
+    transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&):
+
+        d060:	f85d fb04 	ldr.w	pc, [sp], #4
+
+    _ZN9transport22AbstractTransportLayer39TransportMessageProvidingListenerHelper27setTransportMessageListenerEPNS_25ITransportMessageListenerE():
+
+        d064:	2300      	movs	r3, #0
+
+        d066:	620b      	str	r3, [r1, #32]
+
+    _ZN9transport22AbstractTransportLayer39TransportMessageProvidingListenerHelper27setTransportMessageProviderEPNS_25ITransportMessageProviderE():
+
+        d068:	61cb      	str	r3, [r1, #28]
+
+    _ZNK3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE15is_link_in_listEPKS2_():
+
+        d06a:	e7ea      	b.n	d042 <<a href="./20e6c2cf42c7855fd44900f0e0e1accb.html">transport::TransportRouterSimple::removeTransportLayer(transport::AbstractTransportLayer&)</a>+0x42>
+
+    </pre>
+
+    
+    <pre><a href="../../../../../uds/src/uds/async/AsyncDiagHelper.cpp/13ab1558a6a481af5bd8b47734513f4d.html">uds::AsyncDiagHelper::verify(unsigned char const*, unsigned short) (4)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>
