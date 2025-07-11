@@ -27,7 +27,7 @@ jobs:
       - name: Build the docker image
         if: steps.cache-cmake.outputs.cache-hit != 'true'
         run: |
-          docker build -f docker/Dockerfile.dev -t dev .
+          docker build --no-cache -f docker/Dockerfile.dev -t dev .
 
       - name: Run the build.py inside the docker container
         if: steps.cache-cmake.outputs.cache-hit != 'true'

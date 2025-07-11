@@ -1,5 +1,7 @@
 // Copyright 2024 Accenture.
 
+// Testing this file
+
 #include "app/app.h"
 
 #include "console/console.h"
@@ -136,6 +138,7 @@ void staticShutdown()
 void run()
 {
     printf("hello\r\n");
+    printf("Testing this file");
     staticInit();
     AsyncAdapter::init();
 #if TRACING
