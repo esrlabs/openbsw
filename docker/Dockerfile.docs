@@ -1,11 +1,16 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.04@sha256:08e2cd26ee66d0d46d6394df594f2877fc9b9381d9630a9ef5d86e27dfae9a95
 
-RUN apt-get update && apt-get install -y python3.10 python3-pip openjdk-11-jdk graphviz \
-    doxygen\
-    zip \
-    wget \
-    bzip2 \
-    && rm -rf /var/lib/apt/lists/*
+RUN set -eux; \
+    for i in 1 2 3; do \
+        apt-get update && apt-get install -y python3.10 python3-pip openjdk-11-jdk graphviz \
+            doxygen\
+            zip \
+            wget \
+            bzip2 \
+        && rm -rf /var/lib/apt/lists/* && break; \
+        echo "Apt install failed, retrying ($i/3)..."; \
+        sleep 10; \
+    done
 
 COPY doc/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
