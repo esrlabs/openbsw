@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../application.html">application</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../app.html">app</a>
+            </li>
+
+        
+        <li class="active"><a href="../app.cpp.html">app.cpp</a>:159
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">app::run()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00001004</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>16 (static)</td>
+                <td>464</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html">app_main() (4)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (20,
+                            <span title="sum of used bytes by all callees">
+                            Σ=3132
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./91388f48c920c4dfcf22b7642f75b701.html">app::staticInit() (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run() (236)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char) (148)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/RuntimeSystem.cpp/52596e261fbca0debe9800e7912fca77.html">systems::RuntimeSystem::RuntimeSystem(unsigned char, runtime::declare::RuntimeMonitor&lt;runtime::RuntimeStatistics, runtime::RuntimeStatistics, 10u, 3u&gt;&amp;) (84)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&amp;, unsigned char) (248)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/SafetySystem.cpp/718eff2a1e3c5364f69a998c6970187e.html">systems::SafetySystem::SafetySystem(unsigned char, lifecycle::ILifecycleManager&amp;) (84)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/TransportSystem.cpp/f42fd3f357bdae05dd817cdb0afc0047.html">transport::TransportSystem::TransportSystem(unsigned char) (72)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/main/src/main.cpp/24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem() (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/DoCanSystem.cpp/8d209b4c7ada2e533c6136360e624eaf.html">docan::DoCanSystem::DoCanSystem(transport::ITransportSystem&amp;, can::ICanSystem&amp;, unsigned char) (400)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/main/src/main.cpp/084858131a0b254b3f169945d112d857.html">systems::getEthernetSystem() (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/EthernetSystem.cpp/223df1a844c23764cbbc23739d778929.html">systems::EthernetSystem::EthernetSystem(unsigned char, ethernet::IEthernetDriverSystem&amp;) (132)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/main/src/main.cpp/966406635f86cc7b7d91c2678c6c4f4a.html">platform::getStaticBsp() (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/StorageSystem.cpp/ad831030495ff0476c8e46a9ed91c53b.html">systems::StorageSystem::StorageSystem(unsigned char, unsigned char, eeprom::IEepromDriver&amp;) (372)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/UdsSystem.cpp/1a5fb6ad6a534a510f10fa5716f066e5.html">uds::UdsSystem::UdsSystem(lifecycle::LifecycleManager&amp;, transport::ITransportSystem&amp;, unsigned char, unsigned short) (560)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/SysAdminSystem.cpp/672c5dc1d4f81f4ae954e3e6c46027ad.html">systems::SysAdminSystem::SysAdminSystem(unsigned char, lifecycle::ILifecycleManager&amp;) (84)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../systems/DemoSystem.cpp/90136955dd6a9ca9af7d3a63ba657e4b.html">systems::DemoSystem::DemoSystem(unsigned char, lifecycle::ILifecycleManager&amp;, can::ICanSystem&amp;, storage::IStorage&amp;) (388)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/a11bcf88ca51caebf1f9142176c8117e.html">lifecycle::LifecycleManager::transitionToLevel(unsigned char) (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/ef726e6b5f9357a8fa025578b908794c.html">getSystemTicks32Bit (52)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/3rdparty/freeRtos/src/tasks.c/f63e0c737b2bc0ba20133fcf0cb62874.html">vTaskStartScheduler (152)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run() (236)</a></pre>
+    
+
+    <pre>
+
+    app::run():
+
+        1004:	b580      	push	{r7, lr}
+
+        1006:	2401      	movs	r4, #1
+
+        1008:	b082      	sub	sp, #8
+
+    create<<unnamed enum>, runtime::declare::RuntimeMonitor<runtime::RuntimeStatistics, runtime::RuntimeStatistics, 10, 3>&>():
+
+        100a:	4e5c      	ldr	r6, [pc, #368]	; (117c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x178>)
+
+        100c:	4f5c      	ldr	r7, [pc, #368]	; (1180 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x17c>)
+
+    app::run():
+
+        100e:	485d      	ldr	r0, [pc, #372]	; (1184 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x180>)
+
+        1010:	4d5d      	ldr	r5, [pc, #372]	; (1188 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x184>)
+
+        1012:	f8df 81bc 	ldr.w	r8, [pc, #444]	; 11d0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1cc>
+
+        1016:	f01e fd1f 	bl	1fa58 <<a href="../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf</a>>
+
+        101a:	f7ff ff65 	bl	ee8 <<a href="./91388f48c920c4dfcf22b7642f75b701.html">app::staticInit()</a>>
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE4initEv():
+
+        101e:	f7ff ff7b 	bl	f18 <<a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>>
+
+    app::run():
+
+        1022:	485a      	ldr	r0, [pc, #360]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1024:	4621      	mov	r1, r4
+
+        1026:	f00f ff35 	bl	10e94 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&, unsigned char)</a>>
+
+    create<<unnamed enum>, runtime::declare::RuntimeMonitor<runtime::RuntimeStatistics, runtime::RuntimeStatistics, 10, 3>&>():
+
+        102a:	4621      	mov	r1, r4
+
+        102c:	463a      	mov	r2, r7
+
+        102e:	4630      	mov	r0, r6
+
+        1030:	f886 415c 	strb.w	r4, [r6, #348]	; 0x15c
+
+        1034:	f001 f9e6 	bl	2404 <<a href="../../systems/RuntimeSystem.cpp/52596e261fbca0debe9800e7912fca77.html">systems::RuntimeSystem::RuntimeSystem(unsigned char, runtime::declare::RuntimeMonitor<runtime::RuntimeStatistics, runtime::RuntimeStatistics, 10u, 3u>&)</a>>
+
+    app::run():
+
+        1038:	4623      	mov	r3, r4
+
+        103a:	4632      	mov	r2, r6
+
+        103c:	4954      	ldr	r1, [pc, #336]	; (1190 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x18c>)
+
+        103e:	4853      	ldr	r0, [pc, #332]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1040:	4e54      	ldr	r6, [pc, #336]	; (1194 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x190>)
+
+        1042:	f00d fcf3 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+    create<<unnamed enum>, lifecycle::declare::LifecycleManager<16, 8, 16>&>():
+
+        1046:	4a51      	ldr	r2, [pc, #324]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1048:	f885 4060 	strb.w	r4, [r5, #96]	; 0x60
+
+        104c:	2108      	movs	r1, #8
+
+        104e:	4628      	mov	r0, r5
+
+        1050:	f001 fa88 	bl	2564 <<a href="../../systems/SafetySystem.cpp/718eff2a1e3c5364f69a998c6970187e.html">systems::SafetySystem::SafetySystem(unsigned char, lifecycle::ILifecycleManager&)</a>>
+
+    app::run():
+
+        1054:	462a      	mov	r2, r5
+
+        1056:	4623      	mov	r3, r4
+
+        1058:	494f      	ldr	r1, [pc, #316]	; (1198 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x194>)
+
+        105a:	484c      	ldr	r0, [pc, #304]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        105c:	4d4f      	ldr	r5, [pc, #316]	; (119c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x198>)
+
+        105e:	f00d fce5 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        1062:	484a      	ldr	r0, [pc, #296]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1064:	2102      	movs	r1, #2
+
+        1066:	f00f ff15 	bl	10e94 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&, unsigned char)</a>>
+
+        106a:	4848      	ldr	r0, [pc, #288]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        106c:	2103      	movs	r1, #3
+
+        106e:	f00f ff11 	bl	10e94 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&, unsigned char)</a>>
+
+    create<<unnamed enum> >():
+
+        1072:	2103      	movs	r1, #3
+
+        1074:	f5a6 5040 	sub.w	r0, r6, #12288	; 0x3000
+
+        1078:	f886 414c 	strb.w	r4, [r6, #332]	; 0x14c
+
+        107c:	f001 face 	bl	261c <<a href="../../systems/TransportSystem.cpp/f42fd3f357bdae05dd817cdb0afc0047.html">transport::TransportSystem::TransportSystem(unsigned char)</a>>
+
+    app::run():
+
+        1080:	4a47      	ldr	r2, [pc, #284]	; (11a0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x19c>)
+
+        1082:	4948      	ldr	r1, [pc, #288]	; (11a4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1a0>)
+
+        1084:	4841      	ldr	r0, [pc, #260]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1086:	2304      	movs	r3, #4
+
+        1088:	f00d fcd0 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        108c:	f00f ff4c 	bl	10f28 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem()</a>>
+
+    create<transport::TransportSystem&, can::ICanSystem&, <unnamed enum> >():
+
+        1090:	f5a6 5140 	sub.w	r1, r6, #12288	; 0x3000
+
+    app::run():
+
+        1094:	4602      	mov	r2, r0
+
+    create<transport::TransportSystem&, can::ICanSystem&, <unnamed enum> >():
+
+        1096:	2306      	movs	r3, #6
+
+        1098:	f5a5 5000 	sub.w	r0, r5, #8192	; 0x2000
+
+        109c:	f885 4c20 	strb.w	r4, [r5, #3104]	; 0xc20
+
+        10a0:	f001 ff78 	bl	2f94 <<a href="../../systems/DoCanSystem.cpp/8d209b4c7ada2e533c6136360e624eaf.html">docan::DoCanSystem::DoCanSystem(transport::ITransportSystem&, can::ICanSystem&, unsigned char)</a>>
+
+    app::run():
+
+        10a4:	2305      	movs	r3, #5
+
+        10a6:	f5a5 5200 	sub.w	r2, r5, #8192	; 0x2000
+
+        10aa:	493f      	ldr	r1, [pc, #252]	; (11a8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1a4>)
+
+        10ac:	4837      	ldr	r0, [pc, #220]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        10ae:	4d3f      	ldr	r5, [pc, #252]	; (11ac <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1a8>)
+
+        10b0:	f00d fcbc 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        10b4:	f00f ff3c 	bl	10f30 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/084858131a0b254b3f169945d112d857.html">systems::getEthernetSystem()</a>>
+
+    create<<unnamed enum>, ethernet::IEthernetDriverSystem&>():
+
+        10b8:	2105      	movs	r1, #5
+
+    app::run():
+
+        10ba:	4602      	mov	r2, r0
+
+    create<<unnamed enum>, ethernet::IEthernetDriverSystem&>():
+
+        10bc:	4628      	mov	r0, r5
+
+        10be:	f885 4120 	strb.w	r4, [r5, #288]	; 0x120
+
+        10c2:	f004 ff4b 	bl	5f5c <<a href="../../systems/EthernetSystem.cpp/223df1a844c23764cbbc23739d778929.html">systems::EthernetSystem::EthernetSystem(unsigned char, ethernet::IEthernetDriverSystem&)</a>>
+
+    app::run():
+
+        10c6:	462a      	mov	r2, r5
+
+        10c8:	4939      	ldr	r1, [pc, #228]	; (11b0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1ac>)
+
+        10ca:	4830      	ldr	r0, [pc, #192]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        10cc:	4d39      	ldr	r5, [pc, #228]	; (11b4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1b0>)
+
+        10ce:	2305      	movs	r3, #5
+
+        10d0:	f00d fcac 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        10d4:	f00f feda 	bl	10e8c <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/966406635f86cc7b7d91c2678c6c4f4a.html">platform::getStaticBsp()</a>>
+
+    create<<unnamed enum>, <unnamed enum>, eeprom::IEepromDriver&>():
+
+        10d8:	2204      	movs	r2, #4
+
+        10da:	f100 0308 	add.w	r3, r0, #8
+
+        10de:	2102      	movs	r1, #2
+
+        10e0:	4628      	mov	r0, r5
+
+        10e2:	f885 41c0 	strb.w	r4, [r5, #448]	; 0x1c0
+
+        10e6:	f004 ffdf 	bl	60a8 <<a href="../../systems/StorageSystem.cpp/ad831030495ff0476c8e46a9ed91c53b.html">systems::StorageSystem::StorageSystem(unsigned char, unsigned char, eeprom::IEepromDriver&)</a>>
+
+    app::run():
+
+        10ea:	462a      	mov	r2, r5
+
+        10ec:	4932      	ldr	r1, [pc, #200]	; (11b8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1b4>)
+
+        10ee:	4827      	ldr	r0, [pc, #156]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        10f0:	2305      	movs	r3, #5
+
+        10f2:	f00d fc9b 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+    create<lifecycle::declare::LifecycleManager<16, 8, 16>&, transport::TransportSystem&, <unnamed enum>, short unsigned int const&>():
+
+        10f6:	232a      	movs	r3, #42	; 0x2a
+
+        10f8:	f5a6 5240 	sub.w	r2, r6, #12288	; 0x3000
+
+        10fc:	4923      	ldr	r1, [pc, #140]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+    app::run():
+
+        10fe:	4e2f      	ldr	r6, [pc, #188]	; (11bc <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1b8>)
+
+    create<lifecycle::declare::LifecycleManager<16, 8, 16>&, transport::TransportSystem&, <unnamed enum>, short unsigned int const&>():
+
+        1100:	9300      	str	r3, [sp, #0]
+
+        1102:	4640      	mov	r0, r8
+
+        1104:	2303      	movs	r3, #3
+
+        1106:	f888 4b34 	strb.w	r4, [r8, #2868]	; 0xb34
+
+        110a:	f001 fadb 	bl	26c4 <<a href="../../systems/UdsSystem.cpp/1a5fb6ad6a534a510f10fa5716f066e5.html">uds::UdsSystem::UdsSystem(lifecycle::LifecycleManager&, transport::ITransportSystem&, unsigned char, unsigned short)</a>>
+
+    app::run():
+
+        110e:	2306      	movs	r3, #6
+
+        1110:	492b      	ldr	r1, [pc, #172]	; (11c0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1bc>)
+
+        1112:	481e      	ldr	r0, [pc, #120]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1114:	4642      	mov	r2, r8
+
+        1116:	f00d fc89 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+    create<<unnamed enum>, lifecycle::declare::LifecycleManager<16, 8, 16>&>():
+
+        111a:	4a1c      	ldr	r2, [pc, #112]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        111c:	f886 4060 	strb.w	r4, [r6, #96]	; 0x60
+
+        1120:	2107      	movs	r1, #7
+
+        1122:	4630      	mov	r0, r6
+
+        1124:	f001 f9bc 	bl	24a0 <<a href="../../systems/SysAdminSystem.cpp/672c5dc1d4f81f4ae954e3e6c46027ad.html">systems::SysAdminSystem::SysAdminSystem(unsigned char, lifecycle::ILifecycleManager&)</a>>
+
+    app::run():
+
+        1128:	4632      	mov	r2, r6
+
+        112a:	2307      	movs	r3, #7
+
+        112c:	4925      	ldr	r1, [pc, #148]	; (11c4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1c0>)
+
+        112e:	4817      	ldr	r0, [pc, #92]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1130:	4e25      	ldr	r6, [pc, #148]	; (11c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1c4>)
+
+        1132:	f00d fc7b 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        1136:	2108      	movs	r1, #8
+
+        1138:	4814      	ldr	r0, [pc, #80]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        113a:	f00f feab 	bl	10e94 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&, unsigned char)</a>>
+
+        113e:	f00f fef3 	bl	10f28 <<a href="../../../../platforms/s32k148evb/main/src/main.cpp/24c2da7f0b08a7a492d8bafe5efed83d.html">systems::getCanSystem()</a>>
+
+    create<<unnamed enum>, lifecycle::declare::LifecycleManager<16, 8, 16>&, can::ICanSystem&, storage::IStorage&>():
+
+        1142:	3580      	adds	r5, #128	; 0x80
+
+    app::run():
+
+        1144:	4603      	mov	r3, r0
+
+    create<<unnamed enum>, lifecycle::declare::LifecycleManager<16, 8, 16>&, can::ICanSystem&, storage::IStorage&>():
+
+        1146:	4a11      	ldr	r2, [pc, #68]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1148:	9500      	str	r5, [sp, #0]
+
+        114a:	2104      	movs	r1, #4
+
+        114c:	f886 4508 	strb.w	r4, [r6, #1288]	; 0x508
+
+        1150:	f5a6 5080 	sub.w	r0, r6, #4096	; 0x1000
+
+        1154:	f000 fea8 	bl	1ea8 <<a href="../../systems/DemoSystem.cpp/90136955dd6a9ca9af7d3a63ba657e4b.html">systems::DemoSystem::DemoSystem(unsigned char, lifecycle::ILifecycleManager&, can::ICanSystem&, storage::IStorage&)</a>>
+
+    app::run():
+
+        1158:	2308      	movs	r3, #8
+
+        115a:	f5a6 5280 	sub.w	r2, r6, #4096	; 0x1000
+
+        115e:	491b      	ldr	r1, [pc, #108]	; (11cc <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1c8>)
+
+        1160:	480a      	ldr	r0, [pc, #40]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1162:	f00d fc63 	bl	ea2c <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>>
+
+        1166:	4809      	ldr	r0, [pc, #36]	; (118c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x188>)
+
+        1168:	2108      	movs	r1, #8
+
+        116a:	f00d fa4d 	bl	e608 <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/a11bcf88ca51caebf1f9142176c8117e.html">lifecycle::LifecycleManager::transitionToLevel(unsigned char)</a>>
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E5startEv():
+
+        116e:	f01e fb2d 	bl	1f7cc <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/ef726e6b5f9357a8fa025578b908794c.html">getSystemTicks32Bit</a>>
+
+        1172:	6138      	str	r0, [r7, #16]
+
+        1174:	6178      	str	r0, [r7, #20]
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE3runEv():
+
+        1176:	f010 fed3 	bl	11f20 <<a href="../../../../../../libs/3rdparty/freeRtos/src/tasks.c/f63e0c737b2bc0ba20133fcf0cb62874.html">vTaskStartScheduler</a>>
+
+    app::run():
+
+        117a:	e7fe      	b.n	117a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x176>
+
+        117c:	1ffe64b4 	.word	0x1ffe64b4
+
+        1180:	1ffe715c 	.word	0x1ffe715c
+
+        1184:	00022674 	.word	0x00022674
+
+        1188:	1ffe5bf0 	.word	0x1ffe5bf0
+
+        118c:	1ffea524 	.word	0x1ffea524
+
+        1190:	0002267c 	.word	0x0002267c
+
+        1194:	1ffea3d4 	.word	0x1ffea3d4
+
+        1198:	00022684 	.word	0x00022684
+
+        119c:	1ffe476c 	.word	0x1ffe476c
+
+        11a0:	1ffe73d8 	.word	0x1ffe73d8
+
+        11a4:	0002268c 	.word	0x0002268c
+
+        11a8:	00022698 	.word	0x00022698
+
+        11ac:	1ffe7038 	.word	0x1ffe7038
+
+        11b0:	000226a0 	.word	0x000226a0
+
+        11b4:	1ffe6614 	.word	0x1ffe6614
+
+        11b8:	000226ac 	.word	0x000226ac
+
+        11bc:	1ffe7370 	.word	0x1ffe7370
+
+        11c0:	000226b4 	.word	0x000226b4
+
+        11c4:	000226b8 	.word	0x000226b8
+
+        11c8:	1ffe1a00 	.word	0x1ffe1a00
+
+        11cc:	000226c4 	.word	0x000226c4
+
+        11d0:	1ffed64c 	.word	0x1ffed64c
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/TaskContext.h/f0cd98856fac03938c2472e169ae4019.html">async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;::handleTimeout() (184)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 392</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 3,028</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    392
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,028
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/aead89a8c09454d3b52c82329b9d6539.html" class="icon-function">out_rev_</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    352
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,892
+                    
+                    
+                </td>
+                <td class="col_size">656</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/ac6598d6032c1151c802f0c9a9979746.html" class="icon-function">print_integer</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,236
+                    
+                    
+                </td>
+                <td class="col_size">1,572</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/6d7d630ec5529648e33ae989eebb2cb7.html" class="icon-function">_vsnprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    144
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    664
+                    
+                    
+                </td>
+                <td class="col_size">36</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/5312ec35df88995f2f21271b5c68c054.html" class="icon-function">vfctprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    628
+                    
+                    
+                </td>
+                <td class="col_size">40</td>
+                <td><a href="../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html" class="icon-function">debug_printf</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    588
+                    
+                    
+                </td>
+                <td class="col_size">12</td>
+                <td><a href="../../../../platforms/s32k148evb/main/src/osHooks.cpp/45bbe829857fb87663cdbf538f18cad7.html" class="icon-function">vApplicationStackOverflowHook</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    576
+                    
+                    
+                </td>
+                <td class="col_size">188</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/src/tasks.c/14db0b8137bb15b16e9724365ccf27b8.html" class="icon-function">vTaskSwitchContext</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    388
+                    
+                    
+                </td>
+                <td class="col_size">28</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/src/tasks.c/14db0b8137bb15b16e9724365ccf27b8.html" class="icon-function">vTaskSwitchContext</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    360
+                    
+                    
+                </td>
+                <td class="col_size">208</td>
+                <td><a href="../../../../../../platforms/s32k1xx/3rdparty/freertos_cm4_sysTick/src/port.c/52d65514473f95049d8347da5d7f743d.html" class="icon-function">xPortStartScheduler</a></td>
+            </tr>
+        
+            <tr>
+                <th>10</th>
+                <td class="col_size">
+                    
+                    72
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">152</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/src/tasks.c/f63e0c737b2bc0ba20133fcf0cb62874.html" class="icon-function">vTaskStartScheduler</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">24
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 24</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 544</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    24
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    544
+                    
+                    
+                </td>
+                <td class="col_size">464</td>
+                <td><a href="./f0c3e37b78904f0cb22bd585a8fa9842.html" class="icon-function">app::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">4</td>
+                <td><a href="../../main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html" class="icon-function">app_main()</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">76</td>
+                <td><a href="../../../../platforms/s32k148evb/main/src/main.cpp/fad58de7366495db4650cfefac2fcd61.html" class="icon-function">main</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

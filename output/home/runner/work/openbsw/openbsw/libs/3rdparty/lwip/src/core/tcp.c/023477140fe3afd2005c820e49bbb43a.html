@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../../lwip.html">lwip</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../core.html">core</a>
+            </li>
+
+        
+        <li class="active"><a href="../tcp.c.html">tcp.c</a>:1071
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">tcp_connect</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00007040</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>420</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../bsw/lwipSocket/src/lwipSocket/tcp/LwipSocket.cpp/cb24dee7ef7e1dd6c6a48415edf10d33.html">tcp::LwipSocket::connect(ip::IPAddress const&amp;, unsigned short, etl::delegate&lt;void (tcp::AbstractSocket::ErrorCode)&gt;) (660)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (7,
+                            <span title="sum of used bytes by all callees">
+                            Σ=1256
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../netif.c/2950c78a8019f97b49ccb771b9b25e77.html">netif_get_by_index (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../ipv4/ip4.c/a30d884704b67281b26f54b966ad46b4.html">ip4_route_src (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./f3a0e5119908cfe09c6c6054b3c85d6c.html">tcp_new_port (96)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../tcp_out.c/17fdd3d9f35bc5b270c1efaddda7087e.html">tcp_enqueue_flags (148)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../timeouts.c/4e2533dcb9c4baaa4bf5f653137665f9.html">tcp_timer_needed (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../tcp_out.c/65142df0c7be77da97e3dbbc90844f1a.html">tcp_output (832)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html">log_lwipInfo (52)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./c8c2e3a4e22714a4357334ba2ee1950f.html">tcp_recved (112)</a></pre>
+    
+
+    <pre>
+
+    tcp_connect():
+
+        7040:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+        7044:	2800      	cmp	r0, #0
+
+        7046:	f000 80ac 	beq.w	71a2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x162>
+
+        704a:	4688      	mov	r8, r1
+
+        704c:	2900      	cmp	r1, #0
+
+        704e:	f000 80ae 	beq.w	71ae <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x16e>
+
+        7052:	4699      	mov	r9, r3
+
+        7054:	7d03      	ldrb	r3, [r0, #20]
+
+        7056:	4605      	mov	r5, r0
+
+        7058:	2b00      	cmp	r3, #0
+
+        705a:	f040 8099 	bne.w	7190 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x150>
+
+        705e:	7a03      	ldrb	r3, [r0, #8]
+
+        7060:	4617      	mov	r7, r2
+
+        7062:	680a      	ldr	r2, [r1, #0]
+
+        7064:	6042      	str	r2, [r0, #4]
+
+        7066:	8307      	strh	r7, [r0, #24]
+
+        7068:	b373      	cbz	r3, 70c8 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x88>
+
+        706a:	4618      	mov	r0, r3
+
+        706c:	f7ff fdc2 	bl	6bf4 <<a href="../netif.c/2950c78a8019f97b49ccb771b9b25e77.html">netif_get_by_index</a>>
+
+        7070:	4682      	mov	sl, r0
+
+        7072:	f1ba 0f00 	cmp.w	sl, #0
+
+        7076:	f000 8091 	beq.w	719c <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x15c>
+
+        707a:	682b      	ldr	r3, [r5, #0]
+
+        707c:	b913      	cbnz	r3, 7084 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x44>
+
+        707e:	f8da 3004 	ldr.w	r3, [sl, #4]
+
+        7082:	602b      	str	r3, [r5, #0]
+
+        7084:	8aee      	ldrh	r6, [r5, #22]
+
+        7086:	b326      	cbz	r6, 70d2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x92>
+
+        7088:	7a6b      	ldrb	r3, [r5, #9]
+
+        708a:	075b      	lsls	r3, r3, #29
+
+        708c:	d526      	bpl.n	70dc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x9c>
+
+        708e:	4b4b      	ldr	r3, [pc, #300]	; (71bc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x17c>)
+
+        7090:	484b      	ldr	r0, [pc, #300]	; (71c0 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x180>)
+
+        7092:	2102      	movs	r1, #2
+
+        7094:	681c      	ldr	r4, [r3, #0]
+
+        7096:	b91c      	cbnz	r4, 70a0 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x60>
+
+        7098:	e05b      	b.n	7152 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x112>
+
+        709a:	68e4      	ldr	r4, [r4, #12]
+
+        709c:	2c00      	cmp	r4, #0
+
+        709e:	d058      	beq.n	7152 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x112>
+
+        70a0:	8ae3      	ldrh	r3, [r4, #22]
+
+        70a2:	42b3      	cmp	r3, r6
+
+        70a4:	d1f9      	bne.n	709a <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x5a>
+
+        70a6:	8b23      	ldrh	r3, [r4, #24]
+
+        70a8:	42bb      	cmp	r3, r7
+
+        70aa:	d1f6      	bne.n	709a <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x5a>
+
+        70ac:	6822      	ldr	r2, [r4, #0]
+
+        70ae:	682b      	ldr	r3, [r5, #0]
+
+        70b0:	429a      	cmp	r2, r3
+
+        70b2:	d1f2      	bne.n	709a <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x5a>
+
+        70b4:	6862      	ldr	r2, [r4, #4]
+
+        70b6:	f8d8 3000 	ldr.w	r3, [r8]
+
+        70ba:	429a      	cmp	r2, r3
+
+        70bc:	d1ed      	bne.n	709a <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x5a>
+
+        70be:	f06f 0407 	mvn.w	r4, #7
+
+        70c2:	4620      	mov	r0, r4
+
+        70c4:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+        70c8:	1d01      	adds	r1, r0, #4
+
+        70ca:	f006 f893 	bl	d1f4 <<a href="../ipv4/ip4.c/a30d884704b67281b26f54b966ad46b4.html">ip4_route_src</a>>
+
+        70ce:	4682      	mov	sl, r0
+
+        70d0:	e7cf      	b.n	7072 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x32>
+
+        70d2:	f7ff fe21 	bl	6d18 <<a href="./f3a0e5119908cfe09c6c6054b3c85d6c.html">tcp_new_port</a>>
+
+        70d6:	82e8      	strh	r0, [r5, #22]
+
+        70d8:	2800      	cmp	r0, #0
+
+        70da:	d056      	beq.n	718a <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x14a>
+
+    tcp_next_iss():
+
+        70dc:	4a39      	ldr	r2, [pc, #228]	; (71c4 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x184>)
+
+        70de:	4b3a      	ldr	r3, [pc, #232]	; (71c8 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x188>)
+
+        70e0:	6819      	ldr	r1, [r3, #0]
+
+        70e2:	6813      	ldr	r3, [r2, #0]
+
+        70e4:	440b      	add	r3, r1
+
+        70e6:	6013      	str	r3, [r2, #0]
+
+    tcp_connect():
+
+        70e8:	4a38      	ldr	r2, [pc, #224]	; (71cc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x18c>)
+
+        70ea:	62aa      	str	r2, [r5, #40]	; 0x28
+
+    tcp_eff_send_mss_netif():
+
+        70ec:	f8ba 203c 	ldrh.w	r2, [sl, #60]	; 0x3c
+
+    tcp_connect():
+
+        70f0:	652b      	str	r3, [r5, #80]	; 0x50
+
+        70f2:	3b01      	subs	r3, #1
+
+        70f4:	646b      	str	r3, [r5, #68]	; 0x44
+
+        70f6:	65ab      	str	r3, [r5, #88]	; 0x58
+
+        70f8:	65eb      	str	r3, [r5, #92]	; 0x5c
+
+        70fa:	f640 3168 	movw	r1, #2920	; 0xb68
+
+        70fe:	2300      	movs	r3, #0
+
+        7100:	626b      	str	r3, [r5, #36]	; 0x24
+
+        7102:	62eb      	str	r3, [r5, #44]	; 0x2c
+
+        7104:	f8a5 1060 	strh.w	r1, [r5, #96]	; 0x60
+
+    tcp_eff_send_mss_netif():
+
+        7108:	b342      	cbz	r2, 715c <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x11c>
+
+        710a:	2a28      	cmp	r2, #40	; 0x28
+
+        710c:	d907      	bls.n	711e <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0xde>
+
+        710e:	f1a2 0328 	sub.w	r3, r2, #40	; 0x28
+
+        7112:	b29b      	uxth	r3, r3
+
+        7114:	f5b3 7f06 	cmp.w	r3, #536	; 0x218
+
+        7118:	bf28      	it	cs
+
+        711a:	f44f 7306 	movcs.w	r3, #536	; 0x218
+
+    tcp_connect():
+
+        711e:	2201      	movs	r2, #1
+
+        7120:	866b      	strh	r3, [r5, #50]	; 0x32
+
+        7122:	f8a5 2048 	strh.w	r2, [r5, #72]	; 0x48
+
+        7126:	f8c5 9084 	str.w	r9, [r5, #132]	; 0x84
+
+        712a:	2102      	movs	r1, #2
+
+        712c:	4628      	mov	r0, r5
+
+        712e:	f002 fb49 	bl	97c4 <<a href="../tcp_out.c/17fdd3d9f35bc5b270c1efaddda7087e.html">tcp_enqueue_flags</a>>
+
+        7132:	4604      	mov	r4, r0
+
+        7134:	2800      	cmp	r0, #0
+
+        7136:	d1c4      	bne.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        7138:	2302      	movs	r3, #2
+
+        713a:	752b      	strb	r3, [r5, #20]
+
+        713c:	b19e      	cbz	r6, 7166 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x126>
+
+        713e:	4a24      	ldr	r2, [pc, #144]	; (71d0 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x190>)
+
+        7140:	6813      	ldr	r3, [r2, #0]
+
+        7142:	42ab      	cmp	r3, r5
+
+        7144:	d01e      	beq.n	7184 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x144>
+
+        7146:	b173      	cbz	r3, 7166 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x126>
+
+        7148:	68da      	ldr	r2, [r3, #12]
+
+        714a:	42aa      	cmp	r2, r5
+
+        714c:	d009      	beq.n	7162 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x122>
+
+        714e:	4613      	mov	r3, r2
+
+        7150:	e7f9      	b.n	7146 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x106>
+
+        7152:	2901      	cmp	r1, #1
+
+        7154:	4603      	mov	r3, r0
+
+        7156:	d0c1      	beq.n	70dc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x9c>
+
+        7158:	2101      	movs	r1, #1
+
+        715a:	e79b      	b.n	7094 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x54>
+
+    tcp_eff_send_mss_netif():
+
+        715c:	f44f 7306 	mov.w	r3, #536	; 0x218
+
+        7160:	e7dd      	b.n	711e <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0xde>
+
+    tcp_connect():
+
+        7162:	68ea      	ldr	r2, [r5, #12]
+
+        7164:	60da      	str	r2, [r3, #12]
+
+        7166:	4b15      	ldr	r3, [pc, #84]	; (71bc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x17c>)
+
+        7168:	681a      	ldr	r2, [r3, #0]
+
+        716a:	60ea      	str	r2, [r5, #12]
+
+        716c:	601d      	str	r5, [r3, #0]
+
+        716e:	f002 ff61 	bl	a034 <<a href="../timeouts.c/4e2533dcb9c4baaa4bf5f653137665f9.html">tcp_timer_needed</a>>
+
+        7172:	4b18      	ldr	r3, [pc, #96]	; (71d4 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x194>)
+
+        7174:	2201      	movs	r2, #1
+
+        7176:	4628      	mov	r0, r5
+
+        7178:	701a      	strb	r2, [r3, #0]
+
+        717a:	f002 fcbb 	bl	9af4 <<a href="../tcp_out.c/65142df0c7be77da97e3dbbc90844f1a.html">tcp_output</a>>
+
+        717e:	4620      	mov	r0, r4
+
+        7180:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+        7184:	68eb      	ldr	r3, [r5, #12]
+
+        7186:	6013      	str	r3, [r2, #0]
+
+        7188:	e7ed      	b.n	7166 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x126>
+
+        718a:	f06f 0401 	mvn.w	r4, #1
+
+        718e:	e798      	b.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        7190:	4811      	ldr	r0, [pc, #68]	; (71d8 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x198>)
+
+        7192:	f7fa fd67 	bl	1c64 <<a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html">log_lwipInfo</a>>
+
+        7196:	f06f 0409 	mvn.w	r4, #9
+
+        719a:	e792      	b.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        719c:	f06f 0403 	mvn.w	r4, #3
+
+        71a0:	e78f      	b.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        71a2:	480e      	ldr	r0, [pc, #56]	; (71dc <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x19c>)
+
+        71a4:	f7fa fd5e 	bl	1c64 <<a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html">log_lwipInfo</a>>
+
+        71a8:	f06f 040f 	mvn.w	r4, #15
+
+        71ac:	e789      	b.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        71ae:	480c      	ldr	r0, [pc, #48]	; (71e0 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x1a0>)
+
+        71b0:	f7fa fd58 	bl	1c64 <<a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html">log_lwipInfo</a>>
+
+        71b4:	f06f 040f 	mvn.w	r4, #15
+
+        71b8:	e783      	b.n	70c2 <<a href="./023477140fe3afd2005c820e49bbb43a.html">tcp_connect</a>+0x82>
+
+        71ba:	bf00      	nop
+
+        71bc:	1fff3a5c 	.word	0x1fff3a5c
+
+        71c0:	1fff3a74 	.word	0x1fff3a74
+
+        71c4:	1ffe0098 	.word	0x1ffe0098
+
+        71c8:	1fff3a6c 	.word	0x1fff3a6c
+
+        71cc:	0b680b68 	.word	0x0b680b68
+
+        71d0:	1fff3a64 	.word	0x1fff3a64
+
+        71d4:	1fff3a60 	.word	0x1fff3a60
+
+        71d8:	00023f38 	.word	0x00023f38
+
+        71dc:	00023f00 	.word	0x00023f00
+
+        71e0:	00023f1c 	.word	0x00023f1c
+
+    </pre>
+
+    
+    <pre><a href="./32c407751047d6ad1473e328d44e8c1a.html">tcp_segs_free (36)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 568</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 3,916</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    568
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,916
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../../../printf/src/printf/printf.c/aead89a8c09454d3b52c82329b9d6539.html" class="icon-function">out_rev_</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    528
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,780
+                    
+                    
+                </td>
+                <td class="col_size">656</td>
+                <td><a href="../../../../printf/src/printf/printf.c/ac6598d6032c1151c802f0c9a9979746.html" class="icon-function">print_integer</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    416
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,124
+                    
+                    
+                </td>
+                <td class="col_size">1,572</td>
+                <td><a href="../../../../printf/src/printf/printf.c/6d7d630ec5529648e33ae989eebb2cb7.html" class="icon-function">_vsnprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    320
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,552
+                    
+                    
+                </td>
+                <td class="col_size">32</td>
+                <td><a href="../../../../printf/src/printf/printf.c/529535ce0d5bfecabb7841bebeaf251c.html" class="icon-function">vsnprintf_</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    304
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,520
+                    
+                    
+                </td>
+                <td class="col_size">52</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html" class="icon-function">log_lwipInfo</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    288
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,468
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../memp.c/39d50c52143357af896630c36b8c515f.html" class="icon-function">memp_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,408
+                    
+                    
+                </td>
+                <td class="col_size">112</td>
+                <td><a href="../pbuf.c/9b6fd2596874539050b4147be9634d35.html" class="icon-function">pbuf_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    272
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,296
+                    
+                    
+                </td>
+                <td class="col_size">276</td>
+                <td><a href="../pbuf.c/00f9d6c635a80626d607c18477d3504a.html" class="icon-function">pbuf_alloc</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,020
+                    
+                    
+                </td>
+                <td class="col_size">96</td>
+                <td><a href="../tcp_out.c/4c45a821c89299dd22544f20511fc68d.html" class="icon-function">tcp_output_alloc_header_common</a></td>
+            </tr>
+        
+            <tr>
+                <th>10</th>
+                <td class="col_size">
+                    
+                    208
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    924
+                    
+                    
+                </td>
+                <td class="col_size">92</td>
+                <td><a href="../tcp_out.c/750286e53faf5e6c6518b73dc75330b6.html" class="icon-function">tcp_send_empty_ack</a></td>
+            </tr>
+        
+            <tr>
+                <th>11</th>
+                <td class="col_size">
+                    
+                    184
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">832</td>
+                <td><a href="../tcp_out.c/65142df0c7be77da97e3dbbc90844f1a.html" class="icon-function">tcp_output</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">120
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 120</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,080</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,080
+                    
+                    
+                </td>
+                <td class="col_size">420</td>
+                <td><a href="./023477140fe3afd2005c820e49bbb43a.html" class="icon-function">tcp_connect</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                88 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">660</td>
+                <td><a href="../../../../../bsw/lwipSocket/src/lwipSocket/tcp/LwipSocket.cpp/cb24dee7ef7e1dd6c6a48415edf10d33.html" class="icon-function">tcp::LwipSocket::connect(ip::IPAddress const&amp;, unsigned short, etl::delegate&lt;void (tcp::AbstractSocket::ErrorCode)&gt;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

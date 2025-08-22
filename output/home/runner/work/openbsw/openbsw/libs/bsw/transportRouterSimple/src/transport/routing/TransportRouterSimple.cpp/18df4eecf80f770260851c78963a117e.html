@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../transportRouterSimple.html">transportRouterSimple</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../routing.html">routing</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportRouterSimple.cpp.html">TransportRouterSimple.cpp</a>:109
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00015f7c</td>
+                <td>
+    
+    
+</td>
+                <td>8 (static)</td>
+                <td>152</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../../../../../../../unknown/unknown/5e69d6d922f3c79dbc7918b8da98f7c8.html">non-virtual thunk to transport::TransportRouterSimple::dump() (4)</a></pre>
+    
+
+    <pre>
+
+    transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       15f7c:	2902      	cmp	r1, #2
+
+       15f7e:	b510      	push	{r4, lr}
+
+       15f80:	4684      	mov	ip, r0
+
+       15f82:	4696      	mov	lr, r2
+
+       15f84:	d01a      	beq.n	15fbc <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x40>
+
+       15f86:	2901      	cmp	r1, #1
+
+       15f88:	d001      	beq.n	15f8e <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x12>
+
+       15f8a:	2001      	movs	r0, #1
+
+       15f8c:	bd10      	pop	{r4, pc}
+
+       15f8e:	f500 5240 	add.w	r2, r0, #12288	; 0x3000
+
+       15f92:	f892 0138 	ldrb.w	r0, [r2, #312]	; 0x138
+
+       15f96:	2801      	cmp	r0, #1
+
+       15f98:	d0f8      	beq.n	15f8c <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x10>
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       15f9a:	f8d2 4130 	ldr.w	r4, [r2, #304]	; 0x130
+
+    _ZN3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       15f9e:	f50c 5c44 	add.w	ip, ip, #12544	; 0x3100
+
+       15fa2:	f10c 0c2c 	add.w	ip, ip, #44	; 0x2c
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fa6:	4564      	cmp	r4, ip
+
+       15fa8:	d006      	beq.n	15fb8 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x3c>
+
+    _ZNK3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE8iteratorptEv():
+
+       15faa:	b374      	cbz	r4, 1600a <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x8e>
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fac:	7a22      	ldrb	r2, [r4, #8]
+
+       15fae:	4282      	cmp	r2, r0
+
+       15fb0:	d023      	beq.n	15ffa <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x7e>
+
+    _ZN3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       15fb2:	6864      	ldr	r4, [r4, #4]
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fb4:	4564      	cmp	r4, ip
+
+       15fb6:	d1f8      	bne.n	15faa <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x2e>
+
+    transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       15fb8:	2000      	movs	r0, #0
+
+       15fba:	bd10      	pop	{r4, pc}
+
+       15fbc:	f500 5240 	add.w	r2, r0, #12288	; 0x3000
+
+    _ZN3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       15fc0:	f500 5c44 	add.w	ip, r0, #12544	; 0x3100
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       15fc4:	f8d2 0130 	ldr.w	r0, [r2, #304]	; 0x130
+
+    transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       15fc8:	f882 1138 	strb.w	r1, [r2, #312]	; 0x138
+
+    _ZN3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       15fcc:	f10c 0c2c 	add.w	ip, ip, #44	; 0x2c
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fd0:	4560      	cmp	r0, ip
+
+       15fd2:	d0f1      	beq.n	15fb8 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x3c>
+
+    _ZNK3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE8iteratorptEv():
+
+       15fd4:	b1d8      	cbz	r0, 1600e <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x92>
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fd6:	7a04      	ldrb	r4, [r0, #8]
+
+       15fd8:	2c01      	cmp	r4, #1
+
+       15fda:	d003      	beq.n	15fe4 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x68>
+
+    _ZN3etl14intrusive_listIN9transport22AbstractTransportLayerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       15fdc:	6840      	ldr	r0, [r0, #4]
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15fde:	4560      	cmp	r0, ip
+
+       15fe0:	d1f8      	bne.n	15fd4 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x58>
+
+       15fe2:	e7e9      	b.n	15fb8 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x3c>
+
+       15fe4:	f850 1c04 	ldr.w	r1, [r0, #-4]
+
+       15fe8:	461a      	mov	r2, r3
+
+       15fea:	3804      	subs	r0, #4
+
+       15fec:	688b      	ldr	r3, [r1, #8]
+
+       15fee:	4671      	mov	r1, lr
+
+       15ff0:	4798      	blx	r3
+
+    transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       15ff2:	3800      	subs	r0, #0
+
+       15ff4:	bf18      	it	ne
+
+       15ff6:	2001      	movne	r0, #1
+
+       15ff8:	bd10      	pop	{r4, pc}
+
+    _ZN9transport21TransportRouterSimple30forwardMessageToTransportLayerERNS_16TransportMessageEhPNS_34ITransportMessageProcessedListenerERNS_22AbstractTransportLayer9ErrorCodeE():
+
+       15ffa:	f854 1c04 	ldr.w	r1, [r4, #-4]
+
+       15ffe:	461a      	mov	r2, r3
+
+       16000:	1f20      	subs	r0, r4, #4
+
+       16002:	688b      	ldr	r3, [r1, #8]
+
+       16004:	4671      	mov	r1, lr
+
+       16006:	4798      	blx	r3
+
+       16008:	e7f3      	b.n	15ff2 <<a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x76>
+
+    _ZNK9transport22AbstractTransportLayer8getBusIdEv():
+
+       1600a:	7b23      	ldrb	r3, [r4, #12]
+
+       1600c:	deff      	udf	#255	; 0xff
+
+       1600e:	7b03      	ldrb	r3, [r0, #12]
+
+       16010:	deff      	udf	#255	; 0xff
+
+    transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       16012:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;, transport::TransportMessage*&amp;) (240)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

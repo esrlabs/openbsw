@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../application.html">application</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../app.html">app</a>
+            </li>
+
+        
+        <li class="active"><a href="../app.cpp.html">app.cpp</a>:283
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000013a0</td>
+                <td>
+    
+    
+</td>
+                <td>8 (static)</td>
+                <td>1,024</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (3,
+                            <span title="sum of used bytes by all callees">
+                            Σ=164
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset (16)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/723e95e23ad9241e1f9177bebc69b188.html">lifecycle::LifecycleManager::LifecycleManager(unsigned char, etl::delegate&lt;unsigned long ()&gt;, etl::span&lt;lifecycle::LifecycleManager::ComponentInfo, 4294967295u&gt; const&amp;, etl::ivector&lt;lifecycle::LifecycleManager::ComponentTransitionExecutor&gt;&amp;, etl::span&lt;unsigned char, 4294967295u&gt; const&amp;) (104)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/c90a3e46f5194e34705aae8091e4dc9b.html">lifecycle::LifecycleManager::addLifecycleListener(lifecycle::ILifecycleListener&amp;) (44)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../libs/3rdparty/etl/include/etl/private/delegate_cpp11.h/00a4f260f8b8bfc7a7feac2e597812a9.html">void etl::delegate&lt;void (async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;&amp;)&gt;::function_stub&lt;&amp;async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;::defaultTaskFunction&gt;(void*, async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;&amp;) (12)</a></pre>
+    
+
+    <pre>
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        13a0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_EC4ERNS_19StatisticsContainerIS1_NS2_12ContextEntryEEES6_():
+
+        13a4:	4db8      	ldr	r5, [pc, #736]	; (1688 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2e8>)
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEEC4ERKN3etl4spanIS4_Lj4294967295EEENS6_8delegateIFPKcjEEE():
+
+        13a6:	4cb9      	ldr	r4, [pc, #740]	; (168c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2ec>)
+
+        13a8:	626c      	str	r4, [r5, #36]	; 0x24
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_EC4ERNS_19StatisticsContainerIS1_NS2_12ContextEntryEEES6_():
+
+        13aa:	2100      	movs	r1, #0
+
+        13ac:	f505 73c8 	add.w	r3, r5, #400	; 0x190
+
+    _ZN3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EEC4ERKS6_():
+
+        13b0:	f105 0028 	add.w	r0, r5, #40	; 0x28
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_EC4ERNS_19StatisticsContainerIS1_NS2_12ContextEntryEEES6_():
+
+        13b4:	f105 0218 	add.w	r2, r5, #24
+
+        13b8:	60aa      	str	r2, [r5, #8]
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        13ba:	b08b      	sub	sp, #44	; 0x2c
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_EC4ERNS_19StatisticsContainerIS1_NS2_12ContextEntryEEES6_():
+
+        13bc:	6029      	str	r1, [r5, #0]
+
+        13be:	6069      	str	r1, [r5, #4]
+
+        13c0:	60eb      	str	r3, [r5, #12]
+
+        13c2:	6129      	str	r1, [r5, #16]
+
+        13c4:	6169      	str	r1, [r5, #20]
+
+    _ZN3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EEC4ERKS6_():
+
+        13c6:	61a8      	str	r0, [r5, #24]
+
+        13c8:	61eb      	str	r3, [r5, #28]
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj10ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        13ca:	f44f 72b4 	mov.w	r2, #360	; 0x168
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEEC4ERKN3etl4spanIS4_Lj4294967295EEENS6_8delegateIFPKcjEEE():
+
+        13ce:	6229      	str	r1, [r5, #32]
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj10ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        13d0:	f7ff f8d1 	bl	576 <<a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset</a>>
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj10EEC4Ev():
+
+        13d4:	f505 78b4 	add.w	r8, r5, #360	; 0x168
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj10ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        13d8:	462c      	mov	r4, r5
+
+    _ZN7runtime17RuntimeStackEntryINS_14RuntimeMonitorINS_17RuntimeStatisticsES2_E12ContextEntryELb1EEC4Ev():
+
+        13da:	2601      	movs	r6, #1
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj10EEC4Ev():
+
+        13dc:	f104 0028 	add.w	r0, r4, #40	; 0x28
+
+        13e0:	2224      	movs	r2, #36	; 0x24
+
+        13e2:	3424      	adds	r4, #36	; 0x24
+
+        13e4:	2100      	movs	r1, #0
+
+        13e6:	f7ff f8c6 	bl	576 <<a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset</a>>
+
+        13ea:	4544      	cmp	r4, r8
+
+    _ZN7runtime17RuntimeStackEntryINS_14RuntimeMonitorINS_17RuntimeStatisticsES2_E12ContextEntryELb1EEC4Ev():
+
+        13ec:	6066      	str	r6, [r4, #4]
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj10EEC4Ev():
+
+        13ee:	d1f5      	bne.n	13dc <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3c>
+
+    _ZN3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EEC4ERKS6_():
+
+        13f0:	4ca7      	ldr	r4, [pc, #668]	; (1690 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2f0>)
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEEC4ERKN3etl4spanIS4_Lj4294967295EEENS6_8delegateIFPKcjEEE():
+
+        13f2:	49a8      	ldr	r1, [pc, #672]	; (1694 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2f4>)
+
+    _ZN3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EEC4ERKS6_():
+
+        13f4:	f844 4c10 	str.w	r4, [r4, #-16]
+
+        13f8:	f5a4 73d0 	sub.w	r3, r4, #416	; 0x1a0
+
+        13fc:	f104 026c 	add.w	r2, r4, #108	; 0x6c
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj3ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        1400:	4620      	mov	r0, r4
+
+    _ZN3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EEC4ERKS6_():
+
+        1402:	f842 2c78 	str.w	r2, [r2, #-120]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEEC4ERKN3etl4spanIS4_Lj4294967295EEENS6_8delegateIFPKcjEEE():
+
+        1406:	f8c3 119c 	str.w	r1, [r3, #412]	; 0x19c
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj3ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        140a:	226c      	movs	r2, #108	; 0x6c
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEEC4ERKN3etl4spanIS4_Lj4294967295EEENS6_8delegateIFPKcjEEE():
+
+        140c:	f8c3 3198 	str.w	r3, [r3, #408]	; 0x198
+
+    _ZN7runtime7declare19StatisticsContainerINS_17RuntimeStatisticsELj3ENS_14RuntimeMonitorIS2_S2_E12ContextEntryEEC4EN3etl8delegateIFPKcjEEE():
+
+        1410:	2100      	movs	r1, #0
+
+        1412:	f7ff f8b0 	bl	576 <<a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset</a>>
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj3EEC4Ev():
+
+        1416:	f5a4 749a 	sub.w	r4, r4, #308	; 0x134
+
+    _ZN7runtime17RuntimeStackEntryINS_14RuntimeMonitorINS_17RuntimeStatisticsES2_E12ContextEntryELb1EEC4Ev():
+
+        141a:	f04f 0a01 	mov.w	sl, #1
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj3EEC4Ev():
+
+        141e:	f505 70d0 	add.w	r0, r5, #416	; 0x1a0
+
+        1422:	2224      	movs	r2, #36	; 0x24
+
+        1424:	3524      	adds	r5, #36	; 0x24
+
+        1426:	2100      	movs	r1, #0
+
+        1428:	f7ff f8a5 	bl	576 <<a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset</a>>
+
+        142c:	42a5      	cmp	r5, r4
+
+    _ZN7runtime17RuntimeStackEntryINS_14RuntimeMonitorINS_17RuntimeStatisticsES2_E12ContextEntryELb1EEC4Ev():
+
+        142e:	f8c5 a17c 	str.w	sl, [r5, #380]	; 0x17c
+
+    _ZN3etl5arrayIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj3EEC4Ev():
+
+        1432:	d1f4      	bne.n	141e <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x7e>
+
+    _ZN3etl4spanIKPKcLj4294967295EEC4IS3_Lj3EEERKNS0_IT_XT0_EEE():
+
+        1434:	4a94      	ldr	r2, [pc, #592]	; (1688 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2e8>)
+
+        1436:	4b98      	ldr	r3, [pc, #608]	; (1698 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2f8>)
+
+    _ZN3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEC4IRNS_5arrayIS3_Lj16EEEvEEOT_():
+
+        1438:	4d98      	ldr	r5, [pc, #608]	; (169c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2fc>)
+
+    _ZN3etl4spanIKPKcLj4294967295EEC4IS3_Lj3EEERKNS0_IT_XT0_EEE():
+
+        143a:	f8c2 320c 	str.w	r3, [r2, #524]	; 0x20c
+
+        143e:	330c      	adds	r3, #12
+
+        1440:	f8c2 3210 	str.w	r3, [r2, #528]	; 0x210
+
+        1444:	4b96      	ldr	r3, [pc, #600]	; (16a0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x300>)
+
+        1446:	9305      	str	r3, [sp, #20]
+
+    _ZN3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEC4IRNS_5arrayIS3_Lj16EEEvEEOT_():
+
+        1448:	f505 73e2 	add.w	r3, r5, #452	; 0x1c4
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        144c:	9301      	str	r3, [sp, #4]
+
+    _ZN3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEC4IRNS_5arrayIS3_Lj16EEEvEEOT_():
+
+        144e:	9309      	str	r3, [sp, #36]	; 0x24
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        1450:	ab06      	add	r3, sp, #24
+
+        1452:	2400      	movs	r4, #0
+
+        1454:	9302      	str	r3, [sp, #8]
+
+        1456:	ab08      	add	r3, sp, #32
+
+        1458:	9300      	str	r3, [sp, #0]
+
+    _ZN3etl4spanIhLj4294967295EEC4IRNS_5arrayIhLj9EEEvEEOT_():
+
+        145a:	f205 20d9 	addw	r0, r5, #729	; 0x2d9
+
+        145e:	9404      	str	r4, [sp, #16]
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        1460:	ab04      	add	r3, sp, #16
+
+    _ZN3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEC4IRNS_5arrayIS3_Lj16EEEvEEOT_():
+
+        1462:	f105 0844 	add.w	r8, r5, #68	; 0x44
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        1466:	cb0c      	ldmia	r3, {r2, r3}
+
+    _ZN3etl4spanIhLj4294967295EEC4IRNS_5arrayIhLj9EEEvEEOT_():
+
+        1468:	f505 7634 	add.w	r6, r5, #720	; 0x2d0
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        146c:	2107      	movs	r1, #7
+
+    _ZN3etl4spanIhLj4294967295EEC4IRNS_5arrayIhLj9EEEvEEOT_():
+
+        146e:	9007      	str	r0, [sp, #28]
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        1470:	4628      	mov	r0, r5
+
+    _ZN3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEC4IRNS_5arrayIS3_Lj16EEEvEEOT_():
+
+        1472:	f8cd 8020 	str.w	r8, [sp, #32]
+
+    _ZN3etl4spanIhLj4294967295EEC4IRNS_5arrayIhLj9EEEvEEOT_():
+
+        1476:	9606      	str	r6, [sp, #24]
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        1478:	f00d faa4 	bl	e9c4 <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/723e95e23ad9241e1f9177bebc69b188.html">lifecycle::LifecycleManager::LifecycleManager(unsigned char, etl::delegate<unsigned long ()>, etl::span<lifecycle::LifecycleManager::ComponentInfo, 4294967295u> const&, etl::ivector<lifecycle::LifecycleManager::ComponentTransitionExecutor>&, etl::span<unsigned char, 4294967295u> const&)</a>>
+
+        147c:	4b89      	ldr	r3, [pc, #548]	; (16a4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x304>)
+
+        147e:	602b      	str	r3, [r5, #0]
+
+        1480:	f103 0228 	add.w	r2, r3, #40	; 0x28
+
+        1484:	333c      	adds	r3, #60	; 0x3c
+
+        1486:	606a      	str	r2, [r5, #4]
+
+        1488:	60ab      	str	r3, [r5, #8]
+
+        148a:	f44f 72c0 	mov.w	r2, #384	; 0x180
+
+        148e:	4640      	mov	r0, r8
+
+        1490:	4621      	mov	r1, r4
+
+        1492:	f7ff f870 	bl	576 <<a href="../../../../../../../../../../../unknown/unknown/716af30655f8f3d9b32750dca746ddfb.html">memset</a>>
+
+    _ZN3etl13typed_storageIN7systems13RuntimeSystemEEC4Ev():
+
+        1496:	4b84      	ldr	r3, [pc, #528]	; (16a8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x308>)
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+        1498:	4984      	ldr	r1, [pc, #528]	; (16ac <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x30c>)
+
+    _ZN3etl13typed_storageIN7systems13RuntimeSystemEEC4Ev():
+
+        149a:	f883 415c 	strb.w	r4, [r3, #348]	; 0x15c
+
+    _ZN3etl13typed_storageIN7systems14SysAdminSystemEEC4Ev():
+
+        149e:	4b84      	ldr	r3, [pc, #528]	; (16b0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x310>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        14a0:	f8df 8270 	ldr.w	r8, [pc, #624]	; 1714 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x374>
+
+    _ZN3etl13typed_storageIN7systems14SysAdminSystemEEC4Ev():
+
+        14a4:	f883 4060 	strb.w	r4, [r3, #96]	; 0x60
+
+    _ZN3etl13typed_storageIN7systems10DemoSystemEEC4Ev():
+
+        14a8:	4b82      	ldr	r3, [pc, #520]	; (16b4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x314>)
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        14aa:	f8c5 42d0 	str.w	r4, [r5, #720]	; 0x2d0
+
+    _ZN3etl13typed_storageIN7systems10DemoSystemEEC4Ev():
+
+        14ae:	f883 4508 	strb.w	r4, [r3, #1288]	; 0x508
+
+    _ZN3etl13typed_storageIN7systems12SafetySystemEEC4Ev():
+
+        14b2:	4b81      	ldr	r3, [pc, #516]	; (16b8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x318>)
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        14b4:	f8c5 42d4 	str.w	r4, [r5, #724]	; 0x2d4
+
+    _ZN3etl13typed_storageIN7systems12SafetySystemEEC4Ev():
+
+        14b8:	f883 4060 	strb.w	r4, [r3, #96]	; 0x60
+
+    _ZN3etl13typed_storageIN7systems14EthernetSystemEEC4Ev():
+
+        14bc:	4b7f      	ldr	r3, [pc, #508]	; (16bc <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x31c>)
+
+    _ZN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEC4EhN3etl8delegateIFmvEEE():
+
+        14be:	f885 42d8 	strb.w	r4, [r5, #728]	; 0x2d8
+
+    _ZN3etl13typed_storageIN7systems14EthernetSystemEEC4Ev():
+
+        14c2:	f883 4120 	strb.w	r4, [r3, #288]	; 0x120
+
+    _ZN3etl13typed_storageIN9transport15TransportSystemEEC4Ev():
+
+        14c6:	4b7e      	ldr	r3, [pc, #504]	; (16c0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x320>)
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+        14c8:	604c      	str	r4, [r1, #4]
+
+    _ZN3etl13typed_storageIN9transport15TransportSystemEEC4Ev():
+
+        14ca:	f883 414c 	strb.w	r4, [r3, #332]	; 0x14c
+
+    _ZN3etl13typed_storageIN3uds9UdsSystemEEC4Ev():
+
+        14ce:	4b7d      	ldr	r3, [pc, #500]	; (16c4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x324>)
+
+    _ZN3app16LifecycleMonitorC4ERN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEE():
+
+        14d0:	720c      	strb	r4, [r1, #8]
+
+    _ZN3etl13typed_storageIN3uds9UdsSystemEEC4Ev():
+
+        14d2:	f883 4b34 	strb.w	r4, [r3, #2868]	; 0xb34
+
+    _ZN3etl13typed_storageIN5docan11DoCanSystemEEC4Ev():
+
+        14d6:	4b7c      	ldr	r3, [pc, #496]	; (16c8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x328>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        14d8:	4e7c      	ldr	r6, [pc, #496]	; (16cc <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x32c>)
+
+    _ZN3etl13typed_storageIN5docan11DoCanSystemEEC4Ev():
+
+        14da:	f883 4c20 	strb.w	r4, [r3, #3104]	; 0xc20
+
+    _ZN3etl13typed_storageIN7systems13StorageSystemEEC4Ev():
+
+        14de:	4b7c      	ldr	r3, [pc, #496]	; (16d0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x330>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        14e0:	f8df b234 	ldr.w	fp, [pc, #564]	; 1718 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x378>
+
+    _ZN3etl13typed_storageIN7systems13StorageSystemEEC4Ev():
+
+        14e4:	f883 41c0 	strb.w	r4, [r3, #448]	; 0x1c0
+
+    _ZN3etl7ivectorIN9lifecycle16LifecycleManager27ComponentTransitionExecutorEEC4EPS3_j():
+
+        14e8:	f505 73e8 	add.w	r3, r5, #464	; 0x1d0
+
+        14ec:	f8c5 31c8 	str.w	r3, [r5, #456]	; 0x1c8
+
+        14f0:	f8c5 31cc 	str.w	r3, [r5, #460]	; 0x1cc
+
+    _ZN3app16LifecycleMonitorC4ERN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEE():
+
+        14f4:	4b77      	ldr	r3, [pc, #476]	; (16d4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x334>)
+
+        14f6:	600b      	str	r3, [r1, #0]
+
+    _ZN3etl11vector_baseC4Ej():
+
+        14f8:	2310      	movs	r3, #16
+
+        14fa:	f8c5 31c4 	str.w	r3, [r5, #452]	; 0x1c4
+
+    _ZN3app16LifecycleMonitorC4ERN9lifecycle7declare16LifecycleManagerILj16ELj8ELj16EEE():
+
+        14fe:	4628      	mov	r0, r5
+
+        1500:	f00d f8c2 	bl	e688 <<a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/c90a3e46f5194e34705aae8091e4dc9b.html">lifecycle::LifecycleManager::addLifecycleListener(lifecycle::ILifecycleListener&)</a>>
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1504:	f8df e214 	ldr.w	lr, [pc, #532]	; 171c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x37c>
+
+        1508:	f8df c214 	ldr.w	ip, [pc, #532]	; 1720 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x380>
+
+        150c:	f8db 7000 	ldr.w	r7, [fp]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1510:	f8c8 8004 	str.w	r8, [r8, #4]
+
+        1514:	f508 6900 	add.w	r9, r8, #2048	; 0x800
+
+        1518:	f8c8 9008 	str.w	r9, [r8, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        151c:	f8c8 9014 	str.w	r9, [r8, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1520:	f50e 6980 	add.w	r9, lr, #1024	; 0x400
+
+        1524:	f8ce 9008 	str.w	r9, [lr, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1528:	f8ce 9014 	str.w	r9, [lr, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        152c:	f50c 6900 	add.w	r9, ip, #2048	; 0x800
+
+        1530:	f8cc 9008 	str.w	r9, [ip, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1534:	f8cc 9014 	str.w	r9, [ip, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1538:	f506 6900 	add.w	r9, r6, #2048	; 0x800
+
+        153c:	f8c6 9008 	str.w	r9, [r6, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1540:	f8c6 9014 	str.w	r9, [r6, #20]
+
+        1544:	f8df 91dc 	ldr.w	r9, [pc, #476]	; 1724 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x384>
+
+        1548:	f8c8 9010 	str.w	r9, [r8, #16]
+
+        154c:	f8df 91d8 	ldr.w	r9, [pc, #472]	; 1728 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x388>
+
+        1550:	f8c8 9018 	str.w	r9, [r8, #24]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1554:	e9ce 8e00 	strd	r8, lr, [lr]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1558:	f8c8 400c 	str.w	r4, [r8, #12]
+
+        155c:	f888 401c 	strb.w	r4, [r8, #28]
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1560:	f8c8 7000 	str.w	r7, [r8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1564:	f8df 81c4 	ldr.w	r8, [pc, #452]	; 172c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x38c>
+
+        1568:	f8ce 8018 	str.w	r8, [lr, #24]
+
+        156c:	f8df 81c0 	ldr.w	r8, [pc, #448]	; 1730 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x390>
+
+        1570:	f8cc 8018 	str.w	r8, [ip, #24]
+
+        1574:	f8df 81bc 	ldr.w	r8, [pc, #444]	; 1734 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x394>
+
+        1578:	f8c6 8018 	str.w	r8, [r6, #24]
+
+        157c:	f04f 0809 	mov.w	r8, #9
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1580:	4d55      	ldr	r5, [pc, #340]	; (16d8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x338>)
+
+        1582:	f8cc e000 	str.w	lr, [ip]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1586:	f8ce 400c 	str.w	r4, [lr, #12]
+
+        158a:	f8ce 4010 	str.w	r4, [lr, #16]
+
+        158e:	f88e 801c 	strb.w	r8, [lr, #28]
+
+        1592:	f04f 0e03 	mov.w	lr, #3
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1596:	f8c6 c000 	str.w	ip, [r6]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        159a:	f8cc c004 	str.w	ip, [ip, #4]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        159e:	f8cc 400c 	str.w	r4, [ip, #12]
+
+        15a2:	f8cc 4010 	str.w	r4, [ip, #16]
+
+        15a6:	f88c e01c 	strb.w	lr, [ip, #28]
+
+        15aa:	f04f 0c07 	mov.w	ip, #7
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        15ae:	494b      	ldr	r1, [pc, #300]	; (16dc <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x33c>)
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15b0:	6076      	str	r6, [r6, #4]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15b2:	60f4      	str	r4, [r6, #12]
+
+        15b4:	6134      	str	r4, [r6, #16]
+
+        15b6:	f886 c01c 	strb.w	ip, [r6, #28]
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        15ba:	602e      	str	r6, [r5, #0]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15bc:	4e48      	ldr	r6, [pc, #288]	; (16e0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x340>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        15be:	4a49      	ldr	r2, [pc, #292]	; (16e4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x344>)
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15c0:	61ae      	str	r6, [r5, #24]
+
+        15c2:	4e49      	ldr	r6, [pc, #292]	; (16e8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x348>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        15c4:	4849      	ldr	r0, [pc, #292]	; (16ec <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x34c>)
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15c6:	618e      	str	r6, [r1, #24]
+
+        15c8:	4e49      	ldr	r6, [pc, #292]	; (16f0 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x350>)
+
+        15ca:	6196      	str	r6, [r2, #24]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15cc:	f505 6600 	add.w	r6, r5, #2048	; 0x800
+
+        15d0:	60ae      	str	r6, [r5, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15d2:	616e      	str	r6, [r5, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15d4:	f500 6600 	add.w	r6, r0, #2048	; 0x800
+
+        15d8:	6086      	str	r6, [r0, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15da:	6146      	str	r6, [r0, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15dc:	f501 6600 	add.w	r6, r1, #2048	; 0x800
+
+        15e0:	608e      	str	r6, [r1, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15e2:	614e      	str	r6, [r1, #20]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15e4:	f502 6600 	add.w	r6, r2, #2048	; 0x800
+
+        15e8:	6096      	str	r6, [r2, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15ea:	6156      	str	r6, [r2, #20]
+
+        15ec:	2606      	movs	r6, #6
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        15ee:	6005      	str	r5, [r0, #0]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        15f0:	606d      	str	r5, [r5, #4]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        15f2:	60ec      	str	r4, [r5, #12]
+
+        15f4:	612c      	str	r4, [r5, #16]
+
+        15f6:	772e      	strb	r6, [r5, #28]
+
+        15f8:	f8df 913c 	ldr.w	r9, [pc, #316]	; 1738 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x398>
+
+        15fc:	f8c0 9018 	str.w	r9, [r0, #24]
+
+        1600:	2505      	movs	r5, #5
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1602:	e9c1 0100 	strd	r0, r1, [r1]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1606:	7705      	strb	r5, [r0, #28]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1608:	6040      	str	r0, [r0, #4]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        160a:	60c4      	str	r4, [r0, #12]
+
+        160c:	6104      	str	r4, [r0, #16]
+
+        160e:	2002      	movs	r0, #2
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1610:	4b38      	ldr	r3, [pc, #224]	; (16f4 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x354>)
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1612:	7708      	strb	r0, [r1, #28]
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        1614:	4838      	ldr	r0, [pc, #224]	; (16f8 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x358>)
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1616:	60cc      	str	r4, [r1, #12]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1618:	e9c2 1200 	strd	r1, r2, [r2]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        161c:	610c      	str	r4, [r1, #16]
+
+        161e:	2104      	movs	r1, #4
+
+        1620:	7711      	strb	r1, [r2, #28]
+
+        1622:	60d4      	str	r4, [r2, #12]
+
+        1624:	6114      	str	r4, [r2, #16]
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        1626:	601a      	str	r2, [r3, #0]
+
+    __static_initialization_and_destruction_0():
+
+        1628:	6801      	ldr	r1, [r0, #0]
+
+    _ZN3etl14singleton_baseIN7runtime7declare14RuntimeMonitorINS1_17RuntimeStatisticsES4_Lj10ELj3EEEEC4ERS5_():
+
+        162a:	4d17      	ldr	r5, [pc, #92]	; (1688 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2e8>)
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        162c:	4a33      	ldr	r2, [pc, #204]	; (16fc <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x35c>)
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        162e:	f883 a01c 	strb.w	sl, [r3, #28]
+
+    __static_initialization_and_destruction_0():
+
+        1632:	3101      	adds	r1, #1
+
+        1634:	6001      	str	r1, [r0, #0]
+
+    _ZN3etl14singleton_baseIN7runtime7declare14RuntimeMonitorINS1_17RuntimeStatisticsES4_Lj10ELj3EEEEC4ERS5_():
+
+        1636:	4832      	ldr	r0, [pc, #200]	; (1700 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x360>)
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1638:	605b      	str	r3, [r3, #4]
+
+    _ZN3etl14singleton_baseIN7runtime7declare14RuntimeMonitorINS1_17RuntimeStatisticsES4_Lj10ELj3EEEEC4ERS5_():
+
+        163a:	6005      	str	r5, [r0, #0]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        163c:	f503 6000 	add.w	r0, r3, #2048	; 0x800
+
+        1640:	6098      	str	r0, [r3, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1642:	6158      	str	r0, [r3, #20]
+
+        1644:	482f      	ldr	r0, [pc, #188]	; (1704 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x364>)
+
+        1646:	6198      	str	r0, [r3, #24]
+
+        1648:	60dc      	str	r4, [r3, #12]
+
+        164a:	611c      	str	r4, [r3, #16]
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        164c:	6013      	str	r3, [r2, #0]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        164e:	f502 6300 	add.w	r3, r2, #2048	; 0x800
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1652:	482d      	ldr	r0, [pc, #180]	; (1708 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x368>)
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1654:	6093      	str	r3, [r2, #8]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1656:	6153      	str	r3, [r2, #20]
+
+    __static_initialization_and_destruction_0():
+
+        1658:	2901      	cmp	r1, #1
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        165a:	f04f 0308 	mov.w	r3, #8
+
+    _ZN5async14StaticRunnableINS_8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEEEC4Ev():
+
+        165e:	f8cb 2000 	str.w	r2, [fp]
+
+    _ZN3etl4spanImLj4294967295EEC4ERKS1_():
+
+        1662:	6052      	str	r2, [r2, #4]
+
+    _ZN5async8internal15TaskInitializerINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4EhPKcR11xSTATIC_TCBRKN3etl4spanImLj4294967295EEENSA_8delegateIFvRNS_11TaskContextIS4_EEEEERKNS0_16TaskConfigHolderILj10EvE14TaskConfigTypeE():
+
+        1664:	60d4      	str	r4, [r2, #12]
+
+        1666:	6114      	str	r4, [r2, #16]
+
+        1668:	6190      	str	r0, [r2, #24]
+
+        166a:	7713      	strb	r3, [r2, #28]
+
+    __static_initialization_and_destruction_0():
+
+        166c:	d066      	beq.n	173c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x39c>
+
+        166e:	4a27      	ldr	r2, [pc, #156]	; (170c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x36c>)
+
+        1670:	6813      	ldr	r3, [r2, #0]
+
+        1672:	3301      	adds	r3, #1
+
+        1674:	2b01      	cmp	r3, #1
+
+        1676:	6013      	str	r3, [r2, #0]
+
+        1678:	d102      	bne.n	1680 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2e0>
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+        167a:	4b25      	ldr	r3, [pc, #148]	; (1710 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x370>)
+
+        167c:	2200      	movs	r2, #0
+
+        167e:	601a      	str	r2, [r3, #0]
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        1680:	b00b      	add	sp, #44	; 0x2c
+
+        1682:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+        1686:	bf00      	nop
+
+        1688:	1ffe715c 	.word	0x1ffe715c
+
+        168c:	00000c81 	.word	0x00000c81
+
+        1690:	1ffe72fc 	.word	0x1ffe72fc
+
+        1694:	00000ca1 	.word	0x00000ca1
+
+        1698:	00022754 	.word	0x00022754
+
+        169c:	1ffea524 	.word	0x1ffea524
+
+        16a0:	00000cf9 	.word	0x00000cf9
+
+        16a4:	000226f8 	.word	0x000226f8
+
+        16a8:	1ffe64b4 	.word	0x1ffe64b4
+
+        16ac:	1ffea800 	.word	0x1ffea800
+
+        16b0:	1ffe7370 	.word	0x1ffe7370
+
+        16b4:	1ffe1a00 	.word	0x1ffe1a00
+
+        16b8:	1ffe5bf0 	.word	0x1ffe5bf0
+
+        16bc:	1ffe7038 	.word	0x1ffe7038
+
+        16c0:	1ffea3d4 	.word	0x1ffea3d4
+
+        16c4:	1ffed64c 	.word	0x1ffed64c
+
+        16c8:	1ffe476c 	.word	0x1ffe476c
+
+        16cc:	1ffe5c54 	.word	0x1ffe5c54
+
+        16d0:	1ffe6614 	.word	0x1ffe6614
+
+        16d4:	00022740 	.word	0x00022740
+
+        16d8:	1ffeb06c 	.word	0x1ffeb06c
+
+        16dc:	1ffea80c 	.word	0x1ffea80c
+
+        16e0:	000226dc 	.word	0x000226dc
+
+        16e4:	1ffec12c 	.word	0x1ffec12c
+
+        16e8:	000226e0 	.word	0x000226e0
+
+        16ec:	1ffe5390 	.word	0x1ffe5390
+
+        16f0:	000226c4 	.word	0x000226c4
+
+        16f4:	1ffe67d8 	.word	0x1ffe67d8
+
+        16f8:	1ffe07dc 	.word	0x1ffe07dc
+
+        16fc:	1ffe1f0c 	.word	0x1ffe1f0c
+
+        1700:	1ffe07a0 	.word	0x1ffe07a0
+
+        1704:	000226e4 	.word	0x000226e4
+
+        1708:	00022684 	.word	0x00022684
+
+        170c:	1ffe07d8 	.word	0x1ffe07d8
+
+        1710:	1ffe07e0 	.word	0x1ffe07e0
+
+        1714:	1ffec98c 	.word	0x1ffec98c
+
+        1718:	1ffe079c 	.word	0x1ffe079c
+
+        171c:	1ffed1ec 	.word	0x1ffed1ec
+
+        1720:	1ffeb8cc 	.word	0x1ffeb8cc
+
+        1724:	000012e5 	.word	0x000012e5
+
+        1728:	000226cc 	.word	0x000226cc
+
+        172c:	000226d4 	.word	0x000226d4
+
+        1730:	000226b4 	.word	0x000226b4
+
+        1734:	000226b8 	.word	0x000226b8
+
+        1738:	000226a0 	.word	0x000226a0
+
+        173c:	4b14      	ldr	r3, [pc, #80]	; (1790 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3f0>)
+
+        173e:	f8df c05c 	ldr.w	ip, [pc, #92]	; 179c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3fc>
+
+        1742:	4f14      	ldr	r7, [pc, #80]	; (1794 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3f4>)
+
+        1744:	4e14      	ldr	r6, [pc, #80]	; (1798 <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3f8>)
+
+        1746:	f503 7507 	add.w	r5, r3, #540	; 0x21c
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4Ev():
+
+        174a:	20ff      	movs	r0, #255	; 0xff
+
+    _ZN5async5QueueINS_9IRunnableEEC4Ev():
+
+        174c:	611c      	str	r4, [r3, #16]
+
+        174e:	615c      	str	r4, [r3, #20]
+
+    _ZN5async11EventPolicyINS_11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEELj0EEC4ERS5_():
+
+        1750:	619b      	str	r3, [r3, #24]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10initialiseEv():
+
+        1752:	f8c3 c01c 	str.w	ip, [r3, #28]
+
+        1756:	621c      	str	r4, [r3, #32]
+
+    _ZN5async11EventPolicyINS_11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEELj1EEC4ERS5_():
+
+        1758:	625b      	str	r3, [r3, #36]	; 0x24
+
+    _ZN3etl8delegateIFvRN5async11TaskContextINS1_15FreeRtosAdapterINS1_12AsyncBindingEEEEEEE18invocation_elementC4Ev():
+
+        175a:	629c      	str	r4, [r3, #40]	; 0x28
+
+        175c:	62dc      	str	r4, [r3, #44]	; 0x2c
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEEC4Ev():
+
+        175e:	631c      	str	r4, [r3, #48]	; 0x30
+
+        1760:	635c      	str	r4, [r3, #52]	; 0x34
+
+        1762:	f883 0038 	strb.w	r0, [r3, #56]	; 0x38
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        1766:	f3ef 8210 	mrs	r2, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        176a:	b672      	cpsid	i
+
+    _ZN5async15EventDispatcherILj2ENS_4LockEE15setEventHandlerEjN3etl8delegateIFvvEEE():
+
+        176c:	609b      	str	r3, [r3, #8]
+
+        176e:	60df      	str	r7, [r3, #12]
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        1770:	f382 8810 	msr	PRIMASK, r2
+
+        1774:	f3ef 8210 	mrs	r2, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        1778:	b672      	cpsid	i
+
+    _ZN5async15EventDispatcherILj2ENS_4LockEE15setEventHandlerEjN3etl8delegateIFvvEEE():
+
+        177a:	f103 0110 	add.w	r1, r3, #16
+
+        177e:	e9c3 1600 	strd	r1, r6, [r3]
+
+    _GLOBAL__sub_I__ZN3app14runtimeMonitorE():
+
+        1782:	f382 8810 	msr	PRIMASK, r2
+
+    _ZN3etl5arrayIN5async11TaskContextINS1_15FreeRtosAdapterINS1_12AsyncBindingEEEEELj9EEC4Ev():
+
+        1786:	333c      	adds	r3, #60	; 0x3c
+
+        1788:	429d      	cmp	r5, r3
+
+        178a:	d1df      	bne.n	174c <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x3ac>
+
+        178c:	e76f      	b.n	166e <<a href="./f3734ce53d059996e21e9e93915db203.html">_GLOBAL__sub_I__ZN3app14runtimeMonitorE</a>+0x2ce>
+
+        178e:	bf00      	nop
+
+        1790:	1ffe07e4 	.word	0x1ffe07e4
+
+        1794:	000012ed 	.word	0x000012ed
+
+        1798:	00000cad 	.word	0x00000cad
+
+        179c:	1ffe07e0 	.word	0x1ffe07e0
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/FreeRtosAdapter.h/96cfdc7fa35f1c497900824f817f3926.html">_GLOBAL__sub_D__ZN3app14runtimeMonitorE (84)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 32</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 104</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    32
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">104</td>
+                <td><a href="../../../../../../libs/bsw/lifecycle/src/lifecycle/LifecycleManager.cpp/723e95e23ad9241e1f9177bebc69b188.html" class="icon-function">lifecycle::LifecycleManager::LifecycleManager(unsigned char, etl::delegate&lt;unsigned long ()&gt;, etl::span&lt;lifecycle::LifecycleManager::ComponentInfo, 4294967295u&gt; const&amp;, etl::ivector&lt;lifecycle::LifecycleManager::ComponentTransitionExecutor&gt;&amp;, etl::span&lt;unsigned char, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">8
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>
