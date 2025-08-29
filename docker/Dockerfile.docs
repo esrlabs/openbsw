@@ -13,9 +13,13 @@ RUN for i in 1 2 3; do \
 COPY doc/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
-RUN wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O /usr/local/bin/plantuml.jar \
+RUN for i in 1 2 3; do \
+    wget -q --show-progress --retry-connrefused --waitretry=5 --timeout=30 -t 3 \
+    https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O /usr/local/bin/plantuml.jar \
     && echo '#!/bin/sh\njava -jar /usr/local/bin/plantuml.jar "$@"' > /usr/local/bin/plantuml && \
-    chmod +x /usr/local/bin/plantuml
+    chmod +x /usr/local/bin/ \
+    && break || { echo "LLVM install failed, retrying ($i/3)..."; sleep 10; }; \
+done
 
 RUN pip3 install coverxygen
 
