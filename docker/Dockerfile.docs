@@ -8,14 +8,19 @@ RUN for i in 1 2 3; do \
             bzip2 \
         && rm -rf /var/lib/apt/lists/* \
         && break || { echo "Apt install failed, retrying ($i/3)..."; sleep 10; }; \
+        if [ "$i" -eq 3 ]; then exit 1; fi; \
     done
 
 COPY doc/requirements.txt /tmp/requirements.txt
-RUN pip3 install -r /tmp/requirements.txt
+RUN  pip3 install -r /tmp/requirements.txt
 
-RUN wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O /usr/local/bin/plantuml.jar \
-    && echo '#!/bin/sh\njava -jar /usr/local/bin/plantuml.jar "$@"' > /usr/local/bin/plantuml && \
-    chmod +x /usr/local/bin/plantuml
+RUN for i in 1 2 3; do \
+        wget https://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O /usr/local/bin/plantuml.jar && \
+        echo '#!/bin/sh\njava -jar /usr/local/bin/plantuml.jar "$@"' > /usr/local/bin/plantuml && \
+        chmod +x /usr/local/bin/plantuml && \
+        break || { echo "PlantUML install failed, retrying ($i/3)..."; sleep 10; }; \
+        if [ "$i" -eq 3 ]; then exit 1; fi; \
+    done
 
 RUN pip3 install coverxygen
 
