@@ -10,6 +10,7 @@
 .envrc
 .idea/
 .project
+.pvenv/
 .sccache/
 .vscode*
 CMakeUserPresets.json
