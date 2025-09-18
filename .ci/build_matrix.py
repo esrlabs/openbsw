@@ -44,9 +44,9 @@ class Config(Enum):
 # MATRIX
 commands = [
     # workflow for unit tests (Debug)
-    # cmake --workflow --preset ci-tests-dbg
+    # cmake --workflow --preset wf-tests-dbg
     {
-        "config": ["cmake", "--workflow", "--preset", "ci-tests-dbg"],
+        "config": ["cmake", "--workflow", "--preset", "wf-tests-dbg"],
         "build": None,
         "test": None,
         "cxxid": CxxId.Both,
@@ -54,9 +54,9 @@ commands = [
         "build-config": Config.NoConfig,
     },
     # workflow for unit tests (Release)
-    # cmake --workflow --preset ci-tests-rel
+    # cmake --workflow --preset wf-tests-rel
     {
-        "config": ["cmake", "--workflow", "--preset", "ci-tests-rel"],
+        "config": ["cmake", "--workflow", "--preset", "wf-tests-rel"],
         "build": None,
         "test": None,
         "cxxid": CxxId.Both,
@@ -64,9 +64,9 @@ commands = [
         "build-config": Config.NoConfig,
     },
     # workflow for reference application for POSIX-compatibles
-    # cmake --workflow --preset ci-posix
+    # cmake --workflow --preset wf-posix
     {
-        "config": ["cmake", "--workflow", "--preset", "ci-posix"],
+        "config": ["cmake", "--workflow", "--preset", "wf-posix"],
         "build": None,
         "test": None,
         "cxxid": CxxId.Both,
@@ -74,9 +74,9 @@ commands = [
         "build-config": Config.NoConfig,
     },
     # workflow for s32k148 built with GNU compiler
-    # cmake --workflow --preset ci-s32k148-gcc
+    # cmake --workflow --preset wf-s32k148-gcc
     {
-        "config": ["cmake", "--workflow", "--preset", "ci-s32k148-gcc"],
+        "config": ["cmake", "--workflow", "--preset", "wf-s32k148-gcc"],
         "build": None,
         "test": None,
         "cxxid": CxxId.GNU,
@@ -84,9 +84,9 @@ commands = [
         "build-config": Config.NoConfig,
     },
     # workflow for s32k148 built with Clang
-    # cmake --workflow --preset ci-s32k148-clang
+    # cmake --workflow --preset wf-s32k148-clang
     # {
-    #     "config": ["cmake", "--workflow", "--preset", "ci-s32k148-clang"],
+    #     "config": ["cmake", "--workflow", "--preset", "wf-s32k148-clang"],
     #     "build": None,
     #     "test": None,
     #     "cxxid": CxxId.Clang,
@@ -192,8 +192,8 @@ def get_environment(cxxid: CxxId, platform: Platform):
 
     if platform == Platform.x86:
         if cxxid == CxxId.GNU:
-            env["CC"] = get_full_path("gcc-11")
-            env["CXX"] = get_full_path("g++-11")
+            env["CC"] = get_full_path("gcc")
+            env["CXX"] = get_full_path("g++")
             return env
         if cxxid == CxxId.Clang:
             env["CC"] = get_full_path("clang")

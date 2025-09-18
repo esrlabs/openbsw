@@ -5,12 +5,6 @@ on: [workflow_call, push, pull_request]
 jobs:
   run-command:
     runs-on: ubuntu-latest
-    strategy:
-     matrix:
-        platform: [posix, s32k148]
-        compiler: [clang, gcc]
-        cpp-standard: [14, 17, 20, 23]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,7 +13,7 @@ jobs:
         id: cache-cmake
         uses: actions/cache@v3
         with:
-          path: cmake-build-${{ matrix.platform }}-${{ matrix.compiler }}
+          path: build
           key: ${{ runner.os }}-cmake-${{ matrix.platform }}-${{ matrix.compiler }}-${{ matrix.cpp-standard }}-${{ hashFiles('**/*.cpp', '**/*.h',  '**/*.cmake', '**/*.txt', '**/*.c', '**/*.s') }}
           restore-keys: |
             ${{ runner.os }}-cmake-${{ matrix.platform }}-${{ matrix.compiler }}-${{ matrix.cpp-standard }}-
@@ -32,4 +26,4 @@ jobs:
       - name: Run the build.py inside the docker container
         if: steps.cache-cmake.outputs.cache-hit != 'true'
         run: |
-          docker run --rm -v "$PWD:/home/jenkins" -w /home/jenkins --user $(id -u):4996 dev python3 .ci/build.py "${{ matrix.platform }}" "${{ matrix.compiler }}" "${{ matrix.cpp-standard }}"
+          docker run --rm -v "$PWD:/home/jenkins" -w /home/jenkins --user $(id -u):4996 dev python3 .ci/build_matrix.py
