@@ -5,6 +5,7 @@
 #include "ip/IPAddress.h"
 
 #include <etl/array.h>
+#include <util/estd/signal.h>
 
 namespace ip
 {
@@ -126,4 +127,33 @@ inline bool operator!=(NetworkInterfaceConfig const& lhs, NetworkInterfaceConfig
     return !operator==(lhs, rhs);
 }
 
+using NetworkInterfaceConfigKey = uint8_t;
+
+struct NetworkInterfaceConfigRegistry
+{
+    using ConfigChangedSignal
+        = ::util::estd::signal<::estd::function<void(uint8_t, NetworkInterfaceConfig const&)>>;
+
+    NetworkInterfaceConfigRegistry(
+        ::etl::span<uint8_t const> busIds, ::etl::span<NetworkInterfaceConfig const> configs)
+    : busIds(busIds), configs(configs)
+    {}
+
+    ::etl::span<uint8_t const> busIds;
+    ::etl::span<NetworkInterfaceConfig const> configs;
+
+    ConfigChangedSignal configChangedSignal;
+
+    virtual NetworkInterfaceConfig getConfig(uint8_t const busId) const
+    {
+        for (size_t i = 0; i < busIds.size(); ++i)
+        {
+            if (busIds[i] == busId)
+            {
+                return configs[i];
+            }
+        }
+        return {};
+    }
+};
 } // namespace ip

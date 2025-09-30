@@ -4,6 +4,7 @@
 
 #include "busid/BusId.h"
 #include "lifecycle/LifecycleManager.h"
+#include "systems/DoIpServerSystem.h"
 #include "transport/ITransportSystem.h"
 #include "transport/TransportConfiguration.h"
 
@@ -17,6 +18,8 @@ using ::util::logger::UDS;
 uint8_t const responseData22Cf01[]
     = {0x01, 0x02, 0x00, 0x02, 0x22, 0x02, 0x16, 0x0F, 0x01, 0x00, 0x00, 0x6D,
        0x2F, 0x00, 0x00, 0x01, 0x06, 0x00, 0x00, 0x8F, 0xE0, 0x00, 0x00, 0x01};
+
+estd::array<uint8_t, 3> storedData2eCf03 = {0};
 
 UdsSystem::UdsSystem(
     lifecycle::LifecycleManager& lManager,
@@ -50,6 +53,7 @@ UdsSystem::UdsSystem(
 , _requestRoutineResults()
 , _read22Cf01(0xCF01, responseData22Cf01)
 , _read22Cf02()
+, _write2eCf03(0xCF03, storedData2eCf03)
 , _testerPresent()
 , _context(context)
 , _timeout()
@@ -114,6 +118,7 @@ void UdsSystem::addDiagJobs()
 
     // 2E - WriteDataByIdentifier
     (void)_jobRoot.addAbstractDiagJob(_writeDataByIdentifier);
+    (void)_jobRoot.addAbstractDiagJob(_write2eCf03);
 
     // 31 - Routine Control
     (void)_jobRoot.addAbstractDiagJob(_routineControl);
@@ -136,6 +141,7 @@ void UdsSystem::removeDiagJobs()
 
     // 2E - WriteDataByIdentifier
     (void)_jobRoot.removeAbstractDiagJob(_writeDataByIdentifier);
+    (void)_jobRoot.removeAbstractDiagJob(_write2eCf03);
 
     // 31 - Routine Control
     (void)_jobRoot.removeAbstractDiagJob(_routineControl);

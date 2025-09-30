@@ -1,0 +1,80 @@
+@startuml
+
+class DoIpServerLogger
+
+class DoIpServerTransportConnectionPool
+class DoIpServerTransportConnection
+
+interface IDoIpServerTransportConnectionCreator
+interface IDoIpServerTransportConnectionPool
+class DoIpServerTransportMessageHandler
+class DoIpTcpConnection
+
+class DoIpServerTransportConnectionProvider
+class DoIpServerConnectionHandler
+class DoIpServerTransportLayerParameters
+class DoIpServerTransportConnectionConfig
+class DoIpServerTransportLayer
+interface IDoIpServerTransportConnectionProviderCallback
+interface IDoIpServerConnectionHandlerCallback
+interface IDoIpConnectionHandler
+interface IDoIpSendJob
+interface IDoIpServerConnection
+interface IDoIpServerMessageHandler
+interface IDoIpSendJobCallback
+interface IDoIpTransportMessageProvidingListener
+
+class DoIpTransportMessageProvidingListenerHelper
+interface IDoIpServerTransportLayerCallback
+
+interface IDoIpServerSocketHandler
+interface IDoIpServerSocketHandlerListener
+class DoIpServerSocketHandler
+class Socket
+class SocketHandler
+
+class DoIpServerTransportMessageHandler
+
+DoIpServerTransportConnectionPool ..   IDoIpServerTransportConnectionCreator
+DoIpServerTransportConnectionPool --|> IDoIpServerTransportConnectionPool
+DoIpServerTransportConnectionPool o--  DoIpServerTransportMessageHandler
+DoIpServerTransportConnection o-- DoIpServerTransportMessageHandler
+DoIpServerTransportConnection o-- DoIpTcpConnection
+
+IDoIpServerTransportConnectionPool .. DoIpServerTransportConnectionProvider
+DoIpServerTransportConnection      .. DoIpServerTransportConnectionProvider
+DoIpServerTransportConnection    --|> DoIpServerConnectionHandler
+
+IDoIpSendJob          .. DoIpServerTransportMessageHandler
+IDoIpServerConnection .. DoIpServerTransportMessageHandler
+DoIpServerTransportMessageHandler --|> IDoIpServerMessageHandler
+DoIpServerTransportMessageHandler --|> IDoIpSendJobCallback
+
+DoIpServerTransportConnectionProvider ..   IDoIpServerSocketHandler
+DoIpServerTransportConnectionProvider --|> IDoIpServerSocketHandlerListener
+IDoIpServerSocketHandlerListener .. DoIpServerSocketHandler
+DoIpServerSocketHandler -|> IDoIpServerSocketHandler
+DoIpServerSocketHandler o-- Socket
+DoIpServerSocketHandler o-- SocketHandler
+
+DoIpServerTransportConnectionProvider .. DoIpServerTransportConnectionConfig
+DoIpServerTransportConnectionConfig   .. IDoIpTransportMessageProvidingListener
+DoIpServerTransportConnectionConfig   .. DoIpServerTransportLayerParameters
+
+DoIpServerTransportConnectionProvider .. IDoIpServerTransportConnectionProviderCallback
+DoIpServerConnectionHandler ..   IDoIpServerConnectionHandlerCallback
+DoIpServerConnectionHandler ..   IDoIpConnectionHandler
+DoIpServerConnectionHandler ..   IDoIpSendJob
+DoIpServerConnectionHandler --|>  IDoIpServerConnection
+DoIpServerConnectionHandler ..   IDoIpServerMessageHandler
+DoIpServerConnectionHandler ..   DoIpServerTransportLayerParameters
+
+DoIpServerTransportLayer -|> IDoIpServerTransportConnectionProviderCallback
+DoIpServerTransportLayer -|> IDoIpServerConnectionHandlerCallback
+DoIpServerTransportLayer o-- DoIpServerTransportConnectionProvider
+DoIpServerTransportLayer o-- DoIpServerTransportConnectionConfig
+DoIpServerTransportLayer o- DoIpTransportMessageProvidingListenerHelper
+IDoIpServerTransportLayerCallback .. DoIpServerTransportLayer
+
+
+@enduml

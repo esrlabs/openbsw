@@ -15,6 +15,7 @@ namespace tcp
 class ISocketProvidingConnectionListener
 {
 public:
+    virtual ~ISocketProvidingConnectionListener()                                 = default;
     ISocketProvidingConnectionListener()                                          = default;
     ISocketProvidingConnectionListener(ISocketProvidingConnectionListener const&) = delete;
     ISocketProvidingConnectionListener& operator=(ISocketProvidingConnectionListener const&)

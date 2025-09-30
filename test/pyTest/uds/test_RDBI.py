@@ -4,21 +4,21 @@ import udsoncan.services as uds
 from helpers.helper_functions import hexlify
 
 # Test: Diagnostic response should be okay when a valid request is sent
-def test_RDBI_valid_request(target_session):
+def test_RDBI_valid_request(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     did = 0xCF02
     req = uds.ReadDataByIdentifier.make_request(
         [did], {did: udsoncan.AsciiCodec(4)})
     assert uds_client.send_request(req).get_payload()[0] == 0x62
 
 
-# Test: Checking positive response for did F186
-def test_RDBI_CF01(target_session):
+# Test: Checking positive response for did CF01
+def test_RDBI_CF01(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     did = 0xCF01
     req = uds.ReadDataByIdentifier.make_request(
         [did], {did: udsoncan.AsciiCodec(4)})
@@ -28,11 +28,11 @@ def test_RDBI_CF01(target_session):
     )
 
 
-# Test: Checking positive response for did F102
-def test_RDBI_cf02(target_session):
+# Test: Checking positive response for did CF02
+def test_RDBI_cf02(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     did = 0xCF02
     req = uds.ReadDataByIdentifier.make_request(
         [did], {did: udsoncan.AsciiCodec(4)})
@@ -43,10 +43,10 @@ def test_RDBI_cf02(target_session):
 
 
 # Test: Checking NRC ISO_REQUEST_OUT_OF_RANGE is received
-def test_RDBI_ISO_REQUEST_OUT_OF_RANGE(target_session):
+def test_RDBI_ISO_REQUEST_OUT_OF_RANGE(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     did = 0xFFFF
     req = uds.ReadDataByIdentifier.make_request(
         [did], {did: udsoncan.AsciiCodec(2)})
@@ -57,10 +57,10 @@ def test_RDBI_ISO_REQUEST_OUT_OF_RANGE(target_session):
 
 
 # Test: Checking NRC ISO_SERVICE_NOT_SUPPORTED is received
-def test_RDBI_ISO_SERVICE_NOT_SUPPORTED(target_session):
+def test_RDBI_ISO_SERVICE_NOT_SUPPORTED(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     request_payload = bytes([0x21, 0xCF, 0x02])
     uds_client.conn.send(request_payload)
     payload = uds_client.conn.wait_frame(timeout=2, exception=True)
@@ -69,10 +69,10 @@ def test_RDBI_ISO_SERVICE_NOT_SUPPORTED(target_session):
 
 
 # Test: Checking NRC ISO_INVALID_FORMAT is received
-def test_RDBI_ISO_INVALID_FORMAT(target_session):
+def test_RDBI_ISO_INVALID_FORMAT(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     request_payload = bytes([0x22, 0xF1])
     uds_client.conn.send(request_payload)
     payload = uds_client.conn.wait_frame(timeout=2, exception=True)

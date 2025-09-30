@@ -59,6 +59,8 @@ public:
 
     ::ethernet::IEthernetDriverSystem& ethernetDriverSystem;
     Netifs<::ethX::NUM_NETIFS> netifs;
+    ::ip::NetworkInterfaceConfigRegistry netifConfigRegistry{
+        netifs.busIds, netifs.networkInterfaceConfigsIp4};
 
 private:
     ::async::ContextType const _context;
