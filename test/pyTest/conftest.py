@@ -1,6 +1,8 @@
 import pytest
 from can.interfaces import socketcan
 import isotp
+from doipclient import DoIPClient
+from doipclient.connectors import DoIPClientUDSConnector
 from udsoncan.client import Client
 from udsoncan.connections import PythonIsoTpConnection
 from target_info import TargetInfo
@@ -71,29 +73,47 @@ class TargetSession:
         """
         return capture_serial_by_name[self.target_name]
 
-    def uds_client(self):
-        """This can be called from a test to get a udsoncan Client object
+    def uds_client(self, uds_transport):
+        """This can be called from a test to get a UDS Client
+
+        Args:
+            uds_transport: string containing "can" or "eth"
 
         Return:
-            udsoncan Client object for UDS interaction with the target
+            Client object for UDS interaction with the target
         """
-        bus = self.can_bus()
-        tp_addr = isotp.Address(
-            isotp.AddressingMode.Normal_11bits, txid=0x002A, rxid=0x00F0
-        )
-        isotp_params = {
-            "stmin": 0,
-            "blocksize": 8,
-            "wftmax": 0,
-            "tx_padding": 0,
-            "tx_data_min_length": None,
-            "rx_flowcontrol_timeout": 1000,
-            "rx_consecutive_frame_timeout": 1000,
-        }
-        stack = isotp.CanStack(bus=bus, address=tp_addr, params=isotp_params)
-        conn = PythonIsoTpConnection(stack)
-        conn.open()
-        return Client(conn)
+
+        if uds_transport == "can":
+            bus = self.can_bus()
+            tp_addr = isotp.Address(
+                isotp.AddressingMode.Normal_11bits, txid=0x002A, rxid=0x00F0
+            )
+            isotp_params = {
+                "stmin": 0,
+                "blocksize": 8,
+                "wftmax": 0,
+                "tx_padding": 0,
+                "tx_data_min_length": None,
+                "rx_flowcontrol_timeout": 1000,
+                "rx_consecutive_frame_timeout": 1000,
+            }
+            stack = isotp.CanStack(bus=bus, address=tp_addr, params=isotp_params)
+            conn = PythonIsoTpConnection(stack)
+            conn.open()
+            return Client(conn)
+
+        if uds_transport == "eth":
+            # Create a DoIPClient instance
+            doipClient = DoIPClient(
+                ecu_ip_address=self.target_ip_address(),
+                ecu_logical_address=0x002A,
+                protocol_version=2,
+                client_logical_address=0x0EF1,
+            )
+            # Create a DoIPClientUDSConnector instance
+            udsConnector = DoIPClientUDSConnector(doipClient)
+            udsConnector.open()
+            return Client(udsConnector)
 
 
 @pytest.fixture()
@@ -130,6 +150,11 @@ def hw_tester(request):
     return CaptureSerial(**request.param)
 
 
+@pytest.fixture()
+def uds_transport(request):
+    return request.param
+
+
 def pytest_addoption(parser):
     parser.addoption(
         "--target", action="append", default=[], help=TargetInfo.target_arg_help
@@ -157,19 +182,62 @@ def pytest_configure(config):
 
 
 def pytest_generate_tests(metafunc):
+    """Parameterize tests with fixtures.
+
+    All tests have the fixture `target_session`.
+    If more than one target is specified on the `pytest` command line
+    then tests will run once for each target, with a different value for `target_session`.
+
+    Tests with the fixture `hw_tester` require a target with a special test board
+    and the section `[hw_tester_serial]` in the target's `.toml` file specifies
+    how to communicate with that board.
+    If this is not found in the target's `.toml` file then tests with `hw_tester` are skipped.
+
+    Tests with the fixture `uds_transport` require a target with
+    either `[socketcan]` for UDS over CAN or `[eth]` for UDS over IP,
+    or, if both `[socketcan]` and `[eth]` are in the target's `.toml` file
+    then those tests will run twice, once over CAN and once over IP.
+    If neither are present then those tests are skipped.
+
+    Note this doesn't support tests having both fixtures `hw_tester` and `uds_transport`
+    as no such test exists yet.
+    """
+    all_targets_fixture_args = []
+
     if "target_session" in metafunc.fixturenames:
+        fixture_names = "target_session"
+
+        need_hw_tester = False
         if "hw_tester" in metafunc.fixturenames:
-            fixture_args = []
-            for name, target_info in TargetInfo.by_name.items():
+            need_hw_tester = True
+            fixture_names += ",hw_tester"
+ 
+        need_uds_transport = False
+        if "uds_transport" in metafunc.fixturenames:
+            need_uds_transport = True
+            fixture_names += ",uds_transport"
+
+        for name, target_info in TargetInfo.by_name.items():
+
+            if not need_hw_tester and not need_uds_transport:
+                all_targets_fixture_args.append(name)
+
+            if need_hw_tester:
                 if target_info.hw_tester_serial:
-                    fixture_args.append([name, target_info.hw_tester_serial])
-            metafunc.parametrize(
-                "target_session,hw_tester", fixture_args, indirect=True
-            )
-        else:
-            metafunc.parametrize(
-                "target_session", [name for name in TargetInfo.by_name], indirect=True
-            )
+                    # The target has hw_tester so this test can run
+                    all_targets_fixture_args.append([name, target_info.hw_tester_serial])
+
+            if need_uds_transport:
+                if target_info.socketcan:
+                    # Test UDS over CAN
+                    all_targets_fixture_args.append([name, "can"])
+                if target_info.eth:
+                    # Test UDS over Ethernet
+                    all_targets_fixture_args.append([name, "eth"])
+
+        metafunc.parametrize(fixture_names,
+                            all_targets_fixture_args,
+                            indirect=True)
 
 
 def pytest_runtest_setup(item):

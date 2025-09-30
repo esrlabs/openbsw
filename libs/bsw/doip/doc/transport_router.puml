@@ -1,0 +1,44 @@
+@startuml
+
+participant DoIpTcpConnection as TcpC
+participant DoIpServerConnectionHandler as SCH
+participant DoIpServerTransportMessageHandler as STMH
+participant DoIpTransportMessageProvidingListenerHelper as TMPLH
+participant TransportRouter as TR
+participant DoIpServerTransportLayer as TL
+
+alt protocol message
+TcpC -> SCH ++ : headerReceived()
+SCH -> SCH ++ : (handle sending directly)
+deactivate SCH
+TcpC <-- SCH -- :
+else diagnostic message
+    TcpC -> SCH ++ : headerReceived()
+    SCH -> STMH ++ : headerReceived()
+    TcpC <- STMH ++ : [async] receivePayload()
+    TcpC --> STMH -- :
+    SCH <-- STMH -- :
+    TcpC <-- SCH -- :
+    TcpC -> STMH ++ : diagnosticMessageLogicalAddressInfoReceived()
+    STMH -> TMPLH ++ : getTransportMessage()
+    TMPLH -> TR ++ : getTransportMessage()
+    TMPLH <-- TR -- :
+    STMH <-- TMPLH -- :
+    TcpC <- STMH ++ : [async] receivePayload()
+    TcpC --> STMH -- :
+    TcpC <-- STMH -- :
+    TcpC -> STMH ++ : diagnosticMessageUserDataReceived()
+    STMH -> TMPLH ++ : messageReceived()
+    TMPLH -> TR ++ : messageReceived()
+    TMPLH <-- TR -- :
+    STMH <-- TMPLH -- :
+    TcpC <-- STMH -- :
+end
+
+STMH <- TL ++ : send()
+TcpC <- STMH ++ : [async] sendMessage()
+TcpC --> STMH -- :
+STMH --> TL -- :
+TcpC -> TL ++ : ITransportMessageProcessedListener::transportMessageProcessed()
+TcpC <-- TL -- :
+@enduml

@@ -13,6 +13,7 @@
 #include <uds/async/AsyncDiagHelper.h>
 #include <uds/async/AsyncDiagJob.h>
 #include <uds/jobs/ReadIdentifierFromMemory.h>
+#include <uds/jobs/WriteIdentifierToMemory.h>
 #include <uds/services/communicationcontrol/CommunicationControl.h>
 #include <uds/services/readdata/ReadDataByIdentifier.h>
 #include <uds/services/routinecontrol/RequestRoutineResults.h>
@@ -91,6 +92,7 @@ private:
     RequestRoutineResults _requestRoutineResults;
     ReadIdentifierFromMemory _read22Cf01;
     ReadIdentifierPot _read22Cf02;
+    WriteIdentifierToMemory _write2eCf03;
     TesterPresent _testerPresent;
 
     ::async::ContextType _context;

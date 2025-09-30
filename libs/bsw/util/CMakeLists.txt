@@ -1,5 +1,6 @@
 add_library(
     util
+    src/util/estd/assert.cpp
     src/util/logger/StderrLogger.cpp
     src/util/logger/ComponentInfo.cpp
     src/util/logger/Logger.cpp
@@ -48,4 +49,6 @@ if (BUILD_EXECUTABLE STREQUAL "unitTest")
     target_include_directories(utilMock PUBLIC mock/gmock/include)
 
     target_link_libraries(utilMock PUBLIC util etl)
+
+    target_compile_definitions(util PUBLIC ESTD_HAS_EXCEPTIONS)
 endif ()

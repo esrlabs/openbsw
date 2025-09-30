@@ -26,6 +26,21 @@ Reference for instructions:
    - For S32K148 Build: :ref:`Ubuntu<setup_s32k148_ubuntu_build>` or
      :ref:`Windows<setup_s32k148_win_build>`.
 
+You can also install `Wireshark` to monitor the Ethernet traffic, which can be useful for debugging.
+`Wireshark` can be installed on Ubuntu :prop:`tool:ubuntu_version` as follows...
+
+.. code-block:: bash
+
+    sudo apt install wireshark
+
+Then run `Wireshark` and open the appropriate interface to monitor the traffic.
+
+.. note::
+   The static IP configured for individual targets in the `netif` module are:
+
+   - S32K148: ``192.168.0.200``
+   - POSIX: ``192.168.0.201``
+
 POSIX
 +++++
 
@@ -81,14 +96,10 @@ To verify the Ethernet connection, you can perform a ping test.
 
 Open a terminal and run:
 
-- For POSIX: ``ping 192.168.0.201``
 - For S32K148: ``ping 192.168.0.200``
+- For POSIX: ``ping 192.168.0.201``
 
 This should show a response indicating that the Ethernet connection is working correctly.
-
-.. note::
-   The static IP configured in the `netif` module for the POSIX platform is ``192.168.0.201`` and for S32K148
-   ``192.168.0.200``.
 
 Test with ncat/telnet
 ---------------------

@@ -21,6 +21,15 @@ target_link_libraries(
     cpp2ethernet
     PUBLIC common
            bsp
+           estd
            etl
            util
            async)
+
+if (BUILD_EXECUTABLE STREQUAL "unitTest")
+    add_library(cpp2ethernetMock INTERFACE)
+
+    target_include_directories(cpp2ethernetMock INTERFACE mock/include)
+
+    target_link_libraries(cpp2ethernetMock INTERFACE cpp2ethernet)
+endif ()

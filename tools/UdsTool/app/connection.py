@@ -7,13 +7,13 @@ import isotp
 import json
 
 
-def createEthConnection(host, ecu, source):
+def createEthConnection(host, ecu, source, doip):
     try:
         # Create a DoIPClient instance
         doipClient = DoIPClient(
             ecu_ip_address=host,
             ecu_logical_address=int(ecu, 16),
-            protocol_version=3,
+            protocol_version=doip,
             client_logical_address=int(source, 16),
         )
 

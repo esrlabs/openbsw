@@ -3,7 +3,9 @@ import click
 from app import connection, rawCommand, services
 
 
-@click.group()
+@click.group(
+    help="Use :: udstool [OPTIONS] --help :: for more options on the commands."
+)
 def start():
     pass
 
@@ -15,16 +17,21 @@ def conn_params(func):
         default="socketcan",
         help='python-can interface name. eg. "pcan". Default = "socketcan"',
     )
+    @click.option("--channel", help="Channel name for CAN connection")
+    @click.option("--txid", help="CAN Tx ID")
+    @click.option("--rxid", help="CAN Rx ID")
+    @click.option("--config", help="Path to configuration file for CAN connection")
     @click.option("--eth", is_flag=True, help="Use Ethernet connection")
     @click.option("--host", help="Host IP address for Ethernet connection")
     @click.option("--ecu", help="ECU Logical address [hex] for Ethernet connection")
     @click.option(
         "--source", help="Source logical address [hex] for Ethernet connection"
     )
-    @click.option("--channel", help="Channel name for CAN connection")
-    @click.option("--txid", help="CAN Tx ID")
-    @click.option("--rxid", help="CAN Rx ID")
-    @click.option("--config", help="Path to configuration file for CAN connection")
+    @click.option(
+        "--doip",
+        help="DoIP protocol version. Default = 2 (ISO 2012)",
+        default=2,
+    )
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
@@ -36,7 +43,7 @@ def conn_params(func):
 @start.command(help="UDS service Read Data By Identifier (0x22)")
 @conn_params
 @click.option("--did", help="Data Identifier [hex]")
-def read(host, ecu, source, did, can, canif, eth, channel, txid, rxid, config):
+def read(host, ecu, source, did, can, canif, eth, channel, txid, rxid, config, doip):
     if can:
         # Handle CAN connection
         client = connection.createCanConnection(
@@ -45,7 +52,7 @@ def read(host, ecu, source, did, can, canif, eth, channel, txid, rxid, config):
         services.read(client, did)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         services.read(client, did)
 
 
@@ -54,7 +61,9 @@ def read(host, ecu, source, did, can, canif, eth, channel, txid, rxid, config):
 @conn_params
 @click.option("--did", help="Data Identifier [hex]")
 @click.option("--data", help="Data to write")
-def write(host, ecu, source, did, data, can, canif, eth, channel, txid, rxid, config):
+def write(
+    host, ecu, source, did, data, can, canif, eth, channel, txid, rxid, config, doip
+):
     if can:
         # Handle CAN connection
         client = connection.createCanConnection(
@@ -63,7 +72,7 @@ def write(host, ecu, source, did, data, can, canif, eth, channel, txid, rxid, co
         services.write(client, did, data=data)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         services.write(client, did, data=data)
 
 
@@ -74,7 +83,7 @@ def write(host, ecu, source, did, data, can, canif, eth, channel, txid, rxid, co
     "--id",
     help="Session Identifier: [1: Default, 2: Programming, 3: Extended]",
 )
-def session(host, ecu, source, id, can, canif, eth, channel, txid, rxid, config):
+def session(host, ecu, source, id, can, canif, eth, channel, txid, rxid, config, doip):
     if can:
         # Handle CAN connection
         client = connection.createCanConnection(
@@ -83,7 +92,7 @@ def session(host, ecu, source, id, can, canif, eth, channel, txid, rxid, config)
         services.session(client, id)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         services.session(client, id)
 
 
@@ -93,7 +102,7 @@ def session(host, ecu, source, id, can, canif, eth, channel, txid, rxid, config)
 @click.option("--level", type=int, help="Security Level to be unlocked")
 @click.option("--path", help="Shared key path for unlocking security")
 def security(
-    host, ecu, source, level, path, can, canif, eth, channel, txid, rxid, config
+    host, ecu, source, level, path, can, canif, eth, channel, txid, rxid, config, doip
 ):
     if can:
         # Handle CAN connection
@@ -103,7 +112,7 @@ def security(
         services.security(client, level, path)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         services.security(client, level, path)
 
 
@@ -112,7 +121,9 @@ def security(
 @conn_params
 @click.option("--type", help="Service subfunction")
 @click.option("--id", help="Subroutine identifier")
-def routine(host, ecu, source, type, id, can, canif, eth, channel, txid, rxid, config):
+def routine(
+    host, ecu, source, type, id, can, canif, eth, channel, txid, rxid, config, doip
+):
     if can:
         # Handle CAN connection
         client = connection.createCanConnection(
@@ -121,7 +132,7 @@ def routine(host, ecu, source, type, id, can, canif, eth, channel, txid, rxid, c
         services.routine(client, id, type)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         services.routine(client, id, type)
 
 
@@ -131,7 +142,19 @@ def routine(host, ecu, source, type, id, can, canif, eth, channel, txid, rxid, c
 @click.option("--data", help="Diagnostic payload to be sent")
 @click.option("--path", help="Path to binary")
 def raw(
-    host, ecu, source, data, can, canif, eth, channel, txid, rxid, config, path=None
+    host,
+    ecu,
+    source,
+    data,
+    can,
+    canif,
+    eth,
+    channel,
+    txid,
+    rxid,
+    config,
+    doip,
+    path=None,
 ):
     if can:
         # Handle CAN connection
@@ -141,7 +164,7 @@ def raw(
         rawCommand.raw(client, data, path)
     elif eth:
         # Handle Ethernet connection
-        client = connection.createEthConnection(host, ecu, source)
+        client = connection.createEthConnection(host, ecu, source, doip)
         rawCommand.raw(client, data, path)
 
 

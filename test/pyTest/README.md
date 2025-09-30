@@ -77,10 +77,10 @@ If you examine that and the scripts it references you will find that it expects 
     as the name of the `SocketCAN` interface in use,
     so this must be set up for tests involving `CAN` to pass.
 
-3. Need to have tap0 set up
+3. Need to have `tap0` set up
 
-    The posix build uses a ethernet interface named tap0.
-    Run ./tools/enet/bring-up-ethernet.sh before pytest to set up tap0.
+    The `posix` build uses a ethernet interface named `tap0`.
+    Run `./tools/enet/bring-up-ethernet.sh` before `pytest` to set up `tap0`.
 
 ### Running `pytest` with `--target=s32k148`
 
@@ -98,14 +98,14 @@ For this option...
 
     You need to have the board running, connected via USB to your build machine.
 
-2. Need to have `can0` set up
+3. Need to have `can0` set up
 
     `target_s32k148.toml` in this directory specifies `can0`
     as the name of the `SocketCAN` interface to use
     to communicate with the S32K148 development board,
     so this is expected be set up for tests involving `CAN` to pass.
 
-3. Need `pegdbserver_console` up and running
+4. Need `pegdbserver_console` up and running
 
     You need P&E Micro's version of `gdbserver` running and connected to the board...
     ```
@@ -121,6 +121,26 @@ the `s32k148` board must be set up with an external hardware testing board
 which has been configured for serial communication in `target_s32k148_with_hwtester.toml`
 under `[hw_tester_serial]`.
 Tests with the fixture `hw_tester` will be only be run if `[hw_tester_serial]` is present.
+
+### Fixtures in tests
+
+All tests have the fixture `target_session`.
+If more than one target is specified on the `pytest` command line
+then tests will run once for each target, with a different value for `target_session`.
+
+Tests with the fixture `hw_tester` require a target with a special test board
+and the section `[hw_tester_serial]` in the target's `.toml` file specifies
+how to communicate with that board.
+If this is not found in the target's `.toml` file then tests with `hw_tester` are skipped.
+
+Tests with the fixture `uds_transport` require a target with
+either `[socketcan]` for UDS over CAN or `[eth]` for UDS over IP,
+or, if both `[socketcan]` and `[eth]` are in the target's `.toml` file
+then those tests will run twice, once over CAN and once over IP.
+If neither are present then those tests are skipped.
+
+Note this doesn't support tests having both fixtures `hw_tester` and `uds_transport`
+as no such test exists yet.
 
 ## Examples
 
@@ -167,6 +187,8 @@ eg.
 channel = "can0"
 ```
 
+UDS tests with the fixture `uds_transport` will execute UDS over CAN on targets with `[socketcan]` defined.
+
 ### `[serial]`
 Entries under this heading are passed to the `Serial` class constructor
 (from which `CaptureSerial` derives). See
@@ -205,6 +227,8 @@ eg.
 [eth]
 ip_address = "192.168.0.200"
 ```
+
+UDS tests with the fixture `uds_transport` will execute UDS over IP on targets with `[eth]` defined.
 
 ### [pty_forwarder]
 If `port = "PTY_FORWARDER"` in the `[serial]` section then this section is required and must have the entry `ext_link`
@@ -284,7 +308,7 @@ eg.
 ```
 [boot]
 started_str = "INFO: Run level 1"
-complete_str = "DEBUG: Run level 8 done"
+complete_str = "DEBUG: Run level 9 done"
 max_time = 0.5
 ```
 

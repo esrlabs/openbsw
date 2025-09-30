@@ -1,7 +1,6 @@
 add_executable(
     app.referenceApp
     src/app/app.cpp
-    src/app/CanDemoListener.cpp
     src/console/console.cpp
     src/logger/logger.cpp
     src/systems/DemoSystem.cpp
@@ -10,23 +9,31 @@ add_executable(
     src/systems/SafetySystem.cpp
     src/main.cpp)
 
-if (PLATFORM_SUPPORT_UDS)
-    target_sources(
-        app.referenceApp
-        PRIVATE src/systems/TransportSystem.cpp src/systems/UdsSystem.cpp
-                src/uds/ReadIdentifierPot.cpp)
-endif ()
-
-if (PLATFORM_SUPPORT_CAN)
-    target_sources(app.referenceApp PRIVATE src/systems/DoCanSystem.cpp)
-endif ()
-
-if (PLATFORM_SUPPORT_STORAGE)
-    target_sources(app.referenceApp PRIVATE src/systems/StorageSystem.cpp)
+if (PLATFORM_SUPPORT_TRANSPORT)
+    target_sources(app.referenceApp PRIVATE src/systems/TransportSystem.cpp)
+    if (PLATFORM_SUPPORT_UDS)
+        target_sources(app.referenceApp PRIVATE src/systems/UdsSystem.cpp
+                                                src/uds/ReadIdentifierPot.cpp)
+    endif ()
 endif ()
 
 if (PLATFORM_SUPPORT_ETHERNET)
     target_sources(app.referenceApp PRIVATE src/systems/EthernetSystem.cpp)
+    if (PLATFORM_SUPPORT_TRANSPORT)
+        target_sources(app.referenceApp
+                       PRIVATE src/systems/DoIpServerSystem.cpp)
+    endif ()
+endif ()
+
+if (PLATFORM_SUPPORT_CAN)
+    target_sources(app.referenceApp PRIVATE src/app/CanDemoListener.cpp)
+    if (PLATFORM_SUPPORT_TRANSPORT)
+        target_sources(app.referenceApp PRIVATE src/systems/DoCanSystem.cpp)
+    endif ()
+endif ()
+
+if (PLATFORM_SUPPORT_STORAGE)
+    target_sources(app.referenceApp PRIVATE src/systems/StorageSystem.cpp)
 endif ()
 
 set_target_properties(app.referenceApp PROPERTIES SUFFIX ".elf")
@@ -53,11 +60,9 @@ target_include_directories(app.referenceApp PRIVATE include)
 target_link_libraries(
     app.referenceApp
     PRIVATE asyncBinding
-            lwipcore
             asyncConsole
             bspMcu
             configuration
-            ethConfiguration
             etl
             lifecycle
             consoleCommands
@@ -69,7 +74,6 @@ target_link_libraries(
             osRtos
             asyncRtosImpl
             util
-            udsConfigurationImpl
             runtime
             safeLifecycle
             safeUtils
@@ -77,17 +81,27 @@ target_link_libraries(
             bspUart
             socBsp)
 
-if (PLATFORM_SUPPORT_UDS)
+if (PLATFORM_SUPPORT_TRANSPORT)
     target_link_libraries(app.referenceApp PRIVATE transport
-                                                   transportRouterSimple uds)
+                                                   transportRouterSimple)
+    if (PLATFORM_SUPPORT_UDS)
+        target_link_libraries(app.referenceApp PRIVATE uds udsConfigurationImpl)
+    endif ()
 endif ()
 
 if (PLATFORM_SUPPORT_CAN)
-    target_link_libraries(app.referenceApp PRIVATE cpp2can docan)
+    target_link_libraries(app.referenceApp PRIVATE cpp2can)
+    if (PLATFORM_SUPPORT_TRANSPORT)
+        target_link_libraries(app.referenceApp PRIVATE docan)
+    endif ()
 endif ()
 
 if (PLATFORM_SUPPORT_ETHERNET)
-    target_link_libraries(app.referenceApp PRIVATE cpp2ethernet lwipSocket)
+    target_link_libraries(app.referenceApp PRIVATE cpp2ethernet lwipSocket
+                                                   lwipcore ethConfiguration)
+    if (PLATFORM_SUPPORT_TRANSPORT)
+        target_link_libraries(app.referenceApp PRIVATE doip)
+    endif ()
 endif ()
 
 if (PLATFORM_SUPPORT_STORAGE)

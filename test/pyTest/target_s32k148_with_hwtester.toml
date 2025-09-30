@@ -21,7 +21,7 @@ skip_first = true
 
 [boot]
 started_str = "INFO: Run level 1"
-complete_str = "DEBUG: Run level 8 done"
+complete_str = "DEBUG: Run level 9 done"
 max_time = 1.0
 
 [threadx.per_run_process]

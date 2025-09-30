@@ -4,7 +4,7 @@ def test_console_restart(target_session):
     assert capserial.wait_for_boot_complete()
 
     startup_bytes = b"INFO: Initialize level 1"
-    booted_bytes = b"DEBUG: Run level 8 done"
+    booted_bytes = b"DEBUG: Run level 9 done"
 
     capserial.clear()
     # restart the target
