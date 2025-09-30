@@ -25,6 +25,9 @@ set(PLATFORM_SUPPORT_ETHERNET
 set(PLATFORM_SUPPORT_STORAGE
     ON
     CACHE BOOL "Turn persistent storage on or off" FORCE)
+set(PLATFORM_SUPPORT_TRANSPORT
+    ON
+    CACHE BOOL "Turn TRANSPORT support on or off" FORCE)
 set(PLATFORM_SUPPORT_UDS
     ON
     CACHE BOOL "Turn UDS support on or off" FORCE)

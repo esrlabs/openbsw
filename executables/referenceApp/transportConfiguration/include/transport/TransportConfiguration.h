@@ -1,4 +1,4 @@
-// Copyright 2024 Accenture.
+// Copyright 2025 Accenture.
 
 #pragma once
 
@@ -16,13 +16,13 @@ public:
     /**
      * Tester address range for 8 bit CAN addressing
      */
-    static uint16_t const TESTER_RANGE_8BIT_START = 0x00F0U;
+    static uint16_t const TESTER_RANGE_8BIT_START = 0x00E0U;
     static uint16_t const TESTER_RANGE_8BIT_END   = 0x00FDU;
 
     /**
      * Tester address range for DOIP addressing
      */
-    static uint16_t const TESTER_RANGE_DOIP_START = 0x0EF0U;
+    static uint16_t const TESTER_RANGE_DOIP_START = 0x0EE0U;
     static uint16_t const TESTER_RANGE_DOIP_END   = 0x0EFDU;
 
     /**

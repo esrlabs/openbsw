@@ -117,18 +117,22 @@ For example, the lifecycle on the POSIX platform is set up as follows...
       - TASK_UDS
       - executables/referenceApp/application/src/app/app.cpp
     * - 5
-      - DoCanSystem
-      - TASK_CAN
+      - DoCanSystem, EthernetSystem
+      - TASK_CAN, TASK_ETHERNET
       - executables/referenceApp/application/src/app/app.cpp
     * - 6
+      - DoIpServerSystem
+      - TASK_ETHERNET
+      - executables/referenceApp/application/src/app/app.cpp
+    * - 7
       - UdsSystem
       - TASK_UDS
       - executables/referenceApp/application/src/app/app.cpp
-    * - 7
+    * - 8
       - SysAdminSystem
       - TASK_SYSADMIN
       - executables/referenceApp/application/src/app/app.cpp
-    * - 8
+    * - 9
       - DemoSystem
       - TASK_DEMO
       - executables/referenceApp/application/src/app/app.cpp

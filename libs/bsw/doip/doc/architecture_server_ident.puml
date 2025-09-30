@@ -1,0 +1,52 @@
+@startuml
+
+class DoIpServerSystem
+class DoIpServerVehicleIdentificationService
+interface IDoIpServerEntityStatusCallback
+class DoIpServerVehicleIdentificationParameters
+class DoIpServerVehicleIdentification
+class DoIpConcreteOemMessageHandler
+
+class DoIpServerVehicleIdentificationSocketHandler
+class DoIpServerVehicleIdentificationRequest
+class DoIpServerVehicleIdentificationConfig
+
+interface IDoIpServerVehicleAnnouncementParameterProvider
+interface IDoIpServerVehicleIdentificationCallback
+interface IDoIpUdpOemMessageHandler
+
+DoIpServerSystem o-- DoIpServerVehicleIdentificationService
+DoIpServerSystem --|> IDoIpServerEntityStatusCallback
+DoIpServerSystem o-- DoIpServerVehicleIdentificationParameters
+DoIpServerSystem o-- DoIpServerVehicleIdentification
+DoIpServerSystem o-- DoIpConcreteOemMessageHandler
+
+DoIpServerVehicleIdentificationService o-- DoIpServerVehicleIdentificationSocketHandler
+DoIpServerVehicleIdentificationService o-- DoIpServerVehicleIdentificationRequest
+DoIpServerVehicleIdentificationService o-- DoIpServerVehicleIdentificationConfig
+
+DoIpServerVehicleIdentificationSocketHandler o-  DoIpServerVehicleIdentificationRequest
+DoIpServerVehicleIdentificationConfig        o- DoIpServerVehicleIdentificationRequest
+
+DoIpServerVehicleIdentificationParameters       --|> IDoIpServerVehicleAnnouncementParameterProvider
+DoIpServerVehicleIdentification                 --|> IDoIpServerVehicleIdentificationCallback
+IDoIpServerEntityStatusCallback                 ..   DoIpServerVehicleIdentificationConfig
+IDoIpServerVehicleAnnouncementParameterProvider ..   DoIpServerVehicleIdentificationConfig
+IDoIpServerVehicleIdentificationCallback        ..   DoIpServerVehicleIdentificationConfig
+DoIpServerVehicleIdentification                 ..   IDoIpUdpOemMessageHandler
+DoIpConcreteOemMessageHandler                   --|> IDoIpUdpOemMessageHandler
+
+DoIpServerVehicleIdentificationConfig .. DoIpServerVehicleIdentificationSocketHandler
+IDoIpUdpOemMessageHandler             .. DoIpServerVehicleIdentificationSocketHandler
+
+package "common" {
+
+interface IDoIpConnectionHandler
+interface IDoIpVehicleAnnouncementListener
+
+DoIpServerVehicleIdentificationSocketHandler --|> IDoIpConnectionHandler
+DoIpServerVehicleIdentificationSocketHandler ..   IDoIpVehicleAnnouncementListener
+
+}
+
+@enduml

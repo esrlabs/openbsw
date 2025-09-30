@@ -5,18 +5,17 @@ EthernetSystem
 
 Overview
 --------
-The ``EthernetSystem`` class is responsible for facilitating Ethernet communication.
+The ``EthernetSystem`` class initializes and manages Ethernet network interfaces using
+the LwIP stack. Responsibilities include:
 
-Simple Applications
--------------------
-* ``LoopbackTestServer``: Echoes back the payload on TCP port ``49555``.
+- Handles multiple network interfaces with IPv4 configuration
+- Initializes LwIP stack and configures network interfaces with IPv4 settings
+- Processes incoming packets every millisecond with VLAN demultiplexing
+- Monitors link status every periodically and updates interface state
+- Executes LwIP timeout checks periodically
 
-* ``TcpIperf2Server``: An Iperf2 server that responds to iperf2 client test requests
-  on the default TCP port ``5001``.
 
-* ``UdpEchoTestServer``: Echoes back the payload on UDP port ``49444``.
-
-* ``UdpIperf2Server``: An Iperf2 server that responds to iperf2 client test requests
-  on the default UDP port ``5001``.
-
-Refer :ref:`learning_ethernet` for more details on how to set up and test Ethernet communication.
+References
+----------
+- :ref:`learning_ethernet` for more details on how to set up and test Ethernet communication.
+- :ref:`demo_system` for examples of Ethernet usage in the DemoSystem.
