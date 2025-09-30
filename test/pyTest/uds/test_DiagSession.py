@@ -18,10 +18,10 @@ from helpers.helper_functions import hexlify
         (0x03, 0x01, "50 01 00 32 01 f4"),
     ],
 )
-def test_session_change(target_session, id1, id2, ex_op):
+def test_session_change(target_session, id1, id2, ex_op, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     id = id1
     req = uds.DiagnosticSessionControl().make_request(id)
     assert uds_client.send_request(req).get_payload()[0] == 0x50
@@ -31,10 +31,10 @@ def test_session_change(target_session, id1, id2, ex_op):
 
 
 # Test: Testing with invalid subfunction, should return NRC ISO_SUBFUNCTION_NOT_SUPPORTED
-def test_ISO_SUBFUNCTION_NOT_SUPPORTED(target_session):
+def test_ISO_SUBFUNCTION_NOT_SUPPORTED(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     id = 0x10
     req = uds.DiagnosticSessionControl().make_request(id)
     with pytest.raises(udsoncan.exceptions.NegativeResponseException) as excinfo:
@@ -44,10 +44,10 @@ def test_ISO_SUBFUNCTION_NOT_SUPPORTED(target_session):
 
 
 # Test: Testing with invalid values for service (0x11) instead of 0x10, should receive NRC ISO_SERVICE_NOT_SUPPORTED
-def test_ISO_SERVICE_NOT_SUPPORTED(target_session):
+def test_ISO_SERVICE_NOT_SUPPORTED(target_session, uds_transport):
     assert target_session.capserial().wait_for_boot_complete()
 
-    uds_client = target_session.uds_client()
+    uds_client = target_session.uds_client(uds_transport)
     request_payload = bytes([0x11, 0x01])
     uds_client.conn.send(request_payload)
     payload = uds_client.conn.wait_frame(timeout=2, exception=True)

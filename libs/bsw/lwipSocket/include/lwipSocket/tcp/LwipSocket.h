@@ -4,6 +4,7 @@
 
 #include "lwip/err.h"
 
+#include <etl/span.h>
 #include <ip/IPEndpoint.h>
 #include <tcp/IDataListener.h>
 #include <tcp/socket/AbstractSocket.h>

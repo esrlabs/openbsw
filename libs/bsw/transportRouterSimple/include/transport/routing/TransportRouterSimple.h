@@ -27,12 +27,15 @@ class TransportRouterSimple
 , public etl::uncopyable
 {
 public:
+    TransportRouterSimple();
+    TransportRouterSimple(TransportRouterSimple const&)            = delete;
+    TransportRouterSimple& operator=(TransportRouterSimple const&) = delete;
+
     static uint8_t const NUM_BUFFERS             = 3U;
     static uint8_t const NUM_FUNCTIONAL_BUFFERS  = 8U;
     static uint16_t const BUFFER_SIZE            = 0xFFF;
     static uint16_t const FUNCTIONAL_BUFFER_SIZE = 8U;
 
-    TransportRouterSimple();
     void init();
     void shutdown();
 

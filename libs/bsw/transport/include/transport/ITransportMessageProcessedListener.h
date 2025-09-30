@@ -48,6 +48,8 @@ public:
     virtual void
     transportMessageProcessed(TransportMessage& transportMessage, ProcessingResult result)
         = 0;
+
+    virtual ~ITransportMessageProcessedListener() = default;
 };
 
 class DefaultTransportMessageProcessedListener

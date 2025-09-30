@@ -8,7 +8,7 @@ Previous: :ref:`learning_can`
 Unified Diagnostic Services (UDS) is a widely used protocol for automotive diagnostics
 that is independent of the transport layer.
 
-Take a look at the "Systems" set up from levels 5 to 7 in as described in :ref:`learning_lifecycle`.
+Take a look at the "Systems" set up from levels 4 to 7 in as described in :ref:`learning_lifecycle`.
 
 .. list-table::
     :header-rows: 1
@@ -18,18 +18,23 @@ Take a look at the "Systems" set up from levels 5 to 7 in as described in :ref:`
     * - Run Level
       - Component
       - Contexts
-    * - 5
+    * - 4
       - TransportSystem
       - TASK_UDS
-    * - 6
+    * - 5
       - DoCanSystem
       - TASK_CAN
+    * - 5
+      - EthernetSystem
+      - TASK_ETHERNET
+    * - 6
+      - DoipServerSystem
+      - TASK_ETHERNET
     * - 7
       - UdsSystem
       - TASK_UDS
 
-In this example, CAN provides the transport layer,
-but note that the separation of UDS from the transport path allows multiple transports to be supported.
+In this example, CAN and Ethernet provide the transport layer. Note that the separation of UDS from the transport path allows multiple transports to be supported.
 Take time to study these "System" classes and how they interact.
 
 UDS over CAN
@@ -143,8 +148,6 @@ If it works it should show output like this...
 
 .. code-block:: bash
 
-    uptime library not available, timestamps are relative to boot time and not to Epoch UTC
-    <class 'udsoncan.client.Client'>
     62cf01010200022202160f0100006d2f0000010600008fe0000001
     <PositiveResponse: [ReadDataByIdentifier] - 26 data bytes at 0x7d9f586c2530>
 
@@ -181,5 +184,45 @@ The output from ``candump vcan0`` shows all details of these CAN frames...
 
 To learn more you can experiment with adding you own services to ``UdsSystem``
 similar to ``ReadIdentifierFromMemory _read22Cf01``.
+
+UDS over Ethernet (DoIP)
+------------------------
+
+The DoIP implementation in the reference app currently uses DoIP version 2 as per ISO 13400-2:2012.
+
+You can try the same example over Ethernet, provided you have successfully tested the Ethernet setup
+on target as described in :ref:`learning_ethernet`.
+
+Ensure ethernet interface is successfully set up and Application is running before testing DoIP.
+
+Refer :ref:`UdsTool` for more details on sending request over Ethernet, installation and other
+available commands (Service Requests).
+
+.. note::
+   - Use the target's IP address in the UDS tool command (see :ref:`learning_ethernet`).
+   - Ensure UdsTool version `0.0.3` or later for DoIP-2 support. Check with: ``pip show udstool``.
+
+To run an example request to read ``0xCF01`` DID, Open a new shell terminal and run:
+
+.. code-block:: bash
+
+    udstool read --eth --host 192.168.0.201 --ecu 002a --source ef1 --did cf01
+
+Here, ``--host`` is the IP address of the ECU, and ``--ecu`` and ``--source`` are the logical
+addresses of the ECU and the client respectively.
+
+When you run this command, you should observe output similar to the previous example over CAN:
+
+.. code-block:: bash
+
+    62cf01010200022202160f0100006d2f0000010600008fe0000001
+    <PositiveResponse: [ReadDataByIdentifier] - 26 data bytes at 0x7d9f586c2530>
+
+However, this time you can also see the Ethernet traffic in `Wireshark` as follows:
+
+.. image:: images/uds_eth_traffic.png
+   :width: 100%
+   :align: center
+   :alt: UDS over Ethernet traffic in Wireshark
 
 Next: :ref:`learning_hwio`

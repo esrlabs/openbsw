@@ -1,0 +1,63 @@
+@startuml DoIpServerTransportLayer.TestSendWithConnection.Sequence
+
+participant App as App
+participant DoIpServerTransportLayer as STL
+participant DoIpServerTransportConnectionProvider as STConnProv
+participant IDoIpServerSocketHandler as SSH
+participant IDoIpServerTransportConnectionPool as STConnPool
+participant DoIpServerTransportConnection as STConn
+
+App -> STL ++ : init()
+STL -> STConnProv ++ : start()
+STConnProv -> SSH ++ : start()
+SSH -> SSH : connectionAcceptanceProcess
+SSH --> STConnProv -- :
+STConnProv --> STL -- :
+App <-- STL -- :
+SSH -> STConnProv ++ : callback:connectionAccepted()
+STConnProv -> STL ++ : getSocketGroupId()
+STL --> STConnProv --:
+STConnProv -> STConnPool ++ : createConnection(socketGroupId, socket)
+STConnPool -> STConn ++ : DoIpServerTransportConnection()
+STConnPool <-- STConn -- : instance:DoIpServerTransportConnection
+STConnPool --> STConnProv -- : connection
+STConnProv -> STL ++ : connectionAccepted()
+STL -> STL : store connection
+STL -> STConn ++ : start()
+STConn -> STConn ++ : init()
+STConn --
+STConn -> STConn ++ : sendConnectionOpened()
+STConn --
+STConn -> STConn ++ : scheduleRoutingActivationRequest()
+STConn --
+STConn --> STL -- :
+STL --> STConnProv -- :
+STConnProv --
+STConn --
+STConn -> STConn ++ : routingActivationRequestReceived()
+STConn -> STL ++ : checkRoutingActivation()
+STL -> STL ++ : RoutingActivationCheckResult()
+STL --
+STL --> STConn -- : RoutingActivationCheckResult()
+STConn -> STL ++ : handleRoutingActivationRequest()
+STL -> STL ++ : startAliveCheck()
+STL -> STConn ++ : routingActivationCompleted()
+STConn -> STConn ++ : sendRoutingActivationResponse()
+STConn --
+STConn -> STL ++ : routingActive()
+STL -> App ++ : routingActive()
+STL <-- App -- :
+STConn <-- STL -- :
+STConn --
+STConn --
+STL --
+STL --
+
+App -> STL ++ : send()
+STL -> STConn ++ : send()
+STConn -> STConn ++ : sendMessage()
+STConn --
+STConn --> STL --
+App <-- STL -- :
+
+@enduml

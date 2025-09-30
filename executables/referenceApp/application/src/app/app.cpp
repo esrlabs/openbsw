@@ -22,19 +22,25 @@
 #include <safeMemory/RomCheck.h>
 #endif
 
-#ifdef PLATFORM_SUPPORT_UDS
+#ifdef PLATFORM_SUPPORT_TRANSPORT
 #include "busid/BusId.h"
 #include "systems/TransportSystem.h"
-#include "systems/UdsSystem.h"
-#endif // PLATFORM_SUPPORT_UDS
-
-#ifdef PLATFORM_SUPPORT_CAN
-#include "systems/DoCanSystem.h"
-#endif // PLATFORM_SUPPORT_CAN
+#endif // PLATFORM_SUPPORT_TRANSPORT
 
 #ifdef PLATFORM_SUPPORT_ETHERNET
 #include "systems/EthernetSystem.h"
+#ifdef PLATFORM_SUPPORT_TRANSPORT
+#include "systems/DoIpServerSystem.h"
+#endif // PLATFORM_SUPPORT_TRANSPORT
 #endif // PLATFORM_SUPPORT_ETHERNET
+       //
+#if defined(PLATFORM_SUPPORT_CAN) && defined(PLATFORM_SUPPORT_TRANSPORT)
+#include "systems/DoCanSystem.h"
+#endif // defined(PLATFORM_SUPPORT_CAN) && defined(PLATFORM_SUPPORT_TRANSPORT)
+
+#if defined(PLATFORM_SUPPORT_TRANSPORT) && defined(PLATFORM_SUPPORT_UDS)
+#include "systems/UdsSystem.h"
+#endif // defined(PLATFORM_SUPPORT_TRANSPORT) && defined(PLATFORM_SUPPORT_UDS)
 
 #ifdef PLATFORM_SUPPORT_STORAGE
 #include "systems/StorageSystem.h"
@@ -90,7 +96,7 @@ using AsyncRuntimeMonitor = ::async::AsyncBinding::RuntimeMonitorType;
 using AsyncContextHook    = ::async::AsyncBinding::ContextHookType;
 
 constexpr size_t MaxNumComponents         = 16;
-constexpr size_t MaxNumLevels             = 8;
+constexpr size_t MaxNumLevels             = 9;
 constexpr size_t MaxNumComponentsPerLevel = MaxNumComponents;
 
 using LifecycleManager = ::lifecycle::declare::
@@ -112,16 +118,21 @@ LifecycleManager lifecycleManager{
 ::etl::typed_storage<::systems::SafetySystem> safetySystem;
 #ifdef PLATFORM_SUPPORT_ETHERNET
 ::etl::typed_storage<::systems::EthernetSystem> ethernetSystem;
-#endif
+#endif // PLATFORM_SUPPORT_ETHERNET
 
-#ifdef PLATFORM_SUPPORT_UDS
+#ifdef PLATFORM_SUPPORT_TRANSPORT
 ::etl::typed_storage<::transport::TransportSystem> transportSystem;
-::etl::typed_storage<::uds::UdsSystem> udsSystem;
-#endif
-
 #ifdef PLATFORM_SUPPORT_CAN
 ::etl::typed_storage<::docan::DoCanSystem> doCanSystem;
-#endif
+#endif // PLATFORM_SUPPORT_CAN
+#ifdef PLATFORM_SUPPORT_ETHERNET
+::etl::typed_storage<::doip::DoIpServerSystem> doipServerSystem;
+#endif // PLATFORM_SUPPORT_ETHERNET
+#endif // PLATFORM_SUPPORT_TRANSPORT
+
+#if defined(PLATFORM_SUPPORT_TRANSPORT) and defined(PLATFORM_SUPPORT_UDS)
+::etl::typed_storage<::uds::UdsSystem> udsSystem;
+#endif // defined(PLATFORM_SUPPORT_TRANSPORT) and defined(PLATFORM_SUPPORT_UDS)
 
 #ifdef PLATFORM_SUPPORT_STORAGE
 ::etl::typed_storage<::systems::StorageSystem> storageSystem;
@@ -229,12 +240,12 @@ void startApp()
     ::platform::platformLifecycleAdd(lifecycleManager, 3U);
 
     /* runlevel 4 */
-#ifdef PLATFORM_SUPPORT_UDS
+#ifdef PLATFORM_SUPPORT_TRANSPORT
     lifecycleManager.addComponent("transport", transportSystem.create(TASK_UDS), 4U);
 #endif
 
     /* runlevel 5 */
-#ifdef PLATFORM_SUPPORT_CAN
+#if defined(PLATFORM_SUPPORT_TRANSPORT) && defined(PLATFORM_SUPPORT_CAN)
     lifecycleManager.addComponent(
         "docan", doCanSystem.create(*transportSystem, ::systems::getCanSystem(), TASK_CAN), 5U);
 #endif
@@ -252,17 +263,32 @@ void startApp()
 #endif
 
     /* runlevel 6 */
-#ifdef PLATFORM_SUPPORT_UDS
+#if defined(PLATFORM_SUPPORT_ETHERNET) && defined(PLATFORM_SUPPORT_TRANSPORT)
     lifecycleManager.addComponent(
-        "uds", udsSystem.create(lifecycleManager, *transportSystem, TASK_UDS, LOGICAL_ADDRESS), 6U);
+        "doipServer",
+        doipServerSystem.create(
+            *transportSystem,
+            ethernetSystem->netifConfigRegistry,
+            TASK_ETHERNET,
+            ::busid::ETH_0,
+            LOGICAL_ADDRESS,
+            ::ethX::MAC_ADDRESS,
+            ethernetSystem->netifs.networkInterfaceConfigsIp4[0].broadcastAddress()), // ETH0
+        6U);
 #endif
 
     /* runlevel 7 */
+#if defined(PLATFORM_SUPPORT_TRANSPORT) && defined(PLATFORM_SUPPORT_UDS)
     lifecycleManager.addComponent(
-        "sysadmin", sysAdminSystem.create(TASK_SYSADMIN, lifecycleManager), 7U);
+        "uds", udsSystem.create(lifecycleManager, *transportSystem, TASK_UDS, LOGICAL_ADDRESS), 7U);
+#endif
 
     /* runlevel 8 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 8U);
+    lifecycleManager.addComponent(
+        "sysadmin", sysAdminSystem.create(TASK_SYSADMIN, lifecycleManager), 8U);
+
+    /* runlevel 9 */
+    ::platform::platformLifecycleAdd(lifecycleManager, 9U);
     // clang-format off
     lifecycleManager.addComponent(
         "demo",
@@ -276,7 +302,7 @@ void startApp()
             , (*storageSystem).getStorage()
 #endif
         ),
-        8U);
+        9U);
     // clang-format on
 
     lifecycleManager.transitionToLevel(MaxNumLevels);

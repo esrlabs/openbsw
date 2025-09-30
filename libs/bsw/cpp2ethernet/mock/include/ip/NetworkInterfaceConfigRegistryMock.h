@@ -2,16 +2,17 @@
 
 #pragma once
 
-#include "ip/INetworkInterfaceConfigRegistry.h"
+#include "ip/NetworkInterfaceConfig.h"
 
 #include <gmock/gmock.h>
 
 namespace ip
 {
-struct NetworkInterfaceConfigRegistryMock
+struct NetworkInterfaceConfigRegistryMock : public ::ip::NetworkInterfaceConfigRegistry
 {
-    MOCK_METHOD(ConfigChangedSignal&, configChangedSignal, ());
-    MOCK_METHOD(void, updateConfig, (NetworkInterfaceConfig const&));
+    NetworkInterfaceConfigRegistryMock() : ::ip::NetworkInterfaceConfigRegistry({}, {}) {}
+
+    MOCK_METHOD(::ip::NetworkInterfaceConfig, getConfig, (uint8_t), (const, override));
 };
 
 } // namespace ip

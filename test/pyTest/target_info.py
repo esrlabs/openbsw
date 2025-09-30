@@ -130,7 +130,7 @@ class TargetInfo:
         desc = f"name={self.name}\n"
         desc = desc + f"socketcan={self.socketcan}\n"
         desc = desc + f"serial={self.serial}\n"
-        desc = desc + f"ip_addr={self.eth}\n"
+        desc = desc + f"eth={self.eth}\n"
         desc = desc + f"pty_forwarder={self.pty_forwarder}\n"
         desc = desc + f"per_run_process={self.per_run_process}\n"
         desc = desc + f"target_process={self.target_process}\n"

@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <etl/span.h>
 #include <etl/vector.h>
 #include <ip/IPAddress.h>
 #include <udp/socket/AbstractDatagramSocket.h>
