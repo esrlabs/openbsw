@@ -25,3 +25,4 @@ doc/doc-coverage.info
 doc/doxygenOut
 tools/puncover_tool/output/
 venv
+elf-analyzer-artifacts/
