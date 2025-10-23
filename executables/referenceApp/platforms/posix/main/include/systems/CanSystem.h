@@ -3,31 +3,36 @@
 #pragma once
 
 #include <can/SocketCanTransceiver.h>
-#include <lifecycle/AsyncLifecycleComponent.h>
+#include <config/ConfigIds.h>
 #include <systems/ICanSystem.h>
 
-namespace systems
+namespace config
 {
 
 class CanSystem final
-: public ::can::ICanSystem
-, public ::lifecycle::AsyncLifecycleComponent
+: public ComponentBase<ScopeType, CtxId<Ctx::CAN>>
 , private ::async::IRunnable
 {
 public:
     // [PUBLIC_API_START]
-    explicit CanSystem(::async::ContextType context);
+    CanSystem();
     CanSystem(CanSystem const&)            = delete;
     CanSystem& operator=(CanSystem const&) = delete;
 
-    ::can::ICanTransceiver* getCanTransceiver(uint8_t busId) override;
+    void init();
+    void start();
+    void stop();
 
-    void init() final;
-    void run() final;
-    void shutdown() final;
     // [PUBLIC_API_END]
-private:
+
     void execute() final;
+
+    static constexpr auto services()
+    {
+        return serviceAccessor<CanSystem>()
+            .member<::can::SocketCanTransceiver, &CanSystem::_canTransceiver>()
+            .service<CanId<Bus::CAN_0>>();
+    }
 
 private:
     ::async::TimeoutType _timeout;

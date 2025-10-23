@@ -6,59 +6,76 @@
 #include "estd/typed_mem.h"
 #include "logger/logger.h"
 #include "reset/softwareSystemReset.h"
-#include "systems/DemoSystem.h"
-#include "systems/RuntimeSystem.h"
-#include "systems/SafetySystem.h"
-#include "systems/SysAdminSystem.h"
 
 #include <app/appConfig.h>
-
-#ifdef PLATFORM_SUPPORT_UDS
-#include "busid/BusId.h"
-#include "systems/TransportSystem.h"
-#include "systems/UdsSystem.h"
-#endif // PLATFORM_SUPPORT_UDS
-
-#ifdef PLATFORM_SUPPORT_CAN
-#include "systems/DoCanSystem.h"
-#endif // PLATFORM_SUPPORT_CAN
+#include <config/AppHandler.h>
+#include <config/ConfigIds.h>
+#include <config/LifecycleHelper.h>
 
 #include <async/AsyncBinding.h>
 #include <lifecycle/LifecycleLogger.h>
 #include <lifecycle/LifecycleManager.h>
 
-#ifdef PLATFORM_SUPPORT_CAN
-#include <systems/ICanSystem.h>
-
-namespace systems
-{
-extern ::can::ICanSystem& getCanSystem();
-} // namespace systems
-#endif
-
-#include <platform/estdint.h>
-
 namespace platform
 {
-// TODO: move declaration to header file
-extern void platformLifecycleAdd(::lifecycle::LifecycleManager& lifecycleManager, uint8_t level);
+extern void initPlatform(::config::ScopeType& scope);
 } // namespace platform
 
-namespace app
+namespace config
 {
 using ::util::logger::LIFECYCLE;
 using ::util::logger::Logger;
 
+using AsyncAdapter = ::async::AsyncBinding::AdapterType;
+
+constexpr auto lifecycleDesc = lifecycle(
+    level<
+        CompId<Comp::BSP>,
+        CompId<Comp::CAN>,
+        CompId<Comp::SAFETY>>(),
+    level<CompId<Comp::TRANSPORT>>(),
+    level<CompId<Comp::DOCAN>>(),
+    level<CompId<Comp::UDS>>(),
+    level<CompId<Comp::DEMO>>(),
+    level<
+        CompId<Comp::RUNTIME>,
+        CompId<Comp::SYSADMIN>>());
+
+constexpr auto scopeInput = ScopeType::prepareInput(
+    context<CtxId<Ctx::BSP>>(TASK_BSP),
+    context<CtxId<Ctx::CAN>>(TASK_CAN),
+    context<CtxId<Ctx::DEMO>>(TASK_DEMO),
+    context<CtxId<Ctx::DIAG>>(TASK_UDS),
+    context<CtxId<Ctx::LIFECYCLE>>(TASK_SYSADMIN),
+    context<CtxId<Ctx::RUNTIME>>(TASK_BACKGROUND),
+    context<CtxId<Ctx::SAFETY>>(TASK_SAFETY));
+
+ScopeType appScope(scopeInput);
+
+AppHandler<
+    ComponentHandlerType,
+    decltype(lifecycleDesc),
+    Types<
+        CompId<Comp::BSP>,
+#ifdef PLATFORM_SUPPORT_CAN
+        CompId<Comp::CAN>,
+        CompId<Comp::DOCAN>,
+#endif
+#ifdef PLATFORM_SUPPORT_UDS
+        CompId<Comp::TRANSPORT>,
+        CompId<Comp::UDS>,
+#endif
+        CompId<Comp::DEMO>,
+        CompId<Comp::RUNTIME>,
+        CompId<Comp::SAFETY>,
+        CompId<Comp::SYSADMIN>>>
+    appHandler(
+        TASK_SYSADMIN,
+        ::lifecycle::LifecycleManager::GetTimestampType::create<&getSystemTimeUs32Bit>());
+
 using AsyncAdapter        = ::async::AsyncBinding::AdapterType;
 using AsyncRuntimeMonitor = ::async::AsyncBinding::RuntimeMonitorType;
 using AsyncContextHook    = ::async::AsyncBinding::ContextHookType;
-
-constexpr size_t MaxNumComponents         = 16;
-constexpr size_t MaxNumLevels             = 8;
-constexpr size_t MaxNumComponentsPerLevel = MaxNumComponents;
-
-using LifecycleManager = ::lifecycle::declare::
-    LifecycleManager<MaxNumComponents, MaxNumLevels, MaxNumComponentsPerLevel>;
 
 char const* const isrGroupNames[ISR_GROUP_COUNT] = {"test"};
 
@@ -66,31 +83,14 @@ AsyncRuntimeMonitor runtimeMonitor{
     AsyncContextHook::InstanceType::GetNameType::create<&AsyncAdapter::getTaskName>(),
     isrGroupNames};
 
-LifecycleManager lifecycleManager{
-    TASK_SYSADMIN,
-    ::lifecycle::LifecycleManager::GetTimestampType::create<&getSystemTimeUs32Bit>()};
-
-::estd::typed_mem<::systems::RuntimeSystem> runtimeSystem;
-::estd::typed_mem<::systems::SysAdminSystem> sysAdminSystem;
-::estd::typed_mem<::systems::DemoSystem> demoSystem;
-::estd::typed_mem<::systems::SafetySystem> safetySystem;
-
-#ifdef PLATFORM_SUPPORT_UDS
-::estd::typed_mem<::transport::TransportSystem> transportSystem;
-#endif
-
-#ifdef PLATFORM_SUPPORT_CAN
-::estd::typed_mem<::docan::DoCanSystem> doCanSystem;
-#endif
-
-#ifdef PLATFORM_SUPPORT_UDS
-::estd::typed_mem<::uds::UdsSystem> udsSystem;
-#endif
 
 class LifecycleMonitor : private ::lifecycle::ILifecycleListener
 {
 public:
-    explicit LifecycleMonitor(LifecycleManager& manager) { manager.addLifecycleListener(*this); }
+    explicit LifecycleMonitor(::lifecycle::ILifecycleManager& manager)
+    {
+        manager.addLifecycleListener(*this);
+    }
 
     bool isReadyForReset() const { return _isReadyForReset; }
 
@@ -109,7 +109,7 @@ private:
     bool _isReadyForReset = false;
 };
 
-LifecycleMonitor lifecycleMonitor(lifecycleManager);
+LifecycleMonitor lifecycleMonitor(appHandler.getLifecycleManager());
 
 void staticInit()
 {
@@ -133,55 +133,15 @@ void run()
     staticInit();
     AsyncAdapter::init();
 
-    /* runlevel 1 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 1U);
-    lifecycleManager.addComponent(
-        "runtime", runtimeSystem.emplace(TASK_BACKGROUND, runtimeMonitor), 1U);
-    /* runlevel 2 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 2U);
-    /* runlevel 3 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 3U);
-    /* runlevel 4 */
-#ifdef PLATFORM_SUPPORT_UDS
-    lifecycleManager.addComponent("transport", transportSystem.emplace(TASK_UDS), 4U);
-#endif
+    ::platform::initPlatform(appScope);
 
-    /* runlevel 5 */
-#ifdef PLATFORM_SUPPORT_CAN
-    lifecycleManager.addComponent(
-        "docan", doCanSystem.emplace(*transportSystem, ::systems::getCanSystem(), TASK_CAN), 5U);
-#endif
+    appScope.setService<Id<::async::AsyncBinding::RuntimeMonitorType>>(runtimeMonitor);
+    appScope.setService<Id<::lifecycle::ILifecycleManager>>(
+        appHandler.getLifecycleManager());
+    appHandler.init<ComponentLookup>(appScope);
 
-    /* runlevel 6 */
-#ifdef PLATFORM_SUPPORT_UDS
-    lifecycleManager.addComponent(
-        "uds",
-        udsSystem.emplace(lifecycleManager, *transportSystem, TASK_UDS, LOGICAL_ADDRESS),
-        6U);
-#endif
-
-    /* runlevel 7 */
-    lifecycleManager.addComponent(
-        "sysadmin", sysAdminSystem.emplace(TASK_SYSADMIN, lifecycleManager), 7U);
-
-    /* runlevel 8 */
-    ::platform::platformLifecycleAdd(lifecycleManager, 8U);
-    lifecycleManager.addComponent(
-        "demo",
-        demoSystem.emplace(
-            TASK_DEMO,
-            lifecycleManager
-#ifdef PLATFORM_SUPPORT_CAN
-            ,
-            ::systems::getCanSystem()
-#endif
-                ),
-        8U);
-
-    lifecycleManager.addComponent(
-        "safety", safetySystem.emplace(TASK_SAFETY, lifecycleManager), 8U);
-
-    lifecycleManager.transitionToLevel(MaxNumLevels);
+    appHandler.getLifecycleManager().transitionToLevel(
+        appHandler.getLifecycleManager().getLevelCount());
 
     runtimeMonitor.start();
     AsyncAdapter::run();
@@ -232,4 +192,14 @@ SafetyTask safetyTask{"safety"};
 
 AsyncContextHook contextHook{runtimeMonitor};
 
-} // namespace app
+} // namespace config
+
+namespace app
+{
+void run()
+{
+    ::config::run();
+}
+}
+
+

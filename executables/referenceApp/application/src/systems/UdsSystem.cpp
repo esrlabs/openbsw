@@ -2,6 +2,7 @@
 
 #include "systems/UdsSystem.h"
 
+#include "app/appConfig.h"
 #include "busid/BusId.h"
 #include "lifecycle/LifecycleManager.h"
 #include "transport/ITransportSystem.h"
@@ -11,7 +12,9 @@
 
 #include <estd/type_traits.h>
 
-namespace uds
+DEFINE_COMPONENT(::config::CompId<::config::Comp::UDS>, config, udsSystem, ::config::UdsSystem)
+
+namespace config
 {
 using ::util::logger::Logger;
 using ::util::logger::UDS;
@@ -20,20 +23,15 @@ uint8_t const responseData22Cf01[]
     = {0x01, 0x02, 0x00, 0x02, 0x22, 0x02, 0x16, 0x0F, 0x01, 0x00, 0x00, 0x6D,
        0x2F, 0x00, 0x00, 0x01, 0x06, 0x00, 0x00, 0x8F, 0xE0, 0x00, 0x00, 0x01};
 
-UdsSystem::UdsSystem(
-    lifecycle::LifecycleManager& lManager,
-    transport::ITransportSystem& transportSystem,
-    ::async::ContextType context,
-    uint16_t udsAddress)
-: AsyncLifecycleComponent()
-, ::estd::singleton<UdsSystem>(*this)
-, _udsLifecycleConnector(lManager)
-, _transportSystem(transportSystem)
+UdsSystem::UdsSystem() : UdsSystem(getContext<CtxId<Ctx::DIAG>>()) {}
+
+UdsSystem::UdsSystem(::async::ContextType context)
+: _udsLifecycleConnector(getService<Id<::lifecycle::ILifecycleManager>>())
 , _jobRoot()
 , _diagnosticSessionControl(_udsLifecycleConnector, context, _dummySessionPersistence)
 , _communicationControl()
 , _udsConfiguration(
-      udsAddress,
+      LOGICAL_ADDRESS,
       transport::TransportConfiguration::FUNCTIONAL_ALL_ISO14229,
       ::busid::SELFDIAG,
       transport::TransportConfiguration::DIAG_PAYLOAD_SIZE,
@@ -42,44 +40,44 @@ UdsSystem::UdsSystem(
       true,  /* copy functional requests */
       context)
 , _udsDispatcher(_udsConfiguration, _diagnosticSessionControl, _jobRoot, context)
-, _readDataByIdentifier()
+, _readDataHandler(getContext<typename ScopeType::ContextTableId>())
+, _readDataById(_readDataHandler)
 , _writeDataByIdentifier()
 , _routineControl()
 , _startRoutine()
 , _stopRoutine()
 , _requestRoutineResults()
-, _read22Cf01(0xCF01, responseData22Cf01)
-, _read22Cf02()
+//, _read22Cf01(0xCF01, responseData22Cf01)
+//, _read22Cf02()
 , _testerPresent()
-, _context(context)
 , _timeout()
 {
-    setTransitionContext(_context);
 }
 
 void UdsSystem::init()
 {
     (void)_udsDispatcher.init();
-    AbstractDiagJob::setDefaultDiagSessionManager(_diagnosticSessionControl);
+    uds::AbstractDiagJob::setDefaultDiagSessionManager(_diagnosticSessionControl);
     _diagnosticSessionControl.setDiagDispatcher(&_udsDispatcher);
-    _transportSystem.addTransportLayer(_udsDispatcher);
+    getService<Id<ITransportSystem>>().addTransportLayer(_udsDispatcher);
     addDiagJobs();
 
     transitionDone();
 }
 
-void UdsSystem::run()
+void UdsSystem::start()
 {
-    ::async::scheduleAtFixedRate(_context, *this, _timeout, 10, ::async::TimeUnit::MILLISECONDS);
+    ::async::ContextType const context = getContext<CtxId<Ctx::DIAG>>();
+    ::async::scheduleAtFixedRate(context, *this, _timeout, 10, ::async::TimeUnit::MILLISECONDS);
     transitionDone();
 }
 
-void UdsSystem::shutdown()
+void UdsSystem::stop()
 {
     removeDiagJobs();
     _diagnosticSessionControl.setDiagDispatcher(nullptr);
     _diagnosticSessionControl.shutdown();
-    _transportSystem.removeTransportLayer(_udsDispatcher);
+    getService<Id<ITransportSystem>>().removeTransportLayer(_udsDispatcher);
     (void)_udsDispatcher.shutdown(transport::AbstractTransportLayer::ShutdownDelegate::
                                       create<UdsSystem, &UdsSystem::shutdownComplete>(*this));
 }
@@ -90,27 +88,12 @@ void UdsSystem::shutdownComplete(transport::AbstractTransportLayer&)
     transitionDone();
 }
 
-DiagDispatcher2& UdsSystem::getUdsDispatcher() { return _udsDispatcher; }
-
-IAsyncDiagHelper& UdsSystem::getAsyncDiagHelper() { return _asyncDiagHelper; }
-
-IDiagSessionManager& UdsSystem::getDiagSessionManager() { return _diagnosticSessionControl; }
-
-DiagnosticSessionControl& UdsSystem::getDiagnosticSessionControl()
-{
-    return _diagnosticSessionControl;
-}
-
-CommunicationControl& UdsSystem::getCommunicationControl() { return _communicationControl; }
-
-ReadDataByIdentifier& UdsSystem::getReadDataByIdentifier() { return _readDataByIdentifier; }
-
 void UdsSystem::addDiagJobs()
 {
     // 22 - ReadDataByIdentifier
-    (void)_udsDispatcher.addAbstractDiagJob(_readDataByIdentifier);
-    (void)_udsDispatcher.addAbstractDiagJob(_read22Cf01);
-    (void)_udsDispatcher.addAbstractDiagJob(_read22Cf02);
+    (void)_udsDispatcher.addAbstractDiagJob(_readDataById);
+    //(void)_udsDispatcher.addAbstractDiagJob(_read22Cf01);
+    //(void)_udsDispatcher.addAbstractDiagJob(_read22Cf02);
 
     // 2E - WriteDataByIdentifier
     (void)_udsDispatcher.addAbstractDiagJob(_writeDataByIdentifier);
@@ -130,9 +113,9 @@ void UdsSystem::addDiagJobs()
 void UdsSystem::removeDiagJobs()
 {
     // 22 - ReadDataByIdentifier
-    (void)_udsDispatcher.removeAbstractDiagJob(_readDataByIdentifier);
-    (void)_udsDispatcher.removeAbstractDiagJob(_read22Cf01);
-    (void)_udsDispatcher.removeAbstractDiagJob(_read22Cf02);
+    (void)_udsDispatcher.removeAbstractDiagJob(_readDataById);
+    //(void)_udsDispatcher.removeAbstractDiagJob(_read22Cf01);
+    //(void)_udsDispatcher.removeAbstractDiagJob(_read22Cf02);
 
     // 2E - WriteDataByIdentifier
     (void)_udsDispatcher.removeAbstractDiagJob(_writeDataByIdentifier);
@@ -150,5 +133,13 @@ void UdsSystem::removeDiagJobs()
 }
 
 void UdsSystem::execute() {}
+
+bool UdsSystem::readCf01(::diag::IReadDataRequest& request)
+{
+    request.appendData(responseData22Cf01);
+    request.sendResponse(::diag::IReadDataRequest::ResponseCode::OK);
+    return true;
+}
+
 
 } // namespace uds

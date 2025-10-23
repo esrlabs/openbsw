@@ -7,16 +7,19 @@
 namespace transport
 {
 class AbstractTransportLayer;
+}
 
+namespace config
+{
 class ITransportSystem
 {
 public:
     /** Add a transport layer as a routing target */
-    virtual void addTransportLayer(AbstractTransportLayer& layer)    = 0;
+    virtual void addTransportLayer(::transport::AbstractTransportLayer& layer)    = 0;
     /** Remove a transport layer as a routing target */
-    virtual void removeTransportLayer(AbstractTransportLayer& layer) = 0;
+    virtual void removeTransportLayer(::transport::AbstractTransportLayer& layer) = 0;
 
-    virtual ITransportMessageProvider& getTransportMessageProvider() = 0;
+    virtual ::transport::ITransportMessageProvider& getTransportMessageProvider() = 0;
 };
 
-} // namespace transport
+} // namespace config

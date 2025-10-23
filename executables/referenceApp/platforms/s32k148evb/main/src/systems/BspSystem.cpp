@@ -5,14 +5,15 @@
 #include "bsp/timer/SystemTimer.h"
 #include "outputPwm/OutputPwm.h"
 
-namespace systems
+DEFINE_COMPONENT(::config::CompId<::config::Comp::BSP>, config, bspSystem, ::config::BspSystem)
+
+namespace config
 {
 
-BspSystem::BspSystem(::async::ContextType const context, StaticBsp& staticBsp)
-: ::lifecycle::SingleContextLifecycleComponent(context)
-, _context(context)
-, _staticBsp(staticBsp)
-, _analogTester()
+BspSystem::BspSystem() : BspSystem(getContext<CtxId<Ctx::BSP>>()) {}
+
+BspSystem::BspSystem(::async::ContextType const context)
+: _analogTester()
 , _outputPwmTester()
 , _digitalInputTester()
 , _outputTester()
@@ -24,13 +25,18 @@ BspSystem::BspSystem(::async::ContextType const context, StaticBsp& staticBsp)
 
 void BspSystem::init() { transitionDone(); }
 
-void BspSystem::run()
+void BspSystem::start()
 {
-    ::async::scheduleAtFixedRate(_context, *this, _timeout, 10u, ::async::TimeUnit::MILLISECONDS);
+    ::async::scheduleAtFixedRate(
+        getContext<CtxId<Ctx::BSP>>(),
+        *this,
+        _timeout,
+        10u,
+        ::async::TimeUnit::MILLISECONDS);
     transitionDone();
 }
 
-void BspSystem::shutdown()
+void BspSystem::stop()
 {
     _timeout.cancel();
     transitionDone();
@@ -39,11 +45,11 @@ void BspSystem::shutdown()
 void BspSystem::execute()
 {
     cyclic();
-    _staticBsp.cyclic();
+    getService<Id<StaticBsp>>().cyclic();
 }
 
 uint8_t bspSystemCycleCount = 0;
 
 void BspSystem::cyclic() {}
 
-} // namespace systems
+} // namespace config

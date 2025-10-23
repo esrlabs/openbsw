@@ -4,6 +4,8 @@
 
 #include <async/Async.h>
 #include <async/IRunnable.h>
+#include <config/ConfigIds.h>
+#include <diag/DataHandler.h>
 #include <lifecycle/AsyncLifecycleComponent.h>
 #include <uds/DiagDispatcher.h>
 #include <uds/DummySessionPersistence.h>
@@ -11,9 +13,10 @@
 #include <uds/UdsLifecycleConnector.h>
 #include <uds/async/AsyncDiagHelper.h>
 #include <uds/async/AsyncDiagJob.h>
-#include <uds/jobs/ReadIdentifierFromMemory.h>
+// #include <uds/jobs/ReadIdentifierFromMemory.h>
 #include <uds/services/communicationcontrol/CommunicationControl.h>
-#include <uds/services/readdata/ReadDataByIdentifier.h>
+// #include <uds/services/readdata/ReadDataByIdentifier.h>
+#include <uds/ReadDataById.h>
 #include <uds/services/routinecontrol/RequestRoutineResults.h>
 #include <uds/services/routinecontrol/RoutineControl.h>
 #include <uds/services/routinecontrol/StartRoutine.h>
@@ -22,51 +25,53 @@
 #include <uds/services/testerpresent/TesterPresent.h>
 #include <uds/services/writedata/WriteDataByIdentifier.h>
 
-#include <estd/singleton.h>
-
 namespace lifecycle
 {
 class LifecycleManager;
 }
 
-namespace transport
+namespace config
 {
 class ITransportSystem;
-}
 
-namespace uds
-{
 class UdsSystem
-: public lifecycle::AsyncLifecycleComponent
-, public ::estd::singleton<UdsSystem>
+: public ComponentBase<
+      ScopeType,
+      CtxId<Ctx::DIAG>,
+      Types<
+          Id<ITransportSystem>,
+          Id<::lifecycle::ILifecycleManager>,
+          typename ScopeType::ContextTableId>>
 , private ::async::IRunnable
 {
-    using Base = ::estd::singleton<UdsSystem>;
-
 public:
-    UdsSystem(
-        lifecycle::LifecycleManager& lManager,
-        transport::ITransportSystem& transportSystem,
-        ::async::ContextType context,
-        uint16_t udsAddress);
+    UdsSystem();
 
-    void init() override;
-    void run() override;
-    void shutdown() override;
+    void init();
+    void start();
+    void stop();
 
-    DiagDispatcher2& getUdsDispatcher();
+    static constexpr auto services()
+    {
+        return serviceAccessor<UdsSystem>()
+            .member<ReadDataHandlerType, &UdsSystem::_readDataHandler>()
+            .service<Id<::diag::DataHandler<::diag::IReadDataRequest>>>();
+    }
 
-    IAsyncDiagHelper& getAsyncDiagHelper();
-
-    IDiagSessionManager& getDiagSessionManager();
-
-    DiagnosticSessionControl& getDiagnosticSessionControl();
-
-    CommunicationControl& getCommunicationControl();
-
-    ReadDataByIdentifier& getReadDataByIdentifier();
+    static constexpr auto diagnostics()
+    {
+        return all(
+            diagAccessor<UdsSystem>().readData<&UdsSystem::readCf01>(0xcf01U),
+            diagAccessor<UdsSystem>()
+                .member<uds::ReadIdentifierPot, &UdsSystem::_read22Cf02>()
+                .readData<uint32_t, &uds::ReadIdentifierPot::readAdcValue>(0xcf02U));
+    }
 
 private:
+    using ReadDataHandlerType = ::diag::declare::DataHandler<::diag::IReadDataRequest, 4>;
+
+    UdsSystem(::async::ContextType context);
+
     void do_init(bool const wakingUp);
 
     void addDiagJobs();
@@ -76,29 +81,32 @@ private:
     void processDiagCluster();
     void execute() override;
 
-    UdsLifecycleConnector _udsLifecycleConnector;
+    bool readCf01(::diag::IReadDataRequest& request);
 
-    transport::ITransportSystem& _transportSystem;
-    DummySessionPersistence _dummySessionPersistence;
+    uds::UdsLifecycleConnector _udsLifecycleConnector;
 
-    DiagJobRoot _jobRoot;
-    DiagnosticSessionControl _diagnosticSessionControl;
-    CommunicationControl _communicationControl;
-    DiagnosisConfiguration<5, 1, 16> _udsConfiguration;
-    DiagDispatcher2 _udsDispatcher;
+    uds::DummySessionPersistence _dummySessionPersistence;
+
+    uds::DiagJobRoot _jobRoot;
+    uds::DiagnosticSessionControl _diagnosticSessionControl;
+    uds::CommunicationControl _communicationControl;
+    uds::DiagnosisConfiguration<5, 1, 16> _udsConfiguration;
+    uds::DiagDispatcher2 _udsDispatcher;
     uds::declare::AsyncDiagHelper<5> _asyncDiagHelper;
 
-    ReadDataByIdentifier _readDataByIdentifier;
-    WriteDataByIdentifier _writeDataByIdentifier;
-    RoutineControl _routineControl;
-    StartRoutine _startRoutine;
-    StopRoutine _stopRoutine;
-    RequestRoutineResults _requestRoutineResults;
-    ReadIdentifierFromMemory _read22Cf01;
-    ReadIdentifierPot _read22Cf02;
-    TesterPresent _testerPresent;
+    ::diag::declare::DataHandler<::diag::IReadDataRequest, 4> _readDataHandler;
+    ::uds::declare::ReadDataById<4> _readDataById;
 
-    ::async::ContextType _context;
+    // ReadDataByIdentifier _readDataByIdentifier;
+    uds::WriteDataByIdentifier _writeDataByIdentifier;
+    uds::RoutineControl _routineControl;
+    uds::StartRoutine _startRoutine;
+    uds::StopRoutine _stopRoutine;
+    uds::RequestRoutineResults _requestRoutineResults;
+    // ReadIdentifierFromMemory _read22Cf01;
+    uds::ReadIdentifierPot _read22Cf02;
+    uds::TesterPresent _testerPresent;
+
     ::async::TimeoutType _timeout;
 };
-} // namespace uds
+} // namespace config

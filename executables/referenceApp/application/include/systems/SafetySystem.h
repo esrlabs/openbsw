@@ -1,35 +1,29 @@
 // Copyright 2024 Accenture.
 
+#include <config/ConfigIds.h>
 #include <console/AsyncCommandWrapper.h>
-#include <lifecycle/AsyncLifecycleComponent.h>
-#include <lifecycle/console/LifecycleControlCommand.h>
 
-namespace systems
+namespace config
 {
 class SafetySystem
-: public ::lifecycle::AsyncLifecycleComponent
+: public ComponentBase<ScopeType, CtxId<Ctx::SAFETY>>
 , private ::async::IRunnable
 {
 public:
-    explicit SafetySystem(
-        ::async::ContextType context, ::lifecycle::ILifecycleManager& lifecycleManager);
+    SafetySystem() {}
     SafetySystem(SafetySystem const&)            = delete;
     SafetySystem& operator=(SafetySystem const&) = delete;
 
-    void init() override;
-    void run() override;
-    void shutdown() override;
+    void init();
+    void start();
+    void stop();
     void cyclic();
 
 private:
     void execute() override;
 
 private:
-    ::async::ContextType const _context;
     ::async::TimeoutType _timeout;
-
-    ::lifecycle::LifecycleControlCommand _lifecycleControlCommand;
-    ::console::AsyncCommandWrapper _asyncCommandWrapperForLifecycleControlCommand;
 };
 
-} // namespace systems
+} // namespace config

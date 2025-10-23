@@ -10,6 +10,9 @@
 #include <docan/common/DoCanLogger.h>
 #include <docan/datalink/DoCanFrameCodecConfigPresets.h>
 
+DEFINE_COMPONENT(
+    ::config::CompId<::config::Comp::DOCAN>, config, docanSystem, ::config::DoCanSystem)
+
 namespace
 {
 uint32_t const TIMEOUT_DOCAN_SYSTEM   = 10U;
@@ -27,20 +30,14 @@ uint32_t systemUs() { return getSystemTimeUs32Bit(); }
 
 } // namespace
 
-namespace docan
+namespace config
 {
 
 DoCanSystem::AddressingFilterType::AddressEntryType DoCanSystem::_addresses[]
     = {{0x02A, 0x0F0U, 0x0F0U, LOGICAL_ADDRESS, 0, 0}};
 
-DoCanSystem::DoCanSystem(
-    ::transport::ITransportSystem& transportSystem,
-    ::can::ICanSystem& canSystem,
-    ::async::ContextType asyncContext)
-: _context(asyncContext)
-, _cyclicTimeout()
-, _canSystem(canSystem)
-, _transportSystem(transportSystem)
+DoCanSystem::DoCanSystem()
+: _cyclicTimeout()
 , _addressing()
 , _frameSizeMapper()
 , _classicCodec(::docan::DoCanFrameCodecConfigPresets::PADDED_CLASSIC, _frameSizeMapper)
@@ -58,18 +55,17 @@ DoCanSystem::DoCanSystem(
 , _transportLayerConfig(_parameters)
 , _physicalTransceivers()
 , _transportLayers()
-, _tickGenerator(asyncContext, _transportLayers)
+, _tickGenerator(getContext<::config::CtxId<::config::Ctx::CAN>>(), _transportLayers)
 , _codecs{&_classicCodec}
-{
-    setTransitionContext(asyncContext);
-}
+{}
 
 /**
  * Creates transport layers using the source and destination addresses.
  */
 void DoCanSystem::initLayer()
 {
-    auto& transceiver = *_canSystem.getCanTransceiver(::busid::CAN_0);
+    auto& transceiver                  = getService<CanId<Bus::CAN_0>>();
+    ::async::ContextType const context = getContext<CtxId<Ctx::CAN>>();
 
     ::docan::DoCanPhysicalCanTransceiver<AddressingType>& doCanTransceiver
         = _physicalTransceivers.emplace_back().construct(
@@ -80,7 +76,7 @@ void DoCanSystem::initLayer()
 
     _transportLayers.createTransportLayer().construct(
         ::busid::CAN_0,
-        ::estd::by_ref(_context),
+        ::estd::by_ref(context),
         ::estd::by_ref(_classicAddressingFilter),
         ::estd::by_ref(doCanTransceiver),
         ::estd::by_ref(_tickGenerator),
@@ -100,16 +96,18 @@ void DoCanSystem::init()
 /**
  * Adds transport layers as a routing target into interface transport system
  */
-void DoCanSystem::run()
+void DoCanSystem::start()
 {
+    ITransportSystem& transportSystem = getService<Id<ITransportSystem>>();
     for (auto& layer : _transportLayers.getTransportLayers())
     {
-        _transportSystem.addTransportLayer(layer);
+        transportSystem.addTransportLayer(layer);
     }
     _transportLayers.init();
 
+    ::async::ContextType const context = getContext<CtxId<Ctx::CAN>>();
     ::async::scheduleAtFixedRate(
-        _context, *this, _cyclicTimeout, TIMEOUT_DOCAN_SYSTEM, ::async::TimeUnit::MILLISECONDS);
+        context, *this, _cyclicTimeout, TIMEOUT_DOCAN_SYSTEM, ::async::TimeUnit::MILLISECONDS);
 
     transitionDone();
 }
@@ -117,13 +115,14 @@ void DoCanSystem::run()
 /**
  * Removes the transport layers and stops running the docan stack
  */
-void DoCanSystem::shutdown()
+void DoCanSystem::stop()
 {
     _cyclicTimeout.cancel();
 
+    ITransportSystem& transportSystem = getService<Id<ITransportSystem>>();
     for (auto& layer : _transportLayers.getTransportLayers())
     {
-        _transportSystem.removeTransportLayer(layer);
+        transportSystem.removeTransportLayer(layer);
     }
 
     transitionDone();
@@ -154,4 +153,4 @@ void DoCanSystem::TickGeneratorRunnableAdapter::execute()
     }
 }
 
-} // namespace docan
+} // namespace config

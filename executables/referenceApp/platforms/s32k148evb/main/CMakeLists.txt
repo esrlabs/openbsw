@@ -17,12 +17,14 @@ target_include_directories(main PUBLIC include)
 
 target_link_libraries(
     main
-    PRIVATE asyncConsole
+    PRIVATE asyncBinding
+            asyncConsole
             bsp
             bspClock
             bspCore
             bspMcuWatchdog
             canflex2Transceiver
+            configSupport
             configuration
             freeRtosCm4SysTick
             lifecycle

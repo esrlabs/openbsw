@@ -20,16 +20,19 @@ extern void app_main();
 namespace platform
 {
 
+void initPlatform(::config::ScopeType& /*scope*/)
+{}
+
 #ifdef PLATFORM_SUPPORT_CAN
-::estd::typed_mem<::systems::CanSystem> canSystem;
+//::estd::typed_mem<::systems::CanSystem> canSystem;
 #endif // PLATFORM_SUPPORT_CAN
 
-void platformLifecycleAdd(::lifecycle::LifecycleManager& lifecycleManager, uint8_t const level)
+void platformLifecycleAdd(::lifecycle::LifecycleManager& /*lifecycleManager*/, uint8_t const level)
 {
     if (level == 2)
     {
 #ifdef PLATFORM_SUPPORT_CAN
-        lifecycleManager.addComponent("can", canSystem.emplace(TASK_CAN), level);
+        // lifecycleManager.addComponent("can", canSystem.emplace(TASK_CAN), level);
 #endif // PLATFORM_SUPPORT_CAN
     }
 }
@@ -39,7 +42,7 @@ void platformLifecycleAdd(::lifecycle::LifecycleManager& lifecycleManager, uint8
 #ifdef PLATFORM_SUPPORT_CAN
 namespace systems
 {
-::can::ICanSystem& getCanSystem() { return *::platform::canSystem; }
+//::can::ICanSystem& getCanSystem() { return *::platform::canSystem; }
 } // namespace systems
 #endif // PLATFORM_SUPPORT_CAN
 

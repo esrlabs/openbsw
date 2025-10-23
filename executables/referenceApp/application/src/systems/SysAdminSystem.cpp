@@ -7,30 +7,31 @@ namespace
 constexpr uint32_t SYSTEM_CYCLE_TIME = 10;
 }
 
-namespace systems
+DEFINE_COMPONENT(
+    ::config::CompId<::config::Comp::SYSADMIN>, config, sysAdminSystem, ::config::SysAdminSystem)
+
+namespace config
 {
 
-SysAdminSystem::SysAdminSystem(
-    ::async::ContextType const context, ::lifecycle::ILifecycleManager& lifecycleManager)
-: _context(context)
-, _timeout()
-, _lifecycleControlCommand(lifecycleManager)
-, _asyncCommandWrapperForLifecycleControlCommand(_lifecycleControlCommand, context)
-{
-    setTransitionContext(context);
-}
+SysAdminSystem::SysAdminSystem()
+: _timeout()
+, _lifecycleControlCommand(getService<Id<::lifecycle::ILifecycleManager>>())
+, _asyncCommandWrapperForLifecycleControlCommand(
+      _lifecycleControlCommand, getContext<CtxId<Ctx::LIFECYCLE>>())
+{}
 
 void SysAdminSystem::init() { transitionDone(); }
 
-void SysAdminSystem::run()
+void SysAdminSystem::start()
 {
+    ::async::ContextType context = getContext<CtxId<Ctx::LIFECYCLE>>();
     ::async::scheduleAtFixedRate(
-        _context, *this, _timeout, SYSTEM_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
+        context, *this, _timeout, SYSTEM_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
 
     transitionDone();
 }
 
-void SysAdminSystem::shutdown()
+void SysAdminSystem::stop()
 {
     _timeout.cancel();
 
@@ -42,4 +43,4 @@ void SysAdminSystem::execute()
     //
 }
 
-} // namespace systems
+} // namespace config

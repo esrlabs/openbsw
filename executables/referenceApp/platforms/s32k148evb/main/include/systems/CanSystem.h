@@ -3,9 +3,8 @@
 #pragma once
 
 #include "can/transceiver/canflex2/CanFlex2Transceiver.h"
-#include "lifecycle/SingleContextLifecycleComponent.h"
 
-#include <systems/ICanSystem.h>
+#include <config/ConfigIds.h>
 
 #include <estd/singleton.h>
 
@@ -38,57 +37,31 @@ extern void call_can_isr_TX();
 
 class StaticBsp;
 
-namespace systems
+namespace config
 {
 
 class CanSystem
-: public ::can::ICanSystem
-, public ::lifecycle::SingleContextLifecycleComponent
+: public ComponentBase<ScopeType, CtxId<Ctx::CAN>, Types<Id<StaticBsp>>>
 , public ::estd::singleton<CanSystem>
 {
 public:
-    /**
-     * [CONSTRUCTOR_START]
-     * \param context The context in which the CanSystem will run which is unit8_t.
-     * \param staticBsp The StaticBsp object which allows us to create the instance of
-     *        CanFlex2Transceiver which is responsible for establishing the CAN connection.
-     * [CONSTRUCTOR_END]
-     */
-    CanSystem(::async::ContextType const context, StaticBsp& staticBsp);
+    CanSystem();
     CanSystem(CanSystem const&)            = delete;
     CanSystem& operator=(CanSystem const&) = delete;
 
     // [PUBLIC_API_START]
-    /**
-     * Initializes the CanSystem.
-     * Invoke the transitionDone method which will update lifecycle manager that the component has
-     * completed its transition.
-     */
-    void init() override;
+    void init();
 
-    /**
-     * Runs the CanSystem.
-     * Enables CanRxRunnable, initialize and open CanFlex2Transceiver which setup and open CAN
-     * connection, then invoke transitionDone to update lifecycle manager that the component has
-     * completed its transition.
-     */
-    void run() override;
+    void start();
 
-    /**
-     * Shutdowns the CanSystem.
-     * Close and shutdowns CanFlex2Transceiver which will cancel the CAN connection, disables
-     * CanRxRunnable and then invoke transitionDone to update lifecycle manager that the component
-     * has completed its transition.
-     */
-    void shutdown() override;
+    void stop();
 
-    /**
-     * Checks if the given busId is equal to CAN_0. If it is returns a reference else nullptr.
-     *
-     * \param busId BusId.
-     * \return A non-const reference to the CanFlex2Transceiver object.
-     */
-    ::can::ICanTransceiver* getCanTransceiver(uint8_t busId) override;
+    static constexpr auto services()
+    {
+        return serviceAccessor<CanSystem>()
+            .member<::bios::CanFlex2Transceiver, &CanSystem::_transceiver0>()
+            .service<CanId<Bus::CAN_0>>();
+    }
 
     /**
      * Executes the CanRxRunnable in the given context.
@@ -128,9 +101,11 @@ public:
     };
 
 private:
+    CanSystem(::async::ContextType const context, StaticBsp& staticBsp);
+
     ::async::ContextType _context;
     bios::CanFlex2Transceiver _transceiver0;
     CanRxRunnable _canRxRunnable;
 };
 
-} // namespace systems
+} // namespace config

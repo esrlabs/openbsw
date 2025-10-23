@@ -14,6 +14,7 @@
 #include <lifecycle/LifecycleManager.h>
 #include <safeLifecycle/SafeSupervisor.h>
 #include <watchdogManager/watchdogManager.h>
+#include <watchdog/Watchdog.h>
 
 #include <estd/indestructible.h>
 #include <estd/optional.h>
@@ -34,6 +35,7 @@ void boardInit()
 {
     configurPll();
     cacheEnable();
+    bsp::Watchdog::disableWatchdog();
 }
 
 void setupApplicationsIsr(void)
@@ -49,9 +51,12 @@ void setupApplicationsIsr(void)
 }
 } // extern "C"
 
+
 namespace platform
 {
 StaticBsp staticBsp;
+
+#if 0
 
 ::estd::typed_mem<::systems::BspSystem> bspSystem;
 
@@ -76,7 +81,17 @@ void platformLifecycleAdd(::lifecycle::LifecycleManager& lifecycleManager, uint8
 #endif // PLATFORM_SUPPORT_CAN
     }
 }
+
+#endif
+
+void initPlatform(::config::ScopeType& scope)
+{
+    scope.setService<::config::Id<StaticBsp>>(::platform::staticBsp);
+}
+
 } // namespace platform
+
+#if 0
 
 #ifdef PLATFORM_SUPPORT_CAN
 namespace systems
@@ -84,6 +99,8 @@ namespace systems
 ::can::ICanSystem& getCanSystem() { return *::platform::canSystem; }
 } // namespace systems
 #endif // PLATFORM_SUPPORT_CAN
+
+#endif
 
 int main()
 {

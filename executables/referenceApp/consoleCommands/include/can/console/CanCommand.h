@@ -3,7 +3,7 @@
 #pragma once
 
 #include <can/canframes/CANFrame.h>
-#include <systems/ICanSystem.h>
+#include <can/transceiver/ICanTransceiver.h>
 #include <util/command/CommandContext.h>
 #include <util/command/GroupCommand.h>
 #include <util/format/SharedStringWriter.h>
@@ -13,7 +13,7 @@ namespace can
 class CanCommand : public ::util::command::GroupCommand
 {
 public:
-    CanCommand(::can::ICanSystem& system);
+    CanCommand(ICanTransceiver& canTransceiver);
 
 protected:
     enum Commands
@@ -28,7 +28,7 @@ protected:
 private:
     void send(::util::command::CommandContext& context, ::util::format::SharedStringWriter& writer);
 
-    ::can::ICanSystem& _canSystem;
+    ICanTransceiver& _canTransceiver;
     CANFrame _canFrame;
 };
 

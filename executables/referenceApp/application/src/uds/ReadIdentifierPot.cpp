@@ -43,14 +43,15 @@ DiagReturnCode::Type ReadIdentifierPot::process(
 {
     PositiveResponse& response = connection.releaseRequestGetResponse();
 
-    uint32_t adcValue = 0x00000002;
     uint8_t responseData22Cf02[4];
 
+#if 0
 #ifdef PLATFORM_SUPPORT_IO
     (void)AnalogInputScale::get(AnalogInput::AiEVAL_POTI_ADC, adcValue);
 #endif
+#endif
 
-    ::estd::write_be(&responseData22Cf02[0], adcValue);
+    ::estd::write_be(&responseData22Cf02[0], readAdcValue());
 
     ::estd::slice<uint8_t> _responseSlice(responseData22Cf02);
 
@@ -58,6 +59,15 @@ DiagReturnCode::Type ReadIdentifierPot::process(
     (void)connection.sendPositiveResponseInternal(response.getLength(), *this);
 
     return DiagReturnCode::OK;
+}
+
+uint32_t ReadIdentifierPot::readAdcValue() const
+{
+    uint32_t adcValue = 0x00000002;
+#ifdef PLATFORM_SUPPORT_IO
+    (void)AnalogInputScale::get(AnalogInput::AiEVAL_POTI_ADC, adcValue);
+#endif
+    return adcValue;
 }
 
 } // namespace uds

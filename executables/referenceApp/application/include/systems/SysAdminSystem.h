@@ -4,36 +4,37 @@
 
 #include <async/Async.h>
 #include <async/IRunnable.h>
+#include <config/ConfigIds.h>
 #include <console/AsyncCommandWrapper.h>
-#include <lifecycle/AsyncLifecycleComponent.h>
 #include <lifecycle/console/LifecycleControlCommand.h>
 
-namespace systems
+namespace config
 {
 
 class SysAdminSystem
-: public ::lifecycle::AsyncLifecycleComponent
+: public ComponentBase<
+      ScopeType,
+      CtxId<Ctx::LIFECYCLE>,
+      Types<Id<::lifecycle::ILifecycleManager>>>
 , private ::async::IRunnable
 {
 public:
-    explicit SysAdminSystem(
-        ::async::ContextType context, ::lifecycle::ILifecycleManager& lifecycleManager);
+    SysAdminSystem();
     SysAdminSystem(SysAdminSystem const&)            = delete;
     SysAdminSystem& operator=(SysAdminSystem const&) = delete;
 
-    void init() override;
-    void run() override;
-    void shutdown() override;
+    void init();
+    void start();
+    void stop();
 
 private:
     void execute() override;
 
 private:
-    ::async::ContextType const _context;
     ::async::TimeoutType _timeout;
 
     ::lifecycle::LifecycleControlCommand _lifecycleControlCommand;
     ::console::AsyncCommandWrapper _asyncCommandWrapperForLifecycleControlCommand;
 };
 
-} // namespace systems
+} // namespace config

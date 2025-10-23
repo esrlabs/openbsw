@@ -17,6 +17,8 @@ class ReadIdentifierPot : public DataIdentifierJob
 public:
     ReadIdentifierPot(DiagSessionMask const sessionMask = DiagSession::ALL_SESSIONS());
 
+    uint32_t readAdcValue() const;
+
 private:
     DiagReturnCode::Type process(
         IncomingDiagConnection& connection,

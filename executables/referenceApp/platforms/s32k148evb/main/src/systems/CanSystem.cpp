@@ -12,12 +12,18 @@
 
 #include <lifecycle/StaticBsp.h>
 
-namespace systems
+DEFINE_COMPONENT(::config::CompId<::config::Comp::CAN>, config, canSystem, ::config::CanSystem)
+
+namespace config
 {
 
-::systems::CanSystem::CanSystem(::async::ContextType context, StaticBsp& staticBsp)
-: ::lifecycle::SingleContextLifecycleComponent(context)
-, ::estd::singleton<CanSystem>(*this)
+CanSystem::CanSystem()
+: CanSystem(
+    getContext<CtxId<Ctx::CAN>>(), getService<Id<StaticBsp>>())
+{}
+
+CanSystem::CanSystem(::async::ContextType context, StaticBsp& staticBsp)
+: ::estd::singleton<CanSystem>(*this)
 , _context(context)
 , _transceiver0(
       context,
@@ -30,7 +36,7 @@ namespace systems
 
 void CanSystem::init() { transitionDone(); }
 
-void CanSystem::run()
+void CanSystem::start()
 {
     _canRxRunnable.setEnabled(true);
 
@@ -40,7 +46,7 @@ void CanSystem::run()
     transitionDone();
 }
 
-void CanSystem::shutdown()
+void CanSystem::stop()
 {
     (void)_transceiver0.close();
     _transceiver0.shutdown();
@@ -48,15 +54,6 @@ void CanSystem::shutdown()
     _canRxRunnable.setEnabled(false);
 
     transitionDone();
-}
-
-::can::ICanTransceiver* CanSystem::getCanTransceiver(uint8_t busId)
-{
-    if (busId == ::busid::CAN_0)
-    {
-        return &_transceiver0;
-    }
-    return nullptr;
 }
 
 void CanSystem::dispatchRxTask() { ::async::execute(_context, _canRxRunnable); }
@@ -71,7 +68,7 @@ void CanSystem::CanRxRunnable::execute()
     }
 }
 
-} // namespace systems
+} // namespace config
 
 extern "C"
 {
@@ -87,7 +84,7 @@ void call_can_isr_RX()
 
     if (framesReceived > 0)
     {
-        ::systems::CanSystem::instance().dispatchRxTask();
+        ::config::CanSystem::instance().dispatchRxTask();
     }
 
     ::asyncLeaveIsrGroup(ISR_GROUP_CAN);
@@ -99,4 +96,5 @@ void call_can_isr_TX()
     bios::CanFlex2Transceiver::transmitInterrupt(0);
     ::asyncLeaveIsrGroup(ISR_GROUP_CAN);
 }
-}
+
+} // extern "C"

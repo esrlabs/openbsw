@@ -4,7 +4,9 @@
 
 #include <can/CanLogger.h>
 
-namespace systems
+DEFINE_COMPONENT(::config::CompId<::config::Comp::CAN>, config, canSystem, ::config::CanSystem)
+
+namespace config
 {
 static uint32_t const TIMEOUT_CAN_SYSTEM_IN_MS = 1U;
 static int const MAX_SENT_PER_RUN              = 3;
@@ -20,38 +22,29 @@ namespace
 
 } // namespace
 
-CanSystem::CanSystem(::async::ContextType context)
-: _timeout(), _context(context), _canTransceiver(canConfig)
-{
-    setTransitionContext(context);
-}
+CanSystem::CanSystem() : _canTransceiver(canConfig) {}
 
 void CanSystem::init() { transitionDone(); }
 
-void CanSystem::run()
+void CanSystem::start()
 {
     _canTransceiver.init();
     _canTransceiver.open();
     ::async::scheduleAtFixedRate(
-        _context, *this, _timeout, TIMEOUT_CAN_SYSTEM_IN_MS, ::async::TimeUnit::MILLISECONDS);
+        getContext<CtxId<Ctx::CAN>>(),
+        *this,
+        _timeout,
+        TIMEOUT_CAN_SYSTEM_IN_MS,
+        ::async::TimeUnit::MILLISECONDS);
     transitionDone();
 }
 
-void CanSystem::shutdown()
+void CanSystem::stop()
 {
     _timeout.cancel();
     _canTransceiver.close();
     _canTransceiver.shutdown();
     transitionDone();
-}
-
-::can::ICanTransceiver* CanSystem::getCanTransceiver(uint8_t busId)
-{
-    if (busId == ::busid::CAN_0)
-    {
-        return &_canTransceiver;
-    }
-    return nullptr;
 }
 
 void CanSystem::execute() { _canTransceiver.run(MAX_SENT_PER_RUN, MAX_RECEIVED_PER_RUN); }

@@ -6,16 +6,14 @@
 
 #include <platform/estdint.h>
 
-namespace transport
-{
-TransportSystem::TransportSystem(::async::ContextType transitionContext)
-: ::estd::singleton<TransportSystem>(*this)
-{
-    // Tell the lifecycle manager in which context to execute init/run/shutdown
-    setTransitionContext(transitionContext);
-}
+DEFINE_COMPONENT(
+    ::config::CompId<::config::Comp::TRANSPORT>,
+    config,
+    transportSystem,
+    ::config::TransportSystem)
 
-char const* TransportSystem::getName() const { return "Transport"; }
+namespace config
+{
 
 void TransportSystem::init()
 {
@@ -25,33 +23,31 @@ void TransportSystem::init()
     transitionDone();
 }
 
-void TransportSystem::run()
+void TransportSystem::start()
 {
     // Inform the lifecycle manager that the transition has been completed
     transitionDone();
 }
 
-void TransportSystem::shutdown()
+void TransportSystem::stop()
 {
     // Inform the lifecycle manager that the transition has been completed
     transitionDone();
 }
 
-void TransportSystem::dump() const {}
-
-void TransportSystem::addTransportLayer(AbstractTransportLayer& layer)
+void TransportSystem::addTransportLayer(::transport::AbstractTransportLayer& layer)
 {
     _transportRouter.addTransportLayer(layer);
 }
 
-void TransportSystem::removeTransportLayer(AbstractTransportLayer& layer)
+void TransportSystem::removeTransportLayer(::transport::AbstractTransportLayer& layer)
 {
     _transportRouter.removeTransportLayer(layer);
 }
 
-ITransportMessageProvider& TransportSystem::getTransportMessageProvider()
+::transport::ITransportMessageProvider& TransportSystem::getTransportMessageProvider()
 {
     return _transportRouter;
 }
 
-} // namespace transport
+} // namespace config

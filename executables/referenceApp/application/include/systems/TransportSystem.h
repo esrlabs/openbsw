@@ -2,44 +2,39 @@
 
 #pragma once
 
-#include <lifecycle/AsyncLifecycleComponent.h>
+#include <config/ConfigIds.h>
 #include <transport/ITransportMessageProvider.h>
 #include <transport/ITransportSystem.h>
 #include <transport/routing/TransportRouterSimple.h>
 
-#include <estd/singleton.h>
-
-namespace transport
+namespace config
 {
 class AbstractTransportLayer;
 
 class TransportSystem
-: public ::estd::singleton<TransportSystem>
-, public ::transport::ITransportSystem
-, public ::lifecycle::AsyncLifecycleComponent
+: public ITransportSystem
+, public ComponentBase<ScopeType, CtxId<Ctx::DIAG>>
 {
 public:
-    explicit TransportSystem(::async::ContextType transitionContext);
+    void init();
+    void start();
+    void stop();
 
-    virtual char const* getName() const;
-
-    void init() override;
-    void run() override;
-    void shutdown() override;
-
-    virtual void dump() const;
-
-    TransportRouterSimple& getTransportRouterSimple() { return _transportRouter; }
-
-    /** \see ITransportSystem::addTransportLayer() */
-    void addTransportLayer(AbstractTransportLayer& layer) override;
-    /** \see ITransportSystem::removeTransportLayer() */
-    void removeTransportLayer(AbstractTransportLayer& layer) override;
-    /** \see ITransportSystem::getTransportMessageProvider() */
-    ITransportMessageProvider& getTransportMessageProvider() override;
+    static constexpr auto services()
+    {
+        return serviceAccessor<TransportSystem>()
+            .service<Id<ITransportSystem>>();
+    }
 
 private:
-    TransportRouterSimple _transportRouter;
+    /** \see ITransportSystem::addTransportLayer() */
+    void addTransportLayer(::transport::AbstractTransportLayer& layer) override;
+    /** \see ITransportSystem::removeTransportLayer() */
+    void removeTransportLayer(::transport::AbstractTransportLayer& layer) override;
+    /** \see ITransportSystem::getTransportMessageProvider() */
+    ::transport::ITransportMessageProvider& getTransportMessageProvider() override;
+
+    ::transport::TransportRouterSimple _transportRouter;
 };
 
-} // namespace transport
+} // namespace config

@@ -31,43 +31,42 @@ using bios::Output;
 using bios::OutputPwm;
 #endif
 
-namespace systems
+DEFINE_COMPONENT(::config::CompId<::config::Comp::DEMO>, config, demoSystem, ::config::DemoSystem)
+
+namespace config
 {
 using ::util::logger::DEMO;
 using ::util::logger::Logger;
 
-DemoSystem::DemoSystem(
-    ::async::ContextType const context,
-    ::lifecycle::ILifecycleManager& /* lifecycleManager */
+DemoSystem::DemoSystem()
+: DemoSystem(
+    getService<CanId<Bus::CAN_0>>(),
+    getContext<CtxId<Ctx::DEMO>>())
+{}
+
+DemoSystem::DemoSystem(::can::ICanTransceiver& canTransceiver, ::async::ContextType context)
+: _timeout()
 #ifdef PLATFORM_SUPPORT_CAN
-    ,
-    ::can::ICanSystem& canSystem
+, _canDemoListener(canTransceiver)
+, _canCommand(canTransceiver)
+, _asyncCommandWrapperForCanCommand(_canCommand, context)
 #endif
-    )
-: _context(context)
-#ifdef PLATFORM_SUPPORT_CAN
-, _canSystem(canSystem)
-, _canDemoListener(canSystem.getCanTransceiver(::busid::CAN_0))
-, _canCommand(_canSystem)
-, _asyncCommandWrapperForCanCommand(_canCommand, _context)
-#endif
-{
-    setTransitionContext(context);
-}
+{}
 
 void DemoSystem::init() { transitionDone(); }
 
-void DemoSystem::run()
+void DemoSystem::start()
 {
 #ifdef PLATFORM_SUPPORT_CAN
     _canDemoListener.run();
 #endif
+    ::async::ContextType const context = getContext<CtxId<Ctx::DEMO>>();
     ::async::scheduleAtFixedRate(
-        _context, *this, _timeout, DEMO_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
+        context, *this, _timeout, DEMO_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
     transitionDone();
 }
 
-void DemoSystem::shutdown()
+void DemoSystem::stop()
 {
 #ifdef PLATFORM_SUPPORT_CAN
     _canDemoListener.shutdown();
@@ -113,17 +112,15 @@ void DemoSystem::cyclic()
     // Send a CAN frame every second.
     if (deltaTimeMs >= 1000)
     {
-        previousSentTime                       = now;
-        ::can::ICanTransceiver* canTransceiver = _canSystem.getCanTransceiver(::busid::CAN_0);
-        if (canTransceiver != nullptr)
-        {
-            // Logger::debug(DEMO, "Sending frame %d", canSentCount);
-            uint8_t canData[4] = {0};
-            ::estd::write_be(canData, canSentCount);
-            ::can::CANFrame frame(0x558, canData, 4);
-            canTransceiver->write(frame);
-            ++canSentCount;
-        }
+        previousSentTime = now;
+        //::can::ICanTransceiver& canTransceiver
+        //    = getService<CanId<Bus::CAN_0>>();
+        // Logger::debug(DEMO, "Sending frame %d", canSentCount);
+        uint8_t canData[4] = {0};
+        ::estd::write_be(canData, canSentCount);
+        ::can::CANFrame frame(0x558, canData, 4);
+        //canTransceiver.write(frame);
+        ++canSentCount;
     }
 #endif
 }

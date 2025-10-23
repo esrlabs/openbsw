@@ -6,7 +6,7 @@
 
 namespace lifecycle
 {
-class LifecycleManager;
+class ILifecycleManager;
 }
 
 namespace uds
@@ -14,7 +14,7 @@ namespace uds
 class UdsLifecycleConnector : public IUdsLifecycleConnector
 {
 public:
-    explicit UdsLifecycleConnector(lifecycle::LifecycleManager&) {}
+    explicit UdsLifecycleConnector(lifecycle::ILifecycleManager&) {}
 
     bool isModeChangePossible() const { return true; }
 

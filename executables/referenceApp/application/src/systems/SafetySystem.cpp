@@ -12,20 +12,13 @@ namespace
 constexpr uint32_t SYSTEM_CYCLE_TIME = 10;
 }
 
-namespace systems
+DEFINE_COMPONENT(
+    ::config::CompId<::config::Comp::SAFETY>, config, safetySystem, ::config::SafetySystem)
+
+namespace config
 {
 using ::util::logger::Logger;
 using ::util::logger::SAFETY;
-
-SafetySystem::SafetySystem(
-    ::async::ContextType const context, ::lifecycle::ILifecycleManager& lifecycleManager)
-: _context(context)
-, _timeout()
-, _lifecycleControlCommand(lifecycleManager)
-, _asyncCommandWrapperForLifecycleControlCommand(_lifecycleControlCommand, context)
-{
-    setTransitionContext(context);
-}
 
 void SafetySystem::init()
 {
@@ -33,15 +26,19 @@ void SafetySystem::init()
     transitionDone();
 }
 
-void SafetySystem::run()
+void SafetySystem::start()
 {
     ::async::scheduleAtFixedRate(
-        _context, *this, _timeout, SYSTEM_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
+        getContext<CtxId<Ctx::SAFETY>>(),
+        *this,
+        _timeout,
+        SYSTEM_CYCLE_TIME,
+        ::async::TimeUnit::MILLISECONDS);
 
     transitionDone();
 }
 
-void SafetySystem::shutdown()
+void SafetySystem::stop()
 {
     _timeout.cancel();
 

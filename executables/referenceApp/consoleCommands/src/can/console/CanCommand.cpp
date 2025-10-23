@@ -26,7 +26,7 @@ DEFINE_COMMAND_GROUP_GET_INFO_END
 
 // clang-format on
 
-CanCommand::CanCommand(::can::ICanSystem& system) : _canSystem(system) {}
+CanCommand::CanCommand(::can::ICanTransceiver& canTransceiver) : _canTransceiver(canTransceiver) {}
 
 void CanCommand::send(
     ::util::command::CommandContext& context, ::util::format::SharedStringWriter& /* writer */)
@@ -52,8 +52,7 @@ void CanCommand::send(
             }
             _canFrame.setPayloadLength(i);
 
-            ::can::ICanTransceiver* canTransceiver = _canSystem.getCanTransceiver(::busid::CAN_0);
-            canTransceiver->write(_canFrame);
+            _canTransceiver.write(_canFrame);
         }
     }
 }

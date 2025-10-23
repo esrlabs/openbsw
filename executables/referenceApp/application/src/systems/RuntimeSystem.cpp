@@ -7,17 +7,21 @@ namespace
 constexpr uint32_t SYSTEM_CYCLE_TIME = 1000;
 }
 
-namespace systems
+DEFINE_COMPONENT(
+    ::config::CompId<::config::Comp::RUNTIME>, config, runtimeSystem, ::config::RuntimeSystem)
+
+namespace config
 {
 
-RuntimeSystem::RuntimeSystem(
-    ::async::ContextType const context, ::async::AsyncBinding::RuntimeMonitorType& runtimeMonitor)
-: _context(context)
-, _timeout()
-, _statisticsCommand(runtimeMonitor)
+RuntimeSystem::RuntimeSystem()
+: RuntimeSystem(getContext<CtxId<Ctx::RUNTIME>>())
+{}
+
+RuntimeSystem::RuntimeSystem(::async::ContextType context)
+: _timeout()
+, _statisticsCommand(getService<Id<::async::AsyncBinding::RuntimeMonitorType>>())
 , _asyncCommandWrapperForStatisticsCommand(_statisticsCommand, context)
 {
-    setTransitionContext(context);
 }
 
 void RuntimeSystem::init()
@@ -27,15 +31,16 @@ void RuntimeSystem::init()
     transitionDone();
 }
 
-void RuntimeSystem::run()
+void RuntimeSystem::start()
 {
+    ::async::ContextType const context = getContext<CtxId<Ctx::RUNTIME>>();
     ::async::scheduleAtFixedRate(
-        _context, *this, _timeout, SYSTEM_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
+        context, *this, _timeout, SYSTEM_CYCLE_TIME, ::async::TimeUnit::MILLISECONDS);
 
     transitionDone();
 }
 
-void RuntimeSystem::shutdown()
+void RuntimeSystem::stop()
 {
     _timeout.cancel();
 
@@ -44,4 +49,4 @@ void RuntimeSystem::shutdown()
 
 void RuntimeSystem::execute() { _statisticsCommand.cyclic_1000ms(); }
 
-} // namespace systems
+} // namespace config

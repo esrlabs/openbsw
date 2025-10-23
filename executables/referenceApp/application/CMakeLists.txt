@@ -9,7 +9,8 @@ if (PLATFORM_SUPPORT_UDS)
         src/uds/ReadIdentifierPot.cpp)
 
     if (PLATFORM_SUPPORT_CAN)
-        list(APPEND app.referenceAppExtraSources src/systems/DoCanSystem.cpp)
+        list(APPEND app.referenceAppExtraSources src/systems/DoCanSystem.cpp
+        )
     endif ()
 endif ()
 

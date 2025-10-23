@@ -4,34 +4,38 @@
 
 #include "console/AsyncCommandWrapper.h"
 #include "inputManager/DigitalInputTester.h"
-#include "lifecycle/SingleContextLifecycleComponent.h"
 #include "lifecycle/StaticBsp.h"
 #include "outputManager/OutputTester.h"
 #include "outputPwm/OutputPwmTester.h"
 #include "tester/AnalogTester.h"
 
-namespace systems
+#include <config/ConfigIds.h>
+
+namespace config
 {
 
 class BspSystem
-: public ::lifecycle::SingleContextLifecycleComponent
+: public ComponentBase<
+      ScopeType,
+      CtxId<Ctx::BSP>,
+      Types<Id<StaticBsp>>>
 , private ::async::RunnableType
 {
 public:
-    BspSystem(::async::ContextType const context, StaticBsp& staticBsp);
+    BspSystem();
 
-    void init() override;
-    void run() override;
-    void shutdown() override;
-
-    void execute() override;
+    void init();
+    void start();
+    void stop();
 
     void cyclic();
 
 private:
-    ::async::ContextType const _context;
+    BspSystem(::async::ContextType const context);
+
+    void execute() override;
+
     ::async::TimeoutType _timeout;
-    StaticBsp& _staticBsp;
     bios::AnalogTester _analogTester;
     bios::OutputPwmTester _outputPwmTester;
     bios::DigitalInputTester _digitalInputTester;
@@ -42,4 +46,4 @@ private:
     ::console::AsyncCommandWrapper _asyncOutputTester;
 };
 
-} // namespace systems
+} // namespace config

@@ -13,7 +13,7 @@ class CanDemoListener final
 , public ::can::IFilteredCANFrameSentListener
 {
 public:
-    CanDemoListener(::can::ICanTransceiver* canTransceiver);
+    CanDemoListener(::can::ICanTransceiver& canTransceiver);
 
     void run();
     void shutdown();
@@ -23,7 +23,7 @@ public:
 
 private:
     ::can::BitFieldFilter _canFilter;
-    ::can::ICanTransceiver* _canTransceiver;
+    ::can::ICanTransceiver& _canTransceiver;
 };
 
 } // namespace can

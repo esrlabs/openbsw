@@ -5,6 +5,7 @@
 #include <async/Async.h>
 #include <async/IRunnable.h>
 #include <busid/BusId.h>
+#include <config/ConfigIds.h>
 #include <docan/addressing/DoCanNormalAddressing.h>
 #include <docan/addressing/DoCanNormalAddressingFilter.h>
 #include <docan/can/DoCanPhysicalCanTransceiverContainer.h>
@@ -13,7 +14,6 @@
 #include <docan/datalink/DoCanFrameCodec.h>
 #include <docan/transmitter/IDoCanTickGenerator.h>
 #include <docan/transport/DoCanTransportLayerContainer.h>
-#include <lifecycle/AsyncLifecycleComponent.h>
 
 namespace can
 {
@@ -25,11 +25,13 @@ namespace transport
 class ITransportSystem;
 } // namespace transport
 
-namespace docan
+namespace config
 {
 
 class DoCanSystem final
-: public ::lifecycle::AsyncLifecycleComponent
+: public ComponentBase<ScopeType, CtxId<Ctx::CAN>, Types<
+      Id<ITransportSystem>,
+      CanId<Bus::CAN_0>>>
 , private ::async::IRunnable
 {
 public:
@@ -38,16 +40,13 @@ public:
     using AddressingType    = ::docan::DoCanNormalAddressing<>;
     using DataLinkLayerType = AddressingType::DataLinkLayerType;
 
-    DoCanSystem(
-        ::transport::ITransportSystem& transportSystem,
-        ::can::ICanSystem& canSystem,
-        ::async::ContextType asyncContext);
+    DoCanSystem();
     DoCanSystem(DoCanSystem const&)            = delete;
     DoCanSystem& operator=(DoCanSystem const&) = delete;
 
-    void init() final;
-    void run() final;
-    void shutdown() final;
+    void init();
+    void start();
+    void stop();
 
 private:
     using TransportLayers = ::docan::declare::
@@ -86,11 +85,7 @@ private:
 
     void initLayer();
 
-    ::async::ContextType const _context;
     ::async::TimeoutType _cyclicTimeout;
-
-    ::can::ICanSystem& _canSystem;
-    ::transport::ITransportSystem& _transportSystem;
 
     AddressingType _addressing;
     ::docan::DoCanFdFrameSizeMapper<DataLinkLayerType::FrameSizeType> _frameSizeMapper;
@@ -100,7 +95,7 @@ private:
     ::docan::DoCanParameters _parameters;
     ::docan::declare::DoCanTransportLayerConfig<DataLinkLayerType, 80U, 15U, 64U>
         _transportLayerConfig;
-    ::estd::declare::vector<DoCanPhysicalCanTransceiver<AddressingType>, NUM_CAN_TRANSPORT_LAYERS>
+    ::estd::declare::vector<::docan::DoCanPhysicalCanTransceiver<AddressingType>, NUM_CAN_TRANSPORT_LAYERS>
         _physicalTransceivers;
     TransportLayers _transportLayers;
     TickGeneratorRunnableAdapter _tickGenerator;
@@ -110,4 +105,4 @@ private:
     static AddressingFilterType::AddressEntryType _addresses[];
 };
 
-} // namespace docan
+} // namespace config
