@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../include.html">include</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommandContext.h.html">CommandContext.h</a>:90
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">unsigned int util::command::CommandContext::scanIntToken&lt;unsigned int&gt;()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001d3e0</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td></td>
+                <td>208</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../storage/src/storage/StorageTester.cpp/67fa68a7bcf103a087d72ac11f843f38.html">storage::StorageTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (1012)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=188
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../src/util/command/CommandContext.cpp/10da9bbd41a4ed8e63c16414ba06538d.html">util::command::CommandContext::isValid() const (16)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../src/util/command/CommandContext.cpp/93776a3ef4f84fa4c555f4d1590e5c98.html">util::command::CommandContext::getDigit(char, unsigned long) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../src/util/command/CommandContext.cpp/b2ce40f9dd9a53ee51be5469e7a471d7.html">util::command::CommandContext::check(bool, util::command::ICommand::Result) (44)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../src/util/command/CommandContext.cpp/1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace() (68)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../storage/src/storage/StorageTester.cpp/5325f453d255353033ceb083156cb2d9.html">storage::StorageTester::printData(util::format::SharedStringWriter&amp;, etl::span&lt;unsigned char, 4294967295u&gt;) (152)</a></pre>
+    
+
+    <pre>
+
+    unsigned int util::command::CommandContext::scanIntToken<unsigned int>():
+
+       1d3e0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+       1d3e4:	6947      	ldr	r7, [r0, #20]
+
+       1d3e6:	4604      	mov	r4, r0
+
+       1d3e8:	f7f8 f844 	bl	15474 <<a href="../../../../src/util/command/CommandContext.cpp/10da9bbd41a4ed8e63c16414ba06538d.html">util::command::CommandContext::isValid() const</a>>
+
+       1d3ec:	b360      	cbz	r0, 1d448 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x68>
+
+       1d3ee:	6967      	ldr	r7, [r4, #20]
+
+       1d3f0:	61e7      	str	r7, [r4, #28]
+
+       1d3f2:	783e      	ldrb	r6, [r7, #0]
+
+       1d3f4:	2e2d      	cmp	r6, #45	; 0x2d
+
+       1d3f6:	d03a      	beq.n	1d46e <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x8e>
+
+       1d3f8:	2e30      	cmp	r6, #48	; 0x30
+
+       1d3fa:	d043      	beq.n	1d484 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0xa4>
+
+       1d3fc:	2e2b      	cmp	r6, #43	; 0x2b
+
+       1d3fe:	d036      	beq.n	1d46e <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x8e>
+
+       1d400:	69a3      	ldr	r3, [r4, #24]
+
+       1d402:	f04f 080a 	mov.w	r8, #10
+
+       1d406:	2600      	movs	r6, #0
+
+       1d408:	429f      	cmp	r7, r3
+
+       1d40a:	d04e      	beq.n	1d4aa <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0xca>
+
+       1d40c:	463b      	mov	r3, r7
+
+       1d40e:	2500      	movs	r5, #0
+
+       1d410:	e006      	b.n	1d420 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x40>
+
+       1d412:	69a0      	ldr	r0, [r4, #24]
+
+       1d414:	3301      	adds	r3, #1
+
+       1d416:	4298      	cmp	r0, r3
+
+       1d418:	6163      	str	r3, [r4, #20]
+
+       1d41a:	fb05 2508 	mla	r5, r5, r8, r2
+
+       1d41e:	d016      	beq.n	1d44e <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x6e>
+
+       1d420:	7818      	ldrb	r0, [r3, #0]
+
+       1d422:	4641      	mov	r1, r8
+
+       1d424:	f7f8 f95a 	bl	156dc <<a href="../../../../src/util/command/CommandContext.cpp/93776a3ef4f84fa4c555f4d1590e5c98.html">util::command::CommandContext::getDigit(char, unsigned long)</a>>
+
+       1d428:	1e02      	subs	r2, r0, #0
+
+       1d42a:	6963      	ldr	r3, [r4, #20]
+
+       1d42c:	daf1      	bge.n	1d412 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x32>
+
+       1d42e:	42bb      	cmp	r3, r7
+
+       1d430:	d10f      	bne.n	1d452 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x72>
+
+       1d432:	2100      	movs	r1, #0
+
+       1d434:	2202      	movs	r2, #2
+
+       1d436:	4620      	mov	r0, r4
+
+       1d438:	f7f7 fff6 	bl	15428 <<a href="../../../../src/util/command/CommandContext.cpp/b2ce40f9dd9a53ee51be5469e7a471d7.html">util::command::CommandContext::check(bool, util::command::ICommand::Result)</a>>
+
+       1d43c:	b198      	cbz	r0, 1d466 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x86>
+
+       1d43e:	b19e      	cbz	r6, 1d468 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x88>
+
+       1d440:	426d      	negs	r5, r5
+
+       1d442:	4628      	mov	r0, r5
+
+       1d444:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       1d448:	6963      	ldr	r3, [r4, #20]
+
+       1d44a:	4606      	mov	r6, r0
+
+       1d44c:	4605      	mov	r5, r0
+
+       1d44e:	42bb      	cmp	r3, r7
+
+       1d450:	d0ef      	beq.n	1d432 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x52>
+
+       1d452:	4620      	mov	r0, r4
+
+       1d454:	f7f8 f816 	bl	15484 <<a href="../../../../src/util/command/CommandContext.cpp/1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace()</a>>
+
+       1d458:	4601      	mov	r1, r0
+
+       1d45a:	2202      	movs	r2, #2
+
+       1d45c:	4620      	mov	r0, r4
+
+       1d45e:	f7f7 ffe3 	bl	15428 <<a href="../../../../src/util/command/CommandContext.cpp/b2ce40f9dd9a53ee51be5469e7a471d7.html">util::command::CommandContext::check(bool, util::command::ICommand::Result)</a>>
+
+       1d462:	2800      	cmp	r0, #0
+
+       1d464:	d1eb      	bne.n	1d43e <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x5e>
+
+       1d466:	4605      	mov	r5, r0
+
+       1d468:	4628      	mov	r0, r5
+
+       1d46a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       1d46e:	f1a6 062d 	sub.w	r6, r6, #45	; 0x2d
+
+       1d472:	3701      	adds	r7, #1
+
+       1d474:	fab6 f686 	clz	r6, r6
+
+       1d478:	69a3      	ldr	r3, [r4, #24]
+
+       1d47a:	6167      	str	r7, [r4, #20]
+
+       1d47c:	0976      	lsrs	r6, r6, #5
+
+       1d47e:	f04f 080a 	mov.w	r8, #10
+
+       1d482:	e7c1      	b.n	1d408 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x28>
+
+       1d484:	69a3      	ldr	r3, [r4, #24]
+
+       1d486:	1c7a      	adds	r2, r7, #1
+
+       1d488:	4293      	cmp	r3, r2
+
+       1d48a:	d904      	bls.n	1d496 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0xb6>
+
+       1d48c:	787a      	ldrb	r2, [r7, #1]
+
+       1d48e:	f002 02df 	and.w	r2, r2, #223	; 0xdf
+
+       1d492:	2a58      	cmp	r2, #88	; 0x58
+
+       1d494:	d003      	beq.n	1d49e <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0xbe>
+
+       1d496:	f04f 0808 	mov.w	r8, #8
+
+       1d49a:	2600      	movs	r6, #0
+
+       1d49c:	e7b4      	b.n	1d408 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x28>
+
+       1d49e:	3702      	adds	r7, #2
+
+       1d4a0:	6167      	str	r7, [r4, #20]
+
+       1d4a2:	f04f 0810 	mov.w	r8, #16
+
+       1d4a6:	2600      	movs	r6, #0
+
+       1d4a8:	e7ae      	b.n	1d408 <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x28>
+
+       1d4aa:	2500      	movs	r5, #0
+
+       1d4ac:	4629      	mov	r1, r5
+
+       1d4ae:	e7d4      	b.n	1d45a <<a href="./f209b8786519599565c50e23c6065ef6.html">unsigned int util::command::CommandContext::scanIntToken<unsigned int>()</a>+0x7a>
+
+    </pre>
+
+    
+    <pre><a href="../../../../../storage/src/storage/StorageTester.cpp/67fa68a7bcf103a087d72ac11f843f38.html">storage::StorageTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (1012)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 144</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 68</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    144
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../src/util/command/CommandContext.cpp/1faeb200d57f22b1d75eba855d65b6bc.html" class="icon-function">util::command::CommandContext::ignoreWhitespace()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">128
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 128</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,220</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,220
+                    
+                    
+                </td>
+                <td class="col_size">208</td>
+                <td><a href="./f209b8786519599565c50e23c6065ef6.html" class="icon-function">unsigned int util::command::CommandContext::scanIntToken&lt;unsigned int&gt;()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                128 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">1,012</td>
+                <td><a href="../../../../../storage/src/storage/StorageTester.cpp/67fa68a7bcf103a087d72ac11f843f38.html" class="icon-function">storage::StorageTester::executeCommand(util::command::CommandContext&amp;, unsigned char)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

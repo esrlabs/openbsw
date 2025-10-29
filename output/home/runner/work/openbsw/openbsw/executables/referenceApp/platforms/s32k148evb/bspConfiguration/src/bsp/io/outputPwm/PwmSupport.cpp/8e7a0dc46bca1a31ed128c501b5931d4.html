@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../../../s32k148evb.html">s32k148evb</a></li>
+        
+        <li><a href="../../../../../../bspConfiguration.html">bspConfiguration</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../io.html">io</a></li>
+        
+        <li ><a href="../../outputPwm.html">outputPwm</a>
+            </li>
+
+        
+        <li class="active"><a href="../PwmSupport.cpp.html">PwmSupport.cpp</a>:44
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0002067c</td>
+                <td>
+    
+    
+</td>
+                <td>8 (static)</td>
+                <td>236</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./daba04962059a6c9f3f226554519a68d.html">bios::PwmSupport::setPeriod(unsigned short, unsigned short) (68)</a></pre>
+    
+
+    <pre>
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       2067c:	b430      	push	{r4, r5}
+
+       2067e:	b191      	cbz	r1, 206a6 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x2a>
+
+       20680:	2901      	cmp	r1, #1
+
+       20682:	d10d      	bne.n	206a0 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x24>
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE9validDutyEt():
+
+       20684:	6983      	ldr	r3, [r0, #24]
+
+       20686:	88d9      	ldrh	r1, [r3, #6]
+
+       20688:	4291      	cmp	r1, r2
+
+       2068a:	d821      	bhi.n	206d0 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x54>
+
+       2068c:	891b      	ldrh	r3, [r3, #8]
+
+       2068e:	4293      	cmp	r3, r2
+
+       20690:	d303      	bcc.n	2069a <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x1e>
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       20692:	f242 7310 	movw	r3, #10000	; 0x2710
+
+       20696:	429a      	cmp	r2, r3
+
+       20698:	d946      	bls.n	20728 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0xac>
+
+    _ZN4bios3FtmILh8EE6getMODEv():
+
+       2069a:	6903      	ldr	r3, [r0, #16]
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       2069c:	6942      	ldr	r2, [r0, #20]
+
+       2069e:	e00f      	b.n	206c0 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x44>
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       206a0:	2002      	movs	r0, #2
+
+       206a2:	bc30      	pop	{r4, r5}
+
+       206a4:	4770      	bx	lr
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE9validDutyEt():
+
+       206a6:	68c3      	ldr	r3, [r0, #12]
+
+       206a8:	88dc      	ldrh	r4, [r3, #6]
+
+       206aa:	4294      	cmp	r4, r2
+
+       206ac:	d819      	bhi.n	206e2 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x66>
+
+       206ae:	891b      	ldrh	r3, [r3, #8]
+
+       206b0:	4293      	cmp	r3, r2
+
+       206b2:	d303      	bcc.n	206bc <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x40>
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE7setDutyEt():
+
+       206b4:	f242 7310 	movw	r3, #10000	; 0x2710
+
+       206b8:	429a      	cmp	r2, r3
+
+       206ba:	d915      	bls.n	206e8 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x6c>
+
+    _ZN4bios3FtmILh8EE6getMODEv():
+
+       206bc:	6843      	ldr	r3, [r0, #4]
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE7setDutyEt():
+
+       206be:	6882      	ldr	r2, [r0, #8]
+
+    _ZN4bios3FtmILh8EE6getMODEv():
+
+       206c0:	681b      	ldr	r3, [r3, #0]
+
+       206c2:	689b      	ldr	r3, [r3, #8]
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       206c4:	b29b      	uxth	r3, r3
+
+       206c6:	3301      	adds	r3, #1
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       206c8:	2000      	movs	r0, #0
+
+       206ca:	bc30      	pop	{r4, r5}
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       206cc:	6053      	str	r3, [r2, #4]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       206ce:	4770      	bx	lr
+
+    _ZN4bios3FtmILh8EE8getCNTINEv():
+
+       206d0:	6903      	ldr	r3, [r0, #16]
+
+       206d2:	6942      	ldr	r2, [r0, #20]
+
+       206d4:	681b      	ldr	r3, [r3, #0]
+
+       206d6:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
+
+       206d8:	b29b      	uxth	r3, r3
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       206da:	2000      	movs	r0, #0
+
+       206dc:	bc30      	pop	{r4, r5}
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       206de:	6053      	str	r3, [r2, #4]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       206e0:	4770      	bx	lr
+
+    _ZN4bios3FtmILh8EE8getCNTINEv():
+
+       206e2:	6843      	ldr	r3, [r0, #4]
+
+       206e4:	6882      	ldr	r2, [r0, #8]
+
+       206e6:	e7f5      	b.n	206d4 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x58>
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE7setDutyEt():
+
+       206e8:	2a00      	cmp	r2, #0
+
+       206ea:	d0fa      	beq.n	206e2 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x66>
+
+       206ec:	429a      	cmp	r2, r3
+
+       206ee:	d0e5      	beq.n	206bc <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x40>
+
+    _ZN4bios3FtmILh8EE6getMODEv():
+
+       206f0:	6843      	ldr	r3, [r0, #4]
+
+       206f2:	681c      	ldr	r4, [r3, #0]
+
+       206f4:	68a3      	ldr	r3, [r4, #8]
+
+    _ZN4bios3FtmILh8EE8getCNTINEv():
+
+       206f6:	6ce5      	ldr	r5, [r4, #76]	; 0x4c
+
+       206f8:	6ce4      	ldr	r4, [r4, #76]	; 0x4c
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE7setDutyEt():
+
+       206fa:	3301      	adds	r3, #1
+
+       206fc:	1b5b      	subs	r3, r3, r5
+
+       206fe:	b29b      	uxth	r3, r3
+
+       20700:	fb03 f202 	mul.w	r2, r3, r2
+
+       20704:	4b17      	ldr	r3, [pc, #92]	; (20764 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0xe8>)
+
+       20706:	fba3 3202 	umull	r3, r2, r3, r2
+
+       2070a:	eb04 3252 	add.w	r2, r4, r2, lsr #13
+
+       2070e:	b292      	uxth	r2, r2
+
+       20710:	f64f 73ff 	movw	r3, #65535	; 0xffff
+
+       20714:	429a      	cmp	r2, r3
+
+       20716:	d004      	beq.n	20722 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0xa6>
+
+       20718:	6883      	ldr	r3, [r0, #8]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       2071a:	bc30      	pop	{r4, r5}
+
+    _ZN4bios7FtmEPwmILh2ELt100ELh1ELh1EE7setDutyEt():
+
+       2071c:	4608      	mov	r0, r1
+
+       2071e:	605a      	str	r2, [r3, #4]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       20720:	4770      	bx	lr
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       20722:	2000      	movs	r0, #0
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       20724:	bc30      	pop	{r4, r5}
+
+       20726:	4770      	bx	lr
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       20728:	2a00      	cmp	r2, #0
+
+       2072a:	d0d1      	beq.n	206d0 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x54>
+
+       2072c:	429a      	cmp	r2, r3
+
+       2072e:	d0b4      	beq.n	2069a <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0x1e>
+
+    _ZN4bios3FtmILh8EE6getMODEv():
+
+       20730:	6903      	ldr	r3, [r0, #16]
+
+       20732:	6819      	ldr	r1, [r3, #0]
+
+       20734:	688b      	ldr	r3, [r1, #8]
+
+    _ZN4bios3FtmILh8EE8getCNTINEv():
+
+       20736:	6ccc      	ldr	r4, [r1, #76]	; 0x4c
+
+       20738:	6cc9      	ldr	r1, [r1, #76]	; 0x4c
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       2073a:	3301      	adds	r3, #1
+
+       2073c:	1b1b      	subs	r3, r3, r4
+
+       2073e:	b29b      	uxth	r3, r3
+
+       20740:	4c08      	ldr	r4, [pc, #32]	; (20764 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0xe8>)
+
+       20742:	fb03 f202 	mul.w	r2, r3, r2
+
+       20746:	fba4 3202 	umull	r3, r2, r4, r2
+
+       2074a:	eb01 3252 	add.w	r2, r1, r2, lsr #13
+
+       2074e:	b292      	uxth	r2, r2
+
+       20750:	f64f 73ff 	movw	r3, #65535	; 0xffff
+
+       20754:	429a      	cmp	r2, r3
+
+       20756:	d0e4      	beq.n	20722 <<a href="./8e7a0dc46bca1a31ed128c501b5931d4.html">bios::PwmSupport::setDuty(unsigned short, unsigned short, bool)</a>+0xa6>
+
+       20758:	6943      	ldr	r3, [r0, #20]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       2075a:	bc30      	pop	{r4, r5}
+
+       2075c:	2000      	movs	r0, #0
+
+    _ZN4bios7FtmEPwmILh3ELt100ELh1ELh1EE7setDutyEt():
+
+       2075e:	605a      	str	r2, [r3, #4]
+
+    bios::PwmSupport::setDuty(unsigned short, unsigned short, bool):
+
+       20760:	4770      	bx	lr
+
+       20762:	bf00      	nop
+
+       20764:	d1b71759 	.word	0xd1b71759
+
+    </pre>
+
+    
+    <pre><a href="./9703893ca4eda70964c8311e700e7ad8.html">bios::PwmSupport::PwmSupport(bios::Ftm&lt;(unsigned char)8&gt;&amp;) (48)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>

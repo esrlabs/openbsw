@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../uds.html">uds</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagDispatcher.cpp.html">DiagDispatcher.cpp</a>:213
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00019f70</td>
+                <td>
+    
+    
+</td>
+                <td>32 (static)</td>
+                <td>216</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (6,
+                            <span title="sum of used bytes by all callees">
+                            Σ=560
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./41f9fa76e3b5ef63fba09d64ef623b07.html">uds::DiagDispatcher::copyFunctionalRequest(transport::TransportMessage&amp;, transport::ITransportMessageProvidingListener&amp;, uds::AbstractDiagnosisConfiguration&amp;) (84)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./66f104899e828bdba9960cba28fbfa0f.html">uds::DiagDispatcher::requestIncomingConnection(transport::TransportMessage&amp;) (136)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../transport/src/AbstractTransportLayer.cpp/fcfc407f45c49e361a78edb290484a86.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&amp;) (80)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../connection/IncomingDiagConnection.cpp/98aa1036e1899478fd44d0933f659743.html">uds::IncomingDiagConnection::sendNegativeResponse(unsigned char, uds::AbstractDiagJob&amp;) (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./372b4cecc737d685c1d01cb2c6272a70.html">uds::DiagDispatcher::sendBusyResponse(transport::TransportMessage const*) (84)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./38b25a40def1eceb0137c8e89a66a1ab.html">uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener::ProcessingResult) (8)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       19f70:	6b82      	ldr	r2, [r0, #56]	; 0x38
+
+    _ZNK3etl10queue_baseILj2EE5emptyEv():
+
+       19f72:	6853      	ldr	r3, [r2, #4]
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       19f74:	689b      	ldr	r3, [r3, #8]
+
+       19f76:	b94b      	cbnz	r3, 19f8c <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x1c>
+
+       19f78:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+       19f7c:	7b03      	ldrb	r3, [r0, #12]
+
+       19f7e:	b082      	sub	sp, #8
+
+       19f80:	4604      	mov	r4, r0
+
+       19f82:	b92b      	cbnz	r3, 19f90 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x20>
+
+       19f84:	2001      	movs	r0, #1
+
+       19f86:	b002      	add	sp, #8
+
+       19f88:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       19f8c:	2001      	movs	r0, #1
+
+       19f8e:	4770      	bx	lr
+
+       19f90:	460d      	mov	r5, r1
+
+       19f92:	f100 0720 	add.w	r7, r0, #32
+
+       19f96:	4639      	mov	r1, r7
+
+       19f98:	4628      	mov	r0, r5
+
+       19f9a:	f7ff fd0b 	bl	199b4 <<a href="./41f9fa76e3b5ef63fba09d64ef623b07.html">uds::DiagDispatcher::copyFunctionalRequest(transport::TransportMessage&, transport::ITransportMessageProvidingListener&, uds::AbstractDiagnosisConfiguration&)</a>>
+
+       19f9e:	4606      	mov	r6, r0
+
+       19fa0:	2800      	cmp	r0, #0
+
+       19fa2:	d044      	beq.n	1a02e <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xbe>
+
+       19fa4:	4601      	mov	r1, r0
+
+       19fa6:	4620      	mov	r0, r4
+
+       19fa8:	f7ff fd2e 	bl	19a08 <<a href="./66f104899e828bdba9960cba28fbfa0f.html">uds::DiagDispatcher::requestIncomingConnection(transport::TransportMessage&)</a>>
+
+       19fac:	4605      	mov	r5, r0
+
+       19fae:	b1e8      	cbz	r0, 19fec <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x7c>
+
+       19fb0:	4922      	ldr	r1, [pc, #136]	; (1a03c <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xcc>)
+
+       19fb2:	8b03      	ldrh	r3, [r0, #24]
+
+       19fb4:	8ac2      	ldrh	r2, [r0, #22]
+
+       19fb6:	7808      	ldrb	r0, [r1, #0]
+
+       19fb8:	7ea9      	ldrb	r1, [r5, #26]
+
+       19fba:	9100      	str	r1, [sp, #0]
+
+       19fbc:	4920      	ldr	r1, [pc, #128]	; (1a040 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xd0>)
+
+       19fbe:	f7e7 fd5f 	bl	1a80 <<a href="../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+       19fc2:	6860      	ldr	r0, [r4, #4]
+
+       19fc4:	8a33      	ldrh	r3, [r6, #16]
+
+       19fc6:	6802      	ldr	r2, [r0, #0]
+
+       19fc8:	4629      	mov	r1, r5
+
+       19fca:	f8d2 8018 	ldr.w	r8, [r2, #24]
+
+       19fce:	6872      	ldr	r2, [r6, #4]
+
+       19fd0:	47c0      	blx	r8
+
+       19fd2:	28ff      	cmp	r0, #255	; 0xff
+
+       19fd4:	d115      	bne.n	1a002 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x92>
+
+       19fd6:	6823      	ldr	r3, [r4, #0]
+
+       19fd8:	4a1a      	ldr	r2, [pc, #104]	; (1a044 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xd4>)
+
+       19fda:	699b      	ldr	r3, [r3, #24]
+
+       19fdc:	4293      	cmp	r3, r2
+
+       19fde:	d11a      	bne.n	1a016 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xa6>
+
+    uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+       19fe0:	4638      	mov	r0, r7
+
+       19fe2:	4631      	mov	r1, r6
+
+       19fe4:	f7fc fd42 	bl	16a6c <<a href="../../../../transport/src/AbstractTransportLayer.cpp/fcfc407f45c49e361a78edb290484a86.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&)</a>>
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       19fe8:	2000      	movs	r0, #0
+
+    uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+       19fea:	e7cc      	b.n	19f86 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x16>
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       19fec:	6823      	ldr	r3, [r4, #0]
+
+       19fee:	4a15      	ldr	r2, [pc, #84]	; (1a044 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xd4>)
+
+       19ff0:	699b      	ldr	r3, [r3, #24]
+
+       19ff2:	4293      	cmp	r3, r2
+
+       19ff4:	d115      	bne.n	1a022 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0xb2>
+
+    uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+       19ff6:	4638      	mov	r0, r7
+
+       19ff8:	4631      	mov	r1, r6
+
+       19ffa:	f7fc fd37 	bl	16a6c <<a href="../../../../transport/src/AbstractTransportLayer.cpp/fcfc407f45c49e361a78edb290484a86.html">transport::AbstractTransportLayer::TransportMessageProvidingListenerHelper::releaseTransportMessage(transport::TransportMessage&)</a>>
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       19ffe:	2001      	movs	r0, #1
+
+    uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&, transport::ITransportMessageProcessedListener::ProcessingResult):
+
+       1a000:	e7c1      	b.n	19f86 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x16>
+
+    uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&):
+
+       1a002:	4601      	mov	r1, r0
+
+       1a004:	6862      	ldr	r2, [r4, #4]
+
+       1a006:	4628      	mov	r0, r5
+
+       1a008:	f7fe f930 	bl	1826c <<a href="../connection/IncomingDiagConnection.cpp/98aa1036e1899478fd44d0933f659743.html">uds::IncomingDiagConnection::sendNegativeResponse(unsigned char, uds::AbstractDiagJob&)</a>>
+
+       1a00c:	682b      	ldr	r3, [r5, #0]
+
+       1a00e:	4628      	mov	r0, r5
+
+       1a010:	68db      	ldr	r3, [r3, #12]
+
+       1a012:	4798      	blx	r3
+
+       1a014:	e7df      	b.n	19fd6 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x66>
+
+       1a016:	4620      	mov	r0, r4
+
+       1a018:	2200      	movs	r2, #0
+
+       1a01a:	4631      	mov	r1, r6
+
+       1a01c:	4798      	blx	r3
+
+       1a01e:	2000      	movs	r0, #0
+
+       1a020:	e7b1      	b.n	19f86 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x16>
+
+       1a022:	4620      	mov	r0, r4
+
+       1a024:	2204      	movs	r2, #4
+
+       1a026:	4631      	mov	r1, r6
+
+       1a028:	4798      	blx	r3
+
+       1a02a:	2001      	movs	r0, #1
+
+       1a02c:	e7ab      	b.n	19f86 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x16>
+
+       1a02e:	4620      	mov	r0, r4
+
+       1a030:	4629      	mov	r1, r5
+
+       1a032:	f7ff ff07 	bl	19e44 <<a href="./372b4cecc737d685c1d01cb2c6272a70.html">uds::DiagDispatcher::sendBusyResponse(transport::TransportMessage const*)</a>>
+
+       1a036:	2001      	movs	r0, #1
+
+       1a038:	e7a5      	b.n	19f86 <<a href="./22da66da7dee0322ce838cc9c4494991.html">uds::DiagDispatcher::dispatchTriggerEventRequest(transport::TransportMessage&)</a>+0x16>
+
+       1a03a:	bf00      	nop
+
+       1a03c:	1ffe0125 	.word	0x1ffe0125
+
+       1a040:	00027610 	.word	0x00027610
+
+       1a044:	00019f69 	.word	0x00019f69
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../../../../../unknown/unknown/e98e5cf131a5511b7a3c3ef82721d714.html">non-virtual thunk to uds::DiagDispatcher::transportMessageProcessed(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener::ProcessingResult) (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 212</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 964</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    212
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    964
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    164
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    896
+                    
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html" class="icon-function">util::logger::Logger::critical(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    144
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    840
+                    
+                    
+                </td>
+                <td class="col_size">80</td>
+                <td><a href="../../../../transport/src/TransportMessage.cpp/015d887b65e4e2abda950a7ebf753854.html" class="icon-function">transport::TransportMessage::setPayloadLength(unsigned short)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    760
+                    
+                    
+                </td>
+                <td class="col_size">108</td>
+                <td><a href="../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html" class="icon-function">transport::TransportMessage::init(unsigned char*, unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    96
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    652
+                    
+                    
+                </td>
+                <td class="col_size">516</td>
+                <td><a href="../../../include/uds/DiagnosisConfiguration.h/895a07a1b8820b5b8c99d1d2c455121b.html" class="icon-function">uds::AbstractDiagnosisConfiguration::acquireIncomingDiagConnection()</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    64
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="./66f104899e828bdba9960cba28fbfa0f.html" class="icon-function">uds::DiagDispatcher::requestIncomingConnection(transport::TransportMessage&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">32
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2025</span>
+        
+    </div>
+    </div>
+</body>
+</html>
