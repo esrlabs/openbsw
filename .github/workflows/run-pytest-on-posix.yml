@@ -41,6 +41,9 @@ jobs:
           outputs: type=docker
           cache-from: type=gha
           cache-to: type=gha,mode=max,ignore-error=true
+      
+      - name: Check TUN device
+        run: ls -l /dev/net/tun || echo "TUN device missing"
 
       - name: Set up virtual ethernet interface
         run: |
