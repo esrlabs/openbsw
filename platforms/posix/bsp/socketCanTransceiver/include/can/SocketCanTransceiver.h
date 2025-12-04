@@ -60,15 +60,18 @@ public:
     void run(int maxSentPerRun, int maxReceivedPerRun);
 
 private:
-    static size_t const TX_QUEUE_SIZE_BYTES = 512;
+    static constexpr size_t TX_NUM_ELEMENTS       = 16U;
+    static constexpr size_t TX_ELEMENT_SIZE_BYTES = sizeof(CANFrame) + sizeof(void*);
 
-    struct FrameWithListener
-    {
-        CANFrame frame;
-        ICANFrameSentListener* listener;
-    };
+    using ElementSizeType = uint16_t;
+    static constexpr size_t TX_QUEUE_SIZE_BYTES
+        = TX_NUM_ELEMENTS * (TX_ELEMENT_SIZE_BYTES + sizeof(ElementSizeType));
 
-    using TxQueue = ::io::MemoryQueue<TX_QUEUE_SIZE_BYTES, sizeof(FrameWithListener)>;
+    // NOTE: internally also the size of each element is stored, which is reflected in the total
+    // queue size but not in the configured element size
+    using TxQueue = ::io::MemoryQueue<TX_QUEUE_SIZE_BYTES, TX_ELEMENT_SIZE_BYTES, ElementSizeType>;
+
+    ICanTransceiver::ErrorCode writeImpl(CANFrame const& frame, ICANFrameSentListener* listener);
 
     // these functions are making system calls and shall be signal-masked
     void guardedOpen();
