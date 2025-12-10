@@ -32,7 +32,7 @@ void DigitalInput::init(uint8_t const hw, bool const doSetup)
     {
         return;
     }
-    if (true == doSetup)
+    if (doSetup)
     {
         for (uint16_t i = 0; i < NUMBER_OF_INTERNAL_DIGITAL_INPUTS; i++)
         {
@@ -125,7 +125,7 @@ bsp::BspReturnCode DigitalInput::get(DigitalInputId const channel, bool& result)
             = static_cast<dynamicClientType>(tmpChannel - NUMBER_OF_INTERNAL_DIGITAL_INPUTS);
         if (dynamicChannel < NumberOfDynamicInputs)
         {
-            if (dynamicInputCfg.getClientValid(dynamicChannel) == true)
+            if (dynamicInputCfg.getClientValid(dynamicChannel))
             {
                 return (dynamicInputCfg.getClientInstance(dynamicChannel)
                             ->get(dynamicInputCfg.getChannelInsideClient(dynamicChannel), result));
@@ -157,7 +157,7 @@ bsp::BspReturnCode DigitalInput::setDynamicClient(
             = static_cast<dynamicClientType>(inputNumber - NUMBER_OF_INTERNAL_DIGITAL_INPUTS);
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicInputCfg.setDynamicClient(dynamicChannel, clientInputNumber, client) == true)
+        if (dynamicInputCfg.setDynamicClient(dynamicChannel, clientInputNumber, client))
         {
             fLock.resume();
             return bsp::BSP_OK;
@@ -184,7 +184,7 @@ bsp::BspReturnCode DigitalInput::clrDynamicClient(uint16_t const inputNumber)
             = static_cast<dynamicClientType>(inputNumber - NUMBER_OF_INTERNAL_DIGITAL_INPUTS);
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicInputCfg.clearDynamicClient(dynamicChannel) == true)
+        if (dynamicInputCfg.clearDynamicClient(dynamicChannel))
         {
             fLock.resume();
             return bsp::BSP_OK;

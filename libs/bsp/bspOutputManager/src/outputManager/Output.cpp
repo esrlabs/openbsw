@@ -27,7 +27,7 @@ void Output::init(uint8_t const hw, bool const doSetup)
     {
         return;
     }
-    if (true == doSetup)
+    if (doSetup)
     {
         for (uint8_t i = 0U; i < static_cast<uint8_t>(NUMBER_OF_INTERNAL_OUTPUTS); ++i)
         {
@@ -78,7 +78,7 @@ bsp::BspReturnCode Output::invert(OutputId const chan)
         dynamicClientType const channel = chan - NUMBER_OF_INTERNAL_OUTPUTS - 1;
         if (channel < NUMBER_OF_DYNAMIC_OUTPUTS)
         {
-            if (dynamicOutputCfg.getClientValid(channel) == true)
+            if (dynamicOutputCfg.getClientValid(channel))
             {
                 bool t;
                 bsp::BspReturnCode const ret = dynamicOutputCfg.getClientInstance(channel)->get(
@@ -187,7 +187,7 @@ bsp::BspReturnCode Output::get(OutputId const chan, bool& result)
         dynamicClientType const channel = chan - NUMBER_OF_INTERNAL_OUTPUTS - 1;
         if (channel < NUMBER_OF_DYNAMIC_OUTPUTS)
         {
-            if (dynamicOutputCfg.getClientValid(channel) == true)
+            if (dynamicOutputCfg.getClientValid(channel))
             {
                 return (dynamicOutputCfg.getClientInstance(channel)->get(
                     dynamicOutputCfg.getChannelInsideClient(channel), result));
@@ -239,7 +239,7 @@ bsp::BspReturnCode Output::set(OutputId const chan, uint8_t const vol, bool cons
         dynamicClientType const channel = chan - NUMBER_OF_INTERNAL_OUTPUTS - 1;
         if (channel < NUMBER_OF_DYNAMIC_OUTPUTS)
         {
-            if (dynamicOutputCfg.getClientValid(channel) == true)
+            if (dynamicOutputCfg.getClientValid(channel))
             {
                 return (dynamicOutputCfg.getClientInstance(channel)->set(
                     dynamicOutputCfg.getChannelInsideClient(channel), vol, latch));
@@ -272,7 +272,7 @@ bsp::BspReturnCode Output::setDynamicClient(
         dynamicClientType const dynamicChannel = outputNumber - NUMBER_OF_INTERNAL_OUTPUTS - 1;
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicOutputCfg.setDynamicClient(dynamicChannel, clientOutputNumber, client) == true)
+        if (dynamicOutputCfg.setDynamicClient(dynamicChannel, clientOutputNumber, client))
         {
             fLock.resume();
             return bsp::BSP_OK;
@@ -297,7 +297,7 @@ bsp::BspReturnCode Output::clrDynamicClient(uint16_t const outputNumber)
         dynamicClientType const dynamicChannel = outputNumber - NUMBER_OF_INTERNAL_OUTPUTS - 1;
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicOutputCfg.clearDynamicClient(dynamicChannel) == true)
+        if (dynamicOutputCfg.clearDynamicClient(dynamicChannel))
         {
             fLock.resume();
             return bsp::BSP_OK;

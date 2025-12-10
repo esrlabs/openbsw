@@ -26,7 +26,7 @@ T BuddyMemoryManager::fastLog2(T value)
 template<typename T>
 inline T BuddyMemoryManager::clzToLog2(T const value)
 {
-    return static_cast<T>(sizeof(T)) * static_cast<T>(8U) - static_cast<T>(1U) - value;
+    return (static_cast<T>(sizeof(T)) * static_cast<T>(8U)) - static_cast<T>(1U) - value;
 }
 
 #if defined(__GNUC__)

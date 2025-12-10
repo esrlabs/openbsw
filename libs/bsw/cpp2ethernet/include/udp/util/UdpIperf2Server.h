@@ -49,11 +49,11 @@ private:
     AbstractDatagramSocket& _socket;
     static constexpr size_t UDP_RECV_SIZE{1518U};
     ::etl::array<uint8_t, UDP_RECV_SIZE> _receiveData;
-    uint32_t _totalPacket;
-    uint32_t _totalBytes;
-    uint32_t _startTimeUs;
-    int32_t _sequenceNo;
-    uint32_t _packetOutOfOrder;
+    uint32_t _totalPacket      = 0U;
+    uint32_t _totalBytes       = 0U;
+    uint32_t _startTimeUs      = 0U;
+    int32_t _sequenceNo        = 0;
+    uint32_t _packetOutOfOrder = 0U;
 };
 
 } // namespace udp

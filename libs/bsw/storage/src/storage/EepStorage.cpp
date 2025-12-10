@@ -1,6 +1,7 @@
 // Copyright 2025 Accenture.
 
 #include <bsp/eeprom/IEepromDriver.h>
+#include <etl/algorithm.h>
 #include <etl/crc16_aug_ccitt.h>
 #include <etl/memory.h>
 #include <etl/unaligned_type.h>
@@ -108,10 +109,7 @@ StorageJob::ResultType EepStorage::write(
             return StorageJob::Result::Error();
         }
         usedDataSize = ::etl::be_uint16_t{dataSizePtr};
-        if (usedDataSize > confEntry.dataSize)
-        {
-            usedDataSize = confEntry.dataSize;
-        }
+        usedDataSize = ::etl::min(usedDataSize, confEntry.dataSize);
         if (!isCrcValid(::etl::span<uint8_t const>(dataPtr, usedDataSize), eepBuf.data()))
         {
             // block is uninitialized or corrupt, use known values for any data before the offset
@@ -142,15 +140,13 @@ StorageJob::ResultType EepStorage::write(
     }
     if (confEntry.errorDetection)
     {
+        // update size if more will be written than was there before
+        usedDataSize = ::etl::max<size_t>(usedDataSize, progressInBlock);
+
         // store how many bytes were written and the new checksum
         // NOTE: both need to take into account any data before the offset (either previously
         // written or newly initialized), and also any data that was already stored after the last
         // writing address
-        if (progressInBlock > usedDataSize)
-        {
-            // update size if more will be written than was there before
-            usedDataSize = progressInBlock;
-        }
         ::etl::be_uint16_ext_t{dataSizePtr} = usedDataSize;
         calculateCrc(::etl::span<uint8_t const>(dataPtr, usedDataSize), eepBuf.data());
     }
@@ -182,13 +178,10 @@ StorageJob::ResultType EepStorage::read(
         // we need to find the previously stored size to verify the checksum and to know how much
         // can be copied to the read buffer
         usedDataSize = ::etl::be_uint16_t{eepBuf.data() + _nvCrcSize};
-        if (usedDataSize > confEntry.dataSize)
-        {
-            // limit used data size to the max capacity
-            // NOTE: if more data was stored using another SW where the data size was bigger, it
-            // will fail the checksum check and get discarded
-            usedDataSize = confEntry.dataSize;
-        }
+        // limit used data size to the max capacity
+        // NOTE: if more data was stored using another SW where the data size was bigger, it
+        // will fail the checksum check and get discarded
+        usedDataSize = ::etl::min(usedDataSize, confEntry.dataSize);
         if (!isCrcValid(
                 ::etl::span<uint8_t const>(eepBuf.data() + headerSize, usedDataSize),
                 eepBuf.data()))

@@ -1,6 +1,7 @@
 // Copyright 2024 Accenture.
 
 #include "inputManager/AlternativeDigitalInput.h"
+#include <etl/algorithm.h>
 
 namespace bios
 {
@@ -42,10 +43,7 @@ uint8_t AlternativeDigitalInput::process(
     edge_pos = 0U;
     edge_neg = 0U;
 
-    if (debounced > max_debounce)
-    {
-        debounced = max_debounce;
-    }
+    debounced = ::etl::min(debounced, max_debounce);
     if (port_in != 0U)
     {
         if (debounced < max_debounce)

@@ -34,7 +34,7 @@ DiagReturnCode::Type PowerDown::process(
 void PowerDown::responseSent(IncomingDiagConnection& connection, ResponseSendResult /* result */)
 {
     connection.terminate();
-    uint8_t dummy;
+    uint8_t dummy = 0U;
 
     (void)fUdsLifecycleConnector.requestPowerdown(false, dummy);
 }

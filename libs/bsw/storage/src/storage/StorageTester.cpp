@@ -3,6 +3,33 @@
 #include <etl/memory.h>
 #include <storage/StorageTester.h>
 
+namespace
+{
+
+void printData(::util::format::SharedStringWriter& out, ::etl::span<uint8_t> const data)
+{
+    static constexpr uint32_t BYTES_PER_LINE = 32U;
+    for (uint32_t i = 0U; i < data.size(); i += BYTES_PER_LINE)
+    {
+        (void)out.printf("%-5d: ", i);
+        for (uint32_t j = 0U; j < BYTES_PER_LINE; ++j)
+        {
+            if (i + j < data.size())
+            {
+                (void)out.printf("%02x", data[i + j]);
+            }
+            if (((j + 1) & 3U) == 0U)
+            {
+                (void)out.printf(" ");
+            }
+        }
+        (void)out.printf("\r\n");
+    }
+    (void)out.printf("\r\n");
+}
+
+} // anonymous namespace
+
 namespace storage
 {
 
@@ -158,29 +185,6 @@ void StorageTester::executeCommand(::util::command::CommandContext& context, uin
             break;
         }
     }
-}
-
-void StorageTester::printData(
-    ::util::format::SharedStringWriter& out, ::etl::span<uint8_t> const data)
-{
-    static constexpr uint32_t BYTES_PER_LINE = 32U;
-    for (uint32_t i = 0U; i < data.size(); i += BYTES_PER_LINE)
-    {
-        (void)out.printf("%-5d: ", i);
-        for (uint32_t j = 0U; j < BYTES_PER_LINE; ++j)
-        {
-            if (i + j < data.size())
-            {
-                (void)out.printf("%02x", data[i + j]);
-            }
-            if (((j + 1) & 3U) == 0U)
-            {
-                (void)out.printf(" ");
-            }
-        }
-        (void)out.printf("\r\n");
-    }
-    (void)out.printf("\r\n");
 }
 
 void StorageTester::jobDone(StorageJob&) { _future.notify(); }

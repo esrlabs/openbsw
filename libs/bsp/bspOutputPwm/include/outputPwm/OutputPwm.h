@@ -24,7 +24,7 @@ public:
 #undef BSPOUTPUTPWMCONFIG
 #include "bsp/io/outputPwm/outputPwmConfiguration.h"
 
-    OutputPwm();
+    OutputPwm() = default;
 
     // Api for all DynamicClients
     class IDynamicPwmClient

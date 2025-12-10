@@ -142,7 +142,7 @@ void PrintfFormatter::formatStringParam(
         length = static_cast<uint32_t>(paramInfo._precision);
     }
     fillWidth(paramInfo, static_cast<int32_t>(length), true);
-    putString(str, static_cast<size_t>(length));
+    putString(str, length);
     fillWidth(paramInfo, static_cast<int32_t>(length), false);
 }
 

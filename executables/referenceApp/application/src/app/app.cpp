@@ -145,7 +145,6 @@ private:
         }
     }
 
-private:
     bool _isReadyForReset = false;
 };
 

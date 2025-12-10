@@ -11,7 +11,7 @@ namespace util
 {
 namespace logger
 {
-StderrLogger* StderrLogger::_instance = 0;
+StderrLogger* StderrLogger::_instance = nullptr;
 
 StderrLogger::~StderrLogger()
 {
@@ -23,7 +23,7 @@ StderrLogger::~StderrLogger()
 
 void StderrLogger::init()
 {
-    if (_instance)
+    if (_instance != nullptr)
     {
         _instance->applyMapping();
         Logger::init(*_instance, *_instance);
@@ -32,7 +32,7 @@ void StderrLogger::init()
 
 void StderrLogger::shutdown()
 {
-    if (_instance)
+    if (_instance != nullptr)
     {
         Logger::shutdown();
         _instance->clearMapping();

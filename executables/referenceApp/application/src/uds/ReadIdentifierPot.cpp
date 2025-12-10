@@ -8,13 +8,10 @@
 #include "outputPwm/OutputPwm.h"
 #endif
 
-#include "uds/UdsLogger.h"
 #include "uds/connection/IncomingDiagConnection.h"
 
 namespace uds
 {
-using ::util::logger::Logger;
-using ::util::logger::UDS;
 
 #ifdef PLATFORM_SUPPORT_IO
 using bios::AnalogInput;

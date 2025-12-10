@@ -21,8 +21,6 @@ dynamicClient<
     OutputPwm::outputNumberDynamic>
     OutputPwm::dynamicPwmOutputCfg;
 
-OutputPwm::OutputPwm() {}
-
 void OutputPwm::init(uint8_t /* hwVariant */) { cleanDynamicClients(); }
 
 void OutputPwm::shutdown() { cleanDynamicClients(); }
@@ -41,7 +39,7 @@ bsp::BspReturnCode OutputPwm::setDuty(uint16_t chan, uint16_t duty, bool immedia
             dynamicClientType channel = chan - outputPwmStaticNumber; // dynamic instance
             if (channel < outputNumberDynamic)
             {
-                if (dynamicPwmOutputCfg.getClientValid(channel) == true)
+                if (dynamicPwmOutputCfg.getClientValid(channel))
                 {
                     return (dynamicPwmOutputCfg.getClientInstance(channel)->setDuty(
                         dynamicPwmOutputCfg.getChannelInsideClient(channel),
@@ -79,7 +77,7 @@ bsp::BspReturnCode OutputPwm::setPeriod(uint16_t chan, uint16_t period)
             dynamicClientType channel = chan - outputPwmStaticNumber; // dynamic instance
             if (channel < outputNumberDynamic)
             {
-                if (dynamicPwmOutputCfg.getClientValid(channel) == true)
+                if (dynamicPwmOutputCfg.getClientValid(channel))
                 {
                     return (dynamicPwmOutputCfg.getClientInstance(channel)->setPeriod(
                         dynamicPwmOutputCfg.getChannelInsideClient(channel), period));
@@ -110,8 +108,7 @@ bsp::BspReturnCode OutputPwm::setDynamicClient(
         dynamicClientType dynamicChannel = outputNumber - _pwmDynamicStart;
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicPwmOutputCfg.setDynamicClient(dynamicChannel, clientOutputNumber, client)
-            == true)
+        if (dynamicPwmOutputCfg.setDynamicClient(dynamicChannel, clientOutputNumber, client))
         {
             fLock.resume();
             return bsp::BSP_OK;
@@ -136,7 +133,7 @@ bsp::BspReturnCode OutputPwm::clrDynamicClient(uint16_t outputNumber)
         dynamicClientType dynamicChannel = outputNumber - _pwmDynamicStart;
         interrupts::SuspendResumeAllInterruptsLock fLock;
         fLock.suspend();
-        if (dynamicPwmOutputCfg.clearDynamicClient(dynamicChannel) == true)
+        if (dynamicPwmOutputCfg.clearDynamicClient(dynamicChannel))
         {
             fLock.resume();
             return bsp::BSP_OK;

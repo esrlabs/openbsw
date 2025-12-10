@@ -175,7 +175,7 @@ size_t MappingStorage::getUsedSlotIdx(StorageJob& job) const
     auto const maxSlot = _outJobs.size();
     for (size_t slotIdx = 0U; slotIdx < maxSlot; ++slotIdx)
     {
-        if (_outJobs[slotIdx] == (&job))
+        if (_outJobs[slotIdx] == &job)
         {
             return slotIdx;
         }

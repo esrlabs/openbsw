@@ -29,7 +29,6 @@ protected:
     void executeCommand(::util::command::CommandContext& context, uint8_t idx) override;
 
 private:
-    void printData(::util::format::SharedStringWriter& out, ::etl::span<uint8_t> data);
     void jobDone(StorageJob&);
 
     IStorage& _storage;

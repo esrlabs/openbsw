@@ -31,10 +31,6 @@ namespace logger = ::util::logger;
 
 using ::ip::IPAddress;
 using ::ip::IPEndpoint;
-using ::ip::make_ip4;
-#if LWIP_IPV6
-using ::ip::make_ip6;
-#endif
 
 LwipSocket::LwipSocket()
 : fpHandle(nullptr)

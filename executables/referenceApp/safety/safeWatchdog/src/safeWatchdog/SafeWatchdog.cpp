@@ -3,7 +3,6 @@
 #include "safeWatchdog/SafeWatchdog.h"
 
 #include <safeSupervisor/SafeSupervisor.h>
-#include <safeUtils/SafetyLogger.h>
 
 #ifdef PLATFORM_SUPPORT_WATCHDOG
 #include <mcu/mcu.h>
@@ -12,8 +11,6 @@
 
 namespace safety
 {
-using ::util::logger::Logger;
-using ::util::logger::SAFETY;
 
 SafeWatchdog::SafeWatchdog() : _serviceCounter(SERVICE_COUNTER_INIT) {}
 
