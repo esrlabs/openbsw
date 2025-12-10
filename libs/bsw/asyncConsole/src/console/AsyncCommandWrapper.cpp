@@ -10,7 +10,7 @@ namespace console
 {
 AsyncCommandWrapper::AsyncCommandWrapper(
     ::util::command::ICommand& command, ::async::ContextType context)
-: fCommand(command), fArguments(), fpSharedOutputStream(0), fContext(context)
+: fCommand(command), fArguments(), fpSharedOutputStream(nullptr), fContext(context)
 {
     AsyncConsole::addCommand(*this);
 }

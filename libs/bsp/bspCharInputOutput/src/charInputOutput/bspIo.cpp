@@ -79,7 +79,7 @@ uint8_t debug_printf(char const* format, ...)
 {
     va_list args;
     va_start(args, format);
-    (void)vfctprintf(&fctprintf_helper, nullptr, reinterpret_cast<char const*>(format), args);
+    (void)vfctprintf(&fctprintf_helper, nullptr, format, args);
     va_end(args);
 
     return 0;

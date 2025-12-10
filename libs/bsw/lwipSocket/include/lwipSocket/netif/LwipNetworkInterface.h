@@ -40,7 +40,7 @@ enum
 bool initNetifIp4(
     netif& lwipNetif,
     ::ip::Ip4Config const& config,
-    ::ip::NetworkInterfaceConfig const& netifConfig,
+    ::ip::NetworkInterfaceConfig const& networkInterfaceConfig,
     void* state);
 #endif
 

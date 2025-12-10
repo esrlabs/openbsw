@@ -37,7 +37,7 @@ static int allocTapInterface(char const* const ifName)
     ifreq ifr;
     memset(&ifr, 0, sizeof(ifr));
     ifr.ifr_flags = IFF_TAP | IFF_NO_PI;
-    if (ifName)
+    if (ifName != nullptr)
     {
         strncpy(ifr.ifr_name, ifName, IFNAMSIZ);
     }
@@ -120,12 +120,7 @@ bool TapEthernetDriver::writeFrame(pbuf* const buf) const
     uint8_t sendBuffer[MAX_FRAME_LENGTH];
     uint16_t const copiedBytes = pbuf_copy_partial(buf, sendBuffer, MAX_FRAME_LENGTH, 0U);
 
-    if (write(_tapFd, sendBuffer, copiedBytes) <= 0)
-    {
-        return false;
-    }
-
-    return true;
+    return (write(_tapFd, sendBuffer, copiedBytes) > 0);
 }
 
 } // namespace ethernet

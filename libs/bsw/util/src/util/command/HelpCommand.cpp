@@ -4,6 +4,7 @@
 
 #include "util/format/SharedStringWriter.h"
 #include "util/string/ConstString.h"
+#include <etl/algorithm.h>
 
 namespace util
 {
@@ -70,8 +71,8 @@ void HelpCommand::CallbackHelper::startCommand(
 {
     if ((_depth >= 0) && (description != nullptr))
     {
-        uint32_t const width
-            = static_cast<uint32_t>(_depth) * 2U + static_cast<uint32_t>(ConstString(id).length());
+        uint32_t const width = (static_cast<uint32_t>(_depth) * 2U)
+                               + static_cast<uint32_t>(ConstString(id).length());
         if (_writer != nullptr)
         {
             static_cast<void>(
@@ -80,10 +81,7 @@ void HelpCommand::CallbackHelper::startCommand(
         }
         else
         {
-            if (width > _idColumnWidth)
-            {
-                _idColumnWidth = width;
-            }
+            _idColumnWidth = ::etl::max(_idColumnWidth, width);
         }
     }
     if (!end)

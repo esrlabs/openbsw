@@ -8,14 +8,14 @@
 
 namespace
 {
-static constexpr char BACK_SPACE      = 0x08U;
-static constexpr char BACK_SPACE_7F   = 0x7FU;
-static constexpr char LINE_FEED       = 0x0AU;
-static constexpr char CARRIAGE_RETURN = 0x0DU;
-static constexpr char ESCAPE          = 0x1BU;
+constexpr char BACK_SPACE      = 0x08U;
+constexpr char BACK_SPACE_7F   = 0x7FU;
+constexpr char LINE_FEED       = 0x0AU;
+constexpr char CARRIAGE_RETURN = 0x0DU;
+constexpr char ESCAPE          = 0x1BU;
 
-static constexpr char MIN_VALID_CHR = 0x20U; // space
-static constexpr char MAX_VALID_CHR = 0x7EU; // tilde
+constexpr char MIN_VALID_CHR = 0x20U; // space
+constexpr char MAX_VALID_CHR = 0x7EU; // tilde
 
 /*
  * Reads a single character from standard input and appends it to the given string.

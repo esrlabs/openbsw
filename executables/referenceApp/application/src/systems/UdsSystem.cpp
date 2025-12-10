@@ -7,13 +7,8 @@
 #include "transport/ITransportSystem.h"
 #include "transport/TransportConfiguration.h"
 
-#include <uds/UdsLogger.h>
-
 namespace uds
 {
-using ::util::logger::Logger;
-using ::util::logger::UDS;
-
 uint8_t const responseData22Cf01[]
     = {0x01, 0x02, 0x00, 0x02, 0x22, 0x02, 0x16, 0x0F, 0x01, 0x00, 0x00, 0x6D,
        0x2F, 0x00, 0x00, 0x01, 0x06, 0x00, 0x00, 0x8F, 0xE0, 0x00, 0x00, 0x01};
@@ -130,23 +125,23 @@ void UdsSystem::addDiagJobs()
 void UdsSystem::removeDiagJobs()
 {
     // 22 - ReadDataByIdentifier
-    (void)_jobRoot.removeAbstractDiagJob(_readDataByIdentifier);
-    (void)_jobRoot.removeAbstractDiagJob(_read22Cf01);
-    (void)_jobRoot.removeAbstractDiagJob(_read22Cf02);
+    _jobRoot.removeAbstractDiagJob(_readDataByIdentifier);
+    _jobRoot.removeAbstractDiagJob(_read22Cf01);
+    _jobRoot.removeAbstractDiagJob(_read22Cf02);
 
     // 2E - WriteDataByIdentifier
-    (void)_jobRoot.removeAbstractDiagJob(_writeDataByIdentifier);
+    _jobRoot.removeAbstractDiagJob(_writeDataByIdentifier);
 
     // 31 - Routine Control
-    (void)_jobRoot.removeAbstractDiagJob(_routineControl);
-    (void)_jobRoot.removeAbstractDiagJob(_startRoutine);
-    (void)_jobRoot.removeAbstractDiagJob(_stopRoutine);
-    (void)_jobRoot.removeAbstractDiagJob(_requestRoutineResults);
+    _jobRoot.removeAbstractDiagJob(_routineControl);
+    _jobRoot.removeAbstractDiagJob(_startRoutine);
+    _jobRoot.removeAbstractDiagJob(_stopRoutine);
+    _jobRoot.removeAbstractDiagJob(_requestRoutineResults);
 
     // Services
-    (void)_jobRoot.removeAbstractDiagJob(_testerPresent);
-    (void)_jobRoot.removeAbstractDiagJob(_diagnosticSessionControl);
-    (void)_jobRoot.removeAbstractDiagJob(_communicationControl);
+    _jobRoot.removeAbstractDiagJob(_testerPresent);
+    _jobRoot.removeAbstractDiagJob(_diagnosticSessionControl);
+    _jobRoot.removeAbstractDiagJob(_communicationControl);
 }
 
 void UdsSystem::execute() {}

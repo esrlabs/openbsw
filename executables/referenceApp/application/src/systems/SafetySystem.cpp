@@ -3,7 +3,6 @@
 #include "systems/SafetySystem.h"
 
 #include <safeLifecycle/SafetyManager.h>
-#include <safeUtils/SafetyLogger.h>
 #ifdef PLATFORM_SUPPORT_WATCHDOG
 #include <watchdog/Watchdog.h>
 #endif
@@ -17,8 +16,6 @@ constexpr uint32_t SYSTEM_CYCLE_TIME = 10;
 
 namespace systems
 {
-using ::util::logger::Logger;
-using ::util::logger::SAFETY;
 
 SafetySystem::SafetySystem(::async::ContextType const context, ::lifecycle::ILifecycleManager&)
 : _context(context)

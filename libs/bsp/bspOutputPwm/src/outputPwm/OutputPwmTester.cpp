@@ -23,8 +23,6 @@ DEFINE_COMMAND_GROUP_GET_INFO_END
 
 // clang-format on
 
-OutputPwmTester::OutputPwmTester() {}
-
 void OutputPwmTester::executeCommand(CommandContext& context, uint8_t idx)
 {
     switch (idx)

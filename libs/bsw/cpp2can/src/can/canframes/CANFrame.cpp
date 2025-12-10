@@ -4,11 +4,6 @@
 
 #include "can/canframes/CanId.h"
 
-#if (!defined(BOOTLOADER)) && (!defined(BOOTLOADER_UPDATER))
-#include "can/CanLogger.h"
-using ::util::logger::Logger;
-#endif
-
 #include <etl/error_handler.h>
 
 namespace can
@@ -31,12 +26,6 @@ CANFrame::CANFrame() : _id(0U), _timestamp(0U), _payloadLength(0U)
 CANFrame::CANFrame(uint32_t const id) : _id(id), _timestamp(0U), _payloadLength(0U)
 {
     (void)memset(_payload, 0xFF, sizeof(_payload));
-}
-
-CANFrame::CANFrame(CANFrame const& frame)
-: _id(frame._id), _timestamp(frame._timestamp), _payloadLength(frame._payloadLength)
-{
-    (void)memcpy(_payload, frame._payload, static_cast<size_t>(frame._payloadLength));
 }
 
 CANFrame::CANFrame(uint32_t const id, uint8_t const* const payload, uint8_t const length)
@@ -65,18 +54,6 @@ CANFrame::CANFrame(
         ETL_ERROR_GENERIC("CAN frame length must be smaller than maximum length"));
 
     (void)memcpy(_payload, payload, static_cast<size_t>(length));
-}
-
-CANFrame& CANFrame::operator=(CANFrame const& canFrame)
-{
-    if (&canFrame != this)
-    {
-        _id            = canFrame._id;
-        _timestamp     = canFrame._timestamp;
-        _payloadLength = canFrame._payloadLength;
-        (void)memcpy(_payload, canFrame._payload, static_cast<size_t>(canFrame._payloadLength));
-    }
-    return *this;
 }
 
 void CANFrame::setPayloadLength(uint8_t const length)

@@ -8,7 +8,7 @@ namespace safety
 class SafetyManager
 {
 public:
-    SafetyManager();
+    SafetyManager() = default;
     void init();
     void run();
     void shutdown();

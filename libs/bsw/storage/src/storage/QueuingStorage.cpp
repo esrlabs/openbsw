@@ -25,7 +25,7 @@ void QueuingStorage::execute()
     {
         return;
     }
-    StorageJob& job = _jobs.front();
+    auto& job = _jobs.front();
     _jobs.pop_front();
     lock.unlock();
     _storage.process(job);

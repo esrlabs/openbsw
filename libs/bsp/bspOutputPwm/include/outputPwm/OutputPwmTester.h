@@ -10,7 +10,7 @@ namespace bios
 class OutputPwmTester : public ::util::command::GroupCommand
 {
 public:
-    OutputPwmTester();
+    OutputPwmTester() = default;
 
 protected:
     DECLARE_COMMAND_GROUP_GET_INFO

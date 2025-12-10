@@ -114,10 +114,7 @@ bool StatisticsWriter::handleDefaultMode(
     }
     columnWidth                = minWidth + padding;
     uint32_t const titleLength = static_cast<uint32_t>(strlen(title));
-    if (columnWidth < titleLength)
-    {
-        columnWidth = titleLength;
-    }
+    columnWidth                = ::etl::max(columnWidth, titleLength);
     switch (_mode)
     {
         case Mode::Type::HEADER:

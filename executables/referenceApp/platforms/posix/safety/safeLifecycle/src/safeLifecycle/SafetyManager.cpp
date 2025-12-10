@@ -11,8 +11,6 @@ namespace safety
 using ::util::logger::Logger;
 using ::util::logger::SAFETY;
 
-SafetyManager::SafetyManager() {}
-
 void SafetyManager::init() { Logger::debug(SAFETY, "SafetyManager initialized"); }
 
 void SafetyManager::run() {}

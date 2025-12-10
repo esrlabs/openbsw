@@ -32,7 +32,7 @@ void DigitalInputTester::executeCommand(::util::command::CommandContext& context
                     "%s%d : %s -> ", (i < 10U) ? " " : "", i, DigitalInput::getName(i));
                 if (ret == bsp::BSP_OK)
                 {
-                    (void)out.printf("%d\r\n", temp);
+                    (void)out.printf("%d\r\n", static_cast<int>(temp));
                 }
                 else
                 {
@@ -54,7 +54,7 @@ void DigitalInputTester::executeCommand(::util::command::CommandContext& context
                     = DigitalInput::get(static_cast<DigitalInput::DigitalInputId>(inputNo), temp);
                 if (ret == bsp::BSP_OK)
                 {
-                    (void)out.printf("%d \r\n", temp);
+                    (void)out.printf("%d \r\n", static_cast<int>(temp));
                 }
                 else
                 {
@@ -74,7 +74,7 @@ void DigitalInputTester::executeCommand(::util::command::CommandContext& context
                     = DigitalInput::get(static_cast<DigitalInput::DigitalInputId>(i), temp);
                 if (ret == bsp::BSP_OK)
                 {
-                    (void)out.printf("%d ", temp);
+                    (void)out.printf("%d ", static_cast<int>(temp));
                 }
                 else
                 {

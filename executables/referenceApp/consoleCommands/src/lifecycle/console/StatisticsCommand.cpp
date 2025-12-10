@@ -37,8 +37,8 @@ void printCpu(
 
     ::runtime::StatisticsWriter statisticsWriter(writer, totalRuntime, *ticksPerUs);
 
-    typedef ::runtime::StatisticsWriter::FormatStatistics<::runtime::RuntimeStatistics>::Type
-        FormatStatisticsType;
+    using FormatStatisticsType
+        = ::runtime::StatisticsWriter::FormatStatistics<::runtime::RuntimeStatistics>::Type;
 
     FormatStatisticsType formatStatistics = FormatStatisticsType::create<&format>();
 

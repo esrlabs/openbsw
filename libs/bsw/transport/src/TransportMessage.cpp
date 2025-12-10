@@ -10,7 +10,6 @@
 
 namespace transport
 {
-using ::util::logger::_CRITICAL;
 using ::util::logger::Logger;
 using ::util::logger::TRANSPORT;
 

@@ -10,7 +10,6 @@
 
 namespace transport
 {
-using ::common::busid::BusIdTraits;
 using ::util::logger::Logger;
 using ::util::logger::TPROUTER;
 
@@ -46,7 +45,7 @@ ITransportMessageProvidingListener::ErrorCode TransportRouterSimple::getTranspor
         "TransportRouterSimple::getTransportMessage : sourceAddress 0x%x, targetId 0x%x",
         sourceAddress,
         targetId);
-    pTransportMessage = 0L;
+    pTransportMessage = nullptr;
     ::async::LockType const lockGuard;
 
     if (TransportConfiguration::isFunctionalAddress(static_cast<uint8_t>(targetId)))

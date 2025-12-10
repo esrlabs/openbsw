@@ -44,7 +44,7 @@ void TapEthernetSystem::execute()
     pollFds[0].events = POLLIN;
     while (poll(pollFds, 1, 0) > 0)
     {
-        if (pollFds[0].revents & POLLIN)
+        if ((pollFds[0].revents & POLLIN) != 0)
         {
             _driver.readFrame();
         }

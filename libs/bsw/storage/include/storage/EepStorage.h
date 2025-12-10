@@ -43,14 +43,14 @@ protected:
 private:
     StorageJob::ResultType write(
         StorageJob& job,
-        EepBlockConfig const& conf,
+        EepBlockConfig const& confEntry,
         size_t headerSize,
-        ::etl::span<uint8_t> writeBuf);
+        ::etl::span<uint8_t> eepBuf);
     StorageJob::ResultType read(
         StorageJob& job,
-        EepBlockConfig const& conf,
+        EepBlockConfig const& confEntry,
         size_t headerSize,
-        ::etl::span<uint8_t> readBuf);
+        ::etl::span<uint8_t> eepBuf);
 
     EepBlockConfig const* const _config;
     size_t const _configSize;

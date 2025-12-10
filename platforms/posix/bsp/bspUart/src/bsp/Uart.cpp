@@ -84,9 +84,7 @@ bsp::Uart& Uart::getInstance(Id id)
     ETL_ASSERT(
         id < Id::INVALID, ETL_ERROR_GENERIC("UartId::INVALID is not a valid Uart identifier"));
 
-    static_assert(
-        NUMBER_OF_UARTS == static_cast<size_t>(etl::size(instances)),
-        "Not enough Uart instances defined");
+    static_assert(NUMBER_OF_UARTS == etl::size(instances), "Not enough Uart instances defined");
     return instances[static_cast<size_t>(id)];
 }
 

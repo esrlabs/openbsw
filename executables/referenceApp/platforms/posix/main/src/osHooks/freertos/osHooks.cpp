@@ -7,8 +7,7 @@ extern "C"
 {
 void vApplicationStackOverflowHook(TaskHandle_t /* xTask */, char* /* pcTaskName */)
 {
-    while (true)
-        ;
+    while (true) {}
 }
 
 } // extern "C"

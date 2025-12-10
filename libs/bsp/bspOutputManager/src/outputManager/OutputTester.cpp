@@ -28,7 +28,7 @@ void OutputTester::executeCommand(::util::command::CommandContext& context, uint
                 bsp::BspReturnCode const ret = Output::get(static_cast<Output::OutputId>(i), t);
                 if (ret == bsp::BSP_OK)
                 {
-                    (void)out.printf("%d\r\n", t);
+                    (void)out.printf("%d\r\n", static_cast<int>(t));
                 }
                 else
                 {
@@ -75,7 +75,7 @@ void OutputTester::executeCommand(::util::command::CommandContext& context, uint
             bsp::BspReturnCode const ret = Output::get(static_cast<Output::OutputId>(outputNo), t);
             if (ret == bsp::BSP_OK)
             {
-                (void)out.printf("%d\r\n", t);
+                (void)out.printf("%d\r\n", static_cast<int>(t));
             }
             else
             {

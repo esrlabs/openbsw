@@ -5,6 +5,7 @@
 #include "lwipSocket/utils/LwipHelper.h"
 #include "lwipSocket/utils/TaskAssert.h"
 
+#include <etl/algorithm.h>
 #include <ip/to_str.h>
 #include <udp/DatagramPacket.h>
 #include <udp/IDataListener.h>
@@ -23,9 +24,9 @@ extern "C"
 #if LWIP_IPV4_SRC_ROUTING
 struct netif* custom_ip_route_src(ip4_addr_t const* const /*dest*/, ip4_addr_t const* const src)
 {
-    if (src != NULL)
+    if (src != nullptr)
     {
-        for (struct netif* netif = netif_list; netif != NULL; netif = netif->next)
+        for (struct netif* netif = netif_list; netif != nullptr; netif = netif->next)
         {
             /* is the netif up, does it have a link and a valid address? */
             bool const isNetifUp = netif_is_up(netif) != 0U;
@@ -40,7 +41,7 @@ struct netif* custom_ip_route_src(ip4_addr_t const* const /*dest*/, ip4_addr_t c
             }
         }
     }
-    return NULL;
+    return nullptr;
 }
 #endif
 }
@@ -244,10 +245,7 @@ size_t LwipDatagramSocket::read(uint8_t* buffer, size_t n)
 {
     if (fpPBufHead != nullptr)
     {
-        if (fpPBufHead->tot_len - fOffsetInCurrentPBuf < n)
-        {
-            n = fpPBufHead->tot_len - fOffsetInCurrentPBuf;
-        }
+        n = ::etl::min(n, fpPBufHead->tot_len - fOffsetInCurrentPBuf);
 
         if (buffer != nullptr)
         {

@@ -62,7 +62,7 @@ public:
      * Copy constructor
      * \param frame    CANFrame to copy content from
      */
-    CANFrame(CANFrame const& frame);
+    CANFrame(CANFrame const& frame) = default;
 
     /**
      * Constructor initializing id, payload and length
@@ -132,10 +132,8 @@ public:
      * Assigns content of a CANFrame to another.
      * \param canFrame    frame to copy from
      * \return reference to frame with new content
-     * \pre getMaxPayloadLength() >= canFrame.getPayloadLength()
-     * @throws    assertion
      */
-    CANFrame& operator=(CANFrame const& canFrame);
+    CANFrame& operator=(CANFrame const& canFrame) = default;
 
     /**
      * \return value of timestamp
