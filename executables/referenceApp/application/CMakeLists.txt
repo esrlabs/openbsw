@@ -64,6 +64,7 @@ target_link_libraries(
             bspMcu
             configuration
             etl
+            etlImpl
             lifecycle
             consoleCommands
             logger
