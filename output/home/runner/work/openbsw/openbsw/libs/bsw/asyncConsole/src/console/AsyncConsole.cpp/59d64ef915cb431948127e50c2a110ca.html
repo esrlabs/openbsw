@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../asyncConsole.html">asyncConsole</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../console.html">console</a>
+            </li>
+
+        
+        <li class="active"><a href="../AsyncConsole.cpp.html">AsyncConsole.cpp</a>:72
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000074ac</td>
+                <td>
+    
+    
+</td>
+                <td>24 (static)</td>
+                <td>136</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./fdca2bf260601501a51a2078bfdc25d7.html">console::AsyncConsole::commandExecuted(util::command::ICommand::ExecuteResult) (72)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=116
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../util/include/util/logger/Logger.h/0ab01804358606b880086539418bdb3a.html">util::logger::Logger::info(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...) (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./d8553896855733f21b39c9737b276603.html">console::AsyncConsole::onLineReceived(util::stream::ISharedOutputStream&amp;, etl::ibasic_string&lt;char&gt; const&amp;, etl::delegate&lt;void ()&gt; const&amp;) (200)</a></pre>
+    
+
+    <pre>
+
+    console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult):
+
+        74ac:	b570      	push	{r4, r5, r6, lr}
+
+        74ae:	4604      	mov	r4, r0
+
+        74b0:	6800      	ldr	r0, [r0, #0]
+
+        74b2:	b082      	sub	sp, #8
+
+        74b4:	b198      	cbz	r0, 74de <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x32>
+
+        74b6:	6803      	ldr	r3, [r0, #0]
+
+        74b8:	460d      	mov	r5, r1
+
+        74ba:	681b      	ldr	r3, [r3, #0]
+
+        74bc:	2100      	movs	r1, #0
+
+        74be:	4798      	blx	r3
+
+        74c0:	782b      	ldrb	r3, [r5, #0]
+
+        74c2:	4a16      	ldr	r2, [pc, #88]	@ (751c <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x70>)
+
+    _ZN4util6format12StringWriterC4ERNS_6stream13IOutputStreamE():
+
+        74c4:	9001      	str	r0, [sp, #4]
+
+    console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult):
+
+        74c6:	2b01      	cmp	r3, #1
+
+        74c8:	7810      	ldrb	r0, [r2, #0]
+
+        74ca:	d014      	beq.n	74f6 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x4a>
+
+        74cc:	4914      	ldr	r1, [pc, #80]	@ (7520 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x74>)
+
+        74ce:	f7f9 fbc5 	bl	c5c <<a href="../../../../util/include/util/logger/Logger.h/0ab01804358606b880086539418bdb3a.html">util::logger::Logger::info(unsigned char, char const*, ...)</a>>
+
+        74d2:	4914      	ldr	r1, [pc, #80]	@ (7524 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x78>)
+
+        74d4:	a801      	add	r0, sp, #4
+
+        74d6:	f006 f9e7 	bl	d8a8 <<a href="../../../../util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+        74da:	2300      	movs	r3, #0
+
+        74dc:	6023      	str	r3, [r4, #0]
+
+        74de:	68a5      	ldr	r5, [r4, #8]
+
+        74e0:	6866      	ldr	r6, [r4, #4]
+
+        74e2:	2300      	movs	r3, #0
+
+        74e4:	60a3      	str	r3, [r4, #8]
+
+        74e6:	6063      	str	r3, [r4, #4]
+
+    _ZNK3etl8delegateIFvvEEclIJEEEvDpOT_():
+
+        74e8:	b16d      	cbz	r5, 7506 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x5a>
+
+        74ea:	4630      	mov	r0, r6
+
+        74ec:	462b      	mov	r3, r5
+
+    console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult):
+
+        74ee:	b002      	add	sp, #8
+
+        74f0:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+    _ZNK3etl8delegateIFvvEEclIJEEEvDpOT_():
+
+        74f4:	4718      	bx	r3
+
+    console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult):
+
+        74f6:	490c      	ldr	r1, [pc, #48]	@ (7528 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x7c>)
+
+        74f8:	f7f9 fbb0 	bl	c5c <<a href="../../../../util/include/util/logger/Logger.h/0ab01804358606b880086539418bdb3a.html">util::logger::Logger::info(unsigned char, char const*, ...)</a>>
+
+        74fc:	490b      	ldr	r1, [pc, #44]	@ (752c <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x80>)
+
+        74fe:	a801      	add	r0, sp, #4
+
+        7500:	f006 f9d2 	bl	d8a8 <<a href="../../../../util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+        7504:	e7e9      	b.n	74da <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x2e>
+
+    _ZNK3etl8delegateIFvvEEclIJEEEvDpOT_():
+
+        7506:	4b0a      	ldr	r3, [pc, #40]	@ (7530 <<a href="./59d64ef915cb431948127e50c2a110ca.html">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a>+0x84>)
+
+        7508:	a801      	add	r0, sp, #4
+
+        750a:	681b      	ldr	r3, [r3, #0]
+
+        750c:	4798      	blx	r3
+
+        750e:	4630      	mov	r0, r6
+
+        7510:	462b      	mov	r3, r5
+
+    console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult):
+
+        7512:	b002      	add	sp, #8
+
+        7514:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+    _ZNK3etl8delegateIFvvEEclIJEEEvDpOT_():
+
+        7518:	4718      	bx	r3
+
+        751a:	bf00      	nop
+
+        751c:	1ffe0140 	.word	0x1ffe0140
+
+        7520:	00028848 	.word	0x00028848
+
+        7524:	00028860 	.word	0x00028860
+
+        7528:	00028868 	.word	0x00028868
+
+        752c:	00028884 	.word	0x00028884
+
+        7530:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="./fdca2bf260601501a51a2078bfdc25d7.html">console::AsyncConsole::commandExecuted(util::command::ICommand::ExecuteResult) (72)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 348</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,252</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    348
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,252
+                    
+                    
+                </td>
+                <td class="col_size">432</td>
+                <td><a href="../../../../util/src/util/format/PrintfFormatter.cpp/4aadf02dd7dcf4f301c4d79e66b22e38.html" class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    324
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    820
+                    
+                    
+                </td>
+                <td class="col_size">436</td>
+                <td><a href="../../../../util/src/util/format/PrintfFormatter.cpp/a55fbe8aa7abfc498675bef9f2e3bbf3.html" class="icon-function">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    228
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    384
+                    
+                    
+                </td>
+                <td class="col_size">132</td>
+                <td><a href="../../../../util/src/util/format/PrintfFormatter.cpp/1fd658a3cadf7a6a384e16e0b788aef4.html" class="icon-function">util::format::PrintfFormatter::formatParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    204
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    252
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../../../util/src/util/format/PrintfFormatter.cpp/54d7602074146c5884ce6c1e97059b8b.html" class="icon-function">util::format::PrintfFormatter::format(char const*, util::format::IPrintfArgumentReader&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    148
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                44 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html" class="icon-function">util::format::StringWriter::printf(char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">104
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 104</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 316</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    316
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="./59d64ef915cb431948127e50c2a110ca.html" class="icon-function">console::AsyncConsole::terminate(util::command::ICommand::ExecuteResult)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    180
+                    
+                    
+                </td>
+                <td class="col_size">72</td>
+                <td><a href="./fdca2bf260601501a51a2078bfdc25d7.html" class="icon-function">console::AsyncConsole::commandExecuted(util::command::ICommand::ExecuteResult)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">108</td>
+                <td><a href="../AsyncCommandWrapper.cpp/336b2fab8988d0ab9e62062a6d2cf132.html" class="icon-function">console::AsyncCommandWrapper::execute()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

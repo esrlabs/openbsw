@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../asyncFreeRtos.html">asyncFreeRtos</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../async.html">async</a>
+            </li>
+
+        
+        <li class="active"><a href="../FutureSupport.cpp.html">FutureSupport.cpp</a>:50
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">async::FutureSupport::assertTaskContext()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000271ec</td>
+                <td>
+    
+    
+</td>
+                <td>16 (static)</td>
+                <td>80</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=20
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../3rdparty/freeRtos/include/task.h/6ff15a43d81c48627a732088faa60af2.html">xTaskGetCurrentTaskHandle (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../3rdparty/freeRtos/include/task.h/a3237061da1b0eb08a6bc6caf593258e.html">uxTaskGetTaskNumber (8)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./4ba5adb5833116ac12cfcc45b5c84a86.html">async::FutureSupport::verifyTaskContext() (48)</a></pre>
+    
+
+    <pre>
+
+    async::FutureSupport::assertTaskContext():
+
+       271ec:	b510      	push	{r4, lr}
+
+       271ee:	6802      	ldr	r2, [r0, #0]
+
+       271f0:	490f      	ldr	r1, [pc, #60]	@ (27230 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x44>)
+
+       271f2:	68d2      	ldr	r2, [r2, #12]
+
+       271f4:	428a      	cmp	r2, r1
+
+       271f6:	b082      	sub	sp, #8
+
+       271f8:	d112      	bne.n	27220 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x34>
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE21getCurrentTaskContextEv():
+
+       271fa:	4a0e      	ldr	r2, [pc, #56]	@ (27234 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x48>)
+
+    async::FutureSupport::verifyTaskContext():
+
+       271fc:	7904      	ldrb	r4, [r0, #4]
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE21getCurrentTaskContextEv():
+
+       271fe:	6813      	ldr	r3, [r2, #0]
+
+       27200:	b143      	cbz	r3, 27214 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x28>
+
+       27202:	20ff      	movs	r0, #255	@ 0xff
+
+    async::FutureSupport::assertTaskContext():
+
+       27204:	4284      	cmp	r4, r0
+
+       27206:	d003      	beq.n	27210 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x24>
+
+       27208:	4b0b      	ldr	r3, [pc, #44]	@ (27238 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x4c>)
+
+       2720a:	a801      	add	r0, sp, #4
+
+       2720c:	681b      	ldr	r3, [r3, #0]
+
+       2720e:	4798      	blx	r3
+
+       27210:	b002      	add	sp, #8
+
+       27212:	bd10      	pop	{r4, pc}
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE21getCurrentTaskContextEv():
+
+       27214:	f7e4 fd22 	bl	bc5c <<a href="../../../../../3rdparty/freeRtos/include/task.h/6ff15a43d81c48627a732088faa60af2.html">xTaskGetCurrentTaskHandle</a>>
+
+       27218:	f7e4 fd00 	bl	bc1c <<a href="../../../../../3rdparty/freeRtos/include/task.h/a3237061da1b0eb08a6bc6caf593258e.html">uxTaskGetTaskNumber</a>>
+
+       2721c:	b2c0      	uxtb	r0, r0
+
+       2721e:	e7f1      	b.n	27204 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x18>
+
+    async::FutureSupport::assertTaskContext():
+
+       27220:	4790      	blx	r2
+
+       27222:	2800      	cmp	r0, #0
+
+       27224:	d1f4      	bne.n	27210 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x24>
+
+       27226:	4b04      	ldr	r3, [pc, #16]	@ (27238 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x4c>)
+
+       27228:	a801      	add	r0, sp, #4
+
+       2722a:	681b      	ldr	r3, [r3, #0]
+
+       2722c:	4798      	blx	r3
+
+       2722e:	e7ef      	b.n	27210 <<a href="./22e5c5852a69837a57cea5049abeadd3.html">async::FutureSupport::assertTaskContext()</a>+0x24>
+
+       27230:	000271bd 	.word	0x000271bd
+
+       27234:	1fff3b10 	.word	0x1fff3b10
+
+       27238:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="./c1bf574e7ee2f138aee7f929e7c7473c.html">async::FutureSupport::FutureSupport(unsigned char) (28)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

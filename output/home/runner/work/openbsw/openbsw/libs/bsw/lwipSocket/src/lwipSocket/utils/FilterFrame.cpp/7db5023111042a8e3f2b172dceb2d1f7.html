@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../lwipSocket.html">lwipSocket</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../lwipSocket.html">lwipSocket</a></li>
+        
+        <li ><a href="../../utils.html">utils</a>
+            </li>
+
+        
+        <li class="active"><a href="../FilterFrame.cpp.html">FilterFrame.cpp</a>:33
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">lwiputils::filterETHFrames(pbuf*, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00014bac</td>
+                <td>
+    
+    
+</td>
+                <td>56 (static)</td>
+                <td>316</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue&lt;pbuf*, (unsigned short)10, false&gt;::Receiver, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;) (236)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../udp/LwipDatagramSocket.cpp/eb9b4e6dcab045011e12301a3812bb88.html">udp::LwipDatagramSocket::LwipDatagramSocket() (44)</a></pre>
+    
+
+    <pre>
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bac:	2800      	cmp	r0, #0
+
+       14bae:	f000 8093 	beq.w	14cd8 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x12c>
+
+       14bb2:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN3etl4spanIKhLj4294967295EEC4IPhtEET_T0_():
+
+       14bb6:	8946      	ldrh	r6, [r0, #10]
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bb8:	6847      	ldr	r7, [r0, #4]
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_5arrayIhLj6EEEEERT_v():
+
+       14bba:	2e05      	cmp	r6, #5
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bbc:	b085      	sub	sp, #20
+
+       14bbe:	460d      	mov	r5, r1
+
+       14bc0:	4690      	mov	r8, r2
+
+    _ZN3etl4spanIKhLj4294967295EEC4IPhtEET_T0_():
+
+       14bc2:	eb07 0a06 	add.w	sl, r7, r6
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_5arrayIhLj6EEEEERT_v():
+
+       14bc6:	d97a      	bls.n	14cbe <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x112>
+
+       14bc8:	ac02      	add	r4, sp, #8
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bca:	2206      	movs	r2, #6
+
+    _ZN3etl3minIjNS_4lessIjEEEERKT_S5_S5_T0_():
+
+       14bcc:	4296      	cmp	r6, r2
+
+       14bce:	46b1      	mov	r9, r6
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bd0:	4639      	mov	r1, r7
+
+    _ZN3etl3minIjNS_4lessIjEEEERKT_S5_S5_T0_():
+
+       14bd2:	bf28      	it	cs
+
+       14bd4:	4691      	movcs	r9, r2
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14bd6:	4620      	mov	r0, r4
+
+       14bd8:	f7eb fcd3 	bl	582 <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl3minIjNS_4lessIjEEEERKT_S5_S5_T0_():
+
+       14bdc:	eba6 0309 	sub.w	r3, r6, r9
+
+       14be0:	2b06      	cmp	r3, #6
+
+       14be2:	bf94      	ite	ls
+
+       14be4:	4499      	addls	r9, r3
+
+       14be6:	f109 0906 	addhi.w	r9, r9, #6
+
+       14bea:	eba6 0609 	sub.w	r6, r6, r9
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       14bee:	2e01      	cmp	r6, #1
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       14bf0:	444f      	add	r7, r9
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       14bf2:	d96a      	bls.n	14cca <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x11e>
+
+       14bf4:	f10d 0904 	add.w	r9, sp, #4
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       14bf8:	2e02      	cmp	r6, #2
+
+       14bfa:	bf94      	ite	ls
+
+       14bfc:	eb07 0b06 	addls.w	fp, r7, r6
+
+       14c00:	f107 0b02 	addhi.w	fp, r7, #2
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       14c04:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c06:	4639      	mov	r1, r7
+
+       14c08:	2202      	movs	r2, #2
+
+       14c0a:	4648      	mov	r0, r9
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       14c0c:	ebaa 0a0b 	sub.w	sl, sl, fp
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       14c10:	f8ad 3004 	strh.w	r3, [sp, #4]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c14:	f7eb fcb5 	bl	582 <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       14c18:	f1ba 0f01 	cmp.w	sl, #1
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c1c:	f8bd 6004 	ldrh.w	r6, [sp, #4]
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       14c20:	d803      	bhi.n	14c2a <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x7e>
+
+       14c22:	4b2f      	ldr	r3, [pc, #188]	@ (14ce0 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x134>)
+
+       14c24:	4648      	mov	r0, r9
+
+       14c26:	681b      	ldr	r3, [r3, #0]
+
+       14c28:	4798      	blx	r3
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       14c2a:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c2c:	4659      	mov	r1, fp
+
+       14c2e:	4648      	mov	r0, r9
+
+       14c30:	2202      	movs	r2, #2
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       14c32:	f8ad 3004 	strh.w	r3, [sp, #4]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c36:	f7eb fca4 	bl	582 <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c3a:	f64a 0388 	movw	r3, #43144	@ 0xa888
+
+       14c3e:	429e      	cmp	r6, r3
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       14c40:	f8bd e004 	ldrh.w	lr, [sp, #4]
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c44:	d037      	beq.n	14cb6 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x10a>
+
+       14c46:	2e91      	cmp	r6, #145	@ 0x91
+
+       14c48:	d035      	beq.n	14cb6 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x10a>
+
+    _ZNK3etl4spanIKtLj4294967295EE4sizeEv():
+
+       14c4a:	e9d8 2300 	ldrd	r2, r3, [r8]
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c4e:	2e81      	cmp	r6, #129	@ 0x81
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       14c50:	bf06      	itte	eq
+
+       14c52:	fa9e fe9e 	rev16eq.w	lr, lr
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c56:	f3ce 0e0b 	ubfxeq	lr, lr, #0, #12
+
+       14c5a:	f64f 7eff 	movwne	lr, #65535	@ 0xffff
+
+    _ZNK3etl4spanIKtLj4294967295EE4sizeEv():
+
+       14c5e:	1a99      	subs	r1, r3, r2
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c60:	4293      	cmp	r3, r2
+
+    _ZNK3etl4spanIKtLj4294967295EE4sizeEv():
+
+       14c62:	ea4f 0161 	mov.w	r1, r1, asr #1
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c66:	d039      	beq.n	14cdc <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x130>
+
+       14c68:	3a02      	subs	r2, #2
+
+       14c6a:	2300      	movs	r3, #0
+
+       14c6c:	e002      	b.n	14c74 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xc8>
+
+       14c6e:	3301      	adds	r3, #1
+
+       14c70:	428b      	cmp	r3, r1
+
+       14c72:	d203      	bcs.n	14c7c <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xd0>
+
+       14c74:	f832 cf02 	ldrh.w	ip, [r2, #2]!
+
+       14c78:	45f4      	cmp	ip, lr
+
+       14c7a:	d1f8      	bne.n	14c6e <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xc2>
+
+    _ZNK3etl4spanI5netifLj4294967295EE4sizeEv():
+
+       14c7c:	e9d5 0200 	ldrd	r0, r2, [r5]
+
+       14c80:	4918      	ldr	r1, [pc, #96]	@ (14ce4 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x138>)
+
+       14c82:	1a12      	subs	r2, r2, r0
+
+       14c84:	1092      	asrs	r2, r2, #2
+
+       14c86:	fb01 f202 	mul.w	r2, r1, r2
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14c8a:	4293      	cmp	r3, r2
+
+       14c8c:	d213      	bcs.n	14cb6 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x10a>
+
+       14c8e:	f89d 2008 	ldrb.w	r2, [sp, #8]
+
+    _ZNK3etl4spanI5netifLj4294967295EEixEj():
+
+       14c92:	2154      	movs	r1, #84	@ 0x54
+
+       14c94:	fb01 0003 	mla	r0, r1, r3, r0
+
+    macAddressMatches():
+
+       14c98:	07d3      	lsls	r3, r2, #31
+
+       14c9a:	d40d      	bmi.n	14cb8 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x10c>
+
+    _ZN3etl5equalIPKhS2_EEbT_S3_T0_S4_():
+
+       14c9c:	f100 033e 	add.w	r3, r0, #62	@ 0x3e
+
+       14ca0:	f100 0544 	add.w	r5, r0, #68	@ 0x44
+
+       14ca4:	e001      	b.n	14caa <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xfe>
+
+       14ca6:	42ab      	cmp	r3, r5
+
+       14ca8:	d006      	beq.n	14cb8 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x10c>
+
+       14caa:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+       14cae:	f814 1b01 	ldrb.w	r1, [r4], #1
+
+       14cb2:	4291      	cmp	r1, r2
+
+       14cb4:	d0f7      	beq.n	14ca6 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xfa>
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14cb6:	2000      	movs	r0, #0
+
+       14cb8:	b005      	add	sp, #20
+
+       14cba:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_5arrayIhLj6EEEEERT_v():
+
+       14cbe:	4b08      	ldr	r3, [pc, #32]	@ (14ce0 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x134>)
+
+       14cc0:	ac02      	add	r4, sp, #8
+
+       14cc2:	681b      	ldr	r3, [r3, #0]
+
+       14cc4:	4620      	mov	r0, r4
+
+       14cc6:	4798      	blx	r3
+
+       14cc8:	e77f      	b.n	14bca <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x1e>
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       14cca:	4b05      	ldr	r3, [pc, #20]	@ (14ce0 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x134>)
+
+       14ccc:	f10d 0904 	add.w	r9, sp, #4
+
+       14cd0:	681b      	ldr	r3, [r3, #0]
+
+       14cd2:	4648      	mov	r0, r9
+
+       14cd4:	4798      	blx	r3
+
+       14cd6:	e78f      	b.n	14bf8 <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x4c>
+
+    lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       14cd8:	2000      	movs	r0, #0
+
+       14cda:	4770      	bx	lr
+
+       14cdc:	2300      	movs	r3, #0
+
+       14cde:	e7cd      	b.n	14c7c <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xd0>
+
+       14ce0:	1ffe0120 	.word	0x1ffe0120
+
+       14ce4:	3cf3cf3d 	.word	0x3cf3cf3d
+
+    </pre>
+
+    
+    <pre><a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue&lt;pbuf*, (unsigned short)10, false&gt;::Receiver, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;) (236)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 168</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 732</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    732
+                    
+                    
+                </td>
+                <td class="col_size">316</td>
+                <td><a href="./7db5023111042a8e3f2b172dceb2d1f7.html" class="icon-function">lwiputils::filterETHFrames(pbuf*, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    112
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    416
+                    
+                    
+                </td>
+                <td class="col_size">236</td>
+                <td><a href="./8363de2c91d87aac3a7402f21bcbb67f.html" class="icon-function">lwiputils::processPbufQueue(util::spsc::Queue&lt;pbuf*, (unsigned short)10, false&gt;::Receiver, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">180</td>
+                <td><a href="../../../../../../../executables/referenceApp/application/src/systems/EthernetSystem.cpp/7f6d534a67d8880422173a75039c028b.html" class="icon-function">systems::EthernetSystem::execute()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../consoleCommands.html">consoleCommands</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../lifecycle.html">lifecycle</a></li>
+        
+        <li ><a href="../../console.html">console</a>
+            </li>
+
+        
+        <li class="active"><a href="../StatisticsCommand.cpp.html">StatisticsCommand.cpp</a>:105
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">lifecycle::StatisticsCommand::cyclic_1000ms()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00007fec</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>40 (static)</td>
+                <td>320</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../application/src/systems/RuntimeSystem.cpp/baffb96321ef63a8a7a65ad37e676677.html">systems::RuntimeSystem::execute() (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../application/include/systems/RuntimeSystem.h/2348333df1db6770362ffa78cc3db9cb.html">non-virtual thunk to systems::RuntimeSystem::execute() (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./4997afcd683d3088ed55cb402aeb8b95.html">lifecycle::StatisticsCommand::setTicksPerUs(unsigned long) (12)</a></pre>
+    
+
+    <pre>
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        7fec:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+        7ff0:	4604      	mov	r4, r0
+
+        7ff2:	b082      	sub	sp, #8
+
+        7ff4:	f3ef 8510 	mrs	r5, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        7ff8:	b672      	cpsid	i
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        7ffa:	6886      	ldr	r6, [r0, #8]
+
+    _ZNK3etl4spanIKN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4sizeEv():
+
+        7ffc:	4b49      	ldr	r3, [pc, #292]	@ (8124 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x138>)
+
+    _ZNK7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E17getTaskStatisticsEv():
+
+        7ffe:	f8d6 8008 	ldr.w	r8, [r6, #8]
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EE4sizeEv():
+
+        8002:	f8d0 a00c 	ldr.w	sl, [r0, #12]
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4dataEv():
+
+        8006:	f8d8 9000 	ldr.w	r9, [r8]
+
+    _ZNK3etl4spanIKN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4sizeEv():
+
+        800a:	f8d8 7004 	ldr.w	r7, [r8, #4]
+
+        800e:	eba7 0709 	sub.w	r7, r7, r9
+
+        8012:	10bf      	asrs	r7, r7, #2
+
+        8014:	fb03 f707 	mul.w	r7, r3, r7
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EE4sizeEv():
+
+        8018:	6903      	ldr	r3, [r0, #16]
+
+        801a:	eba3 030a 	sub.w	r3, r3, sl
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        801e:	ebb7 1f23 	cmp.w	r7, r3, asr #4
+
+        8022:	d97b      	bls.n	811c <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x130>
+
+        8024:	4b40      	ldr	r3, [pc, #256]	@ (8128 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x13c>)
+
+        8026:	a801      	add	r0, sp, #4
+
+        8028:	681b      	ldr	r3, [r3, #0]
+
+        802a:	4798      	blx	r3
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EEixEj():
+
+        802c:	f8d4 a00c 	ldr.w	sl, [r4, #12]
+
+        8030:	68a6      	ldr	r6, [r4, #8]
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        8032:	f04f 0e00 	mov.w	lr, #0
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        8036:	f109 0314 	add.w	r3, r9, #20
+
+        803a:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+
+        803c:	eb0a 1c0e 	add.w	ip, sl, lr, lsl #4
+
+        8040:	f10e 0e01 	add.w	lr, lr, #1
+
+        8044:	4577      	cmp	r7, lr
+
+        8046:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+
+        804a:	f109 0924 	add.w	r9, r9, #36	@ 0x24
+
+        804e:	d8f2      	bhi.n	8036 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x4a>
+
+    _ZNK7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE10getGetNameEv():
+
+        8050:	f8d8 300c 	ldr.w	r3, [r8, #12]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        8054:	f8d8 2008 	ldr.w	r2, [r8, #8]
+
+    _ZNK7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E21getIsrGroupStatisticsEv():
+
+        8058:	f8d6 800c 	ldr.w	r8, [r6, #12]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        805c:	61a3      	str	r3, [r4, #24]
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4dataEv():
+
+        805e:	f8d8 9000 	ldr.w	r9, [r8]
+
+    _ZNK3etl4spanIKN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4sizeEv():
+
+        8062:	f8d8 7004 	ldr.w	r7, [r8, #4]
+
+        8066:	4b2f      	ldr	r3, [pc, #188]	@ (8124 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x138>)
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EE4sizeEv():
+
+        8068:	f8d4 a0bc 	ldr.w	sl, [r4, #188]	@ 0xbc
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        806c:	6162      	str	r2, [r4, #20]
+
+    _ZNK3etl4spanIKN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE4sizeEv():
+
+        806e:	eba7 0709 	sub.w	r7, r7, r9
+
+        8072:	10bf      	asrs	r7, r7, #2
+
+        8074:	fb03 f707 	mul.w	r7, r3, r7
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EE4sizeEv():
+
+        8078:	f8d4 30c0 	ldr.w	r3, [r4, #192]	@ 0xc0
+
+        807c:	eba3 030a 	sub.w	r3, r3, sl
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        8080:	ebb7 1f23 	cmp.w	r7, r3, asr #4
+
+        8084:	d947      	bls.n	8116 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x12a>
+
+        8086:	4b28      	ldr	r3, [pc, #160]	@ (8128 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x13c>)
+
+        8088:	a801      	add	r0, sp, #4
+
+        808a:	681b      	ldr	r3, [r3, #0]
+
+        808c:	4798      	blx	r3
+
+    _ZNK3etl4spanIN7runtime17RuntimeStatisticsELj4294967295EEixEj():
+
+        808e:	f8d4 a0bc 	ldr.w	sl, [r4, #188]	@ 0xbc
+
+        8092:	68a6      	ldr	r6, [r4, #8]
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        8094:	f04f 0e00 	mov.w	lr, #0
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        8098:	f109 0314 	add.w	r3, r9, #20
+
+        809c:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+
+        809e:	eb0a 1c0e 	add.w	ip, sl, lr, lsl #4
+
+        80a2:	f10e 0e01 	add.w	lr, lr, #1
+
+        80a6:	4577      	cmp	r7, lr
+
+        80a8:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+
+        80ac:	f109 0924 	add.w	r9, r9, #36	@ 0x24
+
+        80b0:	d8f2      	bhi.n	8098 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0xac>
+
+    _ZNK7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE10getGetNameEv():
+
+        80b2:	f8d8 300c 	ldr.w	r3, [r8, #12]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        80b6:	f8d8 2008 	ldr.w	r2, [r8, #8]
+
+        80ba:	f8c4 20c4 	str.w	r2, [r4, #196]	@ 0xc4
+
+        80be:	f8c4 30c8 	str.w	r3, [r4, #200]	@ 0xc8
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        80c2:	f3ef 8710 	mrs	r7, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        80c6:	b672      	cpsid	i
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E5resetEv():
+
+        80c8:	6973      	ldr	r3, [r6, #20]
+
+        80ca:	68b2      	ldr	r2, [r6, #8]
+
+        80cc:	6930      	ldr	r0, [r6, #16]
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE3endEv():
+
+        80ce:	6851      	ldr	r1, [r2, #4]
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E5resetEv():
+
+        80d0:	6133      	str	r3, [r6, #16]
+
+        80d2:	1a18      	subs	r0, r3, r0
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE5beginEv():
+
+        80d4:	6813      	ldr	r3, [r2, #0]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE5resetEv():
+
+        80d6:	428b      	cmp	r3, r1
+
+        80d8:	d007      	beq.n	80ea <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0xfe>
+
+    _ZN7runtime17RuntimeStatistics5resetEv():
+
+        80da:	2200      	movs	r2, #0
+
+        80dc:	615a      	str	r2, [r3, #20]
+
+        80de:	619a      	str	r2, [r3, #24]
+
+        80e0:	61da      	str	r2, [r3, #28]
+
+        80e2:	621a      	str	r2, [r3, #32]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE5resetEv():
+
+        80e4:	3324      	adds	r3, #36	@ 0x24
+
+        80e6:	4299      	cmp	r1, r3
+
+        80e8:	d1f8      	bne.n	80dc <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0xf0>
+
+    _ZN7runtime14RuntimeMonitorINS_17RuntimeStatisticsES1_E5resetEv():
+
+        80ea:	68f2      	ldr	r2, [r6, #12]
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE5beginEv():
+
+        80ec:	6813      	ldr	r3, [r2, #0]
+
+    _ZNK3etl4spanIN7runtime14RuntimeMonitorINS1_17RuntimeStatisticsES3_E12ContextEntryELj4294967295EE3endEv():
+
+        80ee:	6851      	ldr	r1, [r2, #4]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE5resetEv():
+
+        80f0:	428b      	cmp	r3, r1
+
+        80f2:	d007      	beq.n	8104 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x118>
+
+    _ZN7runtime17RuntimeStatistics5resetEv():
+
+        80f4:	2200      	movs	r2, #0
+
+        80f6:	615a      	str	r2, [r3, #20]
+
+        80f8:	619a      	str	r2, [r3, #24]
+
+        80fa:	61da      	str	r2, [r3, #28]
+
+        80fc:	621a      	str	r2, [r3, #32]
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsENS_14RuntimeMonitorIS1_S1_E12ContextEntryEE5resetEv():
+
+        80fe:	3324      	adds	r3, #36	@ 0x24
+
+        8100:	4299      	cmp	r1, r3
+
+        8102:	d1f8      	bne.n	80f6 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x10a>
+
+    lifecycle::StatisticsCommand::cyclic_1000ms():
+
+        8104:	f387 8810 	msr	PRIMASK, r7
+
+        8108:	f8c4 0104 	str.w	r0, [r4, #260]	@ 0x104
+
+        810c:	f385 8810 	msr	PRIMASK, r5
+
+        8110:	b002      	add	sp, #8
+
+        8112:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+    _ZN7runtime19StatisticsContainerINS_17RuntimeStatisticsES1_E8copyFromINS_14RuntimeMonitorIS1_S1_E12ContextEntryEEEvRKNS0_IS1_T_EE():
+
+        8116:	2f00      	cmp	r7, #0
+
+        8118:	d1bc      	bne.n	8094 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0xa8>
+
+        811a:	e7ca      	b.n	80b2 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0xc6>
+
+        811c:	2f00      	cmp	r7, #0
+
+        811e:	d188      	bne.n	8032 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x46>
+
+        8120:	e796      	b.n	8050 <<a href="./ca5b03467aa2a98bbb96d28bd14844eb.html">lifecycle::StatisticsCommand::cyclic_1000ms()</a>+0x64>
+
+        8122:	bf00      	nop
+
+        8124:	38e38e39 	.word	0x38e38e39
+
+        8128:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../libs/bsw/runtime/include/runtime/StatisticsWriter.h/ccdc0a57bac5d74c70d5733239a7247a.html">void runtime::StatisticsWriter::formatStatisticsGroup&lt;runtime::StatisticsContainer&lt;runtime::RuntimeStatistics, runtime::RuntimeStatistics&gt;::Iterator&gt;(runtime::StatisticsWriter::FormatStatistics&lt;runtime::StatisticsContainer&lt;runtime::RuntimeStatistics, runtime::RuntimeStatistics&gt;::Iterator::StatisticsType&gt;::Type, char const*, unsigned long, runtime::StatisticsContainer&lt;runtime::RuntimeStatistics, runtime::RuntimeStatistics&gt;::Iterator) (328)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

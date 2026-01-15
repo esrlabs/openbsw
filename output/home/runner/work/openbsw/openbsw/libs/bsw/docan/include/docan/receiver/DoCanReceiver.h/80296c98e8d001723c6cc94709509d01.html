@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../docan.html">docan</a></li>
+        
+        <li><a href="../../../../include.html">include</a></li>
+        
+        <li><a href="../../../docan.html">docan</a></li>
+        
+        <li ><a href="../../receiver.html">receiver</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoCanReceiver.h.html">DoCanReceiver.h</a>:500
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handleTransition(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00004cac</td>
+                <td>
+    
+    
+</td>
+                <td>40 (static)</td>
+                <td>380</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (6)</th>
+                <td colspan="5">
+                
+                    <a href="./9afbf8e1b46985fd487b64110519682d.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::firstDataFrameReceived(docan::DoCanConnection&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt; const&amp;, unsigned short, unsigned short, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;) (912)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./f0174e641f4bc4538d0a6b6ddc9e25ae.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::consecutiveDataFrameReceived(unsigned long, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;) (596)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./a2199650a16042eea5ac54ab7f0a6404.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::cyclicTask(unsigned long) (524)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./279189bc3e498fbc8574b7da5d7a2349.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handlePendingMessageReceivers(unsigned long) (284)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./dd66a84473ae6c7883da143389e10a4a.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::processMessageReceivers() (232)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./5a52863f8eb344552396c286a50a99da.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::shutdown() (188)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=396
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./43c823227c661a2523f9672889ebc851.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::allocateTransportMessage(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;, bool) (396)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./43c823227c661a2523f9672889ebc851.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::allocateTransportMessage(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;, bool) (396)</a></pre>
+    
+
+    <pre>
+
+    docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&):
+
+        4cac:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+        4cae:	790a      	ldrb	r2, [r1, #4]
+
+        4cb0:	b085      	sub	sp, #20
+
+        4cb2:	460c      	mov	r4, r1
+
+        4cb4:	4605      	mov	r5, r0
+
+        4cb6:	2a04      	cmp	r2, #4
+
+        4cb8:	f200 8084 	bhi.w	4dc4 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x118>
+
+        4cbc:	e8df f002 	tbb	[pc, r2]
+
+        4cc0:	2c67824b 	.word	0x2c67824b
+
+        4cc4:	03          	.byte	0x03
+
+        4cc5:	00          	.byte	0x00
+
+    _ZN5docan20DoCanMessageReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE13detachMessageEv():
+
+        4cc6:	6a49      	ldr	r1, [r1, #36]	@ 0x24
+
+    _ZNK5docan24DoCanDataLinkAddressPairImE19getReceptionAddressEv():
+
+        4cc8:	69a6      	ldr	r6, [r4, #24]
+
+    _ZN5docan20DoCanMessageReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE13detachMessageEv():
+
+        4cca:	2300      	movs	r3, #0
+
+        4ccc:	6263      	str	r3, [r4, #36]	@ 0x24
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4cce:	b121      	cbz	r1, 4cda <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x2e>
+
+        4cd0:	6880      	ldr	r0, [r0, #8]
+
+        4cd2:	6843      	ldr	r3, [r0, #4]
+
+        4cd4:	3004      	adds	r0, #4
+
+        4cd6:	685b      	ldr	r3, [r3, #4]
+
+        4cd8:	4798      	blx	r3
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+        4cda:	6a6a      	ldr	r2, [r5, #36]	@ 0x24
+
+    _ZN3etl14intrusive_listIN5docan20DoCanMessageReceiverINS1_18DoCanDataLinkLayerImthLm4294967295EtEEEENS_18bidirectional_linkILj0EEEE3endEv():
+
+        4cdc:	f105 0420 	add.w	r4, r5, #32
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4ce0:	42a2      	cmp	r2, r4
+
+        4ce2:	d00c      	beq.n	4cfe <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x52>
+
+    _ZNK3etl14intrusive_listIN5docan20DoCanMessageReceiverINS1_18DoCanDataLinkLayerImthLm4294967295EtEEEENS_18bidirectional_linkILj0EEEE8iteratordeEv():
+
+        4ce4:	2a00      	cmp	r2, #0
+
+        4ce6:	f000 809a 	beq.w	4e1e <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x172>
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4cea:	f892 102b 	ldrb.w	r1, [r2, #43]	@ 0x2b
+
+        4cee:	b119      	cbz	r1, 4cf8 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x4c>
+
+        4cf0:	68d1      	ldr	r1, [r2, #12]
+
+        4cf2:	428e      	cmp	r6, r1
+
+        4cf4:	f000 8089 	beq.w	4e0a <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x15e>
+
+    _ZN3etl14intrusive_listIN5docan20DoCanMessageReceiverINS1_18DoCanDataLinkLayerImthLm4294967295EtEEEENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+        4cf8:	6852      	ldr	r2, [r2, #4]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4cfa:	4294      	cmp	r4, r2
+
+        4cfc:	d1f2      	bne.n	4ce4 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x38>
+
+        4cfe:	f895 3035 	ldrb.w	r3, [r5, #53]	@ 0x35
+
+        4d02:	2bff      	cmp	r3, #255	@ 0xff
+
+        4d04:	d06d      	beq.n	4de2 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x136>
+
+        4d06:	2200      	movs	r2, #0
+
+        4d08:	3301      	adds	r3, #1
+
+        4d0a:	f885 3035 	strb.w	r3, [r5, #53]	@ 0x35
+
+    _ZN5docan13ReceiveResultC4Eb():
+
+        4d0e:	f8ad 200c 	strh.w	r2, [sp, #12]
+
+        4d12:	f88d 200e 	strb.w	r2, [sp, #14]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d16:	e02b      	b.n	4d70 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0xc4>
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE31startProcessingTransportMessageERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d18:	6880      	ldr	r0, [r0, #8]
+
+    _ZN5docan20DoCanMessageReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE13detachMessageEv():
+
+        4d1a:	6a4e      	ldr	r6, [r1, #36]	@ 0x24
+
+        4d1c:	2300      	movs	r3, #0
+
+        4d1e:	624b      	str	r3, [r1, #36]	@ 0x24
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE31startProcessingTransportMessageERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d20:	6803      	ldr	r3, [r0, #0]
+
+        4d22:	f895 1032 	ldrb.w	r1, [r5, #50]	@ 0x32
+
+        4d26:	681f      	ldr	r7, [r3, #0]
+
+        4d28:	4632      	mov	r2, r6
+
+        4d2a:	462b      	mov	r3, r5
+
+        4d2c:	47b8      	blx	r7
+
+        4d2e:	b130      	cbz	r0, 4d3e <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x92>
+
+        4d30:	68a8      	ldr	r0, [r5, #8]
+
+        4d32:	6843      	ldr	r3, [r0, #4]
+
+        4d34:	4631      	mov	r1, r6
+
+        4d36:	3004      	adds	r0, #4
+
+        4d38:	685b      	ldr	r3, [r3, #4]
+
+        4d3a:	4798      	blx	r3
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE9processedEb():
+
+        4d3c:	2005      	movs	r0, #5
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE7setDoneENS_14ReceiveMessageEh():
+
+        4d3e:	2300      	movs	r3, #0
+
+        4d40:	2104      	movs	r1, #4
+
+        4d42:	2201      	movs	r2, #1
+
+        4d44:	80a1      	strh	r1, [r4, #4]
+
+        4d46:	7223      	strb	r3, [r4, #8]
+
+    _ZN5docan13ReceiveResultC4Eb():
+
+        4d48:	f88d 200c 	strb.w	r2, [sp, #12]
+
+        4d4c:	f88d 000d 	strb.w	r0, [sp, #13]
+
+        4d50:	f88d 300e 	strb.w	r3, [sp, #14]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE31startProcessingTransportMessageERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d54:	e00c      	b.n	4d70 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0xc4>
+
+    docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&):
+
+        4d56:	2200      	movs	r2, #0
+
+        4d58:	f7ff fee2 	bl	4b20 <<a href="./43c823227c661a2523f9672889ebc851.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::allocateTransportMessage(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&, bool)</a>>
+
+        4d5c:	f3c0 2207 	ubfx	r2, r0, #8, #8
+
+        4d60:	f3c0 4307 	ubfx	r3, r0, #16, #8
+
+        4d64:	f88d 000c 	strb.w	r0, [sp, #12]
+
+        4d68:	f88d 200d 	strb.w	r2, [sp, #13]
+
+        4d6c:	f88d 300e 	strb.w	r3, [sp, #14]
+
+        4d70:	f89d 100c 	ldrb.w	r1, [sp, #12]
+
+        4d74:	f89d 200d 	ldrb.w	r2, [sp, #13]
+
+        4d78:	f89d 300e 	ldrb.w	r3, [sp, #14]
+
+        4d7c:	2000      	movs	r0, #0
+
+        4d7e:	f361 0007 	bfi	r0, r1, #0, #8
+
+        4d82:	f362 200f 	bfi	r0, r2, #8, #8
+
+        4d86:	f363 4017 	bfi	r0, r3, #16, #8
+
+        4d8a:	b005      	add	sp, #20
+
+        4d8c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+        4d8e:	68c0      	ldr	r0, [r0, #12]
+
+    _ZNK5docan15DoCanConnectionINS_18DoCanDataLinkLayerImthLm4294967295EtEEE13getFrameCodecEv():
+
+        4d90:	6949      	ldr	r1, [r1, #20]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE20sendFlowControlFrameERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d92:	6803      	ldr	r3, [r0, #0]
+
+    _ZNK5docan24DoCanDataLinkAddressPairImE22getTransmissionAddressEv():
+
+        4d94:	69e2      	ldr	r2, [r4, #28]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE20sendFlowControlFrameERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d96:	681d      	ldr	r5, [r3, #0]
+
+    _ZNK5docan34DoCanMessageReceiveProtocolHandlerItE17isFlowControlWaitEv():
+
+        4d98:	79e3      	ldrb	r3, [r4, #7]
+
+        4d9a:	b9cb      	cbnz	r3, 4dd0 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x124>
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE20sendFlowControlFrameERNS_20DoCanMessageReceiverIS2_EE():
+
+        4d9c:	f894 3036 	ldrb.w	r3, [r4, #54]	@ 0x36
+
+        4da0:	9301      	str	r3, [sp, #4]
+
+        4da2:	f894 3035 	ldrb.w	r3, [r4, #53]	@ 0x35
+
+        4da6:	9300      	str	r3, [sp, #0]
+
+        4da8:	2300      	movs	r3, #0
+
+        4daa:	47a8      	blx	r5
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE9frameSentEb():
+
+        4dac:	7923      	ldrb	r3, [r4, #4]
+
+        4dae:	2b02      	cmp	r3, #2
+
+        4db0:	d01e      	beq.n	4df0 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x144>
+
+        4db2:	2201      	movs	r2, #1
+
+        4db4:	4611      	mov	r1, r2
+
+        4db6:	f88d 100c 	strb.w	r1, [sp, #12]
+
+        4dba:	f88d 200d 	strb.w	r2, [sp, #13]
+
+        4dbe:	f88d 300e 	strb.w	r3, [sp, #14]
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE20sendFlowControlFrameERNS_20DoCanMessageReceiverIS2_EE():
+
+        4dc2:	e7d5      	b.n	4d70 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0xc4>
+
+    docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&):
+
+        4dc4:	2300      	movs	r3, #0
+
+        4dc6:	f8ad 300c 	strh.w	r3, [sp, #12]
+
+        4dca:	f88d 300e 	strb.w	r3, [sp, #14]
+
+        4dce:	e7cf      	b.n	4d70 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0xc4>
+
+    _ZNK5docan34DoCanMessageReceiveProtocolHandlerItE17isFlowControlWaitEv():
+
+        4dd0:	8863      	ldrh	r3, [r4, #2]
+
+        4dd2:	2b01      	cmp	r3, #1
+
+        4dd4:	d9e2      	bls.n	4d9c <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0xf0>
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE20sendFlowControlFrameERNS_20DoCanMessageReceiverIS2_EE():
+
+        4dd6:	2300      	movs	r3, #0
+
+        4dd8:	9301      	str	r3, [sp, #4]
+
+        4dda:	9300      	str	r3, [sp, #0]
+
+        4ddc:	2301      	movs	r3, #1
+
+        4dde:	47a8      	blx	r5
+
+        4de0:	e7e4      	b.n	4dac <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x100>
+
+    _ZN5docan13DoCanReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE7releaseERNS_20DoCanMessageReceiverIS2_EE():
+
+        4de2:	4b10      	ldr	r3, [pc, #64]	@ (4e24 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x178>)
+
+        4de4:	a803      	add	r0, sp, #12
+
+        4de6:	681b      	ldr	r3, [r3, #0]
+
+        4de8:	4798      	blx	r3
+
+        4dea:	f895 3035 	ldrb.w	r3, [r5, #53]	@ 0x35
+
+        4dee:	e78a      	b.n	4d06 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x5a>
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE9frameSentEb():
+
+        4df0:	b178      	cbz	r0, 4e12 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x166>
+
+    _ZNK5docan34DoCanMessageReceiveProtocolHandlerItE17isFlowControlWaitEv():
+
+        4df2:	79e2      	ldrb	r2, [r4, #7]
+
+        4df4:	b18a      	cbz	r2, 4e1a <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x16e>
+
+        4df6:	8862      	ldrh	r2, [r4, #2]
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE9frameSentEb():
+
+        4df8:	2a01      	cmp	r2, #1
+
+        4dfa:	bf98      	it	ls
+
+        4dfc:	2301      	movls	r3, #1
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE8setStateENS_12ReceiveStateENS_14ReceiveTimeoutE():
+
+        4dfe:	2101      	movs	r1, #1
+
+        4e00:	7163      	strb	r3, [r4, #5]
+
+        4e02:	2300      	movs	r3, #0
+
+        4e04:	7121      	strb	r1, [r4, #4]
+
+        4e06:	461a      	mov	r2, r3
+
+        4e08:	e7d5      	b.n	4db6 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x10a>
+
+    _ZN5docan20DoCanMessageReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE10setBlockedEb():
+
+        4e0a:	2300      	movs	r3, #0
+
+        4e0c:	f882 302b 	strb.w	r3, [r2, #43]	@ 0x2b
+
+        4e10:	e775      	b.n	4cfe <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x52>
+
+    _ZN5docan34DoCanMessageReceiveProtocolHandlerItE9frameSentEb():
+
+        4e12:	4603      	mov	r3, r0
+
+        4e14:	4602      	mov	r2, r0
+
+        4e16:	4601      	mov	r1, r0
+
+        4e18:	e7cd      	b.n	4db6 <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x10a>
+
+        4e1a:	2301      	movs	r3, #1
+
+        4e1c:	e7ef      	b.n	4dfe <<a href="./80296c98e8d001723c6cc94709509d01.html">docan::DoCanReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >::handleTransition(docan::DoCanMessageReceiver<docan::DoCanDataLinkLayer<unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short> >&)</a>+0x152>
+
+    _ZNK5docan20DoCanMessageReceiverINS_18DoCanDataLinkLayerImthLm4294967295EtEEE9isBlockedEv():
+
+        4e1e:	f892 3037 	ldrb.w	r3, [r2, #55]	@ 0x37
+
+        4e22:	deff      	udf	#255	@ 0xff
+
+        4e24:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="./5a52863f8eb344552396c286a50a99da.html">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::shutdown() (188)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 700</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,648</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    700
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,648
+                    
+                    
+                </td>
+                <td class="col_size">432</td>
+                <td><a href="../../../../../util/src/util/format/PrintfFormatter.cpp/4aadf02dd7dcf4f301c4d79e66b22e38.html" class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    676
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,216
+                    
+                    
+                </td>
+                <td class="col_size">436</td>
+                <td><a href="../../../../../util/src/util/format/PrintfFormatter.cpp/a55fbe8aa7abfc498675bef9f2e3bbf3.html" class="icon-function">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    580
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    780
+                    
+                    
+                </td>
+                <td class="col_size">132</td>
+                <td><a href="../../../../../util/src/util/format/PrintfFormatter.cpp/1fd658a3cadf7a6a384e16e0b788aef4.html" class="icon-function">util::format::PrintfFormatter::formatParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    556
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    648
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../../../../util/src/util/format/PrintfFormatter.cpp/54d7602074146c5884ce6c1e97059b8b.html" class="icon-function">util::format::PrintfFormatter::format(char const*, util::format::IPrintfArgumentReader&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    500
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                44 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    456
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html" class="icon-function">util::format::StringWriter::printf(char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    456
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                136 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">396</td>
+                <td><a href="./43c823227c661a2523f9672889ebc851.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::allocateTransportMessage(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;, bool)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">320
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 320</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,600</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    320
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,600
+                    
+                    
+                </td>
+                <td class="col_size">380</td>
+                <td><a href="./80296c98e8d001723c6cc94709509d01.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handleTransition(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    280
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                128 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,220
+                    
+                    
+                </td>
+                <td class="col_size">284</td>
+                <td><a href="./279189bc3e498fbc8574b7da5d7a2349.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handlePendingMessageReceivers(unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    152
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                136 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    936
+                    
+                    
+                </td>
+                <td class="col_size">912</td>
+                <td><a href="./9afbf8e1b46985fd487b64110519682d.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::firstDataFrameReceived(docan::DoCanConnection&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt; const&amp;, unsigned short, unsigned short, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">24</td>
+                <td><a href="../../transport/DoCanTransportLayer.h/5063abfd56f46224a76cd810adbc57c4.html" class="icon-function">docan::DoCanTransportLayer&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::firstDataFrameReceived(docan::DoCanConnection&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt; const&amp;, unsigned short, unsigned short, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

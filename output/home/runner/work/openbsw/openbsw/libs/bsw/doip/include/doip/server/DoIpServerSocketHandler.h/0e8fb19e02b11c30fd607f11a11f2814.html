@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../include.html">include</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerSocketHandler.h.html">DoIpServerSocketHandler.h</a>:331
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::declare::DoIpServerSocketHandler&lt;tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u&gt;::SocketHandler::getSocket(ip::IPAddress const&amp;, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00002ec4</td>
+                <td>
+    
+    
+</td>
+                <td>48 (static)</td>
+                <td>72</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../estd/include/estd/functional.h/31625c465268ca66f4f13053dafa06f0.html">void estd::function&lt;void (estd::slice&lt;unsigned char, 17u&gt;)&gt;::function_caller&lt;&amp;estd::function&lt;void (estd::slice&lt;unsigned char, 17u&gt;)&gt;::empty_function&gt;(void*, estd::slice&lt;unsigned char, 17u&gt;) (4)</a></pre>
+    
+
+    <pre>
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::SocketHandler::getSocket(ip::IPAddress const&, unsigned short):
+
+        2ec4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        2ec8:	6983      	ldr	r3, [r0, #24]
+
+        2eca:	f8d3 61f0 	ldr.w	r6, [r3, #496]	@ 0x1f0
+
+        2ece:	4604      	mov	r4, r0
+
+        2ed0:	b086      	sub	sp, #24
+
+        2ed2:	6833      	ldr	r3, [r6, #0]
+
+        2ed4:	f894 801c 	ldrb.w	r8, [r4, #28]
+
+        2ed8:	685f      	ldr	r7, [r3, #4]
+
+        2eda:	4615      	mov	r5, r2
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+        2edc:	a801      	add	r0, sp, #4
+
+        2ede:	2210      	movs	r2, #16
+
+        2ee0:	f7fd fb4f 	bl	582 <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        2ee4:	2301      	movs	r3, #1
+
+        2ee6:	f8ad 5014 	strh.w	r5, [sp, #20]
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::SocketHandler::getSocket(ip::IPAddress const&, unsigned short):
+
+        2eea:	aa01      	add	r2, sp, #4
+
+        2eec:	4641      	mov	r1, r8
+
+        2eee:	4630      	mov	r0, r6
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+        2ef0:	f88d 3016 	strb.w	r3, [sp, #22]
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::SocketHandler::getSocket(ip::IPAddress const&, unsigned short):
+
+        2ef4:	47b8      	blx	r7
+
+        2ef6:	b130      	cbz	r0, 2f06 <<a href="./0e8fb19e02b11c30fd607f11a11f2814.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::SocketHandler::getSocket(ip::IPAddress const&, unsigned short)</a>+0x42>
+
+        2ef8:	69a0      	ldr	r0, [r4, #24]
+
+        2efa:	6803      	ldr	r3, [r0, #0]
+
+        2efc:	689b      	ldr	r3, [r3, #8]
+
+        2efe:	b006      	add	sp, #24
+
+        2f00:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+        2f04:	4718      	bx	r3
+
+        2f06:	b006      	add	sp, #24
+
+        2f08:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    </pre>
+
+    
+    <pre><a href="./a1e3a234264d03cb4ad64ceb460dcbb4.html">doip::declare::DoIpServerSocketHandler&lt;tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u&gt;::SocketHandler::connectionAccepted(tcp::AbstractSocket&amp;) (32)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

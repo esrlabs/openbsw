@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../transportRouterSimple.html">transportRouterSimple</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../transport.html">transport</a></li>
+        
+        <li ><a href="../../routing.html">routing</a>
+            </li>
+
+        
+        <li class="active"><a href="../TransportRouterSimple.cpp.html">TransportRouterSimple.cpp</a>:35
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;, transport::TransportMessage*&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000f964</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>24 (static)</td>
+                <td>212</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../include/transport/routing/TransportRouterSimple.h/df85015190bc0dbf55da90e39422e73b.html">non-virtual thunk to transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;, transport::TransportMessage*&amp;) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=140
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long) (84)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./18df4eecf80f770260851c78963a117e.html">transport::TransportRouterSimple::messageReceived(unsigned char, transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (196)</a></pre>
+    
+
+    <pre>
+
+    transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&):
+
+        f964:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        f968:	4931      	ldr	r1, [pc, #196]	@ (fa30 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0xcc>)
+
+        f96a:	9e08      	ldr	r6, [sp, #32]
+
+        f96c:	f8bd 7018 	ldrh.w	r7, [sp, #24]
+
+        f970:	4604      	mov	r4, r0
+
+        f972:	7808      	ldrb	r0, [r1, #0]
+
+        f974:	492f      	ldr	r1, [pc, #188]	@ (fa34 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0xd0>)
+
+        f976:	461d      	mov	r5, r3
+
+        f978:	f7f2 f970 	bl	1c5c <<a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f97c:	2300      	movs	r3, #0
+
+        f97e:	6033      	str	r3, [r6, #0]
+
+        f980:	f3ef 8810 	mrs	r8, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+        f984:	b672      	cpsid	i
+
+    transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&):
+
+        f986:	b2ed      	uxtb	r5, r5
+
+        f988:	2ddf      	cmp	r5, #223	@ 0xdf
+
+        f98a:	d00f      	beq.n	f9ac <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x48>
+
+        f98c:	f5b7 5f80 	cmp.w	r7, #4096	@ 0x1000
+
+        f990:	d22e      	bcs.n	f9f0 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x8c>
+
+        f992:	7a25      	ldrb	r5, [r4, #8]
+
+        f994:	b38d      	cbz	r5, f9fa <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x96>
+
+        f996:	7a63      	ldrb	r3, [r4, #9]
+
+        f998:	2b00      	cmp	r3, #0
+
+        f99a:	d03d      	beq.n	fa18 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0xb4>
+
+        f99c:	7aa3      	ldrb	r3, [r4, #10]
+
+        f99e:	2003      	movs	r0, #3
+
+        f9a0:	2b00      	cmp	r3, #0
+
+        f9a2:	d03f      	beq.n	fa24 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0xc0>
+
+        f9a4:	f388 8810 	msr	PRIMASK, r8
+
+        f9a8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        f9ac:	2f06      	cmp	r7, #6
+
+        f9ae:	d8ed      	bhi.n	f98c <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x28>
+
+        f9b0:	f104 030a 	add.w	r3, r4, #10
+
+        f9b4:	f104 0012 	add.w	r0, r4, #18
+
+        f9b8:	e001      	b.n	f9be <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x5a>
+
+        f9ba:	4283      	cmp	r3, r0
+
+        f9bc:	d0e9      	beq.n	f992 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x2e>
+
+        f9be:	4619      	mov	r1, r3
+
+        f9c0:	f813 2f01 	ldrb.w	r2, [r3, #1]!
+
+        f9c4:	2a00      	cmp	r2, #0
+
+        f9c6:	d1f8      	bne.n	f9ba <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x56>
+
+        f9c8:	1b09      	subs	r1, r1, r4
+
+        f9ca:	f201 25fe 	addw	r5, r1, #766	@ 0x2fe
+
+        f9ce:	460f      	mov	r7, r1
+
+        f9d0:	eb04 1505 	add.w	r5, r4, r5, lsl #4
+
+        f9d4:	f501 61bf 	add.w	r1, r1, #1528	@ 0x5f8
+
+        f9d8:	eb04 01c1 	add.w	r1, r4, r1, lsl #3
+
+        f9dc:	2208      	movs	r2, #8
+
+        f9de:	4628      	mov	r0, r5
+
+        f9e0:	4427      	add	r7, r4
+
+        f9e2:	f7ff fe55 	bl	f690 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        f9e6:	2301      	movs	r3, #1
+
+        f9e8:	6035      	str	r5, [r6, #0]
+
+        f9ea:	707b      	strb	r3, [r7, #1]
+
+        f9ec:	2000      	movs	r0, #0
+
+        f9ee:	e7d9      	b.n	f9a4 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x40>
+
+        f9f0:	2004      	movs	r0, #4
+
+    resumeAllInterrupts():
+
+        f9f2:	f388 8810 	msr	PRIMASK, r8
+
+    transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&):
+
+        f9f6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        f9fa:	f243 0750 	movw	r7, #12368	@ 0x3050
+
+        f9fe:	2113      	movs	r1, #19
+
+        fa00:	4427      	add	r7, r4
+
+        fa02:	4421      	add	r1, r4
+
+        fa04:	f640 72ff 	movw	r2, #4095	@ 0xfff
+
+        fa08:	4638      	mov	r0, r7
+
+        fa0a:	442c      	add	r4, r5
+
+        fa0c:	f7ff fe40 	bl	f690 <<a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html">transport::TransportMessage::init(unsigned char*, unsigned long)</a>>
+
+        fa10:	2301      	movs	r3, #1
+
+        fa12:	6037      	str	r7, [r6, #0]
+
+        fa14:	7223      	strb	r3, [r4, #8]
+
+        fa16:	e7e9      	b.n	f9ec <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x88>
+
+        fa18:	f243 0760 	movw	r7, #12384	@ 0x3060
+
+        fa1c:	f241 0112 	movw	r1, #4114	@ 0x1012
+
+        fa20:	2501      	movs	r5, #1
+
+        fa22:	e7ed      	b.n	fa00 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x9c>
+
+        fa24:	f243 0770 	movw	r7, #12400	@ 0x3070
+
+        fa28:	f242 0111 	movw	r1, #8209	@ 0x2011
+
+        fa2c:	2502      	movs	r5, #2
+
+        fa2e:	e7e7      	b.n	fa00 <<a href="./3f9b6ec379869e6b7cb36ad7e094a3af.html">transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span<unsigned char const, 4294967295u> const&, transport::TransportMessage*&)</a>+0x9c>
+
+        fa30:	1ffe0149 	.word	0x1ffe0149
+
+        fa34:	000291d8 	.word	0x000291d8
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/transport/routing/TransportRouterSimple.h/df85015190bc0dbf55da90e39422e73b.html">non-virtual thunk to transport::TransportRouterSimple::getTransportMessage(unsigned char, unsigned short, unsigned short, unsigned short, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;, transport::TransportMessage*&amp;) (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 116</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 208</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    116
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    208
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    68
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    140
+                    
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html" class="icon-function">util::logger::Logger::critical(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    48
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">84</td>
+                <td><a href="../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html" class="icon-function">transport::TransportMessage::init(unsigned char*, unsigned long)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">24
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

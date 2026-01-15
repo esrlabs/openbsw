@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../lifecycle.html">lifecycle</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../lifecycle.html">lifecycle</a>
+            </li>
+
+        
+        <li class="active"><a href="../LifecycleManager.cpp.html">LifecycleManager.cpp</a>:28
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&amp;, unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00007998</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>224</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/4da5c80e94ffd100bf7197f59436fa02.html">app::startApp() (808)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char) (208)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./723e95e23ad9241e1f9177bebc69b188.html">lifecycle::LifecycleManager::LifecycleManager(unsigned char, etl::delegate&lt;unsigned long ()&gt;, etl::span&lt;lifecycle::LifecycleManager::ComponentInfo, 4294967295u&gt; const&amp;, etl::ivector&lt;lifecycle::LifecycleManager::ComponentTransitionExecutor&gt;&amp;, etl::span&lt;unsigned char, 4294967295u&gt; const&amp;) (100)</a></pre>
+    
+
+    <pre>
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7998:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+        799a:	4604      	mov	r4, r0
+
+        799c:	4616      	mov	r6, r2
+
+        799e:	461d      	mov	r5, r3
+
+    _ZNK3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EE4sizeEv():
+
+        79a0:	6922      	ldr	r2, [r4, #16]
+
+        79a2:	6963      	ldr	r3, [r4, #20]
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        79a4:	f890 003c 	ldrb.w	r0, [r0, #60]	@ 0x3c
+
+    _ZNK3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EE4sizeEv():
+
+        79a8:	1a9b      	subs	r3, r3, r2
+
+        79aa:	4a31      	ldr	r2, [pc, #196]	@ (7a70 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xd8>)
+
+        79ac:	10db      	asrs	r3, r3, #3
+
+        79ae:	fb02 f303 	mul.w	r3, r2, r3
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        79b2:	4298      	cmp	r0, r3
+
+        79b4:	b083      	sub	sp, #12
+
+        79b6:	460f      	mov	r7, r1
+
+        79b8:	d303      	bcc.n	79c2 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x2a>
+
+        79ba:	4b2e      	ldr	r3, [pc, #184]	@ (7a74 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xdc>)
+
+        79bc:	a801      	add	r0, sp, #4
+
+        79be:	681b      	ldr	r3, [r3, #0]
+
+        79c0:	4798      	blx	r3
+
+        79c2:	b91d      	cbnz	r5, 79cc <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x34>
+
+        79c4:	4b2b      	ldr	r3, [pc, #172]	@ (7a74 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xdc>)
+
+        79c6:	a801      	add	r0, sp, #4
+
+        79c8:	681b      	ldr	r3, [r3, #0]
+
+        79ca:	4798      	blx	r3
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+        79cc:	6a23      	ldr	r3, [r4, #32]
+
+        79ce:	69e2      	ldr	r2, [r4, #28]
+
+        79d0:	1a9b      	subs	r3, r3, r2
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        79d2:	429d      	cmp	r5, r3
+
+        79d4:	d303      	bcc.n	79de <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x46>
+
+        79d6:	4b27      	ldr	r3, [pc, #156]	@ (7a74 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xdc>)
+
+        79d8:	a801      	add	r0, sp, #4
+
+        79da:	681b      	ldr	r3, [r3, #0]
+
+        79dc:	4798      	blx	r3
+
+        79de:	f894 c03d 	ldrb.w	ip, [r4, #61]	@ 0x3d
+
+        79e2:	45ac      	cmp	ip, r5
+
+        79e4:	d905      	bls.n	79f2 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x5a>
+
+        79e6:	4b23      	ldr	r3, [pc, #140]	@ (7a74 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xdc>)
+
+        79e8:	a801      	add	r0, sp, #4
+
+        79ea:	681b      	ldr	r3, [r3, #0]
+
+        79ec:	4798      	blx	r3
+
+        79ee:	f894 c03d 	ldrb.w	ip, [r4, #61]	@ 0x3d
+
+        79f2:	4565      	cmp	r5, ip
+
+        79f4:	d910      	bls.n	7a18 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x80>
+
+    _ZNK3etl4spanIhLj4294967295EEixEj():
+
+        79f6:	69e0      	ldr	r0, [r4, #28]
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        79f8:	f10c 0c01 	add.w	ip, ip, #1
+
+        79fc:	fa5f fc8c 	uxtb.w	ip, ip
+
+        7a00:	eb00 030c 	add.w	r3, r0, ip
+
+        7a04:	f884 c03d 	strb.w	ip, [r4, #61]	@ 0x3d
+
+        7a08:	f813 3c01 	ldrb.w	r3, [r3, #-1]
+
+        7a0c:	f800 300c 	strb.w	r3, [r0, ip]
+
+        7a10:	f894 c03d 	ldrb.w	ip, [r4, #61]	@ 0x3d
+
+        7a14:	45ac      	cmp	ip, r5
+
+        7a16:	d3ee      	bcc.n	79f6 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x5e>
+
+    _ZNK3etl4spanIhLj4294967295EEixEj():
+
+        7a18:	69e2      	ldr	r2, [r4, #28]
+
+    _ZNK3etl11vector_base8max_sizeEv():
+
+        7a1a:	69a3      	ldr	r3, [r4, #24]
+
+    _ZNK9lifecycle16LifecycleManager22getLevelComponentCountEh():
+
+        7a1c:	1950      	adds	r0, r2, r5
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7a1e:	6819      	ldr	r1, [r3, #0]
+
+    _ZNK9lifecycle16LifecycleManager22getLevelComponentCountEh():
+
+        7a20:	f810 0c01 	ldrb.w	r0, [r0, #-1]
+
+        7a24:	5d53      	ldrb	r3, [r2, r5]
+
+        7a26:	1a1b      	subs	r3, r3, r0
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7a28:	4299      	cmp	r1, r3
+
+        7a2a:	d804      	bhi.n	7a36 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0x9e>
+
+        7a2c:	4b11      	ldr	r3, [pc, #68]	@ (7a74 <<a href="./30e9b0165543e427907413beba9a03ed.html">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char)</a>+0xdc>)
+
+        7a2e:	a801      	add	r0, sp, #4
+
+        7a30:	681b      	ldr	r3, [r3, #0]
+
+        7a32:	4798      	blx	r3
+
+    _ZNK3etl4spanIhLj4294967295EEixEj():
+
+        7a34:	69e2      	ldr	r2, [r4, #28]
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7a36:	f894 303c 	ldrb.w	r3, [r4, #60]	@ 0x3c
+
+    _ZNK3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEixEj():
+
+        7a3a:	6921      	ldr	r1, [r4, #16]
+
+        7a3c:	eb03 0343 	add.w	r3, r3, r3, lsl #1
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7a40:	4630      	mov	r0, r6
+
+        7a42:	f841 7033 	str.w	r7, [r1, r3, lsl #3]
+
+    _ZNK3etl4spanIN9lifecycle16LifecycleManager13ComponentInfoELj4294967295EEixEj():
+
+        7a46:	eb01 01c3 	add.w	r1, r1, r3, lsl #3
+
+    lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&, unsigned char):
+
+        7a4a:	604e      	str	r6, [r1, #4]
+
+        7a4c:	f894 103d 	ldrb.w	r1, [r4, #61]	@ 0x3d
+
+        7a50:	5c53      	ldrb	r3, [r2, r1]
+
+        7a52:	3301      	adds	r3, #1
+
+        7a54:	5453      	strb	r3, [r2, r1]
+
+        7a56:	f894 303c 	ldrb.w	r3, [r4, #60]	@ 0x3c
+
+        7a5a:	3301      	adds	r3, #1
+
+        7a5c:	f884 303c 	strb.w	r3, [r4, #60]	@ 0x3c
+
+        7a60:	6833      	ldr	r3, [r6, #0]
+
+        7a62:	681b      	ldr	r3, [r3, #0]
+
+        7a64:	1d21      	adds	r1, r4, #4
+
+        7a66:	b003      	add	sp, #12
+
+        7a68:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+
+        7a6c:	4718      	bx	r3
+
+        7a6e:	bf00      	nop
+
+        7a70:	aaaaaaab 	.word	0xaaaaaaab
+
+        7a74:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="./76a60044542a8fc150ed89fb6fd4be62.html">lifecycle::LifecycleManager::checkLevelTransitionDone() (260)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 120</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,240</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,240
+                    
+                    
+                </td>
+                <td class="col_size">224</td>
+                <td><a href="./30e9b0165543e427907413beba9a03ed.html" class="icon-function">lifecycle::LifecycleManager::addComponent(char const*, lifecycle::ILifecycleComponent&amp;, unsigned char)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    88
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,016
+                    
+                    
+                </td>
+                <td class="col_size">208</td>
+                <td><a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/97ca1c6b6c6550542b317e127d620f42.html" class="icon-function">platform::platformLifecycleAdd(lifecycle::LifecycleManager&amp;, unsigned char)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">808</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/4da5c80e94ffd100bf7197f59436fa02.html" class="icon-function">app::startApp()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

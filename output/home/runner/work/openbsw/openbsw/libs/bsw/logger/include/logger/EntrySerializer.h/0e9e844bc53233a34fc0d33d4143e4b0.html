@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../logger.html">logger</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../logger.html">logger</a>
+            </li>
+
+        
+        <li class="active"><a href="../EntrySerializer.h.html">EntrySerializer.h</a>:312
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeString(unsigned char, char const*, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009b3c</td>
+                <td>
+    
+    
+</td>
+                <td>40 (static)</td>
+                <td>304</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="./7b256d36aa89ab1e86ede44d63d6833f.html">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeParamVariant(util::format::ParamDatatype, util::format::ParamVariant const&amp;) (484)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./b1d0c5d6729c87013eb973ea38c9b9ac.html">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeString(char const*) (128)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./e1927cf6a56546ff501384f076ba47f9.html">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryReader::readArgument(util::format::ParamDatatype) (24)</a></pre>
+    
+
+    <pre>
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b3c:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+        9b3e:	4605      	mov	r5, r0
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b40:	6880      	ldr	r0, [r0, #8]
+
+        9b42:	686c      	ldr	r4, [r5, #4]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b44:	b085      	sub	sp, #20
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b46:	42a0      	cmp	r0, r4
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b48:	f88d 1007 	strb.w	r1, [sp, #7]
+
+        9b4c:	f8ad 3004 	strh.w	r3, [sp, #4]
+
+        9b50:	4616      	mov	r6, r2
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b52:	d20a      	bcs.n	9b6a <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x2e>
+
+        9b54:	1c43      	adds	r3, r0, #1
+
+        9b56:	429c      	cmp	r4, r3
+
+        9b58:	bf34      	ite	cc
+
+        9b5a:	1a22      	subcc	r2, r4, r0
+
+        9b5c:	2201      	movcs	r2, #1
+
+        9b5e:	f10d 0107 	add.w	r1, sp, #7
+
+        9b62:	f7f6 fd0e 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        9b66:	68a8      	ldr	r0, [r5, #8]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b68:	686c      	ldr	r4, [r5, #4]
+
+        9b6a:	f8bd 7004 	ldrh.w	r7, [sp, #4]
+
+        9b6e:	f107 0c01 	add.w	ip, r7, #1
+
+        9b72:	fa1f fc8c 	uxth.w	ip, ip
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b76:	1c43      	adds	r3, r0, #1
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b78:	f8ad c00e 	strh.w	ip, [sp, #14]
+
+        9b7c:	f10c 0c02 	add.w	ip, ip, #2
+
+        9b80:	449c      	add	ip, r3
+
+        9b82:	4564      	cmp	r4, ip
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b84:	60ab      	str	r3, [r5, #8]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9b86:	d203      	bcs.n	9b90 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x54>
+
+        9b88:	f100 0208 	add.w	r2, r0, #8
+
+        9b8c:	4294      	cmp	r4, r2
+
+        9b8e:	d237      	bcs.n	9c00 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0xc4>
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9b90:	42a3      	cmp	r3, r4
+
+        9b92:	d31a      	bcc.n	9bca <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x8e>
+
+        9b94:	1c98      	adds	r0, r3, #2
+
+        9b96:	60a8      	str	r0, [r5, #8]
+
+        9b98:	b11e      	cbz	r6, 9ba2 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x66>
+
+        9b9a:	42a0      	cmp	r0, r4
+
+        9b9c:	d325      	bcc.n	9bea <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0xae>
+
+        9b9e:	4438      	add	r0, r7
+
+        9ba0:	60a8      	str	r0, [r5, #8]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9ba2:	2300      	movs	r3, #0
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9ba4:	42a0      	cmp	r0, r4
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9ba6:	f88d 300d 	strb.w	r3, [sp, #13]
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9baa:	d303      	bcc.n	9bb4 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x78>
+
+        9bac:	3001      	adds	r0, #1
+
+        9bae:	60a8      	str	r0, [r5, #8]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9bb0:	b005      	add	sp, #20
+
+        9bb2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9bb4:	1c43      	adds	r3, r0, #1
+
+        9bb6:	429c      	cmp	r4, r3
+
+        9bb8:	bf34      	ite	cc
+
+        9bba:	1a22      	subcc	r2, r4, r0
+
+        9bbc:	2201      	movcs	r2, #1
+
+        9bbe:	f10d 010d 	add.w	r1, sp, #13
+
+        9bc2:	f7f6 fcde 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        9bc6:	68a8      	ldr	r0, [r5, #8]
+
+        9bc8:	e7f0      	b.n	9bac <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x70>
+
+        9bca:	3003      	adds	r0, #3
+
+        9bcc:	4284      	cmp	r4, r0
+
+        9bce:	bf38      	it	cc
+
+        9bd0:	1ae2      	subcc	r2, r4, r3
+
+        9bd2:	4618      	mov	r0, r3
+
+        9bd4:	bf28      	it	cs
+
+        9bd6:	2202      	movcs	r2, #2
+
+        9bd8:	f10d 010e 	add.w	r1, sp, #14
+
+        9bdc:	f7f6 fcd1 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9be0:	f8bd 7004 	ldrh.w	r7, [sp, #4]
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9be4:	686c      	ldr	r4, [r5, #4]
+
+        9be6:	68ab      	ldr	r3, [r5, #8]
+
+        9be8:	e7d4      	b.n	9b94 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x58>
+
+        9bea:	19c3      	adds	r3, r0, r7
+
+        9bec:	429c      	cmp	r4, r3
+
+        9bee:	bf34      	ite	cc
+
+        9bf0:	1a22      	subcc	r2, r4, r0
+
+        9bf2:	463a      	movcs	r2, r7
+
+        9bf4:	4631      	mov	r1, r6
+
+        9bf6:	f7f6 fcc4 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        9bfa:	68a8      	ldr	r0, [r5, #8]
+
+        9bfc:	686c      	ldr	r4, [r5, #4]
+
+        9bfe:	e7ce      	b.n	9b9e <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x62>
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9c00:	1ae2      	subs	r2, r4, r3
+
+        9c02:	1f97      	subs	r7, r2, #6
+
+        9c04:	b2bf      	uxth	r7, r7
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9c06:	42a3      	cmp	r3, r4
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9c08:	f8ad 7004 	strh.w	r7, [sp, #4]
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9c0c:	d20b      	bcs.n	9c26 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0xea>
+
+        9c0e:	3003      	adds	r0, #3
+
+        9c10:	4284      	cmp	r4, r0
+
+        9c12:	bf28      	it	cs
+
+        9c14:	2202      	movcs	r2, #2
+
+        9c16:	a901      	add	r1, sp, #4
+
+        9c18:	4618      	mov	r0, r3
+
+        9c1a:	f7f6 fcb2 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9c1e:	f8bd 7004 	ldrh.w	r7, [sp, #4]
+
+    _ZN6logger15EntrySerializerItmNS_16SectionPredicateEE11EntryWriter10writeBytesEPKvt():
+
+        9c22:	686c      	ldr	r4, [r5, #4]
+
+        9c24:	68ab      	ldr	r3, [r5, #8]
+
+        9c26:	1c98      	adds	r0, r3, #2
+
+        9c28:	60a8      	str	r0, [r5, #8]
+
+        9c2a:	b16e      	cbz	r6, 9c48 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x10c>
+
+        9c2c:	42a0      	cmp	r0, r4
+
+        9c2e:	d209      	bcs.n	9c44 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x108>
+
+        9c30:	19c3      	adds	r3, r0, r7
+
+        9c32:	429c      	cmp	r4, r3
+
+        9c34:	bf34      	ite	cc
+
+        9c36:	1a22      	subcc	r2, r4, r0
+
+        9c38:	463a      	movcs	r2, r7
+
+        9c3a:	4631      	mov	r1, r6
+
+        9c3c:	f7f6 fca1 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        9c40:	68a8      	ldr	r0, [r5, #8]
+
+        9c42:	686c      	ldr	r4, [r5, #4]
+
+        9c44:	4438      	add	r0, r7
+
+        9c46:	60a8      	str	r0, [r5, #8]
+
+        9c48:	42a0      	cmp	r0, r4
+
+        9c4a:	d208      	bcs.n	9c5e <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x122>
+
+        9c4c:	1d03      	adds	r3, r0, #4
+
+        9c4e:	429c      	cmp	r4, r3
+
+        9c50:	4905      	ldr	r1, [pc, #20]	@ (9c68 <<a href="./0e9e844bc53233a34fc0d33d4143e4b0.html">logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a>+0x12c>)
+
+        9c52:	bf34      	ite	cc
+
+        9c54:	1a22      	subcc	r2, r4, r0
+
+        9c56:	2204      	movcs	r2, #4
+
+        9c58:	f7f6 fc93 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+        9c5c:	68a8      	ldr	r0, [r5, #8]
+
+        9c5e:	3004      	adds	r0, #4
+
+        9c60:	60a8      	str	r0, [r5, #8]
+
+    logger::EntrySerializer<unsigned short, unsigned long, logger::SectionPredicate>::EntryWriter::writeString(unsigned char, char const*, unsigned short):
+
+        9c62:	b005      	add	sp, #20
+
+        9c64:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+        9c66:	bf00      	nop
+
+        9c68:	00028ec8 	.word	0x00028ec8
+
+    </pre>
+
+    
+    <pre><a href="./b1d0c5d6729c87013eb973ea38c9b9ac.html">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeString(char const*) (128)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 336</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,584</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    336
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,584
+                    
+                    
+                </td>
+                <td class="col_size">304</td>
+                <td><a href="./0e9e844bc53233a34fc0d33d4143e4b0.html" class="icon-function">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeString(unsigned char, char const*, unsigned short)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    296
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,280
+                    
+                    
+                </td>
+                <td class="col_size">128</td>
+                <td><a href="./b1d0c5d6729c87013eb973ea38c9b9ac.html" class="icon-function">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeString(char const*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    264
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,152
+                    
+                    
+                </td>
+                <td class="col_size">484</td>
+                <td><a href="./7b256d36aa89ab1e86ede44d63d6833f.html" class="icon-function">logger::EntrySerializer&lt;unsigned short, unsigned long, logger::SectionPredicate&gt;::EntryWriter::writeParamVariant(util::format::ParamDatatype, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                240 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">668</td>
+                <td><a href="../BufferedLoggerOutput.h/e3ad7a78fb2838fed1a54520f3662fc5.html" class="icon-function">logger::BufferedLoggerOutput&lt;interrupts::SuspendResumeAllInterruptsScopedLock, (unsigned char)128, unsigned short, unsigned long, unsigned long, logger::SectionPredicate&gt;::logOutput(util::logger::ComponentInfo const&amp;, util::logger::LevelInfo const&amp;, char const*, std::__va_list)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

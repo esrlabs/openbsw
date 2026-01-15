@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../application.html">application</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../systems.html">systems</a>
+            </li>
+
+        
+        <li class="active"><a href="../DemoSystem.cpp.html">DemoSystem.cpp</a>:132
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">systems::DemoSystem::cyclic()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00001e20</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>56 (static)</td>
+                <td>424</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="../../../include/systems/DemoSystem.h/b22920946b75ee03820781ab6bdf3160.html">non-virtual thunk to systems::DemoSystem::execute() (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./639eabea312774bed78e6fbf3d211d76.html">systems::DemoSystem::execute() (4)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (8,
+                            <span title="sum of used bytes by all callees">
+                            Σ=456
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&amp;) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsp/bspOutputManager/src/outputManager/Output.cpp/2c08fa321893ba76c3bcda60607bc7c8.html">bios::Output::set(bios::Output::OutputId, unsigned char, bool) (68)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/cpp2can/src/can/canframes/CANFrame.cpp/703f48f40f114637dca949c89401712a.html">can::CANFrame::CANFrame(unsigned long, unsigned char const*, unsigned char) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/adc/AnalogInput.cpp/080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&amp;) (32)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsp/bspOutputPwm/src/outputPwm/OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool) (92)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./90136955dd6a9ca9af7d3a63ba657e4b.html">systems::DemoSystem::DemoSystem(unsigned char, lifecycle::ILifecycleManager&amp;, can::ICanSystem&amp;, storage::IStorage&amp;) (396)</a></pre>
+    
+
+    <pre>
+
+    systems::DemoSystem::cyclic():
+
+        1e20:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+        1e24:	4c5d      	ldr	r4, [pc, #372]	@ (1f9c <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x17c>)
+
+        1e26:	7823      	ldrb	r3, [r4, #0]
+
+        1e28:	b088      	sub	sp, #32
+
+        1e2a:	3301      	adds	r3, #1
+
+        1e2c:	f10d 0107 	add.w	r1, sp, #7
+
+        1e30:	2600      	movs	r6, #0
+
+        1e32:	4605      	mov	r5, r0
+
+        1e34:	2001      	movs	r0, #1
+
+        1e36:	7023      	strb	r3, [r4, #0]
+
+        1e38:	f88d 6007 	strb.w	r6, [sp, #7]
+
+        1e3c:	f022 f8c8 	bl	23fd0 <<a href="../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+        1e40:	2201      	movs	r2, #1
+
+        1e42:	f89d 1007 	ldrb.w	r1, [sp, #7]
+
+        1e46:	4610      	mov	r0, r2
+
+        1e48:	f023 f85a 	bl	24f00 <<a href="../../../../../../libs/bsp/bspOutputManager/src/outputManager/Output.cpp/2c08fa321893ba76c3bcda60607bc7c8.html">bios::Output::set(bios::Output::OutputId, unsigned char, bool)</a>>
+
+        1e4c:	7823      	ldrb	r3, [r4, #0]
+
+        1e4e:	2b31      	cmp	r3, #49	@ 0x31
+
+        1e50:	d87d      	bhi.n	1f4e <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x12e>
+
+        1e52:	4e53      	ldr	r6, [pc, #332]	@ (1fa0 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x180>)
+
+        1e54:	6833      	ldr	r3, [r6, #0]
+
+        1e56:	07db      	lsls	r3, r3, #31
+
+        1e58:	d572      	bpl.n	1f40 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x120>
+
+        1e5a:	4c52      	ldr	r4, [pc, #328]	@ (1fa4 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x184>)
+
+        1e5c:	f023 fcc4 	bl	257e8 <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>>
+
+        1e60:	6822      	ldr	r2, [r4, #0]
+
+        1e62:	1a82      	subs	r2, r0, r2
+
+        1e64:	f5b2 7f7a 	cmp.w	r2, #1000	@ 0x3e8
+
+        1e68:	4603      	mov	r3, r0
+
+        1e6a:	d329      	bcc.n	1ec0 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0xa0>
+
+        1e6c:	6b28      	ldr	r0, [r5, #48]	@ 0x30
+
+        1e6e:	6023      	str	r3, [r4, #0]
+
+        1e70:	6803      	ldr	r3, [r0, #0]
+
+        1e72:	2102      	movs	r1, #2
+
+        1e74:	681b      	ldr	r3, [r3, #0]
+
+        1e76:	4798      	blx	r3
+
+        1e78:	4604      	mov	r4, r0
+
+        1e7a:	b308      	cbz	r0, 1ec0 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0xa0>
+
+        1e7c:	4e4a      	ldr	r6, [pc, #296]	@ (1fa8 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x188>)
+
+        1e7e:	4b4b      	ldr	r3, [pc, #300]	@ (1fac <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x18c>)
+
+        1e80:	6832      	ldr	r2, [r6, #0]
+
+        1e82:	7818      	ldrb	r0, [r3, #0]
+
+        1e84:	494a      	ldr	r1, [pc, #296]	@ (1fb0 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x190>)
+
+        1e86:	f7ff fee9 	bl	1c5c <<a href="../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        1e8a:	6832      	ldr	r2, [r6, #0]
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+        1e8c:	2300      	movs	r3, #0
+
+        1e8e:	e9cd 3202 	strd	r3, r2, [sp, #8]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_value_to_storeImEEvRKT_Ph():
+
+        1e92:	a903      	add	r1, sp, #12
+
+        1e94:	2204      	movs	r2, #4
+
+        1e96:	a802      	add	r0, sp, #8
+
+        1e98:	f7fe fb73 	bl	582 <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl4swapIhEEvRT_S2_():
+
+        1e9c:	9b02      	ldr	r3, [sp, #8]
+
+        1e9e:	ba1b      	rev	r3, r3
+
+    systems::DemoSystem::cyclic():
+
+        1ea0:	aa02      	add	r2, sp, #8
+
+    _ZN3etl4swapIhEEvRT_S2_():
+
+        1ea2:	9302      	str	r3, [sp, #8]
+
+    systems::DemoSystem::cyclic():
+
+        1ea4:	f44f 61ab 	mov.w	r1, #1368	@ 0x558
+
+        1ea8:	2304      	movs	r3, #4
+
+        1eaa:	a803      	add	r0, sp, #12
+
+        1eac:	f010 fe1c 	bl	12ae8 <<a href="../../../../../../libs/bsw/cpp2can/src/can/canframes/CANFrame.cpp/703f48f40f114637dca949c89401712a.html">can::CANFrame::CANFrame(unsigned long, unsigned char const*, unsigned char)</a>>
+
+        1eb0:	6823      	ldr	r3, [r4, #0]
+
+        1eb2:	a903      	add	r1, sp, #12
+
+        1eb4:	6a9b      	ldr	r3, [r3, #40]	@ 0x28
+
+        1eb6:	4620      	mov	r0, r4
+
+        1eb8:	4798      	blx	r3
+
+        1eba:	6833      	ldr	r3, [r6, #0]
+
+        1ebc:	3301      	adds	r3, #1
+
+        1ebe:	6033      	str	r3, [r6, #0]
+
+    _ZNK3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE5indexEv():
+
+        1ec0:	f505 5480 	add.w	r4, r5, #4096	@ 0x1000
+
+    systems::DemoSystem::cyclic():
+
+        1ec4:	f8d4 64d8 	ldr.w	r6, [r4, #1240]	@ 0x4d8
+
+        1ec8:	bbbe      	cbnz	r6, 1f3a <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x11a>
+
+    _ZN7storage10StorageJob4initEmN3etl8delegateIFvRS0_EEE():
+
+        1eca:	f640 2301 	movw	r3, #2561	@ 0xa01
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS4_Li0EEERS8_OT_():
+
+        1ece:	f505 51a5 	add.w	r1, r5, #5280	@ 0x14a0
+
+    _ZN7storage10StorageJob4initEmN3etl8delegateIFvRS0_EEE():
+
+        1ed2:	f8c4 34e4 	str.w	r3, [r4, #1252]	@ 0x4e4
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS4_Li0EEERS8_OT_():
+
+        1ed6:	311c      	adds	r1, #28
+
+        1ed8:	f8d4 34c0 	ldr.w	r3, [r4, #1216]	@ 0x4c0
+
+        1edc:	f8d4 8500 	ldr.w	r8, [r4, #1280]	@ 0x500
+
+        1ee0:	f8d4 7504 	ldr.w	r7, [r4, #1284]	@ 0x504
+
+        1ee4:	4632      	mov	r2, r6
+
+        1ee6:	2002      	movs	r0, #2
+
+        1ee8:	4798      	blx	r3
+
+        1eea:	4a32      	ldr	r2, [pc, #200]	@ (1fb4 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x194>)
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1eec:	f8d4 34d4 	ldr.w	r3, [r4, #1236]	@ 0x4d4
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS4_Li0EEERS8_OT_():
+
+        1ef0:	f8c4 24c0 	str.w	r2, [r4, #1216]	@ 0x4c0
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1ef4:	f505 51a6 	add.w	r1, r5, #5312	@ 0x14c0
+
+        1ef8:	4632      	mov	r2, r6
+
+        1efa:	3108      	adds	r1, #8
+
+        1efc:	2002      	movs	r0, #2
+
+    _ZN7storage10StorageJob4initEmN3etl8delegateIFvRS0_EEE():
+
+        1efe:	f8c4 84dc 	str.w	r8, [r4, #1244]	@ 0x4dc
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS4_Li0EEERS8_OT_():
+
+        1f02:	f8c4 64c4 	str.w	r6, [r4, #1220]	@ 0x4c4
+
+    _ZN7storage10StorageJob4initEmN3etl8delegateIFvRS0_EEE():
+
+        1f06:	f8c4 74e0 	str.w	r7, [r4, #1248]	@ 0x4e0
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1f0a:	4798      	blx	r3
+
+    systems::DemoSystem::cyclic():
+
+        1f0c:	f8d4 04b0 	ldr.w	r0, [r4, #1200]	@ 0x4b0
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1f10:	4929      	ldr	r1, [pc, #164]	@ (1fb8 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x198>)
+
+        1f12:	f8c4 14d4 	str.w	r1, [r4, #1236]	@ 0x4d4
+
+    systems::DemoSystem::cyclic():
+
+        1f16:	f505 53a7 	add.w	r3, r5, #5344	@ 0x14e0
+
+        1f1a:	3308      	adds	r3, #8
+
+    _ZN7storage10StorageJob4Type4ReadC4ERN4util6buffer12LinkedBufferIhEEj():
+
+        1f1c:	f8c4 34c8 	str.w	r3, [r4, #1224]	@ 0x4c8
+
+    systems::DemoSystem::cyclic():
+
+        1f20:	6803      	ldr	r3, [r0, #0]
+
+    _ZN7storage10StorageJob4Type4ReadC4ERN4util6buffer12LinkedBufferIhEEj():
+
+        1f22:	f8c4 64cc 	str.w	r6, [r4, #1228]	@ 0x4cc
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1f26:	2202      	movs	r2, #2
+
+    systems::DemoSystem::cyclic():
+
+        1f28:	f505 51a5 	add.w	r1, r5, #5280	@ 0x14a0
+
+        1f2c:	681b      	ldr	r3, [r3, #0]
+
+    _ZN7storage10StorageJob4Type4ReadC4ERN4util6buffer12LinkedBufferIhEEj():
+
+        1f2e:	f8c4 64d0 	str.w	r6, [r4, #1232]	@ 0x4d0
+
+    _ZN3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE7emplaceIS6_JRN4util6buffer12LinkedBufferIhEERKjEEERT_DpOT0_():
+
+        1f32:	f8c4 24d8 	str.w	r2, [r4, #1240]	@ 0x4d8
+
+    systems::DemoSystem::cyclic():
+
+        1f36:	3114      	adds	r1, #20
+
+        1f38:	4798      	blx	r3
+
+        1f3a:	b008      	add	sp, #32
+
+        1f3c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+        1f40:	f023 fc52 	bl	257e8 <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>>
+
+        1f44:	4c17      	ldr	r4, [pc, #92]	@ (1fa4 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x184>)
+
+        1f46:	2301      	movs	r3, #1
+
+        1f48:	6020      	str	r0, [r4, #0]
+
+        1f4a:	6033      	str	r3, [r6, #0]
+
+        1f4c:	e786      	b.n	1e5c <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x3c>
+
+    bios::AnalogInputScaleImplementation<unsigned long, unsigned short>::get(unsigned short, unsigned long&):
+
+        1f4e:	4f1b      	ldr	r7, [pc, #108]	@ (1fbc <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x19c>)
+
+        1f50:	683b      	ldr	r3, [r7, #0]
+
+        1f52:	b303      	cbz	r3, 1f96 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x176>
+
+        1f54:	4b1a      	ldr	r3, [pc, #104]	@ (1fc0 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x1a0>)
+
+        1f56:	881b      	ldrh	r3, [r3, #0]
+
+        1f58:	b1eb      	cbz	r3, 1f96 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x176>
+
+        1f5a:	a903      	add	r1, sp, #12
+
+        1f5c:	4630      	mov	r0, r6
+
+        1f5e:	f023 f983 	bl	25268 <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/adc/AnalogInput.cpp/080a0e371354c39756bdb04083b17b2d.html">bios::AnalogInput::get(unsigned short, unsigned long&)</a>>
+
+        1f62:	4680      	mov	r8, r0
+
+        1f64:	b9b8      	cbnz	r0, 1f96 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x176>
+
+        1f66:	683b      	ldr	r3, [r7, #0]
+
+        1f68:	f8bd 000c 	ldrh.w	r0, [sp, #12]
+
+        1f6c:	681b      	ldr	r3, [r3, #0]
+
+        1f6e:	4798      	blx	r3
+
+    systems::DemoSystem::cyclic():
+
+        1f70:	f242 7310 	movw	r3, #10000	@ 0x2710
+
+        1f74:	fb03 f600 	mul.w	r6, r3, r0
+
+        1f78:	4b12      	ldr	r3, [pc, #72]	@ (1fc4 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x1a4>)
+
+        1f7a:	fba3 3606 	umull	r3, r6, r3, r6
+
+        1f7e:	f3c6 360f 	ubfx	r6, r6, #12, #16
+
+        1f82:	4642      	mov	r2, r8
+
+        1f84:	4631      	mov	r1, r6
+
+        1f86:	2001      	movs	r0, #1
+
+        1f88:	f024 fc58 	bl	2683c <<a href="../../../../../../libs/bsp/bspOutputPwm/src/outputPwm/OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>>
+
+        1f8c:	4642      	mov	r2, r8
+
+        1f8e:	4631      	mov	r1, r6
+
+        1f90:	2002      	movs	r0, #2
+
+        1f92:	f024 fc53 	bl	2683c <<a href="../../../../../../libs/bsp/bspOutputPwm/src/outputPwm/OutputPwm.cpp/e24bd7b7790940ad49acc198a79bd186.html">bios::OutputPwm::setDuty(unsigned short, unsigned short, bool)</a>>
+
+        1f96:	2300      	movs	r3, #0
+
+        1f98:	7023      	strb	r3, [r4, #0]
+
+        1f9a:	e75a      	b.n	1e52 <<a href="./57bd18889995d93a100bf5c3e7fa05dc.html">systems::DemoSystem::cyclic()</a>+0x32>
+
+        1f9c:	1fff135c 	.word	0x1fff135c
+
+        1fa0:	1fff1354 	.word	0x1fff1354
+
+        1fa4:	1fff1358 	.word	0x1fff1358
+
+        1fa8:	1fff1350 	.word	0x1fff1350
+
+        1fac:	1ffe012a 	.word	0x1ffe012a
+
+        1fb0:	00027e5c 	.word	0x00027e5c
+
+        1fb4:	00001c29 	.word	0x00001c29
+
+        1fb8:	00001c49 	.word	0x00001c49
+
+        1fbc:	1fff134c 	.word	0x1fff134c
+
+        1fc0:	1fff1348 	.word	0x1fff1348
+
+        1fc4:	d1b71759 	.word	0xd1b71759
+
+    </pre>
+
+    
+    <pre><a href="./639eabea312774bed78e6fbf3d211d76.html">systems::DemoSystem::execute() (4)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 124</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../../libs/bsw/util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    76
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html" class="icon-function">util::logger::Logger::debug(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">56
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

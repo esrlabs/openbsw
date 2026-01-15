@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../asyncFreeRtos.html">asyncFreeRtos</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../async.html">async</a>
+            </li>
+
+        
+        <li class="active"><a href="../StaticRunnable.h.html">StaticRunnable.h</a>:49
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000105c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>56 (static)</td>
+                <td>232</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html">app::run() (76)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=464
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../3rdparty/freeRtos/include/task.h/a56b3291178fbc8037383670ab7415bb.html">xTaskCreateStatic (464)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../3rdparty/etl/include/etl/array.h/dcefabc5bf2e69873c5b050915d00a2a.html">etl::array&lt;async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;, 9u&gt;::array() (96)</a></pre>
+    
+
+    <pre>
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        105c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+        1060:	f8df 80cc 	ldr.w	r8, [pc, #204]	@ 1130 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xd4>
+
+        1064:	f8d8 4000 	ldr.w	r4, [r8]
+
+        1068:	b085      	sub	sp, #20
+
+        106a:	b35c      	cbz	r4, 10c4 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x68>
+
+        106c:	f8df 90c4 	ldr.w	r9, [pc, #196]	@ 1134 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xd8>
+
+    _ZN3etl5arrayIN5async11TaskContextINS1_15FreeRtosAdapterINS1_12AsyncBindingEEEEELj9EEixEj():
+
+        1070:	4e2b      	ldr	r6, [pc, #172]	@ (1120 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xc4>)
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        1072:	f8df a0c4 	ldr.w	sl, [pc, #196]	@ 1138 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xdc>
+
+    _ZNK3etl4spanImLj4294967295EE4sizeEv():
+
+        1076:	f8d4 c004 	ldr.w	ip, [r4, #4]
+
+        107a:	68a2      	ldr	r2, [r4, #8]
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        107c:	7f25      	ldrb	r5, [r4, #28]
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        107e:	6820      	ldr	r0, [r4, #0]
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        1080:	69a1      	ldr	r1, [r4, #24]
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        1082:	f8c8 0000 	str.w	r0, [r8]
+
+    _ZNK3etl4spanImLj4294967295EE4sizeEv():
+
+        1086:	eba2 020c 	sub.w	r2, r2, ip
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        108a:	2d09      	cmp	r5, #9
+
+        108c:	f849 2025 	str.w	r2, [r9, r5, lsl #2]
+
+        1090:	d01b      	beq.n	10ca <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x6e>
+
+    _ZN3etl5arrayIN5async11TaskContextINS1_15FreeRtosAdapterINS1_12AsyncBindingEEEEELj9EEixEj():
+
+        1092:	ebc5 1305 	rsb	r3, r5, r5, lsl #4
+
+        1096:	f8d4 b00c 	ldr.w	fp, [r4, #12]
+
+        109a:	f8d4 e010 	ldr.w	lr, [r4, #16]
+
+        109e:	012f      	lsls	r7, r5, #4
+
+        10a0:	eb06 0383 	add.w	r3, r6, r3, lsl #2
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        10a4:	b9bd      	cbnz	r5, 10d6 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x7a>
+
+        10a6:	f8ca 4000 	str.w	r4, [sl]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE8initTaskEhPKcN3etl8delegateIFvRS4_EEE():
+
+        10aa:	f886 5038 	strb.w	r5, [r6, #56]	@ 0x38
+
+        10ae:	6371      	str	r1, [r6, #52]	@ 0x34
+
+        10b0:	f1be 0f00 	cmp.w	lr, #0
+
+        10b4:	d02a      	beq.n	110c <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xb0>
+
+        10b6:	f8c3 b028 	str.w	fp, [r3, #40]	@ 0x28
+
+        10ba:	f8c3 e02c 	str.w	lr, [r3, #44]	@ 0x2c
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE10createTaskEhR11xSTATIC_TCBPKcmRKN3etl4spanImLj4294967295EEENS9_8delegateIFvRS4_EEE():
+
+        10be:	4604      	mov	r4, r0
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        10c0:	2c00      	cmp	r4, #0
+
+        10c2:	d1d8      	bne.n	1076 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x1a>
+
+        10c4:	b005      	add	sp, #20
+
+        10c6:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        10ca:	4a16      	ldr	r2, [pc, #88]	@ (1124 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xc8>)
+
+        10cc:	4b16      	ldr	r3, [pc, #88]	@ (1128 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xcc>)
+
+        10ce:	6014      	str	r4, [r2, #0]
+
+        10d0:	6019      	str	r1, [r3, #0]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE10createTaskEhR11xSTATIC_TCBPKcmRKN3etl4spanImLj4294967295EEENS9_8delegateIFvRS4_EEE():
+
+        10d2:	4604      	mov	r4, r0
+
+        10d4:	e7f4      	b.n	10c0 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x64>
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE8initTaskERNS_8internal15TaskInitializerIS2_EE():
+
+        10d6:	6960      	ldr	r0, [r4, #20]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE10createTaskEhR11xSTATIC_TCBPKcmRKN3etl4spanImLj4294967295EEENS9_8delegateIFvRS4_EEE():
+
+        10d8:	f883 5038 	strb.w	r5, [r3, #56]	@ 0x38
+
+        10dc:	6359      	str	r1, [r3, #52]	@ 0x34
+
+        10de:	f1be 0f00 	cmp.w	lr, #0
+
+        10e2:	d017      	beq.n	1114 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xb8>
+
+        10e4:	f8c3 b028 	str.w	fp, [r3, #40]	@ 0x28
+
+        10e8:	f8c3 e02c 	str.w	lr, [r3, #44]	@ 0x2c
+
+        10ec:	1092      	asrs	r2, r2, #2
+
+        10ee:	9002      	str	r0, [sp, #8]
+
+        10f0:	e9cd 5c00 	strd	r5, ip, [sp]
+
+        10f4:	480d      	ldr	r0, [pc, #52]	@ (112c <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xd0>)
+
+        10f6:	f00a f9af 	bl	b458 <<a href="../../../../../3rdparty/freeRtos/include/task.h/a56b3291178fbc8037383670ab7415bb.html">xTaskCreateStatic</a>>
+
+        10fa:	1b7f      	subs	r7, r7, r5
+
+        10fc:	eb06 0787 	add.w	r7, r6, r7, lsl #2
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        1100:	f8d8 4000 	ldr.w	r4, [r8]
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE10createTaskEhR11xSTATIC_TCBPKcmRKN3etl4spanImLj4294967295EEENS9_8delegateIFvRS4_EEE():
+
+        1104:	6338      	str	r0, [r7, #48]	@ 0x30
+
+    async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run():
+
+        1106:	2c00      	cmp	r4, #0
+
+        1108:	d1b5      	bne.n	1076 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x1a>
+
+        110a:	e7db      	b.n	10c4 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x68>
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE8initTaskEhPKcN3etl8delegateIFvRS4_EEE():
+
+        110c:	f8df e02c 	ldr.w	lr, [pc, #44]	@ 113c <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xe0>
+
+        1110:	46ab      	mov	fp, r5
+
+        1112:	e7d0      	b.n	10b6 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x5a>
+
+    _ZN5async11TaskContextINS_15FreeRtosAdapterINS_12AsyncBindingEEEE10createTaskEhR11xSTATIC_TCBPKcmRKN3etl4spanImLj4294967295EEENS9_8delegateIFvRS4_EEE():
+
+        1114:	f8df e028 	ldr.w	lr, [pc, #40]	@ 1140 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0xe4>
+
+        1118:	f04f 0b00 	mov.w	fp, #0
+
+        111c:	e7e2      	b.n	10e4 <<a href="./c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>+0x88>
+
+        111e:	bf00      	nop
+
+        1120:	1ffe02ac 	.word	0x1ffe02ac
+
+        1124:	1ffe0290 	.word	0x1ffe0290
+
+        1128:	1ffe0264 	.word	0x1ffe0264
+
+        112c:	00000a01 	.word	0x00000a01
+
+        1130:	1ffe025c 	.word	0x1ffe025c
+
+        1134:	1ffe0268 	.word	0x1ffe0268
+
+        1138:	1ffe0294 	.word	0x1ffe0294
+
+        113c:	00001255 	.word	0x00001255
+
+        1140:	00001345 	.word	0x00001345
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html">app::run() (76)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 124</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 524</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                4 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    524
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../3rdparty/freeRtos/include/portable.h/f551b40798bc5a3bc17b348e65494e97.html" class="icon-function">pxPortInitialiseStack</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">464</td>
+                <td><a href="../../../../../3rdparty/freeRtos/include/task.h/a56b3291178fbc8037383670ab7415bb.html" class="icon-function">xTaskCreateStatic</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">80
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 80</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 460</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    460
+                    
+                    
+                </td>
+                <td class="col_size">232</td>
+                <td><a href="./c718d1e03430cb4c0615c638032cb47f.html" class="icon-function">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    24
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    228
+                    
+                    
+                </td>
+                <td class="col_size">76</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/f0c3e37b78904f0cb22bd585a8fa9842.html" class="icon-function">app::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    152
+                    
+                    
+                </td>
+                <td class="col_size">20</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html" class="icon-function">app_main()</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">132</td>
+                <td><a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/fad58de7366495db4650cfefac2fcd61.html" class="icon-function">main</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

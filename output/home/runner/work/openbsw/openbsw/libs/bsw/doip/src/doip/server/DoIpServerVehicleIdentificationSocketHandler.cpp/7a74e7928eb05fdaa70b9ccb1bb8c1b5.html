@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerVehicleIdentificationSocketHandler.cpp.html">DoIpServerVehicleIdentificationSocketHandler.cpp</a>:103
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::start()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001ea88</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>40 (static)</td>
+                <td>188</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/application/src/systems/DoIpServerSystem.cpp/78d3b7012d44f6854a6340d53e9687bb.html">doip::DoIpServerSystem::run() (100)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=268
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&amp;) (104)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../cpp2ethernet/src/ip/NetworkInterfaceConfig.cpp/67f4c5dd2cb852f6876e6d16ebe89780.html">ip::NetworkInterfaceConfig::NetworkInterfaceConfig() (16)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./8816ce665dd1190aa748eb70e1267f68.html">doip::DoIpServerVehicleIdentificationSocketHandler::DoIpServerVehicleIdentificationSocketHandler(doip::DoIpConstants::ProtocolVersion, udp::AbstractDatagramSocket&amp;, unsigned char, unsigned char const&amp;, ip::IPAddress const&amp;, estd::vector&lt;ip::IPAddress&gt;&amp;, doip::DoIpServerVehicleIdentificationConfig&amp;, unsigned char) (240)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1ea88:	b570      	push	{r4, r5, r6, lr}
+
+    _ZN4estd12forward_listIN4util4estd8internal9intrusiveIS0_NS_17forward_list_nodeENS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE10push_frontERNS5_ISF_EE():
+
+       1ea8a:	f8d0 30dc 	ldr.w	r3, [r0, #220]	@ 0xdc
+
+    _ZNK4doip37DoIpServerVehicleIdentificationConfig33getNetworkInterfaceConfigRegistryEv():
+
+       1ea8e:	f8d0 20b4 	ldr.w	r2, [r0, #180]	@ 0xb4
+
+    _ZN4estd12forward_listIN4util4estd8internal9intrusiveIS0_NS_17forward_list_nodeENS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE10push_frontERNS5_ISF_EE():
+
+       1ea92:	2b01      	cmp	r3, #1
+
+    _ZNK4doip37DoIpServerVehicleIdentificationConfig33getNetworkInterfaceConfigRegistryEv():
+
+       1ea94:	6891      	ldr	r1, [r2, #8]
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1ea96:	b086      	sub	sp, #24
+
+       1ea98:	4605      	mov	r5, r0
+
+    _ZN4estd12forward_listIN4util4estd8internal9intrusiveIS0_NS_17forward_list_nodeENS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE10push_frontERNS5_ISF_EE():
+
+       1ea9a:	d046      	beq.n	1eb2a <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0xa2>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1ea9c:	680b      	ldr	r3, [r1, #0]
+
+       1ea9e:	4a28      	ldr	r2, [pc, #160]	@ (1eb40 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0xb8>)
+
+       1eaa0:	681b      	ldr	r3, [r3, #0]
+
+       1eaa2:	f895 4151 	ldrb.w	r4, [r5, #337]	@ 0x151
+
+       1eaa6:	4293      	cmp	r3, r2
+
+       1eaa8:	d145      	bne.n	1eb36 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0xae>
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       1eaaa:	6888      	ldr	r0, [r1, #8]
+
+       1eaac:	684b      	ldr	r3, [r1, #4]
+
+    ip::NetworkInterfaceConfigRegistry::getConfig(unsigned char) const():
+
+       1eaae:	4298      	cmp	r0, r3
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       1eab0:	eba0 0203 	sub.w	r2, r0, r3
+
+    ip::NetworkInterfaceConfigRegistry::getConfig(unsigned char) const():
+
+       1eab4:	d02f      	beq.n	1eb16 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x8e>
+
+       1eab6:	f103 3cff 	add.w	ip, r3, #4294967295	@ 0xffffffff
+
+       1eaba:	2300      	movs	r3, #0
+
+       1eabc:	e002      	b.n	1eac4 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x3c>
+
+       1eabe:	3301      	adds	r3, #1
+
+       1eac0:	429a      	cmp	r2, r3
+
+       1eac2:	d928      	bls.n	1eb16 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x8e>
+
+       1eac4:	f81c ef01 	ldrb.w	lr, [ip, #1]!
+
+       1eac8:	45a6      	cmp	lr, r4
+
+       1eaca:	d1f8      	bne.n	1eabe <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x36>
+
+       1eacc:	68cc      	ldr	r4, [r1, #12]
+
+       1eace:	eb03 0383 	add.w	r3, r3, r3, lsl #2
+
+       1ead2:	eb04 0483 	add.w	r4, r4, r3, lsl #2
+
+       1ead6:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+
+       1ead8:	ae01      	add	r6, sp, #4
+
+       1eada:	46b4      	mov	ip, r6
+
+       1eadc:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+
+       1eae0:	6823      	ldr	r3, [r4, #0]
+
+       1eae2:	f8cc 3000 	str.w	r3, [ip]
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler13configChangedEhRKN2ip22NetworkInterfaceConfigE():
+
+       1eae6:	f105 00e8 	add.w	r0, r5, #232	@ 0xe8
+
+       1eaea:	f7ee f9b9 	bl	ce60 <<a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1eaee:	f3ef 8410 	mrs	r4, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       1eaf2:	b672      	cpsid	i
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler13configChangedEhRKN2ip22NetworkInterfaceConfigE():
+
+       1eaf4:	2211      	movs	r2, #17
+
+       1eaf6:	4631      	mov	r1, r6
+
+       1eaf8:	f505 70aa 	add.w	r0, r5, #340	@ 0x154
+
+       1eafc:	f7e1 fd41 	bl	582 <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1eb00:	f384 8810 	msr	PRIMASK, r4
+
+    _ZNK4doip37DoIpServerVehicleIdentificationConfig10getContextEv():
+
+       1eb04:	f8d5 30b4 	ldr.w	r3, [r5, #180]	@ 0xb4
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler13configChangedEhRKN2ip22NetworkInterfaceConfigE():
+
+       1eb08:	f105 01cc 	add.w	r1, r5, #204	@ 0xcc
+
+       1eb0c:	7dd8      	ldrb	r0, [r3, #23]
+
+       1eb0e:	f7ed fe5f 	bl	c7d0 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&)</a>>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1eb12:	b006      	add	sp, #24
+
+       1eb14:	bd70      	pop	{r4, r5, r6, pc}
+
+    ip::NetworkInterfaceConfigRegistry::getConfig(unsigned char) const():
+
+       1eb16:	ae01      	add	r6, sp, #4
+
+       1eb18:	4630      	mov	r0, r6
+
+       1eb1a:	f7f4 fb3b 	bl	13194 <<a href="../../../../../cpp2ethernet/src/ip/NetworkInterfaceConfig.cpp/67f4c5dd2cb852f6876e6d16ebe89780.html">ip::NetworkInterfaceConfig::NetworkInterfaceConfig()</a>>
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler13configChangedEhRKN2ip22NetworkInterfaceConfigE():
+
+       1eb1e:	f895 3151 	ldrb.w	r3, [r5, #337]	@ 0x151
+
+       1eb22:	42a3      	cmp	r3, r4
+
+       1eb24:	d0df      	beq.n	1eae6 <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x5e>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1eb26:	b006      	add	sp, #24
+
+       1eb28:	bd70      	pop	{r4, r5, r6, pc}
+
+    _ZN4estd17forward_list_nodeIN4util4estd8internal9intrusiveINS_12forward_listES0_NS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE8set_nextEPSG_():
+
+       1eb2a:	4603      	mov	r3, r0
+
+    _ZN4estd17forward_list_nodeIN4util4estd8internal9intrusiveINS_12forward_listES0_NS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE4nextEv():
+
+       1eb2c:	694a      	ldr	r2, [r1, #20]
+
+    _ZN4estd17forward_list_nodeIN4util4estd8internal9intrusiveINS_12forward_listES0_NS_8functionIFvhRKN2ip22NetworkInterfaceConfigEEEEE4nodeISC_EEE8set_nextEPSG_():
+
+       1eb2e:	f843 2fdc 	str.w	r2, [r3, #220]!
+
+       1eb32:	614b      	str	r3, [r1, #20]
+
+       1eb34:	e7b2      	b.n	1ea9c <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x14>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::start():
+
+       1eb36:	ae01      	add	r6, sp, #4
+
+       1eb38:	4622      	mov	r2, r4
+
+       1eb3a:	4630      	mov	r0, r6
+
+       1eb3c:	4798      	blx	r3
+
+       1eb3e:	e7ee      	b.n	1eb1e <<a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a>+0x96>
+
+       1eb40:	00002979 	.word	0x00002979
+
+    </pre>
+
+    
+    <pre><a href="./fdd19780e68731c3d221a8102b0195ba.html">doip::DoIpServerVehicleIdentificationSocketHandler::shutdown() (132)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 104</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 412</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    412
+                    
+                    
+                </td>
+                <td class="col_size">308</td>
+                <td><a href="../../../../../../3rdparty/freeRtos/include/task.h/93cf08902933433b019fa92be1247054.html" class="icon-function">xTaskGenericNotifyFromISR</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">104</td>
+                <td><a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html" class="icon-function">async::execute(unsigned char, async::IRunnable&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">56
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 56</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 288</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    56
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    288
+                    
+                    
+                </td>
+                <td class="col_size">188</td>
+                <td><a href="./7a74e7928eb05fdaa70b9ccb1bb8c1b5.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::start()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">100</td>
+                <td><a href="../../../../../../../executables/referenceApp/application/src/systems/DoIpServerSystem.cpp/78d3b7012d44f6854a6340d53e9687bb.html" class="icon-function">doip::DoIpServerSystem::run()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../stream.html">stream</a>
+            </li>
+
+        
+        <li class="active"><a href="../TaggedSharedOutputStream.cpp.html">TaggedSharedOutputStream.cpp</a>:71
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::stream::TaggedSharedOutputStream::isEof() const</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000d658</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>0 (static)</td>
+                <td>80</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../include/util/stream/TaggedSharedOutputStream.h/ae31e13d0f4e78a2d614f9f957807ed8.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::isEof() const (32)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./0b1be8ef295c179ac817c287f5e77a91.html">util::stream::TaggedSharedOutputStream::releaseContinuousUser(util::stream::ISharedOutputStream::IContinuousUser&amp;) (72)</a></pre>
+    
+
+    <pre>
+
+    util::stream::TaggedSharedOutputStream::isEof() const():
+
+        d658:	69c0      	ldr	r0, [r0, #28]
+
+        d65a:	b1f8      	cbz	r0, d69c <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x44>
+
+        d65c:	4b11      	ldr	r3, [pc, #68]	@ (d6a4 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x4c>)
+
+        d65e:	6802      	ldr	r2, [r0, #0]
+
+        d660:	6812      	ldr	r2, [r2, #0]
+
+        d662:	429a      	cmp	r2, r3
+
+        d664:	d11c      	bne.n	d6a0 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x48>
+
+        d666:	68c0      	ldr	r0, [r0, #12]
+
+        d668:	b1c0      	cbz	r0, d69c <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x44>
+
+        d66a:	6802      	ldr	r2, [r0, #0]
+
+        d66c:	6812      	ldr	r2, [r2, #0]
+
+        d66e:	429a      	cmp	r2, r3
+
+        d670:	d116      	bne.n	d6a0 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x48>
+
+        d672:	68c0      	ldr	r0, [r0, #12]
+
+        d674:	b190      	cbz	r0, d69c <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x44>
+
+        d676:	6802      	ldr	r2, [r0, #0]
+
+        d678:	6812      	ldr	r2, [r2, #0]
+
+        d67a:	429a      	cmp	r2, r3
+
+        d67c:	d110      	bne.n	d6a0 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x48>
+
+        d67e:	68c0      	ldr	r0, [r0, #12]
+
+        d680:	b160      	cbz	r0, d69c <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x44>
+
+        d682:	6802      	ldr	r2, [r0, #0]
+
+        d684:	6812      	ldr	r2, [r2, #0]
+
+        d686:	429a      	cmp	r2, r3
+
+        d688:	d10a      	bne.n	d6a0 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x48>
+
+        d68a:	68c0      	ldr	r0, [r0, #12]
+
+        d68c:	b130      	cbz	r0, d69c <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x44>
+
+        d68e:	6802      	ldr	r2, [r0, #0]
+
+        d690:	6812      	ldr	r2, [r2, #0]
+
+        d692:	429a      	cmp	r2, r3
+
+        d694:	d104      	bne.n	d6a0 <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x48>
+
+        d696:	68c0      	ldr	r0, [r0, #12]
+
+        d698:	2800      	cmp	r0, #0
+
+        d69a:	d1e0      	bne.n	d65e <<a href="./64ccb582b5289b235987332f92bac883.html">util::stream::TaggedSharedOutputStream::isEof() const</a>+0x6>
+
+        d69c:	2001      	movs	r0, #1
+
+        d69e:	4770      	bx	lr
+
+        d6a0:	4710      	bx	r2
+
+        d6a2:	bf00      	nop
+
+        d6a4:	0000d6a9 	.word	0x0000d6a9
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/util/stream/TaggedSharedOutputStream.h/ae31e13d0f4e78a2d614f9f957807ed8.html">non-virtual thunk to util::stream::TaggedSharedOutputStream::isEof() const (32)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

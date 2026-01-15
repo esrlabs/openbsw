@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerTransportLayer.cpp.html">DoIpServerTransportLayer.cpp</a>:178
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001d42c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>16 (static)</td>
+                <td>92</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../include/doip/server/DoIpServerTransportLayer.h/a9f0a295985211e23ea4432fb33833d5.html">non-virtual thunk to doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&amp;) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../include/doip/server/DoIpServerTransportLayer.h/072bd7708421dfaa48239ca2ec888b67.html">non-virtual thunk to doip::DoIpServerTransportLayer::getSocketGroupId(unsigned char, ip::IPEndpoint const&amp;) const (12)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&):
+
+       1d42c:	b570      	push	{r4, r5, r6, lr}
+
+       1d42e:	4605      	mov	r5, r0
+
+       1d430:	f8d0 0080 	ldr.w	r0, [r0, #128]	@ 0x80
+
+       1d434:	b1d8      	cbz	r0, 1d46e <<a href="./df2be980b420f2de7f5ec6b3427fb8f5.html">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&)</a>+0x42>
+
+       1d436:	6803      	ldr	r3, [r0, #0]
+
+       1d438:	689b      	ldr	r3, [r3, #8]
+
+       1d43a:	460c      	mov	r4, r1
+
+       1d43c:	4616      	mov	r6, r2
+
+       1d43e:	4798      	blx	r3
+
+       1d440:	b900      	cbnz	r0, 1d444 <<a href="./df2be980b420f2de7f5ec6b3427fb8f5.html">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&)</a>+0x18>
+
+       1d442:	bd70      	pop	{r4, r5, r6, pc}
+
+       1d444:	f3ef 8c10 	mrs	ip, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       1d448:	b672      	cpsid	i
+
+    _ZNK4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE4nextEv():
+
+       1d44a:	6eab      	ldr	r3, [r5, #104]	@ 0x68
+
+    _ZNK4doip24DoIpServerTransportLayer29getSocketGroupConnectionCountEhb():
+
+       1d44c:	b18b      	cbz	r3, 1d472 <<a href="./df2be980b420f2de7f5ec6b3427fb8f5.html">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&)</a>+0x46>
+
+       1d44e:	2200      	movs	r2, #0
+
+       1d450:	f813 1c0f 	ldrb.w	r1, [r3, #-15]
+
+    _ZNK4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE4nextEv():
+
+       1d454:	681b      	ldr	r3, [r3, #0]
+
+    _ZNK4doip24DoIpServerTransportLayer29getSocketGroupConnectionCountEhb():
+
+       1d456:	42a1      	cmp	r1, r4
+
+       1d458:	bf04      	itt	eq
+
+       1d45a:	3201      	addeq	r2, #1
+
+       1d45c:	b2d2      	uxtbeq	r2, r2
+
+       1d45e:	2b00      	cmp	r3, #0
+
+       1d460:	d1f6      	bne.n	1d450 <<a href="./df2be980b420f2de7f5ec6b3427fb8f5.html">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&)</a>+0x24>
+
+    doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&):
+
+       1d462:	f38c 8810 	msr	PRIMASK, ip
+
+       1d466:	4290      	cmp	r0, r2
+
+       1d468:	d205      	bcs.n	1d476 <<a href="./df2be980b420f2de7f5ec6b3427fb8f5.html">doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&)</a>+0x4a>
+
+       1d46a:	4618      	mov	r0, r3
+
+       1d46c:	bd70      	pop	{r4, r5, r6, pc}
+
+       1d46e:	2001      	movs	r0, #1
+
+       1d470:	bd70      	pop	{r4, r5, r6, pc}
+
+    resumeAllInterrupts():
+
+       1d472:	f38c 8810 	msr	PRIMASK, ip
+
+    doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&):
+
+       1d476:	f8d5 0080 	ldr.w	r0, [r5, #128]	@ 0x80
+
+       1d47a:	6803      	ldr	r3, [r0, #0]
+
+       1d47c:	4632      	mov	r2, r6
+
+       1d47e:	4621      	mov	r1, r4
+
+       1d480:	68db      	ldr	r3, [r3, #12]
+
+       1d482:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+       1d486:	4718      	bx	r3
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/doip/server/DoIpServerTransportLayer.h/a9f0a295985211e23ea4432fb33833d5.html">non-virtual thunk to doip::DoIpServerTransportLayer::filterConnection(unsigned char, ip::IPEndpoint const&amp;) (8)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>
