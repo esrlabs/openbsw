@@ -7,9 +7,6 @@
 
 #include <ip/IPEndpoint.h>
 
-#include <estd/forward_list.h>
-#include <estd/slice.h>
-
 namespace doip
 {
 /**

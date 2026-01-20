@@ -7,8 +7,8 @@
 
 #include <ip/IPEndpoint.h>
 
+#include <etl/span.h>
 #include <estd/functional.h>
-#include <estd/slice.h>
 
 namespace doip
 {
@@ -21,7 +21,7 @@ class IDoIpSendJob;
 class IDoIpConnection
 {
 public:
-    using PayloadReceivedCallbackType  = ::estd::function<void(::estd::slice<uint8_t const>)>;
+    using PayloadReceivedCallbackType  = ::estd::function<void(::etl::span<uint8_t const>)>;
     using PayloadDiscardedCallbackType = ::estd::function<void()>;
 
     IDoIpConnection();
@@ -54,7 +54,7 @@ public:
      * successfully \return true if the function call is valid and expected
      */
     virtual bool receivePayload(
-        ::estd::slice<uint8_t> payload, PayloadReceivedCallbackType payloadReceivedCallback)
+        ::etl::span<uint8_t> payload, PayloadReceivedCallbackType payloadReceivedCallback)
         = 0;
 
     /**

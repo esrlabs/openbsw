@@ -22,7 +22,6 @@
 
 #include <etl/span.h>
 #include <estd/functional.h>
-#include <estd/slice.h>
 #include <platform/estdint.h>
 
 namespace doip
@@ -35,7 +34,7 @@ class DoIpServerSystem
 {
 public:
     using FirstRoutingActivatedCallbackType = ::estd::function<void()>;
-    using VinCallbackType = ::estd::function<void(::estd::slice<uint8_t, VIN_LENGTH>)>;
+    using VinCallbackType = ::estd::function<void(::etl::span<uint8_t, VIN_LENGTH>)>;
 
     DoIpServerSystem(
         ::transport::ITransportSystem& transportSystem,
@@ -94,9 +93,9 @@ private:
 
     void execute() override;
 
-    void getVin(::estd::slice<char, VIN_LENGTH>);
-    void getGid(::estd::slice<uint8_t, GID_LENGTH>);
-    void getEid(::estd::slice<uint8_t, EID_LENGTH>);
+    void getVin(::etl::span<char, VIN_LENGTH>);
+    void getGid(::etl::span<uint8_t, GID_LENGTH>);
+    void getEid(::etl::span<uint8_t, EID_LENGTH>);
     DoIpConstants::DiagnosticPowerMode getPowerMode();
     void OnVirReceivedCallback();
 

@@ -4,20 +4,20 @@
 
 namespace doip
 {
-using ::estd::slice;
+using ::etl::span;
 
 DoIpStaticPayloadSendJob::DoIpStaticPayloadSendJob(
     uint8_t const protocolVersion,
     uint16_t const payloadType,
-    slice<uint8_t const> const payload,
+    span<uint8_t const> const payload,
     ReleaseCallbackType const releaseCallback)
 : DoIpSimplePayloadSendJob(
     protocolVersion, payloadType, static_cast<uint16_t>(payload.size()), releaseCallback)
 , _payload(payload)
 {}
 
-slice<uint8_t const>
-DoIpStaticPayloadSendJob::getPayloadBuffer(slice<uint8_t> const /* staticBuffer */) const
+span<uint8_t const>
+DoIpStaticPayloadSendJob::getPayloadBuffer(span<uint8_t> const /* staticBuffer */) const
 {
     return _payload;
 }

@@ -20,7 +20,7 @@ using ::udp::DatagramPacket;
 DoIpUdpConnection::DoIpUdpConnection(
     ::async::ContextType const context,
     AbstractDatagramSocket& socket,
-    ::estd::slice<uint8_t> const writeBuffer)
+    etl::span<uint8_t> const writeBuffer)
 : IDoIpConnection()
 , IDataListener()
 , _sendTimeout()
@@ -53,7 +53,7 @@ void DoIpUdpConnection::init(IDoIpConnectionHandler& handler)
 }
 
 bool DoIpUdpConnection::receivePayload(
-    ::estd::slice<uint8_t> const payload, PayloadReceivedCallbackType const payloadReceivedCallback)
+    etl::span<uint8_t> const payload, PayloadReceivedCallbackType const payloadReceivedCallback)
 {
     if ((_readState == ReadState::PAYLOAD) && (_currentReadBuffer.size() == 0U)
         && (payload.size() <= _readPayloadLength) && payloadReceivedCallback)
@@ -72,7 +72,7 @@ void DoIpUdpConnection::endReceiveMessage(
     if (_readState == ReadState::PAYLOAD)
     {
         _readState         = ReadState::DISCARD;
-        _currentReadBuffer = ::estd::slice<uint8_t>();
+        _currentReadBuffer = {};
     }
 
     // for now no special async discarding handling is implemented for UDP messages
@@ -161,7 +161,7 @@ void DoIpUdpConnection::trySend()
         {
             return;
         }
-        ::estd::slice<uint8_t const> const sendBuffer = prepareSendBuffer(*sendJob);
+        etl::span<uint8_t const> const sendBuffer = prepareSendBuffer(*sendJob);
         if (sendBuffer.size() > 0U)
         {
             AbstractDatagramSocket::ErrorCode const result = _socket.send(DatagramPacket(
@@ -188,7 +188,7 @@ void DoIpUdpConnection::tryReceive()
             _availableReadDataLength = 0U;
             break;
         }
-        ::estd::slice<uint8_t> currentReadBuffer;
+        etl::span<uint8_t> currentReadBuffer;
         ::std::swap(_currentReadBuffer, currentReadBuffer);
         if (_readState == ReadState::HEADER)
         {
@@ -203,7 +203,7 @@ void DoIpUdpConnection::tryReceive()
                     headerReceivedContinuation))
             {
                 _readState         = ReadState::DISCARD;
-                _currentReadBuffer = ::estd::slice<uint8_t>();
+                _currentReadBuffer = {};
 
                 // for now no special async discarding handling is implemented for UDP messages
                 auto const payloadDiscardedCallback
@@ -226,14 +226,14 @@ void DoIpUdpConnection::tryReceive()
 }
 
 // _writeBuffer is modified
-::estd::slice<uint8_t const> DoIpUdpConnection::fillWriteBuffer(IDoIpSendJob& job)
+etl::span<uint8_t const> DoIpUdpConnection::fillWriteBuffer(IDoIpSendJob& job)
 {
     size_t offset                 = 0U;
     uint8_t const sendBufferCount = job.getSendBufferCount();
     for (uint8_t bufferIdx = 0U; bufferIdx < sendBufferCount; ++bufferIdx)
     {
-        ::estd::slice<uint8_t> const destBuffer       = _writeBuffer.offset(offset);
-        ::estd::slice<uint8_t const> const sendBuffer = job.getSendBuffer(destBuffer, bufferIdx);
+        etl::span<uint8_t> const destBuffer       = _writeBuffer.subspan(offset);
+        etl::span<uint8_t const> const sendBuffer = job.getSendBuffer(destBuffer, bufferIdx);
         if (sendBuffer.size() == 0U)
         {
             // nothing
@@ -248,13 +248,13 @@ void DoIpUdpConnection::tryReceive()
         }
         else
         {
-            return ::estd::slice<uint8_t const>();
+            return {};
         }
     }
-    return _writeBuffer.subslice(offset);
+    return _writeBuffer.subspan(0U, offset);
 }
 
-::estd::slice<uint8_t const> DoIpUdpConnection::prepareSendBuffer(IDoIpSendJob& job)
+etl::span<uint8_t const> DoIpUdpConnection::prepareSendBuffer(IDoIpSendJob& job)
 {
     uint8_t const sendBufferCount = job.getSendBufferCount();
     if (sendBufferCount == 1U)

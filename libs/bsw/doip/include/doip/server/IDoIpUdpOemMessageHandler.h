@@ -2,21 +2,20 @@
 
 #pragma once
 
-#include <estd/slice.h>
+#include <etl/span.h>
 
 namespace doip
 {
 class IDoIpUdpOemMessageHandler
 {
 public:
-    virtual ~IDoIpUdpOemMessageHandler()                               = default;
-    virtual void createResponse(::estd::slice<uint8_t> response) const = 0;
-    virtual uint16_t getRequestPayloadType() const                     = 0;
-    virtual uint8_t getRequestPayloadSize() const                      = 0;
-    virtual uint16_t getResponsePayloadType() const                    = 0;
-    virtual uint8_t getResponsePayloadSize() const                     = 0;
-    virtual bool onPayloadReceived(::estd::slice<uint8_t const> payload, uint8_t& nackCode) const
-        = 0;
+    virtual ~IDoIpUdpOemMessageHandler()                             = default;
+    virtual void createResponse(::etl::span<uint8_t> response) const = 0;
+    virtual uint16_t getRequestPayloadType() const                   = 0;
+    virtual uint8_t getRequestPayloadSize() const                    = 0;
+    virtual uint16_t getResponsePayloadType() const                  = 0;
+    virtual uint8_t getResponsePayloadSize() const                   = 0;
+    virtual bool onPayloadReceived(::etl::span<uint8_t const> payload, uint8_t& nackCode) const = 0;
 
 private:
     IDoIpUdpOemMessageHandler& operator=(IDoIpUdpOemMessageHandler const&) = default;
@@ -30,7 +29,7 @@ template<
 class DoIpConcreteOemMessageHandler : public IDoIpUdpOemMessageHandler
 {
 public:
-    void createResponse(::estd::slice<uint8_t> /*response*/) const override{};
+    void createResponse(::etl::span<uint8_t> /*response*/) const override{};
 
     inline uint16_t getRequestPayloadType() const final { return RequestPayloadType; }
 
@@ -40,8 +39,8 @@ public:
 
     inline uint8_t getResponsePayloadSize() const final { return ResponsePayloadSize; }
 
-    bool onPayloadReceived(
-        ::estd::slice<uint8_t const> /*payload*/, uint8_t& /*nackCode*/) const override
+    bool
+    onPayloadReceived(::etl::span<uint8_t const> /*payload*/, uint8_t& /*nackCode*/) const override
     {
         return true;
     }

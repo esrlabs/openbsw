@@ -10,8 +10,8 @@
 
 namespace doip
 {
-::estd::slice<uint8_t const> DoIpSendJobHelper::prepareHeaderBuffer(
-    ::estd::slice<uint8_t> const buffer,
+::etl::span<uint8_t const> DoIpSendJobHelper::prepareHeaderBuffer(
+    ::etl::span<uint8_t> const buffer,
     uint8_t const protocolVersion,
     uint16_t const payloadType,
     uint32_t const payloadLength)
@@ -25,7 +25,7 @@ namespace doip
     header.payloadType             = payloadType;
     header.payloadLength           = payloadLength;
 
-    return buffer.subslice(DoIpConstants::DOIP_HEADER_LENGTH);
+    return buffer.subspan(0U, DoIpConstants::DOIP_HEADER_LENGTH);
 }
 
 } // namespace doip

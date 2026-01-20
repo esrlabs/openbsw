@@ -207,17 +207,17 @@ DoIpServerSystem::getEntityStatus(uint8_t socketGroupId) const
 
 void DoIpServerSystem::execute() {}
 
-void DoIpServerSystem::getVin(::estd::slice<char, VIN_LENGTH> vin)
+void DoIpServerSystem::getVin(::etl::span<char, VIN_LENGTH> vin)
 {
     _vinCallback(vin.reinterpret_as<uint8_t>());
 }
 
-void DoIpServerSystem::getGid(::estd::slice<uint8_t, GID_LENGTH> lGid)
+void DoIpServerSystem::getGid(::etl::span<uint8_t, GID_LENGTH> lGid)
 {
     ::estd::memory::copy(lGid, _macAddress);
 }
 
-void DoIpServerSystem::getEid(::estd::slice<uint8_t, EID_LENGTH> lEid)
+void DoIpServerSystem::getEid(::etl::span<uint8_t, EID_LENGTH> lEid)
 {
     ::estd::memory::copy(lEid, _macAddress);
 }

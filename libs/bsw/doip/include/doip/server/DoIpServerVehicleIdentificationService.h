@@ -9,6 +9,7 @@
 #include "doip/server/DoIpServerVehicleIdentificationConfig.h"
 #include "doip/server/DoIpServerVehicleIdentificationSocketHandler.h"
 
+#include <etl/span.h>
 #include <estd/vector.h>
 
 namespace doip
@@ -78,11 +79,11 @@ public:
     /**
      * Update unicast addresses to announce to.
      * \param configKey reference to network interface these addresses are valid for
-     * \param unicastAddresses slice of addresses to announce
+     * \param unicastAddresses span of addresses to announce
      */
     void updateUnicastAddresses(
         ::ip::NetworkInterfaceConfigKey const& configKey,
-        ::estd::slice<ip::IPAddress const> unicastAddresses);
+        ::etl::span<ip::IPAddress const> unicastAddresses);
 
     /**
      * Sends a vehicle announcement on all configured sockets.
@@ -213,7 +214,7 @@ void DoIpServerVehicleIdentificationService<
     NUM_ANNOUNCEMENTS>::
     updateUnicastAddresses(
         ::ip::NetworkInterfaceConfigKey const& configKey,
-        ::estd::slice<ip::IPAddress const> const unicastAddresses)
+        ::etl::span<ip::IPAddress const> const unicastAddresses)
 {
     for (auto& socketHandler : _socketHandlers)
     {

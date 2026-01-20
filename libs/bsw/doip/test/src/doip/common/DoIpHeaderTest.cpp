@@ -2,7 +2,7 @@
 
 #include "doip/common/DoIpHeader.h"
 
-#include <estd/slice.h>
+#include <etl/span.h>
 
 #include <gtest/gtest.h>
 
@@ -11,7 +11,7 @@ using namespace ::doip;
 
 namespace
 {
-DoIpHeader const& as_header(::estd::slice<uint8_t const> bytes)
+DoIpHeader const as_header(etl::span<uint8_t const> bytes)
 {
     return bytes.reinterpret_as<DoIpHeader const>()[0];
 }
@@ -20,7 +20,7 @@ DoIpHeader const& as_header(::estd::slice<uint8_t const> bytes)
 TEST(DoIpHeaderTest, checkProtocolVersion)
 {
     uint8_t const correct[] = {0x02, 0xFD, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-    EXPECT_TRUE(checkProtocolVersion(as_header(correct), 0x02));
+    EXPECT_TRUE(checkProtocolVersion(as_header(etl::span<uint8_t const>(correct)), 0x02));
 
     uint8_t const invalidInverse[] = {0x02, 0xFE, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
     EXPECT_FALSE(checkProtocolVersion(as_header(invalidInverse), 0x02));

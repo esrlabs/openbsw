@@ -27,10 +27,10 @@ MATCHER_P(IsHeaderEqual, expected, "")
 {
     return ::estd::memory::is_equal(
         ::estd::memory::as_bytes(&arg),
-        ::estd::slice<uint8_t const>::from_pointer(expected, DoIpConstants::DOIP_HEADER_LENGTH));
+        ::etl::span<uint8_t const>(expected, DoIpConstants::DOIP_HEADER_LENGTH));
 }
 
-DoIpHeader const& as_header(::estd::slice<uint8_t const> bytes)
+DoIpHeader const& as_header(::etl::span<uint8_t const> bytes)
 {
     return bytes.reinterpret_as<DoIpHeader const>()[0];
 }
@@ -97,7 +97,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationAndClose)
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -119,7 +119,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationAndClose)
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect positive response
@@ -154,10 +154,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationAndClose)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
     EXPECT_FALSE(cut.isActivating());
@@ -218,7 +218,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBigPayload)
            0x00,
            0x00,
            0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -240,7 +240,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBigPayload)
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 11U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 11U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect positive response
@@ -267,7 +267,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadActivationTy
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -288,7 +288,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadActivationTy
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     uint8_t const activationResponse[]
@@ -312,10 +312,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadActivationTy
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -341,7 +341,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadSourceAddres
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -362,7 +362,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadSourceAddres
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     uint8_t const activationResponse[]
@@ -386,10 +386,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadSourceAddres
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -439,10 +439,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithInvalidPayloadL
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 1U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -471,7 +471,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationFails)
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -487,7 +487,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationFails)
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect negative response
@@ -519,10 +519,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationFails)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
     EXPECT_FALSE(cut.isActivating());
@@ -556,7 +556,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationIsIgnoredIfConnecti
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -572,7 +572,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationIsIgnoredIfConnecti
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect negative response
@@ -603,7 +603,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -624,7 +624,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     uint8_t const activationResponse[]
@@ -648,10 +648,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     sendJob->release(true);
 
@@ -669,7 +669,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect positive response
@@ -703,10 +703,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse2, 8U),
+        ::etl::span<uint8_t const>(activationResponse2, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse2 + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse2 + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
     EXPECT_FALSE(cut.isActivating());
@@ -739,10 +739,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestInvalidHeaderVersion)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 1U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -782,10 +782,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestUnknownPayloadType)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 1U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // No close expected
     sendJob->release(true);
@@ -845,7 +845,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithSameSourceAddres
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -866,7 +866,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithSameSourceAddres
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect positive response
@@ -893,10 +893,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithSameSourceAddres
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
 }
 
@@ -920,7 +920,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithDifferentSourceA
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x15, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -941,7 +941,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithDifferentSourceA
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect negative response
@@ -968,10 +968,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithDifferentSourceA
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -1043,14 +1043,12 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithValidResponse)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request, 8U),
-        sendJob->getSendBuffer(fHeaderBuffer, 0U)));
+        ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request + 8U, 0U),
-        sendJob->getSendBuffer(fHeaderBuffer, 1U)));
+        ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Response
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x12, 0x34U};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1060,7 +1058,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithValidResponse)
     // Response received
     EXPECT_CALL(fCallbackMock, aliveCheckResponseReceived(Ref(cut), true));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(response + 8U, 2U));
+    payloadCallback(::etl::span<uint8_t const>(response + 8U, 2U));
 }
 
 TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithInvalidResponse)
@@ -1097,14 +1095,12 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithInvalidResponse
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request, 8U),
-        sendJob->getSendBuffer(fHeaderBuffer, 0U)));
+        ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request + 8U, 0U),
-        sendJob->getSendBuffer(fHeaderBuffer, 1U)));
+        ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Response
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x12, 0x35U};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1116,7 +1112,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithInvalidResponse
     EXPECT_CALL(fMessageHandlerMock, connectionClosed());
     EXPECT_CALL(fConnectionMock, close());
     EXPECT_CALL(fCallbackMock, connectionClosed(Ref(cut)));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(response + 8U, 2U));
+    payloadCallback(::etl::span<uint8_t const>(response + 8U, 2U));
 }
 
 TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckResponseWithoutRequest)
@@ -1145,7 +1141,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckResponseWithoutRequest)
     EXPECT_TRUE(serverConnection != nullptr);
     // Alive check Response
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x12, 0x34U};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1154,7 +1150,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckResponseWithoutRequest)
     EXPECT_TRUE(payloadCallback);
     // Response received
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(response + 8U, 2U));
+    payloadCallback(::etl::span<uint8_t const>(response + 8U, 2U));
 }
 
 TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckTimeoutExpires)
@@ -1191,11 +1187,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckTimeoutExpires)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request, 8U),
-        sendJob->getSendBuffer(fHeaderBuffer, 0U)));
+        ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(request + 8U, 0U),
-        sendJob->getSendBuffer(fHeaderBuffer, 1U)));
+        ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // increase timer
     testContext.elapse(static_cast<uint64_t>(fParameters.getAliveCheckTimeout() - 1) * 1000U);
     testContext.expireAndExecute();
@@ -1260,10 +1254,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckResponseWithInvalidPayload
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(nackResponse, 8U),
-        sendJob->getSendBuffer(fHeaderBuffer, 0U)));
+        ::etl::span<uint8_t const>(nackResponse, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(nackResponse + 8U, 1U),
+        ::etl::span<uint8_t const>(nackResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fConnectionMock, close());
@@ -1339,7 +1332,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestGeneralInactivityTimeout)
     // Receive an activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1355,7 +1348,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestGeneralInactivityTimeout)
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect positive response
@@ -1386,10 +1379,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestGeneralInactivityTimeout)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse, 8U),
+        ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(activationResponse + 8U, 9U),
+        ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Routing is active => now general inactivity timer should expire if no message is sent
     testContext.elapse(
@@ -1475,10 +1468,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestServerConnectionSendsNackOnDemand)
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(nackResponse, 8U),
-        sendJob->getSendBuffer(fHeaderBuffer, 0U)));
+        ::etl::span<uint8_t const>(nackResponse, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(nackResponse + 8U, 1U),
+        ::etl::span<uint8_t const>(nackResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
     EXPECT_CALL(fMessageHandlerMock, connectionClosed());
@@ -1518,7 +1510,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestServerConnectionCallsAreHandled)
     EXPECT_EQ(remoteEndpoint, serverConnection->getRemoteEndpoint());
     // receive payload
     uint8_t payloadBuffer[8];
-    ::estd::slice<uint8_t> receivedPayloadBuffer;
+    ::etl::span<uint8_t> receivedPayloadBuffer;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&receivedPayloadBuffer), Return(true)));
     EXPECT_TRUE(serverConnection->receivePayload(
@@ -1642,7 +1634,7 @@ TEST_F(
     // Receive the activation request
     uint8_t const activationRequest[] = {
         0x02, 0xfd, 0x00, 0x05, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x03, 0x00, 0x00, 0x00, 0x00};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1660,7 +1652,7 @@ TEST_F(
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
     EXPECT_CALL(fMessageHandlerMock, connectionClosed());
     EXPECT_CALL(fConnectionMock, close());
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 3U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 3U));
 }
 
 TEST_F(DoIpServerConnectionHandlerTest, TestSendJobsAreReleasedIfNotSentByConnection)
@@ -1746,7 +1738,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationOemField)
            0x00,
            0x00,
            0x01};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -1772,7 +1764,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationOemField)
                     ::doip::DoIpConstants::RoutingResponseCodes::ROUTING_MISSING_AUTHENTICATION)));
     EXPECT_CALL(fConnectionMock, sendMessage(_));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::slice<uint8_t const>::from_pointer(activationRequest + 8U, 11U));
+    payloadCallback(::etl::span<uint8_t const>(activationRequest + 8U, 11U));
     Mock::VerifyAndClearExpectations(&fCallbackMock);
     Mock::VerifyAndClearExpectations(&fConnectionMock);
     // Expect negative response

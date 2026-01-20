@@ -15,6 +15,7 @@
 #include <tcp/IDataSendNotificationListener.h>
 #include <tcp/socket/AbstractSocket.h>
 
+#include <etl/span.h>
 #include <estd/forward_list.h>
 
 namespace doip
@@ -50,7 +51,7 @@ public:
     DoIpTcpConnection(
         ::async::ContextType context,
         ::tcp::AbstractSocket& socket,
-        ::estd::slice<uint8_t> writeBuffer);
+        ::etl::span<uint8_t> writeBuffer);
     /**
      * Get access to the socket.
      * \return reference to the socket
@@ -64,8 +65,7 @@ public:
     ::ip::IPEndpoint getRemoteEndpoint() const override;
 
     bool receivePayload(
-        ::estd::slice<uint8_t> payload,
-        PayloadReceivedCallbackType payloadReceivedCallback) override;
+        ::etl::span<uint8_t> payload, PayloadReceivedCallbackType payloadReceivedCallback) override;
     void endReceiveMessage(PayloadDiscardedCallbackType payloadDiscardedCallback) override;
 
     bool sendMessage(IDoIpSendJob& sendJob) override;
@@ -117,14 +117,14 @@ private:
     void handleDataSent();
     void
     closeConnection(ConnectionState connectionState, bool closedByRemotePeer, bool closeSocket);
-    void setReadBuffer(::estd::slice<uint8_t> const& readBuffer);
+    void setReadBuffer(::etl::span<uint8_t> const& readBuffer);
     void fireMessageIfNotSuspended();
 
     static void releaseSendJobs(::estd::forward_list<IDoIpSendJob>& sendJobs);
 
     ::tcp::AbstractSocket& _socket;
-    ::estd::slice<uint8_t> _currentReadBuffer;
-    ::estd::slice<uint8_t> _writeBuffer;
+    ::etl::span<uint8_t> _currentReadBuffer;
+    ::etl::span<uint8_t> _writeBuffer;
     IDoIpConnectionHandler* _handler;
     PayloadReceivedCallbackType _payloadReceivedCallback;
     PayloadDiscardedCallbackType _payloadDiscardedCallback;
@@ -154,7 +154,7 @@ private:
  */
 inline ::tcp::AbstractSocket& DoIpTcpConnection::getSocket() { return _socket; }
 
-inline void DoIpTcpConnection::setReadBuffer(::estd::slice<uint8_t> const& readBuffer)
+inline void DoIpTcpConnection::setReadBuffer(::etl::span<uint8_t> const& readBuffer)
 {
     _currentReadBuffer    = readBuffer;
     _receivedBufferLength = 0U;

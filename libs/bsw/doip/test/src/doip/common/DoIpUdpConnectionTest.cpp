@@ -14,6 +14,8 @@
 
 #include <gmock/gmock.h>
 
+#define BytesAreSpan(S) ElementsAreArray((S).data(), (S).size())
+
 namespace doip
 {
 namespace test
@@ -45,7 +47,7 @@ MATCHER_P(IsDoIpHeader, headerBytes, "")
 {
     return ::estd::memory::is_equal(
         ::estd::memory::as_bytes(&arg),
-        ::estd::slice<uint8_t const>::from_pointer(headerBytes, DoIpConstants::DOIP_HEADER_LENGTH));
+        ::etl::span<uint8_t const>(headerBytes, DoIpConstants::DOIP_HEADER_LENGTH));
 }
 
 MATCHER_P3(IsDatagram, endpoint, buffer, exact_match, "")
@@ -54,8 +56,7 @@ MATCHER_P3(IsDatagram, endpoint, buffer, exact_match, "")
            && (exact_match
                    ? (arg.getData() == buffer.data() && arg.getLength() == buffer.size())
                    : (::estd::memory::is_equal(
-                       ::estd::slice<uint8_t const>::from_pointer(arg.getData(), arg.getLength()),
-                       buffer)));
+                       ::etl::span<uint8_t const>(arg.getData(), arg.getLength()), buffer)));
 }
 
 struct DoIpUdpConnectionTest : Test
@@ -73,13 +74,13 @@ struct DoIpUdpConnectionTest : Test
 
     virtual void TearDown() override {}
 
-    MOCK_METHOD1(payloadReceivedCallback, void(::estd::slice<uint8_t const>));
+    MOCK_METHOD1(payloadReceivedCallback, void(::etl::span<uint8_t const>));
 
-    ::estd::slice<uint8_t const> getSendBuffer(::estd::slice<uint8_t> destBuffer, uint8_t index)
+    ::etl::span<uint8_t const> getSendBuffer(::etl::span<uint8_t> destBuffer, uint8_t index)
     {
-        ::estd::slice<uint8_t const> srcBuffer = fSrcBufferArray[index];
+        ::etl::span<uint8_t const> srcBuffer = fSrcBufferArray[index];
         ::estd::memory::copy(destBuffer, srcBuffer);
-        return destBuffer.subslice(srcBuffer.size());
+        return destBuffer.subspan(0U, srcBuffer.size());
     }
 
     ::testing::StrictMock<::async::AsyncMock> asyncMock;
@@ -89,7 +90,7 @@ struct DoIpUdpConnectionTest : Test
     DoIpConnectionHandlerMock fConnectionHandlerMock;
     IDoIpConnection::PayloadReceivedCallbackType fPayloadReceivedCallback;
     IDoIpConnection::PayloadReceivedCallbackType fNullPayloadReceivedCallback;
-    ::estd::slice<uint8_t const> fSrcBufferArray[2];
+    ::etl::span<uint8_t const> fSrcBufferArray[2];
 };
 
 TEST_F(DoIpUdpConnectionTest, Init)
@@ -117,7 +118,7 @@ TEST_F(DoIpUdpConnectionTest, ReceivePayload)
         .WillRepeatedly(Return(&localEndpoint.getAddress()));
     EXPECT_CALL(fSocketMock, getLocalPort()).WillRepeatedly(Return(localEndpoint.getPort()));
     EXPECT_TRUE(fSocketMock.getDataListener() != nullptr);
-    EXPECT_FALSE(cut.receivePayload(::estd::slice<uint8_t>(), fPayloadReceivedCallback));
+    EXPECT_FALSE(cut.receivePayload(::etl::span<uint8_t>(), fPayloadReceivedCallback));
     // too short message
     EXPECT_CALL(fSocketMock, read(nullptr, 7U)).WillOnce(Return(7U));
     fSocketMock.getDataListener()->dataReceived(
@@ -166,7 +167,7 @@ TEST_F(DoIpUdpConnectionTest, ReceivePayload)
     EXPECT_CALL(fSocketMock, read(nullptr, 1U)).WillOnce(Return(1U));
     EXPECT_CALL(
         *this,
-        payloadReceivedCallback(BytesAreSlice(::estd::make_slice(data).offset(8).subslice(10))));
+        payloadReceivedCallback(BytesAreSpan(::etl::span<uint8_t const>(data).subspan(8U, 10U))));
     fSocketMock.getDataListener()->dataReceived(
         fSocketMock,
         remoteEndpoint.getAddress(),
@@ -273,7 +274,7 @@ TEST_F(DoIpUdpConnectionTest, EndReceiveMessage)
     EXPECT_CALL(fSocketMock, read(nullptr, 9U)).WillOnce(Return(9U));
     EXPECT_CALL(
         *this,
-        payloadReceivedCallback(BytesAreSlice(::estd::make_slice(data).offset(8).subslice(2))))
+        payloadReceivedCallback(BytesAreSpan(::etl::span<uint8_t const>(data).subspan(8U, 2U))))
         .WillOnce(EndReceiveMessage(&cut));
     fSocketMock.getDataListener()->dataReceived(
         fSocketMock,
@@ -301,11 +302,11 @@ TEST_F(DoIpUdpConnectionTest, SendMessage)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(1U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(10U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 12U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 12U)));
     EXPECT_CALL(
         fSocketMock,
-        send(Matcher<DatagramPacket const&>(
-            IsDatagram(remoteIpEndpoint, ::estd::make_slice(output).subslice(12), true))))
+        send(Matcher<DatagramPacket const&>(IsDatagram(
+            remoteIpEndpoint, ::etl::span<uint8_t const>(output).subspan(0U, 12U), true))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
     EXPECT_CALL(sendJobMock, release(true));
     testContext.expireAndExecute();
@@ -335,11 +336,11 @@ TEST_F(DoIpUdpConnectionTest, SuspendResume)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(1U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(10U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 12U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 12U)));
     EXPECT_CALL(
         fSocketMock,
-        send(Matcher<DatagramPacket const&>(
-            IsDatagram(remoteIpEndpoint, ::estd::make_slice(output).subslice(12), true))))
+        send(Matcher<DatagramPacket const&>(IsDatagram(
+            remoteIpEndpoint, ::etl::span<uint8_t const>(output).subspan(0U, 12U), true))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
     EXPECT_CALL(sendJobMock, release(true));
     testContext.expireAndExecute();
@@ -398,7 +399,7 @@ TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageReception)
         .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(input).subspan(8, 9))));
     EXPECT_CALL(
         *this,
-        payloadReceivedCallback(BytesAreSlice(::estd::make_slice(input).offset(8).subslice(9))));
+        payloadReceivedCallback(BytesAreSpan(::etl::span<uint8_t const>(input).subspan(8U, 9U))));
     fSocketMock.getDataListener()->dataReceived(
         fSocketMock, remoteIpAddress, 0x1231, localIpAddress, 17U);
     EXPECT_CALL(fConnectionHandlerMock, connectionClosed(false)).Times(1);
@@ -442,18 +443,18 @@ TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageTransmission)
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(17U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 8U)));
     // empty buffer!
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>()));
+        .WillOnce(Return(::etl::span<uint8_t const>()));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 2U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output + 8U, 9U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output + 8U, 9U)));
     EXPECT_CALL(
         fSocketMock,
-        send(Matcher<DatagramPacket const&>(
-            IsDatagram(remoteIpEndpoint, ::estd::make_slice(output).subslice(17), false))))
+        send(Matcher<DatagramPacket const&>(IsDatagram(
+            remoteIpEndpoint, ::etl::span<uint8_t const>(output).subspan(0U, 17U), false))))
         .InSequence(seq)
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
     EXPECT_CALL(sendJobMock, release(true));
@@ -520,9 +521,9 @@ TEST_F(DoIpUdpConnectionTest, ReleaseMessageOnFailedSendMessage)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(sizeof(output)));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::make_slice(output).subslice(8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output).subspan(0U, 8U)));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
-        .WillOnce(Return(::estd::make_slice(output).offset(8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output).subspan(8U)));
     EXPECT_CALL(fSocketMock, send(An<::udp::DatagramPacket const&>()))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_NOT_OK));
     EXPECT_CALL(sendJobMock, release(false));
@@ -546,9 +547,9 @@ TEST_F(DoIpUdpConnectionTest, CloseConnectionDuringTransmission)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(sizeof(output)));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(DoAll(Close(&cut), Return(::estd::make_slice(output).subslice(8U))));
+        .WillOnce(DoAll(Close(&cut), Return(::etl::span<uint8_t const>(output).subspan(0U, 8U))));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
-        .WillOnce(Return(::estd::make_slice(output).offset(8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output).subspan(8U)));
     EXPECT_CALL(fSocketMock, send(An<::udp::DatagramPacket const&>()))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_NOT_OK));
     EXPECT_CALL(sendJobMock, release(false));
@@ -571,8 +572,8 @@ TEST_F(DoIpUdpConnectionTest, WriteIntoStaticBuffer)
     StrictMock<DoIpSendJobMock> sendJobMock;
     EXPECT_CALL(sendJobMock, getDestinationEndpoint()).WillRepeatedly(Return(&remoteIpEndpoint));
     cut.sendMessage(sendJobMock);
-    fSrcBufferArray[0] = ::estd::make_slice(output).subslice(8U);
-    fSrcBufferArray[1] = ::estd::make_slice(output).offset(8U);
+    fSrcBufferArray[0] = ::etl::span<uint8_t const>(output).subspan(0U, 8U);
+    fSrcBufferArray[1] = ::etl::span<uint8_t const>(output).subspan(8U);
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(sizeof(output)));
     EXPECT_CALL(fSocketMock, send(An<::udp::DatagramPacket const&>()))
@@ -600,9 +601,9 @@ TEST_F(DoIpUdpConnectionTest, SendTooLongMessage)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(sizeof(output)));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::make_slice(output).subslice(8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output).subspan(0U, 8U)));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
-        .WillOnce(Return(::estd::make_slice(output).offset(8U)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output).subspan(8U)));
     EXPECT_CALL(sendJobMock, release(false));
     testContext.expireAndExecute();
 }

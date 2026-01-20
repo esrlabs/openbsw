@@ -20,7 +20,7 @@ public:
     MOCK_METHOD1(init, void(IDoIpConnectionHandler&));
     MOCK_CONST_METHOD0(getLocalEndpoint, ::ip::IPEndpoint());
     MOCK_CONST_METHOD0(getRemoteEndpoint, ::ip::IPEndpoint());
-    MOCK_METHOD2(receivePayload, bool(::estd::slice<uint8_t>, PayloadReceivedCallbackType));
+    MOCK_METHOD2(receivePayload, bool(::etl::span<uint8_t>, PayloadReceivedCallbackType));
     MOCK_METHOD0(endReceiveMessage, void());
     MOCK_METHOD1(sendMessage, bool(DoIpSendJob&));
     MOCK_METHOD0(close, void());

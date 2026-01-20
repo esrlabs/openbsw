@@ -19,13 +19,13 @@ namespace doip
 class DoIpServerVehicleIdentification : public IDoIpServerVehicleIdentificationCallback
 {
 public:
-    /** Fills a given slice with the vehicle's VIN. */
+    /** Fills a given span with the vehicle's VIN. */
     using GetVinCallback = ::estd::function<void(VinType)>;
 
-    /** Fills a given slice with the DoIP group ID. */
+    /** Fills a given span with the DoIP group ID. */
     using GetGidCallback = ::estd::function<void(GidType)>;
 
-    /** Fills a given slice with the DoIP entity ID. */
+    /** Fills a given span with the DoIP entity ID. */
     using GetEidCallback = ::estd::function<void(EidType)>;
 
     /** Returns current diagnostic power mode. */

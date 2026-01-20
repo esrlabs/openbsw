@@ -208,7 +208,7 @@ DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(DoIpHeader c
         return HeaderReceivedContinuation{IDoIpConnection::PayloadDiscardedCallbackType()};
     }
     return _connection.receivePayload(
-               ::estd::slice<uint8_t>(_readBuffer).subslice(header.payloadLength),
+               ::etl::span<uint8_t>(_readBuffer).subspan(0U, header.payloadLength),
                IDoIpConnection::PayloadReceivedCallbackType::create<
                    DoIpServerConnectionHandler,
                    &DoIpServerConnectionHandler::routingActivationRequestReceived>(*this))
@@ -225,7 +225,7 @@ DoIpServerConnectionHandler::headerReceivedAliveCheckResponse(DoIpHeader const& 
         return HeaderReceivedContinuation{IDoIpConnection::PayloadDiscardedCallbackType()};
     }
     return _connection.receivePayload(
-               ::estd::slice<uint8_t>(_readBuffer).subslice(2U),
+               ::etl::span<uint8_t>(_readBuffer).subspan(0U, 2U),
                IDoIpConnection::PayloadReceivedCallbackType::create<
                    DoIpServerConnectionHandler,
                    &DoIpServerConnectionHandler::aliveCheckResponseReceived>(*this))
@@ -291,15 +291,15 @@ DoIpServerConnectionHandler::headerReceived(DoIpHeader const& header)
 void DoIpServerConnectionHandler::execute() { timerExpired(); }
 
 void DoIpServerConnectionHandler::routingActivationRequestReceived(
-    ::estd::slice<uint8_t const> payload)
+    ::etl::span<uint8_t const> payload)
 {
-    uint16_t const sourceAddress = ::estd::memory::take<::estd::be_uint16_t>(payload);
-    uint8_t const activationType = ::estd::memory::take<uint8_t>(payload);
-    (void)payload.advance(4);
+    uint16_t const sourceAddress = payload.take<::estd::be_uint16_t const>();
+    uint8_t const activationType = payload.take<uint8_t const>();
+    payload.advance(4U);
     ::estd::optional<uint32_t> oemField;
     if (payload.size() == 4) // if message contains VM-specific data
     {
-        oemField = ::estd::memory::take<::estd::be_uint32_t>(payload);
+        oemField = payload.take<::estd::be_uint32_t const>();
     }
     auto const localEndpoint  = getLocalEndpoint();
     auto const remoteEndpoint = getRemoteEndpoint();
@@ -340,7 +340,7 @@ void DoIpServerConnectionHandler::routingActivationRequestReceived(
 }
 
 void DoIpServerConnectionHandler::aliveCheckResponseReceived(
-    ::estd::slice<uint8_t const> const payload)
+    ::etl::span<uint8_t const> const payload)
 {
     uint16_t const sourceAddress = ::estd::read_be<uint16_t>(payload.data());
 
@@ -464,11 +464,11 @@ void DoIpServerConnectionHandler::sendRoutingActivationResponse(
         DoIpConstants::PayloadTypes::ROUTING_ACTIVATION_RESPONSE, 9U, closeAfterSend);
     if (job != nullptr)
     {
-        ::estd::slice<uint8_t> buffer                     = job->accessPayloadBuffer();
-        ::estd::memory::take<::estd::be_uint16_t>(buffer) = sourceAddress;
-        ::estd::memory::take<::estd::be_uint16_t>(buffer) = _logicalEntityAddress;
-        ::estd::memory::take<uint8_t>(buffer)             = responseCode;
-        ::estd::memory::set(buffer.subslice(4), 0U);
+        ::etl::span<uint8_t> buffer        = job->accessPayloadBuffer();
+        buffer.take<::estd::be_uint16_t>() = sourceAddress;
+        buffer.take<::estd::be_uint16_t>() = _logicalEntityAddress;
+        buffer.take<uint8_t>()             = responseCode;
+        ::estd::memory::set(buffer.subspan(0U, 4U), 0U);
         (void)sendOrReleaseMessage(*job);
     }
     else

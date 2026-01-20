@@ -23,7 +23,7 @@ public:
     MOCK_METHOD1(release, void(bool success));
     MOCK_METHOD2(
         getSendBuffer,
-        ::estd::slice<uint8_t const>(::estd::slice<uint8_t> staticBuffer, uint8_t index));
+        ::etl::span<uint8_t const>(::etl::span<uint8_t> staticBuffer, uint8_t index));
 };
 
 } // namespace doip

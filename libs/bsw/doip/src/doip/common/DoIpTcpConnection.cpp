@@ -15,13 +15,13 @@
 namespace doip
 {
 // NOLINTBEGIN(cppcoreguidelines-pro-type-vararg): Logger API uses C-style varargs.
-using ::estd::slice;
+using ::etl::span;
 using ::tcp::AbstractSocket;
 using ::util::logger::DOIP_COMMON;
 using ::util::logger::Logger;
 
 DoIpTcpConnection::DoIpTcpConnection(
-    ::async::ContextType const context, AbstractSocket& socket, slice<uint8_t> const writeBuffer)
+    ::async::ContextType const context, AbstractSocket& socket, span<uint8_t> const writeBuffer)
 : IDoIpTcpConnection()
 , IDataListener()
 , IDataSendNotificationListener()
@@ -106,7 +106,7 @@ void DoIpTcpConnection::init(IDoIpConnectionHandler& handler)
 }
 
 bool DoIpTcpConnection::receivePayload(
-    slice<uint8_t> const payload, PayloadReceivedCallbackType const payloadReceivedCallback)
+    span<uint8_t> const payload, PayloadReceivedCallbackType const payloadReceivedCallback)
 {
     if ((_readState == ReadState::PAYLOAD) && (_currentReadBuffer.size() == 0U)
         && (payload.size() <= _readPayloadLength) && payloadReceivedCallback)
@@ -128,7 +128,7 @@ void DoIpTcpConnection::endReceiveMessage(
         if (_readPayloadLength > 0U)
         {
             _readState = ReadState::DISCARD;
-            setReadBuffer(::estd::slice<uint8_t>::from_pointer(nullptr, _readPayloadLength));
+            setReadBuffer(::etl::span<uint8_t>(_headerBuffer).subspan(0U, _readPayloadLength));
             _payloadReceivedCallback  = PayloadReceivedCallbackType();
             _payloadDiscardedCallback = payloadDiscardedCallback;
             tryReceive();
@@ -256,7 +256,7 @@ void DoIpTcpConnection::dataSent(uint16_t const length, SendResult const result)
 
 bool DoIpTcpConnection::processCurrentSendBuffer(IDoIpSendJob& sendJob)
 {
-    slice<uint8_t const> const sendBuffer = sendJob.getSendBuffer(_writeBuffer, _sendBufferIndex);
+    auto const sendBuffer = sendJob.getSendBuffer(_writeBuffer, _sendBufferIndex);
     if (sendBuffer.size() > 0U)
     {
         _recurseWrite                          = true;
@@ -335,7 +335,7 @@ void DoIpTcpConnection::processNextReadChunk(size_t const bytesRead)
     if (_receivedBufferLength == _currentReadBuffer.size())
     {
         // The current read buffer has been completely processed (i. e. read or discarded)
-        slice<uint8_t> currentReadBuffer;
+        ::etl::span<uint8_t> currentReadBuffer;
         ::std::swap(_currentReadBuffer, currentReadBuffer);
         _recurseRead = true;
         if (_readState == ReadState::HEADER)
@@ -350,7 +350,7 @@ void DoIpTcpConnection::processNextReadChunk(size_t const bytesRead)
             {
                 // handler not responsible, but notify it for the discarded payload
                 _readState = ReadState::DISCARD;
-                setReadBuffer(::estd::slice<uint8_t>::from_pointer(nullptr, _readPayloadLength));
+                setReadBuffer(::etl::span<uint8_t>(_headerBuffer, _readPayloadLength));
                 _payloadReceivedCallback = PayloadReceivedCallbackType();
                 _payloadDiscardedCallback
                     = ::estd::get<IDoIpConnection::PayloadDiscardedCallbackType>(
@@ -385,10 +385,9 @@ void DoIpTcpConnection::tryReceive()
     {
         size_t const bytesToRead = ::std::min(
             _availableReadDataLength, _currentReadBuffer.size() - _receivedBufferLength);
-        // in ReadState::DISCARD, _currentReadBuffer has nullptr as pointer
         size_t const bytesRead = _socket.read(
             (_readState != ReadState::DISCARD)
-                ? _currentReadBuffer.offset(_receivedBufferLength).data()
+                ? _currentReadBuffer.subspan(_receivedBufferLength).data()
                 : nullptr,
             bytesToRead);
         if (bytesRead == bytesToRead)
@@ -454,7 +453,7 @@ void DoIpTcpConnection::closeConnection(
         _handler                              = nullptr;
         releaseSendJobs(_sentJobs);
         releaseSendJobs(_pendingSendJobs);
-        setReadBuffer(slice<uint8_t>());
+        setReadBuffer(span<uint8_t>());
         if (_detachCallback.has_value())
         {
             _detachCallback();

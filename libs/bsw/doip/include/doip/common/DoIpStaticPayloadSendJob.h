@@ -28,17 +28,16 @@ public:
     DoIpStaticPayloadSendJob(
         uint8_t protocolVersion,
         uint16_t payloadType,
-        ::estd::slice<uint8_t const> payload,
+        ::etl::span<uint8_t const> payload,
         ReleaseCallbackType releaseCallback);
 
-    ~DoIpStaticPayloadSendJob() override{};
+    ~DoIpStaticPayloadSendJob() override {}
 
 protected:
-    ::estd::slice<uint8_t const>
-    getPayloadBuffer(::estd::slice<uint8_t> staticBuffer) const override;
+    ::etl::span<uint8_t const> getPayloadBuffer(::etl::span<uint8_t> staticBuffer) const override;
 
 private:
-    ::estd::slice<uint8_t const> _payload;
+    ::etl::span<uint8_t const> _payload;
 };
 
 namespace declare
@@ -76,14 +75,14 @@ public:
     DoIpStaticPayloadSendJob(
         uint8_t protocolVersion,
         uint16_t payloadType,
-        ::estd::slice<uint8_t const> payload,
+        ::etl::span<uint8_t const> payload,
         ReleaseCallbackType releaseCallback);
 
     /**
      * Get write access to the payload buffer allocated with this send job.
      * \return the complete allocated buffer.
      */
-    ::estd::slice<uint8_t> accessPayloadBuffer();
+    ::etl::span<uint8_t> accessPayloadBuffer();
 
 private:
     uint8_t _payloadBuffer[BufferSize];
@@ -105,7 +104,7 @@ DoIpStaticPayloadSendJob<BufferSize>::DoIpStaticPayloadSendJob(
 : ::doip::DoIpStaticPayloadSendJob(
     protocolVersion,
     payloadType,
-    ::estd::slice<uint8_t const>::from_pointer(_payloadBuffer, payloadLength),
+    ::etl::span<uint8_t const>(_payloadBuffer).subspan(0U, payloadLength),
     releaseCallback)
 , _payloadBuffer{}
 {}
@@ -114,7 +113,7 @@ template<size_t BufferSize>
 DoIpStaticPayloadSendJob<BufferSize>::DoIpStaticPayloadSendJob(
     uint8_t const protocolVersion,
     uint16_t const payloadType,
-    ::estd::slice<uint8_t const> const payload,
+    ::etl::span<uint8_t const> const payload,
     ReleaseCallbackType const releaseCallback)
 : ::doip::declare::DoIpStaticPayloadSendJob<BufferSize>(
     protocolVersion, payloadType, payload.size(), releaseCallback)
@@ -123,9 +122,9 @@ DoIpStaticPayloadSendJob<BufferSize>::DoIpStaticPayloadSendJob(
 }
 
 template<size_t BufferSize>
-::estd::slice<uint8_t> DoIpStaticPayloadSendJob<BufferSize>::accessPayloadBuffer()
+::etl::span<uint8_t> DoIpStaticPayloadSendJob<BufferSize>::accessPayloadBuffer()
 {
-    return ::estd::slice<uint8_t>(_payloadBuffer);
+    return ::etl::span<uint8_t>(_payloadBuffer);
 }
 
 } // namespace declare

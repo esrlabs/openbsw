@@ -10,7 +10,7 @@
 #include <common/busid/BusId.h>
 #include <transport/ITransportMessageProvidingListener.h>
 
-#include <estd/slice.h>
+#include <etl/span.h>
 
 namespace doip
 {
@@ -31,7 +31,7 @@ public:
      * \param sourceId          id of TransportMessage's source
      * \param targetId          id of TransportMessage's target
      * \param size              size of the requested TransportMessage
-     * \param peek              slice to the payload of the underlying data buffer
+     * \param peek              span to the payload of the underlying data buffer
      * \param transportMessage  a pointer to TransportMessage (nullptr if no
      *          message was available) is written to this pointer.
      * \return
@@ -46,7 +46,7 @@ public:
         uint16_t sourceId,
         uint16_t targetId,
         uint16_t size,
-        ::estd::slice<uint8_t const> const& peek,
+        ::etl::span<uint8_t const> const& peek,
         ::transport::TransportMessage*& transportMessage)
         = 0;
 

@@ -176,15 +176,14 @@ private:
 
     void init(IDoIpConnectionHandler& handler) override;
     bool receivePayload(
-        ::estd::slice<uint8_t> payload,
-        PayloadReceivedCallbackType payloadReceivedCallback) override;
+        ::etl::span<uint8_t> payload, PayloadReceivedCallbackType payloadReceivedCallback) override;
     void endReceiveMessage(
         IDoIpConnection::PayloadDiscardedCallbackType payloadDiscardedCallback) override;
     bool sendMessage(IDoIpSendJob& sendJob) override;
     void sendNack(uint8_t nackCode, bool closeAfterSend) override;
 
-    void routingActivationRequestReceived(::estd::slice<uint8_t const> payload);
-    void aliveCheckResponseReceived(::estd::slice<uint8_t const> payload);
+    void routingActivationRequestReceived(::etl::span<uint8_t const> payload);
+    void aliveCheckResponseReceived(::etl::span<uint8_t const> payload);
 
     void sendRoutingActivationResponse(
         uint16_t sourceAddress, uint8_t responseCode, bool closeAfterSend);
@@ -259,7 +258,7 @@ inline ::ip::IPEndpoint DoIpServerConnectionHandler::getRemoteEndpoint() const
 }
 
 inline bool DoIpServerConnectionHandler::receivePayload(
-    ::estd::slice<uint8_t> payload, PayloadReceivedCallbackType const payloadReceivedCallback)
+    ::etl::span<uint8_t> payload, PayloadReceivedCallbackType const payloadReceivedCallback)
 {
     return _connection.receivePayload(payload, payloadReceivedCallback);
 }

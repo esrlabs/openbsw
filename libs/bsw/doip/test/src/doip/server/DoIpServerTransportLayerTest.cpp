@@ -16,8 +16,8 @@
 #include <transport/BufferedTransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
 
+#include <etl/span.h>
 #include <estd/memory.h>
-#include <estd/slice.h>
 
 #include <gmock/gmock.h>
 #include <gtest/esr_extensions.h>
@@ -31,7 +31,7 @@ using namespace ::transport;
 using namespace ::tcp::test;
 using ConnectionType = ::doip::DoIpTcpConnection::ConnectionType;
 
-MATCHER_P2(Slice, dataMatcher, sizeMatcher, "")
+MATCHER_P2(Span, dataMatcher, sizeMatcher, "")
 {
     return Matches(dataMatcher)(arg.data()) && Matches(sizeMatcher)(arg.size());
 }
@@ -105,7 +105,7 @@ struct DoIpServerTransportLayerTest : Test
 
     void TearDown() override {}
 
-    MOCK_METHOD1(connectionSuspended, void(::estd::slice<uint8_t const>));
+    MOCK_METHOD1(connectionSuspended, void(::etl::span<uint8_t const>));
 
     void
     prepareSocket(::tcp::AbstractSocketMock& socketMock, ::ip::IPEndpoint const& remoteEndpoint);
@@ -115,7 +115,7 @@ struct DoIpServerTransportLayerTest : Test
         uint8_t socketGroupId,
         uint8_t maxConnectionCount);
 
-    ::estd::slice<uint8_t> prepareRoutingActivationResponse(::tcp::AbstractSocketMock& socketMock);
+    ::etl::span<uint8_t> prepareRoutingActivationResponse(::tcp::AbstractSocketMock& socketMock);
     void expectRoutingActivationRequest(
         ::tcp::AbstractSocketMock& socketMock,
         uint16_t sourceAddress,
@@ -268,7 +268,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithoutFilter)
            0x00,
            0x00,
            0x00};
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -317,7 +317,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithInvalidActivationT
            0x00};
     EXPECT_CALL(fSocketMock1, close())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1, 0x02);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -389,7 +389,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackSucceeds)
             fLocalEndpoint1,
             fRemoteEndpoint1,
             DoIpTcpConnection::ConnectionType::PLAIN));
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -454,7 +454,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackFails)
     EXPECT_CALL(fSocketMock1, close())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fConnectionPoolMock, releaseConnection(Ref(fConnection1)));
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -523,7 +523,7 @@ TEST_F(DoIpServerTransportLayerTest, TestThirdSocketIsRejected)
             fLocalEndpoint1,
             fRemoteEndpoint1,
             DoIpTcpConnection::ConnectionType::PLAIN));
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -603,7 +603,7 @@ TEST_F(DoIpServerTransportLayerTest, TestReserveSocket)
             fLocalEndpoint1,
             fRemoteEndpoint1,
             DoIpTcpConnection::ConnectionType::PLAIN));
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
     EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
@@ -745,12 +745,12 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessage)
                 ITransportMessageListener::ReceiveResult::RECEIVED_NO_ERROR))));
     // expect diagnostic ack
     uint8_t diagnosticAck[16];
-    EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+    EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
         .InSequence(seq)
         .WillOnce(Invoke(WriteBytesTo(
-            ::etl::span<uint8_t>(diagnosticAck).subspan(0, 8),
+            ::etl::span<uint8_t>(diagnosticAck).first(8),
             ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
-    EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+    EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
         .InSequence(seq)
         .WillOnce(Invoke(WriteBytesTo(
             ::etl::span<uint8_t>(diagnosticAck).subspan(8, 8),
@@ -789,8 +789,8 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessage)
     EXPECT_EQ(0x1519, message.getTargetId());
     EXPECT_EQ(3U, message.getPayloadLength());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 12, 3),
-        ::estd::slice<uint8_t const>::from_pointer(message.getPayload(), 3)));
+        ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
+        ::etl::span<uint8_t const>(message.getPayload(), 3U)));
 
     // Release the message at the provider that originally was returned
     EXPECT_TRUE(config != nullptr);
@@ -864,11 +864,11 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessageFollowedByInvalidTargetAd
         uint8_t diagnosticAck[16];
         {
             InSequence s;
-            EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+            EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
                 .WillOnce(Invoke(WriteBytesTo(
-                    ::etl::span<uint8_t>(diagnosticAck).subspan(0, 8),
+                    ::etl::span<uint8_t>(diagnosticAck).first(8),
                     ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
-            EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+            EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
                 .WillOnce(Invoke(WriteBytesTo(
                     ::etl::span<uint8_t>(diagnosticAck).subspan(8, 8),
                     ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -938,12 +938,12 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessageFollowedByInvalidTargetAd
 
         // expect diagnostic ack
         uint8_t diagnosticNack[18];
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .WillOnce(Invoke(WriteBytesTo(
-                ::etl::span<uint8_t>(diagnosticNack).subspan(0, 8),
+                ::etl::span<uint8_t>(diagnosticNack).first(8),
                 ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 10U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 10U)))
             .WillOnce(Invoke(WriteBytesTo(
                 ::etl::span<uint8_t>(diagnosticNack).subspan(8, 10),
                 ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -1015,12 +1015,12 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessageFollowedByInvalidTargetAd
                     ITransportMessageListener::ReceiveResult::RECEIVED_NO_ERROR))));
         // expect diagnostic ack
         uint8_t diagnosticAck[16];
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
-                ::etl::span<uint8_t>(diagnosticAck).subspan(0, 8),
+                ::etl::span<uint8_t>(diagnosticAck).first(8),
                 ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 ::etl::span<uint8_t>(diagnosticAck).subspan(8, 8),
@@ -1291,12 +1291,12 @@ TEST_F(
         uint8_t diagnosticAckValidRaw[16];
         auto diagnosticAckValid = ::etl::span<uint8_t>(diagnosticAckValidRaw);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckValid.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
         diagnosticAckValid.advance(8);
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckValid.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -1308,13 +1308,13 @@ TEST_F(
         uint8_t diagnosticAckInvalidRaw[17];
         auto diagnosticAckInvalid = ::etl::span<uint8_t>(diagnosticAckInvalidRaw);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckInvalid.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
         diagnosticAckInvalid.advance(8);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 9U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 9U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckInvalid.first(9), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -1326,13 +1326,13 @@ TEST_F(
         uint8_t diagnosticNackInvalid2Raw[18];
         auto diagnosticNackInvalid2 = ::etl::span<uint8_t>(diagnosticNackInvalid2Raw);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticNackInvalid2.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
         diagnosticNackInvalid2.advance(8);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 10U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 10U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticNackInvalid2.first(10),
@@ -1345,12 +1345,12 @@ TEST_F(
         uint8_t diagnosticAckValid2Raw[17];
         auto diagnosticAckValid2 = ::etl::span<uint8_t>(diagnosticAckValid2Raw);
 
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 8U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 8U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckValid2.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
         diagnosticAckValid2.advance(8);
-        EXPECT_CALL(fSocketMock1, send(Slice(NotNull(), 9U)))
+        EXPECT_CALL(fSocketMock1, send(Span(NotNull(), 9U)))
             .InSequence(seq)
             .WillOnce(Invoke(WriteBytesTo(
                 diagnosticAckValid2.first(9), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -1699,7 +1699,7 @@ TEST_F(DoIpServerTransportLayerTest, TestAliveCheckWithAlreadyRegisteredSource)
     EXPECT_CALL(fSocketHandlerMock, releaseSocket(Ref(fSocketMock2), ConnectionType::PLAIN));
 
     // Second connection should respond with error and close
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
     expectAliveCheckResponse(fSocketMock1, 0x1234);
     endRoutingActivationResponse(fSocketMock2);
     uint8_t const expectedResponse[]
@@ -1770,7 +1770,7 @@ TEST_F(DoIpServerTransportLayerTest, TestAliveCheckWithInactiveRegisteredSource)
     expectRoutingActivationRequest(fSocketMock2, 0x1122, fLocalEndpoint2, fRemoteEndpoint2);
 
     // First connection times out
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
     // expectAliveCheckResponse(fSocketMock1, 0x1122);
     uint8_t const expectedResponse[]
         = {0x02,
@@ -1924,7 +1924,7 @@ TEST_F(DoIpServerTransportLayerTest, TestAliveCheckWithAnotherRegisteredSource)
     EXPECT_CALL(fSocketHandlerMock, releaseSocket(Ref(fSocketMock2), ConnectionType::PLAIN));
 
     // Second connection should respond with error and close
-    ::estd::slice<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
+    ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock2);
     expectAliveCheckResponse(fSocketMock1, 0x1234);
     endRoutingActivationResponse(fSocketMock2);
     uint8_t const expectedResponse[]
@@ -2041,16 +2041,16 @@ void DoIpServerTransportLayerTest::prepareSocketGroup(
         .WillRepeatedly(Return(maxConnectionCount));
 }
 
-::estd::slice<uint8_t> DoIpServerTransportLayerTest::prepareRoutingActivationResponse(
+::etl::span<uint8_t> DoIpServerTransportLayerTest::prepareRoutingActivationResponse(
     ::tcp::AbstractSocketMock& socketMock)
 {
     ::etl::span<uint8_t> responseBuffer = allocateBuffer(17U);
     Sequence seq;
-    EXPECT_CALL(socketMock, send(Slice(NotNull(), 8U)))
+    EXPECT_CALL(socketMock, send(Span(NotNull(), 8U)))
         .InSequence(seq)
         .WillOnce(Invoke(WriteBytesTo(
             responseBuffer.first(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
-    EXPECT_CALL(socketMock, send(Slice(NotNull(), responseBuffer.size() - 8)))
+    EXPECT_CALL(socketMock, send(Span(NotNull(), responseBuffer.size() - 8)))
         .InSequence(seq)
         .WillOnce(Invoke(WriteBytesTo(
             responseBuffer.subspan(8), ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
@@ -2116,7 +2116,7 @@ void DoIpServerTransportLayerTest::prepareAliveCheckRequest(::tcp::AbstractSocke
     uint8_t const requestData[]  = {0x02, 0xfd, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00};
     ::etl::span<uint8_t> request = allocateBuffer(sizeof(requestData));
     Sequence seq;
-    EXPECT_CALL(socketMock, send(Slice(NotNull(), Eq(8U))))
+    EXPECT_CALL(socketMock, send(Span(NotNull(), Eq(8U))))
         .InSequence(seq)
         .WillOnce(Invoke(WriteBytesTo(request, ::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK)));
     EXPECT_CALL(socketMock, flush())

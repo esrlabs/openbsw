@@ -75,8 +75,8 @@ void DoIpTransportMessageSendJob::release(bool const success)
     _callback.releaseSendJob(*this, success);
 }
 
-::estd::slice<uint8_t const> DoIpTransportMessageSendJob::getSendBuffer(
-    ::estd::slice<uint8_t> const staticBuffer, uint8_t const bufferIndex)
+::etl::span<uint8_t const> DoIpTransportMessageSendJob::getSendBuffer(
+    ::etl::span<uint8_t> const staticBuffer, uint8_t const bufferIndex)
 {
     switch (static_cast<BufferIndex>(bufferIndex))
     {
@@ -90,21 +90,20 @@ void DoIpTransportMessageSendJob::release(bool const success)
         }
         case BufferIndex::STATIC_PAYLOAD:
         {
-            ::estd::slice<::estd::be_uint16_t> const s
-                = staticBuffer.reinterpret_as<::estd::be_uint16_t>();
-            s[0] = _sourceAddress;
-            s[1] = _targetAddress;
-            return staticBuffer.subslice(sizeof(uint16_t) * 2);
+            auto const s = staticBuffer.reinterpret_as<::estd::be_uint16_t>();
+            s[0]         = _sourceAddress;
+            s[1]         = _targetAddress;
+            return staticBuffer.subspan(0U, sizeof(uint16_t) * 2);
         }
         case BufferIndex::DYNAMIC_PAYLOAD:
         {
             uint8_t const* const payload = _message.getPayload();
-            return ::estd::slice<uint8_t const>::from_pointer(
+            return ::etl::span<uint8_t const>(
                 payload, static_cast<size_t>(_message.getPayloadLength()));
         }
         default:
         {
-            return ::estd::slice<uint8_t const>();
+            return {};
         }
     }
 }

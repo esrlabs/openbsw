@@ -17,6 +17,7 @@
 #include <transport/AbstractTransportLayer.h>
 #include <transport/ITransportMessageProcessedListener.h>
 
+#include <etl/span.h>
 #include <estd/forward_list.h>
 #include <estd/object_pool.h>
 
@@ -40,7 +41,7 @@ public:
     /**
      * Function that will be called on suspend success.
      */
-    using SuspendCallbackType = ::estd::function<void(::estd::slice<uint8_t const>)>;
+    using SuspendCallbackType = ::estd::function<void(::etl::span<uint8_t const>)>;
 
     ErrorCode init() override;
     bool shutdown(ShutdownDelegate shutdownDelegate) override;

@@ -21,7 +21,7 @@ using namespace ::doip;
 
 namespace
 {
-DoIpHeader const& as_header(::estd::slice<uint8_t const> bytes)
+DoIpHeader const& as_header(::etl::span<uint8_t const> bytes)
 {
     return bytes.reinterpret_as<DoIpHeader const>()[0];
 }
@@ -94,7 +94,7 @@ TEST_F(
     // check for diagnostic message header
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x07, 0x7e, 0x11, 0x22, 0x33};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -110,7 +110,7 @@ TEST_F(
             SetArgReferee<5>(&message),
             Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(
                 ITransportMessageProvider::ErrorCode::TPMSG_OK))));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(8U).subslice(4U));
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(8U, 4U));
     EXPECT_EQ(3U, payloadBuffer.size());
     // Expect reception of payload
     IDoIpSendJob* sendJob = nullptr;
@@ -122,9 +122,9 @@ TEST_F(
         messageReceived(fBusId, Ref(message), &fMessageProcessedListenerMock))
         .WillOnce(Return(DoIpTransportMessageProvidingListenerHelper::createReceiveResult(
             ITransportMessageListener::ReceiveResult::RECEIVED_NO_ERROR)));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(12U).subslice(3U));
-    auto const tpmBuffer = ::estd::slice<uint8_t const>::from_pointer(message.getBuffer(), 3U);
-    auto const diagMsg   = ::estd::slice<uint8_t const>(diagnosticMessage).offset(12U);
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(12, 3U));
+    auto const tpmBuffer = ::etl::span<uint8_t const>(message.getBuffer(), 3U);
+    auto const diagMsg   = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
     EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsg));
     // Expect diagnostic ack
@@ -195,10 +195,10 @@ TEST_F(
                0x33,
                0x44,
                0x55};
-        auto receiveSlice = ::estd::make_slice(diagnosticMessage);
+        auto receiveSpan = ::etl::span<uint8_t const>(diagnosticMessage);
 
         // receive header
-        ::estd::slice<uint8_t> logicalAddressInfoReceiveBuffer;
+        ::etl::span<uint8_t> logicalAddressInfoReceiveBuffer;
         IDoIpConnection::PayloadReceivedCallbackType logicalAddressInfoReceiveCallback;
         EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
             .WillOnce(DoAll(
@@ -206,28 +206,28 @@ TEST_F(
                 SaveArg<1>(&logicalAddressInfoReceiveCallback),
                 Return(true)));
         EXPECT_TRUE(cut.headerReceived(as_header(diagnosticMessage)));
-        receiveSlice.advance(8U);
+        receiveSpan.advance(8U);
         EXPECT_EQ(4U, logicalAddressInfoReceiveBuffer.size());
 
         // receive logical address info
-        ::estd::slice<uint8_t> payloadPrefixReceiveBuffer;
+        ::etl::span<uint8_t> payloadPrefixReceiveBuffer;
         IDoIpConnection::PayloadReceivedCallbackType payloadPrefixReceiveCallback;
         EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
             .WillOnce(DoAll(
                 SaveArg<0>(&payloadPrefixReceiveBuffer),
                 SaveArg<1>(&payloadPrefixReceiveCallback),
                 Return(true)));
-        logicalAddressInfoReceiveCallback(receiveSlice.subslice(4U));
-        receiveSlice.advance(4U);
+        logicalAddressInfoReceiveCallback(receiveSpan.subspan(0U, 4U));
+        receiveSpan.advance(4U);
         EXPECT_EQ(5U, payloadPrefixReceiveBuffer.size());
 
         // receive payload prefix and expect allocation of message
         BufferedTransportMessage<5U> message;
-        ::estd::slice<uint8_t const> peekSlice;
+        ::etl::span<uint8_t const> peekSpan;
         EXPECT_CALL(
             fMessageProvidingListenerMock, getTransportMessage(fBusId, 0x1357, 0x077e, 0x05, _, _))
             .WillOnce(DoAll(
-                SaveArg<4>(&peekSlice),
+                SaveArg<4>(&peekSpan),
                 SetArgReferee<5>(&message),
                 Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(
                     ITransportMessageProvider::ErrorCode::TPMSG_OK))));
@@ -240,12 +240,12 @@ TEST_F(
             messageReceived(fBusId, Ref(message), &fMessageProcessedListenerMock))
             .WillOnce(Return(DoIpTransportMessageProvidingListenerHelper::createReceiveResult(
                 ITransportMessageListener::ReceiveResult::RECEIVED_NO_ERROR)));
-        payloadPrefixReceiveCallback(receiveSlice.subslice(5U));
+        payloadPrefixReceiveCallback(receiveSpan.subspan(0U, 5U));
         // check that the 4 bytes of the passed peek is correct
-        EXPECT_THAT(peekSlice, ::testing::ElementsAreArray(receiveSlice.subslice(4U)));
+        EXPECT_THAT(peekSpan, ::testing::ElementsAreArray(receiveSpan.subspan(0U, 4U)));
         // check that the 5-byte prefix is correctly copied into the transport message buffer
-        auto const tpmBuffer = ::estd::slice<uint8_t const>::from_pointer(message.getBuffer(), 5U);
-        auto const diagMsgPayload = ::estd::slice<uint8_t const>(diagnosticMessage).offset(12U);
+        auto const tpmBuffer      = ::etl::span<uint8_t const>(message.getBuffer(), 5U);
+        auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
         EXPECT_THAT(tpmBuffer, ::testing::ElementsAreArray(diagMsgPayload));
 
         // Expect diagnostic ack
@@ -300,10 +300,10 @@ TEST_F(
                0x44,
                0x55,
                0x66};
-        auto receiveSlice = ::estd::make_slice(diagnosticMessage);
+        auto receiveSpan = etl::span<uint8_t const>(diagnosticMessage);
 
         // receive header
-        ::estd::slice<uint8_t> logicalAddressInfoReceiveBuffer;
+        ::etl::span<uint8_t> logicalAddressInfoReceiveBuffer;
         IDoIpConnection::PayloadReceivedCallbackType logicalAddressInfoReceiveCallback;
         EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
             .WillOnce(DoAll(
@@ -311,23 +311,23 @@ TEST_F(
                 SaveArg<1>(&logicalAddressInfoReceiveCallback),
                 Return(true)));
         EXPECT_TRUE(cut.headerReceived(as_header(diagnosticMessage)));
-        receiveSlice.advance(8U);
+        receiveSpan.advance(8U);
         EXPECT_EQ(4U, logicalAddressInfoReceiveBuffer.size());
 
         // receive logical address info
-        ::estd::slice<uint8_t> payloadPrefixReceiveBuffer;
+        ::etl::span<uint8_t> payloadPrefixReceiveBuffer;
         IDoIpConnection::PayloadReceivedCallbackType payloadPrefixReceiveCallback;
         EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
             .WillOnce(DoAll(
                 SaveArg<0>(&payloadPrefixReceiveBuffer),
                 SaveArg<1>(&payloadPrefixReceiveCallback),
                 Return(true)));
-        logicalAddressInfoReceiveCallback(receiveSlice.subslice(4U));
-        receiveSlice.advance(4U);
+        logicalAddressInfoReceiveCallback(receiveSpan.subspan(0U, 4U));
+        receiveSpan.advance(4U);
         EXPECT_EQ(5U, payloadPrefixReceiveBuffer.size());
 
         // receive payload prefix
-        ::estd::slice<uint8_t> diagnosticMessageUserDataReceiveBuffer;
+        ::etl::span<uint8_t> diagnosticMessageUserDataReceiveBuffer;
         IDoIpConnection::PayloadReceivedCallbackType diagnosticMessageUserDataReceiveCallback;
         EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
             .WillOnce(DoAll(
@@ -336,18 +336,18 @@ TEST_F(
                 Return(true)));
         // Expect allocation of message
         BufferedTransportMessage<6U> message;
-        ::estd::slice<uint8_t const> peekSlice;
+        ::etl::span<uint8_t const> peekSpan;
         EXPECT_CALL(
             fMessageProvidingListenerMock, getTransportMessage(fBusId, 0x1357, 0x077e, 0x06, _, _))
             .WillOnce(DoAll(
-                SaveArg<4>(&peekSlice),
+                SaveArg<4>(&peekSpan),
                 SetArgReferee<5>(&message),
                 Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(
                     ITransportMessageProvider::ErrorCode::TPMSG_OK))));
-        payloadPrefixReceiveCallback(receiveSlice.subslice(5U));
+        payloadPrefixReceiveCallback(receiveSpan.subspan(0U, 5U));
         // check that the 4 bytes of the passed peek is correct
-        EXPECT_THAT(peekSlice, ::testing::ElementsAreArray(receiveSlice.subslice(4U)));
-        receiveSlice.advance(5U);
+        EXPECT_THAT(peekSpan, ::testing::ElementsAreArray(receiveSpan.subspan(0U, 4U)));
+        receiveSpan.advance(5U);
 
         // receive rest of payload
         IDoIpSendJob* sendJob = nullptr;
@@ -361,11 +361,14 @@ TEST_F(
                 ITransportMessageListener::ReceiveResult::RECEIVED_NO_ERROR)));
         // the remaining byte is copied into the buffer of the receivePayload call and the callback
         // is called
-        ::estd::memory::copy(diagnosticMessageUserDataReceiveBuffer, receiveSlice);
-        diagnosticMessageUserDataReceiveCallback(receiveSlice.subslice(1U));
+        ::etl::mem_copy(
+            receiveSpan.begin(),
+            receiveSpan.size(),
+            diagnosticMessageUserDataReceiveBuffer.begin());
+        diagnosticMessageUserDataReceiveCallback(receiveSpan.subspan(0U, 1U));
         // check that the 5-byte prefix is correctly copied into the transport message buffer
-        auto const tpmBuffer = ::estd::slice<uint8_t const>::from_pointer(message.getBuffer(), 6U);
-        auto const diagMsgPayload = ::estd::slice<uint8_t const>(diagnosticMessage).offset(12U);
+        auto const tpmBuffer      = ::etl::span<uint8_t const>(message.getBuffer(), 6U);
+        auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
         EXPECT_THAT(tpmBuffer, ::testing::ElementsAreArray(diagMsgPayload));
 
         // Expect diagnostic ack
@@ -421,7 +424,7 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestUnprocessedTransportMessageCau
     // check for diagnostic message header
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x07, 0x7e, 0x11, 0x22, 0x33};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -437,7 +440,7 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestUnprocessedTransportMessageCau
             SetArgReferee<5>(&message),
             Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(
                 ITransportMessageProvider::ErrorCode::TPMSG_OK))));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(8U).subslice(4U));
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(8U, 4U));
     EXPECT_EQ(3U, payloadBuffer.size());
     // Expect reception of payload
     IDoIpSendJob* sendJob = nullptr;
@@ -450,10 +453,10 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestUnprocessedTransportMessageCau
         .WillOnce(Return(DoIpTransportMessageProvidingListenerHelper::createReceiveResult(
             ITransportMessageListener::ReceiveResult::RECEIVED_ERROR)));
     EXPECT_CALL(fMessageProvidingListenerMock, releaseTransportMessage(Ref(message)));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(12U).subslice(3U));
-    auto const tpmBuffer      = ::estd::slice<uint8_t const>::from_pointer(message.getBuffer(), 3U);
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(12U, 3U));
+    auto const tpmBuffer      = ::etl::span<uint8_t const>(message.getBuffer(), 3U);
     // payload of diag message starts after 8 bytes of header and 4 bytes of src+dst addresses
-    auto const diagMsgPayload = ::estd::slice<uint8_t const>(diagnosticMessage).offset(12U);
+    auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
     EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsgPayload));
     // Expect diagnostic nack
@@ -683,13 +686,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWhenConnec
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage, 8U),
+        ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 8U, 4U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 12U, 3U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
     EXPECT_CALL(
@@ -728,13 +731,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWithFailed
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage, 8U),
+        ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 8U, 4U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 12U, 3U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
     EXPECT_CALL(
@@ -772,13 +775,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWithoutNot
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage, 8U),
+        ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 8U, 4U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 12U, 3U),
+        ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
     sendJob->release(true);
@@ -871,7 +874,7 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestNoMessageReceivedIfProtocolSen
     // check for diagnostic message header
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x12, 0x34, 0x07, 0x7e, 0x11, 0x22, 0x33};
-    ::estd::slice<uint8_t> payloadBuffer;
+    ::etl::span<uint8_t> payloadBuffer;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(SaveArg<0>(&payloadBuffer), SaveArg<1>(&payloadCallback), Return(true)));
@@ -887,16 +890,16 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestNoMessageReceivedIfProtocolSen
             SetArgReferee<5>(&message),
             Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(
                 ITransportMessageProvider::ErrorCode::TPMSG_OK))));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(8U).subslice(4U));
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(8U, 4U));
     EXPECT_EQ(3U, payloadBuffer.size());
     // Since the ACK pool has capacity 1, expect sendMessage to return false
     EXPECT_CALL(fServerConnectionMock, sendMessage(_)).WillOnce(Return(false));
     EXPECT_CALL(fMessageProvidingListenerMock, releaseTransportMessage(Ref(message)));
     EXPECT_CALL(fServerConnectionMock, endReceiveMessage(_));
-    payloadCallback(::estd::make_slice(diagnosticMessage).offset(12U).subslice(3U));
-    auto const tpmBuffer      = ::estd::slice<uint8_t const>::from_pointer(message.getBuffer(), 3U);
+    payloadCallback(::etl::span<uint8_t const>(diagnosticMessage).subspan(12U, 3U));
+    auto const tpmBuffer      = ::etl::span<uint8_t const>(message.getBuffer(), 3U);
     // payload of diag message starts after 8 bytes of header and 4 bytes of src+dst addresses
-    auto const diagMsgPayload = ::estd::slice<uint8_t const>(diagnosticMessage).offset(12U);
+    auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
     EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsgPayload));
     // Release the send job and close the connection
@@ -929,7 +932,7 @@ void DoIpServerTransportMessageHandlerTest::checkGetTransportMessageNack(
            0x45,
            0x56,
            0x67};
-    ::estd::slice<uint8_t> payloadBufferLogicalAddress;
+    ::etl::span<uint8_t> payloadBufferLogicalAddress;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallbackLogicalAddress;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(
@@ -947,16 +950,16 @@ void DoIpServerTransportMessageHandlerTest::checkGetTransportMessageNack(
             .WillOnce(
                 Return(DoIpTransportMessageProvidingListenerHelper::createGetResult(errorCode)));
     }
-    ::estd::slice<uint8_t> payloadBufferUserData;
+    ::etl::span<uint8_t> payloadBufferUserData;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallbackUserData;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(
             SaveArg<0>(&payloadBufferUserData),
             SaveArg<1>(&payloadCallbackUserData),
             Return(true)));
-    auto diagMsg = ::estd::slice<uint8_t const>(diagnosticMessage);
+    auto diagMsg = ::etl::span<uint8_t const>(diagnosticMessage);
     diagMsg.advance(8U); // skip header
-    payloadCallbackLogicalAddress(diagMsg.subslice(4U));
+    payloadCallbackLogicalAddress(diagMsg.subspan(0U, 4U));
     EXPECT_TRUE(payloadCallbackUserData);
     // read the 5-byte data prefix for peek or nack
     EXPECT_EQ(5U, payloadBufferUserData.size());
@@ -1012,7 +1015,7 @@ void DoIpServerTransportMessageHandlerTest::forceDiagnosticNack(
            0x23,
            0x34,
            0x45};
-    ::estd::slice<uint8_t> payloadBufferLogicalAddress;
+    ::etl::span<uint8_t> payloadBufferLogicalAddress;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallbackLogicalAddress;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(
@@ -1023,15 +1026,14 @@ void DoIpServerTransportMessageHandlerTest::forceDiagnosticNack(
     EXPECT_TRUE(payloadCallbackLogicalAddress);
     EXPECT_EQ(4U, payloadBufferLogicalAddress.size());
 
-    ::estd::slice<uint8_t> payloadBufferUserData;
+    ::etl::span<uint8_t> payloadBufferUserData;
     IDoIpConnection::PayloadReceivedCallbackType payloadCallbackUserData;
     EXPECT_CALL(fServerConnectionMock, receivePayload(_, _))
         .WillOnce(DoAll(
             SaveArg<0>(&payloadBufferUserData),
             SaveArg<1>(&payloadCallbackUserData),
             Return(true)));
-    payloadCallbackLogicalAddress(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 8U, 4U));
+    payloadCallbackLogicalAddress(::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U));
     EXPECT_TRUE(payloadCallbackUserData);
     EXPECT_EQ(5U, payloadBufferUserData.size());
 
@@ -1041,6 +1043,5 @@ void DoIpServerTransportMessageHandlerTest::forceDiagnosticNack(
         EXPECT_CALL(fServerConnectionMock, sendMessage(_))
             .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(sendMessageResult)));
     }
-    payloadCallbackUserData(
-        ::estd::slice<uint8_t const>::from_pointer(diagnosticMessage + 12U, 5U));
+    payloadCallbackUserData(::etl::span<uint8_t const>(diagnosticMessage + 12U, 5U));
 }

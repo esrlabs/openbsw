@@ -11,8 +11,8 @@
 #include <async/Types.h>
 #include <ip/NetworkInterfaceConfig.h>
 
+#include <etl/span.h>
 #include <estd/object_pool.h>
-#include <estd/slice.h>
 
 namespace doip
 {
@@ -108,7 +108,7 @@ public:
      * Get write buffer.
      * \return reference to write buffer
      */
-    ::estd::slice<uint8_t> getWriteBuffer();
+    ::etl::span<uint8_t> getWriteBuffer();
 
 private:
     IDoIpServerVehicleIdentificationCallback& _vehicleIdentificationCallback;
@@ -195,9 +195,9 @@ DoIpServerVehicleIdentificationConfig::getRequestPool() const
     return _requestPool;
 }
 
-inline ::estd::slice<uint8_t> DoIpServerVehicleIdentificationConfig::getWriteBuffer()
+inline ::etl::span<uint8_t> DoIpServerVehicleIdentificationConfig::getWriteBuffer()
 {
-    return ::estd::slice<uint8_t>(_writeBuffer);
+    return ::etl::span<uint8_t>(_writeBuffer);
 }
 
 } // namespace doip

@@ -15,6 +15,7 @@
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <ip/NetworkInterfaceConfig.h>
 
+#include <etl/span.h>
 #include <estd/bitset.h>
 #include <estd/object_pool.h>
 #include <estd/optional.h>
@@ -67,17 +68,17 @@ public:
     /**
      * Update unicast addresses to announce to.
      * \param configKey reference to network interface these addresses are valid for
-     * \param unicastAddresses slice of addresses to announce
+     * \param unicastAddresses span of addresses to announce
      */
     void updateUnicastAddresses(
         ::ip::NetworkInterfaceConfigKey const& configKey,
-        ::estd::slice<ip::IPAddress const> unicastAddresses);
+        ::etl::span<ip::IPAddress const> unicastAddresses);
 
     /**
      * Get the unicast addresses stored with the socket.
-     * \return slice of unicast addresses
+     * \return span of unicast addresses
      */
-    ::estd::slice<ip::IPAddress const> getUnicastAddresses() const;
+    ::etl::span<ip::IPAddress const> getUnicastAddresses() const;
 
     /**
      * Schedule a single announcement.
@@ -126,10 +127,10 @@ private:
     bool handleDiagnosticPowerModeInformationRequest(DoIpHeader const& header);
     bool handleVehicleAnnouncementMessage(DoIpHeader const& header);
     bool handleOemRequest(DoIpHeader const& header);
-    void vehicleIdentificationEidRequestReceived(::estd::slice<uint8_t const> payload);
-    void vehicleIdentificationVinRequestReceived(::estd::slice<uint8_t const> payload);
-    void vehicleAnnouncementPayloadReceived(::estd::slice<uint8_t const> payload);
-    void oemMessagePayloadReceived(::estd::slice<uint8_t const> payload);
+    void vehicleIdentificationEidRequestReceived(::etl::span<uint8_t const> payload);
+    void vehicleIdentificationVinRequestReceived(::etl::span<uint8_t const> payload);
+    void vehicleAnnouncementPayloadReceived(::etl::span<uint8_t const> payload);
+    void oemMessagePayloadReceived(::etl::span<uint8_t const> payload);
 
     void enqueueResponse(DoIpServerVehicleIdentificationRequest::Type const& type);
     void enqueueNack(uint8_t nackCode);

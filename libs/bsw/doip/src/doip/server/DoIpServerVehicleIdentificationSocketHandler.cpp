@@ -56,7 +56,7 @@ DoIpServerVehicleIdentificationSocketHandler::DoIpServerVehicleIdentificationSoc
 
 void DoIpServerVehicleIdentificationSocketHandler::updateUnicastAddresses(
     ::ip::NetworkInterfaceConfigKey const& configKey,
-    ::estd::slice<ip::IPAddress const> const unicastAddresses)
+    ::etl::span<ip::IPAddress const> const unicastAddresses)
 {
     if (configKey == _networkInterfaceConfigKey)
     {
@@ -68,7 +68,7 @@ void DoIpServerVehicleIdentificationSocketHandler::updateUnicastAddresses(
                 return;
             }
             (void)_newUnicastAddresses.reset();
-            ::estd::slice<::ip::IPAddress const> const prevAddresses = getUnicastAddresses();
+            ::etl::span<::ip::IPAddress const> const prevAddresses = getUnicastAddresses();
             for (size_t idx = 0U; idx < unicastAddresses.size(); ++idx)
             {
                 (void)_newUnicastAddresses.set(
@@ -85,7 +85,7 @@ void DoIpServerVehicleIdentificationSocketHandler::updateUnicastAddresses(
     }
 }
 
-::estd::slice<ip::IPAddress const>
+::etl::span<ip::IPAddress const>
 DoIpServerVehicleIdentificationSocketHandler::getUnicastAddresses() const
 {
     return {_unicastAddresses};
@@ -264,7 +264,7 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRe
     if (header.payloadLength == 6U)
     {
         return _connection.receivePayload(
-            ::estd::slice<uint8_t>(_readBuffer).trim(6U),
+            ::etl::span<uint8_t>(_readBuffer).subspan(0U, 6U),
             IDoIpConnection::PayloadReceivedCallbackType::create<
                 DoIpServerVehicleIdentificationSocketHandler,
                 &DoIpServerVehicleIdentificationSocketHandler::
@@ -280,7 +280,7 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRe
     if (header.payloadLength == 17U)
     {
         return _connection.receivePayload(
-            ::estd::make_slice(_readBuffer).trim(17U),
+            ::etl::span<uint8_t>(_readBuffer).subspan(0U, 17U),
             IDoIpConnection::PayloadReceivedCallbackType::create<
                 DoIpServerVehicleIdentificationSocketHandler,
                 &DoIpServerVehicleIdentificationSocketHandler::
@@ -325,7 +325,7 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleAnnouncementMess
     if ((header.payloadLength >= 32U) && (header.payloadLength <= 33U))
     {
         return _connection.receivePayload(
-            ::estd::make_slice(_readBuffer).trim(19U),
+            ::etl::span<uint8_t>(_readBuffer).subspan(0U, 19U),
             IDoIpConnection::PayloadReceivedCallbackType::create<
                 DoIpServerVehicleIdentificationSocketHandler,
                 &DoIpServerVehicleIdentificationSocketHandler::vehicleAnnouncementPayloadReceived>(
@@ -361,7 +361,7 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleOemRequest(DoIpHeader c
             _currentOemMessageHandler = oemMessageHandler;
             // receive payload
             return _connection.receivePayload(
-                ::estd::slice<uint8_t>(_readBuffer).trim(header.payloadLength),
+                ::etl::span<uint8_t>(_readBuffer).subspan(0U, header.payloadLength),
                 IDoIpConnection::PayloadReceivedCallbackType::create<
                     DoIpServerVehicleIdentificationSocketHandler,
                     &DoIpServerVehicleIdentificationSocketHandler::oemMessagePayloadReceived>(
@@ -417,7 +417,7 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleRequest(DoIpHeader cons
 }
 
 void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationEidRequestReceived(
-    ::estd::slice<uint8_t const> const payload)
+    ::etl::span<uint8_t const> const payload)
 {
     uint8_t eid[6];
     _config.getVehicleIdentificationCallback().getEid(eid);
@@ -429,11 +429,11 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationEidReque
 }
 
 void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationVinRequestReceived(
-    ::estd::slice<uint8_t const> const payload)
+    ::etl::span<uint8_t const> const payload)
 {
     uint8_t vin[17];
     _config.getVehicleIdentificationCallback().getVin(
-        ::estd::make_static_slice(vin).reinterpret_as<char>());
+        ::etl::span<uint8_t, 17>(vin).reinterpret_as<char>());
     if (::estd::memory::is_equal(payload, vin))
     {
         enqueueResponse(DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION);
@@ -442,7 +442,7 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationVinReque
 }
 
 void DoIpServerVehicleIdentificationSocketHandler::vehicleAnnouncementPayloadReceived(
-    ::estd::slice<uint8_t const> const payload)
+    ::etl::span<uint8_t const> const payload)
 {
     if (_vehicleAnnouncementListener != nullptr)
     {
@@ -454,7 +454,7 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleAnnouncementPayloadRec
 }
 
 void DoIpServerVehicleIdentificationSocketHandler::oemMessagePayloadReceived(
-    ::estd::slice<uint8_t const> const payload)
+    ::etl::span<uint8_t const> const payload)
 {
     if (_currentOemMessageHandler != nullptr)
     {
@@ -569,19 +569,20 @@ DoIpServerVehicleIdentificationSocketHandler::StaticPayloadSendJobType&
 DoIpServerVehicleIdentificationSocketHandler::createResponseIdentification()
 {
     auto& sendJob = allocateSendJob(DoIpConstants::PayloadTypes::VEHICLE_ANNOUNCEMENT_MESSAGE, 32U);
-    ::estd::slice<uint8_t> payloadBuffer = sendJob.accessPayloadBuffer();
-    uint8_t vin[17];
+    ::etl::span<uint8_t> payloadBuffer = sendJob.accessPayloadBuffer();
+
     _config.getVehicleIdentificationCallback().getVin(
-        ::estd::make_static_slice(vin).reinterpret_as<char>());
-    (void)::estd::memory::copy(payloadBuffer.subslice(17U), ::estd::make_slice(vin));
-    payloadBuffer.advance(17U);
-    ::estd::memory::take<::estd::be_uint16_t>(payloadBuffer) = _config.getLogicalEntityAddress();
+        IDoIpServerVehicleIdentificationCallback::VinType(
+            payloadBuffer.take<char>(IDoIpServerVehicleIdentificationCallback::VinType::extent)));
+    payloadBuffer.take<::estd::be_uint16_t>() = _config.getLogicalEntityAddress();
     _config.getVehicleIdentificationCallback().getEid(
-        IDoIpServerVehicleIdentificationCallback::EidType::from_pointer(payloadBuffer.data()));
-    payloadBuffer.advance(6U);
+        IDoIpServerVehicleIdentificationCallback::EidType(payloadBuffer.take<uint8_t>(
+            IDoIpServerVehicleIdentificationCallback::EidType::extent)));
     _config.getVehicleIdentificationCallback().getGid(
-        IDoIpServerVehicleIdentificationCallback::GidType::from_pointer(payloadBuffer.data()));
-    payloadBuffer[6] = 0x00U;
+        IDoIpServerVehicleIdentificationCallback::GidType(payloadBuffer.take<uint8_t>(
+            IDoIpServerVehicleIdentificationCallback::GidType::extent)));
+    payloadBuffer[0] = 0x00U;
+
     return sendJob;
 }
 
@@ -592,10 +593,10 @@ DoIpServerVehicleIdentificationSocketHandler::createResponseEntityStatus()
     IDoIpServerEntityStatusCallback::EntityStatus const entityStatus
         = _config.getEntityStatusCallback().getEntityStatus(_socketGroupId);
 
-    ::estd::slice<uint8_t> const writeBuffer = sendJob.accessPayloadBuffer();
-    writeBuffer[0]                           = entityStatus._nodeType;
-    writeBuffer[1]                           = entityStatus._maxConnectionCount;
-    writeBuffer[2]                           = entityStatus._connectionCount;
+    ::etl::span<uint8_t> const writeBuffer = sendJob.accessPayloadBuffer();
+    writeBuffer[0]                         = entityStatus._nodeType;
+    writeBuffer[1]                         = entityStatus._maxConnectionCount;
+    writeBuffer[2]                         = entityStatus._connectionCount;
     ::estd::write_be<uint32_t>(&writeBuffer[3], entityStatus._maxDataSize);
     return sendJob;
 }

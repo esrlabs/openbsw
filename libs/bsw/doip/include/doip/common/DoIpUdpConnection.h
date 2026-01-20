@@ -50,7 +50,7 @@ public:
     DoIpUdpConnection(
         ::async::ContextType context,
         ::udp::AbstractDatagramSocket& socket,
-        ::estd::slice<uint8_t> writeBuffer);
+        ::etl::span<uint8_t> writeBuffer);
 
     /**
      * Get access to the UDP socket.
@@ -65,8 +65,7 @@ public:
     ::ip::IPEndpoint getRemoteEndpoint() const override;
 
     bool receivePayload(
-        ::estd::slice<uint8_t> payload,
-        PayloadReceivedCallbackType payloadReceivedCallback) override;
+        ::etl::span<uint8_t> payload, PayloadReceivedCallbackType payloadReceivedCallback) override;
     void endReceiveMessage(PayloadDiscardedCallbackType payloadDiscardedCallback) override;
 
     bool sendMessage(IDoIpSendJob& sendJob) override;
@@ -104,8 +103,8 @@ private:
 
     void trySend();
     void tryReceive();
-    ::estd::slice<uint8_t const> prepareSendBuffer(IDoIpSendJob& job);
-    ::estd::slice<uint8_t const> fillWriteBuffer(IDoIpSendJob& job);
+    ::etl::span<uint8_t const> prepareSendBuffer(IDoIpSendJob& job);
+    ::etl::span<uint8_t const> fillWriteBuffer(IDoIpSendJob& job);
     void closeConnection(ConnectionState connectionState);
 
     static void releaseSendJobs(::estd::forward_list<IDoIpSendJob>& sendJobs);
@@ -114,8 +113,8 @@ private:
 
     ::async::TimeoutType _sendTimeout;
     ::udp::AbstractDatagramSocket& _socket;
-    ::estd::slice<uint8_t> _currentReadBuffer;
-    ::estd::slice<uint8_t> _writeBuffer;
+    ::etl::span<uint8_t> _currentReadBuffer;
+    ::etl::span<uint8_t> _writeBuffer;
     IDoIpConnectionHandler* _handler;
     ::ip::IPEndpoint _localEndpoint;
     ::ip::IPEndpoint _remoteEndpoint;

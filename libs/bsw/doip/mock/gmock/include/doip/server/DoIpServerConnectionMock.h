@@ -21,7 +21,7 @@ public:
     MOCK_METHOD1(init, void(IDoIpConnectionHandler&));
     MOCK_CONST_METHOD0(getLocalEndpoint, ::ip::IPEndpoint());
     MOCK_CONST_METHOD0(getRemoteEndpoint, ::ip::IPEndpoint());
-    MOCK_METHOD2(receivePayload, bool(::estd::slice<uint8_t>, PayloadReceivedCallbackType));
+    MOCK_METHOD2(receivePayload, bool(::etl::span<uint8_t>, PayloadReceivedCallbackType));
     MOCK_METHOD1(endReceiveMessage, void(IDoIpConnection::PayloadDiscardedCallbackType));
     MOCK_METHOD1(sendMessage, bool(IDoIpSendJob&));
     MOCK_METHOD0(close, void());

@@ -27,9 +27,9 @@ public:
     : DoIpSimplePayloadSendJob(protocolVersion, payloadType, payloadLength, releaseCallback)
     {}
 
-    MOCK_CONST_METHOD1(getPayloadBuffer, ::estd::slice<uint8_t const>(::estd::slice<uint8_t>));
+    MOCK_CONST_METHOD1(getPayloadBuffer, ::etl::span<uint8_t const>(::etl::span<uint8_t>));
 
-    static ::estd::slice<uint8_t const> returnBuffer(::estd::slice<uint8_t const> buffer)
+    static ::etl::span<uint8_t const> returnBuffer(::etl::span<uint8_t const> buffer)
     {
         return buffer;
     }
@@ -53,25 +53,25 @@ TEST_F(DoIpSimplePayloadSendJobTest, TestAll)
     ASSERT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + 0xf, cut.getTotalLength());
     uint8_t const expectedHeader[] = {0x01, 0xfe, 0x12, 0x34, 0x00, 0x00, 0x00, 0x0f};
     ::estd::array<uint8_t, 8U> staticBuffer;
-    ::estd::slice<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
+    ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::estd::slice<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     // return another buffer
     uint8_t const payloadBuffer[] = {0x11, 0x22, 0x33, 0x44};
     EXPECT_CALL(cut, getPayloadBuffer(_))
-        .WillOnce(Return(::estd::slice<uint8_t const>(payloadBuffer)));
+        .WillOnce(Return(::etl::span<uint8_t const>(payloadBuffer)));
     sendBuffer = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(payloadBuffer, sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::estd::slice<uint8_t const>(payloadBuffer), sendBuffer));
+    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(payloadBuffer), sendBuffer));
     // return static buffer
     EXPECT_CALL(cut, getPayloadBuffer(_))
         .WillOnce(Invoke(DoIpSimplePayloadSendJobMock::returnBuffer));
     sendBuffer = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::estd::slice<uint8_t const>(staticBuffer), sendBuffer));
+    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(staticBuffer), sendBuffer));
     // last buffer
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>(), cut.getSendBuffer(staticBuffer, 2U)));
+        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 2U)));
 
     // release with success
     EXPECT_CALL(*this, released(Ref(cut), true));

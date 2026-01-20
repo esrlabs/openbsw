@@ -178,7 +178,7 @@ void DoIpServerTransportMessageHandler::releaseSendJob(
 }
 
 void DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoReceived(
-    ::estd::slice<uint8_t const> const logicalAddressInfo)
+    ::etl::span<uint8_t const> const logicalAddressInfo)
 {
     _payloadPeekContext.sourceAddress
         = logicalAddressInfo.reinterpret_as<::estd::be_uint16_t const>()[0];
@@ -187,7 +187,8 @@ void DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoRecei
     auto const payloadPrefixSize
         = std::min(static_cast<size_t>(_receiveMessagePayloadLength), PAYLOAD_PREFIX_BUFFER_SIZE);
     (void)_connection->receivePayload(
-        ::estd::make_slice(_payloadPeekContext.payloadPrefixBuffer).subslice(payloadPrefixSize),
+        ::etl::span<uint8_t>(_payloadPeekContext.payloadPrefixBuffer)
+            .subspan(0U, payloadPrefixSize),
         IDoIpConnection::PayloadReceivedCallbackType::create<
             DoIpServerTransportMessageHandler,
             &DoIpServerTransportMessageHandler::diagnosticMessagePayloadPrefixDataReceived>(*this));
@@ -197,15 +198,16 @@ IDoIpTransportMessageProvidingListener::GetResult
 DoIpServerTransportMessageHandler::getTpMessageAndReceiveDiagnosticUserData(
     uint16_t const /* sourceAddress */,
     uint16_t const /* targetAddress */,
-    ::estd::slice<uint8_t const> const payloadPrefix)
+    ::etl::span<uint8_t const> const payloadPrefix)
 {
-    auto const peekSlice = payloadPrefix.subslice(std::min(payloadPrefix.size(), PEEK_MAX_SIZE));
+    auto const peekSpan
+        = payloadPrefix.subspan(0U, std::min(payloadPrefix.size(), size_t(PEEK_MAX_SIZE)));
     auto const getResult = _config.getMessageProvidingListener().getTransportMessage(
         _config.getBusId(),
         _connection->getInternalSourceAddress(),
         _payloadPeekContext.targetAddress,
         _receiveMessagePayloadLength,
-        peekSlice,
+        peekSpan,
         _transportMessage);
     auto const tpErrorCode = getResult.getResult();
     Logger::debug(
@@ -223,16 +225,16 @@ DoIpServerTransportMessageHandler::getTpMessageAndReceiveDiagnosticUserData(
         _transportMessage->setTargetAddress(_payloadPeekContext.targetAddress);
         _transportMessage->setPayloadLength(_receiveMessagePayloadLength);
         (void)::estd::memory::copy(
-            ::estd::slice<uint8_t>::from_pointer(
+            ::etl::span<uint8_t>(
                 _transportMessage->getBuffer(), _transportMessage->getBufferLength()),
             payloadPrefix);
         (void)_transportMessage->increaseValidBytes(payloadPrefix.size());
         if (payloadPrefix.size() < _receiveMessagePayloadLength)
         {
-            auto const remainingPayload = ::estd::slice<uint8_t>::from_pointer(
+            auto const remainingPayload = ::etl::span<uint8_t>(
                                               _transportMessage->getBuffer(),
                                               static_cast<size_t>(_receiveMessagePayloadLength))
-                                              .offset(payloadPrefix.size());
+                                              .subspan(payloadPrefix.size());
             (void)_connection->receivePayload(
                 remainingPayload,
                 IDoIpConnection::PayloadReceivedCallbackType ::create<
@@ -250,7 +252,7 @@ DoIpServerTransportMessageHandler::getTpMessageAndReceiveDiagnosticUserData(
 }
 
 void DoIpServerTransportMessageHandler::diagnosticMessagePayloadPrefixDataReceived(
-    ::estd::slice<uint8_t const> const payloadPrefix)
+    ::etl::span<uint8_t const> const payloadPrefix)
 {
     if ((!_isRoutingActive)
         || (_connection->getSourceAddress() != _payloadPeekContext.sourceAddress))
@@ -275,7 +277,7 @@ void DoIpServerTransportMessageHandler::diagnosticMessagePayloadPrefixDataReceiv
 }
 
 void DoIpServerTransportMessageHandler::diagnosticMessageUserDataPrefixReceivedNack(
-    uint8_t const nackCode, bool const closeAfterSend, ::estd::slice<uint8_t const> const payload)
+    uint8_t const nackCode, bool const closeAfterSend, ::etl::span<uint8_t const> const payload)
 {
     _connection->endReceiveMessage(IDoIpConnection::PayloadDiscardedCallbackType{});
     auto* const job = queueDiagnosticAck(
@@ -298,7 +300,7 @@ void DoIpServerTransportMessageHandler::diagnosticMessageUserDataPrefixReceivedN
 }
 
 void DoIpServerTransportMessageHandler::diagnosticMessageUserDataReceived(
-    ::estd::slice<uint8_t const> const remainingPayload)
+    ::etl::span<uint8_t const> const remainingPayload)
 {
     (void)_transportMessage->increaseValidBytes(remainingPayload.size());
     uint16_t const sourceAddress = _connection->getSourceAddress();
@@ -319,7 +321,7 @@ void DoIpServerTransportMessageHandler::diagnosticMessageUserDataReceived(
         targetAddress,
         0x00U,
         false,
-        ::estd::slice<uint8_t const>::from_pointer(
+        ::etl::span<uint8_t const>(
             _transportMessage->getBuffer(), _transportMessage->validBytes()));
     if (job == nullptr)
     {
@@ -362,17 +364,17 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
     uint16_t const targetAddress,
     uint8_t const responseCode,
     bool const closeAfterSend,
-    estd::slice<uint8_t const> const receivedMessageData)
+    ::etl::span<uint8_t const> const receivedMessageData)
 {
     StaticPayloadSendJobType* job = nullptr;
-    estd::slice<uint8_t const> receivedMessageDataPrefix;
+    ::etl::span<uint8_t const> receivedMessageDataPrefix;
     {
         // RAII mutex
         DoIpLock const lock;
         if (!_protocolSendJobPool.empty())
         {
-            receivedMessageDataPrefix = receivedMessageData.subslice(
-                std::min(receivedMessageData.size(), static_cast<size_t>(ACK_PAYLOAD_SIZE)));
+            receivedMessageDataPrefix = receivedMessageData.subspan(
+                0U, std::min(receivedMessageData.size(), static_cast<size_t>(ACK_PAYLOAD_SIZE)));
             job = &_protocolSendJobPool.allocate<StaticPayloadSendJobType>().construct(
                 static_cast<uint8_t>(_protocolVersion),
                 payloadType,
@@ -387,10 +389,10 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
     }
     if (job != nullptr)
     {
-        ::estd::slice<uint8_t> payloadBuffer                     = job->accessPayloadBuffer();
-        ::estd::memory::take<::estd::be_uint16_t>(payloadBuffer) = targetAddress;
-        ::estd::memory::take<::estd::be_uint16_t>(payloadBuffer) = sourceAddress;
-        ::estd::memory::take<uint8_t>(payloadBuffer)             = responseCode;
+        ::etl::span<uint8_t> payloadBuffer        = job->accessPayloadBuffer();
+        payloadBuffer.take<::estd::be_uint16_t>() = targetAddress;
+        payloadBuffer.take<::estd::be_uint16_t>() = sourceAddress;
+        payloadBuffer.take<uint8_t>()             = responseCode;
         if (receivedMessageDataPrefix.size() > 0)
         {
             (void)::estd::memory::copy(payloadBuffer, receivedMessageDataPrefix);

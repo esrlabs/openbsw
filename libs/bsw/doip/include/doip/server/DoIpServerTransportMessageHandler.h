@@ -15,7 +15,7 @@
 #include <common/busid/BusId.h>
 #include <util/estd/derived_object_pool.h>
 
-#include <estd/slice.h>
+#include <etl/span.h>
 
 namespace doip
 {
@@ -88,15 +88,14 @@ private:
     void releaseSendJob(DoIpTransportMessageSendJob& sendJob, bool success) override;
 
     IDoIpTransportMessageProvidingListener::GetResult getTpMessageAndReceiveDiagnosticUserData(
-        uint16_t sourceAddress, uint16_t targetAddress, ::estd::slice<uint8_t const> payloadPrefix);
-    void
-    diagnosticMessageLogicalAddressInfoReceived(::estd::slice<uint8_t const> logicalAddressInfo);
-    void diagnosticMessagePayloadPrefixDataReceived(::estd::slice<uint8_t const> payloadPrefix);
-    void diagnosticMessageUserDataReceived(::estd::slice<uint8_t const> remainingPayload);
+        uint16_t sourceAddress, uint16_t targetAddress, ::etl::span<uint8_t const> payloadPrefix);
+    void diagnosticMessageLogicalAddressInfoReceived(::etl::span<uint8_t const> logicalAddressInfo);
+    void diagnosticMessagePayloadPrefixDataReceived(::etl::span<uint8_t const> payloadPrefix);
+    void diagnosticMessageUserDataReceived(::etl::span<uint8_t const> remainingPayload);
     void diagnosticMessageUserDataPrefixReceivedNack(
         uint8_t const nackCode,
         bool const closeAfterSend,
-        ::estd::slice<uint8_t const> const payload);
+        ::etl::span<uint8_t const> const payload);
 
     StaticPayloadSendJobType* queueDiagnosticAck(
         uint16_t payloadType,
@@ -104,7 +103,7 @@ private:
         uint16_t targetAddress,
         uint8_t responseCode,
         bool closeAfterSend,
-        estd::slice<uint8_t const> receivedMessageData);
+        ::etl::span<uint8_t const> receivedMessageData);
 
     void releaseSendJobAndClose(IDoIpSendJob& sendJob, bool success);
     void releaseSendJob(IDoIpSendJob& sendJob, bool success);

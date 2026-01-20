@@ -7,8 +7,8 @@
 
 #include <ip/IPEndpoint.h>
 
+#include <etl/span.h>
 #include <estd/forward_list.h>
-#include <estd/slice.h>
 
 namespace doip
 {
@@ -20,7 +20,7 @@ namespace doip
 class IDoIpSendJob : public ::estd::forward_list_node<IDoIpSendJob>
 {
 public:
-    virtual ~IDoIpSendJob(){};
+    virtual ~IDoIpSendJob() = default;
 
     /**
      * Get the number of buffers to send out for this send job (including header data).
@@ -53,8 +53,8 @@ public:
      *        will typically start with the valid 8 header bytes.
      * \return buffer containing the data. Empty buffers are allowed.
      */
-    virtual ::estd::slice<uint8_t const>
-    getSendBuffer(::estd::slice<uint8_t> staticBuffer, uint8_t index) = 0;
+    virtual ::etl::span<uint8_t const>
+    getSendBuffer(::etl::span<uint8_t> staticBuffer, uint8_t index) = 0;
 };
 
 } // namespace doip

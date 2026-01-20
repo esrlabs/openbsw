@@ -35,7 +35,7 @@ public:
         uint16_t payloadLength,
         ReleaseCallbackType releaseCallback);
 
-    ~DoIpSimplePayloadSendJob() override{};
+    ~DoIpSimplePayloadSendJob() override {}
 
     /**
      * Attaches an optional destination endpoint (needed for UDP datagrams) to this send job.
@@ -53,8 +53,8 @@ public:
     uint16_t getTotalLength() const override;
     ::ip::IPEndpoint const* getDestinationEndpoint() const override;
     void release(bool success) override;
-    ::estd::slice<uint8_t const>
-    getSendBuffer(::estd::slice<uint8_t> staticBuffer, uint8_t index) override;
+    ::etl::span<uint8_t const>
+    getSendBuffer(::etl::span<uint8_t> staticBuffer, uint8_t index) override;
 
 protected:
     /**
@@ -63,7 +63,7 @@ protected:
      *        The maximum size depends on the configuration of the connection that sends out
      * \return Buffer holding the payload
      */
-    virtual ::estd::slice<uint8_t const> getPayloadBuffer(::estd::slice<uint8_t> staticBuffer) const
+    virtual ::etl::span<uint8_t const> getPayloadBuffer(::etl::span<uint8_t> staticBuffer) const
         = 0;
 
 private:

@@ -5,7 +5,7 @@
  */
 #pragma once
 
-#include <estd/slice.h>
+#include <etl/span.h>
 
 namespace doip
 {
@@ -22,8 +22,8 @@ public:
      * \param payloadType payload type
      * \param payloadLength payloadLength
      */
-    static ::estd::slice<uint8_t const> prepareHeaderBuffer(
-        ::estd::slice<uint8_t> staticBuffer,
+    static ::etl::span<uint8_t const> prepareHeaderBuffer(
+        ::etl::span<uint8_t> staticBuffer,
         uint8_t protocolVersion,
         uint16_t payloadType,
         uint32_t payloadLength);

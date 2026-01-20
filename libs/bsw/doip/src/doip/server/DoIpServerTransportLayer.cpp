@@ -13,7 +13,6 @@
 namespace doip
 {
 // NOLINTBEGIN(cppcoreguidelines-pro-type-vararg): Logger API uses C-style varargs.
-using ::estd::slice;
 using ::transport::AbstractTransportLayer;
 using ::transport::ITransportMessageProcessedListener;
 using ::transport::TransportMessage;

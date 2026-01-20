@@ -32,12 +32,12 @@ TEST_F(DoIpVehicleIdentificationRequestSendJobTest, TestAll)
     ASSERT_EQ(uint16_t(DoIpConstants::DOIP_HEADER_LENGTH), cut.getTotalLength());
     uint8_t const expectedHeader[] = {0xff, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00};
     ::estd::array<uint8_t, 8U> staticBuffer;
-    ::estd::slice<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
+    ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::estd::slice<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     // return another buffer
     EXPECT_TRUE(::estd::memory::is_equal(
-        ::estd::slice<uint8_t const>(), cut.getSendBuffer(staticBuffer, 1U)));
+        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 1U)));
     // release
     EXPECT_CALL(*this, released(Ref(cut), true));
     cut.release(true);

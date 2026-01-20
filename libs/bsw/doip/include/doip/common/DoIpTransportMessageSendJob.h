@@ -86,8 +86,8 @@ public:
     uint16_t getTotalLength() const override;
     ::ip::IPEndpoint const* getDestinationEndpoint() const override;
     void release(bool success) override;
-    ::estd::slice<uint8_t const>
-    getSendBuffer(::estd::slice<uint8_t> staticBuffer, uint8_t bufferIndex) override;
+    ::etl::span<uint8_t const>
+    getSendBuffer(::etl::span<uint8_t> staticBuffer, uint8_t bufferIndex) override;
 
 private:
     enum class BufferIndex : uint8_t

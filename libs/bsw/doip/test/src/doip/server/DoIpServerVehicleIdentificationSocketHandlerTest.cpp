@@ -44,12 +44,10 @@ MATCHER_P2(IsDatagram, endpoint, buffer, "")
     ::udp::DatagramPacket const& argDatagram = arg;
     return (argDatagram.getEndpoint() == endpoint)
            && (::estd::memory::is_equal(
-               ::estd::slice<uint8_t const>::from_pointer(
-                   argDatagram.getData(), argDatagram.getLength()),
-               buffer));
+               ::etl::span<uint8_t const>(argDatagram.getData(), argDatagram.getLength()), buffer));
 }
 
-ACTION_P(CopySlice, src) { ::estd::memory::copy(arg0.template reinterpret_as<uint8_t>(), src); }
+ACTION_P(CopySpan, src) { ::estd::memory::copy(arg0.template reinterpret_as<uint8_t>(), src); }
 
 struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
 {
@@ -85,11 +83,11 @@ struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
     void expectVehicleIdentificationResponse(
         ::ip::IPEndpoint const& destinationEndpoint, Sequence* seq = nullptr);
     void expectDiagnosticPowerModeResponse(
-        ::ip::IPEndpoint const& destinationEndpoint, ::estd::slice<uint8_t const> const& response);
+        ::ip::IPEndpoint const& destinationEndpoint, ::etl::span<uint8_t const> const& response);
     void expectEntityStatusResponse(
         ::ip::IPEndpoint const& destinationEndpoint,
         uint8_t socketGroupId,
-        ::estd::slice<uint8_t const> const& response);
+        ::etl::span<uint8_t const> const& response);
     void tick(uint32_t epochTime);
     void receiveRequest(
         ::ip::NetworkInterfaceConfig& config,
@@ -102,10 +100,10 @@ struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
         ::ip::IPEndpoint& remoteEndpoint,
         ::etl::span<uint8_t const> const& request);
 
-    ::estd::slice<uint8_t> allocateBuffer(uint32_t size)
+    ::etl::span<uint8_t> allocateBuffer(uint32_t size)
     {
-        ::estd::slice<uint8_t> buffer = fFreeBuffer.subslice(size);
-        fFreeBuffer                   = fFreeBuffer.offset(size);
+        ::etl::span<uint8_t> buffer = fFreeBuffer.subspan(0U, size);
+        fFreeBuffer                 = fFreeBuffer.subspan(size);
         return buffer;
     }
 
@@ -123,7 +121,7 @@ struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
     DoIpServerVehicleIdentificationConfig fConfig;
     ::estd::declare::object_pool<DoIpServerVehicleIdentificationRequest, 9U> fRequestPool;
     uint8_t fBuffer[2000];
-    ::estd::slice<uint8_t> fFreeBuffer;
+    ::etl::span<uint8_t> fFreeBuffer;
 };
 
 TEST_F(
@@ -194,11 +192,11 @@ TEST_F(
 TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, JoinMulticastGroupIfIPv6Configured)
 {
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getVin(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(vin)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(vin)));
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getEid(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(eid)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(eid)));
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getGid(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(gid)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(gid)));
 
     uint32_t const multicast[] = {0x123U, 0x34234U, 0x84984U, 0x3482348U};
     uint32_t const local[]     = {0x983423U, 0x34234U, 0x84984U, 0x43894829U};
@@ -660,8 +658,7 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, VehicleAnnouncementMess
         EXPECT_CALL(*fSocketMock, getLocalPort())
             .WillOnce(Return(DoIpConstants::Ports::UDP_DISCOVERY));
         EXPECT_CALL(*fSocketMock, read(NotNull(), 8U))
-            .WillOnce(
-                Invoke(ReadBytesFrom(::etl::span<uint8_t const>(validRequest).subspan(0U, 8U))));
+            .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(validRequest).first(8U))));
         EXPECT_CALL(*fSocketMock, read(NotNull(), 19U))
             .WillOnce(
                 Invoke(ReadBytesFrom(::etl::span<uint8_t const>(validRequest).subspan(8U, 19U))));
@@ -1123,7 +1120,7 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::expectNackResponse(
     ::ip::IPEndpoint const& destinationEndpoint, uint8_t nackCode, Sequence* seq)
 {
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, nackCode};
-    ::estd::slice<uint8_t> responseBuffer = allocateBuffer(sizeof(response));
+    ::etl::span<uint8_t> responseBuffer = allocateBuffer(sizeof(response));
     ::estd::memory::copy(responseBuffer, response);
 
     Sequence defaultSeq;
@@ -1148,11 +1145,11 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::expectVehicleIdentificati
     ::ip::IPEndpoint const& destinationEndpoint, Sequence* seq)
 {
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getVin(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(vin)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(vin)));
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getEid(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(eid)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(eid)));
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getGid(_))
-        .WillRepeatedly(CopySlice(::estd::make_slice(gid)));
+        .WillRepeatedly(CopySpan(::etl::span<uint8_t>(gid)));
     uint8_t const response[]
         = {0x02,
            0xFD,
@@ -1199,9 +1196,8 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::expectVehicleIdentificati
            0x44,
            // further action
            0x00};
-    ::estd::slice<uint8_t> responseBuffer = allocateBuffer(sizeof(response));
-    ::estd::memory::copy(responseBuffer, response);
-
+    ::etl::span<uint8_t> responseBuffer = allocateBuffer(sizeof(response));
+    ::etl::mem_copy(response, sizeof(response), responseBuffer.begin());
     Sequence defaultSeq;
     EXPECT_CALL(
         *fSocketMock,
@@ -1248,21 +1244,21 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, SendAnnouncement)
 }
 
 void DoIpServerVehicleIdentificationSocketHandlerTest::expectDiagnosticPowerModeResponse(
-    ::ip::IPEndpoint const& destinationEndpoint, ::estd::slice<uint8_t const> const& response)
+    ::ip::IPEndpoint const& destinationEndpoint, ::etl::span<uint8_t const> const& response)
 {
     EXPECT_CALL(fVehicleIdentificationCallbackMock, getPowerMode())
         .WillOnce(Return(DoIpConstants::DiagnosticPowerMode::READY));
     EXPECT_CALL(
         *fSocketMock,
         send(Matcher<::udp::DatagramPacket const&>(
-            IsDatagram(destinationEndpoint, ::estd::slice<uint8_t const>(response)))))
+            IsDatagram(destinationEndpoint, ::etl::span<uint8_t const>(response)))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
 }
 
 void DoIpServerVehicleIdentificationSocketHandlerTest::expectEntityStatusResponse(
     ::ip::IPEndpoint const& destinationEndpoint,
     uint8_t socketGroupId,
-    ::estd::slice<uint8_t const> const& response)
+    ::etl::span<uint8_t const> const& response)
 {
     EXPECT_CALL(fEntityStatusCallbackMock, getEntityStatus(socketGroupId))
         .WillOnce(
@@ -1270,7 +1266,7 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::expectEntityStatusRespons
     EXPECT_CALL(
         *fSocketMock,
         send(Matcher<::udp::DatagramPacket const&>(
-            IsDatagram(destinationEndpoint, ::estd::slice<uint8_t const>(response)))))
+            IsDatagram(destinationEndpoint, ::etl::span<uint8_t const>(response)))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
 }
 
@@ -1302,7 +1298,7 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::receiveRequest(
     // payload
     if (request.size() > 8)
     {
-        EXPECT_CALL(*fSocketMock, read(NotNull(), request.size() - 8))
+        EXPECT_CALL(*fSocketMock, read(NotNull(), request.size() - 8U))
             .InSequence(*seq)
             .WillOnce(Invoke(ReadBytesFrom(request.subspan(8))));
     }
@@ -1402,7 +1398,7 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, TestOemRequests)
     uint8_t responsePayload[] = {0x01, 0x02, 0x03};
     EXPECT_CALL(oemMessageHandlerMock, createResponse(_))
         .WillOnce(Invoke(
-            [responsePayload](::estd::slice<uint8_t> response)
+            [responsePayload](::etl::span<uint8_t> response)
             {
                 for (size_t i = 0; i < 3; ++i)
                 {
@@ -1413,7 +1409,7 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, TestOemRequests)
     EXPECT_CALL(
         *fSocketMock,
         send(Matcher<::udp::DatagramPacket const&>(
-            IsDatagram(remoteEndpoint, ::estd::slice<uint8_t const>(response)))))
+            IsDatagram(remoteEndpoint, ::etl::span<uint8_t const>(response)))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
     tick(timestamp);
     Mock::VerifyAndClearExpectations(&fVehicleIdentificationCallbackMock);
@@ -1478,7 +1474,7 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, TestOemRequests)
         .WillOnce(Return(true));
     EXPECT_CALL(oemMessageHandlerMock, createResponse(_))
         .WillOnce(Invoke(
-            [responsePayload](::estd::slice<uint8_t> response)
+            [responsePayload](::etl::span<uint8_t> response)
             {
                 for (size_t i = 0; i < 3; ++i)
                 {
@@ -1493,7 +1489,7 @@ TEST_F(DoIpServerVehicleIdentificationSocketHandlerTest, TestOemRequests)
     EXPECT_CALL(
         *fSocketMock,
         send(Matcher<::udp::DatagramPacket const&>(
-            IsDatagram(remoteEndpoint, ::estd::slice<uint8_t const>(response)))))
+            IsDatagram(remoteEndpoint, ::etl::span<uint8_t const>(response)))))
         .WillOnce(Return(::udp::AbstractDatagramSocket::ErrorCode::UDP_SOCKET_OK));
     tick(timestamp);
     Mock::VerifyAndClearExpectations(&fVehicleIdentificationCallbackMock);

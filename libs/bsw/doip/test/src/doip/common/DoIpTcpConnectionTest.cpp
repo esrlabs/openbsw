@@ -9,13 +9,14 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <tcp/socket/AbstractSocketMock.h>
-#include <util/estd/gtest_extensions.h>
 
+#include <etl/span.h>
 #include <estd/array.h>
 #include <estd/memory.h>
-#include <estd/slice.h>
 
 #include <gmock/gmock.h>
+
+#define BytesAreSpan(S) ElementsAreArray((S).data(), (S).size())
 
 namespace doip
 {
@@ -23,13 +24,16 @@ namespace test
 {
 using namespace ::testing;
 using namespace ::tcp::test;
-using namespace ::estd::test;
 
 MATCHER_P(IsDoIpHeader, headerBytes, "")
 {
     return ::estd::memory::is_equal(
-        ::estd::memory::as_bytes(&arg),
-        ::estd::slice<uint8_t const>::from_pointer(headerBytes, 8U));
+        ::estd::memory::as_bytes(&arg), ::etl::span<uint8_t const>(headerBytes, 8U));
+}
+
+MATCHER_P2(Span, dataMatcher, sizeMatcher, "")
+{
+    return Matches(dataMatcher)(arg.data()) && Matches(sizeMatcher)(arg.size());
 }
 
 struct DoIpTcpConnectionTest : Test
@@ -50,7 +54,7 @@ struct DoIpTcpConnectionTest : Test
 
     virtual void TearDown() override {}
 
-    MOCK_METHOD1(payloadReceivedCallback, void(::estd::slice<uint8_t const>));
+    MOCK_METHOD1(payloadReceivedCallback, void(::etl::span<uint8_t const>));
     MOCK_METHOD0(detachCallback, void());
 
     ::testing::StrictMock<::async::AsyncMock> asyncMock;
@@ -106,7 +110,7 @@ TEST_F(DoIpTcpConnectionTest, ReceivePayload)
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
     EXPECT_TRUE(fSocketMock.getDataListener() != nullptr);
-    EXPECT_FALSE(cut.receivePayload(::estd::slice<uint8_t>(), fPayloadReceivedCallback));
+    EXPECT_FALSE(cut.receivePayload(::etl::span<uint8_t>(), fPayloadReceivedCallback));
     // header describes payload of length 31
     uint8_t const header[] = {0x02, 0xfd, 0x00, 0x01, 0x00, 0x00, 0x00, 0x1f};
     EXPECT_CALL(fConnectionHandlerMock, headerReceived(IsDoIpHeader(header)))
@@ -188,7 +192,7 @@ TEST_F(DoIpTcpConnectionTest, EndReceiveMessage)
         .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(data2).subspan(11, 1))));
     EXPECT_CALL(
         *this,
-        payloadReceivedCallback(BytesAreSlice(::etl::span<uint8_t const>(data2).subspan(8, 4))));
+        payloadReceivedCallback(BytesAreSpan(::etl::span<uint8_t const>(data2).subspan(8U, 4U))));
 
     fSocketMock.getDataListener()->dataReceived(5U);
     // end receive message
@@ -211,8 +215,8 @@ TEST_F(DoIpTcpConnectionTest, SendMessage)
     cut.sendMessage(sendJobMock);
     uint8_t output[] = {0x02, 0xfd, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0xa1, 0xb2};
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
@@ -239,8 +243,8 @@ TEST_F(DoIpTcpConnectionTest, SuspendResume)
     cut.resumeSending();
     uint8_t output[] = {0x02, 0xfd, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0xa1, 0xb2};
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
@@ -264,15 +268,15 @@ TEST_F(DoIpTcpConnectionTest, SendConsecutiveMessagesWithoutFlushing)
     EXPECT_CALL(sendJobMock1, getSendBufferCount()).WillRepeatedly(Return(1U));
     EXPECT_CALL(sendJobMock1, getTotalLength()).WillRepeatedly(Return(10U));
     EXPECT_CALL(sendJobMock1, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
     EXPECT_CALL(sendJobMock2, getSendBufferCount()).WillRepeatedly(Return(1U));
     EXPECT_CALL(sendJobMock2, getTotalLength()).WillRepeatedly(Return(10U));
     EXPECT_CALL(sendJobMock2, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
@@ -295,8 +299,8 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterDataHasBe
     EXPECT_CALL(sendJobMock1, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock1, getTotalLength()).WillRepeatedly(Return(18U));
     EXPECT_CALL(sendJobMock1, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(writeBuffer).subslice(8)));
-    EXPECT_CALL(fSocketMock, send(Slice(&writeBuffer[0], 8U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(writeBuffer).subspan(0U, 8U)));
+    EXPECT_CALL(fSocketMock, send(Span(&writeBuffer[0], 8U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_NO_MORE_BUFFER));
     EXPECT_CALL(fSocketMock, flush())
@@ -317,8 +321,8 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterDataHasBe
     fSocketMock.getSendNotificationListener()->dataSent(
         8U, ::tcp::IDataSendNotificationListener::SendResult::DATA_QUEUED);
     EXPECT_CALL(sendJobMock1, getSendBuffer(_, 1U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(writeBuffer).subslice(2)));
-    EXPECT_CALL(fSocketMock, send(Slice(&writeBuffer[0U], 2U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(writeBuffer).subspan(0U, 2U)));
+    EXPECT_CALL(fSocketMock, send(Span(&writeBuffer[0U], 2U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
@@ -339,8 +343,8 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterAllDataHa
     cut.sendMessage(sendJobMock1);
     Sequence seq;
     EXPECT_CALL(sendJobMock1, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(writeBuffer).subslice(8)));
-    EXPECT_CALL(fSocketMock, send(Slice(&writeBuffer[0], 8U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(writeBuffer).subspan(0U, 8U)));
+    EXPECT_CALL(fSocketMock, send(Span(&writeBuffer[0], 8U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_NO_MORE_BUFFER));
     EXPECT_CALL(fSocketMock, flush())
@@ -363,8 +367,8 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterAllDataHa
     fSocketMock.getSendNotificationListener()->dataSent(
         1U, ::tcp::IDataSendNotificationListener::SendResult::DATA_QUEUED);
     EXPECT_CALL(sendJobMock1, getSendBuffer(_, 1U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(writeBuffer).subslice(2)));
-    EXPECT_CALL(fSocketMock, send(Slice(&writeBuffer[0U], 2U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(writeBuffer).subspan(0U, 2U)));
+    EXPECT_CALL(fSocketMock, send(Span(&writeBuffer[0U], 2U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
@@ -386,8 +390,8 @@ TEST_F(DoIpTcpConnectionTest, RepeatSendingOfUnsentMessageBlockAfterDataHasBeenQ
     Sequence seq;
     uint8_t output[] = {0x02, 0xfd, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0xa1, 0xb2};
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_FLUSH));
     EXPECT_CALL(fSocketMock, flush())
@@ -401,8 +405,8 @@ TEST_F(DoIpTcpConnectionTest, RepeatSendingOfUnsentMessageBlockAfterDataHasBeenQ
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(1U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(10U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>(output)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 10U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 10U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
@@ -466,11 +470,7 @@ TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageReception)
     EXPECT_CALL(fSocketMock, read(_, _))
         .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(input).subspan(8, 9U))));
     uint8_t readInput[9];
-    EXPECT_CALL(
-        *this,
-        payloadReceivedCallback(
-            BytesAreSlice(::estd::slice<uint8_t const>::from_pointer(input + 8, 9U))));
-    EXPECT_TRUE(cut.receivePayload(::estd::slice<uint8_t>(readInput), fPayloadReceivedCallback));
+    EXPECT_TRUE(cut.receivePayload(::etl::span<uint8_t>(readInput), fPayloadReceivedCallback));
     cut.endReceiveMessage(IDoIpConnection::PayloadDiscardedCallbackType{});
     EXPECT_CALL(fConnectionHandlerMock, connectionClosed(false)).Times(1);
     EXPECT_CALL(fSocketMock, close())
@@ -511,18 +511,18 @@ TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageTransmission)
     Sequence seq;
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 8U)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 8U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 8U)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 8U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     // empty buffer!
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>()));
+        .WillOnce(Return(::etl::span<uint8_t const>()));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 2U))
         .InSequence(seq)
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output + 8U, 9U)));
-    EXPECT_CALL(fSocketMock, send(Slice(output + 8U, 9U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output + 8U, 9U)));
+    EXPECT_CALL(fSocketMock, send(Span(output + 8U, 9U)))
         .InSequence(seq)
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
@@ -554,12 +554,12 @@ TEST_F(DoIpTcpConnectionTest, CloseConnectionDuringSend)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(15U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 8U)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 8U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 8U)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 8U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
-        .WillRepeatedly(Return(::estd::slice<uint8_t const>(writeBuffer).subslice(7U)));
-    EXPECT_CALL(fSocketMock, send(Slice(&writeBuffer[0], 7U)))
+        .WillRepeatedly(Return(::etl::span<uint8_t const>(writeBuffer).subspan(0U, 7U)));
+    EXPECT_CALL(fSocketMock, send(Span(&writeBuffer[0], 7U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_FLUSH));
     EXPECT_CALL(fSocketMock, flush())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
@@ -615,12 +615,12 @@ TEST_F(DoIpTcpConnectionTest, DetachConnectionDuringSend)
     EXPECT_CALL(sendJobMock, getSendBufferCount()).WillRepeatedly(Return(2U));
     EXPECT_CALL(sendJobMock, getTotalLength()).WillRepeatedly(Return(15U));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 0U))
-        .WillOnce(Return(::estd::slice<uint8_t const>::from_pointer(output, 8U)));
-    EXPECT_CALL(fSocketMock, send(Slice(output, 8U)))
+        .WillOnce(Return(::etl::span<uint8_t const>(output, 8U)));
+    EXPECT_CALL(fSocketMock, send(Span(output, 8U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(sendJobMock, getSendBuffer(_, 1U))
-        .WillRepeatedly(Return(::estd::slice<uint8_t const>::from_pointer(output + 8U, 7U)));
-    EXPECT_CALL(fSocketMock, send(Slice(output + 8U, 7U)))
+        .WillRepeatedly(Return(::etl::span<uint8_t const>(output + 8U, 7U)));
+    EXPECT_CALL(fSocketMock, send(Span(output + 8U, 7U)))
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));
     EXPECT_CALL(fSocketMock, flush())
         .WillOnce(Return(::tcp::AbstractSocket::ErrorCode::SOCKET_ERR_OK));

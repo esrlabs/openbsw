@@ -36,8 +36,8 @@ uint16_t DoIpSimplePayloadSendJob::getTotalLength() const
 
 void DoIpSimplePayloadSendJob::release(bool const success) { _releaseCallback(*this, success); }
 
-::estd::slice<uint8_t const> DoIpSimplePayloadSendJob::getSendBuffer(
-    ::estd::slice<uint8_t> const staticBuffer, uint8_t const index)
+::etl::span<uint8_t const> DoIpSimplePayloadSendJob::getSendBuffer(
+    ::etl::span<uint8_t> const staticBuffer, uint8_t const index)
 {
     switch (static_cast<BufferIndex>(index))
     {
@@ -55,7 +55,7 @@ void DoIpSimplePayloadSendJob::release(bool const success) { _releaseCallback(*t
         }
         default:
         {
-            return ::estd::slice<uint8_t const>();
+            return {};
         }
     }
 }
