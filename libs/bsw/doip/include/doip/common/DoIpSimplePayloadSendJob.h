@@ -5,8 +5,11 @@
  */
 #pragma once
 
+#include "doip/common/DoIpConstants.h"
+#include "doip/common/DoIpSendJobHelper.h"
 #include "doip/common/IDoIpSendJob.h"
 
+#include <etl/type_traits.h>
 #include <estd/functional.h>
 
 namespace doip
@@ -16,24 +19,11 @@ namespace doip
  * a DoIP header (index = 0) and a single payload buffer (index = 1). For returning the payload
  * buffer a function has to implemented.
  */
+template<class T>
 class DoIpSimplePayloadSendJob : public IDoIpSendJob
 {
 public:
-    using ReleaseCallbackType = ::estd::function<void(IDoIpSendJob& sendJob, bool success)>;
-
-    /**
-     * Constructor.
-     * \param protocolVersion DoIP protocol version to put into the header
-     * \param payloadType payload type of the DoIP message
-     * \param payloadLength length of the payload. This should be the size of the buffer that is
-     *        returned from getPayloadBuffer()
-     * \param releaseCallback function that will be called to release the send job
-     */
-    DoIpSimplePayloadSendJob(
-        uint8_t protocolVersion,
-        uint16_t payloadType,
-        uint16_t payloadLength,
-        ReleaseCallbackType releaseCallback);
+    using ReleaseCallbackType = ::estd::function<void(T& sendJob, bool success)>;
 
     ~DoIpSimplePayloadSendJob() override {}
 
@@ -58,6 +48,20 @@ public:
 
 protected:
     /**
+     * Constructor (protected for usage in the CRTP).
+     * \param protocolVersion DoIP protocol version to put into the header
+     * \param payloadType payload type of the DoIP message
+     * \param payloadLength length of the payload. This should be the size of the buffer that is
+     *        returned from getPayloadBuffer()
+     * \param releaseCallback function that will be called to release the send job
+     */
+    DoIpSimplePayloadSendJob(
+        uint8_t protocolVersion,
+        uint16_t payloadType,
+        uint16_t payloadLength,
+        ReleaseCallbackType releaseCallback);
+
+    /**
      * This method returns the payload buffer.
      * \param staticBuffer buffer (>= 8 bytes) that can be used to copy the payload into
      *        The maximum size depends on the configuration of the connection that sends out
@@ -81,16 +85,84 @@ private:
     uint8_t _protocolVersion;
 };
 
+template<class T>
+DoIpSimplePayloadSendJob<T>::DoIpSimplePayloadSendJob(
+    uint8_t const protocolVersion,
+    uint16_t const payloadType,
+    uint16_t const payloadLength,
+    ReleaseCallbackType const releaseCallback)
+: _releaseCallback(releaseCallback)
+, _destinationEndpoint(nullptr)
+, _payloadLength(payloadLength)
+, _payloadType(payloadType)
+, _protocolVersion(protocolVersion)
+{
+    static_assert(
+        etl::is_base_of<DoIpSimplePayloadSendJob<T>, T>::value,
+        "Make sure CRTP is used correctly. T must derive from DoIpSimplePayloadSendJob<T>.");
+}
+
+template<class T>
+uint8_t DoIpSimplePayloadSendJob<T>::getSendBufferCount() const
+{
+    return static_cast<uint8_t>(BufferIndex::COUNT);
+}
+
+template<class T>
+uint16_t DoIpSimplePayloadSendJob<T>::getTotalLength() const
+{
+    return _payloadLength + static_cast<uint16_t>(DoIpConstants::DOIP_HEADER_LENGTH);
+}
+
+template<class T>
+::ip::IPEndpoint const* DoIpSimplePayloadSendJob<T>::getDestinationEndpoint() const
+{
+    return _destinationEndpoint;
+}
+
+template<class T>
+void DoIpSimplePayloadSendJob<T>::release(bool const success)
+{
+    _releaseCallback(static_cast<T&>(*this), success);
+}
+
+template<class T>
+::etl::span<uint8_t const> DoIpSimplePayloadSendJob<T>::getSendBuffer(
+    ::etl::span<uint8_t> const staticBuffer, uint8_t const index)
+{
+    switch (static_cast<BufferIndex>(index))
+    {
+        case BufferIndex::HEADER:
+        {
+            return DoIpSendJobHelper::prepareHeaderBuffer(
+                staticBuffer,
+                _protocolVersion,
+                _payloadType,
+                static_cast<uint32_t>(_payloadLength));
+        }
+        case BufferIndex::PAYLOAD:
+        {
+            return getPayloadBuffer(staticBuffer);
+        }
+        default:
+        {
+            return {};
+        }
+    }
+}
+
 /**
  * Inline implementation.
  */
-inline void
-DoIpSimplePayloadSendJob::setDestinationEndpoint(::ip::IPEndpoint const* const destinationEndpoint)
+template<class T>
+inline void DoIpSimplePayloadSendJob<T>::setDestinationEndpoint(
+    ::ip::IPEndpoint const* const destinationEndpoint)
 {
     _destinationEndpoint = destinationEndpoint;
 }
 
-inline void DoIpSimplePayloadSendJob::setPayloadType(uint16_t const payloadType)
+template<class T>
+inline void DoIpSimplePayloadSendJob<T>::setPayloadType(uint16_t const payloadType)
 {
     _payloadType = payloadType;
 }

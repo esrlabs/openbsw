@@ -13,6 +13,7 @@
 
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
+#include <etl/pool.h>
 #include <tcp/socket/AbstractSocketMock.h>
 #include <transport/TransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
@@ -74,12 +75,9 @@ struct DoIpServerTransportConnectionProviderTest : Test
     ::tcp::AbstractSocketMock fSocketMock;
     DoIpServerTransportConnection fConnection;
     DoIpServerTransportConnection fConnectionTls;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_DIAGNOSTIC_SENDJOB_SIZE>
-            fDiagnosticSendJobBlockPool;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
-            fProtocolSendJobBlockPool;
+    ::etl::pool<DoIpTransportMessageSendJob, 4> fDiagnosticSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, 4>
+        fProtocolSendJobBlockPool;
 };
 
 TEST_F(DoIpServerTransportConnectionProviderTest, TestStartAndStop)

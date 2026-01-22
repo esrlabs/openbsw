@@ -7,6 +7,7 @@
 #include "doip/server/DoIpServerVehicleIdentificationCallbackMock.h"
 
 #include <async/AsyncMock.h>
+#include <etl/pool.h>
 #include <ip/NetworkInterfaceConfigRegistryMock.h>
 
 namespace doip
@@ -24,7 +25,7 @@ TEST(DoIpServerVehicleIdentificationConfigTest, TestInitialization)
     StrictMock<DoIpServerVehicleIdentificationCallbackMock> vehicleIdentificationCallbackMock;
     StrictMock<::ip::NetworkInterfaceConfigRegistryMock> networkInterfaceConfigRegistryMock;
     StrictMock<DoIpServerVehicleAnnouncementParameterProviderMock> parametersMock;
-    ::estd::declare::object_pool<DoIpServerVehicleIdentificationRequest, 5U> requestPool;
+    ::etl::pool<DoIpServerVehicleIdentificationRequest, 5U> requestPool;
     DoIpServerVehicleIdentificationConfig cut(
         protocolVersion,
         asyncContext,

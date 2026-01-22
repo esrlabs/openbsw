@@ -9,7 +9,7 @@
 #include "doip/server/IDoIpServerTransportConnectionCreator.h"
 #include "doip/server/IDoIpServerTransportConnectionPool.h"
 
-#include <estd/object_pool.h>
+#include <etl/pool.h>
 
 namespace doip
 {
@@ -44,14 +44,9 @@ public:
 
 private:
     IDoIpServerTransportConnectionCreator<T>& _creator;
-    ::estd::declare::object_pool<T, NUM_SOCKETS> _connectionPool;
-    ::util::estd::declare::block_pool<
-        NUM_DIAGNOSTICSENDJOBS,
-        DoIpServerTransportMessageHandler::MIN_DIAGNOSTIC_SENDJOB_SIZE>
-        _diagnosticSendJobBlockPool;
-    ::util::estd::declare::block_pool<
-        NUM_PROTOCOLSENDJOBS,
-        DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
+    ::etl::pool<T, NUM_SOCKETS> _connectionPool;
+    ::etl::pool<DoIpTransportMessageSendJob, NUM_DIAGNOSTICSENDJOBS> _diagnosticSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, NUM_PROTOCOLSENDJOBS>
         _protocolSendJobBlockPool;
 };
 
@@ -73,9 +68,9 @@ DoIpServerTransportConnectionPool<T, NUM_SOCKETS, NUM_DIAGNOSTICSENDJOBS, NUM_PR
         DoIpServerTransportConnectionConfig const& config,
         DoIpTcpConnection::ConnectionType const type)
 {
-    if (!_connectionPool.empty())
+    if (!_connectionPool.full())
     {
-        ::estd::constructor<T> constructor = _connectionPool.allocate();
+        auto constructor = ::estd::constructor<T>(_connectionPool.allocate());
         return &_creator.createConnection(
             constructor,
             socketGroupId,
@@ -96,7 +91,7 @@ void DoIpServerTransportConnectionPool<
     NUM_PROTOCOLSENDJOBS>::releaseConnection(DoIpServerTransportConnection& connection)
 {
     // only T can be allocated
-    _connectionPool.release(static_cast<T&>(connection));
+    _connectionPool.destroy(static_cast<T*>(&connection));
 }
 
 } // namespace declare

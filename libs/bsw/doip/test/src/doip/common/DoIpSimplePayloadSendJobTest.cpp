@@ -16,7 +16,9 @@ namespace test
 {
 using namespace ::testing;
 
-class DoIpSimplePayloadSendJobMock : public DoIpSimplePayloadSendJob
+class DoIpSimplePayloadSendJobMock;
+
+class DoIpSimplePayloadSendJobMock : public DoIpSimplePayloadSendJob<DoIpSimplePayloadSendJobMock>
 {
 public:
     DoIpSimplePayloadSendJobMock(
@@ -38,7 +40,7 @@ public:
 class DoIpSimplePayloadSendJobTest : public Test
 {
 public:
-    MOCK_METHOD2(released, void(IDoIpSendJob&, bool));
+    MOCK_METHOD2(released, void(DoIpSimplePayloadSendJobMock&, bool));
 };
 
 TEST_F(DoIpSimplePayloadSendJobTest, TestAll)
@@ -47,7 +49,7 @@ TEST_F(DoIpSimplePayloadSendJobTest, TestAll)
         0x01,
         0x1234U,
         0xfU,
-        DoIpSimplePayloadSendJob::ReleaseCallbackType::
+        DoIpSimplePayloadSendJobMock::ReleaseCallbackType::
             create<DoIpSimplePayloadSendJobTest, &DoIpSimplePayloadSendJobTest::released>(*this));
     ASSERT_EQ(2U, cut.getSendBufferCount());
     ASSERT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + 0xf, cut.getTotalLength());

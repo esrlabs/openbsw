@@ -19,7 +19,7 @@ using namespace ::testing;
 class DoIpVehicleIdentificationRequestSendJobTest : public Test
 {
 public:
-    MOCK_METHOD2(released, void(IDoIpSendJob&, bool));
+    MOCK_METHOD2(released, void(DoIpStaticPayloadSendJob&, bool));
 };
 
 TEST_F(DoIpVehicleIdentificationRequestSendJobTest, TestAll)

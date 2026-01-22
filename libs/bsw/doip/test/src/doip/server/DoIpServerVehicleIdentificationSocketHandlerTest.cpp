@@ -15,6 +15,7 @@
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
 #include <cpp2ethernet/gtest_extensions.h>
+#include <etl/pool.h>
 #include <ip/NetworkInterfaceConfigRegistryMock.h>
 #include <udp/socket/AbstractDatagramSocketMock.h>
 
@@ -119,7 +120,7 @@ struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
     DoIpVehicleAnnouncementListenerMock fVehicleAnnouncementListenerMock;
     ::ip::NetworkInterfaceConfigRegistryMock fNetworkInterfaceConfigRegistryMock;
     DoIpServerVehicleIdentificationConfig fConfig;
-    ::estd::declare::object_pool<DoIpServerVehicleIdentificationRequest, 9U> fRequestPool;
+    ::etl::pool<DoIpServerVehicleIdentificationRequest, 9U> fRequestPool;
     uint8_t fBuffer[2000];
     ::etl::span<uint8_t> fFreeBuffer;
 };

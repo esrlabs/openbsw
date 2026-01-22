@@ -13,7 +13,7 @@
 #include "doip/server/IDoIpServerMessageHandler.h"
 
 #include <async/Types.h>
-#include <util/estd/derived_object_pool.h>
+#include <etl/pool.h>
 
 namespace doip
 {
@@ -194,20 +194,19 @@ private:
     void setTimer(uint32_t timeoutInMs);
     void timerExpired();
 
-    bool sendOrReleaseMessage(IDoIpSendJob& job);
+    bool sendOrReleaseMessage(DoIpStaticPayloadSendJob& job);
 
     StaticPayloadSendJobType*
     allocateSendJob(uint16_t payloadType, uint16_t payloadLength, bool closeAfterSend);
 
-    void releaseSendJobAndClose(IDoIpSendJob& job, bool success);
-    void releaseSendJob(IDoIpSendJob& job, bool success);
+    void releaseSendJobAndClose(DoIpStaticPayloadSendJob& job, bool success);
+    void releaseSendJob(DoIpStaticPayloadSendJob& job, bool success);
 
     IDoIpServerConnectionHandlerCallback* _callback;
     IDoIpTcpConnection& _connection;
     DoIpServerTransportLayerParameters const& _parameters;
     ::async::TimeoutType _timerTimeout;
-    ::util::estd::declare::derived_object_pool<IDoIpSendJob, 2U, StaticPayloadSendJobType>
-        _sendJobPool;
+    ::etl::pool<StaticPayloadSendJobType, 2U> _sendJobPool;
     MessageHandlerList _messageHandlers;
     uint16_t _logicalEntityAddress;
     uint16_t _sourceAddress;

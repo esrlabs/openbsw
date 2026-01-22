@@ -9,6 +9,7 @@
 #include "doip/server/IDoIpServerTransportLayerCallback.h"
 
 #include <transport/TransportMessage.h>
+#include <util/estd/assert.h>
 
 namespace doip
 {
@@ -343,7 +344,7 @@ void DoIpServerTransportLayer::connectionClosed(DoIpServerConnectionHandler& han
 void DoIpServerTransportLayer::startAliveCheck()
 {
     Logger::warn(DOIP, "DoIpServerTransportLayer::startAliveCheck()");
-    while (!_aliveCheckHelperPool.empty())
+    while (!_aliveCheckHelperPool.full())
     {
         DoIpServerTransportConnection* const routingActivationConnection
             = findActivatingConnection();
@@ -386,16 +387,17 @@ void DoIpServerTransportLayer::startAliveCheck(
         "DoIpServerTransportLayer::startAliveCheck1(%p, %p)",
         &routingActivationConnection,
         connectionToCheck);
-    AliveCheckHelper& aliveCheckHelper = _aliveCheckHelperPool.allocate().construct(
+    AliveCheckHelper* const aliveCheckHelper = _aliveCheckHelperPool.create<AliveCheckHelper>(
         routingActivationConnection,
         static_cast<uint8_t>(
             (connectionToCheck != nullptr)
                 ? DoIpConstants::RoutingResponseCodes::ROUTING_SOURCE_ALREADY_REGISTERED
                 : DoIpConstants::RoutingResponseCodes::ROUTING_NO_FREE_SOCKET));
-    _aliveCheckHelpers.push_front(aliveCheckHelper);
+    estd_assert(aliveCheckHelper != nullptr);
+    _aliveCheckHelpers.push_front(*aliveCheckHelper);
     if (connectionToCheck != nullptr)
     {
-        startAliveCheck(aliveCheckHelper, *connectionToCheck);
+        startAliveCheck(*aliveCheckHelper, *connectionToCheck);
     }
     else
     {
@@ -410,12 +412,12 @@ void DoIpServerTransportLayer::startAliveCheck(
         {
             if ((it->getSocketGroupId() == socketGroupId) && it->isRouting())
             {
-                startAliveCheck(aliveCheckHelper, *it);
+                startAliveCheck(*aliveCheckHelper, *it);
             }
             ++it;
         }
     }
-    endAliveCheck(aliveCheckHelper, true);
+    endAliveCheck(*aliveCheckHelper, true);
 }
 
 void DoIpServerTransportLayer::startAliveCheck(
@@ -441,7 +443,7 @@ void DoIpServerTransportLayer::endAliveCheck(AliveCheckHelper& aliveCheckHelper,
     {
         uint8_t const responseCode = aliveCheckHelper.getNegativeResponseCode();
         _aliveCheckHelpers.remove(aliveCheckHelper);
-        _aliveCheckHelperPool.release(aliveCheckHelper);
+        _aliveCheckHelperPool.destroy(&aliveCheckHelper);
         if (routingActivationHandler != nullptr)
         {
             routingActivationHandler->routingActivationCompleted(false, responseCode);

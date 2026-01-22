@@ -11,8 +11,8 @@
 #include <async/Types.h>
 #include <ip/NetworkInterfaceConfig.h>
 
+#include <etl/ipool.h>
 #include <etl/span.h>
-#include <estd/object_pool.h>
 
 namespace doip
 {
@@ -29,7 +29,7 @@ public:
     /**
      * Object pool type for pending requests to a vehicle identification socket.
      */
-    using RequestPool = ::estd::object_pool<DoIpServerVehicleIdentificationRequest>;
+    using RequestPool = ::etl::ipool;
 
     /**
      * Constructor.

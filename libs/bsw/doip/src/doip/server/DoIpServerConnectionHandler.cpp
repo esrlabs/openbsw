@@ -141,7 +141,7 @@ void DoIpServerConnectionHandler::startAliveCheck()
             _state,
             _aliveCheckPending);
         _aliveCheckPending = true;
-        IDoIpSendJob* const job
+        StaticPayloadSendJobType* const job
             = allocateSendJob(DoIpConstants::PayloadTypes::ALIVE_CHECK_REQUEST, 0U, false);
         if (job != nullptr)
         {
@@ -514,7 +514,7 @@ void DoIpServerConnectionHandler::sendNack(uint8_t const nackCode, bool const cl
     }
 }
 
-bool DoIpServerConnectionHandler::sendOrReleaseMessage(IDoIpSendJob& job)
+bool DoIpServerConnectionHandler::sendOrReleaseMessage(DoIpStaticPayloadSendJob& job)
 {
     if (!_connection.sendMessage(job))
     {
@@ -547,11 +547,12 @@ DoIpServerConnectionHandler::StaticPayloadSendJobType* DoIpServerConnectionHandl
 
     // RAII mutex
     DoIpLock const lock;
-    if (_sendJobPool.empty())
+    if (_sendJobPool.full())
     {
         return nullptr;
     }
-    return &_sendJobPool.allocate<StaticPayloadSendJobType>().construct(
+
+    return _sendJobPool.create(
         static_cast<uint8_t>(_protocolVersion),
         payloadType,
         payloadLength,
@@ -564,7 +565,8 @@ DoIpServerConnectionHandler::StaticPayloadSendJobType* DoIpServerConnectionHandl
                     *this));
 }
 
-void DoIpServerConnectionHandler::releaseSendJobAndClose(IDoIpSendJob& job, bool const success)
+void DoIpServerConnectionHandler::releaseSendJobAndClose(
+    DoIpStaticPayloadSendJob& job, bool const success)
 {
     Logger::warn(
         DOIP,
@@ -577,11 +579,12 @@ void DoIpServerConnectionHandler::releaseSendJobAndClose(IDoIpSendJob& job, bool
     close();
 }
 
-void DoIpServerConnectionHandler::releaseSendJob(IDoIpSendJob& job, bool const /*success*/)
+void DoIpServerConnectionHandler::releaseSendJob(
+    DoIpStaticPayloadSendJob& job, bool const /*success*/)
 {
     // RAII mutex
     DoIpLock const lock;
-    _sendJobPool.release(job);
+    _sendJobPool.destroy(&job);
 }
 
 void DoIpServerConnectionHandler::suspendSending() { return _connection.suspendSending(); }

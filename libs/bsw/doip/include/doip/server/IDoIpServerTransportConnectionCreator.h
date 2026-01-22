@@ -5,6 +5,7 @@
  */
 #pragma once
 
+#include <etl/ipool.h>
 #include <estd/constructor.h>
 
 namespace doip
@@ -30,8 +31,8 @@ public:
         ::estd::constructor<T>& constructor,
         uint8_t socketGroupId,
         ::tcp::AbstractSocket& socket,
-        ::util::estd::block_pool& diagnosticSendJobBlockPool,
-        ::util::estd::block_pool& protocolSendJobBlockPool,
+        ::etl::ipool& diagnosticSendJobBlockPool,
+        ::etl::ipool& protocolSendJobBlockPool,
         DoIpServerTransportConnectionConfig const& config,
         DoIpTcpConnection::ConnectionType type)
         = 0;

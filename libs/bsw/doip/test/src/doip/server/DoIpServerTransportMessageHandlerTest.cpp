@@ -9,6 +9,7 @@
 #include "doip/server/DoIpServerTransportLayerParameters.h"
 
 #include <common/busid/BusId.h>
+#include <etl/pool.h>
 #include <transport/BufferedTransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
 
@@ -65,12 +66,9 @@ struct DoIpServerTransportMessageHandlerTest : Test
     ::async::ContextType asyncContext;
     DoIpServerTransportLayerParameters fParams;
     DoIpServerTransportConnectionConfig fConfig;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_DIAGNOSTIC_SENDJOB_SIZE>
-            fDiagnosticSendJobBlockPool;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
-            fProtocolSendJobBlockPool;
+    ::etl::pool<DoIpTransportMessageSendJob, 4> fDiagnosticSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, 4>
+        fProtocolSendJobBlockPool;
     uint8_t fHeaderBuffer[8U];
     static constexpr uint32_t DOIP_MAX_PAYLOAD_LENGTH
         = (16U * 1024U) - DoIpConstants::DOIP_HEADER_LENGTH;
@@ -856,9 +854,8 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendDiagnosticNackWithoutSendJ
 
 TEST_F(DoIpServerTransportMessageHandlerTest, TestNoMessageReceivedIfProtocolSendJobPoolDepleted)
 {
-    ::util::estd::declare::
-        block_pool<1, DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
-            sizeOneProtocolSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, 1>
+        sizeOneProtocolSendJobBlockPool;
 
     DoIpServerTransportMessageHandler cut(
         DoIpConstants::ProtocolVersion::version02Iso2012,

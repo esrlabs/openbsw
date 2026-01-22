@@ -15,7 +15,7 @@ namespace doip
  * Class for a send job that consists of a DoIP header and a single already allocated payload
  * buffer.
  */
-class DoIpStaticPayloadSendJob : public DoIpSimplePayloadSendJob
+class DoIpStaticPayloadSendJob : public DoIpSimplePayloadSendJob<DoIpStaticPayloadSendJob>
 {
 public:
     /**

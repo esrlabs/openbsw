@@ -17,9 +17,9 @@
 #include <transport/AbstractTransportLayer.h>
 #include <transport/ITransportMessageProcessedListener.h>
 
+#include <etl/pool.h>
 #include <etl/span.h>
 #include <estd/forward_list.h>
-#include <estd/object_pool.h>
 
 namespace doip
 {
@@ -115,7 +115,7 @@ protected:
     };
 
     using AliveCheckHelperList = ::estd::forward_list<AliveCheckHelper>;
-    using AliveCheckHelperPool = ::estd::object_pool<AliveCheckHelper>;
+    using AliveCheckHelperPool = ::etl::ipool;
 
     /**
      * Constructor.
@@ -235,7 +235,7 @@ public:
         DoIpServerTransportLayerParameters const& parameters);
 
 private:
-    ::estd::declare::object_pool<AliveCheckHelper, NUM_SOCKET_GROUPS> _aliveCheckHelperPool;
+    ::etl::pool<AliveCheckHelper, NUM_SOCKET_GROUPS> _aliveCheckHelperPool;
 };
 
 } // namespace declare

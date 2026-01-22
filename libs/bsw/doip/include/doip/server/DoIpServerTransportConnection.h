@@ -35,14 +35,15 @@ public:
      * \param config reference to config
      * \param diagnosticSendJobBlockPool reference to block pool for transport message send jobs
      * \param protocolSendJobBlockPool reference to block pool for protocol send jobs
+     * \param type connection type, e. g. PLAIN or TLS
      */
     DoIpServerTransportConnection(
         DoIpConstants::ProtocolVersion protocolVersion,
         uint8_t socketGroupId,
         ::tcp::AbstractSocket& socket,
         DoIpServerTransportConnectionConfig const& config,
-        ::util::estd::block_pool& diagnosticSendJobBlockPool,
-        ::util::estd::block_pool& protocolSendJobBlockPool,
+        ::etl::ipool& diagnosticSendJobBlockPool,
+        ::etl::ipool& protocolSendJobBlockPool,
         DoIpTcpConnection::ConnectionType type);
 
     /**

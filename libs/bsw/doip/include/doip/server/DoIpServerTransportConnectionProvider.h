@@ -9,6 +9,7 @@
 #include "doip/server/DoIpServerTransportConnection.h"
 #include "doip/server/DoIpServerTransportMessageHandler.h"
 #include "doip/server/IDoIpServerSocketHandlerListener.h"
+#include <etl/ipool.h>
 
 namespace doip
 {
@@ -28,7 +29,7 @@ public:
     /**
      * Type of connection pool.
      */
-    using ConnectionPool = ::util::estd::derived_object_pool<DoIpServerTransportConnection>;
+    using ConnectionPool = ::etl::ipool;
     /**
      * Constructor.
      * \param constructCallback function that creates a connection

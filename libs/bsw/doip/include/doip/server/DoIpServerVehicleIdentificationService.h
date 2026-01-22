@@ -9,6 +9,7 @@
 #include "doip/server/DoIpServerVehicleIdentificationConfig.h"
 #include "doip/server/DoIpServerVehicleIdentificationSocketHandler.h"
 
+#include <etl/pool.h>
 #include <etl/span.h>
 #include <estd/vector.h>
 
@@ -109,7 +110,7 @@ private:
         NUM_SOCKETS>;
 
     DoIpServerVehicleIdentificationConfig _config;
-    ::estd::declare::object_pool<
+    ::etl::pool<
         DoIpServerVehicleIdentificationRequest,
         NUM_REQUESTS + NUM_ANNOUNCEMENTS + NUM_ANNOUNCEMENTS * NUM_UNICAST>
         _requestPool;

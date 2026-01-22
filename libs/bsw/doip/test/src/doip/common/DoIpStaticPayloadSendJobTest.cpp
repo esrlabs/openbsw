@@ -18,7 +18,7 @@ using namespace ::testing;
 class DoIpStaticPayloadSendJobTest : public Test
 {
 public:
-    MOCK_METHOD2(released, void(IDoIpSendJob&, bool));
+    MOCK_METHOD2(released, void(DoIpStaticPayloadSendJob&, bool));
 };
 
 TEST_F(DoIpStaticPayloadSendJobTest, TestAll)

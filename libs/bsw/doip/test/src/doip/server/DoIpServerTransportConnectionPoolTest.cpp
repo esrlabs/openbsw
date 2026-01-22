@@ -10,6 +10,7 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
+#include <etl/pool.h>
 #include <tcp/socket/AbstractSocketMock.h>
 #include <transport/TransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
@@ -31,8 +32,8 @@ public:
         uint8_t const socketGroupId,
         ::tcp::AbstractSocket& socket,
         DoIpServerTransportConnectionConfig const& config,
-        ::util::estd::block_pool& diagnosticSendJobBlockPool,
-        ::util::estd::block_pool& protocolSendJobBlockPool,
+        ::etl::ipool& diagnosticSendJobBlockPool,
+        ::etl::ipool& protocolSendJobBlockPool,
         DoIpTcpConnection::ConnectionType const type)
     : DoIpServerTransportConnection(
         DoIpConstants::ProtocolVersion::version02Iso2012,
@@ -72,8 +73,8 @@ protected:
         ::estd::constructor<TestTransportConnection>& c,
         uint8_t socketGroupId,
         ::tcp::AbstractSocket& socket,
-        ::util::estd::block_pool& diagnosticBlockPool,
-        ::util::estd::block_pool& protocolBlockPool,
+        ::etl::ipool& diagnosticBlockPool,
+        ::etl::ipool& protocolBlockPool,
         DoIpServerTransportConnectionConfig const& config,
         DoIpTcpConnection::ConnectionType const type)
     {
@@ -94,12 +95,9 @@ protected:
     DoIpServerTransportLayerParameters fParameters;
     DoIpServerTransportConnectionConfig fConfig;
     ::tcp::AbstractSocketMock fSocketMock;
-    ::util::estd::declare::
-        block_pool<2, DoIpServerTransportMessageHandler::MIN_DIAGNOSTIC_SENDJOB_SIZE>
-            fDiagnosticSendJobBlockPool;
-    ::util::estd::declare::
-        block_pool<2, DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
-            fProtocolSendJobBlockPool;
+    ::etl::pool<DoIpTransportMessageSendJob, 2> fDiagnosticSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, 2>
+        fProtocolSendJobBlockPool;
 };
 
 TEST_F(DoIpServerTransportConnectionPoolTest, TestCreateAndRelease)

@@ -17,7 +17,6 @@
 
 #include <etl/span.h>
 #include <estd/bitset.h>
-#include <estd/object_pool.h>
 #include <estd/optional.h>
 #include <estd/vector.h>
 
@@ -162,7 +161,7 @@ private:
 
     StaticPayloadSendJobType& allocateSendJob(uint16_t payloadType, uint8_t payloadLength);
     void releaseSendJob();
-    void releaseSendJobAndSendNext(IDoIpSendJob& sendJob, bool success);
+    void releaseSendJobAndSendNext(DoIpStaticPayloadSendJob& sendJob, bool success);
 
     DoIpUdpConnection _connection;
     ::ip::IPAddress _multicastAddress;

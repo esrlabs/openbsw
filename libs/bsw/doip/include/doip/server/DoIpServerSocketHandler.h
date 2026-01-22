@@ -7,11 +7,11 @@
 #include "doip/server/IDoIpServerSocketHandler.h"
 #include "doip/server/IDoIpServerSocketHandlerListener.h"
 
+#include <etl/pool.h>
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <tcp/socket/ISocketProvidingConnectionListener.h>
 #include <util/logger/Logger.h>
 #include <estd/functional.h>
-#include <estd/object_pool.h>
 #include <estd/vector.h>
 
 namespace doip
@@ -102,7 +102,7 @@ private:
     configChanged(::ip::NetworkInterfaceConfigKey key, ::ip::NetworkInterfaceConfig const& config);
 
     ::estd::declare::vector<SocketHandler, NUM_SERVER_SOCKETS> _socketHandlers;
-    ::estd::declare::object_pool<Socket, NUM_PLAIN_SOCKETS> _sockets;
+    ::etl::pool<Socket, NUM_PLAIN_SOCKETS> _sockets;
     ::ip::NetworkInterfaceConfigRegistry::ConfigChangedSignal::slot _configChangedSlot;
     ::ip::NetworkInterfaceConfigRegistry& _networkInterfaceConfigRegistry;
     ::doip::IDoIpServerSocketHandlerListener* _listener;
@@ -212,9 +212,8 @@ void DoIpServerSocketHandler<
 {
     if (type == DoIpTcpConnection::ConnectionType::PLAIN)
     {
-        // Only sockets of the derived class are referenced
-        // here
-        _sockets.release(static_cast<Socket&>(socket));
+        // Only sockets of the derived class are referenced here
+        _sockets.destroy(static_cast<Socket*>(&socket));
     }
 }
 
@@ -254,9 +253,9 @@ template<
     NUM_PLAIN_SOCKETS,
     NUM_TLS_SOCKETS>::acquireSocket()
 {
-    if (!_sockets.empty())
+    if (!_sockets.full())
     {
-        return &_sockets.acquire();
+        return _sockets.create();
     }
     return nullptr;
 }

@@ -11,8 +11,8 @@ DoIpServerTransportConnection::DoIpServerTransportConnection(
     uint8_t const socketGroupId,
     ::tcp::AbstractSocket& socket,
     DoIpServerTransportConnectionConfig const& config,
-    ::util::estd::block_pool& diagnosticSendJobBlockPool,
-    ::util::estd::block_pool& protocolSendJobBlockPool,
+    ::etl::ipool& diagnosticSendJobBlockPool,
+    ::etl::ipool& protocolSendJobBlockPool,
     DoIpTcpConnection::ConnectionType const type)
 : DoIpServerConnectionHandler(
     protocolVersion,

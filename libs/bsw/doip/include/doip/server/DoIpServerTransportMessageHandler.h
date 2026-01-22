@@ -13,7 +13,7 @@
 #include "doip/server/IDoIpServerMessageHandler.h"
 
 #include <common/busid/BusId.h>
-#include <util/estd/derived_object_pool.h>
+#include <etl/ipool.h>
 
 #include <etl/span.h>
 
@@ -38,8 +38,8 @@ public:
      */
     DoIpServerTransportMessageHandler(
         DoIpConstants::ProtocolVersion protocolVersion,
-        ::util::estd::block_pool& diagnosticSendJobBlockPool,
-        ::util::estd::block_pool& protocolSendJobBlockPool,
+        ::etl::ipool& diagnosticSendJobBlockPool,
+        ::etl::ipool& protocolSendJobBlockPool,
         DoIpServerTransportConnectionConfig const& config);
 
     /**
@@ -64,10 +64,6 @@ public:
 
     // Send jobs declarations
     using StaticPayloadSendJobType = declare::DoIpStaticPayloadSendJob<10U>;
-
-    //  Minimum sizes for send jobs.
-    static size_t const MIN_DIAGNOSTIC_SENDJOB_SIZE = sizeof(DoIpTransportMessageSendJob);
-    static size_t const MIN_PROTOCOL_SENDJOB_SIZE   = sizeof(StaticPayloadSendJobType);
 
 private:
     static constexpr size_t PEEK_MAX_SIZE              = 4U;
@@ -105,17 +101,17 @@ private:
         bool closeAfterSend,
         ::etl::span<uint8_t const> receivedMessageData);
 
-    void releaseSendJobAndClose(IDoIpSendJob& sendJob, bool success);
-    void releaseSendJob(IDoIpSendJob& sendJob, bool success);
+    void releaseSendJobAndClose(DoIpStaticPayloadSendJob& sendJob, bool success);
+    void releaseSendJob(DoIpStaticPayloadSendJob& sendJob, bool success);
     void releaseTransportMessage();
 
-    static void
-    releaseSendJob(::util::estd::derived_object_pool<IDoIpSendJob>& pool, IDoIpSendJob& sendJob);
+    void releaseProtocolSendJob(DoIpStaticPayloadSendJob& sendJob);
+    void releaseDiagnosticSendJob(DoIpTransportMessageSendJob& sendJob);
 
     PayloadPrefixContext _payloadPeekContext;
     IDoIpServerConnection* _connection;
-    ::util::estd::derived_object_pool<IDoIpSendJob> _diagnosticSendJobPool;
-    ::util::estd::derived_object_pool<IDoIpSendJob> _protocolSendJobPool;
+    ::etl::ipool& _diagnosticSendJobPool;
+    ::etl::ipool& _protocolSendJobPool;
     ::transport::TransportMessage* _transportMessage;
     DoIpServerTransportConnectionConfig const& _config;
     uint16_t _receiveMessagePayloadLength;

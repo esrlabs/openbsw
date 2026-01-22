@@ -4,6 +4,8 @@
 
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpLock.h"
+#include "doip/common/DoIpStaticPayloadSendJob.h"
+#include "doip/common/DoIpTransportMessageSendJob.h"
 #include "doip/common/IDoIpTransportMessageProvidingListener.h"
 #include "doip/server/DoIpServerLogger.h"
 #include "doip/server/DoIpServerTransportConnectionConfig.h"
@@ -13,6 +15,7 @@
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
 
+#include <util/estd/assert.h>
 #include <estd/big_endian.h>
 #include <estd/memory.h>
 
@@ -35,8 +38,8 @@ constexpr size_t DoIpServerTransportMessageHandler::PAYLOAD_PREFIX_BUFFER_SIZE;
 
 DoIpServerTransportMessageHandler::DoIpServerTransportMessageHandler(
     DoIpConstants::ProtocolVersion const protocolVersion,
-    ::util::estd::block_pool& diagnosticSendJobBlockPool,
-    ::util::estd::block_pool& protocolSendJobBlockPool,
+    ::etl::ipool& diagnosticSendJobBlockPool,
+    ::etl::ipool& protocolSendJobBlockPool,
     DoIpServerTransportConnectionConfig const& config)
 : IDoIpServerMessageHandler()
 , _payloadPeekContext()
@@ -65,7 +68,7 @@ bool DoIpServerTransportMessageHandler::send(
             {
                 return true;
             }
-            releaseSendJob(_diagnosticSendJobPool, *job);
+            releaseDiagnosticSendJob(*job);
         }
     }
     return false;
@@ -131,7 +134,7 @@ DoIpTransportMessageSendJob* DoIpServerTransportMessageHandler::allocateJob(
 
     auto const sourceAddress = transportMessage.sourceAddress();
     auto const targetAddress = _connection->getSourceAddress();
-    if (_diagnosticSendJobPool.empty())
+    if (_diagnosticSendJobPool.full())
     {
         Logger::warn(
             DOIP,
@@ -141,7 +144,8 @@ DoIpTransportMessageSendJob* DoIpServerTransportMessageHandler::allocateJob(
             targetAddress);
         return nullptr;
     }
-    return &_diagnosticSendJobPool.allocate<DoIpTransportMessageSendJob>().construct(
+
+    return _diagnosticSendJobPool.create<DoIpTransportMessageSendJob>(
         _protocolVersion,
         ::estd::by_ref(transportMessage),
         pNotificationListener,
@@ -174,7 +178,7 @@ void DoIpServerTransportMessageHandler::releaseSendJob(
             sourceAddress);
     }
     sendJob.sendTransportMessageProcessed(success);
-    releaseSendJob(_diagnosticSendJobPool, sendJob);
+    releaseDiagnosticSendJob(sendJob);
 }
 
 void DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoReceived(
@@ -371,20 +375,21 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
     {
         // RAII mutex
         DoIpLock const lock;
-        if (!_protocolSendJobPool.empty())
+        if (!_protocolSendJobPool.full())
         {
             receivedMessageDataPrefix = receivedMessageData.subspan(
                 0U, std::min(receivedMessageData.size(), static_cast<size_t>(ACK_PAYLOAD_SIZE)));
-            job = &_protocolSendJobPool.allocate<StaticPayloadSendJobType>().construct(
-                static_cast<uint8_t>(_protocolVersion),
-                payloadType,
-                5U + receivedMessageDataPrefix.size(),
-                closeAfterSend ? StaticPayloadSendJobType::ReleaseCallbackType::create<
-                    DoIpServerTransportMessageHandler,
-                    &DoIpServerTransportMessageHandler::releaseSendJobAndClose>(*this)
-                               : StaticPayloadSendJobType::ReleaseCallbackType::create<
-                                   DoIpServerTransportMessageHandler,
-                                   &DoIpServerTransportMessageHandler::releaseSendJob>(*this));
+            job = new (_protocolSendJobPool.allocate<StaticPayloadSendJobType>())
+                StaticPayloadSendJobType(
+                    static_cast<uint8_t>(_protocolVersion),
+                    payloadType,
+                    5U + receivedMessageDataPrefix.size(),
+                    closeAfterSend ? StaticPayloadSendJobType::ReleaseCallbackType::create<
+                        DoIpServerTransportMessageHandler,
+                        &DoIpServerTransportMessageHandler::releaseSendJobAndClose>(*this)
+                                   : StaticPayloadSendJobType::ReleaseCallbackType::create<
+                                       DoIpServerTransportMessageHandler,
+                                       &DoIpServerTransportMessageHandler::releaseSendJob>(*this));
         }
     }
     if (job != nullptr)
@@ -399,7 +404,7 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
         }
         if (!_connection->sendMessage(*job))
         {
-            releaseSendJob(_protocolSendJobPool, *job);
+            releaseProtocolSendJob(*job);
             job = nullptr;
         }
     }
@@ -407,21 +412,21 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
 }
 
 void DoIpServerTransportMessageHandler::releaseSendJobAndClose(
-    IDoIpSendJob& sendJob, bool const /*success*/)
+    DoIpStaticPayloadSendJob& sendJob, bool const /*success*/)
 {
     Logger::debug(
         DOIP,
         "DoIpServerTransportMessageHandler(%s, 0x%04x)::releaseSendJobAndClose()",
         ::common::busid::BusIdTraits::getName(_config.getBusId()),
         _connection->getSourceAddress());
-    releaseSendJob(_protocolSendJobPool, sendJob);
+    releaseProtocolSendJob(sendJob);
     _connection->close();
 }
 
 void DoIpServerTransportMessageHandler::releaseSendJob(
-    IDoIpSendJob& sendJob, bool const /*success*/)
+    DoIpStaticPayloadSendJob& sendJob, bool const /*success*/)
 {
-    releaseSendJob(_protocolSendJobPool, sendJob);
+    releaseProtocolSendJob(sendJob);
 }
 
 void DoIpServerTransportMessageHandler::releaseTransportMessage()
@@ -433,12 +438,19 @@ void DoIpServerTransportMessageHandler::releaseTransportMessage()
     }
 }
 
-void DoIpServerTransportMessageHandler::releaseSendJob(
-    ::util::estd::derived_object_pool<IDoIpSendJob>& pool, IDoIpSendJob& sendJob)
+void DoIpServerTransportMessageHandler::releaseProtocolSendJob(DoIpStaticPayloadSendJob& sendJob)
 {
     // RAII lock not unused
     DoIpLock const lock;
-    pool.release(sendJob);
+    _protocolSendJobPool.destroy(&sendJob);
+}
+
+void DoIpServerTransportMessageHandler::releaseDiagnosticSendJob(
+    DoIpTransportMessageSendJob& sendJob)
+{
+    // RAII lock not unused
+    DoIpLock const lock;
+    _diagnosticSendJobPool.destroy(&sendJob);
 }
 
 // NOLINTEND(cppcoreguidelines-pro-type-vararg)

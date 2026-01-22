@@ -3,7 +3,6 @@ add_library(
     src/doip/common/DoIpCommonLogger.cpp
     src/doip/common/DoIpCyclicTaskGenerator.cpp
     src/doip/common/DoIpSendJobHelper.cpp
-    src/doip/common/DoIpSimplePayloadSendJob.cpp
     src/doip/common/DoIpStaticPayloadSendJob.cpp
     src/doip/common/DoIpTcpConnection.cpp
     src/doip/common/DoIpTransportMessageProvidingListenerAdapter.cpp

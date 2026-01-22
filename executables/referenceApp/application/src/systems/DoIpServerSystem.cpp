@@ -235,8 +235,8 @@ DoIpServerTransportConnection& DoIpServerSystem::TransportConnectionCreator::cre
     ::estd::constructor<DoIpServerTransportConnection>& constructor,
     uint8_t const socketGroupId,
     ::tcp::AbstractSocket& socket,
-    ::util::estd::block_pool& diagnosticSendJobBlockPool,
-    ::util::estd::block_pool& protocolSendJobBlockPool,
+    ::etl::ipool& diagnosticSendJobBlockPool,
+    ::etl::ipool& protocolSendJobBlockPool,
     DoIpServerTransportConnectionConfig const& config,
     DoIpTcpConnection::ConnectionType /*type*/)
 {

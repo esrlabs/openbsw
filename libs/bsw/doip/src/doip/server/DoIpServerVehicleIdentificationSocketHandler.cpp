@@ -498,13 +498,15 @@ void DoIpServerVehicleIdentificationSocketHandler::enqueueAny(
     ::ip::IPEndpoint const& endpoint,
     uint16_t const timeoutInMs)
 {
-    if (!_config.getRequestPool().empty())
+    if (!_config.getRequestPool().full())
     {
         // keep list sorted by inserting via merge
         uint32_t const systemTime = getSystemTimeMs32Bit();
         ::estd::forward_list<DoIpServerVehicleIdentificationRequest> tmp;
-        tmp.push_front(_config.getRequestPool().allocate().construct(
-            endpoint, type, nackCode, timeoutInMs + systemTime));
+        tmp.push_front(
+            *new (_config.getRequestPool().allocate<DoIpServerVehicleIdentificationRequest>())
+                DoIpServerVehicleIdentificationRequest(
+                    endpoint, type, nackCode, timeoutInMs + systemTime));
         _pendingRequests.merge(
             tmp,
             [](DoIpServerVehicleIdentificationRequest const& left,
@@ -560,7 +562,7 @@ void DoIpServerVehicleIdentificationSocketHandler::trySendResponse()
         DoIpServerVehicleIdentificationRequest& request = _pendingRequests.front();
         _pendingRequests.pop_front();
         sendResponse(request.getDestinationEndpoint(), request.getType(), request.getNackCode());
-        _config.getRequestPool().release(request);
+        _config.getRequestPool().destroy(&request);
         return;
     }
 }
@@ -710,7 +712,7 @@ void DoIpServerVehicleIdentificationSocketHandler::releaseSendJob()
 }
 
 void DoIpServerVehicleIdentificationSocketHandler::releaseSendJobAndSendNext(
-    IDoIpSendJob& /*sendJob*/, bool const /*success*/)
+    DoIpStaticPayloadSendJob& /*sendJob*/, bool const /*success*/)
 {
     releaseSendJob();
     if (!_pendingRequests.empty())

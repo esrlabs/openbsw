@@ -16,6 +16,7 @@
 #include <transport/BufferedTransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
 
+#include <etl/pool.h>
 #include <etl/span.h>
 #include <estd/memory.h>
 
@@ -156,12 +157,9 @@ struct DoIpServerTransportLayerTest : Test
     DoIpServerTransportConnection fConnection1_3;
     DoIpServerTransportConnection fConnection2;
     DoIpServerTransportConnection fConnection3;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_DIAGNOSTIC_SENDJOB_SIZE>
-            fDiagnosticSendJobBlockPool;
-    ::util::estd::declare::
-        block_pool<4, DoIpServerTransportMessageHandler::MIN_PROTOCOL_SENDJOB_SIZE>
-            fProtocolSendJobBlockPool;
+    ::etl::pool<DoIpTransportMessageSendJob, 4> fDiagnosticSendJobBlockPool;
+    ::etl::pool<DoIpServerTransportMessageHandler::StaticPayloadSendJobType, 4>
+        fProtocolSendJobBlockPool;
     uint8_t fBuffer[200];
     ::etl::span<uint8_t> fPersistentBuffer;
     ::ip::IPEndpoint fLocalEndpoint1;
