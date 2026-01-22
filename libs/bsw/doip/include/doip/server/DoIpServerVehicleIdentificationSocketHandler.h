@@ -15,8 +15,8 @@
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <ip/NetworkInterfaceConfig.h>
 
+#include <etl/bitset.h>
 #include <etl/span.h>
-#include <estd/bitset.h>
 #include <estd/optional.h>
 #include <estd/vector.h>
 
@@ -180,7 +180,7 @@ private:
     ::ip::NetworkInterfaceConfig _configChangedNewConfig;
     uint8_t _socketGroupId;
     uint8_t _readBuffer[19];
-    ::estd::bitset<MAX_NUM_UNICAST> _newUnicastAddresses;
+    ::etl::bitset<MAX_NUM_UNICAST> _newUnicastAddresses;
     uint8_t const _announceCount;
     IDoIpUdpOemMessageHandler const* _currentOemMessageHandler = nullptr;
 };
