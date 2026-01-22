@@ -118,12 +118,14 @@ ITransportMessageProvidingListener::ReceiveResult TransportRouterSimple::message
         forwardMessageToTransportLayer(
             transportMessage, ::busid::SELFDIAG, pNotificationListener, result);
     }
+#ifdef PLATFORM_SUPPORT_ETHERNET
     else if (sourceBusId == ::busid::ETH_0)
     {
         _busIdToReply = sourceBusId;
         forwardMessageToTransportLayer(
             transportMessage, ::busid::SELFDIAG, pNotificationListener, result);
     }
+#endif
     else if (sourceBusId == ::busid::SELFDIAG && _busIdToReply != ::busid::SELFDIAG)
     {
         forwardMessageToTransportLayer(
