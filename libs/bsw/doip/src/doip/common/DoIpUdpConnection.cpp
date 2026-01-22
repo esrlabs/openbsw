@@ -6,10 +6,9 @@
 #include "doip/common/DoIpLock.h"
 
 #include <async/Async.h>
+#include <etl/memory.h>
 #include <udp/DatagramPacket.h>
-
 #include <estd/algorithm.h>
-#include <estd/memory.h>
 #include <estd/variant.h>
 
 namespace doip
@@ -242,7 +241,7 @@ etl::span<uint8_t const> DoIpUdpConnection::fillWriteBuffer(IDoIpSendJob& job)
         {
             if (sendBuffer.data() != destBuffer.data())
             {
-                (void)::estd::memory::copy(destBuffer, sendBuffer);
+                ::etl::mem_copy(sendBuffer.begin(), sendBuffer.end(), destBuffer.begin());
             }
             offset += sendBuffer.size();
         }

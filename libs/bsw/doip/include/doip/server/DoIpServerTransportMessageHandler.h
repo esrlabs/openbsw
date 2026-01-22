@@ -63,7 +63,8 @@ public:
     bool headerReceived(DoIpHeader const& header) override;
 
     // Send jobs declarations
-    using StaticPayloadSendJobType = declare::DoIpStaticPayloadSendJob<10U>;
+    static constexpr size_t STATIC_PAYLOAD_SENDJOB_SIZE = 10U;
+    using StaticPayloadSendJobType = declare::DoIpStaticPayloadSendJob<STATIC_PAYLOAD_SENDJOB_SIZE>;
 
 private:
     static constexpr size_t PEEK_MAX_SIZE              = 4U;

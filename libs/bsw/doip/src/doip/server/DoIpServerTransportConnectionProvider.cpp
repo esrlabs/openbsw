@@ -10,9 +10,7 @@
 #include "doip/server/IDoIpServerTransportConnectionProviderCallback.h"
 
 #include <doip/server/DoIpServerLogger.h>
-
 #include <estd/big_endian.h>
-#include <estd/memory.h>
 
 namespace doip
 {

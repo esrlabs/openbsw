@@ -2,6 +2,7 @@
 
 #include "doip/server/DoIpServerTransportMessageHandler.h"
 
+#include "doip/common/DoIpTestHelpers.h"
 #include "doip/common/DoIpTransportMessageProvidingListenerHelper.h"
 #include "doip/common/DoIpTransportMessageProvidingListenerMock.h"
 #include "doip/server/DoIpServerConnectionMock.h"
@@ -19,6 +20,7 @@
 using namespace ::testing;
 using namespace ::transport;
 using namespace ::doip;
+using namespace ::doip::test;
 
 namespace
 {
@@ -124,7 +126,7 @@ TEST_F(
     auto const tpmBuffer = ::etl::span<uint8_t const>(message.getBuffer(), 3U);
     auto const diagMsg   = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
-    EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsg));
+    EXPECT_TRUE(is_equal(tpmBuffer, diagMsg));
     // Expect diagnostic ack
     uint8_t const expectedDiagnosticAck[] = {
         0x02,
@@ -456,7 +458,7 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestUnprocessedTransportMessageCau
     // payload of diag message starts after 8 bytes of header and 4 bytes of src+dst addresses
     auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
-    EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsgPayload));
+    EXPECT_TRUE(is_equal(tpmBuffer, diagMsgPayload));
     // Expect diagnostic nack
     uint8_t const expectedDiagnosticNack[] = {
         0x02,
@@ -683,13 +685,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWhenConnec
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
@@ -728,13 +730,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWithFailed
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
@@ -772,13 +774,13 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestSendTransportMessageWithoutNot
     uint8_t const diagnosticMessage[] = {
         0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x07, 0x13, 0x57, 0x12, 0x34, 0x11, 0x22, 0x33};
     EXPECT_EQ(3, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 8U, 4U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         sendJob->getSendBuffer(fHeaderBuffer, 2U)));
     // expect release when send job is being released
@@ -898,7 +900,7 @@ TEST_F(DoIpServerTransportMessageHandlerTest, TestNoMessageReceivedIfProtocolSen
     // payload of diag message starts after 8 bytes of header and 4 bytes of src+dst addresses
     auto const diagMsgPayload = ::etl::span<uint8_t const>(diagnosticMessage).subspan(12U);
     // check that the 3-byte peek is correctly copied into the transport message buffer
-    EXPECT_TRUE(::estd::memory::is_equal(tpmBuffer, diagMsgPayload));
+    EXPECT_TRUE(is_equal(tpmBuffer, diagMsgPayload));
     // Release the send job and close the connection
     cut.connectionClosed();
 }

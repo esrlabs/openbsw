@@ -4,13 +4,14 @@
 
 #include "doip/common/DoIpConnectionHandlerMock.h"
 #include "doip/common/DoIpSendJobMock.h"
+#include "doip/common/DoIpTestHelpers.h"
 
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
+#include <etl/memory.h>
+#include <etl/span.h>
 #include <udp/socket/AbstractDatagramSocketMock.h>
-
 #include <estd/array.h>
-#include <estd/memory.h>
 
 #include <gmock/gmock.h>
 
@@ -45,8 +46,8 @@ ACTION_P(Close, cut) { cut->close(); }
 
 MATCHER_P(IsDoIpHeader, headerBytes, "")
 {
-    return ::estd::memory::is_equal(
-        ::estd::memory::as_bytes(&arg),
+    return is_equal(
+        ::etl::span<DoIpHeader const, 1U>(&arg, 1U).reinterpret_as<uint8_t const>(),
         ::etl::span<uint8_t const>(headerBytes, DoIpConstants::DOIP_HEADER_LENGTH));
 }
 
@@ -55,7 +56,7 @@ MATCHER_P3(IsDatagram, endpoint, buffer, exact_match, "")
     return (arg.getEndpoint() == endpoint)
            && (exact_match
                    ? (arg.getData() == buffer.data() && arg.getLength() == buffer.size())
-                   : (::estd::memory::is_equal(
+                   : (is_equal(
                        ::etl::span<uint8_t const>(arg.getData(), arg.getLength()), buffer)));
 }
 
@@ -79,7 +80,7 @@ struct DoIpUdpConnectionTest : Test
     ::etl::span<uint8_t const> getSendBuffer(::etl::span<uint8_t> destBuffer, uint8_t index)
     {
         ::etl::span<uint8_t const> srcBuffer = fSrcBufferArray[index];
-        ::estd::memory::copy(destBuffer, srcBuffer);
+        ::etl::mem_copy(srcBuffer.begin(), srcBuffer.end(), destBuffer.begin());
         return destBuffer.subspan(0U, srcBuffer.size());
     }
 

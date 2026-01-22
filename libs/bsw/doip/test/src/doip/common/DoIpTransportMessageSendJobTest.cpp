@@ -4,12 +4,12 @@
 
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpSendJobCallbackMock.h"
+#include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/span.h>
 #include <transport/TransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
-
 #include <estd/array.h>
-#include <estd/memory.h>
 
 namespace doip
 {
@@ -40,16 +40,15 @@ TEST(DoIpTransportMessageSendJobTest, TestConstructorWithAddressesFromMessage)
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     uint8_t const expectedHeader[] = {0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x13};
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     uint8_t const staticPayload[] = {0x12, 0x34, 0x43, 0x21};
     sendBuffer                    = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(staticPayload), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(staticPayload), sendBuffer));
     sendBuffer = cut.getSendBuffer(staticBuffer, 2U);
     EXPECT_EQ(data, sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(data), sendBuffer));
-    EXPECT_TRUE(::estd::memory::is_equal(
-        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 3U)));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(data), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 3U)));
     // send processed without success
     EXPECT_CALL(
         processedListenerMock,
@@ -102,16 +101,15 @@ TEST(DoIpTransportMessageSendJobTest, TestConstructorWithExplicitAddresses)
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     uint8_t const expectedHeader[] = {0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x13};
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     uint8_t const staticPayload[] = {0x77, 0x53, 0x98, 0x13};
     sendBuffer                    = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(staticPayload), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(staticPayload), sendBuffer));
     sendBuffer = cut.getSendBuffer(staticBuffer, 2U);
     EXPECT_EQ(data, sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(data), sendBuffer));
-    EXPECT_TRUE(::estd::memory::is_equal(
-        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 3U)));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(data), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 3U)));
     // send processed without success
     EXPECT_CALL(
         processedListenerMock,

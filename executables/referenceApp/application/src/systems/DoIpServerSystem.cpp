@@ -2,13 +2,12 @@
 
 #include "systems/DoIpServerSystem.h"
 
-#include "busid/BusId.h"
-#include "doip/common/DoIpConstants.h"
-#include "doip/server/DoIpServerLogger.h"
-#include "ip/NetworkInterfaceConfig.h"
-#include "transport/TransportConfiguration.h"
-
-#include <estd/memory.h>
+#include <busid/BusId.h>
+#include <doip/common/DoIpConstants.h>
+#include <doip/server/DoIpServerLogger.h>
+#include <etl/memory.h>
+#include <ip/NetworkInterfaceConfig.h>
+#include <transport/TransportConfiguration.h>
 
 namespace doip
 {
@@ -214,12 +213,18 @@ void DoIpServerSystem::getVin(::etl::span<char, VIN_LENGTH> vin)
 
 void DoIpServerSystem::getGid(::etl::span<uint8_t, GID_LENGTH> lGid)
 {
-    ::estd::memory::copy(lGid, _macAddress);
+    static_assert(
+        decltype(_macAddress)::extent <= decltype(lGid)::extent,
+        "GID span not big enough to hold MAC");
+    ::etl::mem_copy(_macAddress.begin(), _macAddress.end(), lGid.begin());
 }
 
 void DoIpServerSystem::getEid(::etl::span<uint8_t, EID_LENGTH> lEid)
 {
-    ::estd::memory::copy(lEid, _macAddress);
+    static_assert(
+        decltype(_macAddress)::extent <= decltype(lEid)::extent,
+        "EID span not big enough to hold MAC");
+    ::etl::mem_copy(_macAddress.begin(), _macAddress.end(), lEid.begin());
 }
 
 DoIpConstants::DiagnosticPowerMode DoIpServerSystem::getPowerMode()

@@ -12,12 +12,13 @@
 #include "doip/server/DoIpServerTransportLayerParameters.h"
 #include "doip/server/IDoIpServerConnection.h"
 
+#include <etl/memory.h>
+#include <etl/span.h>
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
-
 #include <util/estd/assert.h>
 #include <estd/big_endian.h>
-#include <estd/memory.h>
+#include <platform/estdint.h>
 
 #include <algorithm>
 
@@ -228,10 +229,10 @@ DoIpServerTransportMessageHandler::getTpMessageAndReceiveDiagnosticUserData(
         _transportMessage->setSourceAddress(_connection->getInternalSourceAddress());
         _transportMessage->setTargetAddress(_payloadPeekContext.targetAddress);
         _transportMessage->setPayloadLength(_receiveMessagePayloadLength);
-        (void)::estd::memory::copy(
-            ::etl::span<uint8_t>(
-                _transportMessage->getBuffer(), _transportMessage->getBufferLength()),
-            payloadPrefix);
+        // SAFETY: payloadPrefix originates from _payloadPeekContext.payloadPrefixBuffer, capped at
+        // PAYLOAD_PREFIX_BUFFER_SIZE. The transport message buffer is at least
+        // _receiveMessagePayloadLength bytes, which is always >= the prefix size.
+        ::etl::mem_copy(payloadPrefix.begin(), payloadPrefix.end(), _transportMessage->getBuffer());
         (void)_transportMessage->increaseValidBytes(payloadPrefix.size());
         if (payloadPrefix.size() < _receiveMessagePayloadLength)
         {
@@ -400,7 +401,15 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
         payloadBuffer.take<uint8_t>()             = responseCode;
         if (receivedMessageDataPrefix.size() > 0)
         {
-            (void)::estd::memory::copy(payloadBuffer, receivedMessageDataPrefix);
+            static_assert(
+                sizeof(::estd::be_uint16_t) + sizeof(::estd::be_uint16_t) + sizeof(uint8_t)
+                        + ACK_PAYLOAD_SIZE
+                    <= STATIC_PAYLOAD_SENDJOB_SIZE,
+                "payload buffer not big enough to hold prefix");
+            ::etl::mem_copy(
+                receivedMessageDataPrefix.begin(),
+                receivedMessageDataPrefix.end(),
+                payloadBuffer.begin());
         }
         if (!_connection->sendMessage(*job))
         {

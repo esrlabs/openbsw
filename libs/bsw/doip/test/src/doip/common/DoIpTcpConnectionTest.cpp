@@ -5,14 +5,13 @@
 #include "doip/common/DoIpConnectionHandlerMock.h"
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpSendJobMock.h"
+#include "doip/common/DoIpTestHelpers.h"
 
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
-#include <tcp/socket/AbstractSocketMock.h>
-
 #include <etl/span.h>
+#include <tcp/socket/AbstractSocketMock.h>
 #include <estd/array.h>
-#include <estd/memory.h>
 
 #include <gmock/gmock.h>
 
@@ -27,8 +26,9 @@ using namespace ::tcp::test;
 
 MATCHER_P(IsDoIpHeader, headerBytes, "")
 {
-    return ::estd::memory::is_equal(
-        ::estd::memory::as_bytes(&arg), ::etl::span<uint8_t const>(headerBytes, 8U));
+    return is_equal(
+        ::etl::span<DoIpHeader const, 1U>(&arg, 1U).reinterpret_as<uint8_t const>(),
+        ::etl::span<uint8_t const>(headerBytes, 8U));
 }
 
 MATCHER_P2(Span, dataMatcher, sizeMatcher, "")

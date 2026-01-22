@@ -6,6 +6,7 @@
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpSendJobMock.h"
 #include "doip/common/DoIpTcpConnectionMock.h"
+#include "doip/common/DoIpTestHelpers.h"
 #include "doip/server/DoIpServerConnectionHandlerCallbackMock.h"
 #include "doip/server/DoIpServerMessageHandlerMock.h"
 #include "doip/server/DoIpServerTransportLayerParameters.h"
@@ -20,13 +21,14 @@
 
 using namespace ::testing;
 using namespace ::doip;
+using namespace ::doip::test;
 
 namespace
 {
 MATCHER_P(IsHeaderEqual, expected, "")
 {
-    return ::estd::memory::is_equal(
-        ::estd::memory::as_bytes(&arg),
+    return is_equal(
+        ::etl::span<DoIpHeader const, 1U>(&arg, 1U).reinterpret_as<uint8_t const>(),
         ::etl::span<uint8_t const>(expected, DoIpConstants::DOIP_HEADER_LENGTH));
 }
 
@@ -153,10 +155,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationAndClose)
     cut.routingActivationCompleted(true, 0x11);
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
@@ -311,10 +313,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadActivationTy
            0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -385,10 +387,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadSourceAddres
            0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -438,10 +440,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithInvalidPayloadL
     uint8_t const activationResponse[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x04};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -518,10 +520,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationFails)
     cut.routingActivationCompleted(false, 0x05);
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
@@ -647,10 +649,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
            0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     sendJob->release(true);
@@ -702,10 +704,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     cut.routingActivationCompleted(true, 0x10);
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse2, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse2 + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Now routing should be active
@@ -738,10 +740,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestInvalidHeaderVersion)
     uint8_t const activationResponse[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -781,10 +783,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestUnknownPayloadType)
     uint8_t const activationResponse[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // No close expected
@@ -892,10 +894,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithSameSourceAddres
            0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
 }
@@ -967,10 +969,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithDifferentSourceA
            0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -1042,9 +1044,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithValidResponse)
     uint8_t const request[] = {0x02, 0xfd, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Response
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x12, 0x34U};
@@ -1094,9 +1096,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckRequestWithInvalidResponse
     uint8_t const request[] = {0x02, 0xfd, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Response
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x08, 0x00, 0x00, 0x00, 0x02, 0x12, 0x35U};
@@ -1186,9 +1188,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckTimeoutExpires)
     uint8_t const request[] = {0x02, 0xfd, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(request + 8U, 0U), sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // increase timer
     testContext.elapse(static_cast<uint64_t>(fParameters.getAliveCheckTimeout() - 1) * 1000U);
@@ -1253,9 +1255,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestAliveCheckResponseWithInvalidPayload
     uint8_t const nackResponse[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x04};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(nackResponse, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(nackResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job
@@ -1378,10 +1380,10 @@ TEST_F(DoIpServerConnectionHandlerTest, TestGeneralInactivityTimeout)
     cut.routingActivationCompleted(true, 0x11);
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse, 8U),
         sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(activationResponse + 8U, 9U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Routing is active => now general inactivity timer should expire if no message is sent
@@ -1467,9 +1469,9 @@ TEST_F(DoIpServerConnectionHandlerTest, TestServerConnectionSendsNackOnDemand)
     uint8_t const nackResponse[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x23};
     EXPECT_TRUE(sendJob != nullptr);
     EXPECT_EQ(2U, sendJob->getSendBufferCount());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(nackResponse, 8U), sendJob->getSendBuffer(fHeaderBuffer, 0U)));
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(nackResponse + 8U, 1U),
         sendJob->getSendBuffer(fHeaderBuffer, 1U)));
     // Expect close after release of send job

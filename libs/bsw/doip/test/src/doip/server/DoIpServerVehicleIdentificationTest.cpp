@@ -6,7 +6,6 @@
 #include "doip/server/DoIpServerVehicleIdentificationCallbackMock.h"
 
 #include <estd/array.h>
-#include <estd/memory.h>
 
 using namespace ::testing;
 using namespace ::doip;

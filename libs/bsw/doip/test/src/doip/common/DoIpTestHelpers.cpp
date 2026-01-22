@@ -1,8 +1,8 @@
 // Copyright 2025 Accenture.
 
-#include "DoIpTestHelpers.h"
+#include "doip/common/DoIpTestHelpers.h"
 
-#include <estd/memory.h>
+#include <etl/span.h>
 
 using namespace ::testing;
 using namespace ::tcp::test;

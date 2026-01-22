@@ -4,6 +4,7 @@
 
 #include "bsp/timer/SystemTimerMock.h"
 #include "doip/common/DoIpConstants.h"
+#include "doip/common/DoIpTestHelpers.h"
 #include "doip/common/DoIpVehicleAnnouncementListenerMock.h"
 #include "doip/server/DoIpServerEntityStatusCallbackMock.h"
 #include "doip/server/DoIpServerVehicleAnnouncementParameterProviderMock.h"
@@ -15,13 +16,14 @@
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
 #include <cpp2ethernet/gtest_extensions.h>
+#include <etl/memory.h>
 #include <etl/pool.h>
+#include <etl/span.h>
 #include <ip/NetworkInterfaceConfigRegistryMock.h>
 #include <udp/socket/AbstractDatagramSocketMock.h>
 
-#include <estd/memory.h>
-
 #include <gtest/esr_extensions.h>
+#include <gtest/gtest.h>
 
 namespace
 {
@@ -44,11 +46,15 @@ MATCHER_P2(IsDatagram, endpoint, buffer, "")
 {
     ::udp::DatagramPacket const& argDatagram = arg;
     return (argDatagram.getEndpoint() == endpoint)
-           && (::estd::memory::is_equal(
+           && (::doip::test::is_equal(
                ::etl::span<uint8_t const>(argDatagram.getData(), argDatagram.getLength()), buffer));
 }
 
-ACTION_P(CopySpan, src) { ::estd::memory::copy(arg0.template reinterpret_as<uint8_t>(), src); }
+ACTION_P(CopySpan, src)
+{
+    ASSERT_LE(src.size(), arg0.size());
+    ::etl::mem_copy(src.begin(), src.end(), arg0.template reinterpret_as<uint8_t>().begin());
+}
 
 struct DoIpServerVehicleIdentificationSocketHandlerTest : Test
 {
@@ -1122,7 +1128,7 @@ void DoIpServerVehicleIdentificationSocketHandlerTest::expectNackResponse(
 {
     uint8_t const response[] = {0x02, 0xfd, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, nackCode};
     ::etl::span<uint8_t> responseBuffer = allocateBuffer(sizeof(response));
-    ::estd::memory::copy(responseBuffer, response);
+    ::etl::mem_copy(response, sizeof(response), responseBuffer.begin());
 
     Sequence defaultSeq;
     EXPECT_CALL(

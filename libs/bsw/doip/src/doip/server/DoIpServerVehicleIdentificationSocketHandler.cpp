@@ -2,7 +2,6 @@
 
 #include "doip/server/DoIpServerVehicleIdentificationSocketHandler.h"
 
-#include "bsp/timer/SystemTimer.h"
 #include "doip/common/DoIpConstants.h"
 #include "doip/common/DoIpLock.h"
 #include "doip/common/IDoIpVehicleAnnouncementListener.h"
@@ -11,13 +10,18 @@
 #include "doip/server/IDoIpServerVehicleAnnouncementParameterProvider.h"
 #include "doip/server/IDoIpServerVehicleIdentificationCallback.h"
 
+#include <bsp/timer/SystemTimer.h>
+#include <etl/memory.h>
+#include <etl/span.h>
 #include <estd/array.h>
 #include <estd/big_endian.h>
-#include <estd/memory.h>
 #include <estd/optional.h>
 
 namespace doip
 {
+constexpr size_t EID_LENGTH = 6U;
+constexpr size_t VIN_LENGTH = 17U;
+
 DoIpServerVehicleIdentificationSocketHandler::DoIpServerVehicleIdentificationSocketHandler(
     DoIpConstants::ProtocolVersion const protocolVersion,
     ::udp::AbstractDatagramSocket& socket,
@@ -261,10 +265,10 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRe
 bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRequestMessageEid(
     DoIpHeader const& header)
 {
-    if (header.payloadLength == 6U)
+    if (header.payloadLength == EID_LENGTH)
     {
         return _connection.receivePayload(
-            ::etl::span<uint8_t>(_readBuffer).subspan(0U, 6U),
+            ::etl::span<uint8_t>(_readBuffer).subspan(0U, EID_LENGTH),
             IDoIpConnection::PayloadReceivedCallbackType::create<
                 DoIpServerVehicleIdentificationSocketHandler,
                 &DoIpServerVehicleIdentificationSocketHandler::
@@ -277,10 +281,10 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRe
 bool DoIpServerVehicleIdentificationSocketHandler::handleVehicleIdentificationRequestMessageVin(
     DoIpHeader const& header)
 {
-    if (header.payloadLength == 17U)
+    if (header.payloadLength == VIN_LENGTH)
     {
         return _connection.receivePayload(
-            ::etl::span<uint8_t>(_readBuffer).subspan(0U, 17U),
+            ::etl::span<uint8_t>(_readBuffer).subspan(0U, VIN_LENGTH),
             IDoIpConnection::PayloadReceivedCallbackType::create<
                 DoIpServerVehicleIdentificationSocketHandler,
                 &DoIpServerVehicleIdentificationSocketHandler::
@@ -419,9 +423,10 @@ bool DoIpServerVehicleIdentificationSocketHandler::handleRequest(DoIpHeader cons
 void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationEidRequestReceived(
     ::etl::span<uint8_t const> const payload)
 {
-    uint8_t eid[6];
+    uint8_t eid[EID_LENGTH];
     _config.getVehicleIdentificationCallback().getEid(eid);
-    if (::estd::memory::is_equal(payload, eid))
+    if ((payload.size() == sizeof(eid))
+        && (::etl::mem_compare(payload.begin(), payload.end(), eid) == 0))
     {
         enqueueResponse(DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION);
     }
@@ -431,10 +436,11 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationEidReque
 void DoIpServerVehicleIdentificationSocketHandler::vehicleIdentificationVinRequestReceived(
     ::etl::span<uint8_t const> const payload)
 {
-    uint8_t vin[17];
+    uint8_t vin[VIN_LENGTH];
     _config.getVehicleIdentificationCallback().getVin(
-        ::etl::span<uint8_t, 17>(vin).reinterpret_as<char>());
-    if (::estd::memory::is_equal(payload, vin))
+        ::etl::span<uint8_t, VIN_LENGTH>(vin).reinterpret_as<char>());
+    if ((payload.size() == sizeof(vin))
+        && (::etl::mem_compare(payload.begin(), payload.end(), vin) == 0))
     {
         enqueueResponse(DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION);
     }
@@ -446,7 +452,7 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleAnnouncementPayloadRec
 {
     if (_vehicleAnnouncementListener != nullptr)
     {
-        uint16_t const logicalAddress = ::estd::read_be<uint16_t>(&payload[17]);
+        uint16_t const logicalAddress = ::estd::read_be<uint16_t>(&payload[VIN_LENGTH]);
         _vehicleAnnouncementListener->vehicleAnnouncementReceived(
             logicalAddress, _connection.getLocalEndpoint(), _connection.getRemoteEndpoint());
     }

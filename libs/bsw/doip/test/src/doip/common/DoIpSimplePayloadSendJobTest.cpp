@@ -4,9 +4,10 @@
 
 #include "doip/common/DoIpConstants.h"
 #include "doip/common/DoIpHeader.h"
+#include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/span.h>
 #include <estd/array.h>
-#include <estd/memory.h>
 
 #include <gmock/gmock.h>
 
@@ -57,23 +58,22 @@ TEST_F(DoIpSimplePayloadSendJobTest, TestAll)
     ::estd::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     // return another buffer
     uint8_t const payloadBuffer[] = {0x11, 0x22, 0x33, 0x44};
     EXPECT_CALL(cut, getPayloadBuffer(_))
         .WillOnce(Return(::etl::span<uint8_t const>(payloadBuffer)));
     sendBuffer = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(payloadBuffer, sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(payloadBuffer), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(payloadBuffer), sendBuffer));
     // return static buffer
     EXPECT_CALL(cut, getPayloadBuffer(_))
         .WillOnce(Invoke(DoIpSimplePayloadSendJobMock::returnBuffer));
     sendBuffer = cut.getSendBuffer(staticBuffer, 1U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(staticBuffer), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(staticBuffer), sendBuffer));
     // last buffer
-    EXPECT_TRUE(::estd::memory::is_equal(
-        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 2U)));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 2U)));
 
     // release with success
     EXPECT_CALL(*this, released(Ref(cut), true));

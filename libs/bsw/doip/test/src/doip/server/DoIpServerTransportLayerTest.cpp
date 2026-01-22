@@ -2,6 +2,7 @@
 
 #include "doip/server/DoIpServerTransportLayer.h"
 
+#include "doip/common/DoIpTestHelpers.h"
 #include "doip/common/DoIpTransportMessageProvidingListenerHelper.h"
 #include "doip/common/DoIpTransportMessageProvidingListenerMock.h"
 #include "doip/server/DoIpServerSocketHandlerMock.h"
@@ -12,13 +13,12 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
+#include <etl/memory.h>
+#include <etl/pool.h>
+#include <etl/span.h>
 #include <tcp/socket/AbstractSocketMock.h>
 #include <transport/BufferedTransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
-
-#include <etl/pool.h>
-#include <etl/span.h>
-#include <estd/memory.h>
 
 #include <gmock/gmock.h>
 #include <gtest/esr_extensions.h>
@@ -269,7 +269,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithoutFilter)
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     EXPECT_EQ(1U, cut.getConnectionCount(22U));
 }
@@ -318,7 +318,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithInvalidActivationT
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1, 0x02);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     EXPECT_CALL(fConnectionPoolMock, releaseConnection(Ref(fConnection1)));
     EXPECT_CALL(fSocketHandlerMock, releaseSocket(Ref(fSocketMock1), ConnectionType::PLAIN));
@@ -390,7 +390,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackSucceeds)
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     EXPECT_EQ(1U, cut.getConnectionCount(22U));
 }
@@ -455,7 +455,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackFails)
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     EXPECT_CALL(fSocketHandlerMock, releaseSocket(Ref(fSocketMock1), ConnectionType::PLAIN));
     testContext.expireAndExecute();
@@ -524,7 +524,7 @@ TEST_F(DoIpServerTransportLayerTest, TestThirdSocketIsRejected)
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     EXPECT_CALL(fConnectionPoolMock, createConnection(33U, Ref(fSocketMock2), _, _))
         .WillOnce(Return(&fConnection2));
@@ -604,7 +604,7 @@ TEST_F(DoIpServerTransportLayerTest, TestReserveSocket)
     ::etl::span<uint8_t> response = prepareRoutingActivationResponse(fSocketMock1);
     expectRoutingActivationRequest(fSocketMock1, 0x1122, fLocalEndpoint1, fRemoteEndpoint1);
     endRoutingActivationResponse(fSocketMock1);
-    EXPECT_TRUE(::estd::memory::is_equal(expectedResponse, response));
+    EXPECT_TRUE(is_equal(expectedResponse, response));
 
     // even if maximum connection count has been reached, a second (reserve) socket could be opened
     // in the same group in the TCP layer; this allows the new connection to replace the existing
@@ -786,7 +786,7 @@ TEST_F(DoIpServerTransportLayerTest, TestReceiveMessage)
     EXPECT_EQ(0x1122, message.getSourceId());
     EXPECT_EQ(0x1519, message.getTargetId());
     EXPECT_EQ(3U, message.getPayloadLength());
-    EXPECT_TRUE(::estd::memory::is_equal(
+    EXPECT_TRUE(is_equal(
         ::etl::span<uint8_t const>(diagnosticMessage + 12U, 3U),
         ::etl::span<uint8_t const>(message.getPayload(), 3U)));
 
@@ -1718,7 +1718,7 @@ TEST_F(DoIpServerTransportLayerTest, TestAliveCheckWithAlreadyRegisteredSource)
            0x00,
            0x00,
            0x00};
-    EXPECT_TRUE(::estd::memory::is_equal(response, expectedResponse));
+    EXPECT_TRUE(is_equal(response, expectedResponse));
     testContext.expireAndExecute();
 
     // Expect connection to get inactive on close
@@ -1943,7 +1943,7 @@ TEST_F(DoIpServerTransportLayerTest, TestAliveCheckWithAnotherRegisteredSource)
            0x00,
            0x00,
            0x00};
-    EXPECT_TRUE(::estd::memory::is_equal(response, expectedResponse));
+    EXPECT_TRUE(is_equal(response, expectedResponse));
     testContext.expireAndExecute();
 
     // Expect connection to get inactive on close
@@ -2081,8 +2081,8 @@ void DoIpServerTransportLayerTest::expectRoutingActivationRequest(
            0x00,
            0x00,
            0x00};
-
-    auto request = ::etl::span<uint8_t const>(requestData);
+    ::etl::span<uint8_t> request = allocateBuffer(sizeof(requestData));
+    ::etl::mem_copy(requestData, sizeof(requestData), request.begin());
 
     Sequence seq;
     EXPECT_CALL(socketMock, read(NotNull(), 8U))
@@ -2136,8 +2136,8 @@ void DoIpServerTransportLayerTest::expectAliveCheckResponse(
            0x02,
            static_cast<uint8_t>((sourceAddress >> 8) & 0xff),
            static_cast<uint8_t>(sourceAddress & 0xff)};
-
-    auto response = ::etl::span<uint8_t const>(responseData);
+    ::etl::span<uint8_t> response = allocateBuffer(sizeof(responseData));
+    ::etl::mem_copy(responseData, sizeof(responseData), response.begin());
 
     Sequence seq;
     EXPECT_CALL(socketMock, read(NotNull(), 8U))

@@ -4,9 +4,10 @@
 
 #include "doip/common/DoIpConstants.h"
 #include "doip/common/DoIpHeader.h"
+#include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/span.h>
 #include <estd/array.h>
-#include <estd/memory.h>
 
 #include <gmock/gmock.h>
 
@@ -34,10 +35,9 @@ TEST_F(DoIpVehicleIdentificationRequestSendJobTest, TestAll)
     ::estd::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
-    EXPECT_TRUE(::estd::memory::is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
     // return another buffer
-    EXPECT_TRUE(::estd::memory::is_equal(
-        ::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 1U)));
+    EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(), cut.getSendBuffer(staticBuffer, 1U)));
     // release
     EXPECT_CALL(*this, released(Ref(cut), true));
     cut.release(true);

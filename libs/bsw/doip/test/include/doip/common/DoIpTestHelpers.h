@@ -3,6 +3,8 @@
 #pragma once
 
 #include <async/TestContext.h>
+#include <etl/memory.h>
+#include <etl/span.h>
 #include <tcp/socket/AbstractSocketMock.h>
 
 #include <gmock/gmock.h>
@@ -12,6 +14,15 @@ namespace doip
 namespace test
 {
 using namespace ::testing;
+
+inline bool is_equal(::etl::span<uint8_t const> const a, ::etl::span<uint8_t const> const b)
+{
+    if (a.size() != b.size())
+    {
+        return false;
+    }
+    return (a.size() == 0) || (0 == ::etl::mem_compare(a.begin(), a.end(), b.begin()));
+}
 
 class DoIpExpectSendHelper
 {

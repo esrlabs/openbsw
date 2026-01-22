@@ -7,7 +7,8 @@
 
 #include "doip/common/DoIpSimplePayloadSendJob.h"
 
-#include <estd/memory.h>
+#include <etl/error_handler.h>
+#include <etl/memory.h>
 
 namespace doip
 {
@@ -118,7 +119,10 @@ DoIpStaticPayloadSendJob<BufferSize>::DoIpStaticPayloadSendJob(
 : ::doip::declare::DoIpStaticPayloadSendJob<BufferSize>(
     protocolVersion, payloadType, payload.size(), releaseCallback)
 {
-    (void)::estd::memory::copy(accessPayloadBuffer(), payload);
+    // Violation would cause out-of-bounds write into _payloadBuffer, corrupting memory.
+    ETL_ASSERT(
+        payload.size() <= BufferSize, ETL_ERROR_GENERIC("buffer not big enough to hold payload"));
+    ::etl::mem_copy(payload.begin(), payload.end(), accessPayloadBuffer().begin());
 }
 
 template<size_t BufferSize>
