@@ -28,7 +28,7 @@ DoIpServerVehicleIdentificationSocketHandler::DoIpServerVehicleIdentificationSoc
     uint8_t const socketGroupId,
     ::ip::NetworkInterfaceConfigKey const& networkInterfaceConfigKey,
     ::ip::IPAddress const& multicastAddress,
-    ::estd::vector<::ip::IPAddress>& unicastAddresses,
+    ::etl::ivector<::ip::IPAddress>& unicastAddresses,
     DoIpServerVehicleIdentificationConfig& config,
     uint8_t const announceCount)
 : IDoIpConnectionHandler()

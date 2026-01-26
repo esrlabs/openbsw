@@ -8,11 +8,11 @@
 #include "doip/server/IDoIpServerSocketHandlerListener.h"
 
 #include <etl/pool.h>
+#include <etl/vector.h>
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <tcp/socket/ISocketProvidingConnectionListener.h>
 #include <util/logger/Logger.h>
 #include <estd/functional.h>
-#include <estd/vector.h>
 
 namespace doip
 {
@@ -96,12 +96,12 @@ private:
         DoIpTcpConnection::ConnectionType _type;
     };
 
-    using SocketHandlerVector = ::estd::vector<SocketHandler>;
+    using SocketHandlerVector = ::etl::ivector<SocketHandler>;
 
     void
     configChanged(::ip::NetworkInterfaceConfigKey key, ::ip::NetworkInterfaceConfig const& config);
 
-    ::estd::declare::vector<SocketHandler, NUM_SERVER_SOCKETS> _socketHandlers;
+    ::etl::vector<SocketHandler, NUM_SERVER_SOCKETS> _socketHandlers;
     ::etl::pool<Socket, NUM_PLAIN_SOCKETS> _sockets;
     ::ip::NetworkInterfaceConfigRegistry::ConfigChangedSignal::slot _configChangedSlot;
     ::ip::NetworkInterfaceConfigRegistry& _networkInterfaceConfigRegistry;
@@ -148,7 +148,7 @@ ServerSocket& DoIpServerSocketHandler<
         uint8_t const serverSocketId,
         ::ip::NetworkInterfaceConfigKey const& networkInterfaceConfigKey)
 {
-    SocketHandler& socketHandler = _socketHandlers.emplace_back().construct(
+    SocketHandler& socketHandler = _socketHandlers.emplace_back(
         *this, serverSocketId, networkInterfaceConfigKey, DoIpTcpConnection::ConnectionType::PLAIN);
     return socketHandler.getServerSocket();
 }

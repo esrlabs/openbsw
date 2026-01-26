@@ -17,8 +17,8 @@
 
 #include <etl/bitset.h>
 #include <etl/span.h>
+#include <etl/vector.h>
 #include <estd/optional.h>
-#include <estd/vector.h>
 
 namespace doip
 {
@@ -53,7 +53,7 @@ public:
         uint8_t socketGroupId,
         ::ip::NetworkInterfaceConfigKey const& networkInterfaceConfigKey,
         ::ip::IPAddress const& multicastAddress,
-        ::estd::vector<::ip::IPAddress>& unicastAddresses,
+        ::etl::ivector<::ip::IPAddress>& unicastAddresses,
         DoIpServerVehicleIdentificationConfig& config,
         uint8_t announceCount);
 
@@ -173,7 +173,7 @@ private:
     ::ip::ConfigChangedSignal::slot _configChangedSlot;
     ::async::TimeoutType _timeoutTimeout;
     ::estd::forward_list<DoIpServerVehicleIdentificationRequest> _pendingRequests;
-    ::estd::vector<ip::IPAddress>& _unicastAddresses;
+    ::etl::ivector<ip::IPAddress>& _unicastAddresses;
     ::estd::optional<StaticPayloadSendJobType> _sendJob;
     DoIpConstants::ProtocolVersion _protocolVersion;
     ::ip::NetworkInterfaceConfigKey _networkInterfaceConfigKey;
@@ -193,7 +193,7 @@ namespace declare
  * \tparam NUM_ANNOUNCEMENTS number of announcements (ISO13400: A_DoIP_Announce_Num)
  * \tparam NUM_UNICAST number of unicast addresses to store with the socket handler
  */
-template<class DatagramSocket, uint8_t NUM_ANNOUNCEMENTS, size_t NUM_UNICAST = 0U>
+template<class DatagramSocket, uint8_t NUM_ANNOUNCEMENTS, size_t NUM_UNICAST = 1U>
 class DoIpServerVehicleIdentificationSocketHandler
 : public ::doip::DoIpServerVehicleIdentificationSocketHandler
 {
@@ -209,7 +209,7 @@ public:
 
 private:
     DatagramSocket _socket;
-    ::estd::declare::vector<::ip::IPAddress, NUM_UNICAST> _unicastAddresses;
+    ::etl::vector<::ip::IPAddress, NUM_UNICAST> _unicastAddresses;
 };
 
 } // namespace declare

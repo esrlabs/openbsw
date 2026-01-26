@@ -11,7 +11,7 @@
 
 #include <etl/pool.h>
 #include <etl/span.h>
-#include <estd/vector.h>
+#include <etl/vector.h>
 
 namespace doip
 {
@@ -102,7 +102,7 @@ public:
     void shutdown();
 
 private:
-    using SocketHandlerVector = ::estd::declare::vector<
+    using SocketHandlerVector = ::etl::vector<
         DoIpServerVehicleIdentificationSocketHandler<
             DatagramSocket,
             NUM_ANNOUNCEMENTS,
@@ -173,7 +173,7 @@ DoIpServerVehicleIdentificationService<
         ::ip::NetworkInterfaceConfigKey const& configKey,
         ::ip::IPAddress const& multicastAddress)
 {
-    return _socketHandlers.emplace_back().construct(
+    return _socketHandlers.emplace_back(
         _config.getProtocolVersion(),
         socketGroupId,
         configKey,
