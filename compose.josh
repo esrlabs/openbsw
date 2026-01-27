@@ -1,0 +1,9 @@
+:$label="OpenBSW"
+:$output="none"
+
+inputs = :[
+    :#fmt[:+ws/fmt]
+    :#posix[:+ws/posix]
+    :#unit-test[:+ws/unit-test]
+    :#s32k148-gcc[:+ws/s32k148-gcc]
+]

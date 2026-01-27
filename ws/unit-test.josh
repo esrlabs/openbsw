@@ -1,0 +1,21 @@
+:$label="unit tests"
+:#image[:+ws/dev-image]
+:$output="none"
+:$network="host"
+
+worktree = :[
+    :+ws/openbsw
+    ::executables/unitTest/
+    ::platforms/posix/
+    :/ws::run.sh=unit-test.run.sh
+    :<:/libs>[
+        :[::bsw/,::safety/]:[
+            ::*/*/mock/**/*.*
+            ::*/*/test/**/*.*
+            ::*/*/examples/**/*.*
+        ]
+        :<:/3rdparty>[
+            ::googletest/
+        ]
+    ]
+]

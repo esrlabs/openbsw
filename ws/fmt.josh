@@ -1,0 +1,6 @@
+:$label="format"
+:#image[:+ws/fmt-image]
+:$output="workdir"
+:$cmd="treefmt && cp -a . /out"
+
+worktree = :/

@@ -1,0 +1,13 @@
+:$label="integration tests"
+:#image[:+ws/dev-image]
+:$output="workdir"
+:$network="host"
+
+worktree = :[
+    :+ws/openbsw
+    ::executables/referenceApp/
+    ::platforms/posix/
+    ::test/
+    ::tools/UdsTool/
+    :/ws::run.sh=integration-test.run.sh
+]
