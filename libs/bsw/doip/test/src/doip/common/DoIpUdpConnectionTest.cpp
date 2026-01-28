@@ -8,10 +8,10 @@
 
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
+#include <etl/array.h>
 #include <etl/memory.h>
 #include <etl/span.h>
 #include <udp/socket/AbstractDatagramSocketMock.h>
-#include <estd/array.h>
 
 #include <gmock/gmock.h>
 
@@ -96,7 +96,7 @@ struct DoIpUdpConnectionTest : Test
 
 TEST_F(DoIpUdpConnectionTest, Init)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     ASSERT_EQ(&fSocketMock, &cut.getSocket());
     cut.init(fConnectionHandlerMock);
@@ -110,7 +110,7 @@ TEST_F(DoIpUdpConnectionTest, Init)
 
 TEST_F(DoIpUdpConnectionTest, ReceivePayload)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteEndpoint(::ip::make_ip4(0x87654321), 0x1122);
@@ -149,8 +149,8 @@ TEST_F(DoIpUdpConnectionTest, ReceivePayload)
            0xe1,
            0xd2,
            0xc3};
-    ::estd::array<uint8_t, 32> tooLongBuffer;
-    ::estd::array<uint8_t, 10> perfectBuffer;
+    ::etl::array<uint8_t, 32> tooLongBuffer;
+    ::etl::array<uint8_t, 10> perfectBuffer;
     EXPECT_CALL(fConnectionHandlerMock, headerReceived(IsDoIpHeader(data)))
         .WillOnce(DoAll(
             CheckEndpoint(&cut, false, &remoteEndpoint),
@@ -179,7 +179,7 @@ TEST_F(DoIpUdpConnectionTest, ReceivePayload)
 
 TEST_F(DoIpUdpConnectionTest, IgnoreMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteEndpoint(::ip::make_ip4(0x87654321), 0x1122);
@@ -228,7 +228,7 @@ TEST_F(DoIpUdpConnectionTest, IgnoreMessage)
 
 TEST_F(DoIpUdpConnectionTest, EndReceiveMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteEndpoint(::ip::make_ip4(0x87654321), 0x1122);
@@ -260,7 +260,7 @@ TEST_F(DoIpUdpConnectionTest, EndReceiveMessage)
            0xe1,
            0xd2,
            0xc3};
-    ::estd::array<uint8_t, 2> payloadBuffer;
+    ::etl::array<uint8_t, 2> payloadBuffer;
     EXPECT_CALL(fConnectionHandlerMock, headerReceived(IsDoIpHeader(data)))
         .WillOnce(DoAll(
             CheckEndpoint(&cut, false, &remoteEndpoint),
@@ -287,7 +287,7 @@ TEST_F(DoIpUdpConnectionTest, EndReceiveMessage)
 
 TEST_F(DoIpUdpConnectionTest, SendMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     StrictMock<DoIpSendJobMock> sendJobMock;
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -315,7 +315,7 @@ TEST_F(DoIpUdpConnectionTest, SendMessage)
 
 TEST_F(DoIpUdpConnectionTest, SuspendResume)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     StrictMock<DoIpSendJobMock> sendJobMock;
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -349,7 +349,7 @@ TEST_F(DoIpUdpConnectionTest, SuspendResume)
 
 TEST_F(DoIpUdpConnectionTest, Close)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     // shouldn't care
     cut.close();
@@ -361,7 +361,7 @@ TEST_F(DoIpUdpConnectionTest, Close)
 
 TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageReception)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPAddress remoteIpAddress = ::ip::make_ip4(0x87654321);
@@ -388,7 +388,7 @@ TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageReception)
            0x88,
            0x99};
     EXPECT_CALL(fConnectionHandlerMock, headerReceived(_)).Times(0);
-    ::estd::array<uint8_t, 9U> payloadBuffer;
+    ::etl::array<uint8_t, 9U> payloadBuffer;
     EXPECT_CALL(fConnectionHandlerMock, headerReceived(IsDoIpHeader(input)))
         .WillOnce(DoAll(
             ReceivePayload(&cut, &payloadBuffer, &fPayloadReceivedCallback, true),
@@ -410,7 +410,7 @@ TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageReception)
 
 TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageTransmission)
 {
-    ::estd::array<uint8_t, 20U> writeBuffer;
+    ::etl::array<uint8_t, 20U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -464,7 +464,7 @@ TEST_F(DoIpUdpConnectionTest, SimpleLifecycleWithMessageTransmission)
 
 TEST_F(DoIpUdpConnectionTest, CloseConnectionDuringReception)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPAddress remoteIpAddress = ::ip::make_ip4(0x87654321);
@@ -507,7 +507,7 @@ TEST_F(DoIpUdpConnectionTest, CloseConnectionDuringReception)
 
 TEST_F(DoIpUdpConnectionTest, ReleaseMessageOnFailedSendMessage)
 {
-    ::estd::array<uint8_t, 20U> writeBuffer;
+    ::etl::array<uint8_t, 20U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -533,7 +533,7 @@ TEST_F(DoIpUdpConnectionTest, ReleaseMessageOnFailedSendMessage)
 
 TEST_F(DoIpUdpConnectionTest, CloseConnectionDuringTransmission)
 {
-    ::estd::array<uint8_t, 20U> writeBuffer;
+    ::etl::array<uint8_t, 20U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -561,7 +561,7 @@ TEST_F(DoIpUdpConnectionTest, CloseConnectionDuringTransmission)
 
 TEST_F(DoIpUdpConnectionTest, WriteIntoStaticBuffer)
 {
-    ::estd::array<uint8_t, 20U> writeBuffer;
+    ::etl::array<uint8_t, 20U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);
@@ -587,7 +587,7 @@ TEST_F(DoIpUdpConnectionTest, WriteIntoStaticBuffer)
 
 TEST_F(DoIpUdpConnectionTest, SendTooLongMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpUdpConnection cut(asyncContext, fSocketMock, writeBuffer);
     cut.init(fConnectionHandlerMock);
     ::ip::IPEndpoint remoteIpEndpoint(::ip::make_ip4(0x87654321), 0x1135U);

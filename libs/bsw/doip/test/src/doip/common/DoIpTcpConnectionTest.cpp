@@ -9,9 +9,9 @@
 
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
+#include <etl/array.h>
 #include <etl/span.h>
 #include <tcp/socket/AbstractSocketMock.h>
-#include <estd/array.h>
 
 #include <gmock/gmock.h>
 
@@ -69,7 +69,7 @@ struct DoIpTcpConnectionTest : Test
 TEST_F(DoIpTcpConnectionTest, Constructor)
 {
     {
-        ::estd::array<uint8_t, 10U> writeBuffer;
+        ::etl::array<uint8_t, 10U> writeBuffer;
         DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
         ASSERT_EQ(&fSocketMock, &cut.getSocket());
     }
@@ -77,7 +77,7 @@ TEST_F(DoIpTcpConnectionTest, Constructor)
 
 TEST_F(DoIpTcpConnectionTest, Init)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     // init on non-established socket
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(false));
@@ -105,7 +105,7 @@ TEST_F(DoIpTcpConnectionTest, Init)
 
 TEST_F(DoIpTcpConnectionTest, ReceivePayload)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -119,9 +119,9 @@ TEST_F(DoIpTcpConnectionTest, ReceivePayload)
     EXPECT_CALL(fSocketMock, read(_, _)).WillOnce(Invoke(ReadBytesFrom(header)));
     fSocketMock.getDataListener()->dataReceived(8U);
     // receive more than payload length (31)
-    ::estd::array<uint8_t, 32> tooLongBuffer;
+    ::etl::array<uint8_t, 32> tooLongBuffer;
     EXPECT_FALSE(cut.receivePayload(tooLongBuffer, fPayloadReceivedCallback));
-    ::estd::array<uint8_t, 10> perfectBuffer;
+    ::etl::array<uint8_t, 10> perfectBuffer;
     // receive payload without callback
     EXPECT_FALSE(cut.receivePayload(perfectBuffer, IDoIpConnection::PayloadReceivedCallbackType()));
     // receive payload with valid buffer
@@ -132,7 +132,7 @@ TEST_F(DoIpTcpConnectionTest, ReceivePayload)
 
 TEST_F(DoIpTcpConnectionTest, IgnoreMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -155,7 +155,7 @@ TEST_F(DoIpTcpConnectionTest, IgnoreMessage)
 
 TEST_F(DoIpTcpConnectionTest, EndReceiveMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -184,7 +184,7 @@ TEST_F(DoIpTcpConnectionTest, EndReceiveMessage)
         .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(data2).first(8))));
     fSocketMock.getDataListener()->dataReceived(11U);
     // read some payload
-    ::estd::array<uint8_t, 4U> payloadBuffer;
+    ::etl::array<uint8_t, 4U> payloadBuffer;
     EXPECT_CALL(fSocketMock, read(_, 3U))
         .WillOnce(Invoke(ReadBytesFrom(::etl::span<uint8_t const>(data2).subspan(8, 3))));
     cut.receivePayload(payloadBuffer, fPayloadReceivedCallback);
@@ -203,7 +203,7 @@ TEST_F(DoIpTcpConnectionTest, EndReceiveMessage)
 
 TEST_F(DoIpTcpConnectionTest, SendMessage)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -225,7 +225,7 @@ TEST_F(DoIpTcpConnectionTest, SendMessage)
 
 TEST_F(DoIpTcpConnectionTest, SuspendResume)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -253,7 +253,7 @@ TEST_F(DoIpTcpConnectionTest, SuspendResume)
 
 TEST_F(DoIpTcpConnectionTest, SendConsecutiveMessagesWithoutFlushing)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock1;
     StrictMock<DoIpSendJobMock> sendJobMock2;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
@@ -287,7 +287,7 @@ TEST_F(DoIpTcpConnectionTest, SendConsecutiveMessagesWithoutFlushing)
 
 TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterDataHasBeenQueued)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock1;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -333,7 +333,7 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterDataHasBe
 
 TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterAllDataHasBeenSent)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock1;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -379,7 +379,7 @@ TEST_F(DoIpTcpConnectionTest, ContinueSendingOfFlushedMessageBlockAfterAllDataHa
 
 TEST_F(DoIpTcpConnectionTest, RepeatSendingOfUnsentMessageBlockAfterDataHasBeenQueued)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -420,7 +420,7 @@ TEST_F(DoIpTcpConnectionTest, RepeatSendingOfUnsentMessageBlockAfterDataHasBeenQ
 
 TEST_F(DoIpTcpConnectionTest, Close)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     // shouldn't care
     cut.close();
@@ -434,7 +434,7 @@ TEST_F(DoIpTcpConnectionTest, Close)
 
 TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageReception)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -480,7 +480,7 @@ TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageReception)
 
 TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageTransmission)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -541,7 +541,7 @@ TEST_F(DoIpTcpConnectionTest, SimpleLifecycleWithMessageTransmission)
 
 TEST_F(DoIpTcpConnectionTest, CloseConnectionDuringSend)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
@@ -573,7 +573,7 @@ TEST_F(DoIpTcpConnectionTest, CloseConnectionDuringSend)
 
 TEST_F(DoIpTcpConnectionTest, AbortConnection)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -588,7 +588,7 @@ TEST_F(DoIpTcpConnectionTest, AbortConnection)
 
 TEST_F(DoIpTcpConnectionTest, DetachConnection)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));
     cut.init(fConnectionHandlerMock);
@@ -602,7 +602,7 @@ TEST_F(DoIpTcpConnectionTest, DetachConnection)
 
 TEST_F(DoIpTcpConnectionTest, DetachConnectionDuringSend)
 {
-    ::estd::array<uint8_t, 10U> writeBuffer;
+    ::etl::array<uint8_t, 10U> writeBuffer;
     StrictMock<DoIpSendJobMock> sendJobMock;
     DoIpTcpConnection cut(asyncContext, fSocketMock, writeBuffer);
     EXPECT_CALL(fSocketMock, isEstablished()).WillOnce(Return(true));

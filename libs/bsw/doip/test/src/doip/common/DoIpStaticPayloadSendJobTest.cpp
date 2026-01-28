@@ -5,9 +5,9 @@
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/array.h>
 #include <etl/memory.h>
 #include <etl/span.h>
-#include <estd/array.h>
 
 #include <gmock/gmock.h>
 
@@ -35,7 +35,7 @@ TEST_F(DoIpStaticPayloadSendJobTest, TestAll)
     ASSERT_EQ(2U, cut.getSendBufferCount());
     ASSERT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + 0x4, cut.getTotalLength());
     uint8_t const expectedHeader[] = {0x01, 0xfe, 0x33, 0x21, 0x00, 0x00, 0x00, 0x04};
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
@@ -64,7 +64,7 @@ TEST_F(DoIpStaticPayloadSendJobTest, TestDeclareWithPayloadLength)
     ::etl::mem_copy(payload, sizeof(payload), payloadBuffer.begin());
     uint8_t const expectedHeader[] = {0x03, 0xfc, 0x35, 0x21, 0x00, 0x00, 0x00, sizeof(payload)};
     // retrieve
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
@@ -91,7 +91,7 @@ TEST_F(DoIpStaticPayloadSendJobTest, TestDeclareWithPayload)
     ASSERT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + sizeof(payload), cut.getTotalLength());
     uint8_t const expectedHeader[] = {0x02, 0xfd, 0x35, 0x21, 0x00, 0x00, 0x00, sizeof(payload)};
     // retrieve
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));

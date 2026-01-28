@@ -6,10 +6,10 @@
 #include "doip/common/DoIpSendJobCallbackMock.h"
 #include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/array.h>
 #include <etl/span.h>
 #include <transport/TransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
-#include <estd/array.h>
 
 namespace doip
 {
@@ -36,7 +36,7 @@ TEST(DoIpTransportMessageSendJobTest, TestConstructorWithAddressesFromMessage)
     EXPECT_EQ(&processedListenerMock, cut.getNotificationListener());
     EXPECT_EQ(3U, cut.getSendBufferCount());
     EXPECT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + 4U + 15U, cut.getTotalLength());
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     uint8_t const expectedHeader[] = {0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x13};
@@ -97,7 +97,7 @@ TEST(DoIpTransportMessageSendJobTest, TestConstructorWithExplicitAddresses)
     EXPECT_EQ(3U, cut.getSendBufferCount());
     EXPECT_EQ(DoIpConstants::DOIP_HEADER_LENGTH + 4U + 15U, cut.getTotalLength());
     EXPECT_EQ(nullptr, cut.getDestinationEndpoint());
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     uint8_t const expectedHeader[] = {0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x13};

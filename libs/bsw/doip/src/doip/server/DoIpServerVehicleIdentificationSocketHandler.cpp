@@ -15,7 +15,6 @@
 #include <etl/intrusive_links.h>
 #include <etl/memory.h>
 #include <etl/span.h>
-#include <estd/array.h>
 #include <estd/big_endian.h>
 #include <estd/optional.h>
 

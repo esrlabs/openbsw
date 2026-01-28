@@ -5,7 +5,7 @@
 #include "doip/common/DoIpConstants.h"
 #include "doip/server/DoIpServerVehicleIdentificationCallbackMock.h"
 
-#include <estd/array.h>
+#include <etl/array.h>
 
 using namespace ::testing;
 using namespace ::doip;
@@ -55,19 +55,19 @@ TEST_F(DoIpServerVehicleIdentificationTest, CallsFunctions)
         nullptr);
 
     {
-        ::estd::array<char, 17> receivedVin{};
+        ::etl::array<char, 17> receivedVin{};
         EXPECT_CALL(fVehicleIdentificationCallbackMock, getVin(Span(receivedVin.data(), 17U)));
         cut.getVin(receivedVin);
         Mock::VerifyAndClearExpectations(&fVehicleIdentificationCallbackMock);
     }
     {
-        ::estd::array<uint8_t, 6> receivedGid{};
+        ::etl::array<uint8_t, 6> receivedGid{};
         EXPECT_CALL(fVehicleIdentificationCallbackMock, getGid(Span(receivedGid.data(), 6U)));
         cut.getGid(receivedGid);
         Mock::VerifyAndClearExpectations(&fVehicleIdentificationCallbackMock);
     }
     {
-        ::estd::array<uint8_t, 6> receivedEid{};
+        ::etl::array<uint8_t, 6> receivedEid{};
         EXPECT_CALL(fVehicleIdentificationCallbackMock, getEid(Span(receivedEid.data(), 6U)));
         cut.getEid(receivedEid);
         Mock::VerifyAndClearExpectations(&fVehicleIdentificationCallbackMock);

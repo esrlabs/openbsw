@@ -6,8 +6,8 @@
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpTestHelpers.h"
 
+#include <etl/array.h>
 #include <etl/span.h>
-#include <estd/array.h>
 
 #include <gmock/gmock.h>
 
@@ -32,7 +32,7 @@ TEST_F(DoIpVehicleIdentificationRequestSendJobTest, TestAll)
     ASSERT_EQ(2U, cut.getSendBufferCount());
     ASSERT_EQ(uint16_t(DoIpConstants::DOIP_HEADER_LENGTH), cut.getTotalLength());
     uint8_t const expectedHeader[] = {0xff, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00};
-    ::estd::array<uint8_t, 8U> staticBuffer;
+    ::etl::array<uint8_t, 8U> staticBuffer;
     ::etl::span<uint8_t const> sendBuffer = cut.getSendBuffer(staticBuffer, 0U);
     EXPECT_EQ(staticBuffer.data(), sendBuffer.data());
     EXPECT_TRUE(is_equal(::etl::span<uint8_t const>(expectedHeader), sendBuffer));
