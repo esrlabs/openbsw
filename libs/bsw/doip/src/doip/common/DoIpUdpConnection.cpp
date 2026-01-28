@@ -10,9 +10,9 @@
 #include <etl/intrusive_links.h>
 #include <etl/intrusive_list.h>
 #include <etl/memory.h>
+#include <etl/variant.h>
 #include <udp/DatagramPacket.h>
 #include <estd/algorithm.h>
-#include <estd/variant.h>
 
 namespace doip
 {
@@ -201,7 +201,7 @@ void DoIpUdpConnection::tryReceive()
                 ::estd::min<uint32_t>(header.payloadLength, _availableReadDataLength));
 
             auto const headerReceivedContinuation = _handler->headerReceived(header);
-            if (::estd::holds_alternative<IDoIpConnection::PayloadDiscardedCallbackType>(
+            if (::etl::holds_alternative<IDoIpConnection::PayloadDiscardedCallbackType>(
                     headerReceivedContinuation))
             {
                 _readState         = ReadState::DISCARD;
@@ -209,7 +209,7 @@ void DoIpUdpConnection::tryReceive()
 
                 // for now no special async discarding handling is implemented for UDP messages
                 auto const payloadDiscardedCallback
-                    = ::estd::get<IDoIpConnection::PayloadDiscardedCallbackType>(
+                    = ::etl::get<IDoIpConnection::PayloadDiscardedCallbackType>(
                         headerReceivedContinuation);
                 if (payloadDiscardedCallback)
                 {

@@ -482,7 +482,10 @@ void DoIpServerVehicleIdentificationSocketHandler::oemMessagePayloadReceived(
 void DoIpServerVehicleIdentificationSocketHandler::enqueueResponse(
     DoIpServerVehicleIdentificationRequest::Type const& type)
 {
-    bool const needsDelay = type == DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION;
+    bool const needsDelay
+        = ::etl::holds_alternative<DoIpServerVehicleIdentificationRequest::ISOType>(type)
+          && (::etl::get<DoIpServerVehicleIdentificationRequest::ISOType>(type)
+              == DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION);
     enqueueAny(
         type,
         0U,
@@ -646,9 +649,9 @@ DoIpServerVehicleIdentificationSocketHandler::StaticPayloadSendJobType&
 DoIpServerVehicleIdentificationSocketHandler::createResponse(
     DoIpServerVehicleIdentificationRequest::Type const& type, uint8_t const nackCode)
 {
-    if (type.is<DoIpServerVehicleIdentificationRequest::ISOType>())
+    if (::etl::holds_alternative<DoIpServerVehicleIdentificationRequest::ISOType>(type))
     {
-        switch (type.get<DoIpServerVehicleIdentificationRequest::ISOType>())
+        switch (::etl::get<DoIpServerVehicleIdentificationRequest::ISOType>(type))
         {
             case DoIpServerVehicleIdentificationRequest::ISOType::IDENTIFICATION:
             {
@@ -670,7 +673,7 @@ DoIpServerVehicleIdentificationSocketHandler::createResponse(
     }
     else
     {
-        uint16_t const oemPayloadType = type.get<uint16_t>();
+        uint16_t const oemPayloadType = ::etl::get<uint16_t>(type);
         IDoIpUdpOemMessageHandler const* const oemMessageHandler
             = _config.getVehicleIdentificationCallback().getOemMessageHandler(oemPayloadType);
         if (oemMessageHandler != nullptr)

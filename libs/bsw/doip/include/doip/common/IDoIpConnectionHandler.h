@@ -7,7 +7,7 @@
 
 #include "doip/common/IDoIpConnection.h"
 
-#include <estd/variant.h>
+#include <etl/variant.h>
 
 namespace doip
 {
@@ -32,7 +32,7 @@ public:
      * callback upon payload discard can be specified.
      */
     using HeaderReceivedContinuation
-        = estd::variant<HandledByThisHandler, IDoIpConnection::PayloadDiscardedCallbackType>;
+        = ::etl::variant<HandledByThisHandler, IDoIpConnection::PayloadDiscardedCallbackType>;
 
     IDoIpConnectionHandler() {}
 

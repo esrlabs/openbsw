@@ -11,7 +11,7 @@
 #include <etl/intrusive_links.h>
 #include <etl/intrusive_list.h>
 
-#include <estd/variant.h>
+#include <etl/variant.h>
 
 #include <algorithm>
 
@@ -348,7 +348,7 @@ void DoIpTcpConnection::processNextReadChunk(size_t const bytesRead)
             _readState                            = ReadState::PAYLOAD;
             _readPayloadLength                    = header.payloadLength;
             auto const headerReceivedContinuation = _handler->headerReceived(header);
-            if (::estd::holds_alternative<IDoIpConnection::PayloadDiscardedCallbackType>(
+            if (::etl::holds_alternative<IDoIpConnection::PayloadDiscardedCallbackType>(
                     headerReceivedContinuation))
             {
                 // handler not responsible, but notify it for the discarded payload
@@ -356,7 +356,7 @@ void DoIpTcpConnection::processNextReadChunk(size_t const bytesRead)
                 setReadBuffer(::etl::span<uint8_t>(_headerBuffer, _readPayloadLength));
                 _payloadReceivedCallback = PayloadReceivedCallbackType();
                 _payloadDiscardedCallback
-                    = ::estd::get<IDoIpConnection::PayloadDiscardedCallbackType>(
+                    = ::etl::get<IDoIpConnection::PayloadDiscardedCallbackType>(
                         headerReceivedContinuation);
             }
         }

@@ -8,7 +8,7 @@
 #include <ip/IPEndpoint.h>
 
 #include <etl/intrusive_links.h>
-#include <estd/variant.h>
+#include <etl/variant.h>
 
 namespace doip
 {
@@ -28,7 +28,7 @@ public:
         DIAGNOSTICPOWERMODEINFO,
         NACK
     };
-    using Type = ::estd::variant<ISOType, uint16_t>;
+    using Type = ::etl::variant<ISOType, uint16_t>;
 
     /**
      * Constructor.

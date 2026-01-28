@@ -18,6 +18,7 @@
 #include <transport/TransportMessage.h>
 #include <util/estd/assert.h>
 #include <estd/big_endian.h>
+#include <estd/constructor.h>
 #include <platform/estdint.h>
 
 #include <algorithm>

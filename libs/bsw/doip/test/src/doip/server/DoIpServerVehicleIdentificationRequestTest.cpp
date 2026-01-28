@@ -19,7 +19,7 @@ TEST(DoIpServerVehicleIdentificationRequestTest, TestAll)
     ASSERT_EQ(0U, cut.getScheduledTime());
     ASSERT_EQ(
         DoIpServerVehicleIdentificationRequest::ISOType::ENTITYSTATUS,
-        cut.getType().get<DoIpServerVehicleIdentificationRequest::ISOType>());
+        ::etl::get<DoIpServerVehicleIdentificationRequest::ISOType>(cut.getType()));
     ASSERT_EQ(0x83U, cut.getNackCode());
 }
 
