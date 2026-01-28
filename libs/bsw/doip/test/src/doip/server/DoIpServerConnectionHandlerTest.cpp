@@ -116,7 +116,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationAndClose)
             123U,
             fLocalEndpoint,
             fRemoteEndpoint,
-            ::estd::optional<uint32_t>(),
+            ::etl::optional<uint32_t>(),
             false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
@@ -232,13 +232,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBigPayload)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234,
-            0x03,
-            0U,
-            fLocalEndpoint,
-            fRemoteEndpoint,
-            ::estd::optional<uint32_t>(0),
-            false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(0), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -281,7 +275,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadActivationTy
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()
                              .setAction(IDoIpServerConnectionFilter::Action::REJECT)
                              .setResponseCode(0x06)));
@@ -355,7 +349,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWithBadSourceAddres
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()
                              .setAction(IDoIpServerConnectionFilter::Action::REJECT)
                              .setResponseCode(0x0U)));
@@ -485,7 +479,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationFails)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -570,7 +564,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationIsIgnoredIfConnecti
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -617,7 +611,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()
                              .setAction(IDoIpServerConnectionFilter::Action::KEEP)
                              .setResponseCode(0x11)));
@@ -667,7 +661,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationWillKeepConnection)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -859,7 +853,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithSameSourceAddres
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
     // Expect positive response
@@ -934,7 +928,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestSecondActivationWithDifferentSourceA
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1534, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1534, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
     // Receive payload
@@ -1346,7 +1340,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestGeneralInactivityTimeout)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, handleRoutingActivationRequest(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -1648,7 +1642,7 @@ TEST_F(
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::estd::optional<uint32_t>(), false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(), false))
         .WillOnce(Return(IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(fCallbackMock, connectionClosed(Ref(cut)));
     EXPECT_CALL(fConnectionMock, endReceiveMessage(_));
@@ -1752,13 +1746,7 @@ TEST_F(DoIpServerConnectionHandlerTest, TestRoutingActivationOemField)
     EXPECT_CALL(
         fCallbackMock,
         checkRoutingActivation(
-            0x1234,
-            0x03,
-            0U,
-            fLocalEndpoint,
-            fRemoteEndpoint,
-            ::estd::optional<uint32_t>(1),
-            false))
+            0x1234, 0x03, 0U, fLocalEndpoint, fRemoteEndpoint, ::etl::optional<uint32_t>(1), false))
         .WillOnce(Return(
             IDoIpServerConnectionFilter::RoutingActivationCheckResult()
                 .setAction(IDoIpServerConnectionFilter::Action::REJECT)

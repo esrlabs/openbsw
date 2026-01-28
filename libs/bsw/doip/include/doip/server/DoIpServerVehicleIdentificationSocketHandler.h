@@ -18,9 +18,9 @@
 
 #include <etl/bitset.h>
 #include <etl/intrusive_forward_list.h>
+#include <etl/optional.h>
 #include <etl/span.h>
 #include <etl/vector.h>
-#include <estd/optional.h>
 
 namespace doip
 {
@@ -41,10 +41,9 @@ public:
      * \param protocolVersion doip protocol version used for all communication
      * \param socket reference to datagram socket for receiving/sending datagrams
      * \param socketGroupId corresponding socket group identifier
-     * \param networkInterfaceConfigKey key that statically identifies the network address to bind
-     * to
-     * \param multicastAddress multicast address to use for IPv6, or if IPv4 broadcast address
-     * 255.255.255.255 then this will be used and not the directed subnet broadcast
+     * \param networkInterfaceConfigKey key that statically identifies the network address to
+     * bind to \param multicastAddress multicast address to use for IPv6, or if IPv4 broadcast
+     * address 255.255.255.255 then this will be used and not the directed subnet broadcast
      * \param unicastAddressArray array for storing unicast addresses along with the socket
      * \param config config to use
      * \param announceCount number of announcements (ISO13400: A_DoIP_Announce_Num)
@@ -87,8 +86,8 @@ public:
     void sendAnnouncement();
 
     /**
-     * Starts the handler. Waits for a valid network configuration and starts sending out as soon as
-     * configured.
+     * Starts the handler. Waits for a valid network configuration and starts sending out as
+     * soon as configured.
      */
     void start();
 
@@ -177,7 +176,7 @@ private:
     ::etl::intrusive_forward_list<DoIpServerVehicleIdentificationRequest, ::etl::forward_link<0>>
         _pendingRequests;
     ::etl::ivector<ip::IPAddress>& _unicastAddresses;
-    ::estd::optional<StaticPayloadSendJobType> _sendJob;
+    ::etl::optional<StaticPayloadSendJobType> _sendJob;
     DoIpConstants::ProtocolVersion _protocolVersion;
     ::ip::NetworkInterfaceConfigKey _networkInterfaceConfigKey;
     ::ip::NetworkInterfaceConfig _configChangedNewConfig;

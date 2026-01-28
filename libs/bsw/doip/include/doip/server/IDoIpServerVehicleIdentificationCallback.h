@@ -8,9 +8,9 @@
 #include "doip/common/DoIpConstants.h"
 #include "doip/server/IDoIpUdpOemMessageHandler.h"
 
+#include <etl/optional.h>
 #include <etl/span.h>
 #include <estd/functional.h>
-#include <estd/optional.h>
 
 namespace doip
 {

@@ -245,7 +245,7 @@ DoIpServerTransportLayer::checkRoutingActivation(
     uint8_t const socketGroupId,
     ::ip::IPEndpoint const& localEndpoint,
     ::ip::IPEndpoint const& remoteEndpoint,
-    ::estd::optional<uint32_t> const oemField,
+    ::etl::optional<uint32_t> const oemField,
     bool const isResuming)
 {
     if (_callback != nullptr)

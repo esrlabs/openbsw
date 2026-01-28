@@ -14,9 +14,9 @@
 #include <etl/intrusive_forward_list.h>
 #include <etl/intrusive_links.h>
 #include <etl/memory.h>
+#include <etl/optional.h>
 #include <etl/span.h>
 #include <estd/big_endian.h>
-#include <estd/optional.h>
 
 namespace doip
 {
@@ -702,7 +702,7 @@ DoIpServerVehicleIdentificationSocketHandler::allocateSendJob(
     uint16_t const payloadType, uint8_t const payloadLength)
 {
     estd_assert(!_sendJob.has_value());
-    return _sendJob.emplace().construct(
+    return _sendJob.emplace(
         static_cast<uint8_t>(_protocolVersion),
         payloadType,
         payloadLength,

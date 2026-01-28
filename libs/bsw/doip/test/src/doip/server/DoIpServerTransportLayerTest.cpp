@@ -376,7 +376,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackSucceeds)
             22U,
             fLocalEndpoint1,
             fRemoteEndpoint1,
-            ::estd::optional<uint32_t>(),
+            ::etl::optional<uint32_t>(),
             false))
         .WillOnce(Return(::doip::IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(
@@ -444,7 +444,7 @@ TEST_F(DoIpServerTransportLayerTest, TestRoutingActivationWithCallbackFails)
             22U,
             fLocalEndpoint1,
             fRemoteEndpoint1,
-            ::estd::optional<uint32_t>(),
+            ::etl::optional<uint32_t>(),
             false))
         .WillOnce(Return(::doip::IDoIpServerConnectionFilter::RoutingActivationCheckResult()
                              .setAction(::doip::IDoIpServerConnectionFilter::Action::REJECT)
@@ -510,7 +510,7 @@ TEST_F(DoIpServerTransportLayerTest, TestThirdSocketIsRejected)
             22U,
             fLocalEndpoint1,
             fRemoteEndpoint1,
-            ::estd::optional<uint32_t>(),
+            ::etl::optional<uint32_t>(),
             false))
         .WillOnce(Return(::doip::IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(
@@ -590,7 +590,7 @@ TEST_F(DoIpServerTransportLayerTest, TestReserveSocket)
             22U,
             fLocalEndpoint1,
             fRemoteEndpoint1,
-            ::estd::optional<uint32_t>(),
+            ::etl::optional<uint32_t>(),
             false))
         .WillOnce(Return(::doip::IDoIpServerConnectionFilter::RoutingActivationCheckResult()));
     EXPECT_CALL(

@@ -296,7 +296,7 @@ void DoIpServerConnectionHandler::routingActivationRequestReceived(
     uint16_t const sourceAddress = payload.take<::estd::be_uint16_t const>();
     uint8_t const activationType = payload.take<uint8_t const>();
     payload.advance(4U);
-    ::estd::optional<uint32_t> oemField;
+    ::etl::optional<uint32_t> oemField;
     if (payload.size() == 4) // if message contains VM-specific data
     {
         oemField = payload.take<::estd::be_uint32_t const>();

@@ -14,13 +14,13 @@
 #include <doip/server/IDoIpServerConnectionStateCallback.h>
 #include <doip/server/IDoIpServerEntityStatusCallback.h>
 #include <doip/server/IDoIpServerTransportLayerCallback.h>
+#include <etl/optional.h>
+#include <etl/span.h>
 #include <lifecycle/AsyncLifecycleComponent.h>
 #include <lwipSocket/tcp/LwipServerSocket.h>
 #include <lwipSocket/tcp/LwipSocket.h>
 #include <lwipSocket/udp/LwipDatagramSocket.h>
 #include <transport/ITransportSystem.h>
-
-#include <etl/span.h>
 #include <estd/functional.h>
 #include <platform/estdint.h>
 
@@ -76,7 +76,7 @@ private:
         uint8_t socketGroupId,
         ::ip::IPEndpoint const& localEndpoint,
         ::ip::IPEndpoint const& remoteEndpoint,
-        ::estd::optional<uint32_t> const oemField,
+        ::etl::optional<uint32_t> const oemField,
         bool isResuming) override;
     void routingActive(
         uint16_t sourceAddress,

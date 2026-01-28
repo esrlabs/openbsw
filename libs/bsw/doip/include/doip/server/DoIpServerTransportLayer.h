@@ -162,7 +162,7 @@ private:
         uint8_t socketGroupId,
         ::ip::IPEndpoint const& localEndpoint,
         ::ip::IPEndpoint const& remoteEndpoint,
-        ::estd::optional<uint32_t> const oemField,
+        ::etl::optional<uint32_t> const oemField,
         bool isResuming) override;
     void routingActive(DoIpServerConnectionHandler& handler) override;
     void handleRoutingActivationRequest(DoIpServerConnectionHandler& handler) override;
