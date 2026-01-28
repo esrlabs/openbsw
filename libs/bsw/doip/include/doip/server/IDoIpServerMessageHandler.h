@@ -5,7 +5,7 @@
  */
 #pragma once
 
-#include <estd/forward_list.h>
+#include <etl/intrusive_links.h>
 
 namespace doip
 {
@@ -16,7 +16,7 @@ class IDoIpServerConnection;
  * Interface for a DoIP message handler. A DoIP message handler can receive
  * and send DoIP messages over a already managed connection.
  */
-class IDoIpServerMessageHandler : public ::estd::forward_list_node<IDoIpServerMessageHandler>
+class IDoIpServerMessageHandler : public ::etl::bidirectional_link<0>
 {
 public:
     /**

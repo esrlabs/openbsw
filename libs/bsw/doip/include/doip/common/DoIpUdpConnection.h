@@ -15,7 +15,8 @@
 #include <udp/IDataSentListener.h>
 #include <udp/socket/AbstractDatagramSocket.h>
 
-#include <estd/forward_list.h>
+#include <etl/intrusive_links.h>
+#include <etl/intrusive_list.h>
 
 namespace doip
 {
@@ -77,6 +78,8 @@ public:
     void resumeSending() override;
 
 private:
+    using SendJobList = ::etl::intrusive_list<IDoIpSendJob, ::etl::bidirectional_link<0>>;
+
     void dataReceived(
         ::udp::AbstractDatagramSocket& socket,
         ::ip::IPAddress sourceAddress,
@@ -107,7 +110,7 @@ private:
     ::etl::span<uint8_t const> fillWriteBuffer(IDoIpSendJob& job);
     void closeConnection(ConnectionState connectionState);
 
-    static void releaseSendJobs(::estd::forward_list<IDoIpSendJob>& sendJobs);
+    static void releaseSendJobs(SendJobList& sendJobs);
 
     IDoIpSendJob* popSendJob();
 
@@ -119,7 +122,7 @@ private:
     ::ip::IPEndpoint _localEndpoint;
     ::ip::IPEndpoint _remoteEndpoint;
     PayloadReceivedCallbackType _payloadReceivedCallback;
-    ::estd::forward_list<IDoIpSendJob> _pendingSendJobs;
+    SendJobList _pendingSendJobs;
     uint16_t _availableReadDataLength;
     uint16_t _readPayloadLength;
     ::async::ContextType const _context;

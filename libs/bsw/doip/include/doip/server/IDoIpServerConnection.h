@@ -7,8 +7,6 @@
 
 #include "doip/common/IDoIpConnection.h"
 
-#include <estd/forward_list.h>
-
 namespace doip
 {
 /**

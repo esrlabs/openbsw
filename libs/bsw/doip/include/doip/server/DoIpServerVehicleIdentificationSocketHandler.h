@@ -12,10 +12,12 @@
 
 #include <async/Types.h>
 #include <async/util/Call.h>
+#include <etl/intrusive_links.h>
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <ip/NetworkInterfaceConfig.h>
 
 #include <etl/bitset.h>
+#include <etl/intrusive_forward_list.h>
 #include <etl/span.h>
 #include <etl/vector.h>
 #include <estd/optional.h>
@@ -172,7 +174,8 @@ private:
     ::async::Function _configChangedContinuationAsync;
     ::ip::ConfigChangedSignal::slot _configChangedSlot;
     ::async::TimeoutType _timeoutTimeout;
-    ::estd::forward_list<DoIpServerVehicleIdentificationRequest> _pendingRequests;
+    ::etl::intrusive_forward_list<DoIpServerVehicleIdentificationRequest, ::etl::forward_link<0>>
+        _pendingRequests;
     ::etl::ivector<ip::IPAddress>& _unicastAddresses;
     ::estd::optional<StaticPayloadSendJobType> _sendJob;
     DoIpConstants::ProtocolVersion _protocolVersion;

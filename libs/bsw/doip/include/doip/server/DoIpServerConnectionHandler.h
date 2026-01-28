@@ -13,6 +13,8 @@
 #include "doip/server/IDoIpServerMessageHandler.h"
 
 #include <async/Types.h>
+#include <etl/intrusive_links.h>
+#include <etl/intrusive_list.h>
 #include <etl/pool.h>
 
 namespace doip
@@ -158,7 +160,8 @@ private:
     };
 
     using StaticPayloadSendJobType = declare::DoIpStaticPayloadSendJob<9U>;
-    using MessageHandlerList       = ::estd::forward_list<IDoIpServerMessageHandler>;
+    using MessageHandlerList
+        = ::etl::intrusive_list<IDoIpServerMessageHandler, ::etl::bidirectional_link<0>>;
 
     void connectionClosed(bool closedByRemotePeer) override;
     IDoIpConnectionHandler::HeaderReceivedContinuation

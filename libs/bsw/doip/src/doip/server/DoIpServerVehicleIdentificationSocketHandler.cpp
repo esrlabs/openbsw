@@ -11,6 +11,8 @@
 #include "doip/server/IDoIpServerVehicleIdentificationCallback.h"
 
 #include <bsp/timer/SystemTimer.h>
+#include <etl/intrusive_forward_list.h>
+#include <etl/intrusive_links.h>
 #include <etl/memory.h>
 #include <etl/span.h>
 #include <estd/array.h>
@@ -508,7 +510,9 @@ void DoIpServerVehicleIdentificationSocketHandler::enqueueAny(
     {
         // keep list sorted by inserting via merge
         uint32_t const systemTime = getSystemTimeMs32Bit();
-        ::estd::forward_list<DoIpServerVehicleIdentificationRequest> tmp;
+        ::etl::
+            intrusive_forward_list<DoIpServerVehicleIdentificationRequest, ::etl::forward_link<0>>
+                tmp;
         tmp.push_front(
             *new (_config.getRequestPool().allocate<DoIpServerVehicleIdentificationRequest>())
                 DoIpServerVehicleIdentificationRequest(

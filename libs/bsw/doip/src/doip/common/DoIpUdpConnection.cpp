@@ -4,8 +4,11 @@
 
 #include "doip/common/DoIpHeader.h"
 #include "doip/common/DoIpLock.h"
+#include "doip/common/IDoIpSendJob.h"
 
 #include <async/Async.h>
+#include <etl/intrusive_links.h>
+#include <etl/intrusive_list.h>
 #include <etl/memory.h>
 #include <udp/DatagramPacket.h>
 #include <estd/algorithm.h>
@@ -280,13 +283,13 @@ void DoIpUdpConnection::closeConnection(ConnectionState const connectionState)
     }
 }
 
-void DoIpUdpConnection::releaseSendJobs(::estd::forward_list<IDoIpSendJob>& sendJobs)
+void DoIpUdpConnection::releaseSendJobs(SendJobList& sendJobs)
 {
-    ::estd::forward_list<IDoIpSendJob> releaseJobs;
+    SendJobList releaseJobs;
     {
         // RAII usage
         DoIpLock const lock;
-        sendJobs.swap(releaseJobs);
+        releaseJobs.splice(releaseJobs.end(), sendJobs);
     }
     while (!releaseJobs.empty())
     {

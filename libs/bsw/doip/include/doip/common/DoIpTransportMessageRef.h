@@ -5,8 +5,8 @@
  */
 #pragma once
 
+#include <etl/intrusive_links.h>
 #include <transport/TransportMessage.h>
-#include <estd/forward_list.h>
 #include <platform/estdint.h>
 
 namespace transport
@@ -19,7 +19,7 @@ namespace doip
 /**
  * DoIP structure for holding a transport message reference together with some admin data.
  */
-class DoIpTransportMessageRef : public ::estd::forward_list_node<DoIpTransportMessageRef>
+class DoIpTransportMessageRef : public ::etl::forward_link<0>
 {
 public:
     /**

@@ -7,8 +7,8 @@
 
 #include <ip/IPEndpoint.h>
 
+#include <etl/intrusive_links.h>
 #include <etl/span.h>
-#include <estd/forward_list.h>
 
 namespace doip
 {
@@ -17,7 +17,7 @@ namespace doip
  * to be sent. There is no assumption about the content of a DoIP message. A send job
  * consists of a number of buffers that will be sent out one after another.
  */
-class IDoIpSendJob : public ::estd::forward_list_node<IDoIpSendJob>
+class IDoIpSendJob : public ::etl::bidirectional_link<0>
 {
 public:
     virtual ~IDoIpSendJob() = default;

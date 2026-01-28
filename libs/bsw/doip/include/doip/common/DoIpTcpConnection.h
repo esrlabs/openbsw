@@ -15,8 +15,9 @@
 #include <tcp/IDataSendNotificationListener.h>
 #include <tcp/socket/AbstractSocket.h>
 
+#include <etl/intrusive_links.h>
+#include <etl/intrusive_list.h>
 #include <etl/span.h>
-#include <estd/forward_list.h>
 
 namespace doip
 {
@@ -86,6 +87,8 @@ public:
     void shutdown();
 
 private:
+    using SendJobList = ::etl::intrusive_list<IDoIpSendJob, ::etl::bidirectional_link<0>>;
+
     void dataReceived(uint16_t length) override;
     void connectionClosed(ErrorCode status) override;
 
@@ -120,7 +123,7 @@ private:
     void setReadBuffer(::etl::span<uint8_t> const& readBuffer);
     void fireMessageIfNotSuspended();
 
-    static void releaseSendJobs(::estd::forward_list<IDoIpSendJob>& sendJobs);
+    static void releaseSendJobs(SendJobList& sendJobs);
 
     ::tcp::AbstractSocket& _socket;
     ::etl::span<uint8_t> _currentReadBuffer;
@@ -129,8 +132,8 @@ private:
     PayloadReceivedCallbackType _payloadReceivedCallback;
     PayloadDiscardedCallbackType _payloadDiscardedCallback;
     DetachCallbackType _detachCallback;
-    ::estd::forward_list<IDoIpSendJob> _pendingSendJobs;
-    ::estd::forward_list<IDoIpSendJob> _sentJobs;
+    SendJobList _pendingSendJobs;
+    SendJobList _sentJobs;
     uint8_t _headerBuffer[DoIpConstants::DOIP_HEADER_LENGTH];
     size_t _readPayloadLength;
     size_t _receivedBufferLength;

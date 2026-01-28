@@ -335,7 +335,7 @@ void DoIpServerTransportLayer::connectionClosed(DoIpServerConnectionHandler& han
     {
         // RAII mutex
         DoIpLock const lock;
-        _connections.remove(connection);
+        _connections.erase(connection);
         _connectionsToRelease.push_front(connection);
     }
     (void)::async::execute(_connectionConfig.getContext(), *this);
@@ -442,7 +442,7 @@ void DoIpServerTransportLayer::endAliveCheck(AliveCheckHelper& aliveCheckHelper,
     if (aliveCheckHelper.endAliveCheck())
     {
         uint8_t const responseCode = aliveCheckHelper.getNegativeResponseCode();
-        _aliveCheckHelpers.remove(aliveCheckHelper);
+        _aliveCheckHelpers.erase(aliveCheckHelper);
         _aliveCheckHelperPool.destroy(&aliveCheckHelper);
         if (routingActivationHandler != nullptr)
         {
@@ -462,7 +462,8 @@ void DoIpServerTransportLayer::releaseConnections()
         {
             return;
         }
-        _connectionsToRelease.swap(connectionsToRelease);
+        connectionsToRelease.splice_after(
+            connectionsToRelease.before_begin(), _connectionsToRelease);
     }
     while (!connectionsToRelease.empty())
     {

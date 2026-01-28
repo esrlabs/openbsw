@@ -17,9 +17,10 @@
 #include <transport/AbstractTransportLayer.h>
 #include <transport/ITransportMessageProcessedListener.h>
 
+#include <etl/intrusive_forward_list.h>
+#include <etl/intrusive_links.h>
 #include <etl/pool.h>
 #include <etl/span.h>
-#include <estd/forward_list.h>
 
 namespace doip
 {
@@ -92,7 +93,7 @@ public:
     void closeAllConnections(IDoIpTcpConnection::CloseMode closeMode);
 
 protected:
-    class AliveCheckHelper : public ::estd::forward_list_node<AliveCheckHelper>
+    class AliveCheckHelper : public ::etl::forward_link<0>
     {
     public:
         AliveCheckHelper(
@@ -114,7 +115,8 @@ protected:
         uint8_t _pendingAliveCheckCount;
     };
 
-    using AliveCheckHelperList = ::estd::forward_list<AliveCheckHelper>;
+    using AliveCheckHelperList
+        = ::etl::intrusive_forward_list<AliveCheckHelper, ::etl::forward_link<0>>;
     using AliveCheckHelperPool = ::etl::ipool;
 
     /**
@@ -132,7 +134,8 @@ protected:
     ~DoIpServerTransportLayer() = default;
 
 private:
-    using ConnectionList = ::estd::forward_list<DoIpServerTransportConnection>;
+    using ConnectionList
+        = ::etl::intrusive_forward_list<DoIpServerTransportConnection, ::etl::forward_link<0>>;
 
     static uint16_t const EVENT_CLOSE   = 0U;
     static uint16_t const EVENT_RELEASE = 1U;

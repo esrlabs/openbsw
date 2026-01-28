@@ -16,6 +16,7 @@
 #include <etl/ipool.h>
 
 #include <etl/span.h>
+#include <algorithm>
 
 namespace doip
 {

@@ -10,7 +10,8 @@
 #include "doip/server/DoIpServerConnectionHandler.h"
 #include "doip/server/DoIpServerTransportMessageHandler.h"
 
-#include <estd/forward_list.h>
+#include <etl/intrusive_forward_list.h>
+#include <etl/intrusive_links.h>
 
 namespace doip
 {
@@ -24,7 +25,7 @@ class IDoIpServerConnectionHandlerCallback;
 // multiple inheritance of interfaces is OK
 class DoIpServerTransportConnection
 : public DoIpServerConnectionHandler
-, public ::estd::forward_list_node<DoIpServerTransportConnection>
+, public ::etl::forward_link<0>
 {
 public:
     /**

@@ -7,7 +7,7 @@
 
 #include <ip/IPEndpoint.h>
 
-#include <estd/forward_list.h>
+#include <etl/intrusive_links.h>
 #include <estd/variant.h>
 
 namespace doip
@@ -15,8 +15,7 @@ namespace doip
 /**
  * Implements a vehicle identification service.
  */
-class DoIpServerVehicleIdentificationRequest
-: public ::estd::forward_list_node<DoIpServerVehicleIdentificationRequest>
+class DoIpServerVehicleIdentificationRequest : public ::etl::forward_link<0>
 {
 public:
     /**

@@ -21,7 +21,7 @@ DoIpServerTransportConnection::DoIpServerTransportConnection(
     config.getContext(),
     config.getLogicalEntityAddress(),
     config.getParameters())
-, ::estd::forward_list_node<DoIpServerTransportConnection>()
+, ::etl::forward_link<0>()
 , _connection(config.getContext(), socket, _writeBuffer)
 , _transportMessageHandler(
       protocolVersion, diagnosticSendJobBlockPool, protocolSendJobBlockPool, config)
