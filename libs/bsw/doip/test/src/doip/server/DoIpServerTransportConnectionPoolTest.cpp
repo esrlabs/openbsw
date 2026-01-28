@@ -10,6 +10,7 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
+#include <etl/functional.h>
 #include <etl/pool.h>
 #include <tcp/socket/AbstractSocketMock.h>
 #include <transport/TransportMessage.h>
@@ -80,10 +81,10 @@ protected:
     {
         return c.construct(
             socketGroupId,
-            ::estd::by_ref(socket),
+            ::etl::ref(socket),
             config,
-            ::estd::by_ref(diagnosticBlockPool),
-            ::estd::by_ref(protocolBlockPool),
+            ::etl::ref(diagnosticBlockPool),
+            ::etl::ref(protocolBlockPool),
             type);
     }
 

@@ -5,6 +5,7 @@
 #include <busid/BusId.h>
 #include <doip/common/DoIpConstants.h>
 #include <doip/server/DoIpServerLogger.h>
+#include <etl/functional.h>
 #include <etl/memory.h>
 #include <ip/NetworkInterfaceConfig.h>
 #include <transport/TransportConfiguration.h>
@@ -249,10 +250,10 @@ DoIpServerTransportConnection& DoIpServerSystem::TransportConnectionCreator::cre
     return constructor.construct(
         doip::DoIpConstants::ProtocolVersion::version02Iso2012,
         socketGroupId,
-        ::estd::by_ref(socket),
+        ::etl::ref(socket),
         config,
-        ::estd::by_ref(diagnosticSendJobBlockPool),
-        ::estd::by_ref(protocolSendJobBlockPool),
+        ::etl::ref(diagnosticSendJobBlockPool),
+        ::etl::ref(protocolSendJobBlockPool),
         DoIpTcpConnection::ConnectionType::PLAIN);
 }
 

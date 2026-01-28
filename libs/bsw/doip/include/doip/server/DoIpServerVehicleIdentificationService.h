@@ -9,6 +9,7 @@
 #include "doip/server/DoIpServerVehicleIdentificationConfig.h"
 #include "doip/server/DoIpServerVehicleIdentificationSocketHandler.h"
 
+#include <etl/functional.h>
 #include <etl/pool.h>
 #include <etl/span.h>
 #include <etl/vector.h>
@@ -178,7 +179,7 @@ DoIpServerVehicleIdentificationService<
         socketGroupId,
         configKey,
         multicastAddress,
-        ::estd::by_ref(_config));
+        ::etl::ref(_config));
 }
 
 template<

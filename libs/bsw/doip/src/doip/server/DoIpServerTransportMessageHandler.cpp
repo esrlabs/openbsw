@@ -12,6 +12,7 @@
 #include "doip/server/DoIpServerTransportLayerParameters.h"
 #include "doip/server/IDoIpServerConnection.h"
 
+#include <etl/functional.h>
 #include <etl/memory.h>
 #include <etl/span.h>
 #include <transport/ITransportMessageProcessedListener.h>
@@ -149,11 +150,11 @@ DoIpTransportMessageSendJob* DoIpServerTransportMessageHandler::allocateJob(
 
     return _diagnosticSendJobPool.create<DoIpTransportMessageSendJob>(
         _protocolVersion,
-        ::estd::by_ref(transportMessage),
+        ::etl::ref(transportMessage),
         pNotificationListener,
         sourceAddress,
         targetAddress,
-        ::estd::by_ref(static_cast<IDoIpSendJobCallback<DoIpTransportMessageSendJob>&>(*this)));
+        ::etl::ref(static_cast<IDoIpSendJobCallback<DoIpTransportMessageSendJob>&>(*this)));
 }
 
 void DoIpServerTransportMessageHandler::releaseSendJob(
