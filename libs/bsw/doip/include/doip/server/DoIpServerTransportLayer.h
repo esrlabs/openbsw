@@ -14,13 +14,12 @@
 
 #include <async/Types.h>
 #include <async/util/Call.h>
-#include <transport/AbstractTransportLayer.h>
-#include <transport/ITransportMessageProcessedListener.h>
-
 #include <etl/intrusive_forward_list.h>
 #include <etl/intrusive_links.h>
+#include <etl/optional.h>
 #include <etl/pool.h>
-#include <etl/span.h>
+#include <transport/AbstractTransportLayer.h>
+#include <transport/ITransportMessageProcessedListener.h>
 
 namespace doip
 {
@@ -39,11 +38,6 @@ class DoIpServerTransportLayer
 , private ::async::RunnableType
 {
 public:
-    /**
-     * Function that will be called on suspend success.
-     */
-    using SuspendCallbackType = ::estd::function<void(::etl::span<uint8_t const>)>;
-
     ErrorCode init() override;
     bool shutdown(ShutdownDelegate shutdownDelegate) override;
     ErrorCode send(

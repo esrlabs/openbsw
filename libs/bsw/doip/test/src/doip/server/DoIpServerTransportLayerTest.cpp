@@ -14,6 +14,7 @@
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
 #include <etl/memory.h>
+#include <etl/optional.h>
 #include <etl/pool.h>
 #include <etl/span.h>
 #include <tcp/socket/AbstractSocketMock.h>

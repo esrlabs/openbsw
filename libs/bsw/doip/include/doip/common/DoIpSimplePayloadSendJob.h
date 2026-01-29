@@ -9,8 +9,8 @@
 #include "doip/common/DoIpSendJobHelper.h"
 #include "doip/common/IDoIpSendJob.h"
 
+#include <etl/delegate.h>
 #include <etl/type_traits.h>
-#include <estd/functional.h>
 
 namespace doip
 {
@@ -23,7 +23,7 @@ template<class T>
 class DoIpSimplePayloadSendJob : public IDoIpSendJob
 {
 public:
-    using ReleaseCallbackType = ::estd::function<void(T& sendJob, bool success)>;
+    using ReleaseCallbackType = ::etl::delegate<void(T& sendJob, bool success)>;
 
     ~DoIpSimplePayloadSendJob() override {}
 
@@ -123,6 +123,7 @@ template<class T>
 template<class T>
 void DoIpSimplePayloadSendJob<T>::release(bool const success)
 {
+    // No is_valid() check is done here. This will assert if the user doesn't pass a valid one.
     _releaseCallback(static_cast<T&>(*this), success);
 }
 

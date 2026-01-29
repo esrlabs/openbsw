@@ -12,7 +12,6 @@
 #include <ip/INetworkInterfaceConfigRegistry.h>
 #include <tcp/socket/ISocketProvidingConnectionListener.h>
 #include <util/logger/Logger.h>
-#include <estd/functional.h>
 
 namespace doip
 {

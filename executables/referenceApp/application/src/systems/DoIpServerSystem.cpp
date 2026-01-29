@@ -176,7 +176,10 @@ void DoIpServerSystem::routingActive(
         FirstRoutingActivatedCallbackType firstRoutingActivatedCallback
             = _firstRoutingActivatedCallback;
         _firstRoutingActivatedCallback = FirstRoutingActivatedCallbackType();
-        firstRoutingActivatedCallback();
+        if (firstRoutingActivatedCallback.is_valid())
+        {
+            firstRoutingActivatedCallback();
+        }
     }
 
     if (_connectionStateCallback != nullptr)
@@ -209,7 +212,10 @@ void DoIpServerSystem::execute() {}
 
 void DoIpServerSystem::getVin(::etl::span<char, VIN_LENGTH> vin)
 {
-    _vinCallback(vin.reinterpret_as<uint8_t>());
+    if (_vinCallback.is_valid())
+    {
+        _vinCallback(vin.reinterpret_as<uint8_t>());
+    }
 }
 
 void DoIpServerSystem::getGid(::etl::span<uint8_t, GID_LENGTH> lGid)

@@ -8,6 +8,7 @@
 #include "doip/server/DoIpServerTransportConnectionConfig.h"
 #include "doip/server/IDoIpServerTransportLayerCallback.h"
 
+#include <etl/optional.h>
 #include <transport/TransportMessage.h>
 #include <util/estd/assert.h>
 

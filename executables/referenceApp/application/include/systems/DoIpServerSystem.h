@@ -14,6 +14,7 @@
 #include <doip/server/IDoIpServerConnectionStateCallback.h>
 #include <doip/server/IDoIpServerEntityStatusCallback.h>
 #include <doip/server/IDoIpServerTransportLayerCallback.h>
+#include <etl/delegate.h>
 #include <etl/optional.h>
 #include <etl/span.h>
 #include <lifecycle/AsyncLifecycleComponent.h>
@@ -21,7 +22,6 @@
 #include <lwipSocket/tcp/LwipSocket.h>
 #include <lwipSocket/udp/LwipDatagramSocket.h>
 #include <transport/ITransportSystem.h>
-#include <estd/functional.h>
 #include <platform/estdint.h>
 
 namespace doip
@@ -33,8 +33,8 @@ class DoIpServerSystem
 , private ::async::RunnableType
 {
 public:
-    using FirstRoutingActivatedCallbackType = ::estd::function<void()>;
-    using VinCallbackType = ::estd::function<void(::etl::span<uint8_t, VIN_LENGTH>)>;
+    using FirstRoutingActivatedCallbackType = ::etl::delegate<void()>;
+    using VinCallbackType = ::etl::delegate<void(::etl::span<uint8_t, VIN_LENGTH>)>;
 
     DoIpServerSystem(
         ::transport::ITransportSystem& transportSystem,

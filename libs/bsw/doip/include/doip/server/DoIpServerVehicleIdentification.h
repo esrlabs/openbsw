@@ -8,7 +8,7 @@
 #include "doip/server/IDoIpServerVehicleIdentificationCallback.h"
 #include "doip/server/IDoIpUdpOemMessageHandler.h"
 
-#include <estd/functional.h>
+#include <etl/delegate.h>
 #include <estd/ordered_map.h>
 
 namespace doip
@@ -20,19 +20,19 @@ class DoIpServerVehicleIdentification : public IDoIpServerVehicleIdentificationC
 {
 public:
     /** Fills a given span with the vehicle's VIN. */
-    using GetVinCallback = ::estd::function<void(VinType)>;
+    using GetVinCallback = ::etl::delegate<void(VinType)>;
 
     /** Fills a given span with the DoIP group ID. */
-    using GetGidCallback = ::estd::function<void(GidType)>;
+    using GetGidCallback = ::etl::delegate<void(GidType)>;
 
     /** Fills a given span with the DoIP entity ID. */
-    using GetEidCallback = ::estd::function<void(EidType)>;
+    using GetEidCallback = ::etl::delegate<void(EidType)>;
 
     /** Returns current diagnostic power mode. */
-    using GetPowerModeCallback = ::estd::function<DoIpConstants::DiagnosticPowerMode()>;
+    using GetPowerModeCallback = ::etl::delegate<DoIpConstants::DiagnosticPowerMode()>;
 
     /** Callback whenever a Vehicle Identification Request has been received. */
-    using OnVirReceivedCallback = ::estd::function<void()>;
+    using OnVirReceivedCallback = ::etl::delegate<void()>;
 
     /**
      * Constructor.

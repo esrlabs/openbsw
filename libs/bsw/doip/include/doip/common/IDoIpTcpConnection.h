@@ -7,6 +7,8 @@
 
 #include "doip/common/IDoIpConnection.h"
 
+#include <etl/delegate.h>
+
 namespace doip
 {
 /**
@@ -15,7 +17,7 @@ namespace doip
 class IDoIpTcpConnection : public IDoIpConnection
 {
 public:
-    using DetachCallbackType = ::estd::function<void()>;
+    using DetachCallbackType = ::etl::delegate<void()>;
 
     enum class CloseMode : uint8_t
     {

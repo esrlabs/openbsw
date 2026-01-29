@@ -140,10 +140,13 @@ void DoIpTcpConnection::endReceiveMessage(
         {
             _readState = ReadState::HEADER;
             setReadBuffer(_headerBuffer);
-            payloadDiscardedCallback();
+            if (payloadDiscardedCallback.is_valid())
+            {
+                payloadDiscardedCallback();
+            }
         }
     }
-    else
+    else if (payloadDiscardedCallback.is_valid())
     {
         payloadDiscardedCallback();
     }
@@ -363,6 +366,8 @@ void DoIpTcpConnection::processNextReadChunk(size_t const bytesRead)
         else if (_readState == ReadState::PAYLOAD)
         {
             _readPayloadLength -= currentReadBuffer.size();
+            // No is_valid() check is done here. This will assert if the user doesn't pass a valid
+            // one.
             _payloadReceivedCallback(currentReadBuffer);
         }
         else
@@ -457,7 +462,7 @@ void DoIpTcpConnection::closeConnection(
         releaseSendJobs(_sentJobs);
         releaseSendJobs(_pendingSendJobs);
         setReadBuffer(span<uint8_t>());
-        if (_detachCallback.has_value())
+        if (_detachCallback.is_valid())
         {
             _detachCallback();
         }

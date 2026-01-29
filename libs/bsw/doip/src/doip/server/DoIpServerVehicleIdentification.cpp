@@ -20,11 +20,29 @@ DoIpServerVehicleIdentification::DoIpServerVehicleIdentification(
 , _oemMessageHandlers(oemMessageHandlers)
 {}
 
-void DoIpServerVehicleIdentification::getVin(VinType const vin) { _getVinCallback(vin); }
+void DoIpServerVehicleIdentification::getVin(VinType const vin)
+{
+    if (_getVinCallback.is_valid())
+    {
+        _getVinCallback(vin);
+    }
+}
 
-void DoIpServerVehicleIdentification::getGid(GidType const gid) { _getGidCallback(gid); }
+void DoIpServerVehicleIdentification::getGid(GidType const gid)
+{
+    if (_getGidCallback.is_valid())
+    {
+        _getGidCallback(gid);
+    }
+}
 
-void DoIpServerVehicleIdentification::getEid(EidType const eid) { _getEidCallback(eid); }
+void DoIpServerVehicleIdentification::getEid(EidType const eid)
+{
+    if (_getEidCallback.is_valid())
+    {
+        _getEidCallback(eid);
+    }
+}
 
 DoIpConstants::DiagnosticPowerMode DoIpServerVehicleIdentification::getPowerMode()
 {

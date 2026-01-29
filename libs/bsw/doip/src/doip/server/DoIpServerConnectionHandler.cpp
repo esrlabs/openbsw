@@ -12,6 +12,7 @@
 
 #include <async/Async.h>
 #include <etl/memory.h>
+#include <etl/optional.h>
 #include <etl/span.h>
 #include <transport/TransportMessage.h>
 #include <estd/big_endian.h>

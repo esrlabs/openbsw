@@ -5,7 +5,10 @@
  */
 #pragma once
 
+#include "doip/common/DoIpTcpConnection.h"
 #include "doip/server/IDoIpServerTransportLayerCallback.h"
+
+#include <etl/optional.h>
 
 #include <gmock/gmock.h>
 

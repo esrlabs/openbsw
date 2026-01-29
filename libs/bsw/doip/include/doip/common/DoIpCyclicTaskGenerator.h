@@ -6,8 +6,7 @@
 #pragma once
 
 #include <async/Types.h>
-
-#include <estd/functional.h>
+#include <etl/delegate.h>
 
 namespace doip
 {
@@ -17,7 +16,7 @@ namespace doip
 class DoIpCyclicTaskGenerator : private ::async::RunnableType
 {
 public:
-    using CyclicTaskType = ::estd::function<void()>;
+    using CyclicTaskType = ::etl::delegate<void()>;
 
     /**
      * Constructor.

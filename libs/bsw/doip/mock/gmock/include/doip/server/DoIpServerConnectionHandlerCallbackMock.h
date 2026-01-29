@@ -7,6 +7,8 @@
 
 #include "doip/server/IDoIpServerConnectionHandlerCallback.h"
 
+#include <etl/optional.h>
+
 #include <gmock/gmock.h>
 
 namespace doip

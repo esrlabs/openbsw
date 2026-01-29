@@ -78,7 +78,10 @@ void DoIpUdpConnection::endReceiveMessage(
     }
 
     // for now no special async discarding handling is implemented for UDP messages
-    payloadDiscardedCallback();
+    if (payloadDiscardedCallback.is_valid())
+    {
+        payloadDiscardedCallback();
+    }
 }
 
 bool DoIpUdpConnection::sendMessage(IDoIpSendJob& sendJob)
@@ -220,6 +223,8 @@ void DoIpUdpConnection::tryReceive()
         else
         {
             _readPayloadLength -= static_cast<uint16_t>(currentReadBuffer.size());
+            // No is_valid() check is done here. This will assert if the user doesn't pass a valid
+            // one.
             _payloadReceivedCallback(currentReadBuffer);
         }
         // bytesRead is always less then available length

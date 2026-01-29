@@ -7,6 +7,8 @@
 
 #include "doip/server/IDoIpServerConnectionFilter.h"
 
+#include <etl/optional.h>
+
 #include <gmock/gmock.h>
 
 namespace doip

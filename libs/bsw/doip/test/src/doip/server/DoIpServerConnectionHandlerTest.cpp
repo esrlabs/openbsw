@@ -14,6 +14,8 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
+#include <etl/optional.h>
+#include <etl/span.h>
 #include <transport/TransportMessage.h>
 
 #include <gmock/gmock.h>
@@ -1283,7 +1285,6 @@ TEST_F(DoIpServerConnectionHandlerTest, TestInitialTimeout)
     // Receive a diagnostic message. The initial activity timeout shouldn't be reset
     uint8_t const diagnosticRequest[]
         = {0x02, 0xfd, 0x80, 0x01, 0x00, 0x00, 0x00, 0x05, 0x12, 0x34, 0x03, 0x00, 0x00};
-    IDoIpConnection::PayloadReceivedCallbackType payloadCallback;
     IDoIpSendJob* sendJob = nullptr;
     EXPECT_CALL(fConnectionMock, sendMessage(_))
         .WillOnce(DoAll(SaveRef<0>(&sendJob), Return(true)));

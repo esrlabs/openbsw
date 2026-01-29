@@ -7,8 +7,8 @@
 
 #include <ip/IPEndpoint.h>
 
+#include <etl/delegate.h>
 #include <etl/span.h>
-#include <estd/functional.h>
 
 namespace doip
 {
@@ -21,8 +21,8 @@ class IDoIpSendJob;
 class IDoIpConnection
 {
 public:
-    using PayloadReceivedCallbackType  = ::estd::function<void(::etl::span<uint8_t const>)>;
-    using PayloadDiscardedCallbackType = ::estd::function<void()>;
+    using PayloadReceivedCallbackType  = ::etl::delegate<void(::etl::span<uint8_t const>)>;
+    using PayloadDiscardedCallbackType = ::etl::delegate<void()>;
 
     IDoIpConnection();
 
