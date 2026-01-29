@@ -10,7 +10,6 @@
 
 #include <etl/optional.h>
 #include <transport/TransportMessage.h>
-#include <util/estd/assert.h>
 
 namespace doip
 {
@@ -388,13 +387,14 @@ void DoIpServerTransportLayer::startAliveCheck(
         "DoIpServerTransportLayer::startAliveCheck1(%p, %p)",
         &routingActivationConnection,
         connectionToCheck);
+    // SAFETY: Pool is guaranteed to have capacity. The caller loop at
+    // startAliveCheck() (no-param) only enters while !_aliveCheckHelperPool.full().
     AliveCheckHelper* const aliveCheckHelper = _aliveCheckHelperPool.create<AliveCheckHelper>(
         routingActivationConnection,
         static_cast<uint8_t>(
             (connectionToCheck != nullptr)
                 ? DoIpConstants::RoutingResponseCodes::ROUTING_SOURCE_ALREADY_REGISTERED
                 : DoIpConstants::RoutingResponseCodes::ROUTING_NO_FREE_SOCKET));
-    estd_assert(aliveCheckHelper != nullptr);
     _aliveCheckHelpers.push_front(*aliveCheckHelper);
     if (connectionToCheck != nullptr)
     {

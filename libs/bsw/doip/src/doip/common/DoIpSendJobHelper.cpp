@@ -4,8 +4,6 @@
 
 #include "doip/common/DoIpHeader.h"
 
-#include <util/estd/assert.h>
-
 namespace doip
 {
 ::etl::span<uint8_t const> DoIpSendJobHelper::prepareHeaderBuffer(
@@ -14,7 +12,10 @@ namespace doip
     uint16_t const payloadType,
     uint32_t const payloadLength)
 {
-    estd_assert(buffer.size() >= DoIpConstants::DOIP_HEADER_LENGTH);
+    if (buffer.size() < DoIpConstants::DOIP_HEADER_LENGTH)
+    {
+        return {};
+    }
 
     auto headerBuffer              = buffer.reinterpret_as<DoIpHeader>();
     DoIpHeader& header             = headerBuffer[0];

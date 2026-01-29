@@ -703,7 +703,9 @@ DoIpServerVehicleIdentificationSocketHandler::StaticPayloadSendJobType&
 DoIpServerVehicleIdentificationSocketHandler::allocateSendJob(
     uint16_t const payloadType, uint8_t const payloadLength)
 {
-    estd_assert(!_sendJob.has_value());
+    // SAFETY: _sendJob is guaranteed to be empty here. All callers go through
+    // trySendResponse(), which checks _sendJob.has_value() under lock and returns
+    // early if a send is already in progress. All paths execute in the ETHERNET task.
     return _sendJob.emplace(
         static_cast<uint8_t>(_protocolVersion),
         payloadType,

@@ -90,6 +90,10 @@ void DoIpTransportMessageSendJob::release(bool const success)
         }
         case BufferIndex::STATIC_PAYLOAD:
         {
+            if (staticBuffer.size() < sizeof(uint16_t) * 2)
+            {
+                return {};
+            }
             auto const s = staticBuffer.reinterpret_as<::etl::be_uint16_t>();
             s[0]         = _sourceAddress;
             s[1]         = _targetAddress;

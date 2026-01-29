@@ -9,6 +9,8 @@
 #include "async/Types.h"
 #include "tx_api.h"
 
+#include <etl/error_handler.h>
+
 namespace async
 {
 template<size_t EventCount>
@@ -48,7 +50,7 @@ inline void EventManager<EventCount>::init(TX_THREAD& handle)
         const_cast<CHAR*>(handle.tx_thread_name) // use same name as for the task
     );
 
-    estd_assert(status == TX_SUCCESS);
+    ETL_ASSERT(status == TX_SUCCESS, ETL_ERROR_GENERIC("TX event flags creation must succeed"));
 }
 
 template<size_t EventCount>

@@ -27,7 +27,7 @@ target_link_libraries(
            util
            common
            cpp2ethernet
-           estd
+           etl
            platform
            transport)
 

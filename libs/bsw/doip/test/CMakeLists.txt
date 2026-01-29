@@ -40,8 +40,6 @@ target_link_libraries(
             asyncMockImpl
             util
             utilMock
-            estd
-            estdMock
             cpp2ethernet
             cpp2ethernetMock
             transportMock

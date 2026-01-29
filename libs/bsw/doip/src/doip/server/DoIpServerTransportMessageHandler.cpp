@@ -19,7 +19,6 @@
 #include <etl/unaligned_type.h>
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
-#include <util/estd/assert.h>
 #include <platform/estdint.h>
 
 namespace doip

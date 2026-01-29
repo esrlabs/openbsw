@@ -4,7 +4,6 @@
 #include "doip/common/DoIpTestHelpers.h"
 
 #include <etl/array.h>
-#include <util/estd/assert.h>
 
 #include <gmock/gmock.h>
 
@@ -24,11 +23,9 @@ TEST(DoIpSendJobTest, TestPrepareHeaderBuffer)
             DoIpSendJobHelper::prepareHeaderBuffer(destBuffer, 0x03, 0x8002U, 0x210)));
     }
     {
-        ::estd::AssertHandlerScope scope(::estd::AssertExceptionHandler);
         ::etl::array<uint8_t, 7> destBuffer;
-        EXPECT_THROW(
-            DoIpSendJobHelper::prepareHeaderBuffer(destBuffer, 0x03, 0x8002U, 0x210),
-            ::estd::assert_exception);
+        EXPECT_TRUE(
+            DoIpSendJobHelper::prepareHeaderBuffer(destBuffer, 0x03, 0x8002U, 0x210).empty());
     }
 }
 
