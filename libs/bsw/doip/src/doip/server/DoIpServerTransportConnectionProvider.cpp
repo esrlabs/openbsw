@@ -4,13 +4,13 @@
 
 #include "doip/common/DoIpLock.h"
 #include "doip/common/IDoIpTcpConnection.h"
+#include "doip/server/DoIpServerLogger.h"
 #include "doip/server/DoIpServerTransportConnection.h"
 #include "doip/server/IDoIpServerSocketHandler.h"
 #include "doip/server/IDoIpServerTransportConnectionPool.h"
 #include "doip/server/IDoIpServerTransportConnectionProviderCallback.h"
 
-#include <doip/server/DoIpServerLogger.h>
-#include <estd/big_endian.h>
+#include <etl/memory.h>
 
 namespace doip
 {

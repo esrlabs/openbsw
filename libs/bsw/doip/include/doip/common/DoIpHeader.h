@@ -7,7 +7,7 @@
 
 #include "doip/common/DoIpConstants.h"
 
-#include <estd/big_endian.h>
+#include <etl/unaligned_type.h>
 
 #include <cstdint>
 
@@ -17,8 +17,8 @@ struct DoIpHeader
 {
     uint8_t protocolVersion;
     uint8_t invertedProtocolVersion;
-    ::estd::be_uint16_t payloadType;
-    ::estd::be_uint32_t payloadLength;
+    ::etl::be_uint16_t payloadType;
+    ::etl::be_uint32_t payloadLength;
 };
 
 inline bool checkProtocolVersion(DoIpHeader const& header, uint8_t const expectedVersion)

@@ -11,6 +11,7 @@
 
 #include <common/busid/BusId.h>
 #include <etl/pool.h>
+#include <etl/unaligned_type.h>
 #include <transport/BufferedTransportMessage.h>
 #include <transport/TransportMessageProcessedListenerMock.h>
 
@@ -504,8 +505,7 @@ TEST_F(
 
     // too long diagnostic message header
     {
-        uint8_t payloadLen[4] = {0};
-        ::estd::write_be<uint32_t>(&payloadLen[0], DOIP_MAX_PAYLOAD_LENGTH + 1);
+        ::etl::be_uint32_t const payloadLen = DOIP_MAX_PAYLOAD_LENGTH + 1;
         uint8_t const diagnosticMessage[]
             = {0x02, 0xfd, 0x80, 0x01, payloadLen[0], payloadLen[1], payloadLen[2], payloadLen[3]};
         EXPECT_CALL(

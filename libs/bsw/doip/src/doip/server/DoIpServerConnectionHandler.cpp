@@ -14,8 +14,8 @@
 #include <etl/memory.h>
 #include <etl/optional.h>
 #include <etl/span.h>
+#include <etl/unaligned_type.h>
 #include <transport/TransportMessage.h>
-#include <estd/big_endian.h>
 
 namespace doip
 {
@@ -294,13 +294,13 @@ void DoIpServerConnectionHandler::execute() { timerExpired(); }
 void DoIpServerConnectionHandler::routingActivationRequestReceived(
     ::etl::span<uint8_t const> payload)
 {
-    uint16_t const sourceAddress = payload.take<::estd::be_uint16_t const>();
+    uint16_t const sourceAddress = payload.take<::etl::be_uint16_t const>();
     uint8_t const activationType = payload.take<uint8_t const>();
     payload.advance(4U);
     ::etl::optional<uint32_t> oemField;
     if (payload.size() == 4) // if message contains VM-specific data
     {
-        oemField = payload.take<::estd::be_uint32_t const>();
+        oemField = payload.take<::etl::be_uint32_t const>();
     }
     auto const localEndpoint  = getLocalEndpoint();
     auto const remoteEndpoint = getRemoteEndpoint();
@@ -343,7 +343,7 @@ void DoIpServerConnectionHandler::routingActivationRequestReceived(
 void DoIpServerConnectionHandler::aliveCheckResponseReceived(
     ::etl::span<uint8_t const> const payload)
 {
-    uint16_t const sourceAddress = ::estd::read_be<uint16_t>(payload.data());
+    uint16_t const sourceAddress = ::etl::be_uint16_t(payload.data());
 
     bool const isExpectedAddress = (sourceAddress == _sourceAddress);
     if (_aliveCheckPending)
@@ -468,10 +468,10 @@ void DoIpServerConnectionHandler::sendRoutingActivationResponse(
         closeAfterSend);
     if (job != nullptr)
     {
-        ::etl::span<uint8_t> buffer        = job->accessPayloadBuffer();
-        buffer.take<::estd::be_uint16_t>() = sourceAddress;
-        buffer.take<::estd::be_uint16_t>() = _logicalEntityAddress;
-        buffer.take<uint8_t>()             = responseCode;
+        ::etl::span<uint8_t> buffer       = job->accessPayloadBuffer();
+        buffer.take<::etl::be_uint16_t>() = sourceAddress;
+        buffer.take<::etl::be_uint16_t>() = _logicalEntityAddress;
+        buffer.take<uint8_t>()            = responseCode;
         // SAFETY: allocateSendJob returned a ROUTING_ACTIVATION_RESPONSE_PAYLOAD_LENGTH = 9 B
         // buffer. After taking 2 B twice and 1 B once, 4 B remain.
         ::etl::mem_set(buffer.begin(), 4U, static_cast<uint8_t>(0U));

@@ -14,9 +14,8 @@
 #include <etl/intrusive_forward_list.h>
 #include <etl/intrusive_links.h>
 #include <etl/memory.h>
-#include <etl/optional.h>
 #include <etl/span.h>
-#include <estd/big_endian.h>
+#include <etl/unaligned_type.h>
 
 namespace doip
 {
@@ -453,7 +452,7 @@ void DoIpServerVehicleIdentificationSocketHandler::vehicleAnnouncementPayloadRec
 {
     if (_vehicleAnnouncementListener != nullptr)
     {
-        uint16_t const logicalAddress = ::estd::read_be<uint16_t>(&payload[VIN_LENGTH]);
+        uint16_t const logicalAddress = ::etl::be_uint16_t(&payload[VIN_LENGTH]);
         _vehicleAnnouncementListener->vehicleAnnouncementReceived(
             logicalAddress, _connection.getLocalEndpoint(), _connection.getRemoteEndpoint());
     }
@@ -588,7 +587,7 @@ DoIpServerVehicleIdentificationSocketHandler::createResponseIdentification()
     _config.getVehicleIdentificationCallback().getVin(
         IDoIpServerVehicleIdentificationCallback::VinType(
             payloadBuffer.take<char>(IDoIpServerVehicleIdentificationCallback::VinType::extent)));
-    payloadBuffer.take<::estd::be_uint16_t>() = _config.getLogicalEntityAddress();
+    payloadBuffer.take<::etl::be_uint16_t>() = _config.getLogicalEntityAddress();
     _config.getVehicleIdentificationCallback().getEid(
         IDoIpServerVehicleIdentificationCallback::EidType(payloadBuffer.take<uint8_t>(
             IDoIpServerVehicleIdentificationCallback::EidType::extent)));
@@ -611,7 +610,7 @@ DoIpServerVehicleIdentificationSocketHandler::createResponseEntityStatus()
     writeBuffer[0]                         = entityStatus._nodeType;
     writeBuffer[1]                         = entityStatus._maxConnectionCount;
     writeBuffer[2]                         = entityStatus._connectionCount;
-    ::estd::write_be<uint32_t>(&writeBuffer[3], entityStatus._maxDataSize);
+    writeBuffer.subspan(3, 4).reinterpret_as<::etl::be_uint32_t>()[0] = entityStatus._maxDataSize;
     return sendJob;
 }
 

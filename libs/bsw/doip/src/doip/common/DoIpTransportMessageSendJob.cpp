@@ -8,7 +8,7 @@
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
 
-#include <estd/big_endian.h>
+#include <etl/unaligned_type.h>
 
 namespace doip
 {
@@ -90,7 +90,7 @@ void DoIpTransportMessageSendJob::release(bool const success)
         }
         case BufferIndex::STATIC_PAYLOAD:
         {
-            auto const s = staticBuffer.reinterpret_as<::estd::be_uint16_t>();
+            auto const s = staticBuffer.reinterpret_as<::etl::be_uint16_t>();
             s[0]         = _sourceAddress;
             s[1]         = _targetAddress;
             return staticBuffer.subspan(0U, sizeof(uint16_t) * 2);

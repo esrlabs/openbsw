@@ -15,10 +15,10 @@
 #include <etl/functional.h>
 #include <etl/memory.h>
 #include <etl/span.h>
+#include <etl/unaligned_type.h>
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
 #include <util/estd/assert.h>
-#include <estd/big_endian.h>
 #include <estd/constructor.h>
 #include <platform/estdint.h>
 
@@ -188,9 +188,9 @@ void DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoRecei
     ::etl::span<uint8_t const> const logicalAddressInfo)
 {
     _payloadPeekContext.sourceAddress
-        = logicalAddressInfo.reinterpret_as<::estd::be_uint16_t const>()[0];
+        = logicalAddressInfo.reinterpret_as<::etl::be_uint16_t const>()[0];
     _payloadPeekContext.targetAddress
-        = logicalAddressInfo.reinterpret_as<::estd::be_uint16_t const>()[1];
+        = logicalAddressInfo.reinterpret_as<::etl::be_uint16_t const>()[1];
     auto const payloadPrefixSize
         = std::min(static_cast<size_t>(_receiveMessagePayloadLength), PAYLOAD_PREFIX_BUFFER_SIZE);
     (void)_connection->receivePayload(
@@ -397,14 +397,14 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
     }
     if (job != nullptr)
     {
-        ::etl::span<uint8_t> payloadBuffer        = job->accessPayloadBuffer();
-        payloadBuffer.take<::estd::be_uint16_t>() = targetAddress;
-        payloadBuffer.take<::estd::be_uint16_t>() = sourceAddress;
-        payloadBuffer.take<uint8_t>()             = responseCode;
+        ::etl::span<uint8_t> payloadBuffer       = job->accessPayloadBuffer();
+        payloadBuffer.take<::etl::be_uint16_t>() = targetAddress;
+        payloadBuffer.take<::etl::be_uint16_t>() = sourceAddress;
+        payloadBuffer.take<uint8_t>()            = responseCode;
         if (receivedMessageDataPrefix.size() > 0)
         {
             static_assert(
-                sizeof(::estd::be_uint16_t) + sizeof(::estd::be_uint16_t) + sizeof(uint8_t)
+                sizeof(::etl::be_uint16_t) + sizeof(::etl::be_uint16_t) + sizeof(uint8_t)
                         + ACK_PAYLOAD_SIZE
                     <= STATIC_PAYLOAD_SENDJOB_SIZE,
                 "payload buffer not big enough to hold prefix");

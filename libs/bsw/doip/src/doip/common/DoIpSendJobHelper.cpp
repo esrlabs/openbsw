@@ -6,8 +6,6 @@
 
 #include <util/estd/assert.h>
 
-#include <estd/big_endian.h>
-
 namespace doip
 {
 ::etl::span<uint8_t const> DoIpSendJobHelper::prepareHeaderBuffer(
