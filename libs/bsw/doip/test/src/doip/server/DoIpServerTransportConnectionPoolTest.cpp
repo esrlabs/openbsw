@@ -71,7 +71,7 @@ protected:
         = declare::DoIpServerTransportConnectionPool<TestTransportConnection, 1, 2, 2>;
 
     virtual DoIpServerTransportConnection& createConnection(
-        ::estd::constructor<TestTransportConnection>& c,
+        TestTransportConnection* memory,
         uint8_t socketGroupId,
         ::tcp::AbstractSocket& socket,
         ::etl::ipool& diagnosticBlockPool,
@@ -79,13 +79,15 @@ protected:
         DoIpServerTransportConnectionConfig const& config,
         DoIpTcpConnection::ConnectionType const type)
     {
-        return c.construct(
+        auto* const p = new (memory) TestTransportConnection(
             socketGroupId,
             ::etl::ref(socket),
             config,
             ::etl::ref(diagnosticBlockPool),
             ::etl::ref(protocolBlockPool),
             type);
+
+        return *p;
     }
 
     uint8_t fBusId;

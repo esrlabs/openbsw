@@ -106,7 +106,7 @@ private:
     {
     public:
         DoIpServerTransportConnection& createConnection(
-            ::estd::constructor<DoIpServerTransportConnection>& constructor,
+            DoIpServerTransportConnection* memory,
             uint8_t socketGroupId,
             ::tcp::AbstractSocket& socket,
             ::etl::ipool& diagnosticSendJobBlockPool,

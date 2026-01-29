@@ -70,9 +70,9 @@ DoIpServerTransportConnectionPool<T, NUM_SOCKETS, NUM_DIAGNOSTICSENDJOBS, NUM_PR
 {
     if (!_connectionPool.full())
     {
-        auto constructor = ::estd::constructor<T>(_connectionPool.allocate());
+        auto* memory = _connectionPool.allocate();
         return &_creator.createConnection(
-            constructor,
+            memory,
             socketGroupId,
             socket,
             _diagnosticSendJobBlockPool,

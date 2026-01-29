@@ -19,7 +19,6 @@
 #include <transport/ITransportMessageProcessedListener.h>
 #include <transport/TransportMessage.h>
 #include <util/estd/assert.h>
-#include <estd/constructor.h>
 #include <platform/estdint.h>
 
 #include <algorithm>

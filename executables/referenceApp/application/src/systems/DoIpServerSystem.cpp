@@ -244,7 +244,7 @@ void DoIpServerSystem::OnVirReceivedCallback() { Logger::info(DOIP, "VIR Receive
 void DoIpServerSystem::shutdownDone(::transport::AbstractTransportLayer& /*transportLayer*/) {}
 
 DoIpServerTransportConnection& DoIpServerSystem::TransportConnectionCreator::createConnection(
-    ::estd::constructor<DoIpServerTransportConnection>& constructor,
+    DoIpServerTransportConnection* memory,
     uint8_t const socketGroupId,
     ::tcp::AbstractSocket& socket,
     ::etl::ipool& diagnosticSendJobBlockPool,
@@ -253,7 +253,7 @@ DoIpServerTransportConnection& DoIpServerSystem::TransportConnectionCreator::cre
     DoIpTcpConnection::ConnectionType /*type*/)
 {
     // type Defaulted to PLAIN Connection Type
-    return constructor.construct(
+    auto* const p = new (memory) DoIpServerTransportConnection(
         doip::DoIpConstants::ProtocolVersion::version02Iso2012,
         socketGroupId,
         ::etl::ref(socket),
@@ -261,6 +261,8 @@ DoIpServerTransportConnection& DoIpServerSystem::TransportConnectionCreator::cre
         ::etl::ref(diagnosticSendJobBlockPool),
         ::etl::ref(protocolSendJobBlockPool),
         DoIpTcpConnection::ConnectionType::PLAIN);
+
+    return *p;
 }
 
 } // namespace doip

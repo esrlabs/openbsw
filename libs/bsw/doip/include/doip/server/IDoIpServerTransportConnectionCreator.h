@@ -5,11 +5,20 @@
  */
 #pragma once
 
+#include "doip/server/DoIpServerTransportConnection.h"
+
 #include <etl/ipool.h>
-#include <estd/constructor.h>
+#include <platform/estdint.h>
+
+namespace tcp
+{
+class AbstractSocket;
+}
 
 namespace doip
 {
+class DoIpServerTransportConnectionConfig;
+
 /**
  * Interface for creation of a potentially derived transport connection.
  * \tparam T class for transport connection instances, derived from DoIpServerTransportConnection
@@ -20,7 +29,7 @@ class IDoIpServerTransportConnectionCreator
 public:
     /**
      * Create a transport connection instance within already allocated memory.
-     * \param constructor reference to constructor
+     * \param memory reference to allocated memory
      * \param socketGroupId identifier of socket group the connection belongs to
      * \param socket reference to socket to use
      * \param diagnosticSendJobBlockPool reference to block pool for diagnostic send jobs
@@ -28,7 +37,7 @@ public:
      * \param config reference to connection configuration
      */
     virtual DoIpServerTransportConnection& createConnection(
-        ::estd::constructor<T>& constructor,
+        T* memory,
         uint8_t socketGroupId,
         ::tcp::AbstractSocket& socket,
         ::etl::ipool& diagnosticSendJobBlockPool,
