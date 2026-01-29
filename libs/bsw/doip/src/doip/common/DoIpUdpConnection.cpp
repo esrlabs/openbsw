@@ -7,12 +7,13 @@
 #include "doip/common/IDoIpSendJob.h"
 
 #include <async/Async.h>
+#include <etl/algorithm.h>
 #include <etl/intrusive_links.h>
 #include <etl/intrusive_list.h>
 #include <etl/memory.h>
+#include <etl/span.h>
 #include <etl/variant.h>
 #include <udp/DatagramPacket.h>
-#include <estd/algorithm.h>
 
 namespace doip
 {
@@ -201,7 +202,7 @@ void DoIpUdpConnection::tryReceive()
             DoIpHeader const& header = headerBuffer[0];
             _readState               = ReadState::PAYLOAD;
             _readPayloadLength       = static_cast<uint16_t>(
-                ::estd::min<uint32_t>(header.payloadLength, _availableReadDataLength));
+                ::etl::min<uint32_t>(header.payloadLength, _availableReadDataLength));
 
             auto const headerReceivedContinuation = _handler->headerReceived(header);
             if (::etl::holds_alternative<IDoIpConnection::PayloadDiscardedCallbackType>(

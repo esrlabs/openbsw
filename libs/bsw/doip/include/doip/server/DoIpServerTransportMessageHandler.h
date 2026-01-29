@@ -13,10 +13,9 @@
 #include "doip/server/IDoIpServerMessageHandler.h"
 
 #include <common/busid/BusId.h>
+#include <etl/algorithm.h>
 #include <etl/ipool.h>
-
 #include <etl/span.h>
-#include <algorithm>
 
 namespace doip
 {
@@ -68,9 +67,10 @@ public:
     using StaticPayloadSendJobType = declare::DoIpStaticPayloadSendJob<STATIC_PAYLOAD_SENDJOB_SIZE>;
 
 private:
-    static constexpr size_t PEEK_MAX_SIZE              = 4U;
-    static constexpr size_t ACK_PAYLOAD_SIZE           = 5U;
-    static constexpr size_t PAYLOAD_PREFIX_BUFFER_SIZE = std::max(PEEK_MAX_SIZE, ACK_PAYLOAD_SIZE);
+    static constexpr size_t PEEK_MAX_SIZE    = 4U;
+    static constexpr size_t ACK_PAYLOAD_SIZE = 5U;
+    static constexpr size_t PAYLOAD_PREFIX_BUFFER_SIZE
+        = ::etl::max(PEEK_MAX_SIZE, ACK_PAYLOAD_SIZE);
 
     //  Helper struct to persist data across callback.
     struct PayloadPrefixContext

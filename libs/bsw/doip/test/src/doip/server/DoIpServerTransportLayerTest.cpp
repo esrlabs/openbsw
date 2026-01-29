@@ -13,6 +13,7 @@
 #include <async/AsyncMock.h>
 #include <async/TestContext.h>
 #include <common/busid/BusId.h>
+#include <etl/algorithm.h>
 #include <etl/memory.h>
 #include <etl/optional.h>
 #include <etl/pool.h>
@@ -2006,7 +2007,7 @@ void DoIpServerTransportLayerTest::setupReadMessage(
         return;
     }
     size_t remainingSize = diagMessage.size();
-    size_t peekSize      = std::min(remainingSize, static_cast<size_t>(5U));
+    size_t peekSize      = ::etl::min(remainingSize, static_cast<size_t>(5U));
     EXPECT_CALL(fSocketMock1, read(NotNull(), peekSize))
         .InSequence(seq)
         .WillOnce(Invoke(ReadBytesFrom(diagMessage.first(peekSize))));

@@ -8,12 +8,11 @@
 #include "doip/common/IDoIpSendJob.h"
 
 #include <async/Async.h>
+#include <etl/algorithm.h>
 #include <etl/intrusive_links.h>
 #include <etl/intrusive_list.h>
-
+#include <etl/span.h>
 #include <etl/variant.h>
-
-#include <algorithm>
 
 namespace doip
 {
@@ -391,7 +390,7 @@ void DoIpTcpConnection::tryReceive()
     while ((!_recurseRead) && (_connectionState == ConnectionState::ACTIVE)
            && (_currentReadBuffer.size() > 0U) && (_availableReadDataLength > 0U))
     {
-        size_t const bytesToRead = ::std::min(
+        size_t const bytesToRead = ::etl::min(
             _availableReadDataLength, _currentReadBuffer.size() - _receivedBufferLength);
         size_t const bytesRead = _socket.read(
             (_readState != ReadState::DISCARD)

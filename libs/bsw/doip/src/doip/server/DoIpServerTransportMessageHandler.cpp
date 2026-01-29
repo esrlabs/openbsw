@@ -12,6 +12,7 @@
 #include "doip/server/DoIpServerTransportLayerParameters.h"
 #include "doip/server/IDoIpServerConnection.h"
 
+#include <etl/algorithm.h>
 #include <etl/functional.h>
 #include <etl/memory.h>
 #include <etl/span.h>
@@ -20,8 +21,6 @@
 #include <transport/TransportMessage.h>
 #include <util/estd/assert.h>
 #include <platform/estdint.h>
-
-#include <algorithm>
 
 namespace doip
 {
@@ -191,7 +190,7 @@ void DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoRecei
     _payloadPeekContext.targetAddress
         = logicalAddressInfo.reinterpret_as<::etl::be_uint16_t const>()[1];
     auto const payloadPrefixSize
-        = std::min(static_cast<size_t>(_receiveMessagePayloadLength), PAYLOAD_PREFIX_BUFFER_SIZE);
+        = ::etl::min(static_cast<size_t>(_receiveMessagePayloadLength), PAYLOAD_PREFIX_BUFFER_SIZE);
     (void)_connection->receivePayload(
         ::etl::span<uint8_t>(_payloadPeekContext.payloadPrefixBuffer)
             .subspan(0U, payloadPrefixSize),
@@ -207,7 +206,7 @@ DoIpServerTransportMessageHandler::getTpMessageAndReceiveDiagnosticUserData(
     ::etl::span<uint8_t const> const payloadPrefix)
 {
     auto const peekSpan
-        = payloadPrefix.subspan(0U, std::min(payloadPrefix.size(), size_t(PEEK_MAX_SIZE)));
+        = payloadPrefix.subspan(0U, ::etl::min(payloadPrefix.size(), PEEK_MAX_SIZE));
     auto const getResult = _config.getMessageProvidingListener().getTransportMessage(
         _config.getBusId(),
         _connection->getInternalSourceAddress(),
@@ -380,7 +379,7 @@ DoIpServerTransportMessageHandler::queueDiagnosticAck(
         if (!_protocolSendJobPool.full())
         {
             receivedMessageDataPrefix = receivedMessageData.subspan(
-                0U, std::min(receivedMessageData.size(), static_cast<size_t>(ACK_PAYLOAD_SIZE)));
+                0U, ::etl::min(receivedMessageData.size(), static_cast<size_t>(ACK_PAYLOAD_SIZE)));
             job = new (_protocolSendJobPool.allocate<StaticPayloadSendJobType>())
                 StaticPayloadSendJobType(
                     static_cast<uint8_t>(_protocolVersion),
