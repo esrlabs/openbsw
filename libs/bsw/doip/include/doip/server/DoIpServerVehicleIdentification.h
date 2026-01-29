@@ -9,7 +9,7 @@
 #include "doip/server/IDoIpUdpOemMessageHandler.h"
 
 #include <etl/delegate.h>
-#include <estd/ordered_map.h>
+#include <etl/map.h>
 
 namespace doip
 {
@@ -51,7 +51,7 @@ public:
         GetEidCallback getEidCallback,
         GetPowerModeCallback getPowerModeCallback,
         OnVirReceivedCallback onVirReceivedCallback,
-        ::estd::ordered_map<uint16_t, IDoIpUdpOemMessageHandler*> const* const oemMessageHandlers);
+        ::etl::imap<uint16_t, IDoIpUdpOemMessageHandler*> const* const oemMessageHandlers);
 
     void getVin(VinType vin) override;
     void getGid(GidType gid) override;
@@ -66,7 +66,7 @@ private:
     GetEidCallback _getEidCallback;
     GetPowerModeCallback _getPowerModeCallback;
     OnVirReceivedCallback _virReceivedCallback;
-    ::estd::ordered_map<uint16_t, IDoIpUdpOemMessageHandler*> const* const _oemMessageHandlers;
+    ::etl::imap<uint16_t, IDoIpUdpOemMessageHandler*> const* const _oemMessageHandlers;
 };
 
 } // namespace doip

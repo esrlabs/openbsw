@@ -10,7 +10,7 @@ DoIpServerVehicleIdentification::DoIpServerVehicleIdentification(
     GetEidCallback const getEidCallback,
     GetPowerModeCallback const getPowerModeCallback,
     OnVirReceivedCallback onVirReceivedCallback,
-    ::estd::ordered_map<uint16_t, IDoIpUdpOemMessageHandler*> const* const oemMessageHandlers)
+    ::etl::imap<uint16_t, IDoIpUdpOemMessageHandler*> const* const oemMessageHandlers)
 : IDoIpServerVehicleIdentificationCallback()
 , _getVinCallback(getVinCallback)
 , _getGidCallback(getGidCallback)
@@ -52,13 +52,13 @@ DoIpConstants::DiagnosticPowerMode DoIpServerVehicleIdentification::getPowerMode
 void DoIpServerVehicleIdentification::onVirReceived() { _virReceivedCallback(); }
 
 IDoIpUdpOemMessageHandler*
-DoIpServerVehicleIdentification::getOemMessageHandler(uint16_t payloadType) const
+DoIpServerVehicleIdentification::getOemMessageHandler(uint16_t const payloadType) const
 {
     if (_oemMessageHandlers == nullptr)
     {
         return nullptr;
     }
-    auto const* const oemMessageHandler = _oemMessageHandlers->find(payloadType);
+    auto const oemMessageHandler = _oemMessageHandlers->find(payloadType);
     if (oemMessageHandler == _oemMessageHandlers->end())
     {
         return nullptr;
