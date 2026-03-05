@@ -64,11 +64,29 @@ TapEthernetDriver::TapEthernetDriver(::etl::array<uint8_t const, 6> const macAdd
 
 bool TapEthernetDriver::start(char const* const ifName)
 {
-    _tapFd = allocTapInterface(ifName);
-    return _tapFd >= 0;
+    if (_tapFd >= 0)
+    {
+        close(_tapFd);
+        _tapFd = -1;
+    }
+
+    int const fd = allocTapInterface(ifName);
+    if (fd < 0)
+    {
+        return false;
+    }
+    _tapFd = fd;
+    return true;
 }
 
-void TapEthernetDriver::stop() { _tapFd = -1; }
+void TapEthernetDriver::stop()
+{
+    if (_tapFd >= 0)
+    {
+        close(_tapFd);
+        _tapFd = -1;
+    }
+}
 
 void TapEthernetDriver::readFrame()
 {

@@ -33,6 +33,7 @@ void TapEthernetSystem::run()
 
 void TapEthernetSystem::shutdown()
 {
+    _driver.stop();
     _rxTimeout.cancel();
     transitionDone();
 }
