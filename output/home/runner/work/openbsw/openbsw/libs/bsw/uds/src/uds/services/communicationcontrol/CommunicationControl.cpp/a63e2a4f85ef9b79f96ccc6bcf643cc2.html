@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../services.html">services</a></li>
+        
+        <li ><a href="../../communicationcontrol.html">communicationcontrol</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommunicationControl.cpp.html">CommunicationControl.cpp</a>:104
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::CommunicationControl::process(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00017e5c</td>
+                <td>
+    
+    
+</td>
+                <td>48 (static)</td>
+                <td>568</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (5,
+                            <span title="sum of used bytes by all callees">
+                            Σ=320
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../connection/IncomingDiagConnection.cpp/0fe53b60d36c4df2208186bc82166758.html">uds::IncomingDiagConnection::releaseRequestGetResponse() (116)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../connection/PositiveResponse.cpp/90d7bce85e6c93cd36dcc825d135b4b4.html">uds::PositiveResponse::appendUint8(unsigned char) (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../connection/PositiveResponse.cpp/3dc2442405f68285293f3112e6313b4f.html">uds::PositiveResponse::getLength() const (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../connection/IncomingDiagConnection.cpp/e435e08a2dfb9f6a47ff5a06d3788c4f.html">uds::IncomingDiagConnection::sendPositiveResponseInternal(unsigned short, uds::AbstractDiagJob&amp;) (112)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../include/uds/services/communicationcontrol/CommunicationControl.h/175f7624fdc29d84c7dcfdcaf9c3a3a5.html">non-virtual thunk to uds::CommunicationControl::resetCommunicationSubState() (48)</a></pre>
+    
+
+    <pre>
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17e5c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       17e60:	461f      	mov	r7, r3
+
+       17e62:	6803      	ldr	r3, [r0, #0]
+
+       17e64:	4615      	mov	r5, r2
+
+       17e66:	6b5b      	ldr	r3, [r3, #52]	@ 0x34
+
+       17e68:	4a89      	ldr	r2, [pc, #548]	@ (18090 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x234>)
+
+       17e6a:	4293      	cmp	r3, r2
+
+       17e6c:	b083      	sub	sp, #12
+
+       17e6e:	4604      	mov	r4, r0
+
+       17e70:	460e      	mov	r6, r1
+
+       17e72:	d123      	bne.n	17ebc <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x60>
+
+       17e74:	f895 8000 	ldrb.w	r8, [r5]
+
+       17e78:	f1a8 0304 	sub.w	r3, r8, #4
+
+       17e7c:	2b01      	cmp	r3, #1
+
+       17e7e:	d917      	bls.n	17eb0 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x54>
+
+       17e80:	f1b8 0f03 	cmp.w	r8, #3
+
+       17e84:	d820      	bhi.n	17ec8 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x6c>
+
+       17e86:	2f02      	cmp	r7, #2
+
+       17e88:	d114      	bne.n	17eb4 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x58>
+
+       17e8a:	4630      	mov	r0, r6
+
+       17e8c:	f895 a001 	ldrb.w	sl, [r5, #1]
+
+       17e90:	f7ff fbc8 	bl	17624 <<a href="../../../connection/IncomingDiagConnection.cpp/0fe53b60d36c4df2208186bc82166758.html">uds::IncomingDiagConnection::releaseRequestGetResponse()</a>>
+
+       17e94:	f108 38ff 	add.w	r8, r8, #4294967295	@ 0xffffffff
+
+       17e98:	f00a 090f 	and.w	r9, sl, #15
+
+       17e9c:	4607      	mov	r7, r0
+
+       17e9e:	f1b8 0f04 	cmp.w	r8, #4
+
+       17ea2:	f200 80d6 	bhi.w	18052 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1f6>
+
+       17ea6:	e8df f008 	tbb	[pc, r8]
+
+       17eaa:	3d86      	.short	0x3d86
+
+       17eac:	6759      	.short	0x6759
+
+       17eae:	19          	.byte	0x19
+
+       17eaf:	00          	.byte	0x00
+
+       17eb0:	2f04      	cmp	r7, #4
+
+       17eb2:	d0ea      	beq.n	17e8a <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x2e>
+
+       17eb4:	2013      	movs	r0, #19
+
+       17eb6:	b003      	add	sp, #12
+
+       17eb8:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       17ebc:	4798      	blx	r3
+
+       17ebe:	28ff      	cmp	r0, #255	@ 0xff
+
+       17ec0:	d0d8      	beq.n	17e74 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x18>
+
+       17ec2:	b003      	add	sp, #12
+
+       17ec4:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       17ec8:	4630      	mov	r0, r6
+
+       17eca:	f1a8 0840 	sub.w	r8, r8, #64	@ 0x40
+
+       17ece:	f7ff fba9 	bl	17624 <<a href="../../../connection/IncomingDiagConnection.cpp/0fe53b60d36c4df2208186bc82166758.html">uds::IncomingDiagConnection::releaseRequestGetResponse()</a>>
+
+       17ed2:	f1b8 0f1f 	cmp.w	r8, #31
+
+       17ed6:	d823      	bhi.n	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       17ed8:	20fe      	movs	r0, #254	@ 0xfe
+
+       17eda:	e7ec      	b.n	17eb6 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x5a>
+
+       17edc:	f1b9 0f01 	cmp.w	r9, #1
+
+       17ee0:	f040 808c 	bne.w	17ffc <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1a0>
+
+    _ZN3etl6copy_nIPKcjPhEET1_T_T0_S4_():
+
+       17ee4:	78aa      	ldrb	r2, [r5, #2]
+
+       17ee6:	78eb      	ldrb	r3, [r5, #3]
+
+       17ee8:	f88d 2004 	strb.w	r2, [sp, #4]
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       17eec:	f04f 0a00 	mov.w	sl, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       17ef0:	2202      	movs	r2, #2
+
+       17ef2:	a901      	add	r1, sp, #4
+
+       17ef4:	f10d 0006 	add.w	r0, sp, #6
+
+    _ZN3etl6copy_nIPKcjPhEET1_T_T0_S4_():
+
+       17ef8:	f88d 3005 	strb.w	r3, [sp, #5]
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       17efc:	f8ad a006 	strh.w	sl, [sp, #6]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       17f00:	f7e8 fb59 	bl	5b6 <<a href="../../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       17f04:	f8bd 8006 	ldrh.w	r8, [sp, #6]
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17f08:	8be3      	ldrh	r3, [r4, #30]
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       17f0a:	fa98 f898 	rev16.w	r8, r8
+
+       17f0e:	fa1f f888 	uxth.w	r8, r8
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17f12:	4543      	cmp	r3, r8
+
+       17f14:	d104      	bne.n	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       17f16:	6b65      	ldr	r5, [r4, #52]	@ 0x34
+
+    _ZN3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       17f18:	f104 0930 	add.w	r9, r4, #48	@ 0x30
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       17f1c:	45a9      	cmp	r9, r5
+
+       17f1e:	d158      	bne.n	17fd2 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x176>
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17f20:	2012      	movs	r0, #18
+
+       17f22:	e7c8      	b.n	17eb6 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x5a>
+
+       17f24:	6823      	ldr	r3, [r4, #0]
+
+       17f26:	f1b9 0f01 	cmp.w	r9, #1
+
+       17f2a:	6adb      	ldr	r3, [r3, #44]	@ 0x2c
+
+       17f2c:	d068      	beq.n	18000 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1a4>
+
+       17f2e:	f1b9 0f02 	cmp.w	r9, #2
+
+       17f32:	bf0c      	ite	eq
+
+       17f34:	210a      	moveq	r1, #10
+
+       17f36:	210b      	movne	r1, #11
+
+       17f38:	4620      	mov	r0, r4
+
+       17f3a:	4798      	blx	r3
+
+       17f3c:	2102      	movs	r1, #2
+
+       17f3e:	4638      	mov	r0, r7
+
+       17f40:	f7ff fe38 	bl	17bb4 <<a href="../../../connection/PositiveResponse.cpp/90d7bce85e6c93cd36dcc825d135b4b4.html">uds::PositiveResponse::appendUint8(unsigned char)</a>>
+
+       17f44:	4638      	mov	r0, r7
+
+       17f46:	f7ff fe8d 	bl	17c64 <<a href="../../../connection/PositiveResponse.cpp/3dc2442405f68285293f3112e6313b4f.html">uds::PositiveResponse::getLength() const</a>>
+
+       17f4a:	4622      	mov	r2, r4
+
+       17f4c:	b281      	uxth	r1, r0
+
+       17f4e:	4630      	mov	r0, r6
+
+       17f50:	f7ff f8da 	bl	17108 <<a href="../../../connection/IncomingDiagConnection.cpp/e435e08a2dfb9f6a47ff5a06d3788c4f.html">uds::IncomingDiagConnection::sendPositiveResponseInternal(unsigned short, uds::AbstractDiagJob&)</a>>
+
+       17f54:	20ff      	movs	r0, #255	@ 0xff
+
+       17f56:	b003      	add	sp, #12
+
+       17f58:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       17f5c:	6823      	ldr	r3, [r4, #0]
+
+       17f5e:	f1b9 0f01 	cmp.w	r9, #1
+
+       17f62:	6adb      	ldr	r3, [r3, #44]	@ 0x2c
+
+       17f64:	d054      	beq.n	18010 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1b4>
+
+       17f66:	f1b9 0f02 	cmp.w	r9, #2
+
+       17f6a:	bf0c      	ite	eq
+
+       17f6c:	2104      	moveq	r1, #4
+
+       17f6e:	2107      	movne	r1, #7
+
+       17f70:	4620      	mov	r0, r4
+
+       17f72:	4798      	blx	r3
+
+       17f74:	2103      	movs	r1, #3
+
+       17f76:	e7e2      	b.n	17f3e <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe2>
+
+       17f78:	f1b9 0f01 	cmp.w	r9, #1
+
+       17f7c:	d119      	bne.n	17fb2 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x156>
+
+    _ZN3etl6copy_nIPKcjPhEET1_T_T0_S4_():
+
+       17f7e:	78ab      	ldrb	r3, [r5, #2]
+
+       17f80:	78ea      	ldrb	r2, [r5, #3]
+
+       17f82:	f88d 3004 	strb.w	r3, [sp, #4]
+
+       17f86:	f88d 2005 	strb.w	r2, [sp, #5]
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       17f8a:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       17f8c:	2202      	movs	r2, #2
+
+       17f8e:	a901      	add	r1, sp, #4
+
+       17f90:	f10d 0006 	add.w	r0, sp, #6
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       17f94:	f8ad 3006 	strh.w	r3, [sp, #6]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       17f98:	f7e8 fb0d 	bl	5b6 <<a href="../../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       17f9c:	f8bd 8006 	ldrh.w	r8, [sp, #6]
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17fa0:	8be3      	ldrh	r3, [r4, #30]
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       17fa2:	fa98 f898 	rev16.w	r8, r8
+
+       17fa6:	fa1f f988 	uxth.w	r9, r8
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17faa:	2b00      	cmp	r3, #0
+
+       17fac:	d034      	beq.n	18018 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1bc>
+
+       17fae:	454b      	cmp	r3, r9
+
+       17fb0:	d1b6      	bne.n	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       17fb2:	2104      	movs	r1, #4
+
+       17fb4:	e7c3      	b.n	17f3e <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe2>
+
+       17fb6:	6823      	ldr	r3, [r4, #0]
+
+       17fb8:	f1b9 0f01 	cmp.w	r9, #1
+
+       17fbc:	6adb      	ldr	r3, [r3, #44]	@ 0x2c
+
+       17fbe:	d023      	beq.n	18008 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1ac>
+
+       17fc0:	f1b9 0f02 	cmp.w	r9, #2
+
+       17fc4:	bf0c      	ite	eq
+
+       17fc6:	2105      	moveq	r1, #5
+
+       17fc8:	2108      	movne	r1, #8
+
+       17fca:	4620      	mov	r0, r4
+
+       17fcc:	4798      	blx	r3
+
+       17fce:	2101      	movs	r1, #1
+
+       17fd0:	e7b5      	b.n	17f3e <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe2>
+
+    _ZNK3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE8iteratorptEv():
+
+       17fd2:	2d00      	cmp	r5, #0
+
+       17fd4:	d056      	beq.n	18084 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x228>
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       17fd6:	f855 3c04 	ldr.w	r3, [r5, #-4]
+
+       17fda:	1f28      	subs	r0, r5, #4
+
+       17fdc:	681b      	ldr	r3, [r3, #0]
+
+       17fde:	4642      	mov	r2, r8
+
+       17fe0:	2101      	movs	r1, #1
+
+       17fe2:	4798      	blx	r3
+
+    _ZN3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       17fe4:	686d      	ldr	r5, [r5, #4]
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       17fe6:	ea40 000a 	orr.w	r0, r0, sl
+
+       17fea:	45a9      	cmp	r9, r5
+
+       17fec:	fa5f fa80 	uxtb.w	sl, r0
+
+       17ff0:	d1ef      	bne.n	17fd2 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x176>
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       17ff2:	f1ba 0f00 	cmp.w	sl, #0
+
+       17ff6:	d093      	beq.n	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       17ff8:	2300      	movs	r3, #0
+
+       17ffa:	83e3      	strh	r3, [r4, #30]
+
+       17ffc:	2105      	movs	r1, #5
+
+       17ffe:	e79e      	b.n	17f3e <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe2>
+
+       18000:	2109      	movs	r1, #9
+
+       18002:	4620      	mov	r0, r4
+
+       18004:	4798      	blx	r3
+
+       18006:	e799      	b.n	17f3c <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe0>
+
+       18008:	2102      	movs	r1, #2
+
+       1800a:	4620      	mov	r0, r4
+
+       1800c:	4798      	blx	r3
+
+       1800e:	e7de      	b.n	17fce <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x172>
+
+       18010:	4649      	mov	r1, r9
+
+       18012:	4620      	mov	r0, r4
+
+       18014:	4798      	blx	r3
+
+       18016:	e7ad      	b.n	17f74 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x118>
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       18018:	6b65      	ldr	r5, [r4, #52]	@ 0x34
+
+    _ZN3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       1801a:	f104 0a30 	add.w	sl, r4, #48	@ 0x30
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       1801e:	4555      	cmp	r5, sl
+
+       18020:	f43f af7e 	beq.w	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       18024:	469b      	mov	fp, r3
+
+    _ZNK3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE8iteratorptEv():
+
+       18026:	b36d      	cbz	r5, 18084 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x228>
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       18028:	f855 3c04 	ldr.w	r3, [r5, #-4]
+
+       1802c:	1f28      	subs	r0, r5, #4
+
+       1802e:	681b      	ldr	r3, [r3, #0]
+
+       18030:	464a      	mov	r2, r9
+
+       18032:	2100      	movs	r1, #0
+
+       18034:	4798      	blx	r3
+
+    _ZN3etl14intrusive_listIN3uds30ICommunicationSubStateListenerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       18036:	686d      	ldr	r5, [r5, #4]
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       18038:	ea40 000b 	orr.w	r0, r0, fp
+
+       1803c:	4555      	cmp	r5, sl
+
+       1803e:	fa5f fb80 	uxtb.w	fp, r0
+
+       18042:	d1f0      	bne.n	18026 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1ca>
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       18044:	f1bb 0f00 	cmp.w	fp, #0
+
+       18048:	f43f af6a 	beq.w	17f20 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       1804c:	f8a4 801e 	strh.w	r8, [r4, #30]
+
+       18050:	e7af      	b.n	17fb2 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x156>
+
+       18052:	6823      	ldr	r3, [r4, #0]
+
+       18054:	f1b9 0f01 	cmp.w	r9, #1
+
+       18058:	6adb      	ldr	r3, [r3, #44]	@ 0x2c
+
+       1805a:	d015      	beq.n	18088 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x22c>
+
+       1805c:	f1b9 0f02 	cmp.w	r9, #2
+
+       18060:	bf0c      	ite	eq
+
+       18062:	2103      	moveq	r1, #3
+
+       18064:	2106      	movne	r1, #6
+
+       18066:	4620      	mov	r0, r4
+
+       18068:	4798      	blx	r3
+
+       1806a:	f00a 03f0 	and.w	r3, sl, #240	@ 0xf0
+
+       1806e:	2bf0      	cmp	r3, #240	@ 0xf0
+
+       18070:	d000      	beq.n	18074 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x218>
+
+       18072:	b92b      	cbnz	r3, 18080 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x224>
+
+       18074:	8be3      	ldrh	r3, [r4, #30]
+
+       18076:	b11b      	cbz	r3, 18080 <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x224>
+
+       18078:	6823      	ldr	r3, [r4, #0]
+
+       1807a:	4620      	mov	r0, r4
+
+       1807c:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+
+       1807e:	4798      	blx	r3
+
+       18080:	2100      	movs	r1, #0
+
+       18082:	e75c      	b.n	17f3e <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xe2>
+
+    _ZN3uds20CommunicationControl18notifySubListenersEth():
+
+       18084:	682b      	ldr	r3, [r5, #0]
+
+       18086:	deff      	udf	#255	@ 0xff
+
+    uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       18088:	2100      	movs	r1, #0
+
+       1808a:	4620      	mov	r0, r4
+
+       1808c:	4798      	blx	r3
+
+       1808e:	e7ec      	b.n	1806a <<a href="./a63e2a4f85ef9b79f96ccc6bcf643cc2.html">uds::CommunicationControl::process(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x20e>
+
+       18090:	00017dad 	.word	0x00017dad
+
+    </pre>
+
+    
+    <pre><a href="./9fa587fc2be314ccc3436b44c8d74cf7.html">uds::CommunicationControl::CommunicationControl(Mask&lt;uds::DiagSession, unsigned char&gt;) (80)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 164</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 324</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    164
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    324
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    116
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    256
+                    
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../../util/include/util/logger/Logger.h/6be3c2c875c07680bc44f008f830057e.html" class="icon-function">util::logger::Logger::critical(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    96
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    200
+                    
+                    
+                </td>
+                <td class="col_size">84</td>
+                <td><a href="../../../../../../transport/src/TransportMessage.cpp/eeb8096d53c3c24b29736af1a95f0865.html" class="icon-function">transport::TransportMessage::init(unsigned char*, unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    72
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">116</td>
+                <td><a href="../../../connection/IncomingDiagConnection.cpp/0fe53b60d36c4df2208186bc82166758.html" class="icon-function">uds::IncomingDiagConnection::releaseRequestGetResponse()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">48
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

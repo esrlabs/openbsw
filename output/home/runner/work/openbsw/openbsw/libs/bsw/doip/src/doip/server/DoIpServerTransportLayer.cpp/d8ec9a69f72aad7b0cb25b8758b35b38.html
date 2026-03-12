@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerTransportLayer.cpp.html">DoIpServerTransportLayer.cpp</a>:310
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00024178</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>228</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../include/doip/server/DoIpServerTransportLayer.h/303baa78611944aa30adf0267bec204f.html">non-virtual thunk to doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&amp;) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=160
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&amp;) (104)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../include/doip/server/DoIpServerTransportLayer.h/f921705c76583d0b97812fa738a89ea0.html">non-virtual thunk to doip::DoIpServerTransportLayer::routingActive(doip::DoIpServerConnectionHandler&amp;) (12)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       24178:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       2417a:	4b35      	ldr	r3, [pc, #212]	@ (24250 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xd8>)
+
+    _ZN4estd17forward_list_nodeIN4doip24DoIpServerTransportLayer16AliveCheckHelperEE4nextEv():
+
+       2417c:	f8d0 4088 	ldr.w	r4, [r0, #136]	@ 0x88
+
+    _ZNK4doip27DoIpServerConnectionHandler16getSocketGroupIdEv():
+
+       24180:	f891 20b9 	ldrb.w	r2, [r1, #185]	@ 0xb9
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       24184:	4606      	mov	r6, r0
+
+       24186:	b083      	sub	sp, #12
+
+       24188:	7818      	ldrb	r0, [r3, #0]
+
+       2418a:	460d      	mov	r5, r1
+
+    _ZN4doip24DoIpServerTransportLayer35findAliveCheckHelperBySocketGroupIdEh():
+
+       2418c:	b91c      	cbnz	r4, 24196 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x1e>
+
+       2418e:	e051      	b.n	24234 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xbc>
+
+    _ZN4estd17forward_list_nodeIN4doip24DoIpServerTransportLayer16AliveCheckHelperEE4nextEv():
+
+       24190:	6824      	ldr	r4, [r4, #0]
+
+    _ZN4doip24DoIpServerTransportLayer35findAliveCheckHelperBySocketGroupIdEh():
+
+       24192:	2c00      	cmp	r4, #0
+
+       24194:	d04e      	beq.n	24234 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xbc>
+
+       24196:	7a23      	ldrb	r3, [r4, #8]
+
+       24198:	4293      	cmp	r3, r2
+
+       2419a:	d1f9      	bne.n	24190 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x18>
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       2419c:	f895 30c6 	ldrb.w	r3, [r5, #198]	@ 0xc6
+
+       241a0:	9300      	str	r3, [sp, #0]
+
+       241a2:	492c      	ldr	r1, [pc, #176]	@ (24254 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xdc>)
+
+       241a4:	4623      	mov	r3, r4
+
+       241a6:	462a      	mov	r2, r5
+
+       241a8:	f7e5 ffa6 	bl	a0f8 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       241ac:	6863      	ldr	r3, [r4, #4]
+
+       241ae:	429d      	cmp	r5, r3
+
+       241b0:	d03d      	beq.n	2422e <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xb6>
+
+       241b2:	f8d6 4080 	ldr.w	r4, [r6, #128]	@ 0x80
+
+       241b6:	b114      	cbz	r4, 241be <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x46>
+
+       241b8:	f895 30c6 	ldrb.w	r3, [r5, #198]	@ 0xc6
+
+       241bc:	bb5b      	cbnz	r3, 24216 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x9e>
+
+       241be:	f3ef 8010 	mrs	r0, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       241c2:	b672      	cpsid	i
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE6removeERNS_17forward_list_nodeIS2_EE():
+
+       241c4:	6eb3      	ldr	r3, [r6, #104]	@ 0x68
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       241c6:	f105 02c8 	add.w	r2, r5, #200	@ 0xc8
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE6removeERNS_17forward_list_nodeIS2_EE():
+
+       241ca:	b153      	cbz	r3, 241e2 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x6a>
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE12before_beginEv():
+
+       241cc:	f106 0368 	add.w	r3, r6, #104	@ 0x68
+
+       241d0:	2100      	movs	r1, #0
+
+       241d2:	e000      	b.n	241d6 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x5e>
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE6removeERNS_17forward_list_nodeIS2_EE():
+
+       241d4:	4623      	mov	r3, r4
+
+       241d6:	429a      	cmp	r2, r3
+
+       241d8:	d012      	beq.n	24200 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x88>
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE4nextEv():
+
+       241da:	681c      	ldr	r4, [r3, #0]
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE6removeERNS_17forward_list_nodeIS2_EE():
+
+       241dc:	4619      	mov	r1, r3
+
+       241de:	2c00      	cmp	r4, #0
+
+       241e0:	d1f8      	bne.n	241d4 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x5c>
+
+    _ZN4estd12forward_listIN4doip29DoIpServerTransportConnectionEE10push_frontERNS_17forward_list_nodeIS2_EE():
+
+       241e2:	f8d5 30c8 	ldr.w	r3, [r5, #200]	@ 0xc8
+
+       241e6:	2b01      	cmp	r3, #1
+
+       241e8:	d010      	beq.n	2420c <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x94>
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       241ea:	f380 8810 	msr	PRIMASK, r0
+
+       241ee:	f896 0053 	ldrb.w	r0, [r6, #83]	@ 0x53
+
+       241f2:	f106 0130 	add.w	r1, r6, #48	@ 0x30
+
+       241f6:	b003      	add	sp, #12
+
+       241f8:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+
+       241fc:	f7ef b842 	b.w	13284 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&)</a>>
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE4nextEv():
+
+       24200:	f8d5 30c8 	ldr.w	r3, [r5, #200]	@ 0xc8
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE8set_nextEPS3_():
+
+       24204:	600b      	str	r3, [r1, #0]
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE8set_freeEv():
+
+       24206:	2301      	movs	r3, #1
+
+       24208:	f8c5 30c8 	str.w	r3, [r5, #200]	@ 0xc8
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE4nextEv():
+
+       2420c:	6ef3      	ldr	r3, [r6, #108]	@ 0x6c
+
+    _ZN4estd17forward_list_nodeIN4doip29DoIpServerTransportConnectionEE8set_nextEPS3_():
+
+       2420e:	f8c5 30c8 	str.w	r3, [r5, #200]	@ 0xc8
+
+       24212:	66f2      	str	r2, [r6, #108]	@ 0x6c
+
+       24214:	e7e9      	b.n	241ea <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x72>
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       24216:	6822      	ldr	r2, [r4, #0]
+
+       24218:	682b      	ldr	r3, [r5, #0]
+
+       2421a:	6997      	ldr	r7, [r2, #24]
+
+       2421c:	699b      	ldr	r3, [r3, #24]
+
+       2421e:	4a0e      	ldr	r2, [pc, #56]	@ (24258 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xe0>)
+
+       24220:	4293      	cmp	r3, r2
+
+       24222:	d110      	bne.n	24246 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xce>
+
+    doip::DoIpServerConnectionHandler::getSourceAddress() const():
+
+       24224:	f8b5 10b2 	ldrh.w	r1, [r5, #178]	@ 0xb2
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       24228:	4620      	mov	r0, r4
+
+       2422a:	47b8      	blx	r7
+
+       2422c:	e7c7      	b.n	241be <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x46>
+
+    _ZN4doip24DoIpServerTransportLayer16AliveCheckHelper31releaseRoutingActivationHandlerEv():
+
+       2422e:	2300      	movs	r3, #0
+
+       24230:	6063      	str	r3, [r4, #4]
+
+       24232:	e7be      	b.n	241b2 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x3a>
+
+    doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&):
+
+       24234:	f895 30c6 	ldrb.w	r3, [r5, #198]	@ 0xc6
+
+       24238:	9300      	str	r3, [sp, #0]
+
+       2423a:	4906      	ldr	r1, [pc, #24]	@ (24254 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xdc>)
+
+       2423c:	4623      	mov	r3, r4
+
+       2423e:	462a      	mov	r2, r5
+
+       24240:	f7e5 ff5a 	bl	a0f8 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       24244:	e7b5      	b.n	241b2 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0x3a>
+
+       24246:	4628      	mov	r0, r5
+
+       24248:	4798      	blx	r3
+
+       2424a:	4601      	mov	r1, r0
+
+       2424c:	e7ec      	b.n	24228 <<a href="./d8ec9a69f72aad7b0cb25b8758b35b38.html">doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&)</a>+0xb0>
+
+       2424e:	bf00      	nop
+
+       24250:	1ffe0126 	.word	0x1ffe0126
+
+       24254:	00032e3c 	.word	0x00032e3c
+
+       24258:	00009815 	.word	0x00009815
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/doip/server/DoIpServerTransportLayer.h/303baa78611944aa30adf0267bec204f.html">non-virtual thunk to doip::DoIpServerTransportLayer::connectionClosed(doip::DoIpServerConnectionHandler&amp;) (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 100</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    100
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    52
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html" class="icon-function">util::logger::Logger::warn(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">32
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>
