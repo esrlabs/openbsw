@@ -121,7 +121,7 @@ private:
         DoIpServerTransportConnection,
         maxConnectionCount,
         NUM_DIAGNOSTICSENDJOBS,
-        NUM_DIAGNOSTICSENDJOBS>;
+        NUM_PROTOCOLSENDJOBS>;
     using DoIpServerTransportLayerType = declare::DoIpServerTransportLayer<1>;
 
     using DoIpServerSocketHandlerType = ::doip::declare::DoIpServerSocketHandler<
