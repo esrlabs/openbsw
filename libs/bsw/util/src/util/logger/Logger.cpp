@@ -50,6 +50,25 @@ Level Logger::getLevel(uint8_t const componentIndex)
                                           : LEVEL_NONE;
 }
 
+extern "C" void
+bsw_cpp_logger_log(uint8_t const componentIndex, Level const level, char const* const str)
+{
+    // `str` is a message already formatted on the Rust side, not a printf format string.
+    // Route it through a literal "%s" so any '%' it contains is treated as data, not a
+    // conversion specifier (which would read from an empty va_list -> UB / crash).
+    // NOLINTBEGIN(cppcoreguidelines-pro-type-vararg): Logger API is variadic by design.
+    Logger::log(componentIndex, level, "%s", str);
+    // NOLINTEND(cppcoreguidelines-pro-type-vararg)
+}
+
+extern "C" bool bsw_cpp_logger_is_enabled(uint8_t const componentIndex, Level const level)
+{
+    // Mirrors the gate `Logger::log` applies internally. Exposed so the Rust bridge can
+    // skip formatting a message (and the cross-language call to log it) when the level is
+    // disabled, instead of formatting unconditionally and being dropped here.
+    return Logger::isEnabled(componentIndex, level);
+}
+
 } /* namespace logger */
 } /* namespace util */
 
