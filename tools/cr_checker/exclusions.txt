@@ -5,3 +5,4 @@ NOTICE.md
 .github/ISSUE_TEMPLATE/feature_request.md
 3rdparty/
 build/
+libs/bsw/logger/rust/cbindgen.toml
