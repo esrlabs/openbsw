@@ -25,11 +25,12 @@ MEMORY
   Application            (RX) : ORIGIN = FLASH_START + 0x430,      LENGTH = FLASH_END + 1 - FLASH_START - 0x430 - 64
   CrcMeta                (RX) : ORIGIN = FLASH_END + 1 - 64,       LENGTH = 64
 
-  /* SRAM_L */
-  Data                   (RW) : ORIGIN = SRAM_L_START,             LENGTH = SRAM_L_END + 1 - SRAM_L_START
+  /* SRAM_L Memory - RAM functions and hot data */
+  RAMFunctions           (RW) : ORIGIN = SRAM_L_START,            LENGTH = 0x1000
+  HotData                (RW) : ORIGIN = SRAM_L_START + 0x1000,   LENGTH = SRAM_L_END + 1 - SRAM_L_START - 0x1000
 
-  /* SRAM_U */
-  ApplicationRAM         (RX) : ORIGIN = SRAM_U_START,             LENGTH = 0x100
+  /* SRAM_U Memory - Stack, heap, BSS, and large buffers */
+  MainRAM                (RW) : ORIGIN = SRAM_U_START,            LENGTH = SRAM_U_END + 1 - SRAM_U_START - 0x400
   NoInit                 (RW) : ORIGIN = SRAM_U_END + 1 - 0x400,   LENGTH = 0x400
 }
 
@@ -189,7 +190,7 @@ SECTIONS
   __etext = .;
   __DATA_ROM = .;
 
-  /* MPU Protected Data Section */
+  /* MPU Protected Data Section (Hot Data in SRAM_L) */
   .mpu_data :
   {
     . = ALIGN(32);
@@ -198,9 +199,9 @@ SECTIONS
     KEEP("*libsafe*:*"(.data*))
     . = ALIGN(32);
     __MPU_DATA_END = .;
-  } > Data
+  } > HotData
 
-  /* MPU Protected Read-Only Data Section */
+  /* MPU Protected Read-Only Data Section (Hot Data in SRAM_L) */
   .mpu_rodata :
   {
     . = ALIGN(32);
@@ -209,9 +210,9 @@ SECTIONS
     KEEP("*libsafe*:*"(.rodata*))
     . = ALIGN(32);
     __MPU_RODATA_END = .;
-  } > Data
+  } > HotData
 
-  /* MPU Protected BSS Section */
+  /* MPU Protected BSS Section (SRAM_L - Hot/Safety Critical) */
   .mpu_bss :
   {
     . = ALIGN(32);
@@ -220,10 +221,10 @@ SECTIONS
     "*libsafe*:*"(.bss*)
     . = ALIGN(32);
     __MPU_BSS_END = .;
-  } > Data
+  } > HotData
 
-  /* Initialized Data */
-  .data : AT(__DATA_ROM)
+  /* Hot Communication Components Data (SRAM_L) */
+  .hot_data : AT(__DATA_ROM)
   {
     . = ALIGN(4);
     __DATA_RAM = .;
@@ -233,12 +234,12 @@ SECTIONS
     KEEP(*(.jcr*))
     . = ALIGN(4);
     __data_end__ = .;
-  } > Data
+  } > HotData
 
   /* Compute start of executable code in ROM, necessary to be executed from RAM */
   __DATA_ROM_RX = __DATA_ROM + (__data_end__ - __data_start__);
 
-  /* RAM Executable Code Section */
+  /* RAM Executable Code Section (SRAM_L) */
   .launchFromRAM : AT(__DATA_ROM_RX)
   {
     . = ALIGN(4);
@@ -247,7 +248,16 @@ SECTIONS
     KEEP(*(.launchFromRAM*))
     . = ALIGN(4);
     __LAUNCH_FROM_RAM_END = .;
-  } > ApplicationRAM = 0xffffffff
+  } > RAMFunctions = 0xffffffff
+
+  /* Hot Communication Components BSS (SRAM_L) */
+  .hot_bss (NOLOAD) :
+  {
+    . = ALIGN(4);
+    __HOT_BSS_START = .;
+    . = ALIGN(4);
+    __HOT_BSS_END = .;
+  } > HotData
 
   /* Data Size Calculations */
   ___data_size    = __data_end__ - __data_start__;
@@ -257,7 +267,26 @@ SECTIONS
   __DATA_ROM_END   = __DATA_ROM + ___data_size + ___data_rx_size;
   __USED_FLASH_END = __DATA_ROM_END;
 
-  /* Uninitialized Data */
+  /* Compute start of general data in ROM */
+  __DATA_ROM_GENERAL = __DATA_ROM_END;
+
+  /* General Initialized Data Section (SRAM_U) */
+  .data_general : AT(__DATA_ROM_GENERAL)
+  {
+    . = ALIGN(4);
+    __data_general_start__ = .;
+    *(.data)
+    *(.data*)
+    . = ALIGN(4);
+    __data_general_end__ = .;
+  } > MainRAM
+
+  /* Update flash usage to include general data */
+  ___data_general_size = __data_general_end__ - __data_general_start__;
+  __DATA_ROM_GENERAL_END = __DATA_ROM_GENERAL + ___data_general_size;
+  __USED_FLASH_END_TOTAL = __DATA_ROM_GENERAL_END;
+
+  /* Uninitialized Data Section - BSS (SRAM_U) */
   .bss :
   {
     . = ALIGN(4);
@@ -269,7 +298,7 @@ SECTIONS
     . = ALIGN(4);
     __bss_end__ = .;
     __END_BSS = .;
-  } > Data
+  } > MainRAM
 
   /* CRC Checksum Area Definitions */
   __CRC_IVT_START      = ADDR(.interrupts);
@@ -296,7 +325,7 @@ SECTIONS
     LONG(0x12345678)
   } > CrcMeta
 
-  /* Heap Section */
+  /* Heap Section (SRAM_U) */
   .heap :
   {
     . = ALIGN(8);
@@ -306,15 +335,15 @@ SECTIONS
     __HeapBase = .;
     . += HEAP_SIZE;
     __HeapLimit = .;
-  } > Data
+  } > MainRAM
 
-  /* Stack Section */
+  /* Stack Section (SRAM_U) */
   .stack :
   {
     . = ALIGN(8);
     . += STACK_SIZE;
     __StackTop = .;
-  } > Data
+  } > MainRAM
 
   /* No-Init RAM Section */
   .NoInit (NOLOAD) :
@@ -334,9 +363,9 @@ SECTIONS
 /* Informational Symbols for Flash Memory Usage */
 __FLASH_START         = FLASH_START;
 __FLASH_END           = FLASH_END;
-__USED_FLASH_SIZE     = __USED_FLASH_END - __FLASH_START;
-__FREE_FLASH_SIZE     = __FLASH_END - __USED_FLASH_END;
-__FLASH_OVERFLOW_SIZE = __USED_FLASH_END - __FLASH_END;
+__USED_FLASH_SIZE     = __USED_FLASH_END_TOTAL - __FLASH_START;
+__FREE_FLASH_SIZE     = __FLASH_END - __USED_FLASH_END_TOTAL;
+__FLASH_OVERFLOW_SIZE = __USED_FLASH_END_TOTAL - __FLASH_END;
 
 /* Safety Assertions */
 ASSERT(__MPU_DATA_START == __MPU_DATA_END, "safety code must not have preinitialized data");
