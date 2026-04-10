@@ -31,7 +31,7 @@ MEMORY
 
   /* SRAM_U Memory - Stack, heap, BSS, and large buffers */
   MainRAM                (RW) : ORIGIN = SRAM_U_START,            LENGTH = SRAM_U_END + 1 - SRAM_U_START - 0x400
-  NoInit                 (RW) : ORIGIN = SRAM_U_END + 1 - 0x400,   LENGTH = 0x400
+  NoInit                 (RW) : ORIGIN = SRAM_U_END + 1 - 0x400,  LENGTH = 0x400
 }
 
 /* Output Sections */
@@ -229,8 +229,28 @@ SECTIONS
     . = ALIGN(4);
     __DATA_RAM = .;
     __data_start__ = .;
-    *(.data)
-    *(.data*)
+    /* Communication-related components */
+    *app.o(.data .data*)
+    *TransportSystem.o(.data .data*)
+    *DoCanSystem.o(.data .data*)
+    *DoIpServerSystem.o(.data .data*)
+    *UdsSystem.o(.data .data*)
+    *EthernetSystem.o(.data .data*)
+    *LifecycleManager.o(.data .data*)
+    *RuntimeSystem.o(.data .data*)
+    *AsyncBinding.o(.data .data*)
+    /* Large communication libraries */
+    *liblwipcore.a:*(.data .data*)
+    *libtransport.a:*(.data .data*)
+    *libcom.a:*(.data .data*)
+    *librte.a:*(.data .data*)
+    *libdocan.a:*(.data .data*)
+    *libuds.a:*(.data .data*)
+    *libcpp2can.a:*(.data .data*)
+    *libcpp2ethernet.a:*(.data .data*)
+    /* Explicit hot data section */
+    *(.hot_data)
+    *(.hot_data*)
     KEEP(*(.jcr*))
     . = ALIGN(4);
     __data_end__ = .;
@@ -255,6 +275,28 @@ SECTIONS
   {
     . = ALIGN(4);
     __HOT_BSS_START = .;
+    /* Communication-related components */
+    *app.o(.bss .bss* COMMON)
+    *TransportSystem.o(.bss .bss* COMMON)
+    *DoCanSystem.o(.bss .bss* COMMON)
+    *DoIpServerSystem.o(.bss .bss* COMMON)
+    *UdsSystem.o(.bss .bss* COMMON)
+    *EthernetSystem.o(.bss .bss* COMMON)
+    *LifecycleManager.o(.bss .bss* COMMON)
+    *RuntimeSystem.o(.bss .bss* COMMON)
+    *AsyncBinding.o(.bss .bss* COMMON)
+    /* Large communication libraries */
+    *liblwipcore.a:*(.bss .bss* COMMON)
+    *libtransport.a:*(.bss .bss* COMMON)
+    *libcom.a:*(.bss .bss* COMMON)
+    *librte.a:*(.bss .bss* COMMON)
+    *libdocan.a:*(.bss .bss* COMMON)
+    *libuds.a:*(.bss .bss* COMMON)
+    *libcpp2can.a:*(.bss .bss* COMMON)
+    *libcpp2ethernet.a:*(.bss .bss* COMMON)
+    /* Explicit hot bss section */
+    *(.hot_bss)
+    *(.hot_bss*)
     . = ALIGN(4);
     __HOT_BSS_END = .;
   } > HotData
@@ -275,8 +317,44 @@ SECTIONS
   {
     . = ALIGN(4);
     __data_general_start__ = .;
-    *(.data)
-    *(.data*)
+    *(EXCLUDE_FILE(
+      *app.o
+      *TransportSystem.o
+      *DoCanSystem.o
+      *DoIpServerSystem.o
+      *UdsSystem.o
+      *EthernetSystem.o
+      *LifecycleManager.o
+      *RuntimeSystem.o
+      *AsyncBinding.o
+      *liblwipcore.a:*
+      *libtransport.a:*
+      *libcom.a:*
+      *librte.a:*
+      *libdocan.a:*
+      *libuds.a:*
+      *libcpp2can.a:*
+      *libcpp2ethernet.a:*
+    ) .data)
+    *(EXCLUDE_FILE(
+      *app.o
+      *TransportSystem.o
+      *DoCanSystem.o
+      *DoIpServerSystem.o
+      *UdsSystem.o
+      *EthernetSystem.o
+      *LifecycleManager.o
+      *RuntimeSystem.o
+      *AsyncBinding.o
+      *liblwipcore.a:*
+      *libtransport.a:*
+      *libcom.a:*
+      *librte.a:*
+      *libdocan.a:*
+      *libuds.a:*
+      *libcpp2can.a:*
+      *libcpp2ethernet.a:*
+    ) .data*)
     . = ALIGN(4);
     __data_general_end__ = .;
   } > MainRAM
@@ -292,9 +370,63 @@ SECTIONS
     . = ALIGN(4);
     __START_BSS = .;
     __bss_start__ = .;
-    *(.bss)
-    *(.bss*)
-    *(COMMON)
+    *(EXCLUDE_FILE(
+      *app.o
+      *TransportSystem.o
+      *DoCanSystem.o
+      *DoIpServerSystem.o
+      *UdsSystem.o
+      *EthernetSystem.o
+      *LifecycleManager.o
+      *RuntimeSystem.o
+      *AsyncBinding.o
+      *liblwipcore.a:*
+      *libtransport.a:*
+      *libcom.a:*
+      *librte.a:*
+      *libdocan.a:*
+      *libuds.a:*
+      *libcpp2can.a:*
+      *libcpp2ethernet.a:*
+    ) .bss)
+    *(EXCLUDE_FILE(
+      *app.o
+      *TransportSystem.o
+      *DoCanSystem.o
+      *DoIpServerSystem.o
+      *UdsSystem.o
+      *EthernetSystem.o
+      *LifecycleManager.o
+      *RuntimeSystem.o
+      *AsyncBinding.o
+      *liblwipcore.a:*
+      *libtransport.a:*
+      *libcom.a:*
+      *librte.a:*
+      *libdocan.a:*
+      *libuds.a:*
+      *libcpp2can.a:*
+      *libcpp2ethernet.a:*
+    ) .bss*)
+    *(EXCLUDE_FILE(
+      *app.o
+      *TransportSystem.o
+      *DoCanSystem.o
+      *DoIpServerSystem.o
+      *UdsSystem.o
+      *EthernetSystem.o
+      *LifecycleManager.o
+      *RuntimeSystem.o
+      *AsyncBinding.o
+      *liblwipcore.a:*
+      *libtransport.a:*
+      *libcom.a:*
+      *librte.a:*
+      *libdocan.a:*
+      *libuds.a:*
+      *libcpp2can.a:*
+      *libcpp2ethernet.a:*
+    ) COMMON)
     . = ALIGN(4);
     __bss_end__ = .;
     __END_BSS = .;
