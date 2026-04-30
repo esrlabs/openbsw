@@ -55,7 +55,7 @@ message(STATUS "Target RTOS: <${BUILD_TARGET_RTOS}>")
 # platform features.
 get_cmake_property(_all_vars VARIABLES)
 foreach (var ${_all_vars})
-    if (var MATCHES "^PLATFORM_SUPPORT_")
+    if (var MATCHES "^PLATFORM_SUPPORT_" OR var MATCHES "^PLATFORM_CAN")
         if (${var})
             add_compile_definitions(${var}=1)
             message(STATUS "${var} ON")
