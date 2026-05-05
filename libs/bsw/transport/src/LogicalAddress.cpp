@@ -9,12 +9,12 @@ namespace transport
 namespace addressfinder
 {
 ::etl::optional<LogicalAddress>
-findDoipAddressInSlice(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
+findBy2ByteAddress(::etl::span<LogicalAddress const> const& list, uint16_t const address)
 {
     auto* const iter = etl::find_if(
         list.begin(),
         list.end(),
-        [address](LogicalAddress const addr) -> bool { return addr.addressDoip == address; });
+        [address](LogicalAddress const addr) -> bool { return addr.address2Byte == address; });
     if (iter != list.end())
     {
         return *iter;
@@ -23,12 +23,12 @@ findDoipAddressInSlice(uint16_t const address, ::etl::span<LogicalAddress const>
 }
 
 ::etl::optional<LogicalAddress>
-find8BitAddressInSlice(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
+findBy1ByteAddress(::etl::span<LogicalAddress const> const& list, uint16_t const address)
 {
     auto* const iter = etl::find_if(
         list.begin(),
         list.end(),
-        [address](LogicalAddress const addr) -> bool { return addr.address8Bit == address; });
+        [address](LogicalAddress const addr) -> bool { return addr.address1Byte == address; });
     if (iter != list.end())
     {
         return *iter;

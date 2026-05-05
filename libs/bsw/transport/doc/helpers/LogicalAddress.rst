@@ -26,8 +26,8 @@ Tester addresses are encoded in a simple type:
 
     struct LogicalAddress
     {
-        uint16_t addressDoip;
-        uint16_t address8Bit;
+        uint16_t address2Byte;
+        uint16_t address1Byte;
     };
 
 Creating list of addresses
@@ -59,13 +59,13 @@ Helper functions to check if an address is part of a specific list. For example 
 
 .. code:: c++
 
-    bool allowRoutingActivation = addressfinder::isDoipAddressIn(address, TESTER_ADDRESS_RANGE_ETH)
+    bool allowRoutingActivation = addressfinder::is2ByteAddressIn(address, TESTER_ADDRESS_RANGE_ETH)
 
 Same operation on a cropped bus:
 
 .. code:: c++
 
-    bool testerKnown = addressfinder::is8BitAddressIn(address, TESTER_ADDRESS_RANGE_CAN)
+    bool testerKnown = addressfinder::is1ByteAddressIn(address, TESTER_ADDRESS_RANGE_CAN)
 
 Address conversions
 -------------------
@@ -97,13 +97,13 @@ Address lists must be registered with ``LogicalAddressConverter``. This allows `
 Usage
 +++++
 
-When we receive a message in router, we can convert between wide/cropped addressing using ``convertDoipAddressTo8Bit`` and ``convert8BitAddressToDoip``, allowing messages to flow between buses addressed differently:
+When we receive a message in router, we can convert between 2-byte and 1-byte addressing using ``convert2ByteAddressTo1Byte`` and ``convert1ByteAddressTo2Byte``, allowing messages to flow between buses addressed differently:
 
 .. code:: c++
 
     if(targetBusId == ::busid::BusId::CAN())
     {
-        uint16_t croppedTargetAddress = LogicalAddressConverterGateway::convertDoipAddressTo8Bit(targetAddress);
+        uint16_t croppedTargetAddress = LogicalAddressConverterGateway::convert2ByteAddressTo1Byte(targetAddress);
         pTransportMessage->setTargetAddress(croppedTargetAddress);
     }
 

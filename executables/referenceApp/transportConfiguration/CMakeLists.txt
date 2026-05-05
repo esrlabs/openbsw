@@ -1,3 +1,5 @@
-add_library(transportConfiguration INTERFACE)
+add_library(transportConfiguration src/transport/TransportConfiguration.cpp)
 
-target_include_directories(transportConfiguration INTERFACE include)
+target_include_directories(transportConfiguration PUBLIC include)
+
+target_link_libraries(transportConfiguration PUBLIC transport etl)

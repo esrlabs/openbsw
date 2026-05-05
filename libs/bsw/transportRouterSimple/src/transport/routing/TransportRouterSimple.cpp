@@ -15,6 +15,14 @@ namespace transport
 using ::util::logger::Logger;
 using ::util::logger::TPROUTER;
 
+namespace
+{
+bool is1ByteDiagAddressBus(uint8_t const busId)
+{
+    return (busId != ::busid::ETH_0) && (busId != ::busid::ETH_1);
+}
+} // namespace
+
 TransportRouterSimple::TransportRouterSimple() : _transportLayers()
 {
     for (uint8_t i = 0U; i < NUM_BUFFERS; i++)
@@ -35,7 +43,7 @@ void TransportRouterSimple::init() { _transportLayers.clear(); }
 void TransportRouterSimple::shutdown() { _transportLayers.clear(); }
 
 ITransportMessageProvidingListener::ErrorCode TransportRouterSimple::getTransportMessage(
-    uint8_t const /* srcBusId */,
+    uint8_t const srcBusId,
     uint16_t const sourceAddress,
     uint16_t const targetId,
     uint16_t const size,
@@ -48,9 +56,14 @@ ITransportMessageProvidingListener::ErrorCode TransportRouterSimple::getTranspor
         sourceAddress,
         targetId);
     pTransportMessage = nullptr;
-    ::async::LockType const lockGuard;
 
-    if (TransportConfiguration::isFunctionalAddress(static_cast<uint8_t>(targetId)))
+    ::async::LockType const lockGuard;
+    uint16_t const targetId2Byte
+        = is1ByteDiagAddressBus(srcBusId)
+              ? TransportConfiguration::convert1ByteAddressTo2Byte(targetId)
+              : targetId;
+
+    if (TransportConfiguration::isFunctionalAddress(targetId2Byte))
     {
         if (size <= TransportConfiguration::MAX_FUNCTIONAL_MESSAGE_PAYLOAD_SIZE)
         {
@@ -114,20 +127,24 @@ ITransportMessageProvidingListener::ReceiveResult TransportRouterSimple::message
 {
     AbstractTransportLayer::ErrorCode result(AbstractTransportLayer::ErrorCode::TP_OK);
 
-    if (sourceBusId == ::busid::CAN_0)
+    if (is1ByteDiagAddressBus(sourceBusId))
     {
-        _busIdToReply = sourceBusId;
-        forwardMessageToTransportLayer(
-            transportMessage, ::busid::SELFDIAG, pNotificationListener, result);
+        transportMessage.setSourceAddress(
+            TransportConfiguration::convert1ByteAddressTo2Byte(transportMessage.getSourceId()));
+        transportMessage.setTargetAddress(
+            TransportConfiguration::convert1ByteAddressTo2Byte(transportMessage.getTargetId()));
     }
+
+    if ((sourceBusId == ::busid::CAN_0)
 #ifdef PLATFORM_SUPPORT_ETHERNET
-    else if (sourceBusId == ::busid::ETH_0)
+        || (sourceBusId == ::busid::ETH_0)
+#endif
+    )
     {
         _busIdToReply = sourceBusId;
         forwardMessageToTransportLayer(
             transportMessage, ::busid::SELFDIAG, pNotificationListener, result);
     }
-#endif
     else if (sourceBusId == ::busid::SELFDIAG && _busIdToReply != ::busid::SELFDIAG)
     {
         forwardMessageToTransportLayer(
@@ -184,6 +201,14 @@ void TransportRouterSimple::forwardMessageToTransportLayer(
     ITransportMessageProcessedListener* const pNotificationListener,
     AbstractTransportLayer::ErrorCode& result)
 {
+    if (is1ByteDiagAddressBus(destBusId))
+    {
+        transportMessage.setSourceAddress(
+            TransportConfiguration::convert2ByteAddressTo1Byte(transportMessage.getSourceId()));
+        transportMessage.setTargetAddress(
+            TransportConfiguration::convert2ByteAddressTo1Byte(transportMessage.getTargetId()));
+    }
+
     for (TransportLayerList::iterator itr = _transportLayers.begin(); itr != _transportLayers.end();
          ++itr)
     {

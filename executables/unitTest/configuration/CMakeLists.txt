@@ -1,6 +1,6 @@
-add_library(commonImpl common/src/common/mock/busid/BusId.cpp)
+add_library(commonImpl common/src/busid/BusId.cpp)
 
-target_include_directories(commonImpl PRIVATE common/include)
+target_include_directories(commonImpl PUBLIC common/include)
 
 target_link_libraries(commonImpl PRIVATE common)
 
