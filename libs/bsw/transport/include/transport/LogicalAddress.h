@@ -12,26 +12,26 @@ namespace transport
 
 struct LogicalAddress
 {
-    uint16_t addressDoip;
-    uint16_t address8Bit;
+    uint16_t address2Byte;
+    uint16_t address1Byte;
 };
 
 namespace addressfinder
 {
 ::etl::optional<LogicalAddress>
-findDoipAddressInSlice(uint16_t address, ::etl::span<LogicalAddress const> const& list);
+findBy2ByteAddress(::etl::span<LogicalAddress const> const& list, uint16_t address);
 
 ::etl::optional<LogicalAddress>
-find8BitAddressInSlice(uint16_t address, ::etl::span<LogicalAddress const> const& list);
+findBy1ByteAddress(::etl::span<LogicalAddress const> const& list, uint16_t address);
 
-inline bool isDoipAddressIn(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
+inline bool is2ByteAddressIn(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
 {
-    return findDoipAddressInSlice(address, list).has_value();
+    return findBy2ByteAddress(list, address).has_value();
 }
 
-inline bool is8BitAddressIn(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
+inline bool is1ByteAddressIn(uint16_t const address, ::etl::span<LogicalAddress const> const& list)
 {
-    return find8BitAddressInSlice(address, list).has_value();
+    return findBy1ByteAddress(list, address).has_value();
 }
 } // namespace addressfinder
 
@@ -39,7 +39,7 @@ template<size_t N>
 class LogicalAddressConverter
 {
 public:
-    static uint16_t convertDoipAddressTo8Bit(uint16_t const address)
+    static uint16_t convert2ByteAddressTo1Byte(uint16_t const address)
     {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wpragmas"
@@ -47,23 +47,23 @@ public:
         for (auto& l : TESTER_ADDRESS_LISTS)
 #pragma GCC diagnostic pop
         {
-            auto ret = addressfinder::findDoipAddressInSlice(address, l);
+            auto ret = addressfinder::findBy2ByteAddress(l, address);
             if (ret.has_value())
             {
-                return ret->address8Bit;
+                return ret->address1Byte;
             }
         }
         return address;
     }
 
-    static uint16_t convert8BitAddressToDoip(uint16_t const address)
+    static uint16_t convert1ByteAddressTo2Byte(uint16_t const address)
     {
         for (auto& l : TESTER_ADDRESS_LISTS)
         {
-            auto ret = addressfinder::find8BitAddressInSlice(address, l);
+            auto ret = addressfinder::findBy1ByteAddress(l, address);
             if (ret.has_value())
             {
-                return ret->addressDoip;
+                return ret->address2Byte;
             }
         }
         return address;
