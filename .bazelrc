@@ -9,4 +9,4 @@ build:s32k148_relwithdebinfo --copt=-g3
 build:s32k148_relwithdebinfo --copt=-O2
 build:s32k148_relwithdebinfo --copt=-DNDEBUG
 
-test --//bazel/config/build_config=unit_test
+test --//bazel/config/executable_config=unit_test

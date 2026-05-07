@@ -33,39 +33,41 @@ _ALL_ASSEMBLE_ACTIONS = [
     ACTION_NAMES.preprocess_assemble,
 ]
 
+_ARM_GNU_TOOLCHAIN_ROOT = "/opt/arm-gnu-toolchain"
+
 def _impl(ctx):
     tool_paths = [
         tool_path(
             name = "gcc",
-            path = "/usr/bin/arm-none-eabi-gcc",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-gcc",
         ),
         tool_path(
             name = "ld",
-            path = "/usr/bin/arm-none-eabi-ld",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-ld",
         ),
         tool_path(
             name = "ar",
-            path = "/usr/bin/arm-none-eabi-ar",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-ar",
         ),
         tool_path(
             name = "cpp",
-            path = "/usr/bin/arm-none-eabi-cpp",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-cpp",
         ),
         tool_path(
             name = "gcov",
-            path = "/usr/bin/arm-none-eabi-gcov",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-gcov",
         ),
         tool_path(
             name = "nm",
-            path = "/usr/bin/arm-none-eabi-nm",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-nm",
         ),
         tool_path(
             name = "objdump",
-            path = "/usr/bin/arm-none-eabi-objdump",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-objdump",
         ),
         tool_path(
             name = "strip",
-            path = "/usr/bin/arm-none-eabi-strip",
+            path = _ARM_GNU_TOOLCHAIN_ROOT + "/bin/arm-none-eabi-strip",
         ),
     ]
 
@@ -217,8 +219,8 @@ def _impl(ctx):
         ctx = ctx,
         features = features,
         cxx_builtin_include_directories = [
-            "/usr/lib/gcc/arm-none-eabi",
-            "/usr/include/newlib",
+            _ARM_GNU_TOOLCHAIN_ROOT + "/lib/gcc/arm-none-eabi",
+            _ARM_GNU_TOOLCHAIN_ROOT + "/arm-none-eabi/include",
         ],
         toolchain_identifier = "arm_none_eabi_gcc_toolchain",
         host_system_name = "local",
