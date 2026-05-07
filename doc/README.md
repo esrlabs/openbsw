@@ -30,7 +30,7 @@ The entry point HTML page is found at `doc/dev/build/html/doc/dev/index.html`.
 
  Using the settings file `doc/api/Doxyfile`, Doxygen generates the documentation from formatted
 comments in the C/C++ code across all relevant subfolders; see
-[Doxygen Main Page](DoxygenMainPage.md) for details.
+[Doxygen Main Page](api/DoxygenMainPage.md) for details.
 
 To build the documentation, go to `doc/api` and call:
 ```bash
