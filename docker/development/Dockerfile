@@ -98,6 +98,7 @@ RUN --mount=type=bind,source=files/requirements.lock,target=/tmp/requirements.lo
 
 RUN useradd build
 RUN install -d /home/build --mode 0777 --owner build --group build
+RUN install -d /home/build/.cache --mode 0777 --owner build --group build
 COPY --chown=build:build --chmod=0666 files/.bashrc /home/build/.bashrc
 COPY --chown=build:build --chmod=0666 files/.bash_profile /home/build/.bash_profile
 
