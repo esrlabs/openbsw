@@ -16,6 +16,7 @@ Open:
 - Consider if toolchain should be made fully hermetic
 - Migration of all libs and executables
 - Migration of unit test configs
+- Toolchain / build artifact verification
 
 ```
 OpenBSW Bazel migration
@@ -71,20 +72,6 @@ Examples:
 bazel build --config=s32k148 --//libs/3rdparty/etl:etl_profile=//custom/path:my_profile //libs/3rdparty/etl:etl
 ```
 
-## Toolchain verification
-This directory contains build artifact comparisons for the the [s32k148 POC Bazel toolchain](../bazel/toolchain/BUILD) based on the following example:
-- `libs/bsw/util` library and its dependencies:
-    - `libs/3rdparty/etl`
-    - `libs/bsw/platform`
+## Toolchain Verification
 
-### Analysis scope
-
-The following properties were compared between the CMake (`s32k148-freertos-gcc / RelWithDebInfo`) and Bazel (`s32k148_relwithdebinfo`) builds:
-
-1. **File size**
-2. **Translation units**: Comparison of compiled source files
-3. **Symbol table**: Comparison of full symbol table after filtering out debug level information (`wm4.*` GCC debug path markers, `$d`/`$t` ARM section markers).
-
-### Files
-- [`artifact_comparison_method.md`](artifact_comparison_method.md): Commands used to perform the analysis
-- [`artifact_comparison__util.md`](artifact_comparison__util.md): Comparison results for `libs/bsw/util`
+Basic toolchain verification and build artifact analysis have been performed for the example target `//libs/bsw/util:util` and its dependencies (`//libs/3rdparty/etl:etl`, `//libs/bsw/platform:platform`). The Bazel build (config `s32k148_relwithdebinfo`) output was compared against the CMake reference build (`s32k148-freertos-gcc / RelWithDebInfo` configuration), and the resulting artifacts were found to be functionally equivalent. A more detailed comparison and validation needs to be performed in a separate effort at a later point of time.
