@@ -12,7 +12,6 @@
 
 #include "shed/ops.h"
 
-#include <etl/exception.h>
 #include <etl/span.h>
 
 #include <cstring>
@@ -81,6 +80,23 @@ struct STATE_C
 struct STATE_D
 {};
 
+struct ByValue
+{
+    using value_type = ValueColumn;
+
+    bool operator()(ValueColumn const& a, ValueColumn const& b) const { return a.value < b.value; }
+};
+
+struct ByPointerColumn
+{
+    using value_type = PointerColumn;
+
+    bool operator()(PointerColumn const& a, PointerColumn const& b) const
+    {
+        return a.value < b.value;
+    }
+};
+
 struct Schema
 {
     using states  = ::shed::states<STATE_A, STATE_B, STATE_C, STATE_D>;
@@ -90,7 +106,14 @@ struct Schema
         shared<SharedConstPointer const*>,
         column<ValueColumn>,
         column<PointerColumn*>,
-        column<ConstPointerColumn const*>>;
+        column<ConstPointerColumn const*>,
+        ordering<ByValue>,
+        ordering<::shed::reverse<ByValue>>,
+        ordering<ByPointerColumn>,
+        ordering<ByValue, ByPointerColumn>,
+        ordering<ByPointerColumn, ByValue>,
+        ordering<ByPointerColumn, ::shed::reverse<ByValue>>,
+        ordering<::shed::reverse<ByPointerColumn>, ::shed::reverse<ByValue>>>;
 };
 
 using Table = table<Schema>;
@@ -146,6 +169,25 @@ TEST_F(TableTest, initialization_mem_too_small)
 {
     Table table;
     EXPECT_FALSE(table.init(mem, 50));
+}
+
+struct MinimalSchema
+{
+    using states  = ::shed::states<>;
+    using columns = ::shed::columns<>;
+};
+
+TEST(TableInitTest, initialization_size_too_large_for_index_type)
+{
+    using MinimalTable = table<MinimalSchema>;
+
+    // multi_list addresses rows and buckets with uint16_t, so (size + number of states) has to
+    // fit into that type. Memory is sufficient in both cases, only the size limit differs.
+    std::vector<uint8_t> mem(MinimalTable::memory_for(0xFFFFU));
+
+    MinimalTable table;
+    EXPECT_FALSE(table.init(mem, 0xFFFFU));
+    EXPECT_TRUE(table.init(mem, 0xFFFEU));
 }
 
 TEST_F(TableTest, initialization_with_constructor_arguments_forwarding)
@@ -564,13 +606,6 @@ TEST_F(TableTest, move)
     EXPECT_THAT(collect<Ids>(all(table)), UnorderedElementsAre(v1, v2, v3, v4, v5));
 }
 
-struct ByValue
-{
-    using value_type = ValueColumn;
-
-    bool operator()(ValueColumn const& a, ValueColumn const& b) const { return a.value < b.value; }
-};
-
 move_op neq_4(ValueColumn v) { return (v.value != 4) ? move_op::MOVE : move_op::SKIP_DONE; }
 
 move_op eq_4(ValueColumn v) { return (v.value != 4) ? move_op::SKIP : move_op::MOVE_DONE; }
@@ -612,34 +647,9 @@ TEST_F(TableTest, move_while_in_order)
 
 move_op tail(ValueColumn) { return move_op::SKIP_DONE; }
 
-TEST_F(TableTest, move_while_recursive_not_enough_scratch_space_assert)
-{
-    Table table;
-    auto const recurse = [&]()
-    {
-        ::shed::move_to<STATE_D>::from<STATE_C>::ordered<ByValue>(table, tail);
-        return move_op::MOVE;
-    };
-    ASSERT_TRUE(table.init(mem, 6));
-
-    (void)insert<STATE_A>(table, [](ValueColumn& v) { v.value = 5; });
-    (void)insert<STATE_A>(table, [](ValueColumn& v) { v.value = 1; });
-    (void)insert<STATE_A>(table, [](ValueColumn& v) { v.value = 4; });
-    (void)insert<STATE_A>(table, [](ValueColumn& v) { v.value = 3; });
-    (void)insert<STATE_A>(table, [](ValueColumn& v) { v.value = 2; });
-
-    (void)insert<STATE_C>(table, [](ValueColumn& v) { v.value = 6; });
-
-    ASSERT_THROW(
-        { ::shed::move_to<STATE_B>::from<STATE_A>::ordered<reverse<ByValue>>(table, recurse); },
-        ::etl::exception);
-}
-
 TEST_F(TableTest, move_while_in_order_recursive)
 {
-    // Provide a larger stack_depth for this particular test case
-    ::shed::table<Schema, 2> table;
-    uint8_t mem2[decltype(table)::memory_for(6)];
+    Table table;
 
     auto const recurse = [&](ValueColumn)
     {
@@ -647,7 +657,7 @@ TEST_F(TableTest, move_while_in_order_recursive)
         return move_op::MOVE;
     };
 
-    ASSERT_TRUE(table.init(mem2, 6));
+    ASSERT_TRUE(table.init(mem, 6));
 
     size_t const v5 = insert<STATE_A>(table, [](ValueColumn& v) { v.value = 5; });
     size_t const v1 = insert<STATE_A>(table, [](ValueColumn& v) { v.value = 1; });
@@ -671,16 +681,6 @@ TEST_F(TableTest, move_while_in_order_recursive)
     EXPECT_THAT(collect<Ids>(all<STATE_D>(table)), UnorderedElementsAre());
     EXPECT_THAT(collect<Ids>(all(table)), UnorderedElementsAre(v1, v2, v3, v4, v5, v6));
 }
-
-struct ByPointerColumn
-{
-    using value_type = PointerColumn;
-
-    bool operator()(PointerColumn const& a, PointerColumn const& b) const
-    {
-        return a.value < b.value;
-    }
-};
 
 TEST_F(TableTest, move_while_in_order_pointer_column)
 {
