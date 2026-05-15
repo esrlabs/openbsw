@@ -30,6 +30,9 @@ struct shared;
 template<typename T>
 struct column;
 
+template<typename... Cmp>
+struct ordering;
+
 namespace internal
 {
 static constexpr size_t COLUMN_ALIGNMENT = alignof(::std::max_align_t);

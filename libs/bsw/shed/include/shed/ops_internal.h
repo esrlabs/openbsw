@@ -351,6 +351,15 @@ void move_while_impl(
     ::etl::delegate<bool(size_t, size_t)> pred,
     ::etl::delegate<move_op(size_t)> csfr);
 
+template<typename TL>
+struct ordering_for;
+
+template<typename... Cmp>
+struct ordering_for<::etl::type_list<Cmp...>>
+{
+    using type = ::shed::ordering<Cmp...>;
+};
+
 template<typename R, typename... Args>
 struct SelectColumns
 {
@@ -400,19 +409,27 @@ struct SelectColumns
     template<typename Cmp, typename Table, typename Q, typename It>
     static void move_while(Table& table, Q& q, size_t const dst, It& it)
     {
-        using tr = type_list_recurse<Cmp>;
+        using tr     = type_list_recurse<Cmp>;
+        using OrdCol = typename ordering_for<Cmp>::type;
+
+        static_assert(
+            ::std::is_base_of<OrdCol, typename Table::column_data>::value,
+            "ordered operation requires the schema to declare a matching "
+            "shed::ordering<Cmp...> column, listing the comparators in the same order as the "
+            "ordered<Cmp...> operation");
 
         auto& ml  = static_cast<typename Table::state_data*>(&table.columns)->ml;
+        auto& ord = *static_cast<OrdCol*>(&table.columns);
+
         auto csfr = [&q, &table](size_t const i) -> move_op
         { return call_system_func_ret<::shed::move_op, Q, Table, size_t, Args...>(q, table, i); };
 
         auto pred = [&table](size_t const a, size_t const b) -> bool
         { return tr::less_than(table, a, b); };
 
-        auto const scratch = table.alloc_scratch();
-        auto const begin   = scratch._scratch.begin();
-        auto end           = begin;
-        auto f             = [&table, &end](size_t const i) -> bool
+        auto const begin = ord._scratch.begin();
+        auto end         = begin;
+        auto f           = [&table, &end](size_t const i) -> bool
         {
             if (tr::all_set(table, i))
             {
@@ -480,6 +497,10 @@ struct reset_row
     {
         v[idx].~T();
     }
+
+    template<typename... Cmp>
+    void operator()(::shed::ordering<Cmp...>&)
+    {}
 };
 
 struct init_row
@@ -498,6 +519,10 @@ struct init_row
 
     template<typename T>
     void operator()(::shed::internal::state_data<T>&)
+    {}
+
+    template<typename... Cmp>
+    void operator()(::shed::ordering<Cmp...>&)
     {}
 };
 

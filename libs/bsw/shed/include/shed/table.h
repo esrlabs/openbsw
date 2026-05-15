@@ -12,15 +12,13 @@
 
 #include "shed/table_internal.h" // IWYU pragma: export
 
-#include <etl/error_handler.h>
-
 #include <cstddef>
 #include <cstdint>
 
 namespace shed
 {
 
-template<typename Schema, size_t stack_depth = 1U>
+template<typename Schema>
 struct table
 {
     using state_list  = typename Schema::states;
@@ -31,14 +29,9 @@ struct table
 
     static constexpr size_t memory_for(size_t const num)
     {
-        return internal::total_memory<column_data>::total(num)
-               + num * stack_depth * sizeof(internal::multi_list::idx_type)
-               + stack_depth * sizeof(::etl::span<internal::multi_list::idx_type>)
-               + internal::COLUMN_ALIGNMENT;
+        return internal::total_memory<column_data>::total(num) + internal::COLUMN_ALIGNMENT;
     }
 
-    ::etl::span<::etl::span<internal::multi_list::idx_type>> _scratch_arrays;
-    size_t pos;
     column_data columns;
     size_t n;
 
@@ -52,48 +45,13 @@ struct table
         {
             return false;
         }
-        auto const addr = reinterpret_cast<uintptr_t>(mem.data());
-        auto const pad  = (internal::COLUMN_ALIGNMENT - addr % internal::COLUMN_ALIGNMENT)
-                         % internal::COLUMN_ALIGNMENT;
-        mem.advance(pad);
-        pos = 0;
-        n   = size;
-        _scratch_arrays
-            = mem.reinterpret_as<::etl::span<internal::multi_list::idx_type>>().first(stack_depth);
-        mem.advance(stack_depth * sizeof(::etl::span<internal::multi_list::idx_type>));
-        for (auto& scratch_array : _scratch_arrays)
-        {
-            scratch_array = mem.reinterpret_as<internal::multi_list::idx_type>().first(n);
-            mem.advance(n * sizeof(internal::multi_list::idx_type));
-        }
+        n = size;
         ft_for_each(columns, internal::init_column{n, mem});
         return true;
     }
 
-    struct Scratch
-    {
-        Scratch(
-            ::etl::span<::etl::span<internal::multi_list::idx_type>> const scratch_arrays,
-            size_t& pos)
-        : _pos(pos)
-        {
-            ETL_ASSERT(
-                pos < scratch_arrays.size(), ETL_ERROR_GENERIC("shed: scratch space exhausted"));
-            _scratch = scratch_arrays[_pos];
-            ++_pos;
-        }
-
-        ~Scratch() { --_pos; }
-
-        ::etl::span<internal::multi_list::idx_type> _scratch;
-        size_t& _pos;
-    };
-
-    Scratch alloc_scratch() { return Scratch(_scratch_arrays, pos); }
-
     template<typename... Args>
-    explicit table(Args&&... args)
-    : _scratch_arrays(), pos(0), columns(state_data(), std::forward<Args>(args)...), n(0)
+    explicit table(Args&&... args) : columns(state_data(), std::forward<Args>(args)...), n(0)
     {}
 
     table(table const&)            = delete;
@@ -150,6 +108,25 @@ struct column
     }
 
     static constexpr size_t memory_for(size_t const n) { return n * sizeof(value_type); }
+};
+
+template<typename... Cmp>
+struct ordering
+{
+    using comparators = ::etl::type_list<Cmp...>;
+
+    ::etl::span<internal::multi_list::idx_type> _scratch;
+
+    void init(size_t const n, ::etl::span<uint8_t>& s)
+    {
+        _scratch = s.reinterpret_as<internal::multi_list::idx_type>().first(n);
+        s.advance(n * sizeof(internal::multi_list::idx_type));
+    }
+
+    static constexpr size_t memory_for(size_t const n)
+    {
+        return n * sizeof(internal::multi_list::idx_type);
+    }
 };
 
 } // namespace shed
