@@ -1,0 +1,24 @@
+name: Setup Docker Environment
+description: Build dev image and create required host directories
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build development Image
+      uses: docker/build-push-action@v6
+      with:
+        context: "${{ github.workspace }}/docker/development"
+        push: false
+        tags: openbsw-development:local
+        outputs: type=docker
+        cache-from: type=gha
+        cache-to: type=gha,mode=max,ignore-error=true
+
+    - name: Create Bazel cache directories
+      shell: bash
+      run: |
+        mkdir -p "${BAZEL_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazel}"
+        mkdir -p "${BAZELISK_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazelisk}"

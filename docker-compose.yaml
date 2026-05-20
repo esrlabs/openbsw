@@ -43,12 +43,12 @@ services:
         source: ${BAZEL_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazel}
         target: /home/build/.cache/bazel
         bind:
-          create_host_path: true
+          create_host_path: false
       - type: bind
         source: ${BAZELISK_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazelisk}
         target: /home/build/.cache/bazelisk
         bind:
-          create_host_path: true
+          create_host_path: false
 
   development-sil:
     image: openbsw-development:local
@@ -99,12 +99,12 @@ services:
         source: ${BAZEL_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazel}
         target: /home/build/.cache/bazel
         bind:
-          create_host_path: true
+          create_host_path: false
       - type: bind
         source: ${BAZELISK_CACHE_DIR:-${XDG_CACHE_HOME:-${HOME}/.cache}/bazelisk}
         target: /home/build/.cache/bazelisk
         bind:
-          create_host_path: true
+          create_host_path: false
 
     devices:
       - /dev/net/tun:/dev/net/tun

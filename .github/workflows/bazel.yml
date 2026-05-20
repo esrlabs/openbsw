@@ -15,64 +15,67 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Setup Docker Environment
+        uses: ./.github/actions/setup-docker-env
 
-      - name: Build development Image
-        id: build-docker-development
-        uses: docker/build-push-action@v6
-        with:
-          context: "{{defaultContext}}:docker/development"
-          push: false
-          tags: openbsw-development:local
-          outputs: type=docker
-          cache-from: type=gha
-          cache-to: type=gha,mode=max,ignore-error=true
+      # Fails if bazel --version fails in the docker container
+      - name: Bazel smoke test
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel version
 
       # Fails if MODULE.bazel.lock is stale (invalid versions, yanked modules, extension errors).
       # Fix locally with: bazel mod tidy --lockfile_mode=update
-      - name: bazel mod deps --lockfile_mode=error
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development \
-            bazel mod deps --lockfile_mode=error || exit_code=$?
+      - name: Check Bazel lockfile
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel mod deps --lockfile_mode=error || exit_code=$?;
           if [ "${exit_code:-0}" -ne 0 ]; then
-            echo "::error::MODULE.bazel.lock is stale. Run 'bazel mod tidy --lockfile_mode=update' locally to update the lockfile."
-            exit "${exit_code}"
+          echo "::error::bazel mod deps --lockfile_mode=error failed. Check the log above for the actual error. If the lockfile is stale, run 'bazel mod tidy --lockfile_mode=update' locally.";
+          exit "${exit_code}";
           fi
 
       # Fails if any BUILD/.bzl file is not formatted correctly. Fix locally with: bazel run //:format_fix
-      - name: bazel run //:format_check
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development \
-            bazel run //:format_check || exit_code=$?
+      - name: Check Bazel formatting
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel run //:format_check || exit_code=$?;
           if [ "${exit_code:-0}" -ne 0 ]; then
-            echo "::error::BUILD/.bzl files are not formatted correctly. Run 'bazel run //:format_fix' locally to fix formatting."
-            exit "${exit_code}"
+          echo "::error::BUILD/.bzl files are not formatted correctly. Run 'bazel run //:format_fix' locally to fix formatting.";
+          exit "${exit_code}";
           fi
 
       # Parses all BUILD files and resolves the dependency graph without compiling.
       # Catches syntax errors, invalid labels, missing targets, and dependency cycles.
-      - name: bazel query //...
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development \
-            bazel query //...
+      - name: Query all targtes
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel query //...
 
       # Compiles all targets for the host platform (Linux/posix).
       # Targets with incompatible platform constraints are skipped automatically.
-      - name: bazel build //...
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development \
-            bazel build //...
+      - name: Build all targets (host platform)
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel build //...
 
       # Cross-compiles all targets for the example embedded platform using arm-none-eabi-gcc.
-      - name: bazel build --config=s32k148 //...
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development \
-            bazel build --config=s32k148 //...
+      - name: Build all targets (s32k148 platform)
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel build --config=s32k148 //...
 
       # Builds and runs all test targets. Exit code 4 ("no tests found") needs to be treated as
-      # success until at least one test target exists in the workspace.
-      - name: bazel test //...
-        run: |
-          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null docker compose run --rm development bazel test //... || exit_code=$?
+      # success until at least a single test exists.
+      - name: Run all tests
+        run: >-
+          DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
+          docker compose run --rm development
+          bazel test //... || exit_code=$?;
           [ "${exit_code:-0}" -eq 0 ] || [ "${exit_code}" -eq 4 ] || exit "${exit_code}"
