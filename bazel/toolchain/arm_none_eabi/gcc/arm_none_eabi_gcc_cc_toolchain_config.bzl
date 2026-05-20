@@ -1,3 +1,5 @@
+""" Bazel CC toolchain configuration for ARM Cortex-M4 bare-metal targets using arm-none-eabi-gcc."""
+
 load("@bazel_tools//tools/build_defs/cc:action_names.bzl", "ACTION_NAMES")
 load(
     "@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl",
@@ -6,6 +8,7 @@ load(
     "flag_set",
     "tool_path",
 )
+load("@rules_cc//cc/common:cc_common.bzl", "cc_common")
 
 _ALL_C_COMPILE_ACTIONS = [
     ACTION_NAMES.c_compile,
@@ -172,7 +175,6 @@ def _impl(ctx):
                 ),
             ],
         ),
-
         feature(
             name = "realtime_os_define",
             enabled = True,

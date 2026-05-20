@@ -7,12 +7,16 @@ active build variant (reference_app or unit_test).
 - Defaults to "reference_app"
 - Overridden to "unit_test" for bazel test commands in .bazelrc
 """
+
 load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
 
 string_flag(
     name = "executable_config",
     build_setting_default = "reference_app",
-    values = ["reference_app", "unit_test"],
+    values = [
+        "reference_app",
+        "unit_test",
+    ],
     visibility = ["//visibility:public"],
 )
 
