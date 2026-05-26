@@ -16,6 +16,9 @@ RUN echo "ce0863a3a9d73707eb8cb9887c7f97ad3fd4ed506ad0429a6ab67a6290905966 treef
 RUN wget -O bazelisk https://github.com/bazelbuild/bazelisk/releases/download/v1.29.0/bazelisk-linux-amd64
 RUN echo "5a408715e932c0250d28bd84555f12edbf70117de42f9181691c736eacc4a992 bazelisk" | sha256sum -c
 
+RUN wget -O buildifier https://github.com/bazelbuild/buildtools/releases/download/v8.5.1/buildifier-linux-amd64
+RUN echo "887377fc64d23a850f4d18a077b5db05b19913f4b99b270d193f3c7334b5a9a7 buildifier" | sha256sum -c
+
 FROM base-image AS arm64-downloads
 RUN apt-get update && apt-get install -y wget
 
@@ -30,6 +33,9 @@ RUN echo "7c00ea14f69a95782063e8f86e143bede29c8a6757fea9075ffdfdb6590aa934 treef
 
 RUN wget -O bazelisk https://github.com/bazelbuild/bazelisk/releases/download/v1.29.0/bazelisk-linux-arm64
 RUN echo "e20e8b0f4f240091b7a55bf17b9398bd4f40ee70ae0208dff95dd4c445fb4010 bazelisk" | sha256sum -c
+
+RUN wget -O buildifier https://github.com/bazelbuild/buildtools/releases/download/v8.5.1/buildifier-linux-arm64
+RUN echo "947bf6700d708026b2057b09bea09abbc3cafc15d9ecea35bb3885c4b09ccd04 buildifier" | sha256sum -c
 
 # Use TARGETARCH (docker built-in variable) to decide what external binary files to use
 ARG TARGETARCH
@@ -81,6 +87,10 @@ COPY --from=external-downloads /bazelisk /bazelisk
 RUN install -m 755 bazelisk /usr/bin/bazelisk \
     && ln -s bazelisk /usr/bin/bazel \
     && rm bazelisk
+
+COPY --from=external-downloads /buildifier /buildifier
+RUN install -m 755 buildifier /usr/bin/buildifier \
+    && rm buildifier
 
 RUN gem install esr-rim
 

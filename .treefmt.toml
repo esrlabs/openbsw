@@ -43,3 +43,17 @@ includes = [ "*.c", "*.cc", "*.cpp", "*.h", "*.hh", "*.hpp" ]
 command = "cmake-format"
 options = [ "-i" ]
 includes = [ "**/CMakeLists.txt", "*.cmake", "CMakeLists.txt" ]
+
+[formatter.buildifier]
+command = "buildifier"
+options = ["-lint=fix"]
+includes = [
+  "*.bzl",
+  "*.sky",
+  "BUILD",
+  "BUILD.bazel",
+  "MODULE.bazel",
+  "REPO.bazel",
+  "WORKSPACE",
+  "WORKSPACE.bazel",
+]
