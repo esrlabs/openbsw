@@ -47,3 +47,17 @@ includes = [ "**/CMakeLists.txt", "*.cmake", "CMakeLists.txt" ]
 [formatter.rust]
 command = "tools/rustfmt-wrapper"
 includes = [ "*.rs" ]
+
+[formatter.buildifier]
+command = "buildifier"
+options = ["-lint=fix"]
+includes = [
+  "*.bzl",
+  "*.sky",
+  "BUILD",
+  "BUILD.bazel",
+  "MODULE.bazel",
+  "REPO.bazel",
+  "WORKSPACE",
+  "WORKSPACE.bazel",
+]
