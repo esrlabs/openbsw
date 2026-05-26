@@ -31,26 +31,19 @@ jobs:
         run: >-
           DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
           docker compose run --rm development
-          bazel mod deps --lockfile_mode=error || exit_code=$?;
-          if [ "${exit_code:-0}" -ne 0 ]; then
-          echo "::error::bazel mod deps --lockfile_mode=error failed. Check the log above for the actual error. If the lockfile is stale, run 'bazel mod tidy --lockfile_mode=update' locally.";
-          exit "${exit_code}";
-          fi
+          bazel mod deps --lockfile_mode=error
 
-      # Fails if any BUILD/.bzl file is not formatted correctly. Fix locally with: bazel run //:format_fix
+      # Fails if any BUILD/.bzl file is not formatted correctly.
+      # Fix locally with: bazel run //:format_fix
       - name: Check Bazel formatting
         run: >-
           DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
           docker compose run --rm development
-          bazel run //:format_check || exit_code=$?;
-          if [ "${exit_code:-0}" -ne 0 ]; then
-          echo "::error::BUILD/.bzl files are not formatted correctly. Run 'bazel run //:format_fix' locally to fix formatting.";
-          exit "${exit_code}";
-          fi
+          bazel run //:format_check
 
       # Parses all BUILD files and resolves the dependency graph without compiling.
       # Catches syntax errors, invalid labels, missing targets, and dependency cycles.
-      - name: Query all targtes
+      - name: Query all targets
         run: >-
           DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) DOCKER_HISTORY=/dev/null
           docker compose run --rm development
