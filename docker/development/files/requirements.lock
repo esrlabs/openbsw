@@ -36,7 +36,9 @@ cryptography==46.0.3
 distlib==0.4.0
     # via virtualenv
 doipclient==1.1.1
-    # via -r tools/UdsTool/requirements.txt
+    # via
+    #   -r test/pyTest/requirements.txt
+    #   -r tools/UdsTool/requirements.txt
 dulwich==0.24.10
     # via poetry
 exceptiongroup==1.2.2

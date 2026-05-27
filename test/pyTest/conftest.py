@@ -1,4 +1,5 @@
-import pytest, os
+import pytest
+import os
 from can.interfaces import socketcan
 import isotp
 from doipclient import DoIPClient
@@ -232,7 +233,6 @@ def pytest_generate_tests(metafunc):
             fixture_names += ",uds_transport"
 
         for name, target_info in TargetInfo.by_name.items():
-
             if not need_hw_tester and not need_uds_transport:
                 all_targets_fixture_args.append(name)
 

@@ -1,6 +1,5 @@
 import os
-import helper.helper as helper
-from target_info import TargetInfo
+from helpers.helper_functions import run_process
 
 
 def create_uds_tool_command(channel, did):
@@ -14,13 +13,11 @@ def test_rdbi(target_session, did="CF01"):
     command = create_uds_tool_command(
         target_session.target_info.socketcan["channel"], did
     )
-    print(command)
-    output = helper.run_process(command)
+    output = run_process(command, "PositiveResponse", timeout=5)
+    lines = output.strip().splitlines()
 
-    assert any(
-        "PositiveResponse" in line for line in output
-    ), "Missing PositiveResponse"
+    assert any("PositiveResponse" in line for line in lines), "Missing PositiveResponse"
     assert any(
         "62cf01010200022202160f0100006d2f0000010600008fe0000001" in line
-        for line in output
+        for line in lines
     ), "Incorrect expected output"
