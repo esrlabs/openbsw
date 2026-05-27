@@ -43,3 +43,7 @@ includes = [ "*.c", "*.cc", "*.cpp", "*.h", "*.hh", "*.hpp" ]
 command = "cmake-format"
 options = [ "-i" ]
 includes = [ "**/CMakeLists.txt", "*.cmake", "CMakeLists.txt" ]
+
+[formatter.rust]
+command = "tools/rustfmt-wrapper"
+includes = [ "*.rs" ]

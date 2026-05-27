@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+from shutil import which
+import subprocess
+import sys
+
+
+def main():
+    if which("rustfmt") is None:
+        # rustfmt not installed, silently skip formatting
+        sys.exit(0)
+
+    completed = subprocess.run(["rustfmt"] + sys.argv[1:])
+    sys.exit(completed.returncode)
+
+
+if __name__ == "__main__":
+    main()
