@@ -12,6 +12,7 @@
 
 #include <busid/BusId.h>
 #include <etl/array.h>
+#include <etl/span.h>
 #include <lifecycle/LifecycleManager.h>
 #include <transport/ITransportSystem.h>
 #include <transport/TransportConfiguration.h>
