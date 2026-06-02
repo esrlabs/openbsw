@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../consoleCommands.html">consoleCommands</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../safety.html">safety</a></li>
+        
+        <li ><a href="../../console.html">console</a>
+            </li>
+
+        
+        <li class="active"><a href="../SafetyCommand.cpp.html">SafetyCommand.cpp</a>:40
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">safety::SafetyCommand::executeCommand(util::command::CommandContext&amp;, unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000f2c8</td>
+                <td>
+    
+    
+</td>
+                <td>16 (static)</td>
+                <td>216</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=468
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/25bc42bb2f755e19972444e2a1b679be.html">bios::Io::getConfiguration(unsigned short, bios::Io::PinConfiguration&amp;) (144)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/4d2b35f004d57c9527b81a1790cf7eec.html">bios::Io::setConfiguration(unsigned short, bios::Io::PinConfiguration const&amp;) (228)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf (40)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./7725666f316aaf3e19762e4b9dd22a55.html">safety::SafetyCommand::getInfo() const (8)</a></pre>
+    
+
+    <pre>
+
+    safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char):
+
+        f2c8:	b510      	push	{r4, lr}
+
+        f2ca:	b082      	sub	sp, #8
+
+        f2cc:	2a04      	cmp	r2, #4
+
+        f2ce:	d814      	bhi.n	f2fa <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x32>
+
+        f2d0:	e8df f002 	tbb	[pc, r2]
+
+        f2d4:	03332f27 	.word	0x03332f27
+
+        f2d8:	15          	.byte	0x15
+
+        f2d9:	00          	.byte	0x00
+
+        f2da:	4b27      	ldr	r3, [pc, #156]	@ (f378 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb0>)
+
+        f2dc:	4927      	ldr	r1, [pc, #156]	@ (f37c <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb4>)
+
+        f2de:	7818      	ldrb	r0, [r3, #0]
+
+        f2e0:	f7f9 fa7a 	bl	87d8 <<a href="../../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f2e4:	4669      	mov	r1, sp
+
+        f2e6:	207f      	movs	r0, #127	@ 0x7f
+
+        f2e8:	f01c fb6a 	bl	2b9c0 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/25bc42bb2f755e19972444e2a1b679be.html">bios::Io::getConfiguration(unsigned short, bios::Io::PinConfiguration&)</a>>
+
+        f2ec:	2300      	movs	r3, #0
+
+        f2ee:	207f      	movs	r0, #127	@ 0x7f
+
+        f2f0:	4669      	mov	r1, sp
+
+        f2f2:	f88d 3002 	strb.w	r3, [sp, #2]
+
+        f2f6:	f01c fae5 	bl	2b8c4 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/4d2b35f004d57c9527b81a1790cf7eec.html">bios::Io::setConfiguration(unsigned short, bios::Io::PinConfiguration const&)</a>>
+
+        f2fa:	b002      	add	sp, #8
+
+        f2fc:	bd10      	pop	{r4, pc}
+
+        f2fe:	4b1e      	ldr	r3, [pc, #120]	@ (f378 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb0>)
+
+        f300:	491f      	ldr	r1, [pc, #124]	@ (f380 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb8>)
+
+        f302:	7818      	ldrb	r0, [r3, #0]
+
+        f304:	f7f9 fa68 	bl	87d8 <<a href="../../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f308:	4669      	mov	r1, sp
+
+        f30a:	207f      	movs	r0, #127	@ 0x7f
+
+        f30c:	f01c fb58 	bl	2b9c0 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/25bc42bb2f755e19972444e2a1b679be.html">bios::Io::getConfiguration(unsigned short, bios::Io::PinConfiguration&)</a>>
+
+        f310:	2301      	movs	r3, #1
+
+        f312:	4669      	mov	r1, sp
+
+        f314:	207f      	movs	r0, #127	@ 0x7f
+
+        f316:	f88d 3002 	strb.w	r3, [sp, #2]
+
+        f31a:	f01c fad3 	bl	2b8c4 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/4d2b35f004d57c9527b81a1790cf7eec.html">bios::Io::setConfiguration(unsigned short, bios::Io::PinConfiguration const&)</a>>
+
+        f31e:	b002      	add	sp, #8
+
+        f320:	bd10      	pop	{r4, pc}
+
+        f322:	4818      	ldr	r0, [pc, #96]	@ (f384 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xbc>)
+
+        f324:	f01d fc1a 	bl	2cb5c <<a href="../../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf</a>>
+
+        f328:	4b17      	ldr	r3, [pc, #92]	@ (f388 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xc0>)
+
+        f32a:	4a18      	ldr	r2, [pc, #96]	@ (f38c <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xc4>)
+
+        f32c:	601a      	str	r2, [r3, #0]
+
+        f32e:	b002      	add	sp, #8
+
+        f330:	bd10      	pop	{r4, pc}
+
+        f332:	4817      	ldr	r0, [pc, #92]	@ (f390 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xc8>)
+
+        f334:	f01d fc12 	bl	2cb5c <<a href="../../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html">debug_printf</a>>
+
+        f338:	e7fe      	b.n	f338 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x70>
+
+        f33a:	4c0f      	ldr	r4, [pc, #60]	@ (f378 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb0>)
+
+        f33c:	4915      	ldr	r1, [pc, #84]	@ (f394 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xcc>)
+
+        f33e:	7820      	ldrb	r0, [r4, #0]
+
+        f340:	f7f9 fa4a 	bl	87d8 <<a href="../../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f344:	4669      	mov	r1, sp
+
+        f346:	2096      	movs	r0, #150	@ 0x96
+
+        f348:	f01c fb3a 	bl	2b9c0 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/25bc42bb2f755e19972444e2a1b679be.html">bios::Io::getConfiguration(unsigned short, bios::Io::PinConfiguration&)</a>>
+
+        f34c:	9b01      	ldr	r3, [sp, #4]
+
+        f34e:	4669      	mov	r1, sp
+
+        f350:	f423 7300 	bic.w	r3, r3, #512	@ 0x200
+
+        f354:	2096      	movs	r0, #150	@ 0x96
+
+        f356:	9301      	str	r3, [sp, #4]
+
+        f358:	f01c fab4 	bl	2b8c4 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/4d2b35f004d57c9527b81a1790cf7eec.html">bios::Io::setConfiguration(unsigned short, bios::Io::PinConfiguration const&)</a>>
+
+        f35c:	4669      	mov	r1, sp
+
+        f35e:	2096      	movs	r0, #150	@ 0x96
+
+        f360:	f01c fb2e 	bl	2b9c0 <<a href="../../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/25bc42bb2f755e19972444e2a1b679be.html">bios::Io::getConfiguration(unsigned short, bios::Io::PinConfiguration&)</a>>
+
+        f364:	9b01      	ldr	r3, [sp, #4]
+
+        f366:	7820      	ldrb	r0, [r4, #0]
+
+        f368:	059b      	lsls	r3, r3, #22
+
+        f36a:	bf4c      	ite	mi
+
+        f36c:	490a      	ldrmi	r1, [pc, #40]	@ (f398 <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xd0>)
+
+        f36e:	490b      	ldrpl	r1, [pc, #44]	@ (f39c <<a href="./8ae8ef686d093a62fe8ec5b502392d88.html">safety::SafetyCommand::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xd4>)
+
+        f370:	f7f9 fa32 	bl	87d8 <<a href="../../../../../../../libs/bsw/util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+        f374:	b002      	add	sp, #8
+
+        f376:	bd10      	pop	{r4, pc}
+
+        f378:	1ffe0128 	.word	0x1ffe0128
+
+        f37c:	00031be0 	.word	0x00031be0
+
+        f380:	00031bf8 	.word	0x00031bf8
+
+        f384:	00031ac0 	.word	0x00031ac0
+
+        f388:	1ffe0000 	.word	0x1ffe0000
+
+        f38c:	12345678 	.word	0x12345678
+
+        f390:	00031b08 	.word	0x00031b08
+
+        f394:	00031b38 	.word	0x00031b38
+
+        f398:	00031b6c 	.word	0x00031b6c
+
+        f39c:	00031ba8 	.word	0x00031ba8
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../../libs/bsw/logger/src/logger/DefaultLoggerCommand.cpp/e99a3fcb4972745b1628a30d95031ab4.html">logger::DefaultLoggerCommand::levelCommand(util::command::CommandContext&amp;) (504)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 288</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 2,992</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    288
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,992
+                    
+                    
+                </td>
+                <td class="col_size">160</td>
+                <td><a href="../../../../../../../libs/3rdparty/printf/src/printf/printf.c/aead89a8c09454d3b52c82329b9d6539.html" class="icon-function">out_rev_</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,832
+                    
+                    
+                </td>
+                <td class="col_size">792</td>
+                <td><a href="../../../../../../../libs/3rdparty/printf/src/printf/printf.c/ac6598d6032c1151c802f0c9a9979746.html" class="icon-function">print_integer</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                88 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,040
+                    
+                    
+                </td>
+                <td class="col_size">1,964</td>
+                <td><a href="../../../../../../../libs/3rdparty/printf/src/printf/printf.c/6d7d630ec5529648e33ae989eebb2cb7.html" class="icon-function">_vsnprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    40
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    76
+                    
+                    
+                </td>
+                <td class="col_size">36</td>
+                <td><a href="../../../../../../../libs/3rdparty/printf/src/printf/printf.c/5312ec35df88995f2f21271b5c68c054.html" class="icon-function">vfctprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">40</td>
+                <td><a href="../../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html" class="icon-function">debug_printf</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">16
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

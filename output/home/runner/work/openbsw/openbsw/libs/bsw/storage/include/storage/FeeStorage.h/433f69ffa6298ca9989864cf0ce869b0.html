@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../storage.html">storage</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../storage.html">storage</a>
+            </li>
+
+        
+        <li class="active"><a href="../FeeStorage.h.html">FeeStorage.h</a>:23
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">storage::FeeStorage::process(storage::StorageJob&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0000dafc</td>
+                <td>
+    
+    
+</td>
+                <td>40 (static)</td>
+                <td>196</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../executables/referenceApp/application/src/systems/StorageSystem.cpp/066404b9fc61aee3d293ebb4ba45ca11.html">systems::StorageSystem::run() (4)</a></pre>
+    
+
+    <pre>
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        dafc:	b530      	push	{r4, r5, lr}
+
+    _ZNK3etl7variantIJN7storage10StorageJob4Type4NoneENS3_5WriteENS3_4ReadEEE5indexEv():
+
+        dafe:	6a48      	ldr	r0, [r1, #36]	@ 0x24
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4IS5_Li0EEEOT_():
+
+        db00:	4a2d      	ldr	r2, [pc, #180]	@ (dbb8 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xbc>)
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db02:	b087      	sub	sp, #28
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4IS5_Li0EEEOT_():
+
+        db04:	2301      	movs	r3, #1
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db06:	460c      	mov	r4, r1
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4IS5_Li0EEEOT_():
+
+        db08:	9201      	str	r2, [sp, #4]
+
+        db0a:	9302      	str	r3, [sp, #8]
+
+    _ZN3etl15private_variant15is_same_type_inIN7storage10StorageJob4Type5WriteENS4_4NoneES5_JNS4_4ReadEEEENS_9enable_ifIXntsrNS_7is_sameIT_T0_EE5valueEbE4typeEj():
+
+        db0c:	b188      	cbz	r0, db32 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x36>
+
+    _ZN3etl15private_variant15is_same_type_inIN7storage10StorageJob4Type5WriteES5_NS4_4ReadEJEEENS_9enable_ifIXsrNS_7is_sameIT_T0_EE5valueEbE4typeEj():
+
+        db0e:	4298      	cmp	r0, r3
+
+        db10:	d044      	beq.n	db9c <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xa0>
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db12:	2802      	cmp	r0, #2
+
+        db14:	d10d      	bne.n	db32 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x36>
+
+    _ZNK3etl4spanIhLj4294967295EEixEj():
+
+        db16:	694a      	ldr	r2, [r1, #20]
+
+        db18:	6812      	ldr	r2, [r2, #0]
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db1a:	21de      	movs	r1, #222	@ 0xde
+
+        db1c:	7011      	strb	r1, [r2, #0]
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS7_Li0EEERS8_OT_():
+
+        db1e:	9a02      	ldr	r2, [sp, #8]
+
+    _ZN7storage10StorageJob4Type4Read11setReadSizeEj():
+
+        db20:	61e3      	str	r3, [r4, #28]
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS7_Li0EEERS8_OT_():
+
+        db22:	3201      	adds	r2, #1
+
+        db24:	d03a      	beq.n	db9c <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xa0>
+
+        db26:	9b01      	ldr	r3, [sp, #4]
+
+        db28:	2200      	movs	r2, #0
+
+        db2a:	4669      	mov	r1, sp
+
+        db2c:	466d      	mov	r5, sp
+
+        db2e:	4798      	blx	r3
+
+        db30:	e035      	b.n	db9e <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xa2>
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4ERKS8_():
+
+        db32:	9305      	str	r3, [sp, #20]
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db34:	4b20      	ldr	r3, [pc, #128]	@ (dbb8 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xbc>)
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4ERKS8_():
+
+        db36:	9204      	str	r2, [sp, #16]
+
+        db38:	466d      	mov	r5, sp
+
+        db3a:	462a      	mov	r2, r5
+
+        db3c:	a903      	add	r1, sp, #12
+
+        db3e:	2000      	movs	r0, #0
+
+        db40:	4798      	blx	r3
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSERKS8_():
+
+        db42:	6923      	ldr	r3, [r4, #16]
+
+        db44:	3301      	adds	r3, #1
+
+        db46:	d005      	beq.n	db54 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x58>
+
+        db48:	68e3      	ldr	r3, [r4, #12]
+
+        db4a:	2200      	movs	r2, #0
+
+        db4c:	f104 0108 	add.w	r1, r4, #8
+
+        db50:	2002      	movs	r0, #2
+
+        db52:	4798      	blx	r3
+
+        db54:	9b05      	ldr	r3, [sp, #20]
+
+        db56:	1c5a      	adds	r2, r3, #1
+
+        db58:	d028      	beq.n	dbac <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xb0>
+
+        db5a:	9b04      	ldr	r3, [sp, #16]
+
+        db5c:	60e3      	str	r3, [r4, #12]
+
+        db5e:	aa03      	add	r2, sp, #12
+
+        db60:	f104 0108 	add.w	r1, r4, #8
+
+        db64:	2000      	movs	r0, #0
+
+        db66:	4798      	blx	r3
+
+    _ZNK3etl8delegateIFvRN7storage10StorageJobEEE8is_validEv():
+
+        db68:	6ae2      	ldr	r2, [r4, #44]	@ 0x2c
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSERKS8_():
+
+        db6a:	9b05      	ldr	r3, [sp, #20]
+
+        db6c:	6123      	str	r3, [r4, #16]
+
+    _ZN7storage10StorageJob10sendResultEN3etl7variantIJNS0_6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEE():
+
+        db6e:	b122      	cbz	r2, db7a <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x7e>
+
+    _ZNK3etl8delegateIFvRN7storage10StorageJobEEEclIJS3_EEEvDpOT_():
+
+        db70:	4621      	mov	r1, r4
+
+        db72:	f104 0028 	add.w	r0, r4, #40	@ 0x28
+
+        db76:	4790      	blx	r2
+
+    _ZNK3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEE22valueless_by_exceptionEv():
+
+        db78:	9b05      	ldr	r3, [sp, #20]
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEED4Ev():
+
+        db7a:	3301      	adds	r3, #1
+
+        db7c:	d004      	beq.n	db88 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x8c>
+
+        db7e:	9b04      	ldr	r3, [sp, #16]
+
+        db80:	2200      	movs	r2, #0
+
+        db82:	a903      	add	r1, sp, #12
+
+        db84:	2002      	movs	r0, #2
+
+        db86:	4798      	blx	r3
+
+        db88:	9b02      	ldr	r3, [sp, #8]
+
+        db8a:	3301      	adds	r3, #1
+
+        db8c:	d004      	beq.n	db98 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x9c>
+
+        db8e:	9b01      	ldr	r3, [sp, #4]
+
+        db90:	2200      	movs	r2, #0
+
+        db92:	4629      	mov	r1, r5
+
+        db94:	2002      	movs	r0, #2
+
+        db96:	4798      	blx	r3
+
+    storage::FeeStorage::process(storage::StorageJob&):
+
+        db98:	b007      	add	sp, #28
+
+        db9a:	bd30      	pop	{r4, r5, pc}
+
+        db9c:	466d      	mov	r5, sp
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSIS7_Li0EEERS8_OT_():
+
+        db9e:	4b07      	ldr	r3, [pc, #28]	@ (dbbc <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0xc0>)
+
+        dba0:	9301      	str	r3, [sp, #4]
+
+        dba2:	2203      	movs	r2, #3
+
+        dba4:	9202      	str	r2, [sp, #8]
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEC4ERKS8_():
+
+        dba6:	9304      	str	r3, [sp, #16]
+
+        dba8:	9205      	str	r2, [sp, #20]
+
+    _ZNK3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEE22valueless_by_exceptionEv():
+
+        dbaa:	e7c6      	b.n	db3a <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x3e>
+
+    _ZNK3etl8delegateIFvRN7storage10StorageJobEEE8is_validEv():
+
+        dbac:	6ae2      	ldr	r2, [r4, #44]	@ 0x2c
+
+    _ZN3etl7variantIJN7storage10StorageJob6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEaSERKS8_():
+
+        dbae:	6123      	str	r3, [r4, #16]
+
+    _ZN7storage10StorageJob10sendResultEN3etl7variantIJNS0_6Result4InitENS3_5ErrorENS3_8DataLossENS3_7SuccessEEEE():
+
+        dbb0:	2a00      	cmp	r2, #0
+
+        dbb2:	d1dd      	bne.n	db70 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x74>
+
+        dbb4:	e7e8      	b.n	db88 <<a href="./433f69ffa6298ca9989864cf0ce869b0.html">storage::FeeStorage::process(storage::StorageJob&)</a>+0x8c>
+
+        dbb6:	bf00      	nop
+
+        dbb8:	0000daf1 	.word	0x0000daf1
+
+        dbbc:	0000daf5 	.word	0x0000daf5
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../executables/referenceApp/application/src/systems/StorageSystem.cpp/ad831030495ff0476c8e46a9ed91c53b.html">systems::StorageSystem::StorageSystem(unsigned char, unsigned char, eeprom::IEepromDriver&amp;) (368)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

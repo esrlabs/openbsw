@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../util.html">util</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../util.html">util</a></li>
+        
+        <li ><a href="../../command.html">command</a>
+            </li>
+
+        
+        <li class="active"><a href="../CommandContext.cpp.html">CommandContext.cpp</a>:70
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">util::command::CommandContext::scanByteBufferToken(etl::span&lt;unsigned char, 4294967295u&gt; const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00014040</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>276</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../storage/src/storage/StorageTester.cpp/67fa68a7bcf103a087d72ac11f843f38.html">storage::StorageTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (1252)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=72
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace() (72)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./74c51ebf813b1f4a7dc14ee9e4ad4d7d.html">util::command::CommandContext::scanIdentifierToken() (116)</a></pre>
+    
+
+    <pre>
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       14040:	f891 3020 	ldrb.w	r3, [r1, #32]
+
+       14044:	2b01      	cmp	r3, #1
+
+       14046:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+       1404a:	4605      	mov	r5, r0
+
+       1404c:	d005      	beq.n	1405a <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x1a>
+
+    _ZN3etl4spanIhLj4294967295EEC4Ev():
+
+       1404e:	2300      	movs	r3, #0
+
+       14050:	602b      	str	r3, [r5, #0]
+
+       14052:	606b      	str	r3, [r5, #4]
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       14054:	4628      	mov	r0, r5
+
+       14056:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       1405a:	f8d1 e014 	ldr.w	lr, [r1, #20]
+
+       1405e:	f8c1 e01c 	str.w	lr, [r1, #28]
+
+       14062:	460c      	mov	r4, r1
+
+       14064:	4616      	mov	r6, r2
+
+       14066:	46f2      	mov	sl, lr
+
+       14068:	2700      	movs	r7, #0
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       1406a:	2002      	movs	r0, #2
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       1406c:	f8d4 9018 	ldr.w	r9, [r4, #24]
+
+       14070:	45d1      	cmp	r9, sl
+
+       14072:	d066      	beq.n	14142 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x102>
+
+       14074:	f10a 0301 	add.w	r3, sl, #1
+
+       14078:	4599      	cmp	r9, r3
+
+       1407a:	d062      	beq.n	14142 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x102>
+
+       1407c:	f813 1c01 	ldrb.w	r1, [r3, #-1]
+
+    util::command::CommandContext::getDigit(char, unsigned long):
+
+       14080:	f1a1 0c30 	sub.w	ip, r1, #48	@ 0x30
+
+       14084:	fa5f f28c 	uxtb.w	r2, ip
+
+       14088:	2a07      	cmp	r2, #7
+
+       1408a:	d90d      	bls.n	140a8 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x68>
+
+       1408c:	f1a1 0238 	sub.w	r2, r1, #56	@ 0x38
+
+       14090:	2a01      	cmp	r2, #1
+
+       14092:	d909      	bls.n	140a8 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x68>
+
+       14094:	f1a1 0261 	sub.w	r2, r1, #97	@ 0x61
+
+       14098:	2a05      	cmp	r2, #5
+
+       1409a:	d942      	bls.n	14122 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe2>
+
+       1409c:	f1a1 0241 	sub.w	r2, r1, #65	@ 0x41
+
+       140a0:	2a05      	cmp	r2, #5
+
+       140a2:	d84e      	bhi.n	14142 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x102>
+
+       140a4:	f1a1 0c37 	sub.w	ip, r1, #55	@ 0x37
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       140a8:	f894 2020 	ldrb.w	r2, [r4, #32]
+
+       140ac:	2a01      	cmp	r2, #1
+
+       140ae:	d00d      	beq.n	140cc <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x8c>
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       140b0:	45f2      	cmp	sl, lr
+
+       140b2:	d0cc      	beq.n	1404e <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe>
+
+       140b4:	4620      	mov	r0, r4
+
+       140b6:	f7ff ff31 	bl	13f1c <<a href="./1faeb200d57f22b1d75eba855d65b6bc.html">util::command::CommandContext::ignoreWhitespace()</a>>
+
+    util::command::CommandContext::isValid() const():
+
+       140ba:	f894 3020 	ldrb.w	r3, [r4, #32]
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       140be:	bbb8      	cbnz	r0, 14130 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xf0>
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       140c0:	2b01      	cmp	r3, #1
+
+       140c2:	d1c4      	bne.n	1404e <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe>
+
+       140c4:	2302      	movs	r3, #2
+
+       140c6:	f884 3020 	strb.w	r3, [r4, #32]
+
+       140ca:	e7c0      	b.n	1404e <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe>
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+       140cc:	f8d6 8000 	ldr.w	r8, [r6]
+
+       140d0:	6872      	ldr	r2, [r6, #4]
+
+       140d2:	eba2 0208 	sub.w	r2, r2, r8
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       140d6:	4297      	cmp	r7, r2
+
+       140d8:	d303      	bcc.n	140e2 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xa2>
+
+       140da:	2304      	movs	r3, #4
+
+       140dc:	f884 3020 	strb.w	r3, [r4, #32]
+
+       140e0:	e7e6      	b.n	140b0 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x70>
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       140e2:	6163      	str	r3, [r4, #20]
+
+       140e4:	781a      	ldrb	r2, [r3, #0]
+
+    util::command::CommandContext::getDigit(char, unsigned long):
+
+       140e6:	f1a2 0130 	sub.w	r1, r2, #48	@ 0x30
+
+       140ea:	b2c9      	uxtb	r1, r1
+
+       140ec:	2909      	cmp	r1, #9
+
+       140ee:	d909      	bls.n	14104 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xc4>
+
+       140f0:	f1a2 0161 	sub.w	r1, r2, #97	@ 0x61
+
+       140f4:	2905      	cmp	r1, #5
+
+       140f6:	d917      	bls.n	14128 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe8>
+
+       140f8:	f1a2 0141 	sub.w	r1, r2, #65	@ 0x41
+
+       140fc:	2905      	cmp	r1, #5
+
+       140fe:	d80c      	bhi.n	1411a <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xda>
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       14100:	3a37      	subs	r2, #55	@ 0x37
+
+       14102:	b2d1      	uxtb	r1, r2
+
+       14104:	ea41 110c 	orr.w	r1, r1, ip, lsl #4
+
+       14108:	f808 1007 	strb.w	r1, [r8, r7]
+
+       1410c:	6963      	ldr	r3, [r4, #20]
+
+       1410e:	f103 0a01 	add.w	sl, r3, #1
+
+       14112:	3701      	adds	r7, #1
+
+       14114:	f8c4 a014 	str.w	sl, [r4, #20]
+
+       14118:	e7a8      	b.n	1406c <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x2c>
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       1411a:	f884 0020 	strb.w	r0, [r4, #32]
+
+       1411e:	469a      	mov	sl, r3
+
+       14120:	e7a6      	b.n	14070 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x30>
+
+    util::command::CommandContext::getDigit(char, unsigned long):
+
+       14122:	f1a1 0c57 	sub.w	ip, r1, #87	@ 0x57
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       14126:	e7bf      	b.n	140a8 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x68>
+
+       14128:	f1a2 0157 	sub.w	r1, r2, #87	@ 0x57
+
+       1412c:	b2c9      	uxtb	r1, r1
+
+       1412e:	e7e9      	b.n	14104 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xc4>
+
+       14130:	2b01      	cmp	r3, #1
+
+       14132:	d18c      	bne.n	1404e <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe>
+
+    _ZNK3etl4spanIhLj4294967295EE5firstEj():
+
+       14134:	6833      	ldr	r3, [r6, #0]
+
+    _ZN3etl4spanIhLj4294967295EEC4IPhS3_EET_T0_PNS_9enable_ifIXntsrNS_11is_integralIS5_EE5valueEvE4typeE():
+
+       14136:	602b      	str	r3, [r5, #0]
+
+    _ZNK3etl4spanIhLj4294967295EE5firstEj():
+
+       14138:	443b      	add	r3, r7
+
+    _ZN3etl4spanIhLj4294967295EEC4IPhS3_EET_T0_PNS_9enable_ifIXntsrNS_11is_integralIS5_EE5valueEvE4typeE():
+
+       1413a:	606b      	str	r3, [r5, #4]
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       1413c:	4628      	mov	r0, r5
+
+       1413e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       14142:	45f2      	cmp	sl, lr
+
+       14144:	d1b6      	bne.n	140b4 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x74>
+
+    util::command::CommandContext::check(bool, util::command::ICommand::Result):
+
+       14146:	f894 3020 	ldrb.w	r3, [r4, #32]
+
+       1414a:	2b01      	cmp	r3, #1
+
+       1414c:	f47f af7f 	bne.w	1404e <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0xe>
+
+       14150:	e7b8      	b.n	140c4 <<a href="./f92ced5a9b5fc094a2da56efa7916592.html">util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&)</a>+0x84>
+
+    util::command::CommandContext::scanByteBufferToken(etl::span<unsigned char, 4294967295u> const&):
+
+       14152:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="./93776a3ef4f84fa4c555f4d1590e5c98.html">util::command::CommandContext::getDigit(char, unsigned long) (60)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 176</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 72</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    176
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">72</td>
+                <td><a href="./1faeb200d57f22b1d75eba855d65b6bc.html" class="icon-function">util::command::CommandContext::ignoreWhitespace()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">168
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 168</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,528</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,528
+                    
+                    
+                </td>
+                <td class="col_size">276</td>
+                <td><a href="./f92ced5a9b5fc094a2da56efa7916592.html" class="icon-function">util::command::CommandContext::scanByteBufferToken(etl::span&lt;unsigned char, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                136 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">1,252</td>
+                <td><a href="../../../../../storage/src/storage/StorageTester.cpp/67fa68a7bcf103a087d72ac11f843f38.html" class="icon-function">storage::StorageTester::executeCommand(util::command::CommandContext&amp;, unsigned char)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

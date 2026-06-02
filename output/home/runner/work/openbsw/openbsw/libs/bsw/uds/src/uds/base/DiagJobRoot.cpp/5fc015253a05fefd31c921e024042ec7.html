@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../base.html">base</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagJobRoot.cpp.html">DiagJobRoot.cpp</a>:33
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000164f8</td>
+                <td>
+    
+    
+</td>
+                <td>32 (static)</td>
+                <td>220</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=80
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../AbstractDiagJob.cpp/8094d715f7b33f593a99f05cb32460b5.html">uds::AbstractDiagJob::getSession() const (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../AbstractDiagJob.cpp/d4dd0fac160dcb30633d1c73059f1f5e.html">uds::AbstractDiagJob::acceptJob(uds::IncomingDiagConnection&amp;, unsigned char const*, unsigned short) (20)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./3e3c955b01fd893255b41d9bd0303d92.html">uds::DiagJobRoot::verifySupplierIndication(unsigned char const*, unsigned short) (4)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       164f8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+       164fc:	461f      	mov	r7, r3
+
+       164fe:	7a8b      	ldrb	r3, [r1, #10]
+
+       16500:	2b7f      	cmp	r3, #127	@ 0x7f
+
+       16502:	b082      	sub	sp, #8
+
+       16504:	460d      	mov	r5, r1
+
+       16506:	d04f      	beq.n	165a8 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xb0>
+
+       16508:	4616      	mov	r6, r2
+
+       1650a:	88ca      	ldrh	r2, [r1, #6]
+
+       1650c:	2adf      	cmp	r2, #223	@ 0xdf
+
+       1650e:	4604      	mov	r4, r0
+
+       16510:	d02b      	beq.n	1656a <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x72>
+
+       16512:	6823      	ldr	r3, [r4, #0]
+
+       16514:	4a2e      	ldr	r2, [pc, #184]	@ (165d0 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xd8>)
+
+       16516:	f8d3 8004 	ldr.w	r8, [r3, #4]
+
+       1651a:	4590      	cmp	r8, r2
+
+       1651c:	d13b      	bne.n	16596 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x9e>
+
+    uds::DiagJobRoot::verify(unsigned char const*, unsigned short):
+
+       1651e:	b1a6      	cbz	r6, 1654a <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x52>
+
+       16520:	b19f      	cbz	r7, 1654a <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x52>
+
+    uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       16522:	4620      	mov	r0, r4
+
+       16524:	f7ff fe36 	bl	16194 <<a href="../AbstractDiagJob.cpp/8094d715f7b33f593a99f05cb32460b5.html">uds::AbstractDiagJob::getSession() const</a>>
+
+    _ZNK4MaskIN3uds11DiagSessionEhE5matchERKS1_():
+
+       16528:	7942      	ldrb	r2, [r0, #5]
+
+       1652a:	2301      	movs	r3, #1
+
+       1652c:	4093      	lsls	r3, r2
+
+       1652e:	7c22      	ldrb	r2, [r4, #16]
+
+    uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       16530:	4213      	tst	r3, r2
+
+       16532:	d043      	beq.n	165bc <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xc4>
+
+       16534:	6822      	ldr	r2, [r4, #0]
+
+       16536:	463b      	mov	r3, r7
+
+       16538:	6897      	ldr	r7, [r2, #8]
+
+       1653a:	4629      	mov	r1, r5
+
+       1653c:	4632      	mov	r2, r6
+
+       1653e:	4620      	mov	r0, r4
+
+       16540:	46bc      	mov	ip, r7
+
+       16542:	b002      	add	sp, #8
+
+       16544:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+       16548:	4760      	bx	ip
+
+    uds::DiagJobRoot::verify(unsigned char const*, unsigned short):
+
+       1654a:	f04f 0810 	mov.w	r8, #16
+
+    uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short):
+
+       1654e:	68db      	ldr	r3, [r3, #12]
+
+       16550:	4620      	mov	r0, r4
+
+       16552:	4798      	blx	r3
+
+       16554:	6803      	ldr	r3, [r0, #0]
+
+       16556:	9700      	str	r7, [sp, #0]
+
+       16558:	699f      	ldr	r7, [r3, #24]
+
+       1655a:	4622      	mov	r2, r4
+
+       1655c:	4633      	mov	r3, r6
+
+       1655e:	4629      	mov	r1, r5
+
+       16560:	47b8      	blx	r7
+
+       16562:	4640      	mov	r0, r8
+
+       16564:	b002      	add	sp, #8
+
+       16566:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       1656a:	2b3e      	cmp	r3, #62	@ 0x3e
+
+       1656c:	d1d1      	bne.n	16512 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1a>
+
+       1656e:	6803      	ldr	r3, [r0, #0]
+
+       16570:	68db      	ldr	r3, [r3, #12]
+
+       16572:	4798      	blx	r3
+
+       16574:	6803      	ldr	r3, [r0, #0]
+
+       16576:	68db      	ldr	r3, [r3, #12]
+
+       16578:	4798      	blx	r3
+
+       1657a:	2800      	cmp	r0, #0
+
+       1657c:	d1c9      	bne.n	16512 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1a>
+
+       1657e:	2f01      	cmp	r7, #1
+
+       16580:	d9c7      	bls.n	16512 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x1a>
+
+       16582:	f996 3001 	ldrsb.w	r3, [r6, #1]
+
+       16586:	2b00      	cmp	r3, #0
+
+       16588:	db0e      	blt.n	165a8 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xb0>
+
+       1658a:	6823      	ldr	r3, [r4, #0]
+
+       1658c:	f8d3 8004 	ldr.w	r8, [r3, #4]
+
+       16590:	4b0f      	ldr	r3, [pc, #60]	@ (165d0 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0xd8>)
+
+       16592:	4598      	cmp	r8, r3
+
+       16594:	d0c5      	beq.n	16522 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x2a>
+
+       16596:	463a      	mov	r2, r7
+
+       16598:	4631      	mov	r1, r6
+
+       1659a:	4620      	mov	r0, r4
+
+       1659c:	47c0      	blx	r8
+
+       1659e:	28ff      	cmp	r0, #255	@ 0xff
+
+       165a0:	4680      	mov	r8, r0
+
+       165a2:	d0be      	beq.n	16522 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x2a>
+
+       165a4:	6823      	ldr	r3, [r4, #0]
+
+       165a6:	e7d2      	b.n	1654e <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x56>
+
+       165a8:	682b      	ldr	r3, [r5, #0]
+
+       165aa:	4628      	mov	r0, r5
+
+       165ac:	68db      	ldr	r3, [r3, #12]
+
+       165ae:	4798      	blx	r3
+
+       165b0:	f04f 08ff 	mov.w	r8, #255	@ 0xff
+
+       165b4:	4640      	mov	r0, r8
+
+       165b6:	b002      	add	sp, #8
+
+       165b8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       165bc:	463b      	mov	r3, r7
+
+       165be:	4632      	mov	r2, r6
+
+       165c0:	4629      	mov	r1, r5
+
+       165c2:	4620      	mov	r0, r4
+
+       165c4:	f7ff ff84 	bl	164d0 <<a href="../AbstractDiagJob.cpp/d4dd0fac160dcb30633d1c73059f1f5e.html">uds::AbstractDiagJob::acceptJob(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>>
+
+       165c8:	f04f 0831 	mov.w	r8, #49	@ 0x31
+
+       165cc:	e7c9      	b.n	16562 <<a href="./5fc015253a05fefd31c921e024042ec7.html">uds::DiagJobRoot::execute(uds::IncomingDiagConnection&, unsigned char const*, unsigned short)</a>+0x6a>
+
+       165ce:	bf00      	nop
+
+       165d0:	000164e5 	.word	0x000164e5
+
+    </pre>
+
+    
+    <pre><a href="./c49ccc7992182b8787dec50628642db7.html">uds::DiagJobRoot::DiagJobRoot() (56)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 48</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 60</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    48
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../AbstractDiagJob.cpp/8094d715f7b33f593a99f05cb32460b5.html" class="icon-function">uds::AbstractDiagJob::getSession() const</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">32
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

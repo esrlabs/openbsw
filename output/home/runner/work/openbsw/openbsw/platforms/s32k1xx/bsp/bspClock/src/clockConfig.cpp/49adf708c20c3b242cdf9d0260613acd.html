@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../platforms.html">platforms</a></li>
+        
+        <li><a href="../../../../../s32k1xx.html">s32k1xx</a></li>
+        
+        <li><a href="../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../bspClock.html">bspClock</a></li>
+        
+        <li ><a href="../../src.html">src</a>
+            </li>
+
+        
+        <li class="active"><a href="../clockConfig.cpp.html">clockConfig.cpp</a>:343
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">configurPll</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0002b30c</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>8 (static)</td>
+                <td>984</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/e1601aa9c9101f5167f5233c773d1a54.html">boardInit (20)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../libs/bsp/bspInputManager/src/inputManager/DigitalInputTester.cpp/bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&amp;, unsigned char) (364)</a></pre>
+    
+
+    <pre>
+
+    configurPll():
+
+       2b30c:	4bc1      	ldr	r3, [pc, #772]	@ (2b614 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x308>)
+
+       2b30e:	49c2      	ldr	r1, [pc, #776]	@ (2b618 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x30c>)
+
+       2b310:	2200      	movs	r2, #0
+
+       2b312:	b430      	push	{r4, r5}
+
+       2b314:	f8c3 2080 	str.w	r2, [r3, #128]	@ 0x80
+
+       2b318:	f8c3 2084 	str.w	r2, [r3, #132]	@ 0x84
+
+       2b31c:	f8c3 2090 	str.w	r2, [r3, #144]	@ 0x90
+
+       2b320:	f8c3 2094 	str.w	r2, [r3, #148]	@ 0x94
+
+       2b324:	f8c3 2098 	str.w	r2, [r3, #152]	@ 0x98
+
+       2b328:	f8c3 209c 	str.w	r2, [r3, #156]	@ 0x9c
+
+       2b32c:	f8c3 20ac 	str.w	r2, [r3, #172]	@ 0xac
+
+       2b330:	f8c3 20b0 	str.w	r2, [r3, #176]	@ 0xb0
+
+       2b334:	f8c3 20b4 	str.w	r2, [r3, #180]	@ 0xb4
+
+       2b338:	f8c3 20b8 	str.w	r2, [r3, #184]	@ 0xb8
+
+       2b33c:	f8c3 20c4 	str.w	r2, [r3, #196]	@ 0xc4
+
+       2b340:	f8c3 20c8 	str.w	r2, [r3, #200]	@ 0xc8
+
+       2b344:	f8c3 20d8 	str.w	r2, [r3, #216]	@ 0xd8
+
+       2b348:	f8c3 20dc 	str.w	r2, [r3, #220]	@ 0xdc
+
+       2b34c:	f8c3 20e0 	str.w	r2, [r3, #224]	@ 0xe0
+
+       2b350:	f8c3 20e4 	str.w	r2, [r3, #228]	@ 0xe4
+
+       2b354:	f8c3 20e8 	str.w	r2, [r3, #232]	@ 0xe8
+
+       2b358:	f8c3 20ec 	str.w	r2, [r3, #236]	@ 0xec
+
+       2b35c:	f8c3 20f4 	str.w	r2, [r3, #244]	@ 0xf4
+
+       2b360:	f8c3 2100 	str.w	r2, [r3, #256]	@ 0x100
+
+       2b364:	f8c3 2124 	str.w	r2, [r3, #292]	@ 0x124
+
+       2b368:	f8c3 2128 	str.w	r2, [r3, #296]	@ 0x128
+
+       2b36c:	f8c3 212c 	str.w	r2, [r3, #300]	@ 0x12c
+
+       2b370:	f8c3 2130 	str.w	r2, [r3, #304]	@ 0x130
+
+       2b374:	f8c3 2134 	str.w	r2, [r3, #308]	@ 0x134
+
+       2b378:	f8c3 2168 	str.w	r2, [r3, #360]	@ 0x168
+
+       2b37c:	f8c3 2184 	str.w	r2, [r3, #388]	@ 0x184
+
+       2b380:	f8c3 2198 	str.w	r2, [r3, #408]	@ 0x198
+
+       2b384:	f8c3 21a8 	str.w	r2, [r3, #424]	@ 0x1a8
+
+       2b388:	f8c3 21ac 	str.w	r2, [r3, #428]	@ 0x1ac
+
+       2b38c:	f8c3 21b0 	str.w	r2, [r3, #432]	@ 0x1b0
+
+       2b390:	f8c3 21b8 	str.w	r2, [r3, #440]	@ 0x1b8
+
+       2b394:	f8c3 21bc 	str.w	r2, [r3, #444]	@ 0x1bc
+
+       2b398:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
+
+       2b39c:	f8c3 21e4 	str.w	r2, [r3, #484]	@ 0x1e4
+
+       2b3a0:	69ca      	ldr	r2, [r1, #28]
+
+       2b3a2:	f5a3 5380 	sub.w	r3, r3, #4096	@ 0x1000
+
+       2b3a6:	f042 028f 	orr.w	r2, r2, #143	@ 0x8f
+
+       2b3aa:	201c      	movs	r0, #28
+
+       2b3ac:	61ca      	str	r2, [r1, #28]
+
+       2b3ae:	6188      	str	r0, [r1, #24]
+
+    isSircSysClk():
+
+       2b3b0:	f8d3 1200 	ldr.w	r1, [r3, #512]	@ 0x200
+
+    configurPll():
+
+       2b3b4:	f011 7100 	ands.w	r1, r1, #33554432	@ 0x2000000
+
+       2b3b8:	f000 8136 	beq.w	2b628 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x31c>
+
+       2b3bc:	f8d3 3300 	ldr.w	r3, [r3, #768]	@ 0x300
+
+       2b3c0:	0199      	lsls	r1, r3, #6
+
+       2b3c2:	f140 8184 	bpl.w	2b6ce <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c2>
+
+       2b3c6:	4b95      	ldr	r3, [pc, #596]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+    sircStop():
+
+       2b3c8:	2100      	movs	r1, #0
+
+       2b3ca:	f8c3 1200 	str.w	r1, [r3, #512]	@ 0x200
+
+       2b3ce:	f8d3 2200 	ldr.w	r2, [r3, #512]	@ 0x200
+
+       2b3d2:	07d2      	lsls	r2, r2, #31
+
+       2b3d4:	d4f9      	bmi.n	2b3ca <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xbe>
+
+    configurPll():
+
+       2b3d6:	2001      	movs	r0, #1
+
+    sircConfig():
+
+       2b3d8:	f240 1101 	movw	r1, #257	@ 0x101
+
+    configurPll():
+
+       2b3dc:	4a8f      	ldr	r2, [pc, #572]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+    sircConfig():
+
+       2b3de:	f8c3 0208 	str.w	r0, [r3, #520]	@ 0x208
+
+       2b3e2:	f8c3 1204 	str.w	r1, [r3, #516]	@ 0x204
+
+    sircStart():
+
+       2b3e6:	f8d2 3200 	ldr.w	r3, [r2, #512]	@ 0x200
+
+       2b3ea:	f043 0301 	orr.w	r3, r3, #1
+
+       2b3ee:	f8c2 3200 	str.w	r3, [r2, #512]	@ 0x200
+
+       2b3f2:	f8d2 3200 	ldr.w	r3, [r2, #512]	@ 0x200
+
+       2b3f6:	01dd      	lsls	r5, r3, #7
+
+       2b3f8:	d5f5      	bpl.n	2b3e6 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xda>
+
+    configurPll():
+
+       2b3fa:	4b88      	ldr	r3, [pc, #544]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+    spllStop():
+
+       2b3fc:	f8d3 2600 	ldr.w	r2, [r3, #1536]	@ 0x600
+
+       2b400:	f422 3240 	bic.w	r2, r2, #196608	@ 0x30000
+
+       2b404:	f04f 6180 	mov.w	r1, #67108864	@ 0x4000000
+
+       2b408:	f8c3 2600 	str.w	r2, [r3, #1536]	@ 0x600
+
+       2b40c:	f8c3 1600 	str.w	r1, [r3, #1536]	@ 0x600
+
+       2b410:	f8d3 2600 	ldr.w	r2, [r3, #1536]	@ 0x600
+
+       2b414:	07d4      	lsls	r4, r2, #31
+
+       2b416:	d4f9      	bmi.n	2b40c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x100>
+
+    configurPll():
+
+       2b418:	f8d3 2100 	ldr.w	r2, [r3, #256]	@ 0x100
+
+    soscStop():
+
+       2b41c:	497f      	ldr	r1, [pc, #508]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+       2b41e:	f422 3240 	bic.w	r2, r2, #196608	@ 0x30000
+
+       2b422:	f8c3 2100 	str.w	r2, [r3, #256]	@ 0x100
+
+       2b426:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
+
+       2b42a:	f8c1 2100 	str.w	r2, [r1, #256]	@ 0x100
+
+       2b42e:	f8d1 3100 	ldr.w	r3, [r1, #256]	@ 0x100
+
+       2b432:	07d8      	lsls	r0, r3, #31
+
+       2b434:	d4f9      	bmi.n	2b42a <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x11e>
+
+    configurPll():
+
+       2b436:	2434      	movs	r4, #52	@ 0x34
+
+    soscConfig():
+
+       2b438:	f240 1301 	movw	r3, #257	@ 0x101
+
+    configurPll():
+
+       2b43c:	4a77      	ldr	r2, [pc, #476]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+    soscStart():
+
+       2b43e:	4878      	ldr	r0, [pc, #480]	@ (2b620 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x314>)
+
+    soscConfig():
+
+       2b440:	f8c1 4108 	str.w	r4, [r1, #264]	@ 0x108
+
+       2b444:	f8c1 3104 	str.w	r3, [r1, #260]	@ 0x104
+
+    soscStart():
+
+       2b448:	f8d2 3100 	ldr.w	r3, [r2, #256]	@ 0x100
+
+       2b44c:	4303      	orrs	r3, r0
+
+       2b44e:	f8c2 3100 	str.w	r3, [r2, #256]	@ 0x100
+
+       2b452:	f8d2 3100 	ldr.w	r3, [r2, #256]	@ 0x100
+
+       2b456:	01d9      	lsls	r1, r3, #7
+
+       2b458:	d5f6      	bpl.n	2b448 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x13c>
+
+    configurPll():
+
+       2b45a:	f8d2 3100 	ldr.w	r3, [r2, #256]	@ 0x100
+
+       2b45e:	496f      	ldr	r1, [pc, #444]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+       2b460:	f44f 10c0 	mov.w	r0, #1572864	@ 0x180000
+
+    soscMon():
+
+       2b464:	f443 3340 	orr.w	r3, r3, #196608	@ 0x30000
+
+       2b468:	f8c2 3100 	str.w	r3, [r2, #256]	@ 0x100
+
+    spllConfig():
+
+       2b46c:	f240 1401 	movw	r4, #257	@ 0x101
+
+       2b470:	f8c2 0608 	str.w	r0, [r2, #1544]	@ 0x608
+
+    spllStart():
+
+       2b474:	486a      	ldr	r0, [pc, #424]	@ (2b620 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x314>)
+
+    spllConfig():
+
+       2b476:	f8c2 4604 	str.w	r4, [r2, #1540]	@ 0x604
+
+    spllStart():
+
+       2b47a:	f8d1 3600 	ldr.w	r3, [r1, #1536]	@ 0x600
+
+       2b47e:	4303      	orrs	r3, r0
+
+       2b480:	f8c1 3600 	str.w	r3, [r1, #1536]	@ 0x600
+
+       2b484:	f8d1 3600 	ldr.w	r3, [r1, #1536]	@ 0x600
+
+       2b488:	01db      	lsls	r3, r3, #7
+
+       2b48a:	d5f6      	bpl.n	2b47a <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x16e>
+
+    configurPll():
+
+       2b48c:	f8d1 0600 	ldr.w	r0, [r1, #1536]	@ 0x600
+
+       2b490:	4a62      	ldr	r2, [pc, #392]	@ (2b61c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x310>)
+
+    rccrConfig():
+
+       2b492:	4b64      	ldr	r3, [pc, #400]	@ (2b624 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x318>)
+
+    spllMon():
+
+       2b494:	f440 3040 	orr.w	r0, r0, #196608	@ 0x30000
+
+       2b498:	f8c1 0600 	str.w	r0, [r1, #1536]	@ 0x600
+
+    rccrConfig():
+
+       2b49c:	6153      	str	r3, [r2, #20]
+
+       2b49e:	6911      	ldr	r1, [r2, #16]
+
+       2b4a0:	4299      	cmp	r1, r3
+
+       2b4a2:	d1fb      	bne.n	2b49c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x190>
+
+    configurPll():
+
+       2b4a4:	4b5b      	ldr	r3, [pc, #364]	@ (2b614 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x308>)
+
+       2b4a6:	485c      	ldr	r0, [pc, #368]	@ (2b618 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x30c>)
+
+       2b4a8:	2500      	movs	r5, #0
+
+    enablePeripheralClocks():
+
+       2b4aa:	f04f 4140 	mov.w	r1, #3221225472	@ 0xc0000000
+
+    configurPll():
+
+       2b4ae:	6215      	str	r5, [r2, #32]
+
+    enablePeripheralClocks():
+
+       2b4b0:	f04f 64c0 	mov.w	r4, #100663296	@ 0x6000000
+
+    configurPll():
+
+       2b4b4:	22a3      	movs	r2, #163	@ 0xa3
+
+       2b4b6:	61c2      	str	r2, [r0, #28]
+
+    enablePeripheralClocks():
+
+       2b4b8:	f8c3 1080 	str.w	r1, [r3, #128]	@ 0x80
+
+       2b4bc:	f8c3 1084 	str.w	r1, [r3, #132]	@ 0x84
+
+       2b4c0:	f8c3 1090 	str.w	r1, [r3, #144]	@ 0x90
+
+       2b4c4:	f8c3 1094 	str.w	r1, [r3, #148]	@ 0x94
+
+       2b4c8:	f8c3 4098 	str.w	r4, [r3, #152]	@ 0x98
+
+       2b4cc:	f8d3 0098 	ldr.w	r0, [r3, #152]	@ 0x98
+
+       2b4d0:	f04f 7240 	mov.w	r2, #50331648	@ 0x3000000
+
+       2b4d4:	4308      	orrs	r0, r1
+
+       2b4d6:	f8c3 0098 	str.w	r0, [r3, #152]	@ 0x98
+
+       2b4da:	f8c3 209c 	str.w	r2, [r3, #156]	@ 0x9c
+
+       2b4de:	f8d3 009c 	ldr.w	r0, [r3, #156]	@ 0x9c
+
+       2b4e2:	4308      	orrs	r0, r1
+
+       2b4e4:	f8c3 009c 	str.w	r0, [r3, #156]	@ 0x9c
+
+       2b4e8:	f8c3 10ac 	str.w	r1, [r3, #172]	@ 0xac
+
+       2b4ec:	f8c3 20b0 	str.w	r2, [r3, #176]	@ 0xb0
+
+       2b4f0:	f8d3 00b0 	ldr.w	r0, [r3, #176]	@ 0xb0
+
+       2b4f4:	4308      	orrs	r0, r1
+
+       2b4f6:	f8c3 00b0 	str.w	r0, [r3, #176]	@ 0xb0
+
+       2b4fa:	f8c3 20b4 	str.w	r2, [r3, #180]	@ 0xb4
+
+       2b4fe:	f8d3 00b4 	ldr.w	r0, [r3, #180]	@ 0xb4
+
+       2b502:	4308      	orrs	r0, r1
+
+       2b504:	f8c3 00b4 	str.w	r0, [r3, #180]	@ 0xb4
+
+       2b508:	f8c3 20b8 	str.w	r2, [r3, #184]	@ 0xb8
+
+       2b50c:	f8d3 00b8 	ldr.w	r0, [r3, #184]	@ 0xb8
+
+       2b510:	4308      	orrs	r0, r1
+
+       2b512:	f8c3 00b8 	str.w	r0, [r3, #184]	@ 0xb8
+
+       2b516:	f04f 7000 	mov.w	r0, #33554432	@ 0x2000000
+
+       2b51a:	f8c3 10c4 	str.w	r1, [r3, #196]	@ 0xc4
+
+       2b51e:	f8c3 10c8 	str.w	r1, [r3, #200]	@ 0xc8
+
+       2b522:	f8c3 10d8 	str.w	r1, [r3, #216]	@ 0xd8
+
+       2b526:	f8c3 00dc 	str.w	r0, [r3, #220]	@ 0xdc
+
+       2b52a:	f8d3 00dc 	ldr.w	r0, [r3, #220]	@ 0xdc
+
+       2b52e:	4308      	orrs	r0, r1
+
+       2b530:	f8c3 00dc 	str.w	r0, [r3, #220]	@ 0xdc
+
+       2b534:	f04f 7080 	mov.w	r0, #16777216	@ 0x1000000
+
+       2b538:	f8c3 00e0 	str.w	r0, [r3, #224]	@ 0xe0
+
+       2b53c:	f8d3 50e0 	ldr.w	r5, [r3, #224]	@ 0xe0
+
+       2b540:	430d      	orrs	r5, r1
+
+       2b542:	f8c3 50e0 	str.w	r5, [r3, #224]	@ 0xe0
+
+       2b546:	f8c3 40e4 	str.w	r4, [r3, #228]	@ 0xe4
+
+       2b54a:	f8d3 50e4 	ldr.w	r5, [r3, #228]	@ 0xe4
+
+       2b54e:	430d      	orrs	r5, r1
+
+       2b550:	f8c3 50e4 	str.w	r5, [r3, #228]	@ 0xe4
+
+       2b554:	f8c3 00e8 	str.w	r0, [r3, #232]	@ 0xe8
+
+       2b558:	f8d3 50e8 	ldr.w	r5, [r3, #232]	@ 0xe8
+
+       2b55c:	430d      	orrs	r5, r1
+
+       2b55e:	f8c3 50e8 	str.w	r5, [r3, #232]	@ 0xe8
+
+       2b562:	f8c3 20ec 	str.w	r2, [r3, #236]	@ 0xec
+
+       2b566:	f8d3 50ec 	ldr.w	r5, [r3, #236]	@ 0xec
+
+       2b56a:	430d      	orrs	r5, r1
+
+       2b56c:	f8c3 50ec 	str.w	r5, [r3, #236]	@ 0xec
+
+       2b570:	f8c3 10f4 	str.w	r1, [r3, #244]	@ 0xf4
+
+       2b574:	f8c3 0100 	str.w	r0, [r3, #256]	@ 0x100
+
+       2b578:	f8d3 5100 	ldr.w	r5, [r3, #256]	@ 0x100
+
+       2b57c:	430d      	orrs	r5, r1
+
+       2b57e:	f8c3 5100 	str.w	r5, [r3, #256]	@ 0x100
+
+       2b582:	f8c3 1124 	str.w	r1, [r3, #292]	@ 0x124
+
+       2b586:	f8c3 1128 	str.w	r1, [r3, #296]	@ 0x128
+
+       2b58a:	f8c3 112c 	str.w	r1, [r3, #300]	@ 0x12c
+
+       2b58e:	f8c3 1130 	str.w	r1, [r3, #304]	@ 0x130
+
+       2b592:	f8c3 1134 	str.w	r1, [r3, #308]	@ 0x134
+
+       2b596:	f8c3 0168 	str.w	r0, [r3, #360]	@ 0x168
+
+       2b59a:	f8d3 5168 	ldr.w	r5, [r3, #360]	@ 0x168
+
+       2b59e:	430d      	orrs	r5, r1
+
+       2b5a0:	f8c3 5168 	str.w	r5, [r3, #360]	@ 0x168
+
+       2b5a4:	f8c3 1184 	str.w	r1, [r3, #388]	@ 0x184
+
+       2b5a8:	f8c3 0198 	str.w	r0, [r3, #408]	@ 0x198
+
+       2b5ac:	f8d3 5198 	ldr.w	r5, [r3, #408]	@ 0x198
+
+       2b5b0:	430d      	orrs	r5, r1
+
+       2b5b2:	f8c3 5198 	str.w	r5, [r3, #408]	@ 0x198
+
+       2b5b6:	f8c3 01a8 	str.w	r0, [r3, #424]	@ 0x1a8
+
+       2b5ba:	f8d3 51a8 	ldr.w	r5, [r3, #424]	@ 0x1a8
+
+       2b5be:	430d      	orrs	r5, r1
+
+       2b5c0:	f8c3 51a8 	str.w	r5, [r3, #424]	@ 0x1a8
+
+       2b5c4:	f8c3 21ac 	str.w	r2, [r3, #428]	@ 0x1ac
+
+       2b5c8:	f8d3 51ac 	ldr.w	r5, [r3, #428]	@ 0x1ac
+
+       2b5cc:	430d      	orrs	r5, r1
+
+       2b5ce:	f8c3 51ac 	str.w	r5, [r3, #428]	@ 0x1ac
+
+       2b5d2:	f8c3 21b0 	str.w	r2, [r3, #432]	@ 0x1b0
+
+       2b5d6:	f8d3 51b0 	ldr.w	r5, [r3, #432]	@ 0x1b0
+
+       2b5da:	430d      	orrs	r5, r1
+
+       2b5dc:	f8c3 51b0 	str.w	r5, [r3, #432]	@ 0x1b0
+
+       2b5e0:	f8c3 41b8 	str.w	r4, [r3, #440]	@ 0x1b8
+
+       2b5e4:	f8d3 41b8 	ldr.w	r4, [r3, #440]	@ 0x1b8
+
+       2b5e8:	430c      	orrs	r4, r1
+
+       2b5ea:	f8c3 41b8 	str.w	r4, [r3, #440]	@ 0x1b8
+
+       2b5ee:	f8c3 01bc 	str.w	r0, [r3, #444]	@ 0x1bc
+
+       2b5f2:	f8d3 01bc 	ldr.w	r0, [r3, #444]	@ 0x1bc
+
+       2b5f6:	4308      	orrs	r0, r1
+
+       2b5f8:	f8c3 01bc 	str.w	r0, [r3, #444]	@ 0x1bc
+
+       2b5fc:	f8c3 11cc 	str.w	r1, [r3, #460]	@ 0x1cc
+
+       2b600:	f8c3 21e4 	str.w	r2, [r3, #484]	@ 0x1e4
+
+       2b604:	f8d3 21e4 	ldr.w	r2, [r3, #484]	@ 0x1e4
+
+       2b608:	430a      	orrs	r2, r1
+
+    configurPll():
+
+       2b60a:	bc30      	pop	{r4, r5}
+
+    enablePeripheralClocks():
+
+       2b60c:	f8c3 21e4 	str.w	r2, [r3, #484]	@ 0x1e4
+
+    configurPll():
+
+       2b610:	4770      	bx	lr
+
+       2b612:	bf00      	nop
+
+       2b614:	40065000 	.word	0x40065000
+
+       2b618:	4007f000 	.word	0x4007f000
+
+       2b61c:	40064000 	.word	0x40064000
+
+       2b620:	04000001 	.word	0x04000001
+
+       2b624:	06010012 	.word	0x06010012
+
+       2b628:	f8c3 1200 	str.w	r1, [r3, #512]	@ 0x200
+
+    sircStop():
+
+       2b62c:	f8d3 2200 	ldr.w	r2, [r3, #512]	@ 0x200
+
+       2b630:	07d2      	lsls	r2, r2, #31
+
+       2b632:	d4f9      	bmi.n	2b628 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x31c>
+
+    configurPll():
+
+       2b634:	2001      	movs	r0, #1
+
+    sircConfig():
+
+       2b636:	f240 1101 	movw	r1, #257	@ 0x101
+
+    configurPll():
+
+       2b63a:	4a26      	ldr	r2, [pc, #152]	@ (2b6d4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c8>)
+
+    sircConfig():
+
+       2b63c:	f8c3 0208 	str.w	r0, [r3, #520]	@ 0x208
+
+       2b640:	f8c3 1204 	str.w	r1, [r3, #516]	@ 0x204
+
+    sircStart():
+
+       2b644:	f8d2 3200 	ldr.w	r3, [r2, #512]	@ 0x200
+
+       2b648:	f043 0301 	orr.w	r3, r3, #1
+
+       2b64c:	f8c2 3200 	str.w	r3, [r2, #512]	@ 0x200
+
+       2b650:	f8d2 3200 	ldr.w	r3, [r2, #512]	@ 0x200
+
+       2b654:	01dd      	lsls	r5, r3, #7
+
+       2b656:	d5f5      	bpl.n	2b644 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x338>
+
+    configurPll():
+
+       2b658:	4b1e      	ldr	r3, [pc, #120]	@ (2b6d4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c8>)
+
+    sircSysClk():
+
+       2b65a:	4a1f      	ldr	r2, [pc, #124]	@ (2b6d8 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3cc>)
+
+       2b65c:	615a      	str	r2, [r3, #20]
+
+       2b65e:	6919      	ldr	r1, [r3, #16]
+
+       2b660:	4291      	cmp	r1, r2
+
+       2b662:	d1fb      	bne.n	2b65c <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x350>
+
+       2b664:	f04f 22e0 	mov.w	r2, #3758153728	@ 0xe000e000
+
+       2b668:	f641 713f 	movw	r1, #7999	@ 0x1f3f
+
+       2b66c:	6151      	str	r1, [r2, #20]
+
+    isFircSysClk():
+
+       2b66e:	f8d3 0300 	ldr.w	r0, [r3, #768]	@ 0x300
+
+    configurPll():
+
+       2b672:	f010 7000 	ands.w	r0, r0, #33554432	@ 0x2000000
+
+       2b676:	f47f aec0 	bne.w	2b3fa <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xee>
+
+       2b67a:	4916      	ldr	r1, [pc, #88]	@ (2b6d4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c8>)
+
+    fircStop():
+
+       2b67c:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
+
+       2b680:	f8c1 2300 	str.w	r2, [r1, #768]	@ 0x300
+
+       2b684:	f8d1 3300 	ldr.w	r3, [r1, #768]	@ 0x300
+
+       2b688:	f013 0301 	ands.w	r3, r3, #1
+
+       2b68c:	d1f8      	bne.n	2b680 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x374>
+
+    configurPll():
+
+       2b68e:	f240 1401 	movw	r4, #257	@ 0x101
+
+    fircConfig():
+
+       2b692:	f8c1 3308 	str.w	r3, [r1, #776]	@ 0x308
+
+    configurPll():
+
+       2b696:	4a0f      	ldr	r2, [pc, #60]	@ (2b6d4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c8>)
+
+    fircConfig():
+
+       2b698:	f8c1 4304 	str.w	r4, [r1, #772]	@ 0x304
+
+    fircStart():
+
+       2b69c:	490f      	ldr	r1, [pc, #60]	@ (2b6dc <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3d0>)
+
+       2b69e:	f8d2 3300 	ldr.w	r3, [r2, #768]	@ 0x300
+
+       2b6a2:	430b      	orrs	r3, r1
+
+       2b6a4:	f8c2 3300 	str.w	r3, [r2, #768]	@ 0x300
+
+       2b6a8:	f8d2 3300 	ldr.w	r3, [r2, #768]	@ 0x300
+
+       2b6ac:	01dc      	lsls	r4, r3, #7
+
+       2b6ae:	d5f6      	bpl.n	2b69e <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x392>
+
+    configurPll():
+
+       2b6b0:	4a08      	ldr	r2, [pc, #32]	@ (2b6d4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3c8>)
+
+    fircSysClk():
+
+       2b6b2:	4b0b      	ldr	r3, [pc, #44]	@ (2b6e0 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3d4>)
+
+       2b6b4:	6153      	str	r3, [r2, #20]
+
+       2b6b6:	6911      	ldr	r1, [r2, #16]
+
+       2b6b8:	4299      	cmp	r1, r3
+
+       2b6ba:	d1fb      	bne.n	2b6b4 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x3a8>
+
+       2b6bc:	f04f 23e0 	mov.w	r3, #3758153728	@ 0xe000e000
+
+       2b6c0:	f64b 327f 	movw	r2, #47999	@ 0xbb7f
+
+       2b6c4:	615a      	str	r2, [r3, #20]
+
+    configurPll():
+
+       2b6c6:	2800      	cmp	r0, #0
+
+       2b6c8:	f47f ae7d 	bne.w	2b3c6 <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xba>
+
+       2b6cc:	e695      	b.n	2b3fa <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0xee>
+
+       2b6ce:	2001      	movs	r0, #1
+
+       2b6d0:	e7d3      	b.n	2b67a <<a href="./49adf708c20c3b242cdf9d0260613acd.html">configurPll</a>+0x36e>
+
+       2b6d2:	bf00      	nop
+
+       2b6d4:	40064000 	.word	0x40064000
+
+       2b6d8:	02000001 	.word	0x02000001
+
+       2b6dc:	04000001 	.word	0x04000001
+
+       2b6e0:	03000001 	.word	0x03000001
+
+    </pre>
+
+    
+    <pre><a href="../../../../safety/safeBspMcuWatchdog/src/watchdog/Watchdog.cpp/170a06262c012a9e0c7d2625a40f19e9.html">safety::bsp::Watchdog::enableWatchdog(unsigned long, bool, unsigned long) (108)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 16</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,004</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    16
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,004
+                    
+                    
+                </td>
+                <td class="col_size">984</td>
+                <td><a href="./49adf708c20c3b242cdf9d0260613acd.html" class="icon-function">configurPll</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">20</td>
+                <td><a href="../../../../../../executables/referenceApp/platforms/s32k148evb/main/src/main.cpp/e1601aa9c9101f5167f5233c773d1a54.html" class="icon-function">boardInit</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

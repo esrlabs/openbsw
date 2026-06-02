@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerConnectionHandler.cpp.html">DoIpServerConnectionHandler.cpp</a>:204
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00027b04</td>
+                <td>
+    
+    
+</td>
+                <td>40 (static)</td>
+                <td>204</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./c63a2b80fffed187df23b8d0733e3a8e.html">doip::DoIpServerConnectionHandler::headerReceived(doip::DoIpHeader const&amp;) (220)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./d9189011f44587f1ad9c5e6fa0f998a1.html">doip::DoIpServerConnectionHandler::addMessageHandler(doip::IDoIpServerMessageHandler&amp;) (64)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b04:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b08:	1d16      	adds	r6, r2, #4
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b0a:	b084      	sub	sp, #16
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b0c:	2700      	movs	r7, #0
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b0e:	4604      	mov	r4, r0
+
+       27b10:	460d      	mov	r5, r1
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b12:	2204      	movs	r2, #4
+
+       27b14:	4631      	mov	r1, r6
+
+       27b16:	a802      	add	r0, sp, #8
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b18:	9702      	str	r7, [sp, #8]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b1a:	f7d8 fd40 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       27b1e:	9b02      	ldr	r3, [sp, #8]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b20:	f1b3 6fe0 	cmp.w	r3, #117440512	@ 0x7000000
+
+       27b24:	d019      	beq.n	27b5a <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0x56>
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b26:	2204      	movs	r2, #4
+
+       27b28:	4631      	mov	r1, r6
+
+       27b2a:	a802      	add	r0, sp, #8
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b2c:	9702      	str	r7, [sp, #8]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b2e:	f7d8 fd36 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       27b32:	9b02      	ldr	r3, [sp, #8]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b34:	f1b3 6f30 	cmp.w	r3, #184549376	@ 0xb000000
+
+       27b38:	d00f      	beq.n	27b5a <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0x56>
+
+       27b3a:	682b      	ldr	r3, [r5, #0]
+
+       27b3c:	4628      	mov	r0, r5
+
+       27b3e:	6c1b      	ldr	r3, [r3, #64]	@ 0x40
+
+       27b40:	2201      	movs	r2, #1
+
+       27b42:	2104      	movs	r1, #4
+
+       27b44:	4798      	blx	r3
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS6_Li0EEEOT_():
+
+       27b46:	4a1f      	ldr	r2, [pc, #124]	@ (27bc4 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xc0>)
+
+       27b48:	60a2      	str	r2, [r4, #8]
+
+       27b4a:	2301      	movs	r3, #1
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b4c:	4620      	mov	r0, r4
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS6_Li0EEEOT_():
+
+       27b4e:	60e3      	str	r3, [r4, #12]
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEE18construct_in_placeIS6_EEvPcOT_():
+
+       27b50:	6027      	str	r7, [r4, #0]
+
+       27b52:	6067      	str	r7, [r4, #4]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b54:	b004      	add	sp, #16
+
+       27b56:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       27b5a:	696f      	ldr	r7, [r5, #20]
+
+       27b5c:	683b      	ldr	r3, [r7, #0]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b5e:	4631      	mov	r1, r6
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b60:	f8d3 800c 	ldr.w	r8, [r3, #12]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b64:	2204      	movs	r2, #4
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b66:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b68:	a802      	add	r0, sp, #8
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27b6a:	9302      	str	r3, [sp, #8]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27b6c:	f7d8 fd17 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       27b70:	9b02      	ldr	r3, [sp, #8]
+
+    _ZNK3etl4spanIhLj4294967295EE7subspanEjj():
+
+       27b72:	1c5a      	adds	r2, r3, #1
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b74:	f105 06ca 	add.w	r6, r5, #202	@ 0xca
+
+    _ZNK3etl4spanIhLj4294967295EE7subspanEjj():
+
+       27b78:	d01e      	beq.n	27bb8 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xb4>
+
+       27b7a:	ba1b      	rev	r3, r3
+
+       27b7c:	4433      	add	r3, r6
+
+    _ZN3etl4spanIhLj4294967295EEC4IPhS3_EET_T0_PNS_9enable_ifIXntsrNS_11is_integralIS5_EE5valueEvE4typeE():
+
+       27b7e:	e9cd 6300 	strd	r6, r3, [sp]
+
+    _ZN3etl8delegateIFvNS_4spanIKhLj4294967295EEEEE18invocation_elementC4EPvPFvRKS6_S3_E():
+
+       27b82:	4b11      	ldr	r3, [pc, #68]	@ (27bc8 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xc4>)
+
+       27b84:	9303      	str	r3, [sp, #12]
+
+    _ZN3etl8delegateIFvNS_4spanIKhLj4294967295EEEEE18invocation_element8ptr_typeC4EPv():
+
+       27b86:	9502      	str	r5, [sp, #8]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b88:	ab02      	add	r3, sp, #8
+
+       27b8a:	cb0c      	ldmia	r3, {r2, r3}
+
+       27b8c:	4638      	mov	r0, r7
+
+       27b8e:	4669      	mov	r1, sp
+
+       27b90:	47c0      	blx	r8
+
+       27b92:	b138      	cbz	r0, 27ba4 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xa0>
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS3_Li0EEEOT_():
+
+       27b94:	4a0d      	ldr	r2, [pc, #52]	@ (27bcc <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xc8>)
+
+       27b96:	60a2      	str	r2, [r4, #8]
+
+       27b98:	2300      	movs	r3, #0
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b9a:	4620      	mov	r0, r4
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS3_Li0EEEOT_():
+
+       27b9c:	60e3      	str	r3, [r4, #12]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27b9e:	b004      	add	sp, #16
+
+       27ba0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS6_Li0EEEOT_():
+
+       27ba4:	4a07      	ldr	r2, [pc, #28]	@ (27bc4 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0xc0>)
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEE18construct_in_placeIS6_EEvPcOT_():
+
+       27ba6:	6020      	str	r0, [r4, #0]
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS6_Li0EEEOT_():
+
+       27ba8:	2301      	movs	r3, #1
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEE18construct_in_placeIS6_EEvPcOT_():
+
+       27baa:	6060      	str	r0, [r4, #4]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27bac:	4620      	mov	r0, r4
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEEC4IS6_Li0EEEOT_():
+
+       27bae:	60a2      	str	r2, [r4, #8]
+
+       27bb0:	60e3      	str	r3, [r4, #12]
+
+    doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&):
+
+       27bb2:	b004      	add	sp, #16
+
+       27bb4:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    _ZN3etl4spanIhLj4294967295EEC4ILj11EEERAT__h():
+
+       27bb8:	f105 03d5 	add.w	r3, r5, #213	@ 0xd5
+
+    _ZN3etl4spanIhLj4294967295EEC4IPhS3_EET_T0_PNS_9enable_ifIXntsrNS_11is_integralIS5_EE5valueEvE4typeE():
+
+       27bbc:	9600      	str	r6, [sp, #0]
+
+       27bbe:	9301      	str	r3, [sp, #4]
+
+       27bc0:	e7df      	b.n	27b82 <<a href="./81d7408ab6a450fda90d118cc96692fc.html">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&)</a>+0x7e>
+
+       27bc2:	bf00      	nop
+
+       27bc4:	0002510d 	.word	0x0002510d
+
+       27bc8:	00028605 	.word	0x00028605
+
+       27bcc:	000250e5 	.word	0x000250e5
+
+    </pre>
+
+    
+    <pre><a href="./b322c0d939ee62880e4b44c4dbb32f84.html">doip::DoIpServerConnectionHandler::headerReceivedAliveCheckResponse(doip::DoIpHeader const&amp;) (136)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 80</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 424</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    424
+                    
+                    
+                </td>
+                <td class="col_size">204</td>
+                <td><a href="./81d7408ab6a450fda90d118cc96692fc.html" class="icon-function">doip::DoIpServerConnectionHandler::headerReceivedRoutingActivationRequest(doip::DoIpHeader const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">220</td>
+                <td><a href="./c63a2b80fffed187df23b8d0733e3a8e.html" class="icon-function">doip::DoIpServerConnectionHandler::headerReceived(doip::DoIpHeader const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../include.html">include</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerSocketHandler.h.html">DoIpServerSocketHandler.h</a>:248
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::declare::DoIpServerSocketHandler&lt;tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u&gt;::acquireSocket()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00009edc</td>
+                <td>
+    
+    
+</td>
+                <td>32 (static)</td>
+                <td>116</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=60
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../lwipSocket/src/lwipSocket/tcp/LwipSocket.cpp/3b9fe6690d69e7008baf6ec5a0d7cd52.html">tcp::LwipSocket::LwipSocket() (60)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../DoIpServerTransportConnectionPool.h/6a04330b24892265a01fc2249bd4a80b.html">doip::declare::DoIpServerTransportConnectionPool&lt;doip::DoIpServerTransportConnection, 5u, 6u, 8u&gt;::releaseConnection(doip::DoIpServerTransportConnection&amp;) (100)</a></pre>
+    
+
+    <pre>
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket():
+
+        9edc:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+    _ZNK3etl5ipool4fullEv():
+
+        9ede:	6d83      	ldr	r3, [r0, #88]	@ 0x58
+
+        9ee0:	6e42      	ldr	r2, [r0, #100]	@ 0x64
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket():
+
+        9ee2:	4293      	cmp	r3, r2
+
+        9ee4:	b083      	sub	sp, #12
+
+        9ee6:	d02c      	beq.n	9f42 <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x66>
+
+    _ZN3etl5ipool8allocateIN3tcp10LwipSocketEEEPT_v():
+
+        9ee8:	6e01      	ldr	r1, [r0, #96]	@ 0x60
+
+        9eea:	293f      	cmp	r1, #63	@ 0x3f
+
+        9eec:	4604      	mov	r4, r0
+
+        9eee:	d805      	bhi.n	9efc <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x20>
+
+        9ef0:	4b16      	ldr	r3, [pc, #88]	@ (9f4c <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x70>)
+
+        9ef2:	a801      	add	r0, sp, #4
+
+        9ef4:	681b      	ldr	r3, [r3, #0]
+
+        9ef6:	4798      	blx	r3
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+        9ef8:	6da3      	ldr	r3, [r4, #88]	@ 0x58
+
+        9efa:	6e62      	ldr	r2, [r4, #100]	@ 0x64
+
+        9efc:	429a      	cmp	r2, r3
+
+        9efe:	d91c      	bls.n	9f3a <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x5e>
+
+        9f00:	6de1      	ldr	r1, [r4, #92]	@ 0x5c
+
+        9f02:	428a      	cmp	r2, r1
+
+        9f04:	d908      	bls.n	9f18 <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x3c>
+
+        9f06:	6e27      	ldr	r7, [r4, #96]	@ 0x60
+
+        9f08:	6d26      	ldr	r6, [r4, #80]	@ 0x50
+
+        9f0a:	fb07 f501 	mul.w	r5, r7, r1
+
+        9f0e:	1970      	adds	r0, r6, r5
+
+        9f10:	3101      	adds	r1, #1
+
+        9f12:	4438      	add	r0, r7
+
+        9f14:	5170      	str	r0, [r6, r5]
+
+        9f16:	65e1      	str	r1, [r4, #92]	@ 0x5c
+
+        9f18:	6d65      	ldr	r5, [r4, #84]	@ 0x54
+
+        9f1a:	3301      	adds	r3, #1
+
+        9f1c:	429a      	cmp	r2, r3
+
+        9f1e:	bf88      	it	hi
+
+        9f20:	682a      	ldrhi	r2, [r5, #0]
+
+        9f22:	65a3      	str	r3, [r4, #88]	@ 0x58
+
+        9f24:	bf98      	it	ls
+
+        9f26:	2200      	movls	r2, #0
+
+        9f28:	2301      	movs	r3, #1
+
+        9f2a:	6562      	str	r2, [r4, #84]	@ 0x54
+
+    _ZN3etl5ipool6createIN3tcp10LwipSocketEJEEEPT_DpOT0_():
+
+        9f2c:	4628      	mov	r0, r5
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+        9f2e:	602b      	str	r3, [r5, #0]
+
+    _ZN3etl5ipool6createIN3tcp10LwipSocketEJEEEPT_DpOT0_():
+
+        9f30:	f00f ffe0 	bl	19ef4 <<a href="../../../../../lwipSocket/src/lwipSocket/tcp/LwipSocket.cpp/3b9fe6690d69e7008baf6ec5a0d7cd52.html">tcp::LwipSocket::LwipSocket()</a>>
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket():
+
+        9f34:	4628      	mov	r0, r5
+
+        9f36:	b003      	add	sp, #12
+
+        9f38:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+        9f3a:	4b04      	ldr	r3, [pc, #16]	@ (9f4c <<a href="./d1e9bff134fe4684c1f643035f7d9e14.html">doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket()</a>+0x70>)
+
+        9f3c:	a801      	add	r0, sp, #4
+
+        9f3e:	681b      	ldr	r3, [r3, #0]
+
+        9f40:	4798      	blx	r3
+
+    doip::declare::DoIpServerSocketHandler<tcp::LwipServerSocket, tcp::LwipSocket, 2u, 6u, 0u>::acquireSocket():
+
+        9f42:	2500      	movs	r5, #0
+
+        9f44:	4628      	mov	r0, r5
+
+        9f46:	b003      	add	sp, #12
+
+        9f48:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+        9f4a:	bf00      	nop
+
+        9f4c:	1ffe0120 	.word	0x1ffe0120
+
+    </pre>
+
+    
+    <pre><a href="../DoIpServerVehicleIdentificationSocketHandler.h/6f56923f5b5a8cb5f708b5e509d19341.html">doip::declare::DoIpServerVehicleIdentificationSocketHandler&lt;udp::LwipDatagramSocket, (unsigned char)3, 4u&gt;::~DoIpServerVehicleIdentificationSocketHandler() (92)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 48</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 60</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    48
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../lwipSocket/src/lwipSocket/tcp/LwipSocket.cpp/3b9fe6690d69e7008baf6ec5a0d7cd52.html" class="icon-function">tcp::LwipSocket::LwipSocket()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">32
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

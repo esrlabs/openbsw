@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../common.html">common</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpUdpConnection.cpp.html">DoIpUdpConnection.cpp</a>:114
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000275a4</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>48 (static)</td>
+                <td>224</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../include/doip/common/DoIpUdpConnection.h/7614948d174fb3b0749ff04c9bab3bfb.html">non-virtual thunk to doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=320
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive() (292)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive() (292)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       275a4:	b082      	sub	sp, #8
+
+       275a6:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+       275aa:	b086      	sub	sp, #24
+
+       275ac:	4604      	mov	r4, r0
+
+       275ae:	f8bd 1054 	ldrh.w	r1, [sp, #84]	@ 0x54
+
+       275b2:	f8bd 5040 	ldrh.w	r5, [sp, #64]	@ 0x40
+
+       275b6:	f8a4 107c 	strh.w	r1, [r4, #124]	@ 0x7c
+
+       275ba:	2700      	movs	r7, #0
+
+       275bc:	a80c      	add	r0, sp, #48	@ 0x30
+
+       275be:	2907      	cmp	r1, #7
+
+       275c0:	e880 000c 	stmia.w	r0, {r2, r3}
+
+       275c4:	f884 708a 	strb.w	r7, [r4, #138]	@ 0x8a
+
+       275c8:	d94b      	bls.n	27662 <<a href="./a6b048d95a6d6b3f6001f5ca818c91d8.html">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short)</a>+0xbe>
+
+    _ZN3etl4spanIhLj4294967295EEC4ILj8EEERAT__h():
+
+       275ca:	f104 0389 	add.w	r3, r4, #137	@ 0x89
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       275ce:	f104 0281 	add.w	r2, r4, #129	@ 0x81
+
+    _ZN3etl4spanIhLj4294967295EEaSERKS1_():
+
+       275d2:	6323      	str	r3, [r4, #48]	@ 0x30
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+       275d4:	4601      	mov	r1, r0
+
+    _ZN3etl4spanIhLj4294967295EEaSERKS1_():
+
+       275d6:	62e2      	str	r2, [r4, #44]	@ 0x2c
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       275d8:	f104 0654 	add.w	r6, r4, #84	@ 0x54
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+       275dc:	2210      	movs	r2, #16
+
+       275de:	a801      	add	r0, sp, #4
+
+       275e0:	f7d8 ffdd 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       275e4:	f04f 0801 	mov.w	r8, #1
+
+       275e8:	2213      	movs	r2, #19
+
+       275ea:	a901      	add	r1, sp, #4
+
+       275ec:	4630      	mov	r0, r6
+
+       275ee:	f8ad 5014 	strh.w	r5, [sp, #20]
+
+       275f2:	f88d 8016 	strb.w	r8, [sp, #22]
+
+       275f6:	f7d8 ffd2 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       275fa:	6aa0      	ldr	r0, [r4, #40]	@ 0x28
+
+       275fc:	6803      	ldr	r3, [r0, #0]
+
+       275fe:	6b9b      	ldr	r3, [r3, #56]	@ 0x38
+
+       27600:	4798      	blx	r3
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+       27602:	2210      	movs	r2, #16
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       27604:	4605      	mov	r5, r0
+
+    _ZN2ip10IPEndpointC4ERKNS_9IPAddressEt():
+
+       27606:	a911      	add	r1, sp, #68	@ 0x44
+
+       27608:	a801      	add	r0, sp, #4
+
+       2760a:	f7d8 ffc8 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       2760e:	f8ad 5014 	strh.w	r5, [sp, #20]
+
+       27612:	f104 0540 	add.w	r5, r4, #64	@ 0x40
+
+       27616:	2213      	movs	r2, #19
+
+       27618:	a901      	add	r1, sp, #4
+
+       2761a:	4628      	mov	r0, r5
+
+       2761c:	f88d 8016 	strb.w	r8, [sp, #22]
+
+       27620:	f7d8 ffbd 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       27624:	4620      	mov	r0, r4
+
+       27626:	f7ff ff2b 	bl	27480 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>>
+
+       2762a:	2213      	movs	r2, #19
+
+       2762c:	a901      	add	r1, sp, #4
+
+       2762e:	4630      	mov	r0, r6
+
+    _ZN2ip10IPEndpointC4Ev():
+
+       27630:	9701      	str	r7, [sp, #4]
+
+       27632:	9702      	str	r7, [sp, #8]
+
+       27634:	9703      	str	r7, [sp, #12]
+
+       27636:	9704      	str	r7, [sp, #16]
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       27638:	f8ad 7014 	strh.w	r7, [sp, #20]
+
+       2763c:	f88d 7016 	strb.w	r7, [sp, #22]
+
+       27640:	f7d8 ffad 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       27644:	a901      	add	r1, sp, #4
+
+       27646:	2213      	movs	r2, #19
+
+       27648:	4628      	mov	r0, r5
+
+    _ZN2ip10IPEndpointC4Ev():
+
+       2764a:	9701      	str	r7, [sp, #4]
+
+       2764c:	9702      	str	r7, [sp, #8]
+
+       2764e:	9703      	str	r7, [sp, #12]
+
+       27650:	9704      	str	r7, [sp, #16]
+
+    doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short):
+
+       27652:	f8ad 7014 	strh.w	r7, [sp, #20]
+
+       27656:	f88d 7016 	strb.w	r7, [sp, #22]
+
+       2765a:	f7d8 ffa0 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       2765e:	f8b4 107c 	ldrh.w	r1, [r4, #124]	@ 0x7c
+
+       27662:	b149      	cbz	r1, 27678 <<a href="./a6b048d95a6d6b3f6001f5ca818c91d8.html">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short)</a>+0xd4>
+
+       27664:	6aa0      	ldr	r0, [r4, #40]	@ 0x28
+
+       27666:	6803      	ldr	r3, [r0, #0]
+
+       27668:	6a1b      	ldr	r3, [r3, #32]
+
+       2766a:	460a      	mov	r2, r1
+
+       2766c:	2100      	movs	r1, #0
+
+       2766e:	b006      	add	sp, #24
+
+       27670:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+       27674:	b002      	add	sp, #8
+
+       27676:	4718      	bx	r3
+
+       27678:	b006      	add	sp, #24
+
+       2767a:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+
+       2767e:	b002      	add	sp, #8
+
+       27680:	4770      	bx	lr
+
+       27682:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="../../../../include/doip/common/DoIpUdpConnection.h/7614948d174fb3b0749ff04c9bab3bfb.html">non-virtual thunk to doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short) (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 120</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 292</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                72 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">292</td>
+                <td><a href="./a2a0345dc74dbd1a2da4eb6909115945.html" class="icon-function">doip::DoIpUdpConnection::tryReceive()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">48
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>
