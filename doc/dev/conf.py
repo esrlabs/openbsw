@@ -53,6 +53,7 @@ def replace_placeholders(app, doctree, docname):
     gcc_arm = props["tool"].get("gcc-arm-none-eabi", "x.x")
     llvm_arm = props["tool"].get("llvm-arm", "x.x")
     ubuntu_version = props["tool"].get("ubuntu_version", "x.x")
+    rust_version = props["tool"].get("rust_version", "x.x")
 
     for node in doctree.traverse(nodes.Text):
         text = node.astext()
@@ -66,6 +67,9 @@ def replace_placeholders(app, doctree, docname):
 
         elif "Ubuntu-x.x" in text:
             new_text = new_text.replace("x.x", ubuntu_version)
+
+        if "default-toolchain" in text and "x.x" in text:
+            new_text = new_text.replace("x.x", rust_version)
 
         if new_text != text:
             node.parent.replace(node, nodes.Text(new_text))

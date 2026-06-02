@@ -5,7 +5,14 @@ import sys
 
 
 def main():
-    if which("rustfmt") is None:
+    # `rustfmt --version` fails if the binary is absent OR the rustup component
+    # isn't installed for the active toolchain (rustup leaves a proxy shim on
+    # PATH either way, so a plain `which` check isn't enough).
+    if which("rustfmt") is None or subprocess.run(
+        ["rustfmt", "--version"],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    ).returncode != 0:
         # rustfmt not installed, silently skip formatting
         sys.exit(0)
 
