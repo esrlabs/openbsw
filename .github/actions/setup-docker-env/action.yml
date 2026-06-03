@@ -10,7 +10,7 @@ runs:
     - name: Build development Image
       uses: docker/build-push-action@v6
       with:
-        context: "${{ github.workspace }}/docker/development"
+        context: "{{defaultContext}}:docker/development"
         push: false
         tags: openbsw-development:local
         outputs: type=docker
