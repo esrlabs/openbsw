@@ -51,10 +51,9 @@ jobs:
           --ref-name "${{ github.ref_name }}" --sha "${{ github.sha }}"
           --event-path "${GITHUB_EVENT_PATH}" --output-file .clang-tidy-diff-files.txt
           --github-output "${GITHUB_OUTPUT}"
-
       - name: Setup Docker Environment
+        if: ${{ steps.scope.outputs.mode == 'full' || steps.scope.outputs.has_changes == 'true' }}
         uses: ./.github/actions/setup-docker-env
-
       - name: Run the ${{ matrix.platform }} ${{ matrix.config }} build inside the docker container
         if: ${{ steps.scope.outputs.mode == 'full' || steps.scope.outputs.has_changes == 'true' }}
         run: >-
