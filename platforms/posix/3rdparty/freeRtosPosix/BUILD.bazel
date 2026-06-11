@@ -8,8 +8,6 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 
-# Uses freertos_headers (not free_rtos) to avoid the circular dependency:
-#   free_rtos -> freertos_port_impl -> freertos_headers
 cc_library(
     name = "freertos_posix",
     srcs = [

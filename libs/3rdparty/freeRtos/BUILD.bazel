@@ -81,7 +81,7 @@ cc_library(
     ],
 )
 
-# Circular dependency present on the CMake side: free_rtos -> freeRtosPortImpl -> freeRtos
+# Circular dependency present on the CMake side: freeRtos -> freeRtosPortImpl -> freeRtos
 # Split off freertos_headers and freertos_port_impl to break the circular dependency for Bazel
 cc_library(
     name = "freertos",

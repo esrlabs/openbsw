@@ -30,29 +30,58 @@ label_flag(
     visibility = ["//visibility:public"],
 )
 
-cc_library(
-    name = "async_core_configuration_unittest_stub",
-    hdrs = ["test/mock/include/async/Config.h"],
-    strip_include_prefix = "test/mock/include",
-)
-
-alias(
-    name = "async_core_configuration_default",
-    actual = select(
-        {
-            "//bazel/config/executable_config:reference_app": "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
-            "//bazel/config/executable_config:unit_test": ":async_core_configuration_unittest_stub",
-        },
-        no_match_error = "No async core configuration. Override --//libs/bsw/asyncFreeRtos:async_core_configuration with your own target.",
-    ),
-)
-
 # Async core configuration (async/Config.h - task counts, stack sizes).
-#   Default:  select based on //bazel/config/executable_config
+#   Default:  referenceApp config (header-only; compiles cleanly under unit_test)
 #   Override: --//libs/bsw/asyncFreeRtos:async_core_configuration=//path/to:your_config
+# TODO: Select async_core_configuration based on executable_config once the unit_test build is
+#   migrated
 label_flag(
     name = "async_core_configuration",
-    build_setting_default = ":async_core_configuration_default",
+    build_setting_default = "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "async_freertos",
+    hdrs = [
+        "include/async/EventManager.h",
+        "include/async/FreeRtosAdapter.h",
+        "include/async/FutureSupport.h",
+        "include/async/Lock.h",
+        "include/async/ModifiableLock.h",
+        "include/async/StaticContextHook.h",
+        "include/async/StaticRunnable.h",
+        "include/async/TaskContext.h",
+        "include/async/TaskInitializer.h",
+        "include/async/Types.h",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/3rdparty/freeRtos:freertos",
+        "//libs/bsp/bspInterrupts:bsp_interrupts",
+        "//libs/bsw/asyncImpl:async_impl",
+        "//libs/bsw/bsp",
+        "//libs/bsw/common",
+        "//libs/bsw/timer",
+    ],
+)
+
+cc_library(
+    name = "async_freertos_impl",
+    srcs = [
+        "src/async/Async.cpp",
+        "src/async/FutureSupport.cpp",
+        "src/async/Hook.cpp",
+        "src/async/Types.cpp",
+    ],
+    implementation_deps = [
+        ":async_core_configuration",
+        ":async_freertos",
+        "//libs/3rdparty/etl",
+        "//libs/bsw/async:async_binding",
+        "//libs/bsw/util",
+    ],
     visibility = ["//visibility:public"],
 )
 
