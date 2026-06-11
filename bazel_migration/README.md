@@ -1,6 +1,6 @@
 <!--
  *******************************************************************************
-  Copyright (c) 2024 Accenture
+  Copyright (c) 2026 Accenture
 
   This program and the accompanying materials are made available under the
   terms of the Apache License Version 2.0 which is available at
@@ -19,32 +19,41 @@
 - Toolchain reproducibility is provided by the Docker container (pins `arm-none-eabi-gcc` at a fixed version under `/opt/arm-gnu-toolchain`). This does not represent full hermeticity and would break cache correctness in remote cache scenarios.
 - Build output for one example library (`libs/bsw/util`) verified against CMake output.
 - Conditional dependency selection via `label_flag` (`etl_profile`) for build variants (`reference_app` / `unit_test`)
-- No further libraries or executables have been migrated yet.
+- See the file tree below for current migration status.
 
 Open:
 - Bazel readme and integration guide
 - Bazel CI tests
 - Clang toolchain
 - Consider if toolchain should be made fully hermetic
-- Migration of all libs and executables
-- Migration of unit test configs
+- Migration of remaining libs and executables
+- Migration of unit tests and test related configs
 - Toolchain / build artifact verification
 
 ```
 OpenBSW Bazel migration
-├── bazel/ ✅ (toolchain arm-none-eabi-gcc for s32k148)
+├── bazel/ ✅ (toolchain + s32k148 platform/constraints + rtos config)
 ├── cmake/ ⬛
 ├── doc/ ⬛
 ├── docker/ ⬛
 ├── executables/
 │   ├── referenceApp/ 🔲
-│   │   └── configuration ✅
+│   │   ├── asyncCoreConfiguration ✅
+│   │   ├── configuration ✅
+│   │   └── platforms/
+│   │       ├── posix/ ✅ (freeRtosCoreConfiguration, osHooks)
+│   │       └── s32k148evb/ ✅ (freeRtosCoreConfiguration, osHooks)
 │   └── unitTest/ 🔲
 │       └── configuration ✅
 ├── libs/
 │   ├── 3rdparty/
-│   │   └── etl ✅
+│   │   ├── cmsis ✅
+│   │   ├── etl ✅
+│   │   └── freeRtos ✅
+│   ├── bsp/
+│   │   └── bspInterrupts ✅
 │   ├── bsw/
+│   │   ├── asyncFreeRtos 🔲 (freertos_configuration only)
 │   │   ├── asyncImpl ✅
 │   │   ├── io ✅
 │   │   ├── logger ✅
@@ -57,8 +66,8 @@ OpenBSW Bazel migration
 │   │   ├── util ✅
 │   └── (remaining) 🔲
 ├── platforms/
-│   ├── posix/ 🔲
-│   └── s32k1xx/ 🔲
+│   ├── posix/ ✅ (freeRtosPosix, bspInterruptsImpl)
+│   └── s32k1xx/ ✅ (freertos_cm4_sysTick, bspMcu, bspInterruptsImpl)
 ├── test/ Scope of Bazel support TBD
 └── tools/ Scope of Bazel support TBD
 
