@@ -1,9 +1,5 @@
-add_library(configuration INTERFACE)
+add_library(configuration common/src/busid/BusId.cpp)
 
-target_include_directories(configuration INTERFACE include)
+target_include_directories(configuration PUBLIC include)
 
-target_link_libraries(configuration INTERFACE common)
-
-add_library(commonImpl common/src/busid/BusId.cpp)
-
-target_link_libraries(commonImpl PRIVATE configuration async)
+target_link_libraries(configuration PUBLIC common async)

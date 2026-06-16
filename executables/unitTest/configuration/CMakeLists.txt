@@ -1,8 +1,7 @@
-add_library(commonImpl common/src/busid/BusId.cpp)
+add_library(configuration common/src/busid/BusId.cpp)
 
-target_include_directories(commonImpl PUBLIC common/include)
+target_include_directories(configuration PUBLIC common/include)
 
-target_link_libraries(commonImpl PRIVATE common)
+target_link_libraries(configuration PRIVATE common)
 
-# Empty dummy lib for unit tests
-add_library(configuration INTERFACE)
+# Empty dummy lib for unit tests add_library(configuration INTERFACE)
