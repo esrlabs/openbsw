@@ -1,0 +1,50 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@bazel_skylib//rules:expand_template.bzl", "expand_template")
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+expand_template(
+    name = "printf_config_h",
+    out = "include/printf_config.h",
+    substitutions = {
+        "@PRINTF_SUPPORT_DECIMAL_SPECIFIERS@": "0",
+        "@PRINTF_SUPPORT_EXPONENTIAL_SPECIFIERS@": "0",
+        "@PRINTF_SUPPORT_WRITEBACK_SPECIFIER@": "1",
+        "@PRINTF_SUPPORT_LONG_LONG@": "1",
+        "@PRINTF_ALIAS_STANDARD_FUNCTION_NAMES@": "0",
+        "@PRINTF_INTEGER_BUFFER_SIZE@": "32",
+        "@PRINTF_DECIMAL_BUFFER_SIZE@": "32",
+        "@DEFAULT_FLOAT_PRECISION@": "6",
+        "@MAX_INTEGRAL_DIGITS_FOR_DECIMAL@": "9",
+    },
+    template = "printf_config.h.in",
+)
+
+cc_library(
+    name = "printf",
+    srcs = [
+        "src/printf/printf.c",
+        ":printf_config_h",
+    ],
+    hdrs = [
+        "src/printf/printf.h",
+    ],
+    copts = [
+        "-std=c99",
+        "-pedantic",
+        "-Wall",
+        "-Wextra",
+        "-I$(GENDIR)/libs/3rdparty/printf/include",
+    ],
+    local_defines = ["PRINTF_INCLUDE_CONFIG_H"],
+    strip_include_prefix = "src",
+    visibility = ["//visibility:public"],
+)
