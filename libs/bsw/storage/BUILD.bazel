@@ -1,0 +1,50 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+# TODO: Add asyncThreadXImpl branch once ThreadX has been migrated.
+alias(
+    name = "storage_rtos_impl",
+    actual = select(
+        {
+            "//bazel/config/rtos:support_freertos": "//libs/bsw/asyncFreeRtos:async_freertos_impl",
+        },
+        no_match_error = "storage: asyncFreeRtosImpl only migrated for FreeRTOS; build with --//bazel/config/rtos=freertos (ThreadX deferred).",
+    ),
+)
+
+cc_library(
+    name = "storage",
+    srcs = [
+        "src/storage/EepStorage.cpp",
+        "src/storage/MappingStorage.cpp",
+        "src/storage/QueuingStorage.cpp",
+        "src/storage/StorageTester.cpp",
+    ],
+    hdrs = [
+        "include/storage/EepStorage.h",
+        "include/storage/FeeStorage.h",
+        "include/storage/IStorage.h",
+        "include/storage/MappingStorage.h",
+        "include/storage/QueuingStorage.h",
+        "include/storage/StorageJob.h",
+        "include/storage/StorageTester.h",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":storage_rtos_impl",
+        "//libs/3rdparty/etl",
+        "//libs/bsw/async",
+        "//libs/bsw/bsp",
+        "//libs/bsw/util",
+    ],
+)
