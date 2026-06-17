@@ -96,10 +96,12 @@ cc_library(
     ],
     copts = ["-Wno-unused-variable"],
     visibility = ["//visibility:public"],
-    deps = [
-        ":free_rtos_headers",
+    implementation_deps = [
         ":free_rtos_os_hooks",
         ":freertos_port_impl",
+    ],
+    deps = [
+        ":free_rtos_headers",
         "//libs/bsw/platform",
     ],
 )
