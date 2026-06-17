@@ -15,5 +15,5 @@ cc_library(
     srcs = ["src/osHooks/freertos/osHooks.cpp"],
     target_compatible_with = ["@platforms//os:linux"],
     visibility = ["//libs/3rdparty/freeRtos:__pkg__"],
-    deps = ["//libs/3rdparty/freeRtos:free_rtos_headers"],
+    deps = ["//libs/3rdparty/freeRtos:freertos_headers"],
 )
