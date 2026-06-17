@@ -16,9 +16,11 @@ cc_library(
     copts = ["-Wno-unused-but-set-variable"],
     target_compatible_with = ["//bazel/platform/constraints:s32k148"],
     visibility = ["//visibility:public"],
+    implementation_deps = [
+        "//libs/bsp/bspInterrupts:bsp_interrupts",
+    ],
     deps = [
         ":freertos_cm4_sys_tick_port",
         "//libs/3rdparty/freeRtos:free_rtos_headers",
-        "//libs/bsp/bspInterrupts:bsp_interrupts",
     ],
 )

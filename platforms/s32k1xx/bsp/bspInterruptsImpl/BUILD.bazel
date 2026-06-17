@@ -44,9 +44,11 @@ cc_library(
     strip_include_prefix = "include",
     target_compatible_with = ["//bazel/platform/constraints:s32k148"],
     visibility = ["//visibility:public"],
-    deps = [
-        ":bsp_interrupts_impl_rtos_hdrs",
+    implementation_deps = [
         "//libs/bsw/platform",
         "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
+    ],
+    deps = [
+        ":bsp_interrupts_impl_rtos_hdrs",
     ],
 )
