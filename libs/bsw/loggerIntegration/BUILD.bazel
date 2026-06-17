@@ -1,0 +1,52 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+alias(
+    name = "etl_impl_default",
+    actual = select(
+        {
+            "//bazel/platform/constraints/soc:s32k148": "//platforms/s32k1xx/etlImpl:etl_impl",
+            "@platforms//os:linux": "//platforms/posix/etlImpl:etl_impl",
+        },
+        no_match_error = "No default etl_impl for this platform. Override --//libs/bsw/loggerIntegration:etl_impl with your own ETL implementation target.",
+    ),
+)
+
+#   Default:  select based on the target platform via etl_impl_default (S32K148, POSIX)
+#   Override: --//libs/bsw/loggerIntegration:etl_impl=//path/to:your_impl
+label_flag(
+    name = "etl_impl",
+    build_setting_default = ":etl_impl_default",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "logger_integration",
+    srcs = [
+        "src/logger/LoggerComposition.cpp",
+        "src/logger/LoggerTime.cpp",
+    ],
+    hdrs = [
+        "include/logger/Config.h",
+        "include/logger/ConsoleEntryFormatter.h",
+        "include/logger/LoggerComposition.h",
+        "include/logger/LoggerTime.h",
+    ],
+    implementation_deps = [
+        ":etl_impl",
+        "//libs/3rdparty/etl",
+        "//libs/bsp/bspInterrupts:bsp_interrupts",
+        "//libs/bsw/logger",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+)
