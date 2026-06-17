@@ -14,7 +14,7 @@ cc_library(
     name = "freertos_core_configuration",
     hdrs = ["include/os/FreeRtosPlatformConfig.h"],
     strip_include_prefix = "include",
-    target_compatible_with = ["//bazel/platform/constraints:s32k148"],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
     visibility = ["//visibility:public"],
     deps = [
         "//libs/bsw/bsp",

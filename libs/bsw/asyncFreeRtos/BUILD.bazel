@@ -14,7 +14,7 @@ alias(
     name = "freertos_core_configuration_default",
     actual = select(
         {
-            "//bazel/platform/constraints:s32k148": "//executables/referenceApp/platforms/s32k148evb/freeRtosCoreConfiguration:freertos_core_configuration",
+            "//bazel/platform/constraints/soc:s32k148": "//executables/referenceApp/platforms/s32k148evb/freeRtosCoreConfiguration:freertos_core_configuration",
             "@platforms//os:linux": "//executables/referenceApp/platforms/posix/freeRtosCoreConfiguration:freertos_core_configuration",
         },
         no_match_error = "No FreeRTOS core configuration for this platform. Override --//libs/bsw/asyncFreeRtos:freertos_core_configuration with your own configuration target.",

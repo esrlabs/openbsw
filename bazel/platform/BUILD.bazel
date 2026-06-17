@@ -13,6 +13,6 @@ platform(
     constraint_values = [
         "@platforms//cpu:armv7e-m",
         "@platforms//os:none",
-        "//bazel/platform/constraints:s32k148",
+        "//bazel/platform/constraints/soc:s32k148",
     ],
 )

@@ -20,7 +20,7 @@ cc_library(
     name = "bsp_interrupts_impl_freertos_hdrs",
     hdrs = ["freertos/include/interrupts/suspendResumeAllInterrupts.h"],
     strip_include_prefix = "freertos/include",
-    target_compatible_with = ["//bazel/platform/constraints:s32k148"],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
 )
 
 alias(
@@ -42,7 +42,7 @@ cc_library(
         "include/interrupts/disableEnableAllInterrupts.h",
     ],
     strip_include_prefix = "include",
-    target_compatible_with = ["//bazel/platform/constraints:s32k148"],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
     visibility = ["//visibility:public"],
     implementation_deps = [
         "//libs/bsw/platform",
