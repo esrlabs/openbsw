@@ -19,12 +19,10 @@ Files
 Including Header Files
 ----------------------
 
-:rule:`FILE-000` The style used to specify an include shall reflect the locality of the included
-header file.
+:rule:`FILE-000` The style used to specify an include shall reflect if it's a system include or user defined file.
 
-- All includes which are part of the same module shall use quotes ``""``.
-- All includes which are not part of the same module (including system headers) shall use angle
-  brackets ``<>``.
+- All C and C++ standard library headers as well as all etl headers shall use angle brackets ``<>``.
+- All other includes shall use quotes ``""``.
 
 Standard Headers
 ----------------
