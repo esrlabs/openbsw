@@ -11,18 +11,12 @@
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
-    name = "common_impl",
+    name = "configuration",
     srcs = ["common/src/busid/BusId.cpp"],
     hdrs = ["common/include/busid/BusId.h"],
-    strip_include_prefix = "common/include",
-    visibility = ["//libs/bsw/common:__pkg__"],
-    deps = [
+    implementation_deps = [
         "//libs/bsw/common:common_headers",
     ],
-)
-
-# Empty dummy lib for unit tests (matches CMake)
-cc_library(
-    name = "configuration",
+    strip_include_prefix = "common/include",
     visibility = ["//visibility:public"],
 )
