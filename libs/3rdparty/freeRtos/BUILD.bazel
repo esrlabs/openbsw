@@ -95,11 +95,11 @@ cc_library(
         "src/timers.c",
     ],
     copts = ["-Wno-unused-variable"],
-    visibility = ["//visibility:public"],
     implementation_deps = [
         ":freertos_os_hooks",
         ":freertos_port_impl",
     ],
+    visibility = ["//visibility:public"],
     deps = [
         ":freertos_headers",
         "//libs/bsw/platform",

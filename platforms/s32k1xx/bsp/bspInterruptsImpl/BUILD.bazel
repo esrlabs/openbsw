@@ -41,13 +41,13 @@ cc_library(
         "include/interrupt_manager.h",
         "include/interrupts/disableEnableAllInterrupts.h",
     ],
-    strip_include_prefix = "include",
-    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
-    visibility = ["//visibility:public"],
     implementation_deps = [
         "//libs/bsw/platform",
         "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
     ],
+    strip_include_prefix = "include",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
     deps = [
         ":bsp_interrupts_impl_rtos_hdrs",
     ],
