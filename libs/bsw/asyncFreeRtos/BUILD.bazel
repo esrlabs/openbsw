@@ -31,6 +31,32 @@ label_flag(
 )
 
 cc_library(
+    name = "async_core_configuration_unittest_stub",
+    hdrs = ["test/mock/include/async/Config.h"],
+    strip_include_prefix = "test/mock/include",
+)
+
+alias(
+    name = "async_core_configuration_default",
+    actual = select(
+        {
+            "//bazel/config/executable_config:reference_app": "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
+            "//bazel/config/executable_config:unit_test": ":async_core_configuration_unittest_stub",
+        },
+        no_match_error = "No async core configuration. Override --//libs/bsw/asyncFreeRtos:async_core_configuration with your own target.",
+    ),
+)
+
+# Async core configuration (async/Config.h - task counts, stack sizes).
+#   Default:  select based on //bazel/config/executable_config
+#   Override: --//libs/bsw/asyncFreeRtos:async_core_configuration=//path/to:your_config
+label_flag(
+    name = "async_core_configuration",
+    build_setting_default = ":async_core_configuration_default",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
     name = "freertos_configuration",
     hdrs = [
         "freeRtosConfiguration/FreeRTOSConfig.h",
@@ -40,8 +66,8 @@ cc_library(
     strip_include_prefix = "freeRtosConfiguration",
     visibility = ["//visibility:public"],
     deps = [
+        ":async_core_configuration",
         ":freertos_core_configuration",
-        "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
         "//libs/bsw/platform",
     ],
 )
