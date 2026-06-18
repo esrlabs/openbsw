@@ -10,7 +10,19 @@
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
-# Circular dependency present on the CMake side: common -> commonImpl -> configuration -> common
+alias(
+    name = "configuration",
+    actual = select(
+        {
+            "//bazel/config/executable_config:reference_app": "//executables/referenceApp/configuration",
+            "//bazel/config/executable_config:unit_test": "//executables/unitTest/configuration",
+        },
+        no_match_error = "Please set executable_config to either 'reference_app' or 'unit_test'",
+    ),
+    visibility = ["//visibility:public"],
+)
+
+# Circular dependency present on the CMake side: common -> configuration -> common
 # Split off common_headers to break the circular dependency for Bazel
 cc_library(
     name = "common_headers",
@@ -28,22 +40,11 @@ cc_library(
     ],
 )
 
-alias(
-    name = "common_impl",
-    actual = select(
-        {
-            "//bazel/config/executable_config:reference_app": "//executables/referenceApp/configuration:common_impl",
-            "//bazel/config/executable_config:unit_test": "//executables/unitTest/configuration:common_impl",
-        },
-        no_match_error = "Please set executable_config to either 'reference_app' or 'unit_test'",
-    ),
-)
-
 cc_library(
     name = "common",
     visibility = ["//visibility:public"],
     deps = [
         ":common_headers",
-        ":common_impl",
+        ":configuration",
     ],
 )

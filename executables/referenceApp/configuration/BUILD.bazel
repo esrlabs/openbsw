@@ -12,6 +12,9 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
     name = "configuration",
+    srcs = [
+        "common/src/busid/BusId.cpp",
+    ],
     hdrs = [
         "include/app/appConfig.h",
         "include/busid/BusId.h",
@@ -22,15 +25,6 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//libs/bsw/common:common_headers",
-    ],
-)
-
-cc_library(
-    name = "common_impl",
-    srcs = ["common/src/busid/BusId.cpp"],
-    visibility = ["//libs/bsw/common:__pkg__"],
-    deps = [
-        ":configuration",
-        # TODO: add the async target dependency here once it is ready.
+        # TODO: add //libs/bsw/async once its Bazel target is ready
     ],
 )
