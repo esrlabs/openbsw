@@ -130,45 +130,8 @@ Running ``treefmt`` will automatically fix copyright headers alongside code form
 
     treefmt
 
-Header Guard Generation
------------------------
+Include Guard
+-------------
 
-You can create a header guard manually or use one of the following tools.
-
-VS Code Include Guard Extension
-+++++++++++++++++++++++++++++++
-
-Install the "C/C++ Include Guard" extension.
-
-Aside from the built-in extension browser, you can also find it here:
-https://marketplace.visualstudio.com/items?itemName=akiramiyakoda.cppincludeguard
-or here: https://github.com/AkiraMiyakoda/cppIncludeGuard
-
-Next, configure the extension in your settings menu (search @ext:akiramiyakoda.cppincludeguard)
-and set the prefix to "GUARD\_".
-
-Vim UUID Generation Plugin
-++++++++++++++++++++++++++
-
-Install a UUID generation plugin (here's one): https://github.com/kburdett/vim-nuuid
-
-Create a new custom function to use the UUID generator, and insert the appropriate preprocessor
-statements:
-
-.. code-block:: vim
-
-    function! GenIncludeGuard()
-        let guard  = join(["GUARD", substitute(NuuidNewUuid(), '-', '_', 'g')], "_")
-        let ifndef = join(["#ifndef",   guard], " ")
-        let define = join(["#define",   guard], " ")
-        let endif  = join(["#endif //", guard], " ")
-        " Extra empty strings included here to insert another newline before the endif
-        return join([ifndef, define, "", "", "", endif], "\n")
-    endfunction
-
-Lastly, map this function (along with ancillary operations) to your favorite keystroke combination.
-Here's an example mapping:
-
-.. code-block:: vim
-
-    nnoremap <leader>u i<C-R>=GenIncludeGuard()<CR><Esc>
+Use ``#pragma once`` at the top of every header file.
+See :ref:`cf_include_guard` for the required format.
