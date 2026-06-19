@@ -1,0 +1,42 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "lwip_socket",
+    srcs = [
+        "src/lwipSocket/netif/LwipNetworkInterface.cpp",
+        "src/lwipSocket/tcp/LwipServerSocket.cpp",
+        "src/lwipSocket/tcp/LwipSocket.cpp",
+        "src/lwipSocket/udp/LwipDatagramSocket.cpp",
+        "src/lwipSocket/utils/FilterFrame.cpp",
+        "src/lwipSocket/utils/TaskAssert.cpp",
+    ],
+    hdrs = [
+        "include/lwipSocket/netif/LwipNetworkInterface.h",
+        "include/lwipSocket/tcp/LwipServerSocket.h",
+        "include/lwipSocket/tcp/LwipSocket.h",
+        "include/lwipSocket/udp/LwipDatagramSocket.h",
+        "include/lwipSocket/utils/LwipHelper.h",
+        "include/lwipSocket/utils/LwipLogger.h",
+        "include/lwipSocket/utils/TaskAssert.h",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/3rdparty/etl",
+        "//libs/3rdparty/lwip:lwip_core",
+        "//libs/bsw/async",
+        "//libs/bsw/common",
+        "//libs/bsw/cpp2ethernet",
+        "//libs/bsw/util",
+    ],
+)

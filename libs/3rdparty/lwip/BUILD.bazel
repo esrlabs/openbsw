@@ -1,0 +1,45 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+alias(
+    name = "lwip_configuration_default",
+    actual = "//executables/referenceApp/lwipConfiguration:lwip_configuration",
+    visibility = ["//visibility:public"],
+)
+
+#   Default:  //executables/referenceApp/lwipConfiguration:lwip_configuration
+#   Override: --//libs/3rdparty/lwip:lwip_configuration=//path/to:your_lwip_config
+label_flag(
+    name = "lwip_configuration",
+    build_setting_default = ":lwip_configuration_default",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "lwip_core",
+    srcs = glob([
+        "src/core/*.c",
+        "src/core/ipv4/*.c",
+        "src/core/ipv6/*.c",
+        "src/api/*.c",
+        "src/netif/*.c",
+        "src/netif/ppp/*.c",
+        "src/netif/ppp/polarssl/*.c",
+    ]),
+    hdrs = glob(["src/include/**/*.h"]),
+    strip_include_prefix = "src/include",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":lwip_configuration",
+        "//executables/referenceApp/application:application_headers",
+    ],
+)
