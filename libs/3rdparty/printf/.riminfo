@@ -1,4 +1,4 @@
-e28bd7bd1c45852561a3b76fb4f8a76902b9dd95
+022ef680ff54d2ab6a201c762bb6167b5c77cef0
 
 RIM Info file. You're welcome to read but don't write it.
 Instead, use RIM commands to do the things you want to do.
@@ -7,7 +7,7 @@ BEWARE: Any manual modification will invalidate the file!
 remote_url     : https://github.com/eyalroz/printf.git
 revision_sha1  : 5f2d0585a4d5a6117002d8296e68b68232a549f8
 target_revision: v5.2.0
-ignores        : benchmark/*,fuzz/*,test/gtest/*,Project.meta
+ignores        : benchmark/*,BUILD.bazel,fuzz/*,test/gtest/*,Project.meta
 checksum       : 067b8567ea0c739e8ef11396335129519f8def2e
 subdir         : 
 
