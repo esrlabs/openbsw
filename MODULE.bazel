@@ -17,7 +17,13 @@ bazel_dep(name = "platforms", version = "1.0.0")
 bazel_dep(name = "rules_cc", version = "0.2.17")
 bazel_dep(name = "bazel_skylib", version = "1.9.0")
 
+bazel_dep(name = "googletest", version = "1.12.1", dev_dependency = True)
 bazel_dep(name = "buildifier_prebuilt", version = "8.5.1.1", dev_dependency = True)
+
+single_version_override(
+    module_name = "googletest",
+    version = "1.12.1",
+)
 
 register_toolchains(
     "//bazel/toolchain:cc_toolchain_arm_none_eabi_gcc",
