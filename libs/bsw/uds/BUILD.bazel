@@ -1,0 +1,40 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+# Circular dependency present on the CMake side: uds -> udsConfiguration -> uds
+# Split off uds_headers to break the circular dependency for Bazel
+cc_library(
+    name = "uds_headers",
+    hdrs = glob(["include/**/*.h"]),
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/3rdparty/etl",
+        "//libs/bsw/async:async_headers",
+        "//libs/bsw/transport",
+        "//libs/bsw/util",
+    ],
+)
+
+cc_library(
+    name = "uds",
+    srcs = glob(["src/**/*.cpp"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":uds_headers",
+        "//executables/referenceApp/transportConfiguration:transport_configuration",
+        "//executables/referenceApp/udsConfiguration:uds_configuration",
+        "//libs/bsw/async",
+        "//libs/bsw/bsp",
+        "//libs/bsw/common:configuration",
+    ],
+)
