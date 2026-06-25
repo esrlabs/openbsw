@@ -11,13 +11,48 @@
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
-    name = "bsp_interrupts_impl",
-    srcs = ["freertos/src/interrupts/suspendResumeAllInterrupts.cpp"],
-    hdrs = ["freertos/include/interrupts/suspendResumeAllInterrupts.h"],
-    strip_include_prefix = "freertos/include",
-    visibility = ["//visibility:public"],
-    deps = [
+    name = "bsp_interrupts_impl_freertos",
+    srcs = [
+        "freertos/src/interrupts/suspendResumeAllInterrupts.cpp",
+    ],
+    hdrs = [
+        "freertos/include/interrupts/suspendResumeAllInterrupts.h",
+    ],
+    implementation_deps = [
         "//libs/3rdparty/freeRtos:freertos_headers",
+    ],
+    strip_include_prefix = "freertos/include",
+    deps = [
         "//libs/bsw/platform",
     ],
+)
+
+cc_library(
+    name = "bsp_interrupts_impl_threadx",
+    srcs = [
+        "threadx/src/interrupts/suspendResumeAllInterrupts.cpp",
+    ],
+    hdrs = [
+        "threadx/include/interrupts/suspendResumeAllInterrupts.h",
+    ],
+    implementation_deps = [
+        "//libs/3rdparty/threadx:threadx_headers",
+    ],
+    strip_include_prefix = "threadx/include",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/bsw/platform",
+    ],
+)
+
+alias(
+    name = "bsp_interrupts_impl",
+    actual = select(
+        {
+            "//bazel/config/rtos:support_freertos": ":bsp_interrupts_impl_freertos",
+            "//bazel/config/rtos:support_threadx": ":bsp_interrupts_impl_threadx",
+        },
+        no_match_error = "bsp_interrupts_impl: build with --//bazel/config/rtos=freertos or --//bazel/config/rtos=threadx.",
+    ),
+    visibility = ["//visibility:public"],
 )
