@@ -38,8 +38,5 @@ cc_library(
     hdrs = glob(["src/include/**/*.h"]),
     strip_include_prefix = "src/include",
     visibility = ["//visibility:public"],
-    deps = [
-        ":lwip_configuration",
-        "//executables/referenceApp/application:application_headers",
-    ],
+    deps = [":lwip_configuration"],
 )
