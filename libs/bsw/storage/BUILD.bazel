@@ -10,14 +10,14 @@
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
-# TODO: Add asyncThreadXImpl branch once ThreadX has been migrated.
 alias(
     name = "storage_rtos_impl",
     actual = select(
         {
             "//bazel/config/rtos:support_freertos": "//libs/bsw/asyncFreeRtos:async_freertos_impl",
+            "//bazel/config/rtos:support_threadx": "//libs/bsw/asyncThreadX:async_threadx_impl",
         },
-        no_match_error = "storage: asyncFreeRtosImpl only migrated for FreeRTOS; build with --//bazel/config/rtos=freertos (ThreadX deferred).",
+        no_match_error = "storage: build with --//bazel/config/rtos=freertos or --//bazel/config/rtos=threadx.",
     ),
 )
 

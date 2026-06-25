@@ -23,14 +23,23 @@ cc_library(
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
 )
 
+cc_library(
+    name = "bsp_interrupts_impl_threadx_hdrs",
+    hdrs = ["threadx/include/interrupts/suspendResumeAllInterrupts.h"],
+    strip_include_prefix = "threadx/include",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
+    deps = ["//libs/3rdparty/threadx:threadx_headers"],
+)
+
 alias(
     name = "bsp_interrupts_impl_rtos_hdrs",
     actual = select(
         {
             "//bazel/config/rtos:support_freertos": ":bsp_interrupts_impl_freertos_hdrs",
-            # TODO: add a "//bazel/config/rtos:support_threadx" branch once ThreadX is migrated.
+            "//bazel/config/rtos:support_threadx": ":bsp_interrupts_impl_threadx_hdrs",
         },
-        no_match_error = "s32k1xx bsp_interrupts_impl supports only --//bazel/config/rtos=freertos; ThreadX is not yet migrated.",
+        no_match_error = "s32k1xx bsp_interrupts_impl supports only --//bazel/config/rtos=freertos or --//bazel/config/rtos=threadx.",
     ),
 )
 
