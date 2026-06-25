@@ -12,8 +12,24 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
     name = "freertos_os_hooks",
-    srcs = ["src/osHooks/freertos/osHooks.cpp"],
+    srcs = [
+        "src/osHooks/freertos/osHooks.cpp",
+    ],
+    implementation_deps = [
+        "//libs/3rdparty/freeRtos:freertos_headers",
+    ],
     target_compatible_with = ["@platforms//os:linux"],
     visibility = ["//libs/3rdparty/freeRtos:__pkg__"],
-    deps = ["//libs/3rdparty/freeRtos:freertos_headers"],
+)
+
+cc_library(
+    name = "threadx_os_hooks",
+    srcs = [
+        "src/osHooks/threadx/osHooks.cpp",
+    ],
+    implementation_deps = [
+        "//libs/3rdparty/threadx:threadx_headers",
+    ],
+    target_compatible_with = ["@platforms//os:linux"],
+    visibility = ["//libs/3rdparty/threadx:__pkg__"],
 )

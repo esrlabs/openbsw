@@ -8,5 +8,6 @@ build:s32k148_relwithdebinfo --config=s32k148
 build:s32k148_relwithdebinfo --copt=-g3
 build:s32k148_relwithdebinfo --copt=-O2
 build:s32k148_relwithdebinfo --copt=-DNDEBUG
-
+build:s32k148_threadx --config=s32k148
+build:s32k148_threadx --//bazel/config/rtos=threadx
 test --//bazel/config/executable_config=unit_test

@@ -11,13 +11,33 @@
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 alias(
+    name = "async_rtos_impl_default",
+    actual = select(
+        {
+            "//bazel/config/rtos:support_freertos": "//libs/bsw/asyncFreeRtos:async_freertos_impl",
+            "//bazel/config/rtos:support_threadx": "//libs/bsw/asyncThreadX:async_threadx_impl",
+        },
+        no_match_error = "async_rtos_impl: build with --//bazel/config/rtos=freertos or --//bazel/config/rtos=threadx, or override --//libs/bsw/async:async_rtos_impl.",
+    ),
+)
+
+# Async compiled RTOS implementation
+#   Default:  select based on //bazel/config/rtos
+#   Override: --//libs/bsw/async:async_rtos_impl=//path/to:your_rtos_impl
+label_flag(
+    name = "async_rtos_impl",
+    build_setting_default = ":async_rtos_impl_default",
+    visibility = ["//visibility:public"],
+)
+
+alias(
     name = "async_platform_default",
     actual = select(
         {
             "//bazel/config/rtos:support_freertos": "//libs/bsw/asyncFreeRtos:async_freertos",
-            # TODO: Add  threadX support here once libs/3rdparty/threadx has been migrated
+            "//bazel/config/rtos:support_threadx": "//libs/bsw/asyncThreadX:async_threadx",
         },
-        no_match_error = "async: only the FREERTOS asyncPlatform is migrated; build with --//bazel/config/rtos=freertos (ThreadX deferred), or override --//libs/bsw/async:async_platform.",
+        no_match_error = "async: build with --//bazel/config/rtos=freertos or --//bazel/config/rtos=threadx, or override --//libs/bsw/async:async_platform.",
     ),
 )
 

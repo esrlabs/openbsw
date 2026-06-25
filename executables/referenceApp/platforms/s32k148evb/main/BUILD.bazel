@@ -12,11 +12,32 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
     name = "freertos_os_hooks",
-    srcs = ["src/osHooks/freertos/osHooks.cpp"],
-    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
-    visibility = ["//libs/3rdparty/freeRtos:__pkg__"],
-    deps = [
+    srcs = [
+        "src/osHooks/freertos/osHooks.cpp",
+    ],
+    implementation_deps = [
         "//libs/3rdparty/freeRtos:freertos_headers",
         "//libs/bsw/common",
     ],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//libs/3rdparty/freeRtos:__pkg__"],
+)
+
+cc_library(
+    name = "threadx_os_hooks",
+    srcs = [
+        "src/osHooks/threadx/osHooks.cpp",
+    ],
+    hdrs = [
+        "include/osHooks/threadx/osHooks.h",
+    ],
+    implementation_deps = [
+        "//libs/3rdparty/threadx:threadx_headers",
+        "//libs/bsw/asyncThreadX:threadx_configuration",
+        "//libs/bsw/common",
+        "//platforms/s32k1xx/3rdparty/threadx:threadx_cortex_m4",
+    ],
+    strip_include_prefix = "include/osHooks/threadx",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//libs/3rdparty/threadx:__pkg__"],
 )
