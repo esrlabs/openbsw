@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../common.html">common</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpUdpConnection.cpp.html">DoIpUdpConnection.cpp</a>:194
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpUdpConnection::tryReceive()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000277e4</td>
+                <td>
+    
+    
+</td>
+                <td>72 (static)</td>
+                <td>292</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./a6b048d95a6d6b3f6001f5ca818c91d8.html">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short) (224)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./4f43e8ad01d8c6530f530328a9818c98.html">doip::DoIpUdpConnection::popSendJob() (72)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       277e4:	f890 3089 	ldrb.w	r3, [r0, #137]	@ 0x89
+
+       277e8:	2b01      	cmp	r3, #1
+
+       277ea:	f040 808a 	bne.w	27902 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x11e>
+
+       277ee:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZNK3etl8delegateIFvNS_4spanIKhLj4294967295EEEEEclIJRNS1_IhLj4294967295EEEEEEvDpOT_():
+
+       277f2:	f8df 8110 	ldr.w	r8, [pc, #272]	@ 27904 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x120>
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       277f6:	b089      	sub	sp, #36	@ 0x24
+
+       277f8:	4604      	mov	r4, r0
+
+    _ZN3etl4spanIhLj4294967295EEaSERKS1_():
+
+       277fa:	2600      	movs	r6, #0
+
+    _ZNK3etl8delegateIFvNS_4spanIKhLj4294967295EEEEEclIJRNS1_IhLj4294967295EEEEEEvDpOT_():
+
+       277fc:	f100 0768 	add.w	r7, r0, #104	@ 0x68
+
+       27800:	e02e      	b.n	27860 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x7c>
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27802:	2301      	movs	r3, #1
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27804:	2204      	movs	r2, #4
+
+       27806:	f10d 0a10 	add.w	sl, sp, #16
+
+       2780a:	eb09 0102 	add.w	r1, r9, r2
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2780e:	f884 308a 	strb.w	r3, [r4, #138]	@ 0x8a
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27812:	4650      	mov	r0, sl
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       27814:	f8cd b010 	str.w	fp, [sp, #16]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       27818:	f7d8 fec1 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       2781c:	9b04      	ldr	r3, [sp, #16]
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2781e:	f8b4 207c 	ldrh.w	r2, [r4, #124]	@ 0x7c
+
+       27822:	6be1      	ldr	r1, [r4, #60]	@ 0x3c
+
+       27824:	ba1b      	rev	r3, r3
+
+    _ZN3etl3minImNS_4lessImEEEERKT_S5_S5_T0_():
+
+       27826:	429a      	cmp	r2, r3
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27828:	6808      	ldr	r0, [r1, #0]
+
+    _ZN3etl3minImNS_4lessImEEEERKT_S5_S5_T0_():
+
+       2782a:	bf28      	it	cs
+
+       2782c:	461a      	movcs	r2, r3
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2782e:	6843      	ldr	r3, [r0, #4]
+
+       27830:	f8a4 207e 	strh.w	r2, [r4, #126]	@ 0x7e
+
+       27834:	4650      	mov	r0, sl
+
+       27836:	464a      	mov	r2, r9
+
+       27838:	4798      	blx	r3
+
+    _ZNK3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEE5indexEv():
+
+       2783a:	9b07      	ldr	r3, [sp, #28]
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2783c:	2b01      	cmp	r3, #1
+
+       2783e:	d04e      	beq.n	278de <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xfa>
+
+    _ZN3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEED4Ev():
+
+       27840:	3301      	adds	r3, #1
+
+       27842:	d004      	beq.n	2784e <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x6a>
+
+       27844:	9b06      	ldr	r3, [sp, #24]
+
+       27846:	2200      	movs	r2, #0
+
+       27848:	4651      	mov	r1, sl
+
+       2784a:	2002      	movs	r0, #2
+
+       2784c:	4798      	blx	r3
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2784e:	f8b4 307c 	ldrh.w	r3, [r4, #124]	@ 0x7c
+
+       27852:	f894 2089 	ldrb.w	r2, [r4, #137]	@ 0x89
+
+       27856:	1b5b      	subs	r3, r3, r5
+
+       27858:	2a01      	cmp	r2, #1
+
+       2785a:	f8a4 307c 	strh.w	r3, [r4, #124]	@ 0x7c
+
+       2785e:	d13b      	bne.n	278d8 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xf4>
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+       27860:	6b22      	ldr	r2, [r4, #48]	@ 0x30
+
+       27862:	6ae1      	ldr	r1, [r4, #44]	@ 0x2c
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27864:	428a      	cmp	r2, r1
+
+       27866:	d037      	beq.n	278d8 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xf4>
+
+       27868:	f8b4 307c 	ldrh.w	r3, [r4, #124]	@ 0x7c
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+       2786c:	1a52      	subs	r2, r2, r1
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       2786e:	4293      	cmp	r3, r2
+
+       27870:	d332      	bcc.n	278d8 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xf4>
+
+       27872:	6aa0      	ldr	r0, [r4, #40]	@ 0x28
+
+       27874:	6803      	ldr	r3, [r0, #0]
+
+       27876:	6a1b      	ldr	r3, [r3, #32]
+
+       27878:	4798      	blx	r3
+
+    _ZNK3etl4spanIhLj4294967295EE4sizeEv():
+
+       2787a:	6b23      	ldr	r3, [r4, #48]	@ 0x30
+
+       2787c:	f8d4 902c 	ldr.w	r9, [r4, #44]	@ 0x2c
+
+       27880:	eba3 0209 	sub.w	r2, r3, r9
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27884:	4290      	cmp	r0, r2
+
+       27886:	4605      	mov	r5, r0
+
+       27888:	d123      	bne.n	278d2 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xee>
+
+       2788a:	f894 b08a 	ldrb.w	fp, [r4, #138]	@ 0x8a
+
+    _ZN3etl4spanIhLj4294967295EEaSERKS1_():
+
+       2788e:	62e6      	str	r6, [r4, #44]	@ 0x2c
+
+       27890:	6326      	str	r6, [r4, #48]	@ 0x30
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27892:	f1bb 0f00 	cmp.w	fp, #0
+
+       27896:	d0b4      	beq.n	27802 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x1e>
+
+       27898:	f8b4 207e 	ldrh.w	r2, [r4, #126]	@ 0x7e
+
+    _ZNK3etl8delegateIFvNS_4spanIKhLj4294967295EEEEE8is_validEv():
+
+       2789c:	f8d4 b06c 	ldr.w	fp, [r4, #108]	@ 0x6c
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       278a0:	1b52      	subs	r2, r2, r5
+
+       278a2:	f8a4 207e 	strh.w	r2, [r4, #126]	@ 0x7e
+
+    _ZNK3etl8delegateIFvNS_4spanIKhLj4294967295EEEEEclIJRNS1_IhLj4294967295EEEEEEvDpOT_():
+
+       278a6:	f1bb 0f00 	cmp.w	fp, #0
+
+       278aa:	d007      	beq.n	278bc <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xd8>
+
+       278ac:	f10d 0a10 	add.w	sl, sp, #16
+
+    _ZN3etl4spanIKhLj4294967295EEC4IhLj4294967295EEERKNS0_IT_XT0_EEE():
+
+       278b0:	e9cd 9304 	strd	r9, r3, [sp, #16]
+
+    _ZNK3etl8delegateIFvNS_4spanIKhLj4294967295EEEEEclIJRNS1_IhLj4294967295EEEEEEvDpOT_():
+
+       278b4:	4651      	mov	r1, sl
+
+       278b6:	4638      	mov	r0, r7
+
+       278b8:	47d8      	blx	fp
+
+       278ba:	e7c8      	b.n	2784e <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x6a>
+
+       278bc:	f10d 0a10 	add.w	sl, sp, #16
+
+       278c0:	f8d8 2000 	ldr.w	r2, [r8]
+
+       278c4:	9301      	str	r3, [sp, #4]
+
+       278c6:	4650      	mov	r0, sl
+
+       278c8:	4790      	blx	r2
+
+       278ca:	f8d4 b06c 	ldr.w	fp, [r4, #108]	@ 0x6c
+
+       278ce:	9b01      	ldr	r3, [sp, #4]
+
+       278d0:	e7ee      	b.n	278b0 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0xcc>
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       278d2:	2300      	movs	r3, #0
+
+       278d4:	f8a4 307c 	strh.w	r3, [r4, #124]	@ 0x7c
+
+       278d8:	b009      	add	sp, #36	@ 0x24
+
+       278da:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       278de:	e89a 0003 	ldmia.w	sl, {r0, r1}
+
+       278e2:	ab02      	add	r3, sp, #8
+
+       278e4:	2202      	movs	r2, #2
+
+       278e6:	e883 0003 	stmia.w	r3, {r0, r1}
+
+    _ZN3etl4spanIhLj4294967295EEaSERKS1_():
+
+       278ea:	f8c4 b02c 	str.w	fp, [r4, #44]	@ 0x2c
+
+       278ee:	f8c4 b030 	str.w	fp, [r4, #48]	@ 0x30
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       278f2:	f884 208a 	strb.w	r2, [r4, #138]	@ 0x8a
+
+       278f6:	2900      	cmp	r1, #0
+
+       278f8:	d0a4      	beq.n	27844 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x60>
+
+    _ZNK3etl8delegateIFvvEEclIJEEEvDpOT_():
+
+       278fa:	4618      	mov	r0, r3
+
+       278fc:	4788      	blx	r1
+
+    _ZNK3etl7variantIJN4doip22IDoIpConnectionHandler20HandledByThisHandlerENS_8delegateIFvvEEEEE22valueless_by_exceptionEv():
+
+       278fe:	9b07      	ldr	r3, [sp, #28]
+
+    doip::DoIpUdpConnection::tryReceive():
+
+       27900:	e79e      	b.n	27840 <<a href="./a2a0345dc74dbd1a2da4eb6909115945.html">doip::DoIpUdpConnection::tryReceive()</a>+0x5c>
+
+       27902:	4770      	bx	lr
+
+       27904:	20000000 	.word	0x20000000
+
+    </pre>
+
+    
+    <pre><a href="./a6b048d95a6d6b3f6001f5ca818c91d8.html">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short) (224)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 120</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 516</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                72 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    516
+                    
+                    
+                </td>
+                <td class="col_size">292</td>
+                <td><a href="./a2a0345dc74dbd1a2da4eb6909115945.html" class="icon-function">doip::DoIpUdpConnection::tryReceive()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">224</td>
+                <td><a href="./a6b048d95a6d6b3f6001f5ca818c91d8.html" class="icon-function">doip::DoIpUdpConnection::dataReceived(udp::AbstractDatagramSocket&amp;, ip::IPAddress, unsigned short, ip::IPAddress, unsigned short)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

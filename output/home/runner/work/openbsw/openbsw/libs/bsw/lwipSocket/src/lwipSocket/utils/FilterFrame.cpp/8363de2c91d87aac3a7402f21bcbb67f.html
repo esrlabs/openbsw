@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../lwipSocket.html">lwipSocket</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../lwipSocket.html">lwipSocket</a></li>
+        
+        <li ><a href="../../utils.html">utils</a>
+            </li>
+
+        
+        <li class="active"><a href="../FilterFrame.cpp.html">FilterFrame.cpp</a>:93
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">lwiputils::processPbufQueue(util::spsc::Queue&lt;pbuf*, (unsigned short)10, false&gt;::Receiver, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001b3a8</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>64 (static)</td>
+                <td>236</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/application/src/systems/EthernetSystem.cpp/7f6d534a67d8880422173a75039c028b.html">systems::EthernetSystem::execute() (188)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=324
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;) (316)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../3rdparty/lwip/src/core/pbuf.c/9b6fd2596874539050b4147be9634d35.html">pbuf_free (8)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;) (316)</a></pre>
+    
+
+    <pre>
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b3a8:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       1b3ac:	b087      	sub	sp, #28
+
+       1b3ae:	e9cd 0100 	strd	r0, r1, [sp]
+
+       1b3b2:	4683      	mov	fp, r0
+
+    _ZNK3etl6atomicIjLb1EE4loadENS_12memory_orderE():
+
+       1b3b4:	460d      	mov	r5, r1
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b3b6:	4617      	mov	r7, r2
+
+       1b3b8:	4698      	mov	r8, r3
+
+    _ZNK3etl6atomicIjLb1EE4loadENS_12memory_orderE():
+
+       1b3ba:	f3bf 8f5b 	dmb	ish
+
+       1b3be:	680a      	ldr	r2, [r1, #0]
+
+       1b3c0:	f3bf 8f5b 	dmb	ish
+
+       1b3c4:	f3bf 8f5b 	dmb	ish
+
+       1b3c8:	f8d0 a000 	ldr.w	sl, [r0]
+
+       1b3cc:	f3bf 8f5b 	dmb	ish
+
+    _ZNK4util4spsc5QueueIP4pbufLt10ELb0EE8Receiver4sizeEv():
+
+       1b3d0:	4552      	cmp	r2, sl
+
+       1b3d2:	bf8c      	ite	hi
+
+       1b3d4:	2314      	movhi	r3, #20
+
+       1b3d6:	2300      	movls	r3, #0
+
+       1b3d8:	ebaa 0a02 	sub.w	sl, sl, r2
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b3dc:	eb1a 0a03 	adds.w	sl, sl, r3
+
+       1b3e0:	d044      	beq.n	1b46c <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xc4>
+
+    _ZNK4util4spsc5QueueIP4pbufLt10ELb0EE8Receiver4peekEv():
+
+       1b3e2:	f8df 90ac 	ldr.w	r9, [pc, #172]	@ 1b490 <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xe8>
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b3e6:	2600      	movs	r6, #0
+
+       1b3e8:	e003      	b.n	1b3f2 <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x4a>
+
+       1b3ea:	3601      	adds	r6, #1
+
+       1b3ec:	4798      	blx	r3
+
+       1b3ee:	4556      	cmp	r6, sl
+
+       1b3f0:	d03c      	beq.n	1b46c <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xc4>
+
+    _ZNK3etl6atomicIjLb1EE4loadENS_12memory_orderE():
+
+       1b3f2:	f3bf 8f5b 	dmb	ish
+
+       1b3f6:	682b      	ldr	r3, [r5, #0]
+
+       1b3f8:	f3bf 8f5b 	dmb	ish
+
+    _ZNK4util4spsc5QueueIP4pbufLt10ELb0EE8Receiver4peekEv():
+
+       1b3fc:	fba9 1203 	umull	r1, r2, r9, r3
+
+       1b400:	08d2      	lsrs	r2, r2, #3
+
+       1b402:	eb02 0282 	add.w	r2, r2, r2, lsl #2
+
+       1b406:	eba3 0342 	sub.w	r3, r3, r2, lsl #1
+
+    _ZN4util4spsc5QueueIP4pbufLt10ELb0EE8Receiver4readEv():
+
+       1b40a:	eb0b 0383 	add.w	r3, fp, r3, lsl #2
+
+       1b40e:	685c      	ldr	r4, [r3, #4]
+
+    _ZNK3etl6atomicIjLb1EE4loadENS_12memory_orderE():
+
+       1b410:	f3bf 8f5b 	dmb	ish
+
+       1b414:	682b      	ldr	r3, [r5, #0]
+
+       1b416:	f3bf 8f5b 	dmb	ish
+
+    _ZN4util4spsc5QueueIP4pbufLt10ELb0EE8Receiver7advanceEv():
+
+       1b41a:	3301      	adds	r3, #1
+
+       1b41c:	fba9 1203 	umull	r1, r2, r9, r3
+
+       1b420:	0912      	lsrs	r2, r2, #4
+
+       1b422:	eb02 0282 	add.w	r2, r2, r2, lsl #2
+
+       1b426:	eba3 0382 	sub.w	r3, r3, r2, lsl #2
+
+    _ZN3etl6atomicIjLb1EE5storeEjNS_12memory_orderE():
+
+       1b42a:	f3bf 8f5b 	dmb	ish
+
+       1b42e:	602b      	str	r3, [r5, #0]
+
+       1b430:	f3bf 8f5b 	dmb	ish
+
+    _ZN3etl4spanI5netifLj4294967295EEC4ERKS2_():
+
+       1b434:	e9d7 1200 	ldrd	r1, r2, [r7]
+
+    _ZN3etl4spanIKtLj4294967295EEC4ERKS2_():
+
+       1b438:	f8d8 0004 	ldr.w	r0, [r8, #4]
+
+       1b43c:	f8d8 3000 	ldr.w	r3, [r8]
+
+    _ZN3etl4spanI5netifLj4294967295EEC4ERKS2_():
+
+       1b440:	e9cd 1202 	strd	r1, r2, [sp, #8]
+
+    _ZN3etl4spanIKtLj4294967295EEC4ERKS2_():
+
+       1b444:	e9cd 3004 	strd	r3, r0, [sp, #16]
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b448:	a902      	add	r1, sp, #8
+
+       1b44a:	aa04      	add	r2, sp, #16
+
+       1b44c:	4620      	mov	r0, r4
+
+       1b44e:	f7ff ff0d 	bl	1b26c <<a href="./7db5023111042a8e3f2b172dceb2d1f7.html">lwiputils::filterETHFrames(pbuf*, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>>
+
+       1b452:	4603      	mov	r3, r0
+
+       1b454:	4601      	mov	r1, r0
+
+       1b456:	4620      	mov	r0, r4
+
+       1b458:	b113      	cbz	r3, 1b460 <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0xb8>
+
+       1b45a:	691b      	ldr	r3, [r3, #16]
+
+       1b45c:	2b00      	cmp	r3, #0
+
+       1b45e:	d1c4      	bne.n	1b3ea <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x42>
+
+       1b460:	4620      	mov	r0, r4
+
+       1b462:	3601      	adds	r6, #1
+
+       1b464:	f000 ff00 	bl	1c268 <<a href="../../../../../../3rdparty/lwip/src/core/pbuf.c/9b6fd2596874539050b4147be9634d35.html">pbuf_free</a>>
+
+       1b468:	4556      	cmp	r6, sl
+
+       1b46a:	d1c2      	bne.n	1b3f2 <<a href="./8363de2c91d87aac3a7402f21bcbb67f.html">lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>)</a>+0x4a>
+
+    _ZNK3etl6atomicIjLb1EE4loadENS_12memory_orderE():
+
+       1b46c:	f3bf 8f5b 	dmb	ish
+
+       1b470:	6828      	ldr	r0, [r5, #0]
+
+       1b472:	f3bf 8f5b 	dmb	ish
+
+       1b476:	f3bf 8f5b 	dmb	ish
+
+       1b47a:	f8db 3000 	ldr.w	r3, [fp]
+
+       1b47e:	f3bf 8f5b 	dmb	ish
+
+    lwiputils::processPbufQueue(util::spsc::Queue<pbuf*, (unsigned short)10, false>::Receiver, etl::span<netif, 4294967295u>, etl::span<unsigned short const, 4294967295u>):
+
+       1b482:	1ac0      	subs	r0, r0, r3
+
+       1b484:	fab0 f080 	clz	r0, r0
+
+       1b488:	0940      	lsrs	r0, r0, #5
+
+       1b48a:	b007      	add	sp, #28
+
+       1b48c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       1b490:	cccccccd 	.word	0xcccccccd
+
+    </pre>
+
+    
+    <pre><a href="./54d7e9a3f27474890c3c37bb54d9dda9.html">lwiputils::to_lwipIp(ip::IPAddress const&amp;, ip4_addr*) (88)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 200</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 348</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    200
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    348
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    152
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    280
+                    
+                    
+                </td>
+                <td class="col_size">100</td>
+                <td><a href="../../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html" class="icon-function">log_lwipInfo</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    180
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../../3rdparty/lwip/src/core/memp.c/39d50c52143357af896630c36b8c515f.html" class="icon-function">memp_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">112</td>
+                <td><a href="../../../../../../3rdparty/lwip/src/core/pbuf.c/9b6fd2596874539050b4147be9634d35.html" class="icon-function">pbuf_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">8</td>
+                <td><a href="../../../../../../3rdparty/lwip/src/core/pbuf.c/9b6fd2596874539050b4147be9634d35.html" class="icon-function">pbuf_free</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">112
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 112</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 424</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    112
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    424
+                    
+                    
+                </td>
+                <td class="col_size">236</td>
+                <td><a href="./8363de2c91d87aac3a7402f21bcbb67f.html" class="icon-function">lwiputils::processPbufQueue(util::spsc::Queue&lt;pbuf*, (unsigned short)10, false&gt;::Receiver, etl::span&lt;netif, 4294967295u&gt;, etl::span&lt;unsigned short const, 4294967295u&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">188</td>
+                <td><a href="../../../../../../../executables/referenceApp/application/src/systems/EthernetSystem.cpp/7f6d534a67d8880422173a75039c028b.html" class="icon-function">systems::EthernetSystem::execute()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

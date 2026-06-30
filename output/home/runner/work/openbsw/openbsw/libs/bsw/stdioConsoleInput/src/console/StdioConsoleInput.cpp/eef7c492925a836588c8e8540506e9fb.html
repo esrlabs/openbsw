@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../stdioConsoleInput.html">stdioConsoleInput</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../console.html">console</a>
+            </li>
+
+        
+        <li class="active"><a href="../StdioConsoleInput.cpp.html">StdioConsoleInput.cpp</a>:129
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">console::StdioConsoleInput::run()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00011050</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>656</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/application/src/console/console.cpp/ddb280e29837a3ba9bb6cede53fbb24c.html">console::run() (24)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=132
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/bc118f5aee818c2804e0f8698afb9326.html">getByteFromStdin (68)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout (64)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./cdb56485aa409bec22b58dc161eec9b3.html">console::StdioConsoleInput::init(etl::delegate&lt;void (util::stream::ISharedOutputStream&amp;, etl::ibasic_string&lt;char&gt; const&amp;, etl::delegate&lt;void ()&gt; const&amp;)&gt; const&amp;) (12)</a></pre>
+    
+
+    <pre>
+
+    console::StdioConsoleInput::run():
+
+       11050:	b570      	push	{r4, r5, r6, lr}
+
+       11052:	f890 50d4 	ldrb.w	r5, [r0, #212]	@ 0xd4
+
+       11056:	b084      	sub	sp, #16
+
+       11058:	b10d      	cbz	r5, 1105e <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xe>
+
+       1105a:	b004      	add	sp, #16
+
+       1105c:	bd70      	pop	{r4, r5, r6, pc}
+
+       1105e:	4604      	mov	r4, r0
+
+       11060:	f01b fc7c 	bl	2c95c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/bc118f5aee818c2804e0f8698afb9326.html">getByteFromStdin</a>>
+
+    getline():
+
+       11064:	f010 00ff 	ands.w	r0, r0, #255	@ 0xff
+
+       11068:	d0f7      	beq.n	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       1106a:	6ba2      	ldr	r2, [r4, #56]	@ 0x38
+
+       1106c:	6be3      	ldr	r3, [r4, #60]	@ 0x3c
+
+       1106e:	429a      	cmp	r2, r3
+
+       11070:	f000 80d2 	beq.w	11218 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x1c8>
+
+       11074:	281b      	cmp	r0, #27
+
+       11076:	d82f      	bhi.n	110d8 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x88>
+
+       11078:	2807      	cmp	r0, #7
+
+       1107a:	d9ee      	bls.n	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       1107c:	3808      	subs	r0, #8
+
+       1107e:	2813      	cmp	r0, #19
+
+       11080:	d8eb      	bhi.n	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       11082:	a301      	add	r3, pc, #4	@ (adr r3, 11088 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x38>)
+
+       11084:	f853 f020 	ldr.w	pc, [r3, r0, lsl #2]
+
+       11088:	00011183 	.word	0x00011183
+
+       1108c:	0001105b 	.word	0x0001105b
+
+       11090:	00011143 	.word	0x00011143
+
+       11094:	0001105b 	.word	0x0001105b
+
+       11098:	0001105b 	.word	0x0001105b
+
+       1109c:	00011143 	.word	0x00011143
+
+       110a0:	0001105b 	.word	0x0001105b
+
+       110a4:	0001105b 	.word	0x0001105b
+
+       110a8:	0001105b 	.word	0x0001105b
+
+       110ac:	0001105b 	.word	0x0001105b
+
+       110b0:	0001105b 	.word	0x0001105b
+
+       110b4:	0001105b 	.word	0x0001105b
+
+       110b8:	0001105b 	.word	0x0001105b
+
+       110bc:	0001105b 	.word	0x0001105b
+
+       110c0:	0001105b 	.word	0x0001105b
+
+       110c4:	0001105b 	.word	0x0001105b
+
+       110c8:	0001105b 	.word	0x0001105b
+
+       110cc:	0001105b 	.word	0x0001105b
+
+       110d0:	0001105b 	.word	0x0001105b
+
+       110d4:	00011111 	.word	0x00011111
+
+       110d8:	287e      	cmp	r0, #126	@ 0x7e
+
+       110da:	d84f      	bhi.n	1117c <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x12c>
+
+       110dc:	281f      	cmp	r0, #31
+
+       110de:	d9bc      	bls.n	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+    _ZN3etl13ibasic_stringIcE6appendEjc():
+
+       110e0:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       110e2:	6be1      	ldr	r1, [r4, #60]	@ 0x3c
+
+       110e4:	f894 2040 	ldrb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl13ibasic_stringIcE3endEv():
+
+       110e8:	6c66      	ldr	r6, [r4, #68]	@ 0x44
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       110ea:	4299      	cmp	r1, r3
+
+       110ec:	f000 80b4 	beq.w	11258 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x208>
+
+       110f0:	f022 0201 	bic.w	r2, r2, #1
+
+       110f4:	f884 2040 	strb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl6fill_nIPcjcEET_S2_T0_RKT1_():
+
+       110f8:	54f0      	strb	r0, [r6, r3]
+
+    _ZN3etl13ibasic_stringIcE6appendEjc():
+
+       110fa:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+       110fc:	6c66      	ldr	r6, [r4, #68]	@ 0x44
+
+       110fe:	3301      	adds	r3, #1
+
+       11100:	2200      	movs	r2, #0
+
+       11102:	63a3      	str	r3, [r4, #56]	@ 0x38
+
+       11104:	54f2      	strb	r2, [r6, r3]
+
+    console::StdioConsoleInput::run():
+
+       11106:	b004      	add	sp, #16
+
+       11108:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+       1110c:	f01b bc06 	b.w	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    printPrompt():
+
+       11110:	6c66      	ldr	r6, [r4, #68]	@ 0x44
+
+    _ZN3etl13ibasic_stringIcE10initialiseEv():
+
+       11112:	2100      	movs	r1, #0
+
+       11114:	63a1      	str	r1, [r4, #56]	@ 0x38
+
+       11116:	7031      	strb	r1, [r6, #0]
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       11118:	f894 2040 	ldrb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       1111c:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       1111e:	f022 0001 	bic.w	r0, r2, #1
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       11122:	0792      	lsls	r2, r2, #30
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       11124:	f884 0040 	strb.w	r0, [r4, #64]	@ 0x40
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       11128:	d50c      	bpl.n	11144 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xf4>
+
+       1112a:	6be5      	ldr	r5, [r4, #60]	@ 0x3c
+
+       1112c:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+
+    _ZN3etl12memory_clearEPVcj():
+
+       1112e:	429d      	cmp	r5, r3
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       11130:	eb00 0203 	add.w	r2, r0, r3
+
+    _ZN3etl12memory_clearEPVcj():
+
+       11134:	d006      	beq.n	11144 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xf4>
+
+       11136:	4428      	add	r0, r5
+
+       11138:	4613      	mov	r3, r2
+
+       1113a:	3201      	adds	r2, #1
+
+       1113c:	4282      	cmp	r2, r0
+
+       1113e:	7019      	strb	r1, [r3, #0]
+
+       11140:	d1fa      	bne.n	11138 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xe8>
+
+    _ZNK3etl11string_base5emptyEv():
+
+       11142:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+    console::StdioConsoleInput::run():
+
+       11144:	200d      	movs	r0, #13
+
+       11146:	2b00      	cmp	r3, #0
+
+       11148:	d058      	beq.n	111fc <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x1ac>
+
+    printNewline():
+
+       1114a:	f01b fbe7 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+       1114e:	200a      	movs	r0, #10
+
+       11150:	f01b fbe4 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    _ZN3etl8delegateIFvvEE18invocation_elementC4EPvPFvRKS3_E():
+
+       11154:	4b60      	ldr	r3, [pc, #384]	@ (112d8 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x288>)
+
+    _ZNK3etl8delegateIFvRN4util6stream19ISharedOutputStreamERKNS_13ibasic_stringIcEERKNS0_IFvvEEEEE8is_validEv():
+
+       11156:	f8d4 50d0 	ldr.w	r5, [r4, #208]	@ 0xd0
+
+    console::StdioConsoleInput::run():
+
+       1115a:	2201      	movs	r2, #1
+
+    _ZN3etl8delegateIFvvEE18invocation_elementC4EPvPFvRKS3_E():
+
+       1115c:	e9cd 4302 	strd	r4, r3, [sp, #8]
+
+    console::StdioConsoleInput::run():
+
+       11160:	f884 20d4 	strb.w	r2, [r4, #212]	@ 0xd4
+
+    _ZNK3etl8delegateIFvRN4util6stream19ISharedOutputStreamERKNS_13ibasic_stringIcEERKNS0_IFvvEEEEEclIJRNS2_24TaggedSharedOutputStreamERNS_6stringILj128EEESA_EEEvDpOT_():
+
+       11164:	2d00      	cmp	r5, #0
+
+       11166:	d07c      	beq.n	11262 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x212>
+
+       11168:	ab02      	add	r3, sp, #8
+
+       1116a:	f104 0238 	add.w	r2, r4, #56	@ 0x38
+
+       1116e:	f104 0110 	add.w	r1, r4, #16
+
+       11172:	f104 00cc 	add.w	r0, r4, #204	@ 0xcc
+
+       11176:	47a8      	blx	r5
+
+    console::StdioConsoleInput::run():
+
+       11178:	b004      	add	sp, #16
+
+       1117a:	bd70      	pop	{r4, r5, r6, pc}
+
+       1117c:	287f      	cmp	r0, #127	@ 0x7f
+
+       1117e:	f47f af6c 	bne.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+    getline():
+
+       11182:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+       11184:	2b00      	cmp	r3, #0
+
+       11186:	f43f af68 	beq.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       1118a:	2008      	movs	r0, #8
+
+       1118c:	f01b fbc6 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+       11190:	2020      	movs	r0, #32
+
+       11192:	f01b fbc3 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+       11196:	2008      	movs	r0, #8
+
+       11198:	f01b fbc0 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    _ZNK3etl11string_base6lengthEv():
+
+       1119c:	6ba1      	ldr	r1, [r4, #56]	@ 0x38
+
+    _ZN3etl13ibasic_stringIcE6resizeEjc():
+
+       1119e:	6be3      	ldr	r3, [r4, #60]	@ 0x3c
+
+    getline():
+
+       111a0:	1e4a      	subs	r2, r1, #1
+
+    _ZN3etl13ibasic_stringIcE6resizeEjc():
+
+       111a2:	429a      	cmp	r2, r3
+
+       111a4:	d905      	bls.n	111b2 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x162>
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       111a6:	f894 0040 	ldrb.w	r0, [r4, #64]	@ 0x40
+
+       111aa:	f040 0001 	orr.w	r0, r0, #1
+
+       111ae:	f884 0040 	strb.w	r0, [r4, #64]	@ 0x40
+
+    _ZN3etl3minIjNS_4lessIjEEEERKT_S5_S5_T0_():
+
+       111b2:	429a      	cmp	r2, r3
+
+       111b4:	bf28      	it	cs
+
+       111b6:	461a      	movcs	r2, r3
+
+    _ZN3etl13ibasic_stringIcE6resizeEjc():
+
+       111b8:	4291      	cmp	r1, r2
+
+       111ba:	d207      	bcs.n	111cc <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x17c>
+
+       111bc:	6c63      	ldr	r3, [r4, #68]	@ 0x44
+
+       111be:	1898      	adds	r0, r3, r2
+
+       111c0:	440b      	add	r3, r1
+
+    _ZN3etl4fillIPccEEvT_S2_RKT0_():
+
+       111c2:	2100      	movs	r1, #0
+
+       111c4:	f803 1b01 	strb.w	r1, [r3], #1
+
+       111c8:	4283      	cmp	r3, r0
+
+       111ca:	d1fb      	bne.n	111c4 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x174>
+
+    _ZN3etl13ibasic_stringIcE6resizeEjc():
+
+       111cc:	6c63      	ldr	r3, [r4, #68]	@ 0x44
+
+       111ce:	63a2      	str	r2, [r4, #56]	@ 0x38
+
+       111d0:	2100      	movs	r1, #0
+
+       111d2:	5499      	strb	r1, [r3, r2]
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       111d4:	f894 3040 	ldrb.w	r3, [r4, #64]	@ 0x40
+
+       111d8:	079b      	lsls	r3, r3, #30
+
+       111da:	f57f af3e 	bpl.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       111de:	6ba2      	ldr	r2, [r4, #56]	@ 0x38
+
+       111e0:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+
+       111e2:	6be4      	ldr	r4, [r4, #60]	@ 0x3c
+
+    _ZN3etl12memory_clearEPVcj():
+
+       111e4:	4294      	cmp	r4, r2
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       111e6:	eb00 0302 	add.w	r3, r0, r2
+
+    _ZN3etl12memory_clearEPVcj():
+
+       111ea:	f43f af36 	beq.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       111ee:	4420      	add	r0, r4
+
+       111f0:	461a      	mov	r2, r3
+
+       111f2:	3301      	adds	r3, #1
+
+       111f4:	4283      	cmp	r3, r0
+
+       111f6:	7011      	strb	r1, [r2, #0]
+
+       111f8:	d1fa      	bne.n	111f0 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x1a0>
+
+       111fa:	e72e      	b.n	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+    console::StdioConsoleInput::run():
+
+       111fc:	f01b fb8e 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    printNewline():
+
+       11200:	200a      	movs	r0, #10
+
+       11202:	f01b fb8b 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    printPrompt():
+
+       11206:	203e      	movs	r0, #62	@ 0x3e
+
+       11208:	f01b fb88 	bl	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+       1120c:	2020      	movs	r0, #32
+
+    console::StdioConsoleInput::run():
+
+       1120e:	b004      	add	sp, #16
+
+       11210:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+
+    printPrompt():
+
+       11214:	f01b bb82 	b.w	2c91c <<a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html">putByteToStdout</a>>
+
+    _ZN3etl13ibasic_stringIcE10initialiseEv():
+
+       11218:	6c63      	ldr	r3, [r4, #68]	@ 0x44
+
+       1121a:	63a5      	str	r5, [r4, #56]	@ 0x38
+
+       1121c:	701d      	strb	r5, [r3, #0]
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       1121e:	f894 3040 	ldrb.w	r3, [r4, #64]	@ 0x40
+
+       11222:	f023 0201 	bic.w	r2, r3, #1
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       11226:	0799      	lsls	r1, r3, #30
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       11228:	f884 2040 	strb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       1122c:	f57f af22 	bpl.w	11074 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x24>
+
+       11230:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+
+       11232:	6be1      	ldr	r1, [r4, #60]	@ 0x3c
+
+       11234:	6c66      	ldr	r6, [r4, #68]	@ 0x44
+
+    _ZN3etl12memory_clearEPVcj():
+
+       11236:	4299      	cmp	r1, r3
+
+    _ZN3etl13ibasic_stringIcE7cleanupEv():
+
+       11238:	eb06 0203 	add.w	r2, r6, r3
+
+    _ZN3etl12memory_clearEPVcj():
+
+       1123c:	d018      	beq.n	11270 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x220>
+
+       1123e:	4431      	add	r1, r6
+
+       11240:	7015      	strb	r5, [r2, #0]
+
+       11242:	3201      	adds	r2, #1
+
+       11244:	428a      	cmp	r2, r1
+
+       11246:	d1fb      	bne.n	11240 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x1f0>
+
+       11248:	e714      	b.n	11074 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x24>
+
+       1124a:	287e      	cmp	r0, #126	@ 0x7e
+
+       1124c:	d896      	bhi.n	1117c <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x12c>
+
+       1124e:	281f      	cmp	r0, #31
+
+       11250:	f67f af03 	bls.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       11254:	f894 2040 	ldrb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl5flagsIhLh255EE3setILh1EEERS1_b():
+
+       11258:	f042 0201 	orr.w	r2, r2, #1
+
+       1125c:	f884 2040 	strb.w	r2, [r4, #64]	@ 0x40
+
+    _ZN3etl6fill_nIPcjcEET_S2_T0_RKT1_():
+
+       11260:	e74e      	b.n	11100 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xb0>
+
+    _ZNK3etl8delegateIFvRN4util6stream19ISharedOutputStreamERKNS_13ibasic_stringIcEERKNS0_IFvvEEEEEclIJRNS2_24TaggedSharedOutputStreamERNS_6stringILj128EEESA_EEEvDpOT_():
+
+       11262:	4b1e      	ldr	r3, [pc, #120]	@ (112dc <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x28c>)
+
+       11264:	a801      	add	r0, sp, #4
+
+       11266:	681b      	ldr	r3, [r3, #0]
+
+       11268:	4798      	blx	r3
+
+       1126a:	f8d4 50d0 	ldr.w	r5, [r4, #208]	@ 0xd0
+
+       1126e:	e77b      	b.n	11168 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x118>
+
+    getline():
+
+       11270:	281b      	cmp	r0, #27
+
+       11272:	d8ea      	bhi.n	1124a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x1fa>
+
+       11274:	2807      	cmp	r0, #7
+
+       11276:	f67f aef0 	bls.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       1127a:	3808      	subs	r0, #8
+
+       1127c:	2813      	cmp	r0, #19
+
+       1127e:	f63f aeec 	bhi.w	1105a <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0xa>
+
+       11282:	a201      	add	r2, pc, #4	@ (adr r2, 11288 <<a href="./eef7c492925a836588c8e8540506e9fb.html">console::StdioConsoleInput::run()</a>+0x238>)
+
+       11284:	f852 f020 	ldr.w	pc, [r2, r0, lsl #2]
+
+       11288:	00011183 	.word	0x00011183
+
+       1128c:	0001105b 	.word	0x0001105b
+
+       11290:	00011145 	.word	0x00011145
+
+       11294:	0001105b 	.word	0x0001105b
+
+       11298:	0001105b 	.word	0x0001105b
+
+       1129c:	00011145 	.word	0x00011145
+
+       112a0:	0001105b 	.word	0x0001105b
+
+       112a4:	0001105b 	.word	0x0001105b
+
+       112a8:	0001105b 	.word	0x0001105b
+
+       112ac:	0001105b 	.word	0x0001105b
+
+       112b0:	0001105b 	.word	0x0001105b
+
+       112b4:	0001105b 	.word	0x0001105b
+
+       112b8:	0001105b 	.word	0x0001105b
+
+       112bc:	0001105b 	.word	0x0001105b
+
+       112c0:	0001105b 	.word	0x0001105b
+
+       112c4:	0001105b 	.word	0x0001105b
+
+       112c8:	0001105b 	.word	0x0001105b
+
+       112cc:	0001105b 	.word	0x0001105b
+
+       112d0:	0001105b 	.word	0x0001105b
+
+       112d4:	00011113 	.word	0x00011113
+
+       112d8:	00010f8d 	.word	0x00010f8d
+
+       112dc:	20000000 	.word	0x20000000
+
+    </pre>
+
+    
+    <pre><a href="../../../../../3rdparty/freeRtos/src/tasks.c/a2700cf07d00ca1673883a9bd6c17b5a.html">prvAddCurrentTaskToDelayedList (188)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 104</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 468</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    468
+                    
+                    
+                </td>
+                <td class="col_size">228</td>
+                <td><a href="../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/4d2b35f004d57c9527b81a1790cf7eec.html" class="icon-function">bios::Io::setConfiguration(unsigned short, bios::Io::PinConfiguration const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">24</td>
+                <td><a href="../../../../../../platforms/s32k1xx/bsp/bspIo/src/io/Io.cpp/cec6484b130ee51f1f05d1885b5b84f0.html" class="icon-function">bios::Io::setDefaultConfiguration(unsigned short)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    96
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    216
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/a6995270dd7b2ce4a3dc535f548e1353.html" class="icon-function">bsp::Uart::init()</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    80
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    156
+                    
+                    
+                </td>
+                <td class="col_size">92</td>
+                <td><a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/3d17eef1aadb667b2ad32520c73b297c.html" class="icon-function">bsp::Uart::write(etl::span&lt;unsigned char const, 4294967295u&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    64
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">64</td>
+                <td><a href="../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/stdIo/stdIo.cpp/b4518472f943892ec1c4fd3c765433f9.html" class="icon-function">putByteToStdout</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">40
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 40</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 740</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    40
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    740
+                    
+                    
+                </td>
+                <td class="col_size">656</td>
+                <td><a href="./eef7c492925a836588c8e8540506e9fb.html" class="icon-function">console::StdioConsoleInput::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    84
+                    
+                    
+                </td>
+                <td class="col_size">24</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/console/console.cpp/ddb280e29837a3ba9bb6cede53fbb24c.html" class="icon-function">console::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                8 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/app/app.cpp/ce40fba5641de4644b68d678cfee651d.html" class="icon-function">app::IdleHandler::execute()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

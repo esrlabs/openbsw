@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li class="active"><a href="../../unknown.html">&lt;unknown&gt;</a>
+            </li>
+
+        
+        <li class="active">&lt;unknown&gt;
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">__udivmoddi4</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0003089c</td>
+                <td>
+    
+    
+</td>
+                <td></td>
+                <td>760</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="./985b4898f9e942c80a378b866de7bf13.html">__aeabi_ldivmod (160)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./1c7eb7a1a927e1255dd679ad9135aad5.html">__aeabi_uldivmod (48)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./14b89ec76753575c7f7a5ac11d08bdc7.html">__aeabi_d2ulz (60)</a></pre>
+    
+
+    <pre>
+
+    __udivmoddi4():
+
+       3089c:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+
+       308a0:	9d08      	ldr	r5, [sp, #32]
+
+       308a2:	460f      	mov	r7, r1
+
+       308a4:	4604      	mov	r4, r0
+
+       308a6:	468c      	mov	ip, r1
+
+       308a8:	2b00      	cmp	r3, #0
+
+       308aa:	d148      	bne.n	3093e <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xa2>
+
+       308ac:	428a      	cmp	r2, r1
+
+       308ae:	4616      	mov	r6, r2
+
+       308b0:	d961      	bls.n	30976 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xda>
+
+       308b2:	fab2 f382 	clz	r3, r2
+
+       308b6:	b14b      	cbz	r3, 308cc <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x30>
+
+       308b8:	f1c3 0220 	rsb	r2, r3, #32
+
+       308bc:	fa01 fc03 	lsl.w	ip, r1, r3
+
+       308c0:	fa20 f202 	lsr.w	r2, r0, r2
+
+       308c4:	409e      	lsls	r6, r3
+
+       308c6:	ea42 0c0c 	orr.w	ip, r2, ip
+
+       308ca:	409c      	lsls	r4, r3
+
+       308cc:	ea4f 4e16 	mov.w	lr, r6, lsr #16
+
+       308d0:	b2b7      	uxth	r7, r6
+
+       308d2:	fbbc f1fe 	udiv	r1, ip, lr
+
+       308d6:	0c22      	lsrs	r2, r4, #16
+
+       308d8:	fb0e cc11 	mls	ip, lr, r1, ip
+
+       308dc:	ea42 420c 	orr.w	r2, r2, ip, lsl #16
+
+       308e0:	fb01 f007 	mul.w	r0, r1, r7
+
+       308e4:	4290      	cmp	r0, r2
+
+       308e6:	d909      	bls.n	308fc <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x60>
+
+       308e8:	18b2      	adds	r2, r6, r2
+
+       308ea:	f101 3cff 	add.w	ip, r1, #4294967295	@ 0xffffffff
+
+       308ee:	f080 80ee 	bcs.w	30ace <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x232>
+
+       308f2:	4290      	cmp	r0, r2
+
+       308f4:	f240 80eb 	bls.w	30ace <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x232>
+
+       308f8:	3902      	subs	r1, #2
+
+       308fa:	4432      	add	r2, r6
+
+       308fc:	1a12      	subs	r2, r2, r0
+
+       308fe:	b2a4      	uxth	r4, r4
+
+       30900:	fbb2 f0fe 	udiv	r0, r2, lr
+
+       30904:	fb0e 2210 	mls	r2, lr, r0, r2
+
+       30908:	ea44 4402 	orr.w	r4, r4, r2, lsl #16
+
+       3090c:	fb00 f707 	mul.w	r7, r0, r7
+
+       30910:	42a7      	cmp	r7, r4
+
+       30912:	d909      	bls.n	30928 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x8c>
+
+       30914:	1934      	adds	r4, r6, r4
+
+       30916:	f100 32ff 	add.w	r2, r0, #4294967295	@ 0xffffffff
+
+       3091a:	f080 80da 	bcs.w	30ad2 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x236>
+
+       3091e:	42a7      	cmp	r7, r4
+
+       30920:	f240 80d7 	bls.w	30ad2 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x236>
+
+       30924:	4434      	add	r4, r6
+
+       30926:	3802      	subs	r0, #2
+
+       30928:	ea40 4001 	orr.w	r0, r0, r1, lsl #16
+
+       3092c:	1be4      	subs	r4, r4, r7
+
+       3092e:	2100      	movs	r1, #0
+
+       30930:	b11d      	cbz	r5, 3093a <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x9e>
+
+       30932:	40dc      	lsrs	r4, r3
+
+       30934:	2300      	movs	r3, #0
+
+       30936:	e9c5 4300 	strd	r4, r3, [r5]
+
+       3093a:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       3093e:	428b      	cmp	r3, r1
+
+       30940:	d906      	bls.n	30950 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xb4>
+
+       30942:	b10d      	cbz	r5, 30948 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xac>
+
+       30944:	e9c5 0100 	strd	r0, r1, [r5]
+
+       30948:	2100      	movs	r1, #0
+
+       3094a:	4608      	mov	r0, r1
+
+       3094c:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+       30950:	fab3 f183 	clz	r1, r3
+
+       30954:	2900      	cmp	r1, #0
+
+       30956:	d148      	bne.n	309ea <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x14e>
+
+       30958:	42bb      	cmp	r3, r7
+
+       3095a:	d302      	bcc.n	30962 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xc6>
+
+       3095c:	4282      	cmp	r2, r0
+
+       3095e:	f200 8107 	bhi.w	30b70 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2d4>
+
+       30962:	1a84      	subs	r4, r0, r2
+
+       30964:	eb67 0203 	sbc.w	r2, r7, r3
+
+       30968:	2001      	movs	r0, #1
+
+       3096a:	4694      	mov	ip, r2
+
+       3096c:	2d00      	cmp	r5, #0
+
+       3096e:	d0e4      	beq.n	3093a <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x9e>
+
+       30970:	e9c5 4c00 	strd	r4, ip, [r5]
+
+       30974:	e7e1      	b.n	3093a <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x9e>
+
+       30976:	2a00      	cmp	r2, #0
+
+       30978:	f000 8092 	beq.w	30aa0 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x204>
+
+       3097c:	fab2 f382 	clz	r3, r2
+
+       30980:	2b00      	cmp	r3, #0
+
+       30982:	f040 80a8 	bne.w	30ad6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x23a>
+
+       30986:	1a8a      	subs	r2, r1, r2
+
+       30988:	ea4f 4e16 	mov.w	lr, r6, lsr #16
+
+       3098c:	fa1f fc86 	uxth.w	ip, r6
+
+       30990:	2101      	movs	r1, #1
+
+       30992:	0c20      	lsrs	r0, r4, #16
+
+       30994:	fbb2 f7fe 	udiv	r7, r2, lr
+
+       30998:	fb0e 2217 	mls	r2, lr, r7, r2
+
+       3099c:	ea40 4202 	orr.w	r2, r0, r2, lsl #16
+
+       309a0:	fb0c f007 	mul.w	r0, ip, r7
+
+       309a4:	4290      	cmp	r0, r2
+
+       309a6:	d907      	bls.n	309b8 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x11c>
+
+       309a8:	18b2      	adds	r2, r6, r2
+
+       309aa:	f107 38ff 	add.w	r8, r7, #4294967295	@ 0xffffffff
+
+       309ae:	d202      	bcs.n	309b6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x11a>
+
+       309b0:	4290      	cmp	r0, r2
+
+       309b2:	f200 80e2 	bhi.w	30b7a <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2de>
+
+       309b6:	4647      	mov	r7, r8
+
+       309b8:	1a12      	subs	r2, r2, r0
+
+       309ba:	b2a4      	uxth	r4, r4
+
+       309bc:	fbb2 f0fe 	udiv	r0, r2, lr
+
+       309c0:	fb0e 2210 	mls	r2, lr, r0, r2
+
+       309c4:	ea44 4402 	orr.w	r4, r4, r2, lsl #16
+
+       309c8:	fb0c fc00 	mul.w	ip, ip, r0
+
+       309cc:	45a4      	cmp	ip, r4
+
+       309ce:	d907      	bls.n	309e0 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x144>
+
+       309d0:	1934      	adds	r4, r6, r4
+
+       309d2:	f100 32ff 	add.w	r2, r0, #4294967295	@ 0xffffffff
+
+       309d6:	d202      	bcs.n	309de <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x142>
+
+       309d8:	45a4      	cmp	ip, r4
+
+       309da:	f200 80cb 	bhi.w	30b74 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2d8>
+
+       309de:	4610      	mov	r0, r2
+
+       309e0:	eba4 040c 	sub.w	r4, r4, ip
+
+       309e4:	ea40 4007 	orr.w	r0, r0, r7, lsl #16
+
+       309e8:	e7a2      	b.n	30930 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x94>
+
+       309ea:	f1c1 0620 	rsb	r6, r1, #32
+
+       309ee:	408b      	lsls	r3, r1
+
+       309f0:	fa22 fc06 	lsr.w	ip, r2, r6
+
+       309f4:	ea4c 0c03 	orr.w	ip, ip, r3
+
+       309f8:	fa07 f401 	lsl.w	r4, r7, r1
+
+       309fc:	fa20 f306 	lsr.w	r3, r0, r6
+
+       30a00:	40f7      	lsrs	r7, r6
+
+       30a02:	ea4f 491c 	mov.w	r9, ip, lsr #16
+
+       30a06:	4323      	orrs	r3, r4
+
+       30a08:	fa00 f801 	lsl.w	r8, r0, r1
+
+       30a0c:	fa1f fe8c 	uxth.w	lr, ip
+
+       30a10:	fbb7 f0f9 	udiv	r0, r7, r9
+
+       30a14:	0c1c      	lsrs	r4, r3, #16
+
+       30a16:	fb09 7710 	mls	r7, r9, r0, r7
+
+       30a1a:	ea44 4407 	orr.w	r4, r4, r7, lsl #16
+
+       30a1e:	fb00 f70e 	mul.w	r7, r0, lr
+
+       30a22:	42a7      	cmp	r7, r4
+
+       30a24:	fa02 f201 	lsl.w	r2, r2, r1
+
+       30a28:	d90a      	bls.n	30a40 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1a4>
+
+       30a2a:	eb1c 0404 	adds.w	r4, ip, r4
+
+       30a2e:	f100 3aff 	add.w	sl, r0, #4294967295	@ 0xffffffff
+
+       30a32:	f080 809b 	bcs.w	30b6c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2d0>
+
+       30a36:	42a7      	cmp	r7, r4
+
+       30a38:	f240 8098 	bls.w	30b6c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2d0>
+
+       30a3c:	3802      	subs	r0, #2
+
+       30a3e:	4464      	add	r4, ip
+
+       30a40:	1be4      	subs	r4, r4, r7
+
+       30a42:	b29f      	uxth	r7, r3
+
+       30a44:	fbb4 f3f9 	udiv	r3, r4, r9
+
+       30a48:	fb09 4413 	mls	r4, r9, r3, r4
+
+       30a4c:	ea47 4404 	orr.w	r4, r7, r4, lsl #16
+
+       30a50:	fb03 fe0e 	mul.w	lr, r3, lr
+
+       30a54:	45a6      	cmp	lr, r4
+
+       30a56:	d909      	bls.n	30a6c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1d0>
+
+       30a58:	eb1c 0404 	adds.w	r4, ip, r4
+
+       30a5c:	f103 37ff 	add.w	r7, r3, #4294967295	@ 0xffffffff
+
+       30a60:	f080 8082 	bcs.w	30b68 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2cc>
+
+       30a64:	45a6      	cmp	lr, r4
+
+       30a66:	d97f      	bls.n	30b68 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2cc>
+
+       30a68:	3b02      	subs	r3, #2
+
+       30a6a:	4464      	add	r4, ip
+
+       30a6c:	ea43 4000 	orr.w	r0, r3, r0, lsl #16
+
+       30a70:	eba4 040e 	sub.w	r4, r4, lr
+
+       30a74:	fba0 e702 	umull	lr, r7, r0, r2
+
+       30a78:	42bc      	cmp	r4, r7
+
+       30a7a:	4673      	mov	r3, lr
+
+       30a7c:	46b9      	mov	r9, r7
+
+       30a7e:	d363      	bcc.n	30b48 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2ac>
+
+       30a80:	d060      	beq.n	30b44 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2a8>
+
+       30a82:	b15d      	cbz	r5, 30a9c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x200>
+
+       30a84:	ebb8 0203 	subs.w	r2, r8, r3
+
+       30a88:	eb64 0409 	sbc.w	r4, r4, r9
+
+       30a8c:	fa04 f606 	lsl.w	r6, r4, r6
+
+       30a90:	fa22 f301 	lsr.w	r3, r2, r1
+
+       30a94:	431e      	orrs	r6, r3
+
+       30a96:	40cc      	lsrs	r4, r1
+
+       30a98:	e9c5 6400 	strd	r6, r4, [r5]
+
+       30a9c:	2100      	movs	r1, #0
+
+       30a9e:	e74c      	b.n	3093a <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x9e>
+
+       30aa0:	0862      	lsrs	r2, r4, #1
+
+       30aa2:	0848      	lsrs	r0, r1, #1
+
+       30aa4:	ea42 71c1 	orr.w	r1, r2, r1, lsl #31
+
+       30aa8:	0c0b      	lsrs	r3, r1, #16
+
+       30aaa:	ea43 4300 	orr.w	r3, r3, r0, lsl #16
+
+       30aae:	b28a      	uxth	r2, r1
+
+       30ab0:	ea42 4203 	orr.w	r2, r2, r3, lsl #16
+
+       30ab4:	fbb3 f1f6 	udiv	r1, r3, r6
+
+       30ab8:	07e4      	lsls	r4, r4, #31
+
+       30aba:	46b4      	mov	ip, r6
+
+       30abc:	4637      	mov	r7, r6
+
+       30abe:	46b6      	mov	lr, r6
+
+       30ac0:	231f      	movs	r3, #31
+
+       30ac2:	fbb0 f0f6 	udiv	r0, r0, r6
+
+       30ac6:	1bd2      	subs	r2, r2, r7
+
+       30ac8:	ea41 4100 	orr.w	r1, r1, r0, lsl #16
+
+       30acc:	e761      	b.n	30992 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xf6>
+
+       30ace:	4661      	mov	r1, ip
+
+       30ad0:	e714      	b.n	308fc <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x60>
+
+       30ad2:	4610      	mov	r0, r2
+
+       30ad4:	e728      	b.n	30928 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x8c>
+
+       30ad6:	f1c3 0120 	rsb	r1, r3, #32
+
+       30ada:	fa20 f201 	lsr.w	r2, r0, r1
+
+       30ade:	409e      	lsls	r6, r3
+
+       30ae0:	fa27 f101 	lsr.w	r1, r7, r1
+
+       30ae4:	409f      	lsls	r7, r3
+
+       30ae6:	433a      	orrs	r2, r7
+
+       30ae8:	ea4f 4e16 	mov.w	lr, r6, lsr #16
+
+       30aec:	fa1f fc86 	uxth.w	ip, r6
+
+       30af0:	fbb1 f7fe 	udiv	r7, r1, lr
+
+       30af4:	fb0e 1017 	mls	r0, lr, r7, r1
+
+       30af8:	0c11      	lsrs	r1, r2, #16
+
+       30afa:	ea41 4100 	orr.w	r1, r1, r0, lsl #16
+
+       30afe:	fb07 f80c 	mul.w	r8, r7, ip
+
+       30b02:	4588      	cmp	r8, r1
+
+       30b04:	fa04 f403 	lsl.w	r4, r4, r3
+
+       30b08:	d93a      	bls.n	30b80 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2e4>
+
+       30b0a:	1871      	adds	r1, r6, r1
+
+       30b0c:	f107 30ff 	add.w	r0, r7, #4294967295	@ 0xffffffff
+
+       30b10:	d201      	bcs.n	30b16 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x27a>
+
+       30b12:	4588      	cmp	r8, r1
+
+       30b14:	d81f      	bhi.n	30b56 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2ba>
+
+       30b16:	eba1 0108 	sub.w	r1, r1, r8
+
+       30b1a:	fbb1 f8fe 	udiv	r8, r1, lr
+
+       30b1e:	fb08 f70c 	mul.w	r7, r8, ip
+
+       30b22:	fb0e 1118 	mls	r1, lr, r8, r1
+
+       30b26:	b292      	uxth	r2, r2
+
+       30b28:	ea42 4201 	orr.w	r2, r2, r1, lsl #16
+
+       30b2c:	42ba      	cmp	r2, r7
+
+       30b2e:	d22f      	bcs.n	30b90 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x2f4>
+
+       30b30:	18b2      	adds	r2, r6, r2
+
+       30b32:	f108 31ff 	add.w	r1, r8, #4294967295	@ 0xffffffff
+
+       30b36:	d2c6      	bcs.n	30ac6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x22a>
+
+       30b38:	42ba      	cmp	r2, r7
+
+       30b3a:	d2c4      	bcs.n	30ac6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x22a>
+
+       30b3c:	f1a8 0102 	sub.w	r1, r8, #2
+
+       30b40:	4432      	add	r2, r6
+
+       30b42:	e7c0      	b.n	30ac6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x22a>
+
+       30b44:	45f0      	cmp	r8, lr
+
+       30b46:	d29c      	bcs.n	30a82 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1e6>
+
+       30b48:	ebbe 0302 	subs.w	r3, lr, r2
+
+       30b4c:	eb67 070c 	sbc.w	r7, r7, ip
+
+       30b50:	3801      	subs	r0, #1
+
+       30b52:	46b9      	mov	r9, r7
+
+       30b54:	e795      	b.n	30a82 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1e6>
+
+       30b56:	eba6 0808 	sub.w	r8, r6, r8
+
+       30b5a:	4441      	add	r1, r8
+
+       30b5c:	1eb8      	subs	r0, r7, #2
+
+       30b5e:	fbb1 f8fe 	udiv	r8, r1, lr
+
+       30b62:	fb08 f70c 	mul.w	r7, r8, ip
+
+       30b66:	e7dc      	b.n	30b22 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x286>
+
+       30b68:	463b      	mov	r3, r7
+
+       30b6a:	e77f      	b.n	30a6c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1d0>
+
+       30b6c:	4650      	mov	r0, sl
+
+       30b6e:	e767      	b.n	30a40 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x1a4>
+
+       30b70:	4608      	mov	r0, r1
+
+       30b72:	e6fb      	b.n	3096c <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0xd0>
+
+       30b74:	4434      	add	r4, r6
+
+       30b76:	3802      	subs	r0, #2
+
+       30b78:	e732      	b.n	309e0 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x144>
+
+       30b7a:	3f02      	subs	r7, #2
+
+       30b7c:	4432      	add	r2, r6
+
+       30b7e:	e71b      	b.n	309b8 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x11c>
+
+       30b80:	eba1 0108 	sub.w	r1, r1, r8
+
+       30b84:	4638      	mov	r0, r7
+
+       30b86:	fbb1 f8fe 	udiv	r8, r1, lr
+
+       30b8a:	fb08 f70c 	mul.w	r7, r8, ip
+
+       30b8e:	e7c8      	b.n	30b22 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x286>
+
+       30b90:	4641      	mov	r1, r8
+
+       30b92:	e798      	b.n	30ac6 <<a href="./3372af3c02900bba27f6c78efc20d0b8.html">__udivmoddi4</a>+0x22a>
+
+    </pre>
+
+    
+    <pre><a href="./6fce04eff35e5f8056263359f1bfa032.html">atexit (12)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 708</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 4,068</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    4,068
+                    
+                    
+                </td>
+                <td class="col_size">760</td>
+                <td><a href="./3372af3c02900bba27f6c78efc20d0b8.html" class="icon-function">__udivmoddi4</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,308
+                    
+                    
+                </td>
+                <td class="col_size">48</td>
+                <td><a href="./1c7eb7a1a927e1255dd679ad9135aad5.html" class="icon-function">__aeabi_uldivmod</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    708
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,260
+                    
+                    
+                </td>
+                <td class="col_size">432</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/util/src/util/format/PrintfFormatter.cpp/4aadf02dd7dcf4f301c4d79e66b22e38.html" class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    684
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,828
+                    
+                    
+                </td>
+                <td class="col_size">436</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/util/src/util/format/PrintfFormatter.cpp/a55fbe8aa7abfc498675bef9f2e3bbf3.html" class="icon-function">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    588
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,392
+                    
+                    
+                </td>
+                <td class="col_size">144</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/util/src/util/format/PrintfFormatter.cpp/1fd658a3cadf7a6a384e16e0b788aef4.html" class="icon-function">util::format::PrintfFormatter::formatParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    556
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,248
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/util/src/util/format/PrintfFormatter.cpp/54d7602074146c5884ce6c1e97059b8b.html" class="icon-function">util::format::PrintfFormatter::format(char const*, util::format::IPrintfArgumentReader&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    500
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                44 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,056
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html" class="icon-function">util::format::StringWriter::printf(char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    456
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                136 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,996
+                    
+                    
+                </td>
+                <td class="col_size">396</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/docan/include/docan/receiver/DoCanReceiver.h/43c823227c661a2523f9672889ebc851.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::allocateTransportMessage(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;, bool)</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    320
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,600
+                    
+                    
+                </td>
+                <td class="col_size">380</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/docan/include/docan/receiver/DoCanReceiver.h/80296c98e8d001723c6cc94709509d01.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handleTransition(docan::DoCanMessageReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>10</th>
+                <td class="col_size">
+                    
+                    280
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                128 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,220
+                    
+                    
+                </td>
+                <td class="col_size">284</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/docan/include/docan/receiver/DoCanReceiver.h/279189bc3e498fbc8574b7da5d7a2349.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::handlePendingMessageReceivers(unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>11</th>
+                <td class="col_size">
+                    
+                    152
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                136 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    936
+                    
+                    
+                </td>
+                <td class="col_size">912</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/docan/include/docan/receiver/DoCanReceiver.h/9afbf8e1b46985fd487b64110519682d.html" class="icon-function">docan::DoCanReceiver&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::firstDataFrameReceived(docan::DoCanConnection&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt; const&amp;, unsigned short, unsigned short, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>12</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">24</td>
+                <td><a href="../../home/runner/work/openbsw/openbsw/libs/bsw/docan/include/docan/transport/DoCanTransportLayer.h/5063abfd56f46224a76cd810adbc57c4.html" class="icon-function">docan::DoCanTransportLayer&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt;::firstDataFrameReceived(docan::DoCanConnection&lt;docan::DoCanDataLinkLayer&lt;unsigned long, unsigned short, unsigned char, 4294967295ul, unsigned short&gt; &gt; const&amp;, unsigned short, unsigned short, unsigned char, etl::span&lt;unsigned char const, 4294967295u&gt; const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

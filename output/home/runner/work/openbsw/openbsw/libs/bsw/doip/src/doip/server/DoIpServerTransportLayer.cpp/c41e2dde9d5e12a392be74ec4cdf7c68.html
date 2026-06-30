@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerTransportLayer.cpp.html">DoIpServerTransportLayer.cpp</a>:216
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerTransportLayer::executeEventClose()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00024094</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>48 (static)</td>
+                <td>316</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../3rdparty/etl/include/etl/private/delegate_cpp11.h/acd7bd21eb1e9b365c5c2490bd5eed1c.html">void etl::delegate&lt;void ()&gt;::method_stub&lt;doip::DoIpServerTransportLayer, &amp;doip::DoIpServerTransportLayer::executeEventClose&gt;(etl::delegate&lt;void ()&gt;::invocation_element const&amp;) (8)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=160
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&amp;) (104)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./2ff0945c8a49b97046162fb6042dd8de.html">doip::DoIpServerTransportLayer::getConnectionCount(unsigned char) const (60)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       24094:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       24098:	4b49      	ldr	r3, [pc, #292]	@ (241c0 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x12c>)
+
+       2409a:	494a      	ldr	r1, [pc, #296]	@ (241c4 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x130>)
+
+       2409c:	b083      	sub	sp, #12
+
+       2409e:	4607      	mov	r7, r0
+
+       240a0:	7818      	ldrb	r0, [r3, #0]
+
+       240a2:	f7e4 fba9 	bl	87f8 <<a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+       240a6:	f3ef 8310 	mrs	r3, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       240aa:	b672      	cpsid	i
+
+    _ZN4doip24DoIpServerTransportLayer13setRemoveLockEv():
+
+       240ac:	f897 2098 	ldrb.w	r2, [r7, #152]	@ 0x98
+
+       240b0:	1c51      	adds	r1, r2, #1
+
+       240b2:	f887 1098 	strb.w	r1, [r7, #152]	@ 0x98
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       240b6:	f383 8810 	msr	PRIMASK, r3
+
+       240ba:	f3ef 8910 	mrs	r9, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       240be:	b672      	cpsid	i
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       240c0:	4d41      	ldr	r5, [pc, #260]	@ (241c8 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x134>)
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE8get_headEv():
+
+       240c2:	6ebb      	ldr	r3, [r7, #104]	@ 0x68
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       240c4:	42ab      	cmp	r3, r5
+
+       240c6:	d074      	beq.n	241b2 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x11e>
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10initialiseEv():
+
+       240c8:	2600      	movs	r6, #0
+
+       240ca:	f107 0868 	add.w	r8, r7, #104	@ 0x68
+
+       240ce:	462c      	mov	r4, r5
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       240d0:	46b2      	mov	sl, r6
+
+    _ZNK3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratordeEv():
+
+       240d2:	2b00      	cmp	r3, #0
+
+       240d4:	d070      	beq.n	241b8 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x124>
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       240d6:	f893 20e0 	ldrb.w	r2, [r3, #224]	@ 0xe0
+
+       240da:	2a00      	cmp	r2, #0
+
+       240dc:	d130      	bne.n	24140 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xac>
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratoraSERKS6_():
+
+       240de:	4698      	mov	r8, r3
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratorppEv():
+
+       240e0:	681b      	ldr	r3, [r3, #0]
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       240e2:	42ab      	cmp	r3, r5
+
+       240e4:	d1f5      	bne.n	240d2 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x3e>
+
+       240e6:	f389 8810 	msr	PRIMASK, r9
+
+       240ea:	b18e      	cbz	r6, 24110 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x7c>
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       240ec:	f04f 0800 	mov.w	r8, #0
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE5frontEv():
+
+       240f0:	2c00      	cmp	r4, #0
+
+       240f2:	d04a      	beq.n	2418a <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xf6>
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE21disconnect_link_afterERS2_():
+
+       240f4:	42ac      	cmp	r4, r5
+
+       240f6:	d03a      	beq.n	2416e <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xda>
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE5frontEv():
+
+       240f8:	4620      	mov	r0, r4
+
+    _ZN3etl12unlink_afterINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEPS5_E4typeERS5_():
+
+       240fa:	f850 39d8 	ldr.w	r3, [r0], #-216
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       240fe:	f8c4 8000 	str.w	r8, [r4]
+
+    _ZN3etl12unlink_afterINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEPS5_E4typeERS5_():
+
+       24102:	461c      	mov	r4, r3
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       24104:	6803      	ldr	r3, [r0, #0]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE21disconnect_link_afterERS2_():
+
+       24106:	3e01      	subs	r6, #1
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       24108:	6a1b      	ldr	r3, [r3, #32]
+
+       2410a:	4798      	blx	r3
+
+       2410c:	2e00      	cmp	r6, #0
+
+       2410e:	d1ef      	bne.n	240f0 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x5c>
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE5clearEv():
+
+       24110:	42ac      	cmp	r4, r5
+
+       24112:	d005      	beq.n	24120 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x8c>
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       24114:	2200      	movs	r2, #0
+
+       24116:	4623      	mov	r3, r4
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE5clearEv():
+
+       24118:	6824      	ldr	r4, [r4, #0]
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       2411a:	601a      	str	r2, [r3, #0]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE5clearEv():
+
+       2411c:	42ac      	cmp	r4, r5
+
+       2411e:	d1fa      	bne.n	24116 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x82>
+
+    _ZN4doip24DoIpServerTransportLayer17releaseRemoveLockEv():
+
+       24120:	f897 2098 	ldrb.w	r2, [r7, #152]	@ 0x98
+
+       24124:	3a01      	subs	r2, #1
+
+       24126:	b2d2      	uxtb	r2, r2
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       24128:	f3ef 8310 	mrs	r3, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       2412c:	b672      	cpsid	i
+
+    _ZN4doip24DoIpServerTransportLayer17releaseRemoveLockEv():
+
+       2412e:	f887 2098 	strb.w	r2, [r7, #152]	@ 0x98
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       24132:	f383 8810 	msr	PRIMASK, r3
+
+    _ZN4doip24DoIpServerTransportLayer17releaseRemoveLockEv():
+
+       24136:	2a00      	cmp	r2, #0
+
+       24138:	d032      	beq.n	241a0 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x10c>
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       2413a:	b003      	add	sp, #12
+
+       2413c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE11erase_afterENS5_8iteratorE():
+
+       24140:	45a8      	cmp	r8, r5
+
+       24142:	d01b      	beq.n	2417c <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xe8>
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratorppEv():
+
+       24144:	f8d8 2000 	ldr.w	r2, [r8]
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE11erase_afterENS5_8iteratorE():
+
+       24148:	42aa      	cmp	r2, r5
+
+       2414a:	d017      	beq.n	2417c <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xe8>
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratorppEv():
+
+       2414c:	f8d2 b000 	ldr.w	fp, [r2]
+
+    _ZN3etl12unlink_afterINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEPS5_E4typeERS5_():
+
+       24150:	f8c8 b000 	str.w	fp, [r8]
+
+    _ZN3etl12forward_linkILj0EE5clearEv():
+
+       24154:	f8c2 a000 	str.w	sl, [r2]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE21disconnect_link_afterERS2_():
+
+       24158:	6efa      	ldr	r2, [r7, #108]	@ 0x6c
+
+       2415a:	3a01      	subs	r2, #1
+
+       2415c:	66fa      	str	r2, [r7, #108]	@ 0x6c
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10push_frontERS2_():
+
+       2415e:	681a      	ldr	r2, [r3, #0]
+
+       24160:	b1ca      	cbz	r2, 24196 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x102>
+
+       24162:	4b1a      	ldr	r3, [pc, #104]	@ (241cc <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x138>)
+
+       24164:	a801      	add	r0, sp, #4
+
+       24166:	681b      	ldr	r3, [r3, #0]
+
+       24168:	4798      	blx	r3
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratoraSERKS6_():
+
+       2416a:	465b      	mov	r3, fp
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10push_frontERS2_():
+
+       2416c:	e7b9      	b.n	240e2 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x4e>
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       2416e:	f854 3cd8 	ldr.w	r3, [r4, #-216]
+
+       24172:	f1a4 00d8 	sub.w	r0, r4, #216	@ 0xd8
+
+       24176:	6a1b      	ldr	r3, [r3, #32]
+
+       24178:	4798      	blx	r3
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE5frontEv():
+
+       2417a:	e7bb      	b.n	240f4 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x60>
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10push_frontERS2_():
+
+       2417c:	681a      	ldr	r2, [r3, #0]
+
+       2417e:	b132      	cbz	r2, 2418e <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0xfa>
+
+       24180:	4b12      	ldr	r3, [pc, #72]	@ (241cc <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x138>)
+
+       24182:	a801      	add	r0, sp, #4
+
+       24184:	681b      	ldr	r3, [r3, #0]
+
+       24186:	4798      	blx	r3
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratorC4EPS4_():
+
+       24188:	e7ad      	b.n	240e6 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x52>
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE5frontEv():
+
+       2418a:	4620      	mov	r0, r4
+
+       2418c:	e7ba      	b.n	24104 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x70>
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       2418e:	601c      	str	r4, [r3, #0]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE17insert_link_afterERS2_S4_():
+
+       24190:	3601      	adds	r6, #1
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       24192:	461c      	mov	r4, r3
+
+       24194:	e7a7      	b.n	240e6 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x52>
+
+       24196:	601c      	str	r4, [r3, #0]
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE17insert_link_afterERS2_S4_():
+
+       24198:	3601      	adds	r6, #1
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       2419a:	461c      	mov	r4, r3
+
+    _ZN3etl22intrusive_forward_listIN4doip29DoIpServerTransportConnectionENS_12forward_linkILj0EEEE8iteratoraSERKS6_():
+
+       2419c:	465b      	mov	r3, fp
+
+       2419e:	e7a0      	b.n	240e2 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x4e>
+
+    _ZN4doip24DoIpServerTransportLayer17releaseRemoveLockEv():
+
+       241a0:	f897 0053 	ldrb.w	r0, [r7, #83]	@ 0x53
+
+       241a4:	f107 0130 	add.w	r1, r7, #48	@ 0x30
+
+    doip::DoIpServerTransportLayer::executeEventClose():
+
+       241a8:	b003      	add	sp, #12
+
+       241aa:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN4doip24DoIpServerTransportLayer17releaseRemoveLockEv():
+
+       241ae:	f7ee bbb7 	b.w	12920 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/4dfe65e158466f2f9a73b985dc4b0ecc.html">async::execute(unsigned char, async::IRunnable&)</a>>
+
+    resumeAllInterrupts():
+
+       241b2:	f389 8810 	msr	PRIMASK, r9
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE5clearEv():
+
+       241b6:	e7b7      	b.n	24128 <<a href="./c41e2dde9d5e12a392be74ec4cdf7c68.html">doip::DoIpServerTransportLayer::executeEventClose()</a>+0x94>
+
+    _ZNK4doip29DoIpServerTransportConnection16isMarkedForCloseEv():
+
+       241b8:	f893 31b8 	ldrb.w	r3, [r3, #440]	@ 0x1b8
+
+       241bc:	deff      	udf	#255	@ 0xff
+
+       241be:	bf00      	nop
+
+       241c0:	20000007 	.word	0x20000007
+
+       241c4:	000341b0 	.word	0x000341b0
+
+       241c8:	20000168 	.word	0x20000168
+
+       241cc:	20000000 	.word	0x20000000
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../3rdparty/etl/include/etl/private/delegate_cpp11.h/acd7bd21eb1e9b365c5c2490bd5eed1c.html">void etl::delegate&lt;void ()&gt;::method_stub&lt;doip::DoIpServerTransportLayer, &amp;doip::DoIpServerTransportLayer::executeEventClose&gt;(etl::delegate&lt;void ()&gt;::invocation_element const&amp;) (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 116</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    116
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    68
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html" class="icon-function">util::logger::Logger::debug(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">48
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../uds.html">uds</a></li>
+        
+        <li><a href="../../../services.html">services</a></li>
+        
+        <li ><a href="../../sessioncontrol.html">sessioncontrol</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagnosticSessionControl.cpp.html">DiagnosticSessionControl.cpp</a>:296
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00017df8</td>
+                <td>
+    
+    
+</td>
+                <td>32 (static)</td>
+                <td>252</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (7,
+                            <span title="sum of used bytes by all callees">
+                            Σ=452
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/c0f75617ea8910ea2368bdb98cfb70d9.html">uds::DiagSession::APPLICATION_DEFAULT_SESSION() (44)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/94ce0e483871a893d59323bfe82a4de3.html">uds::operator==(uds::DiagSession const&amp;, uds::DiagSession const&amp;) (16)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/1b357bb9303c6e0fbdc0891ea80f6e8b.html">uds::DiagSession::APPLICATION_EXTENDED_SESSION() (44)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (128)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/97cda93a903d5df135c460b12120bd2a.html">uds::DiagSession::PROGRAMMING_SESSION() (44)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./7074b0233c368f7a2ff25cb75a3377f4.html">uds::DiagnosticSessionControl::sessionRead(unsigned char) (60)</a></pre>
+    
+
+    <pre>
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17df8:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+    _ZNK3uds11DiagSession14getSessionByteEv():
+
+       17dfa:	6bc3      	ldr	r3, [r0, #60]	@ 0x3c
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17dfc:	b083      	sub	sp, #12
+
+       17dfe:	460c      	mov	r4, r1
+
+    _ZNK3uds11DiagSession14getSessionByteEv():
+
+       17e00:	791e      	ldrb	r6, [r3, #4]
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17e02:	4605      	mov	r5, r0
+
+       17e04:	f001 f880 	bl	18f08 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/c0f75617ea8910ea2368bdb98cfb70d9.html">uds::DiagSession::APPLICATION_DEFAULT_SESSION()</a>>
+
+       17e08:	4601      	mov	r1, r0
+
+       17e0a:	4620      	mov	r0, r4
+
+       17e0c:	f001 f908 	bl	19020 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/94ce0e483871a893d59323bfe82a4de3.html">uds::operator==(uds::DiagSession const&, uds::DiagSession const&)</a>>
+
+       17e10:	b328      	cbz	r0, 17e5e <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x66>
+
+       17e12:	6823      	ldr	r3, [r4, #0]
+
+       17e14:	4a34      	ldr	r2, [pc, #208]	@ (17ee8 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xf0>)
+
+       17e16:	689b      	ldr	r3, [r3, #8]
+
+       17e18:	63ec      	str	r4, [r5, #60]	@ 0x3c
+
+       17e1a:	4293      	cmp	r3, r2
+
+       17e1c:	d145      	bne.n	17eaa <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xb2>
+
+    uds::DiagnosticSessionControl::stopTimeout():
+
+       17e1e:	f105 005c 	add.w	r0, r5, #92	@ 0x5c
+
+       17e22:	f7fb f8c5 	bl	12fb0 <<a href="../../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+       17e26:	2301      	movs	r3, #1
+
+       17e28:	f885 3074 	strb.w	r3, [r5, #116]	@ 0x74
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17e2c:	4a2f      	ldr	r2, [pc, #188]	@ (17eec <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xf4>)
+
+       17e2e:	7923      	ldrb	r3, [r4, #4]
+
+       17e30:	7810      	ldrb	r0, [r2, #0]
+
+       17e32:	492f      	ldr	r1, [pc, #188]	@ (17ef0 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xf8>)
+
+       17e34:	4632      	mov	r2, r6
+
+       17e36:	f7f0 fcdf 	bl	87f8 <<a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html">util::logger::Logger::debug(unsigned char, char const*, ...)</a>>
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       17e3a:	6fec      	ldr	r4, [r5, #124]	@ 0x7c
+
+    _ZN3etl14intrusive_listIN3uds27IDiagSessionChangedListenerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       17e3c:	f105 0678 	add.w	r6, r5, #120	@ 0x78
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17e40:	42b4      	cmp	r4, r6
+
+       17e42:	d00a      	beq.n	17e5a <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x62>
+
+    _ZNK3etl14intrusive_listIN3uds27IDiagSessionChangedListenerENS_18bidirectional_linkILj0EEEE8iteratorptEv():
+
+       17e44:	2c00      	cmp	r4, #0
+
+       17e46:	d04d      	beq.n	17ee4 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xec>
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17e48:	f854 3c04 	ldr.w	r3, [r4, #-4]
+
+       17e4c:	6be9      	ldr	r1, [r5, #60]	@ 0x3c
+
+       17e4e:	681b      	ldr	r3, [r3, #0]
+
+       17e50:	1f20      	subs	r0, r4, #4
+
+       17e52:	4798      	blx	r3
+
+    _ZN3etl14intrusive_listIN3uds27IDiagSessionChangedListenerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       17e54:	6864      	ldr	r4, [r4, #4]
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17e56:	42b4      	cmp	r4, r6
+
+       17e58:	d1f4      	bne.n	17e44 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x4c>
+
+       17e5a:	b003      	add	sp, #12
+
+       17e5c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       17e5e:	f001 f869 	bl	18f34 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/1b357bb9303c6e0fbdc0891ea80f6e8b.html">uds::DiagSession::APPLICATION_EXTENDED_SESSION()</a>>
+
+       17e62:	4601      	mov	r1, r0
+
+       17e64:	4620      	mov	r0, r4
+
+       17e66:	f001 f8db 	bl	19020 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/94ce0e483871a893d59323bfe82a4de3.html">uds::operator==(uds::DiagSession const&, uds::DiagSession const&)</a>>
+
+       17e6a:	4607      	mov	r7, r0
+
+       17e6c:	b300      	cbz	r0, 17eb0 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xb8>
+
+       17e6e:	6beb      	ldr	r3, [r5, #60]	@ 0x3c
+
+       17e70:	42a3      	cmp	r3, r4
+
+       17e72:	d005      	beq.n	17e80 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x88>
+
+       17e74:	6823      	ldr	r3, [r4, #0]
+
+       17e76:	4a1c      	ldr	r2, [pc, #112]	@ (17ee8 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xf0>)
+
+       17e78:	689b      	ldr	r3, [r3, #8]
+
+       17e7a:	63ec      	str	r4, [r5, #60]	@ 0x3c
+
+       17e7c:	4293      	cmp	r3, r2
+
+       17e7e:	d12e      	bne.n	17ede <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xe6>
+
+    _ZN3uds24DiagnosticSessionControl10setTimeoutEm():
+
+       17e80:	f105 075c 	add.w	r7, r5, #92	@ 0x5c
+
+       17e84:	4638      	mov	r0, r7
+
+       17e86:	f7fb f893 	bl	12fb0 <<a href="../../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+       17e8a:	2301      	movs	r3, #1
+
+       17e8c:	f885 3074 	strb.w	r3, [r5, #116]	@ 0x74
+
+       17e90:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+
+       17e94:	9300      	str	r3, [sp, #0]
+
+       17e96:	f895 002c 	ldrb.w	r0, [r5, #44]	@ 0x2c
+
+       17e9a:	f241 3388 	movw	r3, #5000	@ 0x1388
+
+       17e9e:	463a      	mov	r2, r7
+
+       17ea0:	f105 011c 	add.w	r1, r5, #28
+
+       17ea4:	f7fa fe10 	bl	12ac8 <<a href="../../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+       17ea8:	e7c0      	b.n	17e2c <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x34>
+
+    uds::DiagnosticSessionControl::switchSession(uds::DiagSession&):
+
+       17eaa:	4620      	mov	r0, r4
+
+       17eac:	4798      	blx	r3
+
+       17eae:	e7b6      	b.n	17e1e <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x26>
+
+       17eb0:	f001 f856 	bl	18f60 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/97cda93a903d5df135c460b12120bd2a.html">uds::DiagSession::PROGRAMMING_SESSION()</a>>
+
+       17eb4:	4601      	mov	r1, r0
+
+       17eb6:	4620      	mov	r0, r4
+
+       17eb8:	f001 f8b2 	bl	19020 <<a href="../../../../../../../../executables/referenceApp/udsConfiguration/src/uds/session/DiagSession.cpp/94ce0e483871a893d59323bfe82a4de3.html">uds::operator==(uds::DiagSession const&, uds::DiagSession const&)</a>>
+
+       17ebc:	b130      	cbz	r0, 17ecc <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xd4>
+
+       17ebe:	6bab      	ldr	r3, [r5, #56]	@ 0x38
+
+       17ec0:	b103      	cbz	r3, 17ec4 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xcc>
+
+       17ec2:	721f      	strb	r7, [r3, #8]
+
+       17ec4:	2301      	movs	r3, #1
+
+       17ec6:	f885 305a 	strb.w	r3, [r5, #90]	@ 0x5a
+
+       17eca:	e7af      	b.n	17e2c <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x34>
+
+       17ecc:	6823      	ldr	r3, [r4, #0]
+
+       17ece:	4a06      	ldr	r2, [pc, #24]	@ (17ee8 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0xf0>)
+
+       17ed0:	689b      	ldr	r3, [r3, #8]
+
+       17ed2:	63ec      	str	r4, [r5, #60]	@ 0x3c
+
+       17ed4:	4293      	cmp	r3, r2
+
+       17ed6:	d0a9      	beq.n	17e2c <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x34>
+
+       17ed8:	4620      	mov	r0, r4
+
+       17eda:	4798      	blx	r3
+
+       17edc:	e7a6      	b.n	17e2c <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x34>
+
+       17ede:	4620      	mov	r0, r4
+
+       17ee0:	4798      	blx	r3
+
+       17ee2:	e7cd      	b.n	17e80 <<a href="./c54ef7929d5e2b44776481f5f3417e91.html">uds::DiagnosticSessionControl::switchSession(uds::DiagSession&)</a>+0x88>
+
+       17ee4:	6823      	ldr	r3, [r4, #0]
+
+       17ee6:	deff      	udf	#255	@ 0xff
+
+       17ee8:	00017c25 	.word	0x00017c25
+
+       17eec:	20000006 	.word	0x20000006
+
+       17ef0:	000327e4 	.word	0x000327e4
+
+    </pre>
+
+    
+    <pre><a href="./3ad0347ffda7d6a024290f255d6bee54.html">uds::DiagnosticSessionControl::sessionWritten(bool) (40)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 100</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    100
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    52
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html" class="icon-function">util::logger::Logger::debug(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">32
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

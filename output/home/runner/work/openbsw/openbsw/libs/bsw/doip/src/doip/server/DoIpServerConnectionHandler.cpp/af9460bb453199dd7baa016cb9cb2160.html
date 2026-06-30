@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerConnectionHandler.cpp.html">DoIpServerConnectionHandler.cpp</a>:82
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00028214</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>96 (static)</td>
+                <td>316</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../DoIpServerTransportLayer.cpp/78be28275a9926907740adb74dd14828.html">doip::DoIpServerTransportLayer::connectionAccepted(doip::DoIpServerTransportConnection&amp;) (72)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=392
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/0ab01804358606b880086539418bdb3a.html">util::logger::Logger::info(unsigned char, char const*, ...) (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (128)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./036065d44d4ceec84f621836333b1426.html">doip::DoIpServerConnectionHandler::sendRoutingActive() (88)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./036065d44d4ceec84f621836333b1426.html">doip::DoIpServerConnectionHandler::sendRoutingActive() (88)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       28214:	6903      	ldr	r3, [r0, #16]
+
+       28216:	b103      	cbz	r3, 2821a <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x6>
+
+       28218:	4770      	bx	lr
+
+       2821a:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       2821c:	460c      	mov	r4, r1
+
+       2821e:	b093      	sub	sp, #76	@ 0x4c
+
+       28220:	4947      	ldr	r1, [pc, #284]	@ (28340 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x12c>)
+
+       28222:	f890 20d5 	ldrb.w	r2, [r0, #213]	@ 0xd5
+
+       28226:	f890 30c8 	ldrb.w	r3, [r0, #200]	@ 0xc8
+
+       2822a:	4605      	mov	r5, r0
+
+       2822c:	7808      	ldrb	r0, [r1, #0]
+
+       2822e:	9200      	str	r2, [sp, #0]
+
+       28230:	f8b5 20c2 	ldrh.w	r2, [r5, #194]	@ 0xc2
+
+       28234:	4943      	ldr	r1, [pc, #268]	@ (28344 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x130>)
+
+       28236:	f7da fd3b 	bl	2cb0 <<a href="../../../../../util/include/util/logger/Logger.h/0ab01804358606b880086539418bdb3a.html">util::logger::Logger::info(unsigned char, char const*, ...)</a>>
+
+       2823a:	6968      	ldr	r0, [r5, #20]
+
+       2823c:	612c      	str	r4, [r5, #16]
+
+       2823e:	6803      	ldr	r3, [r0, #0]
+
+       28240:	4629      	mov	r1, r5
+
+       28242:	681b      	ldr	r3, [r3, #0]
+
+       28244:	4798      	blx	r3
+
+    _ZN3etl19intrusive_list_baseINS_18bidirectional_linkILj0EEEE8get_headEv():
+
+       28246:	f8d5 40b8 	ldr.w	r4, [r5, #184]	@ 0xb8
+
+    _ZN3etl14intrusive_listIN4doip25IDoIpServerMessageHandlerENS_18bidirectional_linkILj0EEEE3endEv():
+
+       2824a:	f105 06b4 	add.w	r6, r5, #180	@ 0xb4
+
+    _ZN4doip27DoIpServerConnectionHandler20sendConnectionOpenedEv():
+
+       2824e:	42b4      	cmp	r4, r6
+
+       28250:	d00b      	beq.n	2826a <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x56>
+
+       28252:	1d2f      	adds	r7, r5, #4
+
+    _ZNK3etl14intrusive_listIN4doip25IDoIpServerMessageHandlerENS_18bidirectional_linkILj0EEEE8iteratordeEv():
+
+       28254:	2c00      	cmp	r4, #0
+
+       28256:	d071      	beq.n	2833c <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x128>
+
+    _ZN4doip27DoIpServerConnectionHandler20sendConnectionOpenedEv():
+
+       28258:	f854 3c04 	ldr.w	r3, [r4, #-4]
+
+       2825c:	1f20      	subs	r0, r4, #4
+
+       2825e:	681b      	ldr	r3, [r3, #0]
+
+       28260:	4639      	mov	r1, r7
+
+       28262:	4798      	blx	r3
+
+    _ZN3etl14intrusive_listIN4doip25IDoIpServerMessageHandlerENS_18bidirectional_linkILj0EEEE8iteratorppEv():
+
+       28264:	6864      	ldr	r4, [r4, #4]
+
+    _ZN4doip27DoIpServerConnectionHandler20sendConnectionOpenedEv():
+
+       28266:	42a6      	cmp	r6, r4
+
+       28268:	d1f4      	bne.n	28254 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x40>
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       2826a:	f895 30c8 	ldrb.w	r3, [r5, #200]	@ 0xc8
+
+       2826e:	2b00      	cmp	r3, #0
+
+       28270:	d047      	beq.n	28302 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0xee>
+
+       28272:	682b      	ldr	r3, [r5, #0]
+
+       28274:	4a34      	ldr	r2, [pc, #208]	@ (28348 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x134>)
+
+       28276:	691b      	ldr	r3, [r3, #16]
+
+       28278:	4293      	cmp	r3, r2
+
+       2827a:	d155      	bne.n	28328 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x114>
+
+    doip::DoIpServerConnectionHandler::getLocalEndpoint() const():
+
+       2827c:	6969      	ldr	r1, [r5, #20]
+
+       2827e:	680b      	ldr	r3, [r1, #0]
+
+       28280:	ac08      	add	r4, sp, #32
+
+       28282:	685b      	ldr	r3, [r3, #4]
+
+       28284:	4620      	mov	r0, r4
+
+       28286:	4798      	blx	r3
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       28288:	682b      	ldr	r3, [r5, #0]
+
+       2828a:	4a30      	ldr	r2, [pc, #192]	@ (2834c <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x138>)
+
+       2828c:	695b      	ldr	r3, [r3, #20]
+
+       2828e:	4293      	cmp	r3, r2
+
+       28290:	d14f      	bne.n	28332 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x11e>
+
+    doip::DoIpServerConnectionHandler::getRemoteEndpoint() const():
+
+       28292:	6969      	ldr	r1, [r5, #20]
+
+       28294:	680b      	ldr	r3, [r1, #0]
+
+       28296:	ae0d      	add	r6, sp, #52	@ 0x34
+
+       28298:	689b      	ldr	r3, [r3, #8]
+
+       2829a:	4630      	mov	r0, r6
+
+       2829c:	4798      	blx	r3
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       2829e:	6928      	ldr	r0, [r5, #16]
+
+       282a0:	6803      	ldr	r3, [r0, #0]
+
+    _ZN3etl16private_optional13optional_implImLb1EEC4EOm():
+
+       282a2:	2200      	movs	r2, #0
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282a4:	681f      	ldr	r7, [r3, #0]
+
+       282a6:	9601      	str	r6, [sp, #4]
+
+    _ZN3etl16private_optional13optional_implImLb1EEC4EOm():
+
+       282a8:	2101      	movs	r1, #1
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282aa:	f895 30c9 	ldrb.w	r3, [r5, #201]	@ 0xc9
+
+       282ae:	9103      	str	r1, [sp, #12]
+
+    _ZN3etl16private_optional13optional_implImLb1EEC4EOm():
+
+       282b0:	e9cd 2106 	strd	r2, r1, [sp, #24]
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282b4:	a906      	add	r1, sp, #24
+
+       282b6:	9400      	str	r4, [sp, #0]
+
+       282b8:	9102      	str	r1, [sp, #8]
+
+       282ba:	f8b5 10c2 	ldrh.w	r1, [r5, #194]	@ 0xc2
+
+       282be:	47b8      	blx	r7
+
+    _ZNK4doip27IDoIpServerConnectionFilter28RoutingActivationCheckResult28resolveInternalSourceAddressEt():
+
+       282c0:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+
+       282c4:	b283      	uxth	r3, r0
+
+       282c6:	4293      	cmp	r3, r2
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282c8:	bf08      	it	eq
+
+       282ca:	f8b5 30c2 	ldrheq.w	r3, [r5, #194]	@ 0xc2
+
+    _ZNK4doip34DoIpServerTransportLayerParameters27getGeneralInactivityTimeoutEv():
+
+       282ce:	69aa      	ldr	r2, [r5, #24]
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282d0:	9005      	str	r0, [sp, #20]
+
+    _ZN4doip27DoIpServerConnectionHandler8setTimerEm():
+
+       282d2:	f105 041c 	add.w	r4, r5, #28
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282d6:	f8a5 30c4 	strh.w	r3, [r5, #196]	@ 0xc4
+
+    _ZN4doip27DoIpServerConnectionHandler8setTimerEm():
+
+       282da:	4620      	mov	r0, r4
+
+    _ZNK4doip34DoIpServerTransportLayerParameters27getGeneralInactivityTimeoutEv():
+
+       282dc:	6816      	ldr	r6, [r2, #0]
+
+    _ZN4doip27DoIpServerConnectionHandler8setTimerEm():
+
+       282de:	f7ea fe67 	bl	12fb0 <<a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+       282e2:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+
+       282e6:	9300      	str	r3, [sp, #0]
+
+       282e8:	f895 00c7 	ldrb.w	r0, [r5, #199]	@ 0xc7
+
+       282ec:	4633      	mov	r3, r6
+
+       282ee:	4622      	mov	r2, r4
+
+       282f0:	f105 0108 	add.w	r1, r5, #8
+
+       282f4:	f7ea fbe8 	bl	12ac8 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       282f8:	4628      	mov	r0, r5
+
+       282fa:	f7ff ff5f 	bl	281bc <<a href="./036065d44d4ceec84f621836333b1426.html">doip::DoIpServerConnectionHandler::sendRoutingActive()</a>>
+
+       282fe:	b013      	add	sp, #76	@ 0x4c
+
+       28300:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    _ZNK4doip34DoIpServerTransportLayerParameters27getInitialInactivityTimeoutEv():
+
+       28302:	69ab      	ldr	r3, [r5, #24]
+
+    _ZN4doip27DoIpServerConnectionHandler8setTimerEm():
+
+       28304:	f105 041c 	add.w	r4, r5, #28
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       28308:	889e      	ldrh	r6, [r3, #4]
+
+    _ZN4doip27DoIpServerConnectionHandler8setTimerEm():
+
+       2830a:	4620      	mov	r0, r4
+
+       2830c:	f7ea fe50 	bl	12fb0 <<a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+       28310:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+
+       28314:	f895 00c7 	ldrb.w	r0, [r5, #199]	@ 0xc7
+
+       28318:	9300      	str	r3, [sp, #0]
+
+       2831a:	4622      	mov	r2, r4
+
+       2831c:	4633      	mov	r3, r6
+
+       2831e:	f105 0108 	add.w	r1, r5, #8
+
+       28322:	f7ea fbd1 	bl	12ac8 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+       28326:	e7ea      	b.n	282fe <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0xea>
+
+    doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&):
+
+       28328:	ac08      	add	r4, sp, #32
+
+       2832a:	4629      	mov	r1, r5
+
+       2832c:	4620      	mov	r0, r4
+
+       2832e:	4798      	blx	r3
+
+       28330:	e7aa      	b.n	28288 <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x74>
+
+       28332:	ae0d      	add	r6, sp, #52	@ 0x34
+
+       28334:	4629      	mov	r1, r5
+
+       28336:	4630      	mov	r0, r6
+
+       28338:	4798      	blx	r3
+
+       2833a:	e7b0      	b.n	2829e <<a href="./af9460bb453199dd7baa016cb9cb2160.html">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&)</a>+0x8a>
+
+    _ZN4doip27DoIpServerConnectionHandler20sendConnectionOpenedEv():
+
+       2833c:	6823      	ldr	r3, [r4, #0]
+
+       2833e:	deff      	udf	#255	@ 0xff
+
+       28340:	20000007 	.word	0x20000007
+
+       28344:	000347dc 	.word	0x000347dc
+
+       28348:	00023869 	.word	0x00023869
+
+       2834c:	00023889 	.word	0x00023889
+
+    </pre>
+
+    
+    <pre><a href="./ce2d8f9caa474bf58e83733eacda7759.html">doip::DoIpServerConnectionHandler::timerExpired() (144)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 212</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 212</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    212
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    212
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    164
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    144
+                    
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/36d1ae1365862a45a74fa55e9d725fcd.html" class="icon-function">util::logger::Logger::debug(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    144
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">88</td>
+                <td><a href="./036065d44d4ceec84f621836333b1426.html" class="icon-function">doip::DoIpServerConnectionHandler::sendRoutingActive()</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">120
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 120</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 388</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    120
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    388
+                    
+                    
+                </td>
+                <td class="col_size">316</td>
+                <td><a href="./af9460bb453199dd7baa016cb9cb2160.html" class="icon-function">doip::DoIpServerConnectionHandler::start(doip::IDoIpServerConnectionHandlerCallback&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">72</td>
+                <td><a href="../DoIpServerTransportLayer.cpp/78be28275a9926907740adb74dd14828.html" class="icon-function">doip::DoIpServerTransportLayer::connectionAccepted(doip::DoIpServerTransportConnection&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

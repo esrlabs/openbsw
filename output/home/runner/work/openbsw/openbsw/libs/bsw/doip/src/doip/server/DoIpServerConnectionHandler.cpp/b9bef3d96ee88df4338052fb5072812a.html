@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerConnectionHandler.cpp.html">DoIpServerConnectionHandler.cpp</a>:302
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span&lt;unsigned char const, 4294967295u&gt;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00028794</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>120 (static)</td>
+                <td>468</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../3rdparty/etl/include/etl/private/delegate_cpp11.h/7d95f0ca19a2c5e20d5993b281f41fe3.html">void etl::delegate&lt;void (etl::span&lt;unsigned char const, 4294967295u&gt;)&gt;::method_stub&lt;doip::DoIpServerConnectionHandler, &amp;doip::DoIpServerConnectionHandler::routingActivationRequestReceived&gt;(etl::delegate&lt;void (etl::span&lt;unsigned char const, 4294967295u&gt;)&gt;::invocation_element const&amp;, etl::span&lt;unsigned char const, 4294967295u&gt;) (28)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=244
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./57956a735bce4058fbfe5be7327afa7c.html">doip::DoIpServerConnectionHandler::sendRoutingActivationResponse(unsigned short, unsigned char, bool) (216)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./5d36aa884ae6771ad49d792c0d297b5e.html">doip::DoIpServerConnectionHandler::routingActivationCompleted(bool, unsigned char) (136)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       28794:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       28798:	4688      	mov	r8, r1
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       2879a:	6809      	ldr	r1, [r1, #0]
+
+       2879c:	f8d8 3004 	ldr.w	r3, [r8, #4]
+
+       287a0:	1a5b      	subs	r3, r3, r1
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       287a2:	2b01      	cmp	r3, #1
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       287a4:	b095      	sub	sp, #84	@ 0x54
+
+       287a6:	4604      	mov	r4, r0
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       287a8:	f240 80a3 	bls.w	288f2 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x15e>
+
+       287ac:	ad0f      	add	r5, sp, #60	@ 0x3c
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       287ae:	2b02      	cmp	r3, #2
+
+       287b0:	bf94      	ite	ls
+
+       287b2:	18ca      	addls	r2, r1, r3
+
+       287b4:	1c8a      	addhi	r2, r1, #2
+
+       287b6:	f8c8 2000 	str.w	r2, [r8]
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       287ba:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       287bc:	2202      	movs	r2, #2
+
+       287be:	4628      	mov	r0, r5
+
+    _ZNK3etl14unaligned_typeItLi4321EEcvtEv():
+
+       287c0:	f8ad 303c 	strh.w	r3, [sp, #60]	@ 0x3c
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj2ELi4321ELb1EE19copy_store_to_valueItEEvPKhRT_():
+
+       287c4:	f7d7 feeb 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       287c8:	f8bd 603c 	ldrh.w	r6, [sp, #60]	@ 0x3c
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       287cc:	f8d8 2004 	ldr.w	r2, [r8, #4]
+
+       287d0:	f8d8 3000 	ldr.w	r3, [r8]
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       287d4:	ba76      	rev16	r6, r6
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIS1_EERT_v():
+
+       287d6:	429a      	cmp	r2, r3
+
+    _ZN3etl13reverse_bytesItEENS_9enable_ifIXaaaasrNS_11is_integralIT_EE5valuesrNS_11is_unsignedIS3_EE5valueeqsrNS_15integral_limitsIS3_EE4bitsLj16EES3_E4typeES3_():
+
+       287d8:	b2b7      	uxth	r7, r6
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIS1_EERT_v():
+
+       287da:	f000 8093 	beq.w	28904 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x170>
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       287de:	1ad0      	subs	r0, r2, r3
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       287e0:	2801      	cmp	r0, #1
+
+       287e2:	bf94      	ite	ls
+
+       287e4:	1819      	addls	r1, r3, r0
+
+       287e6:	1c59      	addhi	r1, r3, #1
+
+       287e8:	f8c8 1000 	str.w	r1, [r8]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       287ec:	f893 b000 	ldrb.w	fp, [r3]
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       287f0:	1a53      	subs	r3, r2, r1
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       287f2:	2b04      	cmp	r3, #4
+
+       287f4:	bf94      	ite	ls
+
+       287f6:	18c9      	addls	r1, r1, r3
+
+       287f8:	3104      	addhi	r1, #4
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       287fa:	1a52      	subs	r2, r2, r1
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       287fc:	2a04      	cmp	r2, #4
+
+       287fe:	f000 808a 	beq.w	28916 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x182>
+
+       28802:	6823      	ldr	r3, [r4, #0]
+
+       28804:	4a55      	ldr	r2, [pc, #340]	@ (2895c <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1c8>)
+
+       28806:	691b      	ldr	r3, [r3, #16]
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       28808:	f8c8 1000 	str.w	r1, [r8]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       2880c:	f04f 0900 	mov.w	r9, #0
+
+       28810:	4293      	cmp	r3, r2
+
+       28812:	f8cd 9014 	str.w	r9, [sp, #20]
+
+       28816:	f040 8091 	bne.w	2893c <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1a8>
+
+    doip::DoIpServerConnectionHandler::getLocalEndpoint() const():
+
+       2881a:	6961      	ldr	r1, [r4, #20]
+
+       2881c:	680b      	ldr	r3, [r1, #0]
+
+       2881e:	f10d 0828 	add.w	r8, sp, #40	@ 0x28
+
+       28822:	685b      	ldr	r3, [r3, #4]
+
+       28824:	4640      	mov	r0, r8
+
+       28826:	4798      	blx	r3
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       28828:	6823      	ldr	r3, [r4, #0]
+
+       2882a:	4a4d      	ldr	r2, [pc, #308]	@ (28960 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1cc>)
+
+       2882c:	695b      	ldr	r3, [r3, #20]
+
+       2882e:	4293      	cmp	r3, r2
+
+       28830:	f040 808f 	bne.w	28952 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1be>
+
+    doip::DoIpServerConnectionHandler::getRemoteEndpoint() const():
+
+       28834:	6961      	ldr	r1, [r4, #20]
+
+       28836:	680b      	ldr	r3, [r1, #0]
+
+       28838:	4628      	mov	r0, r5
+
+       2883a:	689b      	ldr	r3, [r3, #8]
+
+       2883c:	4798      	blx	r3
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       2883e:	6920      	ldr	r0, [r4, #16]
+
+       28840:	6802      	ldr	r2, [r0, #0]
+
+    _ZN3etl16private_optional13optional_implImLb1EE12storage_typeC4Ev():
+
+       28842:	2300      	movs	r3, #0
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       28844:	f8d2 a000 	ldr.w	sl, [r2]
+
+    _ZN3etl16private_optional13optional_implImLb1EEC4ERKS2_():
+
+       28848:	e9cd 3308 	strd	r3, r3, [sp, #32]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       2884c:	f894 30c9 	ldrb.w	r3, [r4, #201]	@ 0xc9
+
+    _ZN3etl16private_optional13optional_implImLb1EEC4ERKS2_():
+
+       28850:	f1b9 0f00 	cmp.w	r9, #0
+
+       28854:	d004      	beq.n	28860 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0xcc>
+
+    _ZN3etl16private_optional13optional_implImLb1EE12storage_type9constructERKm():
+
+       28856:	9a05      	ldr	r2, [sp, #20]
+
+       28858:	9208      	str	r2, [sp, #32]
+
+       2885a:	2201      	movs	r2, #1
+
+       2885c:	f88d 2024 	strb.w	r2, [sp, #36]	@ 0x24
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       28860:	9501      	str	r5, [sp, #4]
+
+       28862:	f8cd 8000 	str.w	r8, [sp]
+
+       28866:	ad08      	add	r5, sp, #32
+
+       28868:	f04f 0800 	mov.w	r8, #0
+
+       2886c:	465a      	mov	r2, fp
+
+       2886e:	f8cd 800c 	str.w	r8, [sp, #12]
+
+       28872:	9502      	str	r5, [sp, #8]
+
+       28874:	4639      	mov	r1, r7
+
+       28876:	47d0      	blx	sl
+
+    _ZNK4doip27IDoIpServerConnectionFilter28RoutingActivationCheckResult9getActionEv():
+
+       28878:	f3c0 4207 	ubfx	r2, r0, #16, #8
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       2887c:	2a02      	cmp	r2, #2
+
+       2887e:	9007      	str	r0, [sp, #28]
+
+       28880:	d12d      	bne.n	288de <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x14a>
+
+       28882:	f894 30c8 	ldrb.w	r3, [r4, #200]	@ 0xc8
+
+       28886:	b1b3      	cbz	r3, 288b6 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x122>
+
+       28888:	f8b4 30c2 	ldrh.w	r3, [r4, #194]	@ 0xc2
+
+       2888c:	42bb      	cmp	r3, r7
+
+       2888e:	bf06      	itte	eq
+
+       28890:	4643      	moveq	r3, r8
+
+       28892:	2210      	moveq	r2, #16
+
+       28894:	2301      	movne	r3, #1
+
+       28896:	4639      	mov	r1, r7
+
+       28898:	4620      	mov	r0, r4
+
+       2889a:	f7ff fecb 	bl	28634 <<a href="./57956a735bce4058fbfe5be7327afa7c.html">doip::DoIpServerConnectionHandler::sendRoutingActivationResponse(unsigned short, unsigned char, bool)</a>>
+
+       2889e:	6960      	ldr	r0, [r4, #20]
+
+       288a0:	6802      	ldr	r2, [r0, #0]
+
+    _ZN3etl8delegateIFvvEE18invocation_element8ptr_typeC4EPv():
+
+       288a2:	2300      	movs	r3, #0
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       288a4:	6914      	ldr	r4, [r2, #16]
+
+    _ZN3etl8delegateIFvvEE18invocation_elementC4Ev():
+
+       288a6:	e9cd 3308 	strd	r3, r3, [sp, #32]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       288aa:	e895 0006 	ldmia.w	r5, {r1, r2}
+
+       288ae:	47a0      	blx	r4
+
+       288b0:	b015      	add	sp, #84	@ 0x54
+
+       288b2:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZNK4doip27IDoIpServerConnectionFilter28RoutingActivationCheckResult28resolveInternalSourceAddressEt():
+
+       288b6:	f8bd 301c 	ldrh.w	r3, [sp, #28]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       288ba:	6920      	ldr	r0, [r4, #16]
+
+       288bc:	f8a4 60c2 	strh.w	r6, [r4, #194]	@ 0xc2
+
+    _ZNK4doip27IDoIpServerConnectionFilter28RoutingActivationCheckResult28resolveInternalSourceAddressEt():
+
+       288c0:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+
+       288c4:	4293      	cmp	r3, r2
+
+       288c6:	bf08      	it	eq
+
+       288c8:	463b      	moveq	r3, r7
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       288ca:	6802      	ldr	r2, [r0, #0]
+
+       288cc:	2101      	movs	r1, #1
+
+       288ce:	6852      	ldr	r2, [r2, #4]
+
+       288d0:	f884 10c8 	strb.w	r1, [r4, #200]	@ 0xc8
+
+       288d4:	f8a4 30c4 	strh.w	r3, [r4, #196]	@ 0xc4
+
+       288d8:	4621      	mov	r1, r4
+
+       288da:	4790      	blx	r2
+
+       288dc:	e7df      	b.n	2889e <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x10a>
+
+       288de:	fab2 f382 	clz	r3, r2
+
+       288e2:	095b      	lsrs	r3, r3, #5
+
+       288e4:	f89d 201f 	ldrb.w	r2, [sp, #31]
+
+       288e8:	4639      	mov	r1, r7
+
+       288ea:	4620      	mov	r0, r4
+
+       288ec:	f7ff fea2 	bl	28634 <<a href="./57956a735bce4058fbfe5be7327afa7c.html">doip::DoIpServerConnectionHandler::sendRoutingActivationResponse(unsigned short, unsigned char, bool)</a>>
+
+       288f0:	e7d5      	b.n	2889e <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x10a>
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       288f2:	4b1c      	ldr	r3, [pc, #112]	@ (28964 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1d0>)
+
+       288f4:	ad0f      	add	r5, sp, #60	@ 0x3c
+
+       288f6:	681b      	ldr	r3, [r3, #0]
+
+       288f8:	4628      	mov	r0, r5
+
+       288fa:	4798      	blx	r3
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       288fc:	e9d8 1300 	ldrd	r1, r3, [r8]
+
+       28900:	1a5b      	subs	r3, r3, r1
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIKNS_14unaligned_typeItLi4321EEEEERT_v():
+
+       28902:	e754      	b.n	287ae <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1a>
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIS1_EERT_v():
+
+       28904:	4b17      	ldr	r3, [pc, #92]	@ (28964 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1d0>)
+
+       28906:	4628      	mov	r0, r5
+
+       28908:	681b      	ldr	r3, [r3, #0]
+
+       2890a:	4798      	blx	r3
+
+    _ZNK3etl4spanIKhLj4294967295EE4sizeEv():
+
+       2890c:	f8d8 2004 	ldr.w	r2, [r8, #4]
+
+    _ZNK3etl4spanIKhLj4294967295EE4dataEv():
+
+       28910:	f8d8 3000 	ldr.w	r3, [r8]
+
+    _ZN3etl4spanIKhLj4294967295EE4takeIS1_EERT_v():
+
+       28914:	e763      	b.n	287de <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x4a>
+
+    _ZN3etl4spanIKhLj4294967295EE7advanceEj():
+
+       28916:	1d0b      	adds	r3, r1, #4
+
+       28918:	f8c8 3000 	str.w	r3, [r8]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       2891c:	4628      	mov	r0, r5
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       2891e:	2300      	movs	r3, #0
+
+       28920:	930f      	str	r3, [sp, #60]	@ 0x3c
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       28922:	f7d7 fe3c 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       28926:	9b0f      	ldr	r3, [sp, #60]	@ 0x3c
+
+       28928:	4a0c      	ldr	r2, [pc, #48]	@ (2895c <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1c8>)
+
+       2892a:	ba1b      	rev	r3, r3
+
+       2892c:	9305      	str	r3, [sp, #20]
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       2892e:	6823      	ldr	r3, [r4, #0]
+
+       28930:	691b      	ldr	r3, [r3, #16]
+
+       28932:	4293      	cmp	r3, r2
+
+    _ZN3etl16private_optional13optional_implImLb1EE12storage_type9constructEOm():
+
+       28934:	f04f 0901 	mov.w	r9, #1
+
+    doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>):
+
+       28938:	f43f af6f 	beq.w	2881a <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x86>
+
+       2893c:	f10d 0828 	add.w	r8, sp, #40	@ 0x28
+
+       28940:	4621      	mov	r1, r4
+
+       28942:	4640      	mov	r0, r8
+
+       28944:	4798      	blx	r3
+
+       28946:	6823      	ldr	r3, [r4, #0]
+
+       28948:	4a05      	ldr	r2, [pc, #20]	@ (28960 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0x1cc>)
+
+       2894a:	695b      	ldr	r3, [r3, #20]
+
+       2894c:	4293      	cmp	r3, r2
+
+       2894e:	f43f af71 	beq.w	28834 <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0xa0>
+
+       28952:	4621      	mov	r1, r4
+
+       28954:	4628      	mov	r0, r5
+
+       28956:	4798      	blx	r3
+
+       28958:	e771      	b.n	2883e <<a href="./b9bef3d96ee88df4338052fb5072812a.html">doip::DoIpServerConnectionHandler::routingActivationRequestReceived(etl::span<unsigned char const, 4294967295u>)</a>+0xaa>
+
+       2895a:	bf00      	nop
+
+       2895c:	00023869 	.word	0x00023869
+
+       28960:	00023889 	.word	0x00023889
+
+       28964:	20000000 	.word	0x20000000
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../3rdparty/etl/include/etl/private/delegate_cpp11.h/7d95f0ca19a2c5e20d5993b281f41fe3.html">void etl::delegate&lt;void (etl::span&lt;unsigned char const, 4294967295u&gt;)&gt;::method_stub&lt;doip::DoIpServerConnectionHandler, &amp;doip::DoIpServerConnectionHandler::routingActivationRequestReceived&gt;(etl::delegate&lt;void (etl::span&lt;unsigned char const, 4294967295u&gt;)&gt;::invocation_element const&amp;, etl::span&lt;unsigned char const, 4294967295u&gt;) (28)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 264</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 524</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    264
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    524
+                    
+                    
+                </td>
+                <td class="col_size">64</td>
+                <td><a href="../../common/DoIpStaticPayloadSendJob.cpp/e99af0c0a1ecc093801cea24b5bd7b70.html" class="icon-function">doip::DoIpStaticPayloadSendJob::DoIpStaticPayloadSendJob(unsigned char, unsigned short, etl::span&lt;unsigned char const, 4294967295u&gt;, etl::delegate&lt;void (doip::DoIpStaticPayloadSendJob&amp;, bool)&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                72 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    460
+                    
+                    
+                </td>
+                <td class="col_size">244</td>
+                <td><a href="./566d69af2b2d641570d8e604a5c66719.html" class="icon-function">doip::DoIpServerConnectionHandler::allocateSendJob(unsigned short, unsigned short, bool)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">216</td>
+                <td><a href="./57956a735bce4058fbfe5be7327afa7c.html" class="icon-function">doip::DoIpServerConnectionHandler::sendRoutingActivationResponse(unsigned short, unsigned char, bool)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">120
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

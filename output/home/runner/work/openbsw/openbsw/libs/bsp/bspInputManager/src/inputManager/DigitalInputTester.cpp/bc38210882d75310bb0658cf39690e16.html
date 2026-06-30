@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsp.html">bsp</a></li>
+        
+        <li><a href="../../../../bspInputManager.html">bspInputManager</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../inputManager.html">inputManager</a>
+            </li>
+
+        
+        <li class="active"><a href="../DigitalInputTester.cpp.html">DigitalInputTester.cpp</a>:26
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">bios::DigitalInputTester::executeCommand(util::command::CommandContext&amp;, unsigned char)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0002b508</td>
+                <td>
+    
+    
+</td>
+                <td>48 (static)</td>
+                <td>364</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (8,
+                            <span title="sum of used bytes by all callees">
+                            Σ=484
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&amp;) (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&amp;) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../DigitalInput.cpp/384e94e01005b34384b3e0b5abdc42eb.html">bios::DigitalInput::getName(unsigned short) (24)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter() (20)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/include/util/command/CommandContext.h/d7d8930e0dc50ad6c57194954e076b07.html">unsigned short util::command::CommandContext::scanIntToken&lt;unsigned short&gt;() (216)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/command/CommandContext.cpp/b2ce40f9dd9a53ee51be5469e7a471d7.html">util::command::CommandContext::check(bool, util::command::ICommand::Result) (44)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../bsw/util/src/util/command/CommandContext.cpp/af39a4065f86e9957b5727628c6f7577.html">util::command::CommandContext::checkEol() (36)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../bsw/util/include/util/command/CommandContext.h/d7d8930e0dc50ad6c57194954e076b07.html">unsigned short util::command::CommandContext::scanIntToken&lt;unsigned short&gt;() (216)</a></pre>
+    
+
+    <pre>
+
+    bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char):
+
+       2b508:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       2b50a:	2a02      	cmp	r2, #2
+
+       2b50c:	b087      	sub	sp, #28
+
+       2b50e:	d059      	beq.n	2b5c4 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xbc>
+
+       2b510:	2a03      	cmp	r2, #3
+
+       2b512:	d02d      	beq.n	2b570 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x68>
+
+       2b514:	2a01      	cmp	r2, #1
+
+       2b516:	d129      	bne.n	2b56c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x64>
+
+       2b518:	ac04      	add	r4, sp, #16
+
+       2b51a:	4620      	mov	r0, r4
+
+       2b51c:	f7e8 fc4a 	bl	13db4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       2b520:	4948      	ldr	r1, [pc, #288]	@ (2b644 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x13c>)
+
+       2b522:	2202      	movs	r2, #2
+
+       2b524:	4620      	mov	r0, r4
+
+       2b526:	f7e8 fa35 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b52a:	2500      	movs	r5, #0
+
+       2b52c:	f10d 070f 	add.w	r7, sp, #15
+
+       2b530:	4639      	mov	r1, r7
+
+       2b532:	4628      	mov	r0, r5
+
+       2b534:	f7ff ff4e 	bl	2b3d4 <<a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+       2b538:	4606      	mov	r6, r0
+
+       2b53a:	4628      	mov	r0, r5
+
+       2b53c:	f7ff ff68 	bl	2b410 <<a href="../DigitalInput.cpp/384e94e01005b34384b3e0b5abdc42eb.html">bios::DigitalInput::getName(unsigned short)</a>>
+
+       2b540:	4a41      	ldr	r2, [pc, #260]	@ (2b648 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x140>)
+
+       2b542:	9000      	str	r0, [sp, #0]
+
+       2b544:	4941      	ldr	r1, [pc, #260]	@ (2b64c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x144>)
+
+       2b546:	462b      	mov	r3, r5
+
+       2b548:	4620      	mov	r0, r4
+
+       2b54a:	f7e8 fa23 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b54e:	bba6      	cbnz	r6, 2b5ba <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xb2>
+
+       2b550:	f89d 200f 	ldrb.w	r2, [sp, #15]
+
+       2b554:	493e      	ldr	r1, [pc, #248]	@ (2b650 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x148>)
+
+       2b556:	4620      	mov	r0, r4
+
+       2b558:	f7e8 fa1c 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b55c:	1c6b      	adds	r3, r5, #1
+
+       2b55e:	2b02      	cmp	r3, #2
+
+       2b560:	f04f 0501 	mov.w	r5, #1
+
+       2b564:	d1e4      	bne.n	2b530 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x28>
+
+       2b566:	4620      	mov	r0, r4
+
+       2b568:	f7e8 fc30 	bl	13dcc <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/75b447666d62ed8c6c384efa69c8d1d1.html">util::format::SharedStringWriter::~SharedStringWriter()</a>>
+
+       2b56c:	b007      	add	sp, #28
+
+       2b56e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+       2b570:	ac04      	add	r4, sp, #16
+
+       2b572:	4620      	mov	r0, r4
+
+       2b574:	f7e8 fc1e 	bl	13db4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       2b578:	f10d 070f 	add.w	r7, sp, #15
+
+       2b57c:	4935      	ldr	r1, [pc, #212]	@ (2b654 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x14c>)
+
+       2b57e:	4620      	mov	r0, r4
+
+       2b580:	f7e8 fa08 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b584:	2000      	movs	r0, #0
+
+       2b586:	4639      	mov	r1, r7
+
+       2b588:	f7ff ff24 	bl	2b3d4 <<a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+       2b58c:	2800      	cmp	r0, #0
+
+       2b58e:	d042      	beq.n	2b616 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x10e>
+
+       2b590:	4931      	ldr	r1, [pc, #196]	@ (2b658 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x150>)
+
+       2b592:	4620      	mov	r0, r4
+
+       2b594:	f7e8 f9fe 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b598:	4639      	mov	r1, r7
+
+       2b59a:	2001      	movs	r0, #1
+
+       2b59c:	f7ff ff1a 	bl	2b3d4 <<a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+       2b5a0:	2800      	cmp	r0, #0
+
+       2b5a2:	d144      	bne.n	2b62e <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x126>
+
+       2b5a4:	f89d 200f 	ldrb.w	r2, [sp, #15]
+
+       2b5a8:	492c      	ldr	r1, [pc, #176]	@ (2b65c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x154>)
+
+       2b5aa:	4620      	mov	r0, r4
+
+       2b5ac:	f7e8 f9f2 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b5b0:	492b      	ldr	r1, [pc, #172]	@ (2b660 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x158>)
+
+       2b5b2:	4620      	mov	r0, r4
+
+       2b5b4:	f7e8 f9ee 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b5b8:	e7d5      	b.n	2b566 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x5e>
+
+       2b5ba:	492a      	ldr	r1, [pc, #168]	@ (2b664 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x15c>)
+
+       2b5bc:	4620      	mov	r0, r4
+
+       2b5be:	f7e8 f9e9 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b5c2:	e7cb      	b.n	2b55c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x54>
+
+       2b5c4:	4608      	mov	r0, r1
+
+       2b5c6:	460d      	mov	r5, r1
+
+       2b5c8:	f7ff ff32 	bl	2b430 <<a href="../../../../../bsw/util/include/util/command/CommandContext.h/d7d8930e0dc50ad6c57194954e076b07.html">unsigned short util::command::CommandContext::scanIntToken<unsigned short>()</a>>
+
+       2b5cc:	2801      	cmp	r0, #1
+
+       2b5ce:	bf8c      	ite	hi
+
+       2b5d0:	2100      	movhi	r1, #0
+
+       2b5d2:	2101      	movls	r1, #1
+
+       2b5d4:	4606      	mov	r6, r0
+
+       2b5d6:	2204      	movs	r2, #4
+
+       2b5d8:	4628      	mov	r0, r5
+
+       2b5da:	f7e8 fcd5 	bl	13f88 <<a href="../../../../../bsw/util/src/util/command/CommandContext.cpp/b2ce40f9dd9a53ee51be5469e7a471d7.html">util::command::CommandContext::check(bool, util::command::ICommand::Result)</a>>
+
+       2b5de:	4628      	mov	r0, r5
+
+       2b5e0:	f7e8 fcc0 	bl	13f64 <<a href="../../../../../bsw/util/src/util/command/CommandContext.cpp/af39a4065f86e9957b5727628c6f7577.html">util::command::CommandContext::checkEol()</a>>
+
+       2b5e4:	2800      	cmp	r0, #0
+
+       2b5e6:	d0c1      	beq.n	2b56c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x64>
+
+       2b5e8:	ac04      	add	r4, sp, #16
+
+       2b5ea:	4629      	mov	r1, r5
+
+       2b5ec:	4620      	mov	r0, r4
+
+       2b5ee:	f7e8 fbe1 	bl	13db4 <<a href="../../../../../bsw/util/src/util/format/SharedStringWriter.cpp/24de4bdafd640327a685592964dac867.html">util::format::SharedStringWriter::SharedStringWriter(util::stream::ISharedOutputStream&)</a>>
+
+       2b5f2:	491d      	ldr	r1, [pc, #116]	@ (2b668 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x160>)
+
+       2b5f4:	4632      	mov	r2, r6
+
+       2b5f6:	4620      	mov	r0, r4
+
+       2b5f8:	f7e8 f9cc 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b5fc:	f10d 010f 	add.w	r1, sp, #15
+
+       2b600:	b2f0      	uxtb	r0, r6
+
+       2b602:	f7ff fee7 	bl	2b3d4 <<a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+       2b606:	b9b8      	cbnz	r0, 2b638 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x130>
+
+       2b608:	f89d 200f 	ldrb.w	r2, [sp, #15]
+
+       2b60c:	4917      	ldr	r1, [pc, #92]	@ (2b66c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x164>)
+
+       2b60e:	4620      	mov	r0, r4
+
+       2b610:	f7e8 f9c0 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b614:	e7a7      	b.n	2b566 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x5e>
+
+       2b616:	4911      	ldr	r1, [pc, #68]	@ (2b65c <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x154>)
+
+       2b618:	f89d 200f 	ldrb.w	r2, [sp, #15]
+
+       2b61c:	4620      	mov	r0, r4
+
+       2b61e:	f7e8 f9b9 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b622:	4639      	mov	r1, r7
+
+       2b624:	2001      	movs	r0, #1
+
+       2b626:	f7ff fed5 	bl	2b3d4 <<a href="../DigitalInput.cpp/67226d25e11c84eb77f9d3e8f498b448.html">bios::DigitalInput::get(bios::DigitalInput::DigitalInputId, bool&)</a>>
+
+       2b62a:	2800      	cmp	r0, #0
+
+       2b62c:	d0ba      	beq.n	2b5a4 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x9c>
+
+       2b62e:	490a      	ldr	r1, [pc, #40]	@ (2b658 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x150>)
+
+       2b630:	4620      	mov	r0, r4
+
+       2b632:	f7e8 f9af 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b636:	e7bb      	b.n	2b5b0 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0xa8>
+
+       2b638:	490d      	ldr	r1, [pc, #52]	@ (2b670 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x168>)
+
+       2b63a:	4620      	mov	r0, r4
+
+       2b63c:	f7e8 f9aa 	bl	13994 <<a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html">util::format::StringWriter::printf(char const*, ...)</a>>
+
+       2b640:	e791      	b.n	2b566 <<a href="./bc38210882d75310bb0658cf39690e16.html">bios::DigitalInputTester::executeCommand(util::command::CommandContext&, unsigned char)</a>+0x5e>
+
+       2b642:	bf00      	nop
+
+       2b644:	000353c4 	.word	0x000353c4
+
+       2b648:	000353ec 	.word	0x000353ec
+
+       2b64c:	000353e0 	.word	0x000353e0
+
+       2b650:	00034e6c 	.word	0x00034e6c
+
+       2b654:	00035418 	.word	0x00035418
+
+       2b658:	0003541c 	.word	0x0003541c
+
+       2b65c:	00035424 	.word	0x00035424
+
+       2b660:	00035428 	.word	0x00035428
+
+       2b664:	000353f0 	.word	0x000353f0
+
+       2b668:	000353fc 	.word	0x000353fc
+
+       2b66c:	000353d8 	.word	0x000353d8
+
+       2b670:	00035410 	.word	0x00035410
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../platforms/s32k1xx/bsp/bspClock/src/clockConfig.cpp/49adf708c20c3b242cdf9d0260613acd.html">configurPll (984)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 300</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,264</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    300
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,264
+                    
+                    
+                </td>
+                <td class="col_size">432</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/4aadf02dd7dcf4f301c4d79e66b22e38.html" class="icon-function">util::format::PrintfFormatter::formatIntDatatype(char*, util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;, signed char&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    276
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                96 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    832
+                    
+                    
+                </td>
+                <td class="col_size">436</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/a55fbe8aa7abfc498675bef9f2e3bbf3.html" class="icon-function">util::format::PrintfFormatter::formatIntParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    180
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    396
+                    
+                    
+                </td>
+                <td class="col_size">144</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/1fd658a3cadf7a6a384e16e0b788aef4.html" class="icon-function">util::format::PrintfFormatter::formatParam(util::format::ParamInfo const&amp;, util::format::ParamVariant const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    148
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    252
+                    
+                    
+                </td>
+                <td class="col_size">192</td>
+                <td><a href="../../../../../bsw/util/src/util/format/PrintfFormatter.cpp/54d7602074146c5884ce6c1e97059b8b.html" class="icon-function">util::format::PrintfFormatter::format(char const*, util::format::IPrintfArgumentReader&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    92
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                44 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../../../../../bsw/util/src/util/format/StringWriter.cpp/97429f3089d9f361a2822ba86177689e.html" class="icon-function">util::format::StringWriter::printf(char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">48
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

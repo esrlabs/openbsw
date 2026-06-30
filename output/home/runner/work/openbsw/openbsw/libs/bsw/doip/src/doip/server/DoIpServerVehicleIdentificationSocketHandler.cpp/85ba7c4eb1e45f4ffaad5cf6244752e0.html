@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerVehicleIdentificationSocketHandler.cpp.html">DoIpServerVehicleIdentificationSocketHandler.cpp</a>:512
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant&lt;doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short&gt; const&amp;, unsigned char, ip::IPEndpoint const&amp;, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000255f4</td>
+                <td>
+    
+    
+</td>
+                <td>12 (static)</td>
+                <td>400</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (3)</th>
+                <td colspan="5">
+                
+                    <a href="./f930896e730b3d6f63b1909928e24ead.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueInitialBroadcasts(ip::IPEndpoint const&amp;) (168)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./e514293db598119f16395c165de4f6a0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueResponse(etl::variant&lt;doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short&gt; const&amp;) (128)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./26a09aedc9b81d922cda7d24d7fbd4b2.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueNack(unsigned char) (112)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (4,
+                            <span title="sum of used bytes by all callees">
+                            Σ=340
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel() (120)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type) (128)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../3rdparty/etl/include/etl/private/delegate_cpp11.h/76e78d7de0a65f626b7eda1180baa25d.html">void etl::delegate&lt;void (doip::DoIpStaticPayloadSendJob&amp;, bool)&gt;::method_stub&lt;doip::DoIpServerVehicleIdentificationSocketHandler, &amp;doip::DoIpServerVehicleIdentificationSocketHandler::releaseSendJobAndSendNext&gt;(etl::delegate&lt;void (doip::DoIpStaticPayloadSendJob&amp;, bool)&gt;::invocation_element const&amp;, doip::DoIpStaticPayloadSendJob&amp;, bool) (108)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short):
+
+       255f4:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       255f8:	4605      	mov	r5, r0
+
+       255fa:	b083      	sub	sp, #12
+
+       255fc:	4699      	mov	r9, r3
+
+       255fe:	f8bd a030 	ldrh.w	sl, [sp, #48]	@ 0x30
+
+       25602:	460f      	mov	r7, r1
+
+       25604:	4690      	mov	r8, r2
+
+       25606:	f007 fab7 	bl	2cb78 <<a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>>
+
+    _ZNK4doip37DoIpServerVehicleIdentificationConfig14getRequestPoolEv():
+
+       2560a:	f8d5 30bc 	ldr.w	r3, [r5, #188]	@ 0xbc
+
+       2560e:	691e      	ldr	r6, [r3, #16]
+
+    _ZN3etl5ipool8allocateIN4doip38DoIpServerVehicleIdentificationRequestEEEPT_v():
+
+       25610:	6933      	ldr	r3, [r6, #16]
+
+       25612:	2b2b      	cmp	r3, #43	@ 0x2b
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short):
+
+       25614:	4683      	mov	fp, r0
+
+    _ZN3etl5ipool8allocateIN4doip38DoIpServerVehicleIdentificationRequestEEEPT_v():
+
+       25616:	d803      	bhi.n	25620 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x2c>
+
+       25618:	4b58      	ldr	r3, [pc, #352]	@ (2577c <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x188>)
+
+       2561a:	a801      	add	r0, sp, #4
+
+       2561c:	681b      	ldr	r3, [r3, #0]
+
+       2561e:	4798      	blx	r3
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       25620:	68b4      	ldr	r4, [r6, #8]
+
+       25622:	6972      	ldr	r2, [r6, #20]
+
+       25624:	4294      	cmp	r4, r2
+
+       25626:	f080 80a2 	bcs.w	2576e <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x17a>
+
+       2562a:	68f3      	ldr	r3, [r6, #12]
+
+       2562c:	429a      	cmp	r2, r3
+
+       2562e:	d90b      	bls.n	25648 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x54>
+
+       25630:	6931      	ldr	r1, [r6, #16]
+
+       25632:	f8d6 c000 	ldr.w	ip, [r6]
+
+       25636:	fb01 f003 	mul.w	r0, r1, r3
+
+       2563a:	eb0c 0e00 	add.w	lr, ip, r0
+
+       2563e:	3301      	adds	r3, #1
+
+       25640:	4471      	add	r1, lr
+
+       25642:	f84c 1000 	str.w	r1, [ip, r0]
+
+       25646:	60f3      	str	r3, [r6, #12]
+
+       25648:	1c63      	adds	r3, r4, #1
+
+       2564a:	6874      	ldr	r4, [r6, #4]
+
+       2564c:	60b3      	str	r3, [r6, #8]
+
+       2564e:	429a      	cmp	r2, r3
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+       25650:	4620      	mov	r0, r4
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       25652:	bf8c      	ite	hi
+
+       25654:	6823      	ldrhi	r3, [r4, #0]
+
+       25656:	2300      	movls	r3, #0
+
+    _ZN4doip38DoIpServerVehicleIdentificationRequestC4ERKN2ip10IPEndpointERKN3etl7variantIJNS0_7ISOTypeEtEEEhm():
+
+       25658:	4649      	mov	r1, r9
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+       2565a:	f04f 0900 	mov.w	r9, #0
+
+       2565e:	6073      	str	r3, [r6, #4]
+
+    _ZN4doip38DoIpServerVehicleIdentificationRequestC4ERKN2ip10IPEndpointERKN3etl7variantIJNS0_7ISOTypeEtEEEhm():
+
+       25660:	2214      	movs	r2, #20
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+       25662:	f840 9b04 	str.w	r9, [r0], #4
+
+    _ZN4doip38DoIpServerVehicleIdentificationRequestC4ERKN2ip10IPEndpointERKN3etl7variantIJNS0_7ISOTypeEtEEEhm():
+
+       25666:	f7da ff9a 	bl	59e <<a href="../../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+    _ZN3etl7variantIJN4doip38DoIpServerVehicleIdentificationRequest7ISOTypeEtEEC4ERKS4_():
+
+       2566a:	68ba      	ldr	r2, [r7, #8]
+
+       2566c:	687b      	ldr	r3, [r7, #4]
+
+       2566e:	6222      	str	r2, [r4, #32]
+
+       25670:	3201      	adds	r2, #1
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short):
+
+       25672:	eb0a 060b 	add.w	r6, sl, fp
+
+    _ZN3etl7variantIJN4doip38DoIpServerVehicleIdentificationRequest7ISOTypeEtEEC4ERKS4_():
+
+       25676:	61e3      	str	r3, [r4, #28]
+
+       25678:	d02a      	beq.n	256d0 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xdc>
+
+       2567a:	463a      	mov	r2, r7
+
+       2567c:	4648      	mov	r0, r9
+
+       2567e:	f104 0118 	add.w	r1, r4, #24
+
+       25682:	4798      	blx	r3
+
+    _ZNK3etl12forward_linkILj0EE9is_linkedEv():
+
+       25684:	6823      	ldr	r3, [r4, #0]
+
+    _ZN4doip38DoIpServerVehicleIdentificationRequestC4ERKN2ip10IPEndpointERKN3etl7variantIJNS0_7ISOTypeEtEEEhm():
+
+       25686:	f884 8024 	strb.w	r8, [r4, #36]	@ 0x24
+
+       2568a:	62a6      	str	r6, [r4, #40]	@ 0x28
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10push_frontERS2_():
+
+       2568c:	b31b      	cbz	r3, 256d6 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xe2>
+
+       2568e:	4b3b      	ldr	r3, [pc, #236]	@ (2577c <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x188>)
+
+       25690:	a801      	add	r0, sp, #4
+
+       25692:	681b      	ldr	r3, [r3, #0]
+
+       25694:	4798      	blx	r3
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler15scheduleMessageEv():
+
+       25696:	f007 fa6f 	bl	2cb78 <<a href="../../../../../../../executables/referenceApp/platforms/s32k148evb/bspConfiguration/src/bsp/SystemTimer/SystemTimer.cpp/a857dde1963b018a532cddd3ac0ab673.html">getSystemTimeMs32Bit</a>>
+
+    _ZNK4doip38DoIpServerVehicleIdentificationRequest16getScheduledTimeEv():
+
+       2569a:	f8d5 3104 	ldr.w	r3, [r5, #260]	@ 0x104
+
+       2569e:	6a9c      	ldr	r4, [r3, #40]	@ 0x28
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler15scheduleMessageEv():
+
+       256a0:	f105 06ec 	add.w	r6, r5, #236	@ 0xec
+
+       256a4:	42a0      	cmp	r0, r4
+
+       256a6:	bf38      	it	cc
+
+       256a8:	1a24      	subcc	r4, r4, r0
+
+       256aa:	4630      	mov	r0, r6
+
+       256ac:	bf28      	it	cs
+
+       256ae:	2400      	movcs	r4, #0
+
+       256b0:	f7ed fc7e 	bl	12fb0 <<a href="../../../../../asyncFreeRtos/src/async/Types.cpp/3decd3b646058460a8725450b13ebf07.html">async::TimeoutType::cancel()</a>>
+
+    _ZNK4doip37DoIpServerVehicleIdentificationConfig10getContextEv():
+
+       256b4:	f8d5 20bc 	ldr.w	r2, [r5, #188]	@ 0xbc
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler15scheduleMessageEv():
+
+       256b8:	f44f 717a 	mov.w	r1, #1000	@ 0x3e8
+
+       256bc:	7dd0      	ldrb	r0, [r2, #23]
+
+       256be:	910c      	str	r1, [sp, #48]	@ 0x30
+
+       256c0:	4623      	mov	r3, r4
+
+       256c2:	4632      	mov	r2, r6
+
+       256c4:	1d29      	adds	r1, r5, #4
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short):
+
+       256c6:	b003      	add	sp, #12
+
+       256c8:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler15scheduleMessageEv():
+
+       256cc:	f7ed b9fc 	b.w	12ac8 <<a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html">async::schedule(unsigned char, async::IRunnable&, async::TimeoutType&, unsigned long, async::TimeUnit::Type)</a>>
+
+    _ZN4doip38DoIpServerVehicleIdentificationRequestC4ERKN2ip10IPEndpointERKN3etl7variantIJNS0_7ISOTypeEtEEEhm():
+
+       256d0:	f884 8024 	strb.w	r8, [r4, #36]	@ 0x24
+
+       256d4:	62a6      	str	r6, [r4, #40]	@ 0x28
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       256d6:	4e2a      	ldr	r6, [pc, #168]	@ (25780 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x18c>)
+
+       256d8:	6026      	str	r6, [r4, #0]
+
+    _ZNK3etl22intrusive_forward_listIN4doip38DoIpServerVehicleIdentificationRequestENS_12forward_linkILj0EEEE8get_nextEPS4_():
+
+       256da:	f8d5 3104 	ldr.w	r3, [r5, #260]	@ 0x104
+
+    _ZN4doip44DoIpServerVehicleIdentificationSocketHandler10enqueueAnyERKN3etl7variantIJNS_38DoIpServerVehicleIdentificationRequest7ISOTypeEtEEEhRKN2ip10IPEndpointEt.part.0():
+
+       256de:	42b3      	cmp	r3, r6
+
+    doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short):
+
+       256e0:	4621      	mov	r1, r4
+
+       256e2:	f505 7c82 	add.w	ip, r5, #260	@ 0x104
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       256e6:	d022      	beq.n	2572e <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x13a>
+
+       256e8:	42b1      	cmp	r1, r6
+
+       256ea:	d02d      	beq.n	25748 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x154>
+
+       256ec:	42b3      	cmp	r3, r6
+
+       256ee:	d039      	beq.n	25764 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x170>
+
+    _ZNK4doip38DoIpServerVehicleIdentificationRequest16getScheduledTimeEv():
+
+       256f0:	6a88      	ldr	r0, [r1, #40]	@ 0x28
+
+       256f2:	e004      	b.n	256fe <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x10a>
+
+    _ZNK3etl22intrusive_forward_listIN4doip38DoIpServerVehicleIdentificationRequestENS_12forward_linkILj0EEEE8get_nextEPS4_():
+
+       256f4:	681a      	ldr	r2, [r3, #0]
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       256f6:	42b2      	cmp	r2, r6
+
+       256f8:	469c      	mov	ip, r3
+
+       256fa:	d02b      	beq.n	25754 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x160>
+
+       256fc:	4613      	mov	r3, r2
+
+       256fe:	6a9c      	ldr	r4, [r3, #40]	@ 0x28
+
+       25700:	42a0      	cmp	r0, r4
+
+       25702:	d2f7      	bcs.n	256f4 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x100>
+
+       25704:	42b3      	cmp	r3, r6
+
+       25706:	f8dc 2000 	ldr.w	r2, [ip]
+
+       2570a:	d10a      	bne.n	25722 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x12e>
+
+       2570c:	e00b      	b.n	25726 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x132>
+
+    _ZNK3etl22intrusive_forward_listIN4doip38DoIpServerVehicleIdentificationRequestENS_12forward_linkILj0EEEE8get_nextEPS4_():
+
+       2570e:	680f      	ldr	r7, [r1, #0]
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       25710:	600a      	str	r2, [r1, #0]
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       25712:	42b7      	cmp	r7, r6
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       25714:	f8cc 1000 	str.w	r1, [ip]
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       25718:	680a      	ldr	r2, [r1, #0]
+
+    _ZNK4doip38DoIpServerVehicleIdentificationRequest16getScheduledTimeEv():
+
+       2571a:	468c      	mov	ip, r1
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       2571c:	d01e      	beq.n	2575c <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x168>
+
+    _ZNK4doip38DoIpServerVehicleIdentificationRequest16getScheduledTimeEv():
+
+       2571e:	6ab8      	ldr	r0, [r7, #40]	@ 0x28
+
+       25720:	4639      	mov	r1, r7
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       25722:	4284      	cmp	r4, r0
+
+       25724:	d8f3      	bhi.n	2570e <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x11a>
+
+       25726:	42b2      	cmp	r2, r6
+
+       25728:	d1de      	bne.n	256e8 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xf4>
+
+       2572a:	42b3      	cmp	r3, r6
+
+       2572c:	d10c      	bne.n	25748 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x154>
+
+       2572e:	42b1      	cmp	r1, r6
+
+       25730:	d101      	bne.n	25736 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x142>
+
+       25732:	e009      	b.n	25748 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x154>
+
+       25734:	4619      	mov	r1, r3
+
+    _ZNK3etl22intrusive_forward_listIN4doip38DoIpServerVehicleIdentificationRequestENS_12forward_linkILj0EEEE8get_nextEPS4_():
+
+       25736:	680b      	ldr	r3, [r1, #0]
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       25738:	f8dc 2000 	ldr.w	r2, [ip]
+
+       2573c:	600a      	str	r2, [r1, #0]
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       2573e:	42b3      	cmp	r3, r6
+
+    _ZN3etl11link_spliceINS_12forward_linkILj0EEEEENS_9enable_ifIXsrNS_15is_forward_linkIT_EE5valueEvE4typeERS5_S9_():
+
+       25740:	f8cc 1000 	str.w	r1, [ip]
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       25744:	468c      	mov	ip, r1
+
+       25746:	d1f5      	bne.n	25734 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x140>
+
+       25748:	f8d5 3108 	ldr.w	r3, [r5, #264]	@ 0x108
+
+       2574c:	3301      	adds	r3, #1
+
+       2574e:	f8c5 3108 	str.w	r3, [r5, #264]	@ 0x108
+
+    _ZN3etl27intrusive_forward_list_baseINS_12forward_linkILj0EEEE10initialiseEv():
+
+       25752:	e7a0      	b.n	25696 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xa2>
+
+    merge<doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(const doip::DoIpServerVehicleIdentificationRequest::Type&, uint8_t, const ip::IPEndpoint&, uint16_t)::<lambda(const doip::DoIpServerVehicleIdentificationRequest&, const doip::DoIpServerVehicleIdentificationRequest&)> >():
+
+       25754:	42b2      	cmp	r2, r6
+
+       25756:	4633      	mov	r3, r6
+
+       25758:	d1c6      	bne.n	256e8 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xf4>
+
+       2575a:	e7e6      	b.n	2572a <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x136>
+
+       2575c:	42b2      	cmp	r2, r6
+
+       2575e:	4631      	mov	r1, r6
+
+       25760:	d1c2      	bne.n	256e8 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xf4>
+
+       25762:	e7e2      	b.n	2572a <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x136>
+
+       25764:	f8dc 2000 	ldr.w	r2, [ip]
+
+       25768:	42b2      	cmp	r2, r6
+
+       2576a:	d1bd      	bne.n	256e8 <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0xf4>
+
+       2576c:	e7dd      	b.n	2572a <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x136>
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       2576e:	4b03      	ldr	r3, [pc, #12]	@ (2577c <<a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant<doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short> const&, unsigned char, ip::IPEndpoint const&, unsigned short)</a>.part.0+0x188>)
+
+       25770:	a801      	add	r0, sp, #4
+
+       25772:	681b      	ldr	r3, [r3, #0]
+
+       25774:	4798      	blx	r3
+
+    _ZN3etl12forward_linkILj0EEC4Ev():
+
+       25776:	2300      	movs	r3, #0
+
+       25778:	601b      	str	r3, [r3, #0]
+
+       2577a:	deff      	udf	#255	@ 0xff
+
+       2577c:	20000000 	.word	0x20000000
+
+       25780:	20000168 	.word	0x20000168
+
+    </pre>
+
+    
+    <pre><a href="../../../../../cpp2ethernet/include/ip/IPAddress.h/4faad33fdcd43718aeb11605970795aa.html">ip::operator==(ip::IPAddress const&amp;, ip::IPAddress const&amp;) (376)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 244</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 436</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    244
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    436
+                    
+                    
+                </td>
+                <td class="col_size">308</td>
+                <td><a href="../../../../../../3rdparty/freeRtos/include/task.h/93cf08902933433b019fa92be1247054.html" class="icon-function">xTaskGenericNotifyFromISR</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    220
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">128</td>
+                <td><a href="../../../../../asyncFreeRtos/src/async/Async.cpp/5aa4f4e4ce0ff8166656d629d7628e7e.html" class="icon-function">async::schedule(unsigned char, async::IRunnable&amp;, async::TimeoutType&amp;, unsigned long, async::TimeUnit::Type)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">180
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 180</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,036</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    180
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                12 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,036
+                    
+                    
+                </td>
+                <td class="col_size">400</td>
+                <td><a href="./85ba7c4eb1e45f4ffaad5cf6244752e0.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueAny(etl::variant&lt;doip::DoIpServerVehicleIdentificationRequest::ISOType, unsigned short&gt; const&amp;, unsigned char, ip::IPEndpoint const&amp;, unsigned short)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    636
+                    
+                    
+                </td>
+                <td class="col_size">112</td>
+                <td><a href="./26a09aedc9b81d922cda7d24d7fbd4b2.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::enqueueNack(unsigned char)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    104
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    524
+                    
+                    
+                </td>
+                <td class="col_size">256</td>
+                <td><a href="./04de4069feb8d381f38cf8414620a73f.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::handleOemRequest(doip::DoIpHeader const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    56
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    268
+                    
+                    
+                </td>
+                <td class="col_size">164</td>
+                <td><a href="./ea9b1881bcc36d1d62b90b97075643de.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::handleRequest(doip::DoIpHeader const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">104</td>
+                <td><a href="./a3c00f6c875f768765eb684b88320efa.html" class="icon-function">doip::DoIpServerVehicleIdentificationSocketHandler::headerReceived(doip::DoIpHeader const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

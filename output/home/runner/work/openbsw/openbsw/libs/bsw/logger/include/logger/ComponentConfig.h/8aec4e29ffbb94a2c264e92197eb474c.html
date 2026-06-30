@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../logger.html">logger</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../logger.html">logger</a>
+            </li>
+
+        
+        <li class="active"><a href="../ComponentConfig.h.html">ComponentConfig.h</a>:94
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">logger::ComponentConfig&lt;(unsigned char)17&gt;::getLevelInfoByName(util::string::ConstString const&amp;) const</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000083ac</td>
+                <td>
+    
+    
+</td>
+                <td>24 (static)</td>
+                <td>72</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=92
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/73d3a702db472629f27b06ac8f056476.html">strlen (16)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../util/src/util/string/ConstString.cpp/da3f19b0834dcc2a495f1571acfa454d.html">util::string::ConstString::compareIgnoreCase(util::string::ConstString const&amp;) const (76)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../ComponentMapping.h/004b0305aa90366b986066aa211287a6.html">logger::ComponentMapping&lt;(unsigned char)17&gt;::getComponentInfo(unsigned char) const (24)</a></pre>
+    
+
+    <pre>
+
+    logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const():
+
+        83ac:	b570      	push	{r4, r5, r6, lr}
+
+        83ae:	6846      	ldr	r6, [r0, #4]
+
+        83b0:	b082      	sub	sp, #8
+
+        83b2:	460d      	mov	r5, r1
+
+        83b4:	2400      	movs	r4, #0
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83b6:	69b3      	ldr	r3, [r6, #24]
+
+        83b8:	5918      	ldr	r0, [r3, r4]
+
+    _ZN4util6string11ConstStringC4EPKc():
+
+        83ba:	9000      	str	r0, [sp, #0]
+
+        83bc:	b170      	cbz	r0, 83dc <<a href="./8aec4e29ffbb94a2c264e92197eb474c.html">logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const</a>+0x30>
+
+        83be:	f7f8 ff27 	bl	1210 <<a href="../../../../../../../../../../../unknown/unknown/73d3a702db472629f27b06ac8f056476.html">strlen</a>>
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83c2:	4669      	mov	r1, sp
+
+    _ZN4util6string11ConstStringC4EPKc():
+
+        83c4:	4603      	mov	r3, r0
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83c6:	4628      	mov	r0, r5
+
+    _ZN4util6string11ConstStringC4EPKc():
+
+        83c8:	9301      	str	r3, [sp, #4]
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83ca:	f00b fd09 	bl	13de0 <<a href="../../../../util/src/util/string/ConstString.cpp/da3f19b0834dcc2a495f1571acfa454d.html">util::string::ConstString::compareIgnoreCase(util::string::ConstString const&) const</a>>
+
+        83ce:	b168      	cbz	r0, 83ec <<a href="./8aec4e29ffbb94a2c264e92197eb474c.html">logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const</a>+0x40>
+
+        83d0:	340c      	adds	r4, #12
+
+        83d2:	2c48      	cmp	r4, #72	@ 0x48
+
+        83d4:	d1ef      	bne.n	83b6 <<a href="./8aec4e29ffbb94a2c264e92197eb474c.html">logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const</a>+0xa>
+
+        83d6:	2000      	movs	r0, #0
+
+    logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const():
+
+        83d8:	b002      	add	sp, #8
+
+        83da:	bd70      	pop	{r4, r5, r6, pc}
+
+    _ZN4util6string11ConstStringC4EPKc():
+
+        83dc:	4603      	mov	r3, r0
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83de:	4669      	mov	r1, sp
+
+        83e0:	4628      	mov	r0, r5
+
+    _ZN4util6string11ConstStringC4EPKc():
+
+        83e2:	9301      	str	r3, [sp, #4]
+
+    _ZNK6logger16ComponentMappingILh17EE18getLevelInfoByNameERKN4util6string11ConstStringE():
+
+        83e4:	f00b fcfc 	bl	13de0 <<a href="../../../../util/src/util/string/ConstString.cpp/da3f19b0834dcc2a495f1571acfa454d.html">util::string::ConstString::compareIgnoreCase(util::string::ConstString const&) const</a>>
+
+        83e8:	2800      	cmp	r0, #0
+
+        83ea:	d1f1      	bne.n	83d0 <<a href="./8aec4e29ffbb94a2c264e92197eb474c.html">logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const</a>+0x24>
+
+        83ec:	69b0      	ldr	r0, [r6, #24]
+
+        83ee:	4420      	add	r0, r4
+
+    logger::ComponentConfig<(unsigned char)17>::getLevelInfoByName(util::string::ConstString const&) const():
+
+        83f0:	b002      	add	sp, #8
+
+        83f2:	bd70      	pop	{r4, r5, r6, pc}
+
+    </pre>
+
+    
+    <pre><a href="./4f151804ab3fcf3276756ed34a313513.html">logger::ComponentConfig&lt;(unsigned char)17&gt;::getComponentInfoByName(util::string::ConstString const&amp;) const (112)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 44</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 76</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    44
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">76</td>
+                <td><a href="../../../../util/src/util/string/ConstString.cpp/da3f19b0834dcc2a495f1571acfa454d.html" class="icon-function">util::string::ConstString::compareIgnoreCase(util::string::ConstString const&amp;) const</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">24
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

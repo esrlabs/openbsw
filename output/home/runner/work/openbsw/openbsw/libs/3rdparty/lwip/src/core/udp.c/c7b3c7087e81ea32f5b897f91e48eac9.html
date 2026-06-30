@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../../lwip.html">lwip</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../core.html">core</a>
+            </li>
+
+        
+        <li class="active"><a href="../udp.c.html">udp.c</a>:194
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">udp_input</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x0001fe88</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>64 (static)</td>
+                <td>616</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../ipv4/ip4.c/17641b681261fdfd4309a84b5ab2c56e.html">ip4_input (788)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (7,
+                            <span title="sum of used bytes by all callees">
+                            Σ=428
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../ipv4/ip4_addr.c/212eebf156fd7f3954882e0492a918a0.html">ip4_addr_isbroadcast_u32 (56)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../def.c/e92a30e58780c58f695060997f7dd81e.html">lwip_htons (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../inet_chksum.c/3fc28f5e6e6ee9cb8891e0991b814809.html">ip_chksum_pseudo (4)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../pbuf.c/1808d8951a9868c0f66c16892ba536a6.html">pbuf_remove_header (64)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../pbuf.c/9b6fd2596874539050b4147be9634d35.html">pbuf_free (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../pbuf.c/2ba880e5aa55d90bb05ca0b97180b57b.html">pbuf_header_force (108)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../ipv4/icmp.c/f7587be2f24f2e6dbf826db282f8a8c5.html">icmp_dest_unreach (180)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./9aa6c5bd1e37d1d2df7dd9c28e33d6d4.html">udp_init (24)</a></pre>
+    
+
+    <pre>
+
+    udp_input():
+
+       1fe88:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       1fe8c:	4f93      	ldr	r7, [pc, #588]	@ (200dc <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x254>)
+
+       1fe8e:	f8d7 30fc 	ldr.w	r3, [r7, #252]	@ 0xfc
+
+       1fe92:	3301      	adds	r3, #1
+
+       1fe94:	b087      	sub	sp, #28
+
+       1fe96:	f8c7 30fc 	str.w	r3, [r7, #252]	@ 0xfc
+
+       1fe9a:	8943      	ldrh	r3, [r0, #10]
+
+       1fe9c:	2b07      	cmp	r3, #7
+
+       1fe9e:	f240 80c4 	bls.w	2002a <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1a2>
+
+       1fea2:	f8df 9248 	ldr.w	r9, [pc, #584]	@ 200ec <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x264>
+
+       1fea6:	f8d0 a004 	ldr.w	sl, [r0, #4]
+
+       1feaa:	4605      	mov	r5, r0
+
+       1feac:	468b      	mov	fp, r1
+
+       1feae:	f8d9 0014 	ldr.w	r0, [r9, #20]
+
+       1feb2:	f8d9 1000 	ldr.w	r1, [r9]
+
+       1feb6:	f003 fb11 	bl	234dc <<a href="../ipv4/ip4_addr.c/212eebf156fd7f3954882e0492a918a0.html">ip4_addr_isbroadcast_u32</a>>
+
+       1feba:	f89a 3000 	ldrb.w	r3, [sl]
+
+       1febe:	4606      	mov	r6, r0
+
+       1fec0:	f89a 0001 	ldrb.w	r0, [sl, #1]
+
+       1fec4:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+
+       1fec8:	f003 fbdc 	bl	23684 <<a href="../def.c/e92a30e58780c58f695060997f7dd81e.html">lwip_htons</a>>
+
+       1fecc:	f89a 3002 	ldrb.w	r3, [sl, #2]
+
+       1fed0:	4680      	mov	r8, r0
+
+       1fed2:	f89a 0003 	ldrb.w	r0, [sl, #3]
+
+       1fed6:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+
+       1feda:	f003 fbd3 	bl	23684 <<a href="../def.c/e92a30e58780c58f695060997f7dd81e.html">lwip_htons</a>>
+
+       1fede:	4b80      	ldr	r3, [pc, #512]	@ (200e0 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x258>)
+
+       1fee0:	f8d9 c014 	ldr.w	ip, [r9, #20]
+
+       1fee4:	f8d3 e000 	ldr.w	lr, [r3]
+
+       1fee8:	4602      	mov	r2, r0
+
+       1feea:	f1be 0f00 	cmp.w	lr, #0
+
+       1feee:	f000 8096 	beq.w	2001e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x196>
+
+       1fef2:	f8d9 3010 	ldr.w	r3, [r9, #16]
+
+    udp_input_local_match():
+
+       1fef6:	f8d9 1004 	ldr.w	r1, [r9, #4]
+
+    udp_input():
+
+       1fefa:	9303      	str	r3, [sp, #12]
+
+       1fefc:	2400      	movs	r4, #0
+
+       1fefe:	4673      	mov	r3, lr
+
+       1ff00:	4620      	mov	r0, r4
+
+       1ff02:	f8cd e014 	str.w	lr, [sp, #20]
+
+       1ff06:	9504      	str	r5, [sp, #16]
+
+       1ff08:	9102      	str	r1, [sp, #8]
+
+       1ff0a:	e005      	b.n	1ff18 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x90>
+
+       1ff0c:	68d9      	ldr	r1, [r3, #12]
+
+       1ff0e:	4618      	mov	r0, r3
+
+       1ff10:	2900      	cmp	r1, #0
+
+       1ff12:	f000 8081 	beq.w	20018 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x190>
+
+       1ff16:	460b      	mov	r3, r1
+
+       1ff18:	8a59      	ldrh	r1, [r3, #18]
+
+       1ff1a:	4291      	cmp	r1, r2
+
+       1ff1c:	d1f6      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       1ff1e:	f893 e008 	ldrb.w	lr, [r3, #8]
+
+    udp_input_local_match():
+
+       1ff22:	f1be 0f00 	cmp.w	lr, #0
+
+       1ff26:	d006      	beq.n	1ff36 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xae>
+
+       1ff28:	9902      	ldr	r1, [sp, #8]
+
+       1ff2a:	f891 1048 	ldrb.w	r1, [r1, #72]	@ 0x48
+
+       1ff2e:	3101      	adds	r1, #1
+
+       1ff30:	b2c9      	uxtb	r1, r1
+
+       1ff32:	458e      	cmp	lr, r1
+
+       1ff34:	d1ea      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       1ff36:	6819      	ldr	r1, [r3, #0]
+
+       1ff38:	2e00      	cmp	r6, #0
+
+       1ff3a:	d053      	beq.n	1ffe4 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x15c>
+
+       1ff3c:	b151      	cbz	r1, 1ff54 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xcc>
+
+       1ff3e:	f1bc 3fff 	cmp.w	ip, #4294967295	@ 0xffffffff
+
+       1ff42:	f000 8081 	beq.w	20048 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1c0>
+
+       1ff46:	f8db 5008 	ldr.w	r5, [fp, #8]
+
+       1ff4a:	ea81 0e0c 	eor.w	lr, r1, ip
+
+       1ff4e:	ea1e 0f05 	tst.w	lr, r5
+
+       1ff52:	d1db      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+    udp_input():
+
+       1ff54:	f893 e010 	ldrb.w	lr, [r3, #16]
+
+       1ff58:	f01e 0f04 	tst.w	lr, #4
+
+       1ff5c:	d107      	bne.n	1ff6e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe6>
+
+       1ff5e:	2c00      	cmp	r4, #0
+
+       1ff60:	d04a      	beq.n	1fff8 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x170>
+
+       1ff62:	f1bc 3fff 	cmp.w	ip, #4294967295	@ 0xffffffff
+
+       1ff66:	d076      	beq.n	20056 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1ce>
+
+       1ff68:	2900      	cmp	r1, #0
+
+       1ff6a:	bf18      	it	ne
+
+       1ff6c:	461c      	movne	r4, r3
+
+       1ff6e:	8a99      	ldrh	r1, [r3, #20]
+
+       1ff70:	4541      	cmp	r1, r8
+
+       1ff72:	d1cb      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       1ff74:	6859      	ldr	r1, [r3, #4]
+
+       1ff76:	b111      	cbz	r1, 1ff7e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xf6>
+
+       1ff78:	9d03      	ldr	r5, [sp, #12]
+
+       1ff7a:	42a9      	cmp	r1, r5
+
+       1ff7c:	d1c6      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       1ff7e:	f8dd e014 	ldr.w	lr, [sp, #20]
+
+       1ff82:	9d04      	ldr	r5, [sp, #16]
+
+       1ff84:	2800      	cmp	r0, #0
+
+       1ff86:	f000 80a1 	beq.w	200cc <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x244>
+
+       1ff8a:	4a55      	ldr	r2, [pc, #340]	@ (200e0 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x258>)
+
+       1ff8c:	6013      	str	r3, [r2, #0]
+
+       1ff8e:	68da      	ldr	r2, [r3, #12]
+
+       1ff90:	60c2      	str	r2, [r0, #12]
+
+       1ff92:	461c      	mov	r4, r3
+
+       1ff94:	f8c3 e00c 	str.w	lr, [r3, #12]
+
+       1ff98:	f89a 3006 	ldrb.w	r3, [sl, #6]
+
+       1ff9c:	f89a 2007 	ldrb.w	r2, [sl, #7]
+
+       1ffa0:	ea53 2302 	orrs.w	r3, r3, r2, lsl #8
+
+       1ffa4:	d009      	beq.n	1ffba <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x132>
+
+       1ffa6:	4b4f      	ldr	r3, [pc, #316]	@ (200e4 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x25c>)
+
+       1ffa8:	9300      	str	r3, [sp, #0]
+
+       1ffaa:	892a      	ldrh	r2, [r5, #8]
+
+       1ffac:	3b04      	subs	r3, #4
+
+       1ffae:	2111      	movs	r1, #17
+
+       1ffb0:	4628      	mov	r0, r5
+
+       1ffb2:	f003 fc19 	bl	237e8 <<a href="../inet_chksum.c/3fc28f5e6e6ee9cb8891e0991b814809.html">ip_chksum_pseudo</a>>
+
+       1ffb6:	2800      	cmp	r0, #0
+
+       1ffb8:	d15f      	bne.n	2007a <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1f2>
+
+       1ffba:	2108      	movs	r1, #8
+
+       1ffbc:	4628      	mov	r0, r5
+
+       1ffbe:	f7fc f8fd 	bl	1c1bc <<a href="../pbuf.c/1808d8951a9868c0f66c16892ba536a6.html">pbuf_remove_header</a>>
+
+       1ffc2:	2800      	cmp	r0, #0
+
+       1ffc4:	d154      	bne.n	20070 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1e8>
+
+       1ffc6:	2c00      	cmp	r4, #0
+
+       1ffc8:	d063      	beq.n	20092 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x20a>
+
+       1ffca:	6a26      	ldr	r6, [r4, #32]
+
+       1ffcc:	2e00      	cmp	r6, #0
+
+       1ffce:	d05e      	beq.n	2008e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x206>
+
+       1ffd0:	6a60      	ldr	r0, [r4, #36]	@ 0x24
+
+       1ffd2:	4b45      	ldr	r3, [pc, #276]	@ (200e8 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x260>)
+
+       1ffd4:	f8cd 8000 	str.w	r8, [sp]
+
+       1ffd8:	462a      	mov	r2, r5
+
+       1ffda:	4621      	mov	r1, r4
+
+       1ffdc:	47b0      	blx	r6
+
+       1ffde:	b007      	add	sp, #28
+
+       1ffe0:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    udp_input_local_match():
+
+       1ffe4:	b169      	cbz	r1, 20002 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x17a>
+
+       1ffe6:	4561      	cmp	r1, ip
+
+       1ffe8:	d190      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+    udp_input():
+
+       1ffea:	f893 e010 	ldrb.w	lr, [r3, #16]
+
+       1ffee:	f01e 0f04 	tst.w	lr, #4
+
+       1fff2:	d1bc      	bne.n	1ff6e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe6>
+
+       1fff4:	2c00      	cmp	r4, #0
+
+       1fff6:	d1b7      	bne.n	1ff68 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe0>
+
+       1fff8:	8a99      	ldrh	r1, [r3, #20]
+
+       1fffa:	4541      	cmp	r1, r8
+
+       1fffc:	461c      	mov	r4, r3
+
+       1fffe:	d185      	bne.n	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       20000:	e7b8      	b.n	1ff74 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xec>
+
+       20002:	7c19      	ldrb	r1, [r3, #16]
+
+       20004:	0749      	lsls	r1, r1, #29
+
+       20006:	d4b2      	bmi.n	1ff6e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe6>
+
+       20008:	8a99      	ldrh	r1, [r3, #20]
+
+       2000a:	2c00      	cmp	r4, #0
+
+       2000c:	bf08      	it	eq
+
+       2000e:	461c      	moveq	r4, r3
+
+       20010:	4541      	cmp	r1, r8
+
+       20012:	f47f af7b 	bne.w	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       20016:	e7ad      	b.n	1ff74 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xec>
+
+       20018:	9d04      	ldr	r5, [sp, #16]
+
+       2001a:	2c00      	cmp	r4, #0
+
+       2001c:	d1bc      	bne.n	1ff98 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x110>
+
+       2001e:	f8db 3004 	ldr.w	r3, [fp, #4]
+
+       20022:	4563      	cmp	r3, ip
+
+       20024:	d133      	bne.n	2008e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x206>
+
+       20026:	2400      	movs	r4, #0
+
+       20028:	e7b6      	b.n	1ff98 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x110>
+
+       2002a:	f8d7 210c 	ldr.w	r2, [r7, #268]	@ 0x10c
+
+       2002e:	f8d7 3104 	ldr.w	r3, [r7, #260]	@ 0x104
+
+       20032:	3201      	adds	r2, #1
+
+       20034:	3301      	adds	r3, #1
+
+       20036:	f8c7 210c 	str.w	r2, [r7, #268]	@ 0x10c
+
+       2003a:	f8c7 3104 	str.w	r3, [r7, #260]	@ 0x104
+
+       2003e:	b007      	add	sp, #28
+
+       20040:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       20044:	f7fc b910 	b.w	1c268 <<a href="../pbuf.c/9b6fd2596874539050b4147be9634d35.html">pbuf_free</a>>
+
+       20048:	f893 e010 	ldrb.w	lr, [r3, #16]
+
+       2004c:	f01e 0f04 	tst.w	lr, #4
+
+       20050:	d18d      	bne.n	1ff6e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe6>
+
+       20052:	2c00      	cmp	r4, #0
+
+       20054:	d0d0      	beq.n	1fff8 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x170>
+
+       20056:	f8db e004 	ldr.w	lr, [fp, #4]
+
+       2005a:	6825      	ldr	r5, [r4, #0]
+
+       2005c:	4575      	cmp	r5, lr
+
+       2005e:	d086      	beq.n	1ff6e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xe6>
+
+       20060:	458e      	cmp	lr, r1
+
+       20062:	bf08      	it	eq
+
+       20064:	461c      	moveq	r4, r3
+
+       20066:	8a99      	ldrh	r1, [r3, #20]
+
+       20068:	4541      	cmp	r1, r8
+
+       2006a:	f47f af4f 	bne.w	1ff0c <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x84>
+
+       2006e:	e781      	b.n	1ff74 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0xec>
+
+       20070:	f8d7 3104 	ldr.w	r3, [r7, #260]	@ 0x104
+
+       20074:	4628      	mov	r0, r5
+
+       20076:	3301      	adds	r3, #1
+
+       20078:	e7df      	b.n	2003a <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1b2>
+
+       2007a:	f8d7 2108 	ldr.w	r2, [r7, #264]	@ 0x108
+
+       2007e:	f8d7 3104 	ldr.w	r3, [r7, #260]	@ 0x104
+
+       20082:	3201      	adds	r2, #1
+
+       20084:	3301      	adds	r3, #1
+
+       20086:	4628      	mov	r0, r5
+
+       20088:	f8c7 2108 	str.w	r2, [r7, #264]	@ 0x108
+
+       2008c:	e7d5      	b.n	2003a <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1b2>
+
+       2008e:	4628      	mov	r0, r5
+
+       20090:	e7d5      	b.n	2003e <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1b6>
+
+       20092:	b92e      	cbnz	r6, 200a0 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x218>
+
+       20094:	f8d9 3014 	ldr.w	r3, [r9, #20]
+
+       20098:	f003 03f0 	and.w	r3, r3, #240	@ 0xf0
+
+       2009c:	2be0      	cmp	r3, #224	@ 0xe0
+
+       2009e:	d109      	bne.n	200b4 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x22c>
+
+       200a0:	f8d7 2118 	ldr.w	r2, [r7, #280]	@ 0x118
+
+       200a4:	f8d7 3104 	ldr.w	r3, [r7, #260]	@ 0x104
+
+       200a8:	3201      	adds	r2, #1
+
+       200aa:	3301      	adds	r3, #1
+
+       200ac:	4628      	mov	r0, r5
+
+       200ae:	f8c7 2118 	str.w	r2, [r7, #280]	@ 0x118
+
+       200b2:	e7c2      	b.n	2003a <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x1b2>
+
+       200b4:	f8b9 100c 	ldrh.w	r1, [r9, #12]
+
+       200b8:	3108      	adds	r1, #8
+
+       200ba:	4628      	mov	r0, r5
+
+       200bc:	b209      	sxth	r1, r1
+
+       200be:	f7fc f89d 	bl	1c1fc <<a href="../pbuf.c/2ba880e5aa55d90bb05ca0b97180b57b.html">pbuf_header_force</a>>
+
+       200c2:	2103      	movs	r1, #3
+
+       200c4:	4628      	mov	r0, r5
+
+       200c6:	f002 fc13 	bl	228f0 <<a href="../ipv4/icmp.c/f7587be2f24f2e6dbf826db282f8a8c5.html">icmp_dest_unreach</a>>
+
+       200ca:	e7e9      	b.n	200a0 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x218>
+
+       200cc:	f8d7 2124 	ldr.w	r2, [r7, #292]	@ 0x124
+
+       200d0:	3201      	adds	r2, #1
+
+       200d2:	f8c7 2124 	str.w	r2, [r7, #292]	@ 0x124
+
+       200d6:	461c      	mov	r4, r3
+
+       200d8:	e75e      	b.n	1ff98 <<a href="./c7b3c7087e81ea32f5b897f91e48eac9.html">udp_input</a>+0x110>
+
+       200da:	bf00      	nop
+
+       200dc:	1ffe461c 	.word	0x1ffe461c
+
+       200e0:	1ffe4810 	.word	0x1ffe4810
+
+       200e4:	1ffe1140 	.word	0x1ffe1140
+
+       200e8:	1ffe113c 	.word	0x1ffe113c
+
+       200ec:	1ffe112c 	.word	0x1ffe112c
+
+    </pre>
+
+    
+    <pre><a href="./1ea122cbfc3de9dda16195031e5eb78f.html">udp_bind (248)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 304</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 784</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    304
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    784
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../bsw/util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    256
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    716
+                    
+                    
+                </td>
+                <td class="col_size">100</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/logger/logger.cpp/98866fb3d81ee8db78cbfd1e2dfd931d.html" class="icon-function">log_lwipInfo</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    232
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    616
+                    
+                    
+                </td>
+                <td class="col_size">60</td>
+                <td><a href="../memp.c/39d50c52143357af896630c36b8c515f.html" class="icon-function">memp_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    556
+                    
+                    
+                </td>
+                <td class="col_size">112</td>
+                <td><a href="../pbuf.c/9b6fd2596874539050b4147be9634d35.html" class="icon-function">pbuf_free</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    216
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    444
+                    
+                    
+                </td>
+                <td class="col_size">264</td>
+                <td><a href="../pbuf.c/00f9d6c635a80626d607c18477d3504a.html" class="icon-function">pbuf_alloc</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    184
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">180</td>
+                <td><a href="../ipv4/icmp.c/f7587be2f24f2e6dbf826db282f8a8c5.html" class="icon-function">icmp_dest_unreach</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">128
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 128</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,628</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                64 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,628
+                    
+                    
+                </td>
+                <td class="col_size">616</td>
+                <td><a href="./c7b3c7087e81ea32f5b897f91e48eac9.html" class="icon-function">udp_input</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    64
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                40 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,012
+                    
+                    
+                </td>
+                <td class="col_size">788</td>
+                <td><a href="../ipv4/ip4.c/17641b681261fdfd4309a84b5ab2c56e.html" class="icon-function">ip4_input</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">224</td>
+                <td><a href="../../netif/ethernet.c/e2fa4588adea7f5422e68cfb57168248.html" class="icon-function">ethernet_input</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

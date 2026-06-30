@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../../udsConfiguration.html">udsConfiguration</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../uds.html">uds</a></li>
+        
+        <li ><a href="../../session.html">session</a>
+            </li>
+
+        
+        <li class="active"><a href="../DiagSession.cpp.html">DiagSession.cpp</a>:154
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00018ed8</td>
+                <td>
+    
+    
+</td>
+                <td>0 (static)</td>
+                <td>48</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>No Callers</th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./b9be1ae8efd4062e4e4446dace615581.html">uds::ApplicationExtendedSession::getTransitionResult(uds::DiagSession::SessionType) (92)</a></pre>
+    
+
+    <pre>
+
+    uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType):
+
+       18ed8:	2901      	cmp	r1, #1
+
+       18eda:	d000      	beq.n	18ede <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x6>
+
+       18edc:	4770      	bx	lr
+
+    uds::DiagSession::APPLICATION_DEFAULT_SESSION():
+
+       18ede:	4b07      	ldr	r3, [pc, #28]	@ (18efc <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x24>)
+
+       18ee0:	681a      	ldr	r2, [r3, #0]
+
+       18ee2:	07d2      	lsls	r2, r2, #31
+
+       18ee4:	d407      	bmi.n	18ef6 <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x1e>
+
+    _ZN3uds11DiagSessionC4ENS0_11SessionTypeEh():
+
+       18ee6:	4a06      	ldr	r2, [pc, #24]	@ (18f00 <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x28>)
+
+    _ZN3uds25ApplicationDefaultSessionC4Ev():
+
+       18ee8:	4806      	ldr	r0, [pc, #24]	@ (18f04 <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x2c>)
+
+       18eea:	6010      	str	r0, [r2, #0]
+
+    _ZN3uds11DiagSessionC4ENS0_11SessionTypeEh():
+
+       18eec:	f240 1c01 	movw	ip, #257	@ 0x101
+
+       18ef0:	f8a2 c004 	strh.w	ip, [r2, #4]
+
+    uds::DiagSession::APPLICATION_DEFAULT_SESSION():
+
+       18ef4:	6019      	str	r1, [r3, #0]
+
+    uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType):
+
+       18ef6:	4802      	ldr	r0, [pc, #8]	@ (18f00 <<a href="./b4123883c35a99fdd52bbcdf8e6793c8.html">uds::ProgrammingSession::getTransitionResult(uds::DiagSession::SessionType)</a>+0x28>)
+
+       18ef8:	4770      	bx	lr
+
+       18efa:	bf00      	nop
+
+       18efc:	20013c0c 	.word	0x20013c0c
+
+       18f00:	20013c10 	.word	0x20013c10
+
+       18f04:	00036d18 	.word	0x00036d18
+
+    </pre>
+
+    
+    <pre><a href="./c0f75617ea8910ea2368bdb98cfb70d9.html">uds::DiagSession::APPLICATION_DEFAULT_SESSION() (44)</a></pre>
+    
+
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

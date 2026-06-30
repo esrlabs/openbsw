@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../doip.html">doip</a></li>
+        
+        <li><a href="../../../../src.html">src</a></li>
+        
+        <li><a href="../../../doip.html">doip</a></li>
+        
+        <li ><a href="../../server.html">server</a>
+            </li>
+
+        
+        <li class="active"><a href="../DoIpServerTransportMessageHandler.cpp.html">DoIpServerTransportMessageHandler.cpp</a>:136
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00024a84</td>
+                <td>
+    
+    
+</td>
+                <td>72 (static)</td>
+                <td>232</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./61766019c5af84b81fb58cfb44e47a24.html">doip::DoIpServerTransportMessageHandler::send(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*) (44)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (2,
+                            <span title="sum of used bytes by all callees">
+                            Σ=96
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../common/DoIpTransportMessageSendJob.cpp/acc13d8e6e5363e922247aa0343dff6a.html">doip::DoIpTransportMessageSendJob::DoIpTransportMessageSendJob(doip::DoIpConstants::ProtocolVersion, transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*, unsigned short, unsigned short, doip::IDoIpSendJobCallback&lt;doip::DoIpTransportMessageSendJob&gt;&amp;) (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...) (56)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./c7c35dd104715de7f9e8fd57aabee522.html">doip::DoIpServerTransportMessageHandler::DoIpServerTransportMessageHandler(doip::DoIpConstants::ProtocolVersion, etl::ipool&amp;, etl::ipool&amp;, doip::DoIpServerTransportConnectionConfig const&amp;) (56)</a></pre>
+    
+
+    <pre>
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24a84:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       24a88:	4613      	mov	r3, r2
+
+       24a8a:	b089      	sub	sp, #36	@ 0x24
+
+       24a8c:	4605      	mov	r5, r0
+
+       24a8e:	460f      	mov	r7, r1
+
+       24a90:	f3ef 8910 	mrs	r9, PRIMASK
+
+    getMachineStateRegisterValueAndSuspendAllInterrupts():
+
+       24a94:	b672      	cpsid	i
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24a96:	69c0      	ldr	r0, [r0, #28]
+
+    _ZNK9transport16TransportMessage13sourceAddressEv():
+
+       24a98:	f8b1 a008 	ldrh.w	sl, [r1, #8]
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24a9c:	6802      	ldr	r2, [r0, #0]
+
+       24a9e:	492f      	ldr	r1, [pc, #188]	@ (24b5c <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xd8>)
+
+       24aa0:	6a52      	ldr	r2, [r2, #36]	@ 0x24
+
+       24aa2:	428a      	cmp	r2, r1
+
+       24aa4:	d14d      	bne.n	24b42 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xbe>
+
+    doip::DoIpServerConnectionHandler::getSourceAddress() const():
+
+       24aa6:	f8b0 80be 	ldrh.w	r8, [r0, #190]	@ 0xbe
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24aaa:	6a2c      	ldr	r4, [r5, #32]
+
+    _ZNK3etl5ipool4fullEv():
+
+       24aac:	68a6      	ldr	r6, [r4, #8]
+
+       24aae:	6962      	ldr	r2, [r4, #20]
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24ab0:	42b2      	cmp	r2, r6
+
+       24ab2:	d04b      	beq.n	24b4c <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xc8>
+
+    _ZN3etl5ipool8allocateIN4doip27DoIpTransportMessageSendJobEEEPT_v():
+
+       24ab4:	6921      	ldr	r1, [r4, #16]
+
+       24ab6:	291f      	cmp	r1, #31
+
+       24ab8:	d925      	bls.n	24b06 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x82>
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       24aba:	42b2      	cmp	r2, r6
+
+       24abc:	d92d      	bls.n	24b1a <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x96>
+
+       24abe:	68e1      	ldr	r1, [r4, #12]
+
+       24ac0:	428a      	cmp	r2, r1
+
+       24ac2:	d831      	bhi.n	24b28 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xa4>
+
+       24ac4:	f8d4 b004 	ldr.w	fp, [r4, #4]
+
+       24ac8:	3601      	adds	r6, #1
+
+       24aca:	42b2      	cmp	r2, r6
+
+       24acc:	bf88      	it	hi
+
+       24ace:	f8db 2000 	ldrhi.w	r2, [fp]
+
+       24ad2:	60a6      	str	r6, [r4, #8]
+
+       24ad4:	bf98      	it	ls
+
+       24ad6:	2200      	movls	r2, #0
+
+       24ad8:	2101      	movs	r1, #1
+
+       24ada:	6062      	str	r2, [r4, #4]
+
+       24adc:	f8cb 1000 	str.w	r1, [fp]
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24ae0:	f105 010c 	add.w	r1, r5, #12
+
+    _ZN3etl5ipool6createIN4doip27DoIpTransportMessageSendJobEJRNS2_13DoIpConstants15ProtocolVersionENS_17reference_wrapperIN9transport16TransportMessageEEERKPNS8_34ITransportMessageProcessedListenerERKtSG_NS7_INS2_20IDoIpSendJobCallbackIS3_EEEEEEEPT_DpOT0_():
+
+       24ae4:	f8cd 8004 	str.w	r8, [sp, #4]
+
+       24ae8:	f8cd a000 	str.w	sl, [sp]
+
+       24aec:	9102      	str	r1, [sp, #8]
+
+       24aee:	f895 1032 	ldrb.w	r1, [r5, #50]	@ 0x32
+
+       24af2:	463a      	mov	r2, r7
+
+       24af4:	4658      	mov	r0, fp
+
+       24af6:	f002 fcff 	bl	274f8 <<a href="../../common/DoIpTransportMessageSendJob.cpp/acc13d8e6e5363e922247aa0343dff6a.html">doip::DoIpTransportMessageSendJob::DoIpTransportMessageSendJob(doip::DoIpConstants::ProtocolVersion, transport::TransportMessage&, transport::ITransportMessageProcessedListener*, unsigned short, unsigned short, doip::IDoIpSendJobCallback<doip::DoIpTransportMessageSendJob>&)</a>>
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24afa:	f389 8810 	msr	PRIMASK, r9
+
+       24afe:	4658      	mov	r0, fp
+
+       24b00:	b009      	add	sp, #36	@ 0x24
+
+       24b02:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZN3etl5ipool8allocateIN4doip27DoIpTransportMessageSendJobEEEPT_v():
+
+       24b06:	4a16      	ldr	r2, [pc, #88]	@ (24b60 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xdc>)
+
+       24b08:	9305      	str	r3, [sp, #20]
+
+       24b0a:	6812      	ldr	r2, [r2, #0]
+
+       24b0c:	a807      	add	r0, sp, #28
+
+       24b0e:	4790      	blx	r2
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       24b10:	68a6      	ldr	r6, [r4, #8]
+
+       24b12:	6962      	ldr	r2, [r4, #20]
+
+       24b14:	9b05      	ldr	r3, [sp, #20]
+
+       24b16:	42b2      	cmp	r2, r6
+
+       24b18:	d8d1      	bhi.n	24abe <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x3a>
+
+       24b1a:	4b11      	ldr	r3, [pc, #68]	@ (24b60 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xdc>)
+
+       24b1c:	a807      	add	r0, sp, #28
+
+       24b1e:	681b      	ldr	r3, [r3, #0]
+
+       24b20:	4798      	blx	r3
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24b22:	f04f 0b00 	mov.w	fp, #0
+
+       24b26:	e7e8      	b.n	24afa <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x76>
+
+    _ZN3etl5ipool13allocate_itemEv():
+
+       24b28:	6920      	ldr	r0, [r4, #16]
+
+       24b2a:	f8d4 e000 	ldr.w	lr, [r4]
+
+       24b2e:	fb00 fc01 	mul.w	ip, r0, r1
+
+       24b32:	eb0e 0b0c 	add.w	fp, lr, ip
+
+       24b36:	3101      	adds	r1, #1
+
+       24b38:	4458      	add	r0, fp
+
+       24b3a:	f84e 000c 	str.w	r0, [lr, ip]
+
+       24b3e:	60e1      	str	r1, [r4, #12]
+
+       24b40:	e7c0      	b.n	24ac4 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x40>
+
+       24b42:	9305      	str	r3, [sp, #20]
+
+    doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*):
+
+       24b44:	4790      	blx	r2
+
+       24b46:	9b05      	ldr	r3, [sp, #20]
+
+       24b48:	4680      	mov	r8, r0
+
+       24b4a:	e7ae      	b.n	24aaa <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x26>
+
+       24b4c:	4b05      	ldr	r3, [pc, #20]	@ (24b64 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xe0>)
+
+       24b4e:	4906      	ldr	r1, [pc, #24]	@ (24b68 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0xe4>)
+
+       24b50:	7818      	ldrb	r0, [r3, #0]
+
+       24b52:	4652      	mov	r2, sl
+
+       24b54:	4643      	mov	r3, r8
+
+       24b56:	f7e5 fbed 	bl	a334 <<a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html">util::logger::Logger::warn(unsigned char, char const*, ...)</a>>
+
+       24b5a:	e7e2      	b.n	24b22 <<a href="./7878bfdf000998f2a12883bf5b632df1.html">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&, transport::ITransportMessageProcessedListener*)</a>+0x9e>
+
+       24b5c:	00023851 	.word	0x00023851
+
+       24b60:	20000000 	.word	0x20000000
+
+       24b64:	20000007 	.word	0x20000007
+
+       24b68:	000343d8 	.word	0x000343d8
+
+    </pre>
+
+    
+    <pre><a href="./f021d2fc1199d78a2007d3ba0a854308.html">doip::DoIpServerTransportMessageHandler::diagnosticMessageLogicalAddressInfoReceived(etl::span&lt;unsigned char const, 4294967295u&gt;) (104)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 180</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 124</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    180
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    124
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    132
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                20 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">56</td>
+                <td><a href="../../../../../util/include/util/logger/Logger.h/fee4073070054ecc160dbd4d6b194f36.html" class="icon-function">util::logger::Logger::warn(unsigned char, char const*, ...)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">112
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 112</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 464</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    112
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                72 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    464
+                    
+                    
+                </td>
+                <td class="col_size">232</td>
+                <td><a href="./7878bfdf000998f2a12883bf5b632df1.html" class="icon-function">doip::DoIpServerTransportMessageHandler::allocateJob(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    40
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    232
+                    
+                    
+                </td>
+                <td class="col_size">44</td>
+                <td><a href="./61766019c5af84b81fb58cfb44e47a24.html" class="icon-function">doip::DoIpServerTransportMessageHandler::send(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    188
+                    
+                    
+                </td>
+                <td class="col_size">8</td>
+                <td><a href="../DoIpServerTransportConnection.cpp/476a212d82c1e8b9d198610740bcead9.html" class="icon-function">doip::DoIpServerTransportConnection::send(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">180</td>
+                <td><a href="../DoIpServerTransportLayer.cpp/bbce6b9a7254e8b633828c6d08a4877f.html" class="icon-function">doip::DoIpServerTransportLayer::send(transport::TransportMessage&amp;, transport::ITransportMessageProcessedListener*)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

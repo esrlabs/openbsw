@@ -1,0 +1,2067 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../executables.html">executables</a></li>
+        
+        <li><a href="../../../../../referenceApp.html">referenceApp</a></li>
+        
+        <li><a href="../../../../application.html">application</a></li>
+        
+        <li><a href="../../../src.html">src</a></li>
+        
+        <li ><a href="../../app.html">app</a>
+            </li>
+
+        
+        <li class="active"><a href="../app.cpp.html">app.cpp</a>:239
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">app::run()</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000031e4</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>208 (static)</td>
+                <td>1,412</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html">app_main() (20)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (10,
+                            <span title="sum of used bytes by all callees">
+                            Σ=988
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/uart/UartConfig.cpp/4549c2e66f7c89f9f409aace8f3a4886.html">bsp::Uart::getInstance(bsp::Uart::Id) (36)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/a6995270dd7b2ce4a3dc535f548e1353.html">bsp::Uart::init() (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/7d05489496eec771afa6f0080a80c714.html">bsp::Uart::waitForTxReady() (68)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../platforms/s32k1xx/etlImpl/src/print.cpp/af2af3469da23dee67fa9e7d365ad718.html">etl_putchar (8)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../logger/logger.cpp/8630d4902f3f9c8c3985297d23d7e928.html">logger::init() (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../console/console.cpp/973da51f2bee507836d7586b05c49159.html">console::init() (40)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../console/console.cpp/91d910eeb41c182a5be464786a95c2c6.html">console::enable() (12)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run() (308)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/3rdparty/freeRtos/include/task.h/f63e0c737b2bc0ba20133fcf0cb62874.html">vTaskStartScheduler (160)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../libs/3rdparty/etl/include/etl/format.h/1e210a6c076402009317d31ba2d80ae1.html">etl::private_format::parse_nested_replacement(etl::basic_format_parse_context&lt;char&gt;&amp;, etl::optional&lt;unsigned int&gt;&amp;) (256)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable&lt;async::internal::TaskInitializer&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt; &gt;::run() (308)</a></pre>
+    
+
+    <pre>
+
+    app::run():
+
+        31e4:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN3app10staticInitEv():
+
+        31e8:	2000      	movs	r0, #0
+
+    app::run():
+
+        31ea:	b0ab      	sub	sp, #172	@ 0xac
+
+    _ZN3app10staticInitEv():
+
+        31ec:	f029 fd26 	bl	2cc3c <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/uart/UartConfig.cpp/4549c2e66f7c89f9f409aace8f3a4886.html">bsp::Uart::getInstance(bsp::Uart::Id)</a>>
+
+        31f0:	f012 f92c 	bl	1544c <<a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/a6995270dd7b2ce4a3dc535f548e1353.html">bsp::Uart::init()</a>>
+
+        31f4:	2000      	movs	r0, #0
+
+        31f6:	f029 fd21 	bl	2cc3c <<a href="../../../../platforms/s32k148evb/bspConfiguration/src/bsp/uart/UartConfig.cpp/4549c2e66f7c89f9f409aace8f3a4886.html">bsp::Uart::getInstance(bsp::Uart::Id)</a>>
+
+        31fa:	f012 f99d 	bl	15538 <<a href="../../../../../../platforms/s32k1xx/bsp/bspUart/src/Uart.cpp/7d05489496eec771afa6f0080a80c714.html">bsp::Uart::waitForTxReady()</a>>
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        31fe:	4995      	ldr	r1, [pc, #596]	@ (3454 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x270>)
+
+        3200:	460a      	mov	r2, r1
+
+        3202:	f812 3b01 	ldrb.w	r3, [r2], #1
+
+        3206:	2b00      	cmp	r3, #0
+
+        3208:	d1fb      	bne.n	3202 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1e>
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEC4EPKc():
+
+        320a:	1e54      	subs	r4, r2, #1
+
+    _ZN3etl20basic_format_contextINS_13private_print14print_iteratorEcEC4ES2_RNS_17basic_format_argsIS3_EE():
+
+        320c:	2020      	movs	r0, #32
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        320e:	1a52      	subs	r2, r2, r1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEC4ERKS3_():
+
+        3210:	e9cd 140a 	strd	r1, r4, [sp, #40]	@ 0x28
+
+    _ZN3etl10array_viewINS_16basic_format_argINS_20basic_format_contextINS_13private_print14print_iteratorEcEEEEEC4IS6_Lj0EvEERNS_5arrayIT_XT0_EEE():
+
+        3214:	e9cd 3302 	strd	r3, r3, [sp, #8]
+
+    _ZN3etl26basic_format_parse_contextIcEC4ENS_17basic_string_viewIcNS_11char_traitsIcEEEEj():
+
+        3218:	e9cd 330c 	strd	r3, r3, [sp, #48]	@ 0x30
+
+    _ZN3etl20basic_format_contextINS_13private_print14print_iteratorEcEC4ES2_RNS_17basic_format_argsIS3_EE():
+
+        321c:	e9cd 331c 	strd	r3, r3, [sp, #112]	@ 0x70
+
+        3220:	e9cd 301e 	strd	r3, r0, [sp, #120]	@ 0x78
+
+        3224:	e9cd 3320 	strd	r3, r3, [sp, #128]	@ 0x80
+
+        3228:	e9cd 3322 	strd	r3, r3, [sp, #136]	@ 0x88
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_typeC4Ev():
+
+        322c:	e9cd 3324 	strd	r3, r3, [sp, #144]	@ 0x90
+
+    _ZN3etl20basic_format_contextINS_13private_print14print_iteratorEcEC4ES2_RNS_17basic_format_argsIS3_EE():
+
+        3230:	e9cd 3326 	strd	r3, r3, [sp, #152]	@ 0x98
+
+        3234:	a902      	add	r1, sp, #8
+
+    _ZN3etl26basic_format_parse_contextIcEC4ENS_17basic_string_viewIcNS_11char_traitsIcEEEEj():
+
+        3236:	f8ad 3038 	strh.w	r3, [sp, #56]	@ 0x38
+
+    _ZN3etl14private_format14format_visitorINS_13private_print14print_iteratorEEC4ERNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIS3_cEE():
+
+        323a:	f10d 0870 	add.w	r8, sp, #112	@ 0x70
+
+        323e:	ab0a      	add	r3, sp, #40	@ 0x28
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        3240:	2a01      	cmp	r2, #1
+
+    _ZN3etl14private_format14format_visitorINS_13private_print14print_iteratorEEC4ERNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIS3_cEE():
+
+        3242:	e9cd 3804 	strd	r3, r8, [sp, #16]
+
+    _ZN3etl20basic_format_contextINS_13private_print14print_iteratorEcEC4ES2_RNS_17basic_format_argsIS3_EE():
+
+        3246:	9129      	str	r1, [sp, #164]	@ 0xa4
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3248:	bf08      	it	eq
+
+        324a:	ac0f      	addeq	r4, sp, #60	@ 0x3c
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        324c:	d07d      	beq.n	334a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x166>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        324e:	4b81      	ldr	r3, [pc, #516]	@ (3454 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x270>)
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        3250:	4f81      	ldr	r7, [pc, #516]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        3252:	2068      	movs	r0, #104	@ 0x68
+
+        3254:	ac0f      	add	r4, sp, #60	@ 0x3c
+
+        3256:	e011      	b.n	327c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x98>
+
+        3258:	287d      	cmp	r0, #125	@ 0x7d
+
+        325a:	d170      	bne.n	333e <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x15a>
+
+        325c:	785b      	ldrb	r3, [r3, #1]
+
+        325e:	2b7d      	cmp	r3, #125	@ 0x7d
+
+        3260:	d002      	beq.n	3268 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x84>
+
+        3262:	683b      	ldr	r3, [r7, #0]
+
+        3264:	4620      	mov	r0, r4
+
+        3266:	4798      	blx	r3
+
+    _ZN3etl13private_print14print_iterator8print_toaSEc():
+
+        3268:	207d      	movs	r0, #125	@ 0x7d
+
+        326a:	f00b f87d 	bl	e368 <<a href="../../../../../../platforms/s32k1xx/etlImpl/src/print.cpp/af2af3469da23dee67fa9e7d365ad718.html">etl_putchar</a>>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        326e:	e9dd 320a 	ldrd	r3, r2, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        3272:	3301      	adds	r3, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3274:	930a      	str	r3, [sp, #40]	@ 0x28
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        3276:	429a      	cmp	r2, r3
+
+        3278:	d067      	beq.n	334a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x166>
+
+        327a:	7818      	ldrb	r0, [r3, #0]
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        327c:	1c5e      	adds	r6, r3, #1
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        327e:	287b      	cmp	r0, #123	@ 0x7b
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3280:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        3282:	d1e9      	bne.n	3258 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x74>
+
+        3284:	785b      	ldrb	r3, [r3, #1]
+
+        3286:	2b7b      	cmp	r3, #123	@ 0x7b
+
+        3288:	d077      	beq.n	337a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x196>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        328a:	f8dd b02c 	ldr.w	fp, [sp, #44]	@ 0x2c
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type7destroyEv():
+
+        328e:	2300      	movs	r3, #0
+
+    _ZN3etl14private_format13format_spec_taSEOS1_():
+
+        3290:	2220      	movs	r2, #32
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3292:	455e      	cmp	r6, fp
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type7destroyEv():
+
+        3294:	f88d 3074 	strb.w	r3, [sp, #116]	@ 0x74
+
+    _ZN3etl14private_format13format_spec_taSEOS1_():
+
+        3298:	931e      	str	r3, [sp, #120]	@ 0x78
+
+        329a:	f88d 207c 	strb.w	r2, [sp, #124]	@ 0x7c
+
+        329e:	9320      	str	r3, [sp, #128]	@ 0x80
+
+        32a0:	f8ad 3084 	strh.w	r3, [sp, #132]	@ 0x84
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type7destroyEv():
+
+        32a4:	f88d 308c 	strb.w	r3, [sp, #140]	@ 0x8c
+
+    _ZN3etl14private_format13format_spec_taSEOS1_():
+
+        32a8:	f88d 3090 	strb.w	r3, [sp, #144]	@ 0x90
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type7destroyEv():
+
+        32ac:	f88d 3098 	strb.w	r3, [sp, #152]	@ 0x98
+
+    _ZN3etl14private_format13format_spec_taSEOS1_():
+
+        32b0:	f8ad 309c 	strh.w	r3, [sp, #156]	@ 0x9c
+
+    _ZN3etl16private_optional13optional_implIcLb1EE12storage_type7destroyEv():
+
+        32b4:	f88d 309f 	strb.w	r3, [sp, #159]	@ 0x9f
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32b8:	d076      	beq.n	33a8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1c4>
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        32ba:	46a2      	mov	sl, r4
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32bc:	4619      	mov	r1, r3
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        32be:	f04f 0901 	mov.w	r9, #1
+
+        32c2:	461c      	mov	r4, r3
+
+        32c4:	e004      	b.n	32d0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0xec>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32c6:	45b3      	cmp	fp, r6
+
+        32c8:	4611      	mov	r1, r2
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        32ca:	f04f 0401 	mov.w	r4, #1
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32ce:	d01d      	beq.n	330c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x128>
+
+    _ZN3etl9exceptionC4EPKcS2_i():
+
+        32d0:	46b4      	mov	ip, r6
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32d2:	f816 3b01 	ldrb.w	r3, [r6], #1
+
+    _ZN3etl14private_format8is_digitEc():
+
+        32d6:	f1a3 0230 	sub.w	r2, r3, #48	@ 0x30
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32da:	eb01 0581 	add.w	r5, r1, r1, lsl #2
+
+        32de:	fa5f fe82 	uxtb.w	lr, r2
+
+        32e2:	eb03 0345 	add.w	r3, r3, r5, lsl #1
+
+        32e6:	f1be 0f09 	cmp.w	lr, #9
+
+        32ea:	4650      	mov	r0, sl
+
+        32ec:	f1a3 0530 	sub.w	r5, r3, #48	@ 0x30
+
+        32f0:	d84a      	bhi.n	3388 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1a4>
+
+    _ZNKR3etl16private_optional13optional_implIjLb1EE8value_orIiEENS_9enable_ifIXsrNS_14is_convertibleIT_jEE5valueEjE4typeEOS6_():
+
+        32f2:	2c00      	cmp	r4, #0
+
+        32f4:	d0e7      	beq.n	32c6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0xe2>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        32f6:	428d      	cmp	r5, r1
+
+        32f8:	d203      	bcs.n	3302 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x11e>
+
+        32fa:	683b      	ldr	r3, [r7, #0]
+
+        32fc:	4798      	blx	r3
+
+        32fe:	f8dd b02c 	ldr.w	fp, [sp, #44]	@ 0x2c
+
+        3302:	45b3      	cmp	fp, r6
+
+        3304:	4629      	mov	r1, r5
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        3306:	f04f 0401 	mov.w	r4, #1
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        330a:	d1e1      	bne.n	32d0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0xec>
+
+        330c:	4654      	mov	r4, sl
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        330e:	f8cd b028 	str.w	fp, [sp, #40]	@ 0x28
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        3312:	911c      	str	r1, [sp, #112]	@ 0x70
+
+        3314:	f88d 9074 	strb.w	r9, [sp, #116]	@ 0x74
+
+    _ZN3etl26basic_format_parse_contextIcE12check_arg_idEj():
+
+        3318:	f89d 3038 	ldrb.w	r3, [sp, #56]	@ 0x38
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        331c:	9d1c      	ldr	r5, [sp, #112]	@ 0x70
+
+    _ZN3etl26basic_format_parse_contextIcE12check_arg_idEj():
+
+        331e:	b11b      	cbz	r3, 3328 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x144>
+
+        3320:	4b4d      	ldr	r3, [pc, #308]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        3322:	4620      	mov	r0, r4
+
+        3324:	681b      	ldr	r3, [r3, #0]
+
+        3326:	4798      	blx	r3
+
+        3328:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+
+        332a:	2201      	movs	r2, #1
+
+        332c:	429d      	cmp	r5, r3
+
+        332e:	f88d 2039 	strb.w	r2, [sp, #57]	@ 0x39
+
+        3332:	d349      	bcc.n	33c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1e4>
+
+    _ZN3etl14private_format15check_precisionERKNS0_13format_spec_tE():
+
+        3334:	4b48      	ldr	r3, [pc, #288]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        3336:	4620      	mov	r0, r4
+
+        3338:	681b      	ldr	r3, [r3, #0]
+
+        333a:	4798      	blx	r3
+
+        333c:	e044      	b.n	33c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1e4>
+
+    _ZN3etl13private_print14print_iterator8print_toaSEc():
+
+        333e:	f00b f813 	bl	e368 <<a href="../../../../../../platforms/s32k1xx/etlImpl/src/print.cpp/af2af3469da23dee67fa9e7d365ad718.html">etl_putchar</a>>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3342:	e9dd 320a 	ldrd	r3, r2, [sp, #40]	@ 0x28
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        3346:	429a      	cmp	r2, r3
+
+        3348:	d197      	bne.n	327a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x96>
+
+    _ZN3app11IdleHandler4initEv():
+
+        334a:	f005 f955 	bl	85f8 <<a href="../../logger/logger.cpp/8630d4902f3f9c8c3985297d23d7e928.html">logger::init()</a>>
+
+        334e:	f004 ff9d 	bl	828c <<a href="../../console/console.cpp/973da51f2bee507836d7586b05c49159.html">console::init()</a>>
+
+        3352:	f004 ff95 	bl	8280 <<a href="../../console/console.cpp/91d910eeb41c182a5be464786a95c2c6.html">console::enable()</a>>
+
+    app::run():
+
+        3356:	2200      	movs	r2, #0
+
+        3358:	4b40      	ldr	r3, [pc, #256]	@ (345c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x278>)
+
+        335a:	9310      	str	r3, [sp, #64]	@ 0x40
+
+        335c:	920f      	str	r2, [sp, #60]	@ 0x3c
+
+        335e:	e894 0003 	ldmia.w	r4, {r0, r1}
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE3runEN3etl8delegateIFvvEEE():
+
+        3362:	4b3f      	ldr	r3, [pc, #252]	@ (3460 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x27c>)
+
+        3364:	e888 0003 	stmia.w	r8, {r0, r1}
+
+        3368:	e883 0003 	stmia.w	r3, {r0, r1}
+
+        336c:	f7ff fea0 	bl	30b0 <<a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/StaticRunnable.h/c718d1e03430cb4c0615c638032cb47f.html">async::StaticRunnable<async::internal::TaskInitializer<async::FreeRtosAdapter<async::AsyncBinding> > >::run()</a>>
+
+    app::run():
+
+        3370:	b02b      	add	sp, #172	@ 0xac
+
+        3372:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+    _ZN5async15FreeRtosAdapterINS_12AsyncBindingEE3runEN3etl8delegateIFvvEEE():
+
+        3376:	f00e b9ff 	b.w	11778 <<a href="../../../../../../libs/3rdparty/freeRtos/include/task.h/f63e0c737b2bc0ba20133fcf0cb62874.html">vTaskStartScheduler</a>>
+
+    _ZN3etl13private_print14print_iterator8print_toaSEc():
+
+        337a:	f00a fff5 	bl	e368 <<a href="../../../../../../platforms/s32k1xx/etlImpl/src/print.cpp/af2af3469da23dee67fa9e7d365ad718.html">etl_putchar</a>>
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        337e:	9b0a      	ldr	r3, [sp, #40]	@ 0x28
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3380:	9a0b      	ldr	r2, [sp, #44]	@ 0x2c
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        3382:	3301      	adds	r3, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3384:	930a      	str	r3, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        3386:	e776      	b.n	3276 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x92>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3388:	46e2      	mov	sl, ip
+
+        338a:	46a4      	mov	ip, r4
+
+        338c:	4604      	mov	r4, r0
+
+        338e:	f1bc 0f00 	cmp.w	ip, #0
+
+        3392:	d169      	bne.n	3468 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x284>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        3394:	f8dd a028 	ldr.w	sl, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        3398:	f88d c074 	strb.w	ip, [sp, #116]	@ 0x74
+
+        339c:	45da      	cmp	sl, fp
+
+        339e:	d003      	beq.n	33a8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1c4>
+
+        33a0:	f89a 3000 	ldrb.w	r3, [sl]
+
+        33a4:	2b3a      	cmp	r3, #58	@ 0x3a
+
+        33a6:	d06d      	beq.n	3484 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2a0>
+
+    _ZN3etl26basic_format_parse_contextIcE11next_arg_idEv():
+
+        33a8:	f89d 3039 	ldrb.w	r3, [sp, #57]	@ 0x39
+
+        33ac:	b11b      	cbz	r3, 33b6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1d2>
+
+        33ae:	4b2a      	ldr	r3, [pc, #168]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        33b0:	4620      	mov	r0, r4
+
+        33b2:	681b      	ldr	r3, [r3, #0]
+
+        33b4:	4798      	blx	r3
+
+        33b6:	2301      	movs	r3, #1
+
+        33b8:	f88d 3038 	strb.w	r3, [sp, #56]	@ 0x38
+
+        33bc:	e9dd 350c 	ldrd	r3, r5, [sp, #48]	@ 0x30
+
+        33c0:	429d      	cmp	r5, r3
+
+        33c2:	d241      	bcs.n	3448 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x264>
+
+        33c4:	1c6b      	adds	r3, r5, #1
+
+        33c6:	930d      	str	r3, [sp, #52]	@ 0x34
+
+    _ZNK3etl10array_viewINS_16basic_format_argINS_20basic_format_contextINS_13private_print14print_iteratorEcEEEEEixEj():
+
+        33c8:	9a02      	ldr	r2, [sp, #8]
+
+        33ca:	eb02 1205 	add.w	r2, r2, r5, lsl #4
+
+    _ZN3etl7variantIJNS_9monostateEbcijxyfdePKcNS_17basic_string_viewIcNS_11char_traitsIcEEEEPKvEEC4ERKSA_():
+
+        33ce:	e9d2 5302 	ldrd	r5, r3, [r2, #8]
+
+        33d2:	e9cd 5308 	strd	r5, r3, [sp, #32]
+
+        33d6:	3301      	adds	r3, #1
+
+        33d8:	f10d 0918 	add.w	r9, sp, #24
+
+        33dc:	d02e      	beq.n	343c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x258>
+
+        33de:	4649      	mov	r1, r9
+
+        33e0:	2000      	movs	r0, #0
+
+        33e2:	47a8      	blx	r5
+
+    _ZNK3etl7variantIJNS_9monostateEbcijxyfdePKcNS_17basic_string_viewIcNS_11char_traitsIcEEEEPKvEE22valueless_by_exceptionEv():
+
+        33e4:	9b09      	ldr	r3, [sp, #36]	@ 0x24
+
+    app::run():
+
+        33e6:	1c5a      	adds	r2, r3, #1
+
+    do_visit<void, etl::private_format::format_visitor<etl::private_print::print_iterator>&, etl::variant<etl::monostate, bool, char, int, unsigned int, long long int, long long unsigned int, float, double, long double, char const*, etl::basic_string_view<char, etl::char_traits<char> >, void const*>&, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12>():
+
+        33e8:	d028      	beq.n	343c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x258>
+
+        33ea:	4e1e      	ldr	r6, [pc, #120]	@ (3464 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x280>)
+
+        33ec:	eb0d 0c83 	add.w	ip, sp, r3, lsl #2
+
+        33f0:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+
+        33f2:	4625      	mov	r5, r4
+
+        33f4:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+
+        33f6:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+
+        33f8:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+
+        33fa:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+
+        33fc:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+
+        33fe:	6833      	ldr	r3, [r6, #0]
+
+        3400:	602b      	str	r3, [r5, #0]
+
+        3402:	f8dc 303c 	ldr.w	r3, [ip, #60]	@ 0x3c
+
+        3406:	4649      	mov	r1, r9
+
+        3408:	a804      	add	r0, sp, #16
+
+        340a:	4798      	blx	r3
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        340c:	9b0a      	ldr	r3, [sp, #40]	@ 0x28
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        340e:	781a      	ldrb	r2, [r3, #0]
+
+        3410:	2a7d      	cmp	r2, #125	@ 0x7d
+
+        3412:	d003      	beq.n	341c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x238>
+
+        3414:	683b      	ldr	r3, [r7, #0]
+
+        3416:	4620      	mov	r0, r4
+
+        3418:	4798      	blx	r3
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        341a:	9b0a      	ldr	r3, [sp, #40]	@ 0x28
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        341c:	9a0b      	ldr	r2, [sp, #44]	@ 0x2c
+
+    _ZN3etl10vformat_toINS_13private_print14print_iteratorEEET_S3_NS_17basic_string_viewIcNS_11char_traitsIcEEEENS_17basic_format_argsINS_20basic_format_contextIS3_cEEEE():
+
+        341e:	429a      	cmp	r2, r3
+
+    _ZN3etl14private_format7advanceERNS_26basic_format_parse_contextIcEE():
+
+        3420:	bf1c      	itt	ne
+
+        3422:	3301      	addne	r3, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3424:	930a      	strne	r3, [sp, #40]	@ 0x28
+
+    _ZN3etl7variantIJNS_9monostateEbcijxyfdePKcNS_17basic_string_viewIcNS_11char_traitsIcEEEEPKvEED4Ev():
+
+        3426:	9b09      	ldr	r3, [sp, #36]	@ 0x24
+
+        3428:	3301      	adds	r3, #1
+
+        342a:	d005      	beq.n	3438 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x254>
+
+        342c:	2200      	movs	r2, #0
+
+        342e:	9b08      	ldr	r3, [sp, #32]
+
+        3430:	4649      	mov	r1, r9
+
+        3432:	2002      	movs	r0, #2
+
+        3434:	4798      	blx	r3
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3436:	9a0b      	ldr	r2, [sp, #44]	@ 0x2c
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        3438:	9b0a      	ldr	r3, [sp, #40]	@ 0x28
+
+        343a:	e71c      	b.n	3276 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x92>
+
+    do_visit<void, etl::private_format::format_visitor<etl::private_print::print_iterator>&, etl::variant<etl::monostate, bool, char, int, unsigned int, long long int, long long unsigned int, float, double, long double, char const*, etl::basic_string_view<char, etl::char_traits<char> >, void const*>&, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12>():
+
+        343c:	4b06      	ldr	r3, [pc, #24]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        343e:	4620      	mov	r0, r4
+
+        3440:	681b      	ldr	r3, [r3, #0]
+
+        3442:	4798      	blx	r3
+
+    _ZNK3etl7variantIJNS_9monostateEbcijxyfdePKcNS_17basic_string_viewIcNS_11char_traitsIcEEEEPKvEE5indexEv():
+
+        3444:	9b09      	ldr	r3, [sp, #36]	@ 0x24
+
+    do_visit<void, etl::private_format::format_visitor<etl::private_print::print_iterator>&, etl::variant<etl::monostate, bool, char, int, unsigned int, long long int, long long unsigned int, float, double, long double, char const*, etl::basic_string_view<char, etl::char_traits<char> >, void const*>&, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12>():
+
+        3446:	e7d0      	b.n	33ea <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x206>
+
+    _ZN3etl26basic_format_parse_contextIcE11next_arg_idEv():
+
+        3448:	4b03      	ldr	r3, [pc, #12]	@ (3458 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x274>)
+
+        344a:	4620      	mov	r0, r4
+
+        344c:	681b      	ldr	r3, [r3, #0]
+
+        344e:	4798      	blx	r3
+
+        3450:	9d0d      	ldr	r5, [sp, #52]	@ 0x34
+
+        3452:	e7b7      	b.n	33c4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1e0>
+
+        3454:	00030fb0 	.word	0x00030fb0
+
+        3458:	20000000 	.word	0x20000000
+
+        345c:	0000304d 	.word	0x0000304d
+
+        3460:	20000158 	.word	0x20000158
+
+        3464:	00000448 	.word	0x00000448
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3468:	2301      	movs	r3, #1
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        346a:	45da      	cmp	sl, fp
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        346c:	911c      	str	r1, [sp, #112]	@ 0x70
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        346e:	f8cd a028 	str.w	sl, [sp, #40]	@ 0x28
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        3472:	f88d 3074 	strb.w	r3, [sp, #116]	@ 0x74
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        3476:	f43f af4f 	beq.w	3318 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x134>
+
+        347a:	f89a 3000 	ldrb.w	r3, [sl]
+
+        347e:	2b3a      	cmp	r3, #58	@ 0x3a
+
+        3480:	f47f af4a 	bne.w	3318 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x134>
+
+        3484:	f10a 0601 	add.w	r6, sl, #1
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        3488:	2320      	movs	r3, #32
+
+        348a:	455e      	cmp	r6, fp
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        348c:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        348e:	f88d 307c 	strb.w	r3, [sp, #124]	@ 0x7c
+
+        3492:	d025      	beq.n	34e0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2fc>
+
+        3494:	f89a 5001 	ldrb.w	r5, [sl, #1]
+
+    _ZN3etl14private_format18is_align_characterEc():
+
+        3498:	2d3c      	cmp	r5, #60	@ 0x3c
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        349a:	f10a 0202 	add.w	r2, sl, #2
+
+    _ZN3etl14private_format18is_align_characterEc():
+
+        349e:	f000 80e2 	beq.w	3666 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x482>
+
+        34a2:	2d3e      	cmp	r5, #62	@ 0x3e
+
+        34a4:	f000 80e5 	beq.w	3672 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x48e>
+
+        34a8:	2d5e      	cmp	r5, #94	@ 0x5e
+
+        34aa:	f000 8124 	beq.w	36f6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x512>
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        34ae:	455a      	cmp	r2, fp
+
+        34b0:	d016      	beq.n	34e0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2fc>
+
+        34b2:	f89a 3002 	ldrb.w	r3, [sl, #2]
+
+    _ZN3etl14private_format18is_align_characterEc():
+
+        34b6:	2b3c      	cmp	r3, #60	@ 0x3c
+
+        34b8:	f000 814b 	beq.w	3752 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x56e>
+
+        34bc:	2b3e      	cmp	r3, #62	@ 0x3e
+
+        34be:	f000 814a 	beq.w	3756 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x572>
+
+        34c2:	2b5e      	cmp	r3, #94	@ 0x5e
+
+        34c4:	d10c      	bne.n	34e0 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2fc>
+
+    _ZN3etl14private_format15align_from_charEc():
+
+        34c6:	2303      	movs	r3, #3
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        34c8:	2d7b      	cmp	r5, #123	@ 0x7b
+
+        34ca:	f000 8139 	beq.w	3740 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x55c>
+
+        34ce:	2d7d      	cmp	r5, #125	@ 0x7d
+
+        34d0:	f000 8136 	beq.w	3740 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x55c>
+
+        34d4:	f10a 0603 	add.w	r6, sl, #3
+
+        34d8:	f88d 507c 	strb.w	r5, [sp, #124]	@ 0x7c
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        34dc:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl26basic_format_parse_contextIcE10advance_toEPKc():
+
+        34de:	e000      	b.n	34e2 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2fe>
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        34e0:	2300      	movs	r3, #0
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        34e2:	4a9e      	ldr	r2, [pc, #632]	@ (375c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x578>)
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        34e4:	931e      	str	r3, [sp, #120]	@ 0x78
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        34e6:	4613      	mov	r3, r2
+
+        34e8:	f813 5b01 	ldrb.w	r5, [r3], #1
+
+        34ec:	2d00      	cmp	r5, #0
+
+        34ee:	d1fb      	bne.n	34e8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x304>
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        34f0:	45b3      	cmp	fp, r6
+
+        34f2:	f000 80af 	beq.w	3654 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x470>
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        34f6:	1a9b      	subs	r3, r3, r2
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        34f8:	2b01      	cmp	r3, #1
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        34fa:	f896 c000 	ldrb.w	ip, [r6]
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        34fe:	d01f      	beq.n	3540 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x35c>
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        3500:	3b01      	subs	r3, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEC4EPKc():
+
+        3502:	4413      	add	r3, r2
+
+        3504:	4a95      	ldr	r2, [pc, #596]	@ (375c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x578>)
+
+        3506:	e001      	b.n	350c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x328>
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        3508:	4293      	cmp	r3, r2
+
+        350a:	d019      	beq.n	3540 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x35c>
+
+        350c:	4611      	mov	r1, r2
+
+        350e:	3201      	adds	r2, #1
+
+        3510:	7808      	ldrb	r0, [r1, #0]
+
+        3512:	4560      	cmp	r0, ip
+
+        3514:	d1f8      	bne.n	3508 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x324>
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        3516:	428b      	cmp	r3, r1
+
+        3518:	d012      	beq.n	3540 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x35c>
+
+        351a:	3601      	adds	r6, #1
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        351c:	f1bc 0f2b 	cmp.w	ip, #43	@ 0x2b
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3520:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        3522:	f000 80a8 	beq.w	3676 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x492>
+
+        3526:	f1bc 0f2d 	cmp.w	ip, #45	@ 0x2d
+
+        352a:	f000 80a0 	beq.w	366e <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x48a>
+
+        352e:	f1bc 0f20 	cmp.w	ip, #32
+
+        3532:	f040 80e2 	bne.w	36fa <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x516>
+
+        3536:	2302      	movs	r3, #2
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        3538:	45b3      	cmp	fp, r6
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        353a:	9320      	str	r3, [sp, #128]	@ 0x80
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        353c:	f000 808a 	beq.w	3654 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x470>
+
+        3540:	7833      	ldrb	r3, [r6, #0]
+
+        3542:	2b23      	cmp	r3, #35	@ 0x23
+
+        3544:	f000 80ca 	beq.w	36dc <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4f8>
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        3548:	2300      	movs	r3, #0
+
+        354a:	f88d 3084 	strb.w	r3, [sp, #132]	@ 0x84
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        354e:	7833      	ldrb	r3, [r6, #0]
+
+        3550:	2b30      	cmp	r3, #48	@ 0x30
+
+        3552:	f000 80ba 	beq.w	36ca <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4e6>
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        3556:	2300      	movs	r3, #0
+
+        3558:	f88d 3085 	strb.w	r3, [sp, #133]	@ 0x85
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        355c:	f04f 0e00 	mov.w	lr, #0
+
+        3560:	f8df 9200 	ldr.w	r9, [pc, #512]	@ 3764 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x580>
+
+        3564:	4671      	mov	r1, lr
+
+        3566:	465a      	mov	r2, fp
+
+        3568:	e005      	b.n	3576 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x392>
+
+        356a:	42b2      	cmp	r2, r6
+
+        356c:	4661      	mov	r1, ip
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        356e:	f04f 0e01 	mov.w	lr, #1
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3572:	4693      	mov	fp, r2
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3574:	d01e      	beq.n	35b4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3d0>
+
+    _ZN3etl9exceptionC4EPKcS2_i():
+
+        3576:	46b3      	mov	fp, r6
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3578:	f816 3b01 	ldrb.w	r3, [r6], #1
+
+        357c:	eb01 0a81 	add.w	sl, r1, r1, lsl #2
+
+    _ZN3etl14private_format8is_digitEc():
+
+        3580:	f1a3 0c30 	sub.w	ip, r3, #48	@ 0x30
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3584:	eb03 0a4a 	add.w	sl, r3, sl, lsl #1
+
+        3588:	fa5f f38c 	uxtb.w	r3, ip
+
+        358c:	2b09      	cmp	r3, #9
+
+        358e:	4620      	mov	r0, r4
+
+        3590:	f1aa 0a30 	sub.w	sl, sl, #48	@ 0x30
+
+        3594:	d84a      	bhi.n	362c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x448>
+
+    _ZNKR3etl16private_optional13optional_implIjLb1EE8value_orIiEENS_9enable_ifIXsrNS_14is_convertibleIT_jEE5valueEjE4typeEOS6_():
+
+        3596:	f1be 0f00 	cmp.w	lr, #0
+
+        359a:	d0e6      	beq.n	356a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x386>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        359c:	4551      	cmp	r1, sl
+
+        359e:	d903      	bls.n	35a8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3c4>
+
+        35a0:	f8d9 3000 	ldr.w	r3, [r9]
+
+        35a4:	4798      	blx	r3
+
+        35a6:	9a0b      	ldr	r2, [sp, #44]	@ 0x2c
+
+        35a8:	42b2      	cmp	r2, r6
+
+        35aa:	4651      	mov	r1, sl
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        35ac:	f04f 0e01 	mov.w	lr, #1
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        35b0:	4693      	mov	fp, r2
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        35b2:	d1e0      	bne.n	3576 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x392>
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        35b4:	2301      	movs	r3, #1
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        35b6:	9122      	str	r1, [sp, #136]	@ 0x88
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        35b8:	920a      	str	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        35ba:	f88d 308c 	strb.w	r3, [sp, #140]	@ 0x8c
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        35be:	4593      	cmp	fp, r2
+
+        35c0:	d04f      	beq.n	3662 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x47e>
+
+        35c2:	7813      	ldrb	r3, [r2, #0]
+
+        35c4:	2b2e      	cmp	r3, #46	@ 0x2e
+
+        35c6:	d058      	beq.n	367a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x496>
+
+        35c8:	2b4c      	cmp	r3, #76	@ 0x4c
+
+        35ca:	f000 8090 	beq.w	36ee <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x50a>
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE5beginEv():
+
+        35ce:	9a0a      	ldr	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        35d0:	2300      	movs	r3, #0
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        35d2:	4863      	ldr	r0, [pc, #396]	@ (3760 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x57c>)
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        35d4:	f88d 309d 	strb.w	r3, [sp, #157]	@ 0x9d
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        35d8:	4603      	mov	r3, r0
+
+        35da:	f813 1b01 	ldrb.w	r1, [r3], #1
+
+        35de:	2900      	cmp	r1, #0
+
+        35e0:	d1fb      	bne.n	35da <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3f6>
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        35e2:	455a      	cmp	r2, fp
+
+        35e4:	d015      	beq.n	3612 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x42e>
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        35e6:	1a1b      	subs	r3, r3, r0
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        35e8:	2b01      	cmp	r3, #1
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        35ea:	7816      	ldrb	r6, [r2, #0]
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        35ec:	d011      	beq.n	3612 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x42e>
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        35ee:	3b01      	subs	r3, #1
+
+        35f0:	495b      	ldr	r1, [pc, #364]	@ (3760 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x57c>)
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEC4EPKc():
+
+        35f2:	4403      	add	r3, r0
+
+        35f4:	e001      	b.n	35fa <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x416>
+
+    _ZN3etl4findIPKccEET_S3_S3_RKT0_():
+
+        35f6:	428b      	cmp	r3, r1
+
+        35f8:	d02a      	beq.n	3650 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x46c>
+
+        35fa:	4608      	mov	r0, r1
+
+        35fc:	3101      	adds	r1, #1
+
+        35fe:	7805      	ldrb	r5, [r0, #0]
+
+        3600:	42b5      	cmp	r5, r6
+
+        3602:	d1f8      	bne.n	35f6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x412>
+
+    _ZN3etl14private_format12parse_any_ofERNS_26basic_format_parse_contextIcEENS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        3604:	4283      	cmp	r3, r0
+
+        3606:	d023      	beq.n	3650 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x46c>
+
+        3608:	3201      	adds	r2, #1
+
+    _ZN3etl16private_optional13optional_implIcLb1EE12storage_type9constructEOc():
+
+        360a:	f88d 609e 	strb.w	r6, [sp, #158]	@ 0x9e
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        360e:	920a      	str	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl16private_optional13optional_implIcLb1EE12storage_type9constructEOc():
+
+        3610:	2101      	movs	r1, #1
+
+    _ZN3etl16private_optional13optional_implIjLb1EEC4ERKS2_():
+
+        3612:	f89d 3074 	ldrb.w	r3, [sp, #116]	@ 0x74
+
+        3616:	f88d 109f 	strb.w	r1, [sp, #159]	@ 0x9f
+
+        361a:	2b00      	cmp	r3, #0
+
+        361c:	f47f ae7c 	bne.w	3318 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x134>
+
+    _ZN3etl26basic_format_parse_contextIcE11next_arg_idEv():
+
+        3620:	f89d 3039 	ldrb.w	r3, [sp, #57]	@ 0x39
+
+        3624:	2b00      	cmp	r3, #0
+
+        3626:	f47f aec2 	bne.w	33ae <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1ca>
+
+        362a:	e6c4      	b.n	33b6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x1d2>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        362c:	4613      	mov	r3, r2
+
+        362e:	465a      	mov	r2, fp
+
+        3630:	469b      	mov	fp, r3
+
+        3632:	f1be 0f00 	cmp.w	lr, #0
+
+        3636:	d1bd      	bne.n	35b4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3d0>
+
+        3638:	2300      	movs	r3, #0
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        363a:	a922      	add	r1, sp, #136	@ 0x88
+
+        363c:	a80a      	add	r0, sp, #40	@ 0x28
+
+        363e:	f88d 308c 	strb.w	r3, [sp, #140]	@ 0x8c
+
+        3642:	f7ff fab5 	bl	2bb0 <<a href="../../../../../../libs/3rdparty/etl/include/etl/format.h/1e210a6c076402009317d31ba2d80ae1.html">etl::private_format::parse_nested_replacement(etl::basic_format_parse_context<char>&, etl::optional<unsigned int>&)</a>>
+
+        3646:	e9dd 2b0a 	ldrd	r2, fp, [sp, #40]	@ 0x28
+
+        364a:	f88d 0090 	strb.w	r0, [sp, #144]	@ 0x90
+
+        364e:	e7b6      	b.n	35be <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3da>
+
+    _ZN3etl16private_optional13optional_implIcLb1EE12storage_type7destroyEv():
+
+        3650:	2100      	movs	r1, #0
+
+        3652:	e7de      	b.n	3612 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x42e>
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        3654:	2300      	movs	r3, #0
+
+        3656:	f88d 3084 	strb.w	r3, [sp, #132]	@ 0x84
+
+        365a:	2300      	movs	r3, #0
+
+        365c:	f88d 3085 	strb.w	r3, [sp, #133]	@ 0x85
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3660:	e7ea      	b.n	3638 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x454>
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        3662:	2300      	movs	r3, #0
+
+        3664:	e7b5      	b.n	35d2 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3ee>
+
+    _ZN3etl14private_format15align_from_charEc():
+
+        3666:	2301      	movs	r3, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3668:	920a      	str	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl26basic_format_parse_contextIcE10advance_toEPKc():
+
+        366a:	4616      	mov	r6, r2
+
+        366c:	e739      	b.n	34e2 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2fe>
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        366e:	2300      	movs	r3, #0
+
+        3670:	e762      	b.n	3538 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x354>
+
+    _ZN3etl14private_format15align_from_charEc():
+
+        3672:	2302      	movs	r3, #2
+
+    _ZN3etl14private_format18is_align_characterEc():
+
+        3674:	e7f8      	b.n	3668 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x484>
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        3676:	2301      	movs	r3, #1
+
+        3678:	e75e      	b.n	3538 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x354>
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        367a:	1c56      	adds	r6, r2, #1
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        367c:	45b3      	cmp	fp, r6
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        367e:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3680:	d043      	beq.n	370a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x526>
+
+        3682:	f8df 90e0 	ldr.w	r9, [pc, #224]	@ 3764 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x580>
+
+        3686:	2100      	movs	r1, #0
+
+        3688:	465a      	mov	r2, fp
+
+        368a:	e004      	b.n	3696 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4b2>
+
+        368c:	4671      	mov	r1, lr
+
+        368e:	42b2      	cmp	r2, r6
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructERKj():
+
+        3690:	f04f 0501 	mov.w	r5, #1
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3694:	d052      	beq.n	373c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x558>
+
+    _ZN3etl9exceptionC4EPKcS2_i():
+
+        3696:	46b4      	mov	ip, r6
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3698:	f816 eb01 	ldrb.w	lr, [r6], #1
+
+        369c:	eb01 0381 	add.w	r3, r1, r1, lsl #2
+
+        36a0:	eb0e 0343 	add.w	r3, lr, r3, lsl #1
+
+    _ZN3etl14private_format8is_digitEc():
+
+        36a4:	f1ae 0e30 	sub.w	lr, lr, #48	@ 0x30
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        36a8:	f1a3 0a30 	sub.w	sl, r3, #48	@ 0x30
+
+        36ac:	fa5f f38e 	uxtb.w	r3, lr
+
+        36b0:	2b09      	cmp	r3, #9
+
+        36b2:	4620      	mov	r0, r4
+
+        36b4:	d838      	bhi.n	3728 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x544>
+
+    _ZNKR3etl16private_optional13optional_implIjLb1EE8value_orIiEENS_9enable_ifIXsrNS_14is_convertibleIT_jEE5valueEjE4typeEOS6_():
+
+        36b6:	2d00      	cmp	r5, #0
+
+        36b8:	d0e8      	beq.n	368c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4a8>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        36ba:	4551      	cmp	r1, sl
+
+        36bc:	d903      	bls.n	36c6 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4e2>
+
+        36be:	f8d9 3000 	ldr.w	r3, [r9]
+
+        36c2:	4798      	blx	r3
+
+        36c4:	9a0b      	ldr	r2, [sp, #44]	@ 0x2c
+
+        36c6:	4651      	mov	r1, sl
+
+        36c8:	e7e1      	b.n	368e <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x4aa>
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        36ca:	3601      	adds	r6, #1
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        36cc:	2301      	movs	r3, #1
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        36ce:	455e      	cmp	r6, fp
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        36d0:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        36d2:	f88d 3085 	strb.w	r3, [sp, #133]	@ 0x85
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        36d6:	f47f af41 	bne.w	355c <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x378>
+
+        36da:	e7ad      	b.n	3638 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x454>
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        36dc:	3601      	adds	r6, #1
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        36de:	2301      	movs	r3, #1
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        36e0:	455e      	cmp	r6, fp
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        36e2:	960a      	str	r6, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        36e4:	f88d 3084 	strb.w	r3, [sp, #132]	@ 0x84
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        36e8:	f47f af31 	bne.w	354e <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x36a>
+
+        36ec:	e7b5      	b.n	365a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x476>
+
+        36ee:	3201      	adds	r2, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        36f0:	920a      	str	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        36f2:	2301      	movs	r3, #1
+
+        36f4:	e76d      	b.n	35d2 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3ee>
+
+    _ZN3etl14private_format15align_from_charEc():
+
+        36f6:	2303      	movs	r3, #3
+
+        36f8:	e7b6      	b.n	3668 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x484>
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        36fa:	4b1a      	ldr	r3, [pc, #104]	@ (3764 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x580>)
+
+        36fc:	4620      	mov	r0, r4
+
+        36fe:	681b      	ldr	r3, [r3, #0]
+
+        3700:	4798      	blx	r3
+
+    _ZNK3etl17basic_string_viewIcNS_11char_traitsIcEEE3endEv():
+
+        3702:	e9dd 6b0a 	ldrd	r6, fp, [sp, #40]	@ 0x28
+
+    _ZN3etl14private_format14sign_from_charEc():
+
+        3706:	2300      	movs	r3, #0
+
+        3708:	e716      	b.n	3538 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x354>
+
+        370a:	2300      	movs	r3, #0
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        370c:	a925      	add	r1, sp, #148	@ 0x94
+
+        370e:	a80a      	add	r0, sp, #40	@ 0x28
+
+        3710:	f88d 3098 	strb.w	r3, [sp, #152]	@ 0x98
+
+        3714:	f7ff fa4c 	bl	2bb0 <<a href="../../../../../../libs/3rdparty/etl/include/etl/format.h/1e210a6c076402009317d31ba2d80ae1.html">etl::private_format::parse_nested_replacement(etl::basic_format_parse_context<char>&, etl::optional<unsigned int>&)</a>>
+
+        3718:	e9dd 2b0a 	ldrd	r2, fp, [sp, #40]	@ 0x28
+
+        371c:	f88d 009c 	strb.w	r0, [sp, #156]	@ 0x9c
+
+    _ZN3etl14private_format10parse_charERNS_26basic_format_parse_contextIcEEc():
+
+        3720:	455a      	cmp	r2, fp
+
+        3722:	d09e      	beq.n	3662 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x47e>
+
+        3724:	7813      	ldrb	r3, [r2, #0]
+
+        3726:	e74f      	b.n	35c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x3e4>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        3728:	4693      	mov	fp, r2
+
+        372a:	4662      	mov	r2, ip
+
+        372c:	2d00      	cmp	r5, #0
+
+        372e:	d0ec      	beq.n	370a <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x526>
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3730:	2301      	movs	r3, #1
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        3732:	9125      	str	r1, [sp, #148]	@ 0x94
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEaSERKS3_():
+
+        3734:	920a      	str	r2, [sp, #40]	@ 0x28
+
+    _ZN3etl16private_optional13optional_implIjLb1EE12storage_type9constructEOj():
+
+        3736:	f88d 3098 	strb.w	r3, [sp, #152]	@ 0x98
+
+    _ZN3etl14private_format17parse_format_specINS_13private_print14print_iteratorEEEvRNS_26basic_format_parse_contextIcEERNS_20basic_format_contextIT_cEE():
+
+        373a:	e7f1      	b.n	3720 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x53c>
+
+    _ZN3etl14private_format9parse_numERNS_26basic_format_parse_contextIcEE():
+
+        373c:	4693      	mov	fp, r2
+
+        373e:	e7f7      	b.n	3730 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x54c>
+
+    _ZN3etl14private_format20parse_fill_and_alignERNS_26basic_format_parse_contextIcEERc():
+
+        3740:	4a08      	ldr	r2, [pc, #32]	@ (3764 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x580>)
+
+        3742:	9301      	str	r3, [sp, #4]
+
+        3744:	6812      	ldr	r2, [r2, #0]
+
+        3746:	4620      	mov	r0, r4
+
+        3748:	4790      	blx	r2
+
+        374a:	f8dd b02c 	ldr.w	fp, [sp, #44]	@ 0x2c
+
+        374e:	9b01      	ldr	r3, [sp, #4]
+
+        3750:	e6c0      	b.n	34d4 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2f0>
+
+    _ZN3etl14private_format15align_from_charEc():
+
+        3752:	2301      	movs	r3, #1
+
+        3754:	e6b8      	b.n	34c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2e4>
+
+        3756:	2302      	movs	r3, #2
+
+        3758:	e6b6      	b.n	34c8 <<a href="./f0c3e37b78904f0cb22bd585a8fa9842.html">app::run()</a>+0x2e4>
+
+        375a:	bf00      	nop
+
+        375c:	00030fb8 	.word	0x00030fb8
+
+        3760:	00030fbc 	.word	0x00030fbc
+
+        3764:	20000000 	.word	0x20000000
+
+    </pre>
+
+    
+    <pre><a href="../../../../../../libs/bsw/asyncFreeRtos/include/async/TaskContext.h/f0cd98856fac03938c2472e169ae4019.html">async::TaskContext&lt;async::FreeRtosAdapter&lt;async::AsyncBinding&gt; &gt;::handleTimeout() (188)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 592</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 3,576</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    592
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,576
+                    
+                    
+                </td>
+                <td class="col_size">160</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/aead89a8c09454d3b52c82329b9d6539.html" class="icon-function">out_rev_</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    544
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    3,416
+                    
+                    
+                </td>
+                <td class="col_size">792</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/ac6598d6032c1151c802f0c9a9979746.html" class="icon-function">print_integer</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    432
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                88 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    2,624
+                    
+                    
+                </td>
+                <td class="col_size">1,964</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/6d7d630ec5529648e33ae989eebb2cb7.html" class="icon-function">_vsnprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    344
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    660
+                    
+                    
+                </td>
+                <td class="col_size">36</td>
+                <td><a href="../../../../../../libs/3rdparty/printf/src/printf/printf.c/5312ec35df88995f2f21271b5c68c054.html" class="icon-function">vfctprintf</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    624
+                    
+                    
+                </td>
+                <td class="col_size">40</td>
+                <td><a href="../../../../../../libs/bsp/bspCharInputOutput/src/charInputOutput/bspIo.cpp/6c492efb4c21b9ebc4f047af3dbd3de7.html" class="icon-function">debug_printf</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    584
+                    
+                    
+                </td>
+                <td class="col_size">12</td>
+                <td><a href="../../../../platforms/s32k148evb/main/src/osHooks/freertos/osHooks.cpp/45bbe829857fb87663cdbf538f18cad7.html" class="icon-function">vApplicationStackOverflowHook</a></td>
+            </tr>
+        
+            <tr>
+                <th>7</th>
+                <td class="col_size">
+                    
+                    320
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    572
+                    
+                    
+                </td>
+                <td class="col_size">204</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/include/task.h/14db0b8137bb15b16e9724365ccf27b8.html" class="icon-function">vTaskSwitchContext</a></td>
+            </tr>
+        
+            <tr>
+                <th>8</th>
+                <td class="col_size">
+                    
+                    304
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    368
+                    
+                    
+                </td>
+                <td class="col_size">208</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/include/portable.h/52d65514473f95049d8347da5d7f743d.html" class="icon-function">xPortStartScheduler</a></td>
+            </tr>
+        
+            <tr>
+                <th>9</th>
+                <td class="col_size">
+                    
+                    272
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">160</td>
+                <td><a href="../../../../../../libs/3rdparty/freeRtos/include/task.h/f63e0c737b2bc0ba20133fcf0cb62874.html" class="icon-function">vTaskStartScheduler</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">224
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 224</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,564</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    224
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                208 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,564
+                    
+                    
+                </td>
+                <td class="col_size">1,412</td>
+                <td><a href="./f0c3e37b78904f0cb22bd585a8fa9842.html" class="icon-function">app::run()</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    152
+                    
+                    
+                </td>
+                <td class="col_size">20</td>
+                <td><a href="../../main.cpp/5ca4565b9d11184b1d3b82aa1ebe323f.html" class="icon-function">app_main()</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                16 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">132</td>
+                <td><a href="../../../../platforms/s32k148evb/main/src/main.cpp/fad58de7366495db4650cfefac2fcd61.html" class="icon-function">main</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

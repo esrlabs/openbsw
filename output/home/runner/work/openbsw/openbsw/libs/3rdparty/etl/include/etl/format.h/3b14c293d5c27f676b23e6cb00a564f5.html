@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../3rdparty.html">3rdparty</a></li>
+        
+        <li><a href="../../../../etl.html">etl</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../etl.html">etl</a>
+            </li>
+
+        
+        <li class="active"><a href="../format.h.html">format.h</a>:868
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">void etl::private_format::format_alternate_form&lt;etl::private_format::counter_iterator, int&gt;(etl::private_format::counter_iterator&amp;, etl::private_format::format_spec_t const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00004044</td>
+                <td>
+    
+    
+</td>
+                <td>0 (static)</td>
+                <td>148</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="./42cb25f81641c59ea07b9dc1fb2f4c55.html">void etl::private_format::format_num&lt;etl::private_format::counter_iterator, int, false&gt;(etl::private_format::counter_iterator&amp;, int, etl::private_format::format_spec_t const&amp;) (264)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../private/variant_variadic.h/aa7cda248bf2e44c20613d76ed4e07e1.html">void etl::private_variant::do_visit_single&lt;void, etl::private_format::format_visitor&lt;etl::private_print::print_iterator&gt;&amp;, etl::variant&lt;etl::monostate, bool, char, int, unsigned int, long long, unsigned long long, float, double, long double, char const*, etl::basic_string_view&lt;char, etl::char_traits&lt;char&gt; &gt;, void const*&gt;&amp;, 10u&gt;(etl::private_format::format_visitor&lt;etl::private_print::print_iterator&gt;&amp;, etl::variant&lt;etl::monostate, bool, char, int, unsigned int, long long, unsigned long long, float, double, long double, char const*, etl::basic_string_view&lt;char, etl::char_traits&lt;char&gt; &gt;, void const*&gt;&amp;) (48)</a></pre>
+    
+
+    <pre>
+
+    void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&):
+
+        4044:	7d0b      	ldrb	r3, [r1, #20]
+
+        4046:	b1d3      	cbz	r3, 407e <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x3a>
+
+        4048:	f891 302f 	ldrb.w	r3, [r1, #47]	@ 0x2f
+
+        404c:	b1bb      	cbz	r3, 407e <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x3a>
+
+        404e:	f891 302e 	ldrb.w	r3, [r1, #46]	@ 0x2e
+
+        4052:	2b62      	cmp	r3, #98	@ 0x62
+
+        4054:	d02f      	beq.n	40b6 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x72>
+
+        4056:	d913      	bls.n	4080 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x3c>
+
+        4058:	2b6f      	cmp	r3, #111	@ 0x6f
+
+        405a:	d025      	beq.n	40a8 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x64>
+
+        405c:	2b78      	cmp	r3, #120	@ 0x78
+
+        405e:	d11a      	bne.n	4096 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x52>
+
+        4060:	4918      	ldr	r1, [pc, #96]	@ (40c4 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x80>)
+
+        4062:	460b      	mov	r3, r1
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        4064:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+        4068:	2a00      	cmp	r2, #0
+
+        406a:	d1fb      	bne.n	4064 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x20>
+
+        406c:	1a5a      	subs	r2, r3, r1
+
+    _ZN3etl14private_format15format_sequenceINS0_16counter_iteratorEEEvRT_NS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        406e:	2a01      	cmp	r2, #1
+
+    _ZN3etl17basic_string_viewIcNS_11char_traitsIcEEEC4EPKc():
+
+        4070:	f103 33ff 	add.w	r3, r3, #4294967295	@ 0xffffffff
+
+    _ZN3etl14private_format15format_sequenceINS0_16counter_iteratorEEEvRT_NS_17basic_string_viewIcNS_11char_traitsIcEEEE():
+
+        4074:	d003      	beq.n	407e <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x3a>
+
+        4076:	6802      	ldr	r2, [r0, #0]
+
+        4078:	1a52      	subs	r2, r2, r1
+
+        407a:	4413      	add	r3, r2
+
+        407c:	6003      	str	r3, [r0, #0]
+
+    void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&):
+
+        407e:	4770      	bx	lr
+
+        4080:	2b42      	cmp	r3, #66	@ 0x42
+
+        4082:	d00a      	beq.n	409a <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x56>
+
+        4084:	2b58      	cmp	r3, #88	@ 0x58
+
+        4086:	d107      	bne.n	4098 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x54>
+
+        4088:	490f      	ldr	r1, [pc, #60]	@ (40c8 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x84>)
+
+        408a:	460b      	mov	r3, r1
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        408c:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+        4090:	2a00      	cmp	r2, #0
+
+        4092:	d1fb      	bne.n	408c <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x48>
+
+        4094:	e7ea      	b.n	406c <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x28>
+
+        4096:	4770      	bx	lr
+
+        4098:	4770      	bx	lr
+
+    void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&):
+
+        409a:	490c      	ldr	r1, [pc, #48]	@ (40cc <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x88>)
+
+        409c:	460b      	mov	r3, r1
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        409e:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+        40a2:	2a00      	cmp	r2, #0
+
+        40a4:	d1fb      	bne.n	409e <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x5a>
+
+        40a6:	e7e1      	b.n	406c <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x28>
+
+    void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&):
+
+        40a8:	4909      	ldr	r1, [pc, #36]	@ (40d0 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x8c>)
+
+        40aa:	460b      	mov	r3, r1
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        40ac:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+        40b0:	2a00      	cmp	r2, #0
+
+        40b2:	d1fb      	bne.n	40ac <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x68>
+
+        40b4:	e7da      	b.n	406c <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x28>
+
+    void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&):
+
+        40b6:	4907      	ldr	r1, [pc, #28]	@ (40d4 <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x90>)
+
+        40b8:	460b      	mov	r3, r1
+
+    _ZN3etl11char_traitsIcE6lengthEPKc():
+
+        40ba:	f813 2b01 	ldrb.w	r2, [r3], #1
+
+        40be:	2a00      	cmp	r2, #0
+
+        40c0:	d1fb      	bne.n	40ba <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x76>
+
+        40c2:	e7d3      	b.n	406c <<a href="./3b14c293d5c27f676b23e6cb00a564f5.html">void etl::private_format::format_alternate_form<etl::private_format::counter_iterator, int>(etl::private_format::counter_iterator&, etl::private_format::format_spec_t const&)</a>+0x28>
+
+        40c4:	00030f30 	.word	0x00030f30
+
+        40c8:	00030f34 	.word	0x00030f34
+
+        40cc:	00030f2c 	.word	0x00030f2c
+
+        40d0:	00031ae0 	.word	0x00031ae0
+
+        40d4:	00030f28 	.word	0x00030f28
+
+    </pre>
+
+    
+    <pre><a href="./42cb25f81641c59ea07b9dc1fb2f4c55.html">void etl::private_format::format_num&lt;etl::private_format::counter_iterator, int, false&gt;(etl::private_format::counter_iterator&amp;, int, etl::private_format::format_spec_t const&amp;) (264)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 48</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,176</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,176
+                    
+                    
+                </td>
+                <td class="col_size">148</td>
+                <td><a href="./3b14c293d5c27f676b23e6cb00a564f5.html" class="icon-function">void etl::private_format::format_alternate_form&lt;etl::private_format::counter_iterator, int&gt;(etl::private_format::counter_iterator&amp;, etl::private_format::format_spec_t const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,028
+                    
+                    
+                </td>
+                <td class="col_size">264</td>
+                <td><a href="./42cb25f81641c59ea07b9dc1fb2f4c55.html" class="icon-function">void etl::private_format::format_num&lt;etl::private_format::counter_iterator, int, false&gt;(etl::private_format::counter_iterator&amp;, int, etl::private_format::format_spec_t const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">764</td>
+                <td><a href="./780f9164b05d68b5362fe90dd12fa6f5.html" class="icon-function">etl::format_context&lt;etl::private_print::print_iterator, char&gt;::iterator etl::private_format::format_aligned_int&lt;etl::private_print::print_iterator, int&gt;(int, etl::format_context&lt;etl::private_print::print_iterator, char&gt;&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

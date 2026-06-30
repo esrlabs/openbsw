@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../cpp2ethernet.html">cpp2ethernet</a></li>
+        
+        <li><a href="../../../include.html">include</a></li>
+        
+        <li ><a href="../../ip.html">ip</a>
+            </li>
+
+        
+        <li class="active"><a href="../IPAddress.h.html">IPAddress.h</a>:228
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">ip::packed(ip::IPAddress const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00019918</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>32 (static)</td>
+                <td>164</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../lwipSocket/src/lwipSocket/netif/LwipNetworkInterface.cpp/eb18b5d97b9e4f39392a5ead35d65c0a.html">lwipnetif::initNetifIp4(netif&amp;, ip::Ip4Config const&amp;, ip::NetworkInterfaceConfig const&amp;, void*) (240)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=28
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy (28)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../../../../lwipSocket/src/lwipSocket/netif/LwipNetworkInterface.cpp/31b0d36899ec401ed20a9d6529bb59c1.html">lwipnetif::initNetif(netif*) (4)</a></pre>
+    
+
+    <pre>
+
+    ip::packed(ip::IPAddress const&):
+
+       19918:	b5f0      	push	{r4, r5, r6, r7, lr}
+
+       1991a:	b083      	sub	sp, #12
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       1991c:	2300      	movs	r3, #0
+
+       1991e:	9301      	str	r3, [sp, #4]
+
+    ip::packed(ip::IPAddress const&):
+
+       19920:	460d      	mov	r5, r1
+
+       19922:	4606      	mov	r6, r0
+
+       19924:	1e4c      	subs	r4, r1, #1
+
+       19926:	f101 0c03 	add.w	ip, r1, #3
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       1992a:	ab01      	add	r3, sp, #4
+
+    _ZN3etl6copy_nIPKhjPhEET1_T_T0_S4_():
+
+       1992c:	f814 2f01 	ldrb.w	r2, [r4, #1]!
+
+       19930:	f803 2b01 	strb.w	r2, [r3], #1
+
+       19934:	4564      	cmp	r4, ip
+
+       19936:	d1f9      	bne.n	1992c <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x14>
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       19938:	2204      	movs	r2, #4
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       1993a:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       1993c:	eb0d 0102 	add.w	r1, sp, r2
+
+       19940:	4668      	mov	r0, sp
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       19942:	9300      	str	r3, [sp, #0]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       19944:	f7e6 fe2b 	bl	59e <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       19948:	9b00      	ldr	r3, [sp, #0]
+
+    ip::addressFamilyOf(ip::IPAddress const&):
+
+       1994a:	b133      	cbz	r3, 1995a <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x42>
+
+       1994c:	f105 0310 	add.w	r3, r5, #16
+
+    ip::packed(ip::IPAddress const&):
+
+       19950:	4630      	mov	r0, r6
+
+    _ZN3etl4spanIKhLj4294967295EEC4IS1_Lj16EEERKNS0_IT_XT0_EEE():
+
+       19952:	6035      	str	r5, [r6, #0]
+
+       19954:	6073      	str	r3, [r6, #4]
+
+    ip::packed(ip::IPAddress const&):
+
+       19956:	b003      	add	sp, #12
+
+       19958:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       1995a:	9301      	str	r3, [sp, #4]
+
+    _ZN3etl6copy_nIPKhjPhEET1_T_T0_S4_():
+
+       1995c:	1def      	adds	r7, r5, #7
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       1995e:	ab01      	add	r3, sp, #4
+
+    _ZN3etl6copy_nIPKhjPhEET1_T_T0_S4_():
+
+       19960:	f814 2f01 	ldrb.w	r2, [r4, #1]!
+
+       19964:	f803 2b01 	strb.w	r2, [r3], #1
+
+       19968:	42a7      	cmp	r7, r4
+
+       1996a:	d1f9      	bne.n	19960 <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x48>
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       1996c:	2204      	movs	r2, #4
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       1996e:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       19970:	eb0d 0102 	add.w	r1, sp, r2
+
+       19974:	4668      	mov	r0, sp
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       19976:	9300      	str	r3, [sp, #0]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       19978:	f7e6 fe11 	bl	59e <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       1997c:	9b00      	ldr	r3, [sp, #0]
+
+    ip::addressFamilyOf(ip::IPAddress const&):
+
+       1997e:	2b00      	cmp	r3, #0
+
+       19980:	d1e4      	bne.n	1994c <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x34>
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       19982:	9301      	str	r3, [sp, #4]
+
+    _ZN3etl6copy_nIPKhjPhEET1_T_T0_S4_():
+
+       19984:	f105 010b 	add.w	r1, r5, #11
+
+    _ZN3etl22private_unaligned_type22unaligned_type_storageILj4EEC4Ev():
+
+       19988:	ab01      	add	r3, sp, #4
+
+    _ZN3etl6copy_nIPKhjPhEET1_T_T0_S4_():
+
+       1998a:	f817 2f01 	ldrb.w	r2, [r7, #1]!
+
+       1998e:	f803 2b01 	strb.w	r2, [r3], #1
+
+       19992:	428f      	cmp	r7, r1
+
+       19994:	d1f9      	bne.n	1998a <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x72>
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       19996:	2300      	movs	r3, #0
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       19998:	2204      	movs	r2, #4
+
+       1999a:	a901      	add	r1, sp, #4
+
+       1999c:	4668      	mov	r0, sp
+
+    _ZNK3etl14unaligned_typeImLi4321EEcvmEv():
+
+       1999e:	9300      	str	r3, [sp, #0]
+
+    _ZN3etl22private_unaligned_type14unaligned_copyILj4ELi4321ELb1EE19copy_store_to_valueImEEvPKhRT_():
+
+       199a0:	f7e6 fdfd 	bl	59e <<a href="../../../../../../../../../../../unknown/unknown/72d4bd12d6ca07360602e0d6cbc8dc4b.html">memcpy</a>>
+
+       199a4:	9a00      	ldr	r2, [sp, #0]
+
+    ip::addressFamilyOf(ip::IPAddress const&):
+
+       199a6:	f512 3f80 	cmn.w	r2, #65536	@ 0x10000
+
+    _ZN3etl4spanIKhLj4294967295EEC4IS1_Lj4EEERKNS0_IT_XT0_EEE():
+
+       199aa:	f105 0310 	add.w	r3, r5, #16
+
+    ip::addressFamilyOf(ip::IPAddress const&):
+
+       199ae:	d1cf      	bne.n	19950 <<a href="./773005e535242462fde9f0f6f7aa9442.html">ip::packed(ip::IPAddress const&)</a>+0x38>
+
+    _ZN2ip9ip4_bytesERKNS_9IPAddressE():
+
+       199b0:	350c      	adds	r5, #12
+
+    ip::packed(ip::IPAddress const&):
+
+       199b2:	4630      	mov	r0, r6
+
+    _ZN3etl4spanIKhLj4294967295EEC4IS1_Lj4EEERKNS0_IT_XT0_EEE():
+
+       199b4:	6035      	str	r5, [r6, #0]
+
+       199b6:	6073      	str	r3, [r6, #4]
+
+    ip::packed(ip::IPAddress const&):
+
+       199b8:	b003      	add	sp, #12
+
+       199ba:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+    </pre>
+
+    
+    <pre><a href="../../../../lwipSocket/src/lwipSocket/netif/LwipNetworkInterface.cpp/eb18b5d97b9e4f39392a5ead35d65c0a.html">lwipnetif::initNetifIp4(netif&amp;, ip::Ip4Config const&amp;, ip::NetworkInterfaceConfig const&amp;, void*) (240)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 160</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 612</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    160
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                32 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    612
+                    
+                    
+                </td>
+                <td class="col_size">164</td>
+                <td><a href="./773005e535242462fde9f0f6f7aa9442.html" class="icon-function">ip::packed(ip::IPAddress const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    128
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                80 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    448
+                    
+                    
+                </td>
+                <td class="col_size">240</td>
+                <td><a href="../../../../lwipSocket/src/lwipSocket/netif/LwipNetworkInterface.cpp/eb18b5d97b9e4f39392a5ead35d65c0a.html" class="icon-function">lwipnetif::initNetifIp4(netif&amp;, ip::Ip4Config const&amp;, ip::NetworkInterfaceConfig const&amp;, void*)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">208</td>
+                <td><a href="../../../../../../executables/referenceApp/application/src/systems/EthernetSystem.cpp/5b12771969dc07b02f951af08c34750c.html" class="icon-function">systems::EthernetSystem::run()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>
