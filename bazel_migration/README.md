@@ -34,7 +34,7 @@ Open:
 OpenBSW Bazel migration
 ├── bazel/ ✅ (toolchain + s32k148 platform/constraints + rtos config)
 ├── cmake/ ⬛
-├── doc/ ⬛
+├── doc/ ✅ (Bazel guidelines/module.rst + formatting/bazel.rst)
 ├── docker/ ⬛
 ├── executables/
 │   ├── referenceApp/ 🔲
@@ -44,8 +44,8 @@ OpenBSW Bazel migration
 │   │   ├── configuration ✅
 │   │   ├── lwipConfiguration ✅
 │   │   └── platforms/
-│   │       ├── posix/ ✅ (freeRtosCoreConfiguration, osHooks)
-│   │       └── s32k148evb/ ✅ (freeRtosCoreConfiguration, osHooks)
+│   │       ├── posix/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks)
+│   │       └── s32k148evb/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks)
 │   └── unitTest/ 🔲
 │       └── configuration ✅
 ├── libs/
@@ -55,13 +55,14 @@ OpenBSW Bazel migration
 │   │   ├── freeRtos ✅
 │   │   ├── lwip ✅
 │   │   └── printf ✅
-│   │   └── printf ✅
+│   │   └── threadx ✅
 │   ├── bsp/
 │   │   └── bspInterrupts ✅
 │   ├── bsw/
 │   │   ├── async ✅
 │   │   ├── asyncConsole ✅
 │   │   ├── asyncFreeRtos ✅
+│   │   ├── asyncThreadX ✅
 │   │   ├── asyncImpl ✅
 │   │   ├── cpp2can ✅
 │   │   ├── cpp2ethernet ✅
@@ -84,8 +85,8 @@ OpenBSW Bazel migration
 │   │   ├── util ✅
 │   └── (remaining) 🔲
 ├── platforms/
-│   ├── posix/ ✅ (freeRtosPosix, bspInterruptsImpl, etlImpl, lwipSysArch)
-│   └── s32k1xx/ ✅ (freertos_cm4_sysTick, bspMcu, bspInterruptsImpl, etlImpl, lwipSysArch)
+│   ├── posix/ ✅ (freeRtosPosix, threadx, bspInterruptsImpl, etlImpl, lwipSysArch)
+│   └── s32k1xx/ ✅ (freertos_cm4_sysTick, threadx, bspMcu, bspInterruptsImpl, etlImpl, lwipSysArch)
 ├── test/ Scope of Bazel support TBD
 └── tools/ Scope of Bazel support TBD
 
