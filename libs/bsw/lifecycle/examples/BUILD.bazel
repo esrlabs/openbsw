@@ -1,0 +1,22 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "lifecycle_examples",
+    srcs = ["src/examples.cpp"],
+    hdrs = ["include/example.h"],
+    implementation_deps = [
+        "//libs/bsw/lifecycle",
+        # TODO: migrate asyncMock unit test to Bazel, then add the dependency here.
+    ],
+    strip_include_prefix = "include",
+)

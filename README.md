@@ -72,11 +72,44 @@ options and build the generated project.
 > when for example loading a generated elf into a debugger or following symlinks created within the
 > container.
 
+### Building with CMake
 ```
 host> DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) docker compose run --build development
 docker> cmake --preset posix
 docker> cmake --build --preset posix
 ```
+
+### Building with Bazel
+From inside the same container:
+
+Build all targets for host platform
+
+```
+docker> bazel build //...
+```
+
+Build all targets for s32k148 platform
+
+```
+docker> bazel build --config=s32k148 //...
+```
+
+To run all tests for host platform and s32k148
+
+```
+docker> bazel test //...
+docker> bazel test --config=s32k148 //...
+```
+
+> [!NOTE]
+>
+> The above builds every target for the host and for the S32K148 target respectively.
+> To build or test a single target, use its Bazel label, e.g.:
+>
+> ```
+> docker> bazel build //libs/bsw/util:util
+> docker> bazel build --config=s32k148 //libs/bsw/util:util
+> ```
 
 ## Feature Overview
 

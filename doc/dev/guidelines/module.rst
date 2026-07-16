@@ -156,3 +156,40 @@ Use only standard CMake commands. The typical structure is as follows:
         add_library(<module>Mock src/...)
         target_include_directories(<module>Mock PUBLIC include)
         target_link_libraries(<module>Mock PUBLIC gmock ... PRIVATE ...)
+
+.. _build_bazel:
+
+BUILD.bazel
+-----------
+
+Use only standard Bazel build rules. The typical structure is as follows:
+
+<module>
+++++++++
+
+  .. code-block:: python
+
+        cc_library(
+            name = "<module>",
+            srcs = [
+                "src/<module>/foo.cpp",
+                "src/<module>/bar.cpp",
+            ],
+            hdrs = [
+                "include/<module>/foo.h",
+                "include/<module>/bar.h",
+            ],
+            strip_include_prefix = "include",
+            deps = ["//<module>:target_name",],
+            visibility = ["//visibility:public"],
+        )
+
+        # If a module has more than 10 source or header files, use glob() instead:
+        cc_library(
+            name = "<module>",
+            srcs = glob(["src/<module>/*.cpp"]),
+            hdrs = glob(["include/<module>/*.h"]),
+            strip_include_prefix = "include",
+            deps = ["//<module>:target_name",],
+            visibility = ["//visibility:public"],
+        )

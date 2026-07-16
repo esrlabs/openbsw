@@ -1,0 +1,35 @@
+..
+   *******************************************************************************
+   Copyright (c) 2026 Accenture
+
+   This program and the accompanying materials are made available under the
+   terms of the Apache License Version 2.0 which is available at
+   https://www.apache.org/licenses/LICENSE-2.0
+
+   SPDX-License-Identifier: Apache-2.0
+   *******************************************************************************
+
+
+Bazel
+=====
+
+We use `buildifier <https://github.com/bazelbuild/buildtools/tree/main/buildifier>`_ to format Bazel files.
+
+Usage
+-----
+
+Formatting a file:
+
+.. code-block:: bash
+
+    bazel run //:format_check //module_path/BUILD.bazel
+
+    bazel run //:format_fix //module_path/BUILD.bazel
+
+Formatting all the files at once:
+
+.. code-block:: bash
+
+    bazel run //:format_check //...
+
+    bazel run //:format_fix //...

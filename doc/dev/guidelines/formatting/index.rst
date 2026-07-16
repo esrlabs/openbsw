@@ -27,3 +27,4 @@ improves readability and comprehensibility, which in turn reduces bugs and saves
    for_c++/index
    cmake
    automatic
+   bazel
