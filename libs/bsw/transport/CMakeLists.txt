@@ -3,7 +3,13 @@ add_library(transport src/AbstractTransportLayer.cpp src/LogicalAddress.cpp
 
 target_include_directories(transport PUBLIC include)
 
-target_link_libraries(transport PUBLIC common etl util async)
+target_link_libraries(
+    transport
+    PUBLIC common
+           etl
+           util
+           async
+           configuration)
 
 if (BUILD_EXECUTABLE STREQUAL "unitTest")
     add_library(transportMock

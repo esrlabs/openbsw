@@ -53,10 +53,10 @@ target_link_libraries(
     uds
     PUBLIC async
            bsp
-           configuration
            transport
            transportConfiguration
-           udsConfiguration)
+           udsConfiguration
+           configuration)
 
 if (BUILD_EXECUTABLE STREQUAL "unitTest")
 
