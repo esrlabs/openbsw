@@ -1,0 +1,46 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "bsp_configuration_headers",
+    hdrs = glob([
+        "include/bsp/**/*.h",
+        "include/bsp/**/*.hpp",
+    ]),
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "bsp_configuration",
+    srcs = [
+        "src/bsp/SystemTimer/SystemTimer.cpp",
+        "src/bsp/adc/AnalogInput.cpp",
+        "src/bsp/io/outputPwm/PwmSupport.cpp",
+        "src/bsp/stdIo/stdIo.cpp",
+        "src/bsp/uart/UartConfig.cpp",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":bsp_configuration_headers",
+        "//libs/bsp/bspCharInputOutput:bsp_char_input_output",
+        "//libs/bsp/bspInterrupts:bsp_interrupts",
+        "//libs/bsp/bspOutputPwm:bsp_output_pwm",
+        "//platforms/s32k1xx/bsp/bspAdc:bsp_adc",
+        "//platforms/s32k1xx/bsp/bspEepromDriver:bsp_eeprom_driver",
+        "//platforms/s32k1xx/bsp/bspEthernet:bsp_ethernet",
+        "//platforms/s32k1xx/bsp/bspFtm:bsp_ftm",
+        "//platforms/s32k1xx/bsp/bspFtmPwm:bsp_ftm_pwm",
+        "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
+        "//platforms/s32k1xx/bsp/bspUart:bsp_uart",
+    ],
+)

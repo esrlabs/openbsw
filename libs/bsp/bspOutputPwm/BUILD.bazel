@@ -1,0 +1,32 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "bsp_output_pwm",
+    srcs = [
+        "src/outputPwm/OutputPwm.cpp",
+        "src/outputPwm/OutputPwmTester.cpp",
+    ],
+    hdrs = [
+        "include/outputPwm/OutputPwm.h",
+        "include/outputPwm/OutputPwmTester.h",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//libs/3rdparty/etl",
+        "//libs/bsp/bspDynamicClient:bsp_dynamic_client",
+        "//libs/bsp/bspInterrupts:bsp_interrupts",
+        "//libs/bsw/util",
+        "//platforms/s32k1xx/bsp/bspIo:bsp_io",
+    ],
+)

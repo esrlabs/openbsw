@@ -18,15 +18,7 @@ We use `buildifier <https://github.com/bazelbuild/buildtools/tree/main/buildifie
 Usage
 -----
 
-Formatting a file:
-
-.. code-block:: bash
-
-    bazel run //:format_check //module_path/BUILD.bazel
-
-    bazel run //:format_fix //module_path/BUILD.bazel
-
-Formatting all the files at once:
+Formatting bazel files globally:
 
 .. code-block:: bash
 

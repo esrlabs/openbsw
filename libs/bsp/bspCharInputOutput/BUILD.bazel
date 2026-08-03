@@ -1,0 +1,71 @@
+# *******************************************************************************
+# Copyright (c) 2026 Accenture
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+# *******************************************************************************
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "bsp_char_input_output",
+    srcs = [
+        "src/charInputOutput/bspIo.cpp",
+        "src/charInputOutput/charIo.cpp",
+        "src/charInputOutput/charIoSerial.cpp",
+    ],
+    hdrs = [
+        "include/charInputOutput/CharIOSerialCfg.h",
+        "include/charInputOutput/bspIoStd.h",
+        "include/charInputOutput/charIo.h",
+        "include/charInputOutput/charIoSerial.h",
+        "include/charInputOutput/printfPragma.hpp",
+    ],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":bsp_configuration",
+        ":bsp_uart",
+        "//libs/3rdparty/printf",
+        "//libs/bsw/bsp",
+    ],
+)
+
+alias(
+    name = "bsp_configuration_default",
+    actual = select(
+        {
+            "//bazel/platform/constraints/soc:s32k148": "//executables/referenceApp/platforms/s32k148evb/bspConfiguration:bsp_configuration_headers",
+            "@platforms//os:linux": "//executables/referenceApp/platforms/posix/bspConfiguration:bsp_configuration_headers",
+        },
+        no_match_error = "No bsp_configuration for this platform. Override --//<path>:bsp_configuration with your own implementation.",
+    ),
+    visibility = ["//visibility:public"],
+)
+
+label_flag(
+    name = "bsp_configuration",
+    build_setting_default = ":bsp_configuration_default",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "bsp_uart_default",
+    actual = select(
+        {
+            "//bazel/platform/constraints/soc:s32k148": "//platforms/s32k1xx/bsp/bspUart:bsp_uart",
+            "@platforms//os:linux": "//platforms/posix/bsp/bspUart:bsp_uart",
+        },
+        no_match_error = "No bsp_uart for this platform. Override --//<path>:bsp_uart with your own implementation.",
+    ),
+    visibility = ["//visibility:public"],
+)
+
+label_flag(
+    name = "bsp_uart",
+    build_setting_default = ":bsp_uart_default",
+    visibility = ["//visibility:public"],
+)
