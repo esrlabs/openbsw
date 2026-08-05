@@ -10,4 +10,10 @@ build:s32k148_relwithdebinfo --copt=-O2
 build:s32k148_relwithdebinfo --copt=-DNDEBUG
 build:s32k148_threadx --config=s32k148
 build:s32k148_threadx --//bazel/config/rtos=threadx
+
+# Select the ETL profile for builds inside the OpenBSW repo based on executable_config (mirrors
+# CMake BUILD_EXECUTABLE). This ONLY applies when OpenBSW is the root module. Downstream consumers 
+# keep the vendored ETL default (:no_profile) and must set --//libs/3rdparty/etl:etl_profile to 
+# the desired etl_profile instace.
+build --//libs/3rdparty/etl:etl_profile=//bazel/config/etl:etl_profile
 test --//bazel/config/executable_config=unit_test
