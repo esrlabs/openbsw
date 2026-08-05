@@ -31,4 +31,5 @@ bazel-bin
 bazel-openbsw
 bazel-out
 bazel-testlogs
+libs/3rdparty/**/MODULE.bazel.lock
 /target/
