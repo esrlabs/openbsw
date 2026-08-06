@@ -85,7 +85,7 @@ OpenBSW Bazel migration
 │   │   ├── util ✅
 │   └── (remaining) 🔲
 ├── platforms/
-│   ├── posix/ ✅ (freeRtosPosix, threadx, bspInterruptsImpl, etlImpl, lwipSysArch)
+│   ├── posix/ ✅ (freeRtosPosix, threadx, bspInterruptsImpl, bspMcu, bspSystemTime, socketCanTransceiver, tapEthernetDriver, etlImpl, lwipSysArch)
 │   └── s32k1xx/ ✅ (freertos_cm4_sysTick, threadx, bspMcu, bspInterruptsImpl, etlImpl, lwipSysArch, bspCore, bspFtm, bspFtmPwm, hardFaultHandler, safeBspMcuWatchdog)
 ├── test/ Scope of Bazel support TBD
 └── tools/ Scope of Bazel support TBD
