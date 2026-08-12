@@ -83,6 +83,7 @@ cc_library(
         "//libs/bsw/async:async_binding",
         "//libs/bsw/util",
     ],
+    # Only compiles under ThreadX; mark incompatible elsewhere so wildcard builds skip it.
     target_compatible_with = select({
         "//bazel/config/rtos:support_threadx": [],
         "//conditions:default": ["@platforms//:incompatible"],
