@@ -43,9 +43,10 @@ OpenBSW Bazel migration
 │   │   ├── asyncCoreConfiguration ✅
 │   │   ├── configuration ✅
 │   │   ├── lwipConfiguration ✅
+│   │   ├── safety/ ✅ (safeSupervisor)
 │   │   └── platforms/
-│   │       ├── posix/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks)
-│   │       └── s32k148evb/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks)
+│   │       ├── posix/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks, ethConfiguration)
+│   │       └── s32k148evb/ ✅ (freeRtosCoreConfiguration, threadXCoreConfiguration, osHooks, startUpAsm, ethConfiguration, safety/safeIo)
 │   └── unitTest/ 🔲
 │       └── configuration ✅
 ├── libs/
