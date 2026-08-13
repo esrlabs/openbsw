@@ -15,7 +15,11 @@ cc_library(
     hdrs = ["include/async/AsyncBinding.h"],
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
-    deps = ["//libs/bsw/runtime"],
+    deps = [
+        "//libs/bsw/async:async_headers",
+        "//libs/bsw/async:async_platform",
+        "//libs/bsw/runtime",
+    ],
 )
 
 cc_library(
