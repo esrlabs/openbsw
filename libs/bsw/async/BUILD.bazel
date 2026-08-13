@@ -71,7 +71,6 @@ cc_library(
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [
-        ":async_platform",
         "//libs/3rdparty/etl",
     ],
 )
@@ -82,5 +81,39 @@ cc_library(
     deps = [
         ":async_binding",
         ":async_headers",
+        ":async_platform",
     ],
+)
+
+cc_library(
+    name = "async_mock",
+    testonly = True,
+    hdrs = [
+        "mock/gmock/include/async/AsyncMock.h",
+        "mock/gmock/include/async/LockMock.h",
+        "mock/gmock/include/async/RunnableMock.h",
+        "mock/gmock/include/async/TestContext.h",
+        "mock/gmock/include/async/TimeoutMock.h",
+        "mock/gmock/include/async/Types.h",
+    ],
+    strip_include_prefix = "mock/gmock/include",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":async_headers",
+        "//libs/3rdparty/etl",
+        "//libs/3rdparty/googletest:gtest",
+        "//libs/bsw/platform",
+    ],
+)
+
+cc_library(
+    name = "async_mock_impl",
+    testonly = True,
+    srcs = [
+        "mock/gmock/src/async/AsyncMock.cpp",
+        "mock/gmock/src/async/TestContext.cpp",
+        "mock/gmock/src/async/Types.cpp",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [":async_mock"],
 )
