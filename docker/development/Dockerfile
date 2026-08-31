@@ -54,6 +54,7 @@ RUN apt-get update && apt-get install -y \
         g++-11 \
         gcc-11 \
         git \
+        jq \
         lcov \
         ninja-build \
         python-is-python3 \
