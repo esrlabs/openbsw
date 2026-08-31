@@ -157,6 +157,50 @@ Use only standard CMake commands. The typical structure is as follows:
         target_include_directories(<module>Mock PUBLIC include)
         target_link_libraries(<module>Mock PUBLIC gmock ... PRIVATE ...)
 
+.. _module_impl_pattern:
+
+The module + moduleImpl pattern
+-------------------------------
+
+Some modules only declare an interface (pure header/``INTERFACE`` CMake target) that is meant to be
+reused by many other modules, while a concrete implementation of that interface is only available,
+or only makes sense, in a more specific context (e.g. it depends on platform- or application-specific
+data). Providing that implementation from within the interface module itself would force the
+generic, widely used ``<module>`` target to depend on that specific context - inverting the intended
+dependency direction and dragging an application-specific dependency into every consumer of
+``<module>``.
+
+To avoid this, split the module into two CMake targets:
+
+- ``<module>``: the interface only (declarations, generic types, ``INTERFACE`` library). This target
+  must **never** depend on anything application- or platform-specific.
+- ``<module>Impl``: a regular (non-``INTERFACE``) library providing the actual implementation of
+  ``<module>``'s interface. Only ``<module>Impl`` may depend on whatever context-specific data or
+  libraries it needs to realize the interface (e.g. ``PRIVATE`` linking an application's
+  ``configuration`` library).
+
+  .. code-block:: cmake
+
+        add_library(<module> INTERFACE)
+        target_include_directories(<module> INTERFACE include)
+        target_link_libraries(<module> INTERFACE <module>Impl ...)
+
+        add_library(<module>Impl src/...)
+        target_link_libraries(<module>Impl PRIVATE ...)
+
+Rules of thumb:
+
+- If a module is purely header-only with no implementation-specific dependencies, a single
+  ``INTERFACE`` library named ``<module>`` is sufficient - do not introduce a ``<module>Impl`` target
+  that isn't needed.
+- Never let the generic ``<module>`` interface link back to an application- or executable-specific
+  library directly. If an implementation genuinely needs such a dependency, hide it behind
+  ``<module>Impl`` (or push the dependency down to the concrete component that calls into the
+  interface, e.g. a ``PUBLIC`` link on the library that actually invokes the function, so that only
+  its consumers - not every user of the generic interface - pull in the concrete implementation).
+- Watch out for dependency cycles: ``<module>Impl`` depending on something that (transitively)
+  depends on ``<module>`` again reintroduces the same layering problem the pattern is meant to avoid.
+
 .. _build_bazel:
 
 BUILD.bazel

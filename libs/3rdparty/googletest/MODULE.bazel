@@ -1,0 +1,5 @@
+module(
+    name = "googletest",
+    version = "1.12.1",
+    compatibility_level = 1,
+)

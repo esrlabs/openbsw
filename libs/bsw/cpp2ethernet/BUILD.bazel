@@ -21,6 +21,7 @@ cc_library(
         "//libs/bsw/async",
         "//libs/bsw/bsp",
         "//libs/bsw/common",
+        "//libs/bsw/shed",
         "//libs/bsw/util",
     ],
 )

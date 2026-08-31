@@ -16,10 +16,23 @@ if (NOT BUILD_EXECUTABLE STREQUAL "unitTest")
         )
     endif ()
 
+    # 3rdparty modules - RTOS
+    if (BUILD_TARGET_RTOS STREQUAL "FREERTOS")
+        add_subdirectory(3rdparty/freertos_cm4_sysTick)
+    elseif (BUILD_TARGET_RTOS STREQUAL "THREADX")
+        add_subdirectory(3rdparty/threadx)
+    endif ()
+
     add_subdirectory(bsp)
 
     # ETL implementation
     add_subdirectory(etlImpl)
+
+    # Safety modules
+    add_subdirectory(safety)
+
+    # Other modules
+    add_subdirectory(hardFaultHandler)
 else ()
     # Unit-test builds compile the transceivers against mock devices.
     add_subdirectory(bsp)

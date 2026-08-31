@@ -13,9 +13,11 @@ if (BUILD_EXECUTABLE STREQUAL "unitTest")
                etl
                bspIo
                lifecycle
-               gmock)
+               gmock
+               configuration)
 else ()
     target_include_directories(canflex2Transceiver PUBLIC include)
 
-    target_link_libraries(canflex2Transceiver PUBLIC async bspFlexCan lifecycle)
+    target_link_libraries(canflex2Transceiver PUBLIC async bspFlexCan lifecycle
+                                                     configuration)
 endif ()

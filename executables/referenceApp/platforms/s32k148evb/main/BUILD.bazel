@@ -11,6 +11,31 @@
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 cc_library(
+    name = "start_up_asm",
+    # ThreadX adds a low-level init assembly source.
+    srcs = [
+        "src/bsp/bootHeader.S",
+        "src/bsp/startUp.S",
+    ] + select({
+        "//bazel/config/rtos:support_threadx": [
+            "src/bsp/threadx/tx_initialize_low_level.S",
+        ],
+        "//conditions:default": [],
+    }),
+    # ThreadX low-level init needs the async core configuration.
+    implementation_deps = select({
+        "//bazel/config/rtos:support_threadx": [
+            "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
+        ],
+        "//conditions:default": [],
+    }),
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
+    # Force-link all objects; boot header and vectors are referenced by address, not symbol.
+    alwayslink = True,
+)
+
+cc_library(
     name = "freertos_os_hooks",
     srcs = [
         "src/osHooks/freertos/osHooks.cpp",
