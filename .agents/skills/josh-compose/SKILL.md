@@ -30,6 +30,7 @@ The default filter is `:+compose`, which loads `compose.josh`.
 |---|---|---|
 | `fmt` | `ws/fmt.josh` | Runs `treefmt`, then copies the formatted worktree to `/out`; `$output="workdir"` writes changes back only when the input reference is `.`. |
 | `sphinx-docs` | `ws/sphinx-docs.josh` | Builds the Sphinx HTML documentation with warnings treated as errors. |
+| `code-coverage` | `ws/code-coverage.josh` | Builds the S32K1XX and POSIX debug presets in separate restricted workspaces, then merges their lcov tracefiles, generates HTML and badges, and writes `code_coverage/` back to the working tree. |
 | `posix` | `ws/posix.josh` | Builds the `posix-freertos` CMake preset. |
 | `clang-tidy-posix` | `ws/clang-tidy-posix.josh` | Builds `tests-posix-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
 | `clang-tidy-s32k1xx` | `ws/clang-tidy-s32k1xx.josh` | Builds `tests-s32k1xx-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
@@ -62,6 +63,7 @@ The optional second argument is a Josh filter. Use it to run a single workspace:
 ```sh
 josh compose run . :+ws/fmt
 josh compose run . :+ws/sphinx-docs
+josh compose run . :+ws/code-coverage
 josh compose run . :+ws/clang-tidy-posix
 josh compose run . :+ws/clang-tidy-s32k1xx
 josh compose run . :+ws/posix
