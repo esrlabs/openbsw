@@ -1,11 +1,11 @@
 :$label="code coverage"
-:#image[:+ws/dev-image]
+:#image[:+ws/common/dev-image]
 :$output="workdir"
 :$network="host"
 
 inputs = :[
     :#s32k1xx[
-        :+ws/code-coverage-build
+        :+ws/code-coverage/build
         :$label="S32K1XX coverage"
 
         env = :[
@@ -18,7 +18,7 @@ inputs = :[
         ]
     ]
     :#posix[
-        :+ws/code-coverage-build
+        :+ws/code-coverage/build
         :$label="POSIX coverage"
 
         env = :[
@@ -33,9 +33,9 @@ inputs = :[
 ]
 
 worktree = :[
-    :+ws/openbsw
+    :+ws/common/openbsw
     ::executables/unitTest/
     ::platforms/posix/
     ::platforms/s32k1xx/
-    :/ws::run.sh=code-coverage.run.sh
+    :/ws/code-coverage::run.sh=report.run.sh
 ]

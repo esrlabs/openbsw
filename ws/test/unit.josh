@@ -1,13 +1,13 @@
 :$label="unit tests"
-:#image[:+ws/dev-image]
+:#image[:+ws/common/dev-image]
 :$output="none"
 :$network="host"
 
 worktree = :[
-    :+ws/openbsw
+    :+ws/common/openbsw
     ::executables/unitTest/
     ::platforms/posix/
-    :/ws::run.sh=unit-test.run.sh
+    :/ws/test::run.sh=unit.run.sh
     :<:/libs>[
         :[::bsw/,::safety/]:[
             ::*/*/mock/**/*.*

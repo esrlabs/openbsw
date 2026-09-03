@@ -1,4 +1,4 @@
-:+ws/openbsw
+:+ws/common/openbsw
 ::.clang-tidy
 ::executables/unitTest/
 :<:/libs>[

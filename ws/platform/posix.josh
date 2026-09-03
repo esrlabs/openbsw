@@ -1,11 +1,11 @@
 :$label="POSIX build"
-:#image[:+ws/dev-image]
+:#image[:+ws/common/dev-image]
 :$output="none"
 :$network="host"
 
 worktree = :[
-    :+ws/openbsw
+    :+ws/common/openbsw
     ::executables/referenceApp/
     ::platforms/posix/
-    :/ws::run.sh=posix.run.sh
+    :/ws/platform::run.sh=posix.run.sh
 ]

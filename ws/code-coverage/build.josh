@@ -1,8 +1,8 @@
-:#image[:+ws/dev-image]
+:#image[:+ws/common/dev-image]
 
 worktree = :[
     source = :[
-        :+ws/openbsw
+        :+ws/common/openbsw
         ::executables/unitTest/
         :<:/libs>[
             :[::bsw/,::safety/]:[
@@ -15,5 +15,5 @@ worktree = :[
             ]
         ]
     ]
-    :/ws::run.sh=code-coverage-build.run.sh
+    :/ws/code-coverage::run.sh=build.run.sh
 ]

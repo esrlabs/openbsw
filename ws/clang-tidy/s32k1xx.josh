@@ -1,5 +1,5 @@
 :$label="clang-tidy S32K1XX"
-:#image[:+ws/dev-image]
+:#image[:+ws/common/dev-image]
 :$output="none"
 
 env = :[
@@ -8,7 +8,7 @@ env = :[
 
 inputs = :[
     :#clang-tidy-build[
-        :+ws/clang-tidy
+        :+ws/clang-tidy/build
         :$label="clang-tidy S32K1XX build"
 
         worktree = :[
@@ -24,8 +24,8 @@ inputs = :[
 
 worktree = :[
     source = :[
-        :+ws/clang-tidy-source
+        :+ws/clang-tidy/source
         ::platforms/s32k1xx/
     ]
-    :/ws::run.sh=clang-tidy.run.sh
+    :/ws/clang-tidy::run.sh=run.sh
 ]

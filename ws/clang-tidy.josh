@@ -1,6 +1,0 @@
-:#image[:+ws/dev-image]
-
-worktree = :[
-    source = :+ws/clang-tidy-source
-    :/ws::run.sh=clang-tidy-build.run.sh
-]
