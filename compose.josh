@@ -3,6 +3,7 @@
 
 inputs = :[
     :#fmt[:+ws/fmt]
+    :#sphinx-docs[:+ws/sphinx-docs]
     :#clang-tidy-posix[:+ws/clang-tidy-posix]
     :#clang-tidy-s32k1xx[:+ws/clang-tidy-s32k1xx]
     :#posix[:+ws/posix]

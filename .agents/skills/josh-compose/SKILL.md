@@ -29,13 +29,14 @@ The default filter is `:+compose`, which loads `compose.josh`.
 | Input | Workspace | Behavior |
 |---|---|---|
 | `fmt` | `ws/fmt.josh` | Runs `treefmt`, then copies the formatted worktree to `/out`; `$output="workdir"` writes changes back only when the input reference is `.`. |
+| `sphinx-docs` | `ws/sphinx-docs.josh` | Builds the Sphinx HTML documentation with warnings treated as errors. |
 | `posix` | `ws/posix.josh` | Builds the `posix-freertos` CMake preset. |
 | `clang-tidy-posix` | `ws/clang-tidy-posix.josh` | Builds `tests-posix-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
 | `clang-tidy-s32k1xx` | `ws/clang-tidy-s32k1xx.josh` | Builds `tests-s32k1xx-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
 | `unit-test` | `ws/unit-test.josh` | Builds and runs the `tests-posix-debug` preset; stale coverage `.gcda` files are removed before CTest. |
 | `s32k148-gcc` | `ws/s32k148-gcc.josh` | Builds the `s32k148-freertos-gcc` preset with the ARM GNU toolchain. |
 
-The format workspace uses `docker/fmt` through `ws/fmt-image.josh`. The build and test workspaces use `docker/development` through `ws/dev-image.josh`. Workspace filters deliberately include only the files needed by each job; changing an excluded file does not invalidate that job.
+The format workspace uses `docker/fmt` through `ws/fmt-image.josh`. The documentation workspace uses `docker/Dockerfile.docs` through `ws/docs-image.josh`. The build and test workspaces use `docker/development` through `ws/dev-image.josh`. Workspace filters deliberately include only the files needed by each job; changing an excluded file does not invalidate that job.
 
 `ws/integration-test.josh` exists but is not currently an input of `compose.josh`, so the default run does not execute it.
 
@@ -60,6 +61,7 @@ The optional second argument is a Josh filter. Use it to run a single workspace:
 
 ```sh
 josh compose run . :+ws/fmt
+josh compose run . :+ws/sphinx-docs
 josh compose run . :+ws/clang-tidy-posix
 josh compose run . :+ws/clang-tidy-s32k1xx
 josh compose run . :+ws/posix
