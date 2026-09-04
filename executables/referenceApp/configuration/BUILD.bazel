@@ -48,7 +48,12 @@ cc_library(
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [
+        # appConfig.h guards bus addresses and ETL config under PLATFORM_SUPPORT_TRANSPORT/ETHERNET;
+        # propagating the flags here makes all consumers of appConfig.h integrator-compatible
+        # without requiring each consumer to independently dep feature_defines.
+        "//bazel/config/features:feature_defines",
+        # Circular dependency on the CMake side: configuration -> async -> common -> configuration.
+        # async (CMake PUBLIC) is omitted to break the cycle for Bazel; consumers provide async.
         "//libs/bsw/common:common_headers",
-        # TODO: add //libs/bsw/async once its Bazel target is ready
     ],
 )
