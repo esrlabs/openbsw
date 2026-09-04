@@ -13,13 +13,11 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
 cc_library(
     name = "middleware_lock_types_test_stub",
     hdrs = ["test/include/middleware/concurrency/lock_types.h"],
-    # CMake test/CMakeLists.txt adds test/include PUBLIC, non-SYSTEM -> strip_include_prefix (-I).
     strip_include_prefix = "test/include",
 )
 
-# Default wiring in case it is not overriden via label_flag: middleware_lock_types
-#   unit_test     -> host no-op stub (CMake puts test/include on middleware's include path)
-#   reference_app -> platform integration supplies lock_types.h; stub stands in until one exists
+#   unit_test     -> host no-op stub
+#   reference_app -> platform integration stub (replace with a concrete lock_types target)
 alias(
     name = "middleware_lock_types_default",
     actual = select(
@@ -32,7 +30,7 @@ alias(
 )
 
 # lock_types.h provider. Platform integration supplies the concrete types at build time.
-#   Default:  per executable_config selection above (currently the host stub)
+#   Default:  host no-op stub (per executable_config)
 #   Override: --//libs/bsw/middleware:middleware_lock_types=//<your>:lock_types
 label_flag(
     name = "middleware_lock_types",

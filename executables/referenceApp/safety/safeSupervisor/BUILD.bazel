@@ -26,7 +26,6 @@ cc_library(
     ],
 )
 
-# IO support wiring; present only on platforms that provide IO.
 cc_library(
     name = "safe_supervisor_io_support",
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
@@ -67,5 +66,6 @@ cc_library(
     deps = [
         ":bsp_mcu",
         ":safe_supervisor_headers",
+        "//bazel/config/features:feature_defines",
     ],
 )
