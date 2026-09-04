@@ -10,9 +10,20 @@
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
+genrule(
+    name = "generate_linkerscript",
+    srcs = [
+        "linkerscript/application.dld.in",
+        "linkerscript/hot-files.inc",
+    ],
+    outs = ["application.dld"],
+    cmd = "/opt/arm-gnu-toolchain/bin/arm-none-eabi-gcc -E -P -x c -I $$(dirname $(location linkerscript/application.dld.in)) $(location linkerscript/application.dld.in) -o $@",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
+)
+
 cc_library(
     name = "start_up_asm",
-    # ThreadX adds a low-level init assembly source.
     srcs = [
         "src/bsp/bootHeader.S",
         "src/bsp/startUp.S",
@@ -22,7 +33,6 @@ cc_library(
         ],
         "//conditions:default": [],
     }),
-    # ThreadX low-level init needs the async core configuration.
     implementation_deps = select({
         "//bazel/config/rtos:support_threadx": [
             "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
@@ -31,7 +41,52 @@ cc_library(
     }),
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
     visibility = ["//visibility:public"],
-    # Force-link all objects; boot header and vectors are referenced by address, not symbol.
+    # Force-link needed because boot header and vectors are referenced by address, not symbol.
+    alwayslink = True,
+)
+
+cc_library(
+    name = "start_up_threadx_srcs",
+    srcs = ["src/bsp/threadx/tx_execution_initialize.c"],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    # CMake declares mutual static-library dependencies between threadX core and its port
+    # resolved by archive repetition on the CMake side.
+    # Bazel links each archive once, so force-linking ensures _tx_execution_initialize is available
+    # when threadX core's force-linked objects create the dependency at link time.
+    alwayslink = True,
+)
+
+cc_library(name = "start_up_threadx_srcs_none")
+
+alias(
+    name = "start_up_threadx_impl",
+    actual = select({
+        "//bazel/config/rtos:support_threadx": ":start_up_threadx_srcs",
+        "//conditions:default": ":start_up_threadx_srcs_none",
+    }),
+)
+
+cc_library(
+    name = "start_up",
+    srcs = [
+        "src/os/isr/isr_can.cpp",
+        "src/os/isr/isr_enet.cpp",
+        "src/os/isr/isr_erm.cpp",
+        "src/os/isr/isr_ftfc.cpp",
+        "src/os/isr/isr_sys.cpp",
+        "src/os/isr/isr_wdg.cpp",
+    ],
+    implementation_deps = [
+        ":start_up_asm",
+        ":start_up_threadx_impl",
+        "//executables/referenceApp/platforms/s32k148evb/safety/safeMemory:safe_memory",
+        "//libs/bsw/common",
+        "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
+        "//platforms/s32k1xx/hardFaultHandler:hard_fault_handler",
+    ],
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
+    # ISR implementations are only referenced by address from the vector table. Without force-link single-pass linking drops them.
     alwayslink = True,
 )
 
@@ -65,4 +120,78 @@ cc_library(
     strip_include_prefix = "include/osHooks/threadx",
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
     visibility = ["//libs/3rdparty/threadx:__pkg__"],
+    # CMake declares mutual static-library dependencies between threadX and its OS hooks
+    # (threadX → osHooks → asyncThreadX → threadX), resolved by archive repetition on the
+    # CMake side. Bazel links each archive once; force-linking ensures vIllegalISR and
+    # execution-profile symbols are available when archives that reference them are processed.
+    alwayslink = True,
+)
+
+# Facade avoids a bare select() in implementation_deps.
+cc_library(
+    name = "main_rtos_impl_freertos",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    deps = ["//platforms/s32k1xx/3rdparty/freertos_cm4_sysTick:freertos_cm4_sys_tick"],
+)
+
+cc_library(
+    name = "main_rtos_impl_threadx",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    deps = ["//platforms/s32k1xx/3rdparty/threadx:threadx_cortex_m4"],
+)
+
+alias(
+    name = "main_rtos_impl",
+    actual = select({
+        "//bazel/config/rtos:support_freertos": ":main_rtos_impl_freertos",
+        "//conditions:default": ":main_rtos_impl_threadx",
+    }),
+)
+
+cc_library(
+    name = "main",
+    srcs = [
+        "src/lifecycle/StaticBsp.cpp",
+        "src/main.cpp",
+        "src/systems/BspSystem.cpp",
+        "src/systems/CanSystem.cpp",
+        "src/systems/S32K148EvbEthernetSystem.cpp",
+    ],
+    hdrs = [
+        "include/lifecycle/StaticBsp.h",
+        "include/systems/BspSystem.h",
+        "include/systems/CanSystem.h",
+        "include/systems/S32K148EvbEthernetSystem.h",
+    ],
+    implementation_deps = [
+        ":main_rtos_impl",
+        ":start_up",
+        "//executables/referenceApp/platforms/s32k148evb/ethConfiguration:eth_configuration",
+        "//executables/referenceApp/platforms/s32k148evb/safety/safeLifecycle:safe_lifecycle",
+        "//executables/referenceApp/platforms/s32k148evb/safety/safeMemory:safe_memory",
+        "//executables/referenceApp/safety/safeSupervisor:safe_supervisor",
+        "//executables/referenceApp/safety/safeWatchdog:safe_watchdog",
+        "//platforms/s32k1xx/bsp/bspClock:bsp_clock",
+        "//platforms/s32k1xx/bsp/bspCore:bsp_core",
+        "//platforms/s32k1xx/bsp/bspUart:bsp_uart",
+        "//platforms/s32k1xx/safety/safeBspMcuWatchdog:safe_bsp_mcu_watchdog",
+    ],
+    strip_include_prefix = "include",
+    target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//executables/referenceApp/configuration",
+        "//libs/3rdparty/etl",
+        "//libs/bsp/bspInputManager:bsp_input_manager",
+        "//libs/bsp/bspOutputManager:bsp_output_manager",
+        "//libs/bsp/bspOutputPwm:bsp_output_pwm",
+        "//libs/bsw/asyncConsole:async_console",
+        "//libs/bsw/bsp",
+        "//libs/bsw/lifecycle",
+        "//platforms/s32k1xx/bsp/bspAdc:bsp_adc",
+        "//platforms/s32k1xx/bsp/bspEthernet:bsp_ethernet",
+        "//platforms/s32k1xx/bsp/bspTja1101:bsp_tja1101",
+        "//platforms/s32k1xx/bsp/canflex2Transceiver:canflex2_transceiver",
+    ],
+    # No alwayslink needed. Symbols reach the image via normal reachability and output is identical without it.
 )

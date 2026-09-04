@@ -51,9 +51,8 @@ label_flag(
 )
 
 # Async binding (provides the RTOS-support define and runtime binding for the async layer).
-#   Default:  referenceApp binding (hardcoded until unit_test build is migrated to Bazel)
+#   Default:  referenceApp binding
 #   Override: --//libs/bsw/async:async_binding=//path/to:your_binding
-# TODO: Select async_binding based on executable_config once the unit_test build is migrated.
 label_flag(
     name = "async_binding",
     build_setting_default = "//executables/referenceApp/asyncBinding:async_binding",
@@ -61,8 +60,7 @@ label_flag(
 )
 
 # Circular dependency present on the CMake side: async -> asyncBinding -> runtime -> async
-# Split off async_headers (async's headers + async_platform, without async_binding) to break the
-# circular dependency for Bazel.
+# Split off async_headers to break the circular dependency for Bazel.
 cc_library(
     name = "async_headers",
     hdrs = [

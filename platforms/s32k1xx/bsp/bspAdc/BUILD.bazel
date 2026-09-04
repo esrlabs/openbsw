@@ -30,9 +30,7 @@ cc_library(
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
     visibility = ["//visibility:public"],
     deps = [
-        # NOTE: bsp:bsp and bspMcu:bsp_mcu are not present in CMake's
-        # target_link_libraries(bspAdc ...) list, but Adc.h transitively includes
-        # bsp/Bsp.h and mcu/mcu.h.
+        # bsp/Bsp.h and mcu/mcu.h are transitively included by Adc.h but absent from CMake link deps.
         "//libs/bsw/bsp",
         "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
     ],

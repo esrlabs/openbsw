@@ -32,6 +32,8 @@ cc_library(
         "//libs/3rdparty/printf",
         "//libs/bsw/bsp",
     ],
+    # Strong printf/sprintf overrides have no prior symbol reference. Force-link ensures they win over newlib-nano defaults resolved later.
+    alwayslink = True,
 )
 
 alias(

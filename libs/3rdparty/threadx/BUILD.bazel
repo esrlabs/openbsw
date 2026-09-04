@@ -96,4 +96,9 @@ cc_library(
         ":threadx_headers",
         "//libs/bsw/platform",
     ],
+    # CMake declares mutual static-library dependencies between threadX core and its port
+    # resolved by archive repetition on the CMake side.
+    # Bazel links each archive once, so force-linking ensures _tx_execution_initialize is available
+    # when threadX core's force-linked objects create the dependency at link time.
+    alwayslink = True,
 )

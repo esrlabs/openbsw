@@ -8,9 +8,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-# BSP configuration contract: the board-specific bspConfiguration headers the
-# generic BSP drivers compile against. Shared seam for all BSP driver targets so
-# the whole board configuration is selected/overridden in one place.
 #   Default:  select based on the target platform (s32k148 / posix)
 #   Override: --//bazel/config/bsp:bsp_configuration=//path/to:your_bsp_configuration
 alias(

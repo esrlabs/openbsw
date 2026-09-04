@@ -23,6 +23,10 @@ cc_library(
     implementation_deps = [
         "//libs/bsw/common:configuration",
     ],
+    local_defines = select({
+        "//bazel/config/features:ethernet_enabled": ["PLATFORM_SUPPORT_ETHERNET=1"],
+        "//conditions:default": [],
+    }),
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [

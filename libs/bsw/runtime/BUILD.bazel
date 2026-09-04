@@ -11,7 +11,7 @@
 load("@bazel_skylib//rules:common_settings.bzl", "bool_flag")
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
-# Tracing toggle (CMake: option BUILD_TRACING). --//libs/bsw/runtime:tracing=true
+# Tracing toggle. --//libs/bsw/runtime:tracing=true to enable.
 bool_flag(
     name = "tracing",
     build_setting_default = False,
@@ -35,8 +35,7 @@ cc_library(
         ":tracing_disabled": [],
     }),
     hdrs = glob(["include/runtime/*.h"]),
-    # TRACING=1 matches CMake add_compile_definitions(TRACING=1)
-    # "defines" field propagates to consumers, which is desired here.
+    # Propagates to consumers via defines (not local_defines) so TRACING=1 is visible downstream.
     defines = select({
         ":tracing_enabled": ["TRACING=1"],
         ":tracing_disabled": [],
