@@ -10,27 +10,27 @@
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
+label_flag(
+    name = "routing_configuration",
+    build_setting_default = "//executables/referenceApp/configuration:routing_configuration_headers",
+    visibility = ["//visibility:public"],
+)
+
 cc_library(
-    name = "cpp2can",
-    srcs = [
-        "src/can/CanLogger.cpp",
-        "src/can/canframes/CANFrame.cpp",
-        "src/can/filter/AbstractStaticBitFieldFilter.cpp",
-        "src/can/filter/BitFieldFilter.cpp",
-        "src/can/filter/IntervalFilter.cpp",
-        "src/can/filter/MaskFilter.cpp",
-        "src/can/transceiver/AbstractCANTransceiver.cpp",
-    ],
+    name = "routing",
+    srcs = glob(["src/routing/*.cpp"]),
     hdrs = glob(["include/**/*.h"]),
-    implementation_deps = [
-        "//libs/bsp/bspInterrupts:bsp_interrupts",
-        "//libs/bsw/bsp",
-    ],
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [
+        ":routing_configuration",
         "//libs/3rdparty/etl",
-        "//libs/bsw/common",
+        "//libs/bsw/blob",
+        "//libs/bsw/bsp",
+        "//libs/bsw/cpp2ethernet",
+        "//libs/bsw/io",
+        "//libs/bsw/lwipSocket:lwip_socket",
+        "//libs/bsw/platform",
         "//libs/bsw/util",
     ],
 )

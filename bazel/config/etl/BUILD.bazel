@@ -8,12 +8,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-# ETL profile selection for OpenBSW internal builds, mirroring CMake's BUILD_EXECUTABLE
-# setup (executables/{referenceApp,unitTest}/etl_profile). OpenBSW's root .bazelrc
-# points the vendored //libs/3rdparty/etl:etl_profile label_flag at this target, so the
-# profile selects based on executable_config. Because this injection lives in OpenBSW's .bazelrc,
-# it does NOT propagate to downstream consumers: they keep the vendored ETL default (:no_profile)
-# and can override it using ETL's etl_profile label_flag.
+#   Default:  referenceApp/unitTest ETL profile (not propagated to downstream consumers)
+#   Override: --//libs/3rdparty/etl:etl_profile=//path/to:your_etl_profile
 alias(
     name = "etl_profile",
     actual = select(
