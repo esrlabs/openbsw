@@ -48,7 +48,6 @@ cc_library(
 # Async core configuration (provides tx_user.h and platform-specific async config).
 #   Default:  referenceApp asyncCoreConfiguration
 #   Override: --//libs/bsw/asyncThreadX:async_core_configuration=//path/to:your_config
-# TODO: Select based on executable_config once unit_test build is migrated.
 label_flag(
     name = "async_core_configuration",
     build_setting_default = "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
@@ -73,7 +72,9 @@ cc_library(
 cc_library(
     name = "async_threadx_impl",
     srcs = [
+        "src/async/Async.cpp",
         "src/async/FutureSupport.cpp",
+        "src/async/Hook.cpp",
         "src/async/Types.cpp",
     ],
     implementation_deps = [
@@ -89,4 +90,6 @@ cc_library(
         "//conditions:default": ["@platforms//:incompatible"],
     }),
     visibility = ["//visibility:public"],
+    # Hook symbols are referenced by later archives. Without force-link single-pass linking leaves them unresolved.
+    alwayslink = True,
 )

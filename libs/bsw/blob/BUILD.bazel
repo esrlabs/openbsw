@@ -10,27 +10,33 @@
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
+label_flag(
+    name = "blob_configuration",
+    build_setting_default = "//executables/referenceApp/configuration:blob_configuration_headers",
+    visibility = ["//visibility:public"],
+)
+
 cc_library(
-    name = "cpp2can",
+    name = "blob",
     srcs = [
-        "src/can/CanLogger.cpp",
-        "src/can/canframes/CANFrame.cpp",
-        "src/can/filter/AbstractStaticBitFieldFilter.cpp",
-        "src/can/filter/BitFieldFilter.cpp",
-        "src/can/filter/IntervalFilter.cpp",
-        "src/can/filter/MaskFilter.cpp",
-        "src/can/transceiver/AbstractCANTransceiver.cpp",
+        "src/blob/Blob.cpp",
+        "src/blob/Config.cpp",
+        "src/blob/Header.cpp",
+        "src/blob/Logger.cpp",
+        "src/blob/util.cpp",
     ],
-    hdrs = glob(["include/**/*.h"]),
-    implementation_deps = [
-        "//libs/bsp/bspInterrupts:bsp_interrupts",
-        "//libs/bsw/bsp",
+    hdrs = [
+        "include/blob/Blob.h",
+        "include/blob/Config.h",
+        "include/blob/Header.h",
+        "include/blob/Logger.h",
+        "include/blob/util.h",
     ],
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [
+        ":blob_configuration",
         "//libs/3rdparty/etl",
-        "//libs/bsw/common",
         "//libs/bsw/util",
     ],
 )

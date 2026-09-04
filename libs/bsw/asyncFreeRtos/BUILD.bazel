@@ -31,10 +31,8 @@ label_flag(
 )
 
 # Async core configuration (async/Config.h - task counts, stack sizes).
-#   Default:  referenceApp config (header-only; compiles cleanly under unit_test)
+#   Default:  referenceApp asyncCoreConfiguration
 #   Override: --//libs/bsw/asyncFreeRtos:async_core_configuration=//path/to:your_config
-# TODO: Select async_core_configuration based on executable_config once the unit_test build is
-#   migrated
 label_flag(
     name = "async_core_configuration",
     build_setting_default = "//executables/referenceApp/asyncCoreConfiguration:async_core_configuration",
@@ -88,6 +86,8 @@ cc_library(
         "//conditions:default": ["@platforms//:incompatible"],
     }),
     visibility = ["//visibility:public"],
+    # Hook symbols are referenced by later archives. Without force-link single-pass linking leaves them unresolved.
+    alwayslink = True,
 )
 
 cc_library(
