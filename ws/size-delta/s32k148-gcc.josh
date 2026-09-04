@@ -1,0 +1,10 @@
+:$label="S32K148 GCC size snapshot"
+:#image[:+ws/common/dev-image]
+:$output="none"
+:$network="host"
+
+worktree = :[
+    :/source
+    :/ws/size-delta::analyze.py=s32k148-gcc.analyze.py
+    :/ws/size-delta::run.sh=s32k148-gcc.run.sh
+]
