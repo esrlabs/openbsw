@@ -10,11 +10,4 @@
 
 set -euo pipefail
 
-export CC=/opt/arm-gnu-toolchain/bin/arm-none-eabi-gcc
-
-printf '\nBuilding size snapshot...\n\n'
-cmake --preset s32k148-freertos-gcc
-cmake --build --preset s32k148-freertos-gcc -j 5
-
-python3 analyze.py snapshot \
-    build/s32k148-freertos-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
+python3 analyze.py compare /baseline/snapshot.txt /current/snapshot.txt

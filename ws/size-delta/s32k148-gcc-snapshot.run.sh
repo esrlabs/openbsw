@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # *******************************************************************************
 # Copyright (c) 2026 Accenture
 #
@@ -11,4 +10,13 @@
 
 set -euo pipefail
 
-exec python3 "$(dirname "$0")/s32k148-gcc.delta.py" "$@"
+export CC=/opt/arm-gnu-toolchain/bin/arm-none-eabi-gcc
+cd source
+
+printf '\nBuilding size snapshot...\n\n'
+cmake --preset s32k148-freertos-gcc
+cmake --build --preset s32k148-freertos-gcc -j 5
+
+python3 ../analyze.py snapshot \
+    build/s32k148-freertos-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf \
+    | tee /out/snapshot.txt
