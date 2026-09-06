@@ -7,14 +7,17 @@ inputs = :[
         :+ws/size-delta/s32k148-gcc-snapshot
 
         worktree = :[
-            source = :/baseline
+            source = :[
+                :$.={#baseline|#^}
+                ::ws/size-delta/s32k148-gcc-source.josh
+            ]:+ws/size-delta/s32k148-gcc-source
         ]
     ]
     :#current[
         :+ws/size-delta/s32k148-gcc-snapshot
 
         worktree = :[
-            source = :/current
+            source = :+ws/size-delta/s32k148-gcc-source
         ]
     ]
 ]
