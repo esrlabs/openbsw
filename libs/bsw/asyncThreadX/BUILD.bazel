@@ -90,6 +90,7 @@ cc_library(
         "//conditions:default": ["@platforms//:incompatible"],
     }),
     visibility = ["//visibility:public"],
-    # Hook symbols are referenced by later archives. Without force-link single-pass linking leaves them unresolved.
+    # The RTOS archive calls these async hooks by name but is linked after this one.
+    # Force-link so single-pass linking keeps them.
     alwayslink = True,
 )
