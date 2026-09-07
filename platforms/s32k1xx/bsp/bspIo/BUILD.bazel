@@ -24,7 +24,6 @@ cc_library(
         "//libs/bsw/bsp",
         "//platforms/s32k1xx/bsp/bspAdc:bsp_adc",  # required by AnalogInput.h (transitive include) which is not in CMake target_link_libraries
         "//platforms/s32k1xx/bsp/bspEepromDriver:bsp_eeprom_driver",  # required by EepromConfiguration.h (transitive include) which is not in CMake target_link_libraries
-        "//libs/bsw/platform",
     ],
 )
 

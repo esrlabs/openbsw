@@ -26,7 +26,6 @@ cc_library(
     deps = [
         "//libs/3rdparty/etl",
         "//libs/3rdparty/googletest:gtest",
-        "//libs/bsw/platform",
         "//libs/bsw/util",
     ],
 )
