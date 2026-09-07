@@ -17,8 +17,9 @@ genrule(
         "linkerscript/hot-files.inc",
     ],
     outs = ["application.dld"],
-    cmd = "/opt/arm-gnu-toolchain/bin/arm-none-eabi-gcc -E -P -x c -I $$(dirname $(location linkerscript/application.dld.in)) $(location linkerscript/application.dld.in) -o $@",
+    cmd = "$(CC) -E -P -x c -I $$(dirname $(location linkerscript/application.dld.in)) $(location linkerscript/application.dld.in) -o $@",
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
+    toolchains = ["@bazel_tools//tools/cpp:current_cc_toolchain"],
     visibility = ["//visibility:public"],
 )
 
