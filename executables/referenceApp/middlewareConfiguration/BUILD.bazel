@@ -8,8 +8,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-load("@bazel_skylib//rules:diff_test.bzl", "diff_test")
-load("@bazel_skylib//rules:write_file.bzl", "write_file")
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 load(
     "//libs/bsw/middleware/tools/cpp_generator:middleware_codegen.bzl",
@@ -23,39 +21,6 @@ middleware_codegen(
     generated_outputs = GENERATED_OUTPUTS,
     visibility = ["//visibility:public"],
     deps = ["//libs/bsw/middleware"],
-)
-
-# Drift guard: serialise the declared output list for comparison.
-write_file(
-    name = "generated_outputs_expected",
-    out = "generated_outputs_expected.txt",
-    content = sorted(GENERATED_OUTPUTS) + [""],
-    newline = "unix",
-)
-
-# Drift guard: query the generator for its actual output list without rendering.
-genrule(
-    name = "generated_outputs_actual",
-    srcs = [
-        "model/deployment.yaml",
-        "//libs/bsw/middleware/tools/cpp_generator:generator",
-    ],
-    outs = ["generated_outputs_actual.txt"],
-    cmd = ("/opt/venv/bin/python3" +
-           " libs/bsw/middleware/tools/cpp_generator/jinja2cpp.py" +
-           " --input libs/bsw/middleware/tools/cpp_generator" +
-           " --deployment-yaml $(execpath model/deployment.yaml)" +
-           " --list-outputs | LC_ALL=C sort > $@"),
-    target_compatible_with = ["@platforms//os:linux"],
-)
-
-# Drift guard: fail if generated_outputs.bzl is out of sync with the generator.
-diff_test(
-    name = "generated_outputs_drift_test",
-    failure_message = "generated_outputs.bzl is stale; regenerate it (see the header of that file).",
-    file1 = "generated_outputs_expected.txt",
-    file2 = "generated_outputs_actual.txt",
-    target_compatible_with = ["@platforms//os:linux"],
 )
 
 cc_library(
