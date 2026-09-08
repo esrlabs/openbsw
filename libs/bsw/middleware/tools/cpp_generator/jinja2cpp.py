@@ -556,7 +556,7 @@ def main(argv=None) -> int:
         for service in getattr(input_data, "services", []):
             if not hasattr(service, "generation_mode") or not service.generation_mode:
                 service["generation_mode"] = args.generation_mode
-        for path in _resolve_output_paths(input_data):
+        for path in sorted(_resolve_output_paths(input_data)):
             print(path)
         return 0
 

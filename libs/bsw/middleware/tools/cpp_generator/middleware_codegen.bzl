@@ -21,6 +21,8 @@ to the generation output base, exactly as printed by
 `generated_outputs.bzl`) and verified against the generator output at build time.
 """
 
+load("@bazel_skylib//rules:diff_test.bzl", "diff_test")
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
 
 # The generator package: script, templates and schemas are staged via this
@@ -32,8 +34,6 @@ _GENERATOR_SCRIPT = _GENERATOR_INPUT + "/jinja2cpp.py"
 # Dev-container venv interpreter (has jinja2/jsonschema/PyYAML per
 # docker/development/files/requirements.lock). Absolute path by design.
 _PYTHON = "/opt/venv/bin/python3"
-
-_LINUX_ONLY = ["@platforms//os:linux"]
 
 def middleware_codegen(
         name,
@@ -70,11 +70,10 @@ def middleware_codegen(
             deployment = deployment_yaml,
         ),
         message = "Generating middleware C++ code from " + deployment_yaml,
-        target_compatible_with = _LINUX_ONLY,
     )
 
-    hdrs = [o for o in outs if o.endswith(".h") or o.endswith(".hpp")]
-    srcs = [o for o in outs if o.endswith(".cpp")]
+    hdrs = [out for out in outs if out.endswith(".h") or out.endswith(".hpp")]
+    srcs = [out for out in outs if out.endswith(".cpp")]
 
     cc_library(
         name = name,
@@ -85,7 +84,37 @@ def middleware_codegen(
         # symbols declared inside //libs/bsw/middleware, e.g.
         # AllocatorSelectorDefinitions.cpp implements middleware::memory::getAllocFunction().
         alwayslink = True,
-        target_compatible_with = _LINUX_ONLY,
         deps = deps or [],
         visibility = visibility,
+    )
+
+    write_file(
+        name = name + "_expected_outputs",
+        out = name + "_expected_outputs.txt",
+        content = sorted(generated_outputs) + [""],
+        newline = "unix",
+    )
+
+    native.genrule(
+        name = name + "_actual_outputs",
+        srcs = [deployment_yaml, _GENERATOR],
+        outs = [name + "_actual_outputs.txt"],
+        cmd = ("{python} {script} --input {input}" +
+               " --deployment-yaml $(execpath {deployment})" +
+               " --list-outputs > $@").format(
+            python = _PYTHON,
+            script = _GENERATOR_SCRIPT,
+            input = _GENERATOR_INPUT,
+            deployment = deployment_yaml,
+        ),
+    )
+
+    diff_test(
+        name = name + "_drift_test",
+        failure_message = (
+            name + ": generated_outputs.bzl is stale. " +
+            "See " + native.package_name() + "/generated_outputs.bzl for regeneration instructions."
+        ),
+        file1 = name + "_expected_outputs.txt",
+        file2 = name + "_actual_outputs.txt",
     )

@@ -24,7 +24,7 @@ Regenerate after editing model/deployment.yaml:
         --list-outputs
 
 Drift between this file and the generator is caught by the
-`:generated_outputs_drift_test` target in BUILD.bazel.
+`:middleware_configuration_generated_drift_test` target in BUILD.bazel.
 """
 
 GENERATED_OUTPUTS = [
