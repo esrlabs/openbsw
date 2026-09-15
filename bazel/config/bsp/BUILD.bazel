@@ -16,3 +16,13 @@ label_flag(
     build_setting_default = "//bazel/config:no_implementation",
     visibility = ["//visibility:public"],
 )
+
+# BSP IO implementation (io/Io.h + ioPorts.h, Io::setPin etc.).
+# Every platform that uses BSP IO must declare this via its platform flags.
+# Posix referenceApp has no bspIo: leave as no_implementation.
+#   Override: --//bazel/config/bsp:bsp_io=//path/to:your_bsp_io
+label_flag(
+    name = "bsp_io",
+    build_setting_default = "//bazel/config:no_implementation",
+    visibility = ["//visibility:public"],
+)

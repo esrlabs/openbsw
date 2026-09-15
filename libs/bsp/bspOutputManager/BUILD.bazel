@@ -23,20 +23,11 @@ cc_library(
     strip_include_prefix = "include",
     visibility = ["//visibility:public"],
     deps = [
-        ":bsp_io",
         "//bazel/config/bsp:bsp_configuration",
+        "//bazel/config/bsp:bsp_io",
         "//libs/3rdparty/etl",
         "//libs/bsp/bspDynamicClient:bsp_dynamic_client",
         "//libs/bsp/bspInterrupts:bsp_interrupts",
         "//libs/bsw/util",
     ],
-)
-
-# bspIo implementation. Every platform must declare this via its platform flags.
-# Posix has no bspIo as bsp_output_manager is not linked in posix executables.
-#   Override: --//libs/bsp/bspOutputManager:bsp_io=//path/to:your_bsp_io
-label_flag(
-    name = "bsp_io",
-    build_setting_default = "//bazel/config:no_implementation",
-    visibility = ["//visibility:public"],
 )
