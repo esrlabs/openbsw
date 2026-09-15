@@ -27,9 +27,9 @@ _GENERATOR_TOOL = "//libs/bsw/middleware/tools/cpp_generator:jinja2cpp"
 # at their source-tree paths inside the sandbox.
 _GENERATOR_TEMPLATES = "//libs/bsw/middleware/tools/cpp_generator:generator_templates"
 
-# Path passed to --input, which must match the package path of the generator so
-# jinja2cpp.py can locate templates/jinja/ and templates/schemas/ below it.
-_GENERATOR_INPUT = "libs/bsw/middleware/tools/cpp_generator"
+# Package path of the generator, passed to --input so jinja2cpp.py can
+# locate templates/jinja/ and templates/schemas/ relative to it.
+_GENERATOR_INPUT = Label(_GENERATOR_TOOL).package
 
 def _codegen_srcs_impl(ctx):
     outs = ctx.outputs.outs
