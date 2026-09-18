@@ -59,7 +59,6 @@ platform(
 # plain `bazel build //...` is the posix build.
 platform(
     name = "posix",
-    constraint_values = ["//bazel/platform/constraints/build_variant:reference_app"],
     flags = [
         # Features
         "--//bazel/config/features:can=true",
@@ -101,7 +100,6 @@ platform(
 # Unit-test build. Inherits posix and gates mock and test targets into scope.
 platform(
     name = "posix_unit_test",
-    constraint_values = ["//bazel/platform/constraints/build_variant:unit_test"],
     flags = [
         "--//bazel/config/build_variant=unit_test",
 

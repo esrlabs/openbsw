@@ -9,6 +9,7 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 # Compiled RTOS implementation. Every platform must declare this via its platform flags.
 #   Override: --//libs/bsw/async:async_rtos_impl=//path/to:your_rtos_impl
@@ -72,7 +73,7 @@ cc_library(
         "mock/gmock/include/async/Types.h",
     ],
     strip_include_prefix = "mock/gmock/include",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         ":async_headers",
@@ -88,7 +89,7 @@ cc_library(
         "mock/gmock/src/async/TestContext.cpp",
         "mock/gmock/src/async/Types.cpp",
     ],
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [":async_mock"],
 )

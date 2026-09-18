@@ -10,6 +10,7 @@
 
 load("@bazel_skylib//rules:common_settings.bzl", "bool_flag")
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 _OUTGOING_HEADERS = [
     "include/uds/application/AbstractDiagApplication.h",
@@ -93,7 +94,7 @@ cc_library(
 
 cc_library(
     name = "uds_with_mock",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         ":uds",
@@ -109,7 +110,7 @@ cc_library(
         ":uds_headers",
     ],
     strip_include_prefix = "mock/gmock/include",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         "//executables/referenceApp/udsConfiguration:uds_configuration",

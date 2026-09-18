@@ -37,10 +37,6 @@ config_setting(
 
 config_setting(
     name = "unit_test",
-    # Paired with the build_variant platform constraint so this config_setting
-    # is a formal Bazel specialisation of @platforms//os:linux, resolving select()
-    # ambiguity by documented rules rather than implementation behaviour.
-    constraint_values = ["//bazel/platform/constraints/build_variant:unit_test"],
     flag_values = {":build_variant": "unit_test"},
     visibility = ["//visibility:public"],
 )
