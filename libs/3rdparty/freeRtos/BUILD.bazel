@@ -9,6 +9,7 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 # FreeRTOS port headers (portmacro.h). Every platform must declare this via its platform flags.
 #   Override: --//libs/3rdparty/freeRtos:freertos_port=//path/to:your_port
@@ -88,7 +89,7 @@ cc_library(
         "mock/include/timers.h",
     ],
     strip_include_prefix = "mock/include",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         "//libs/3rdparty/etl",

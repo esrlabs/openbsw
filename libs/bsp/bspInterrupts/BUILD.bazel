@@ -9,6 +9,7 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 # Interrupt-lock implementation. Every platform must declare this via its platform flags.
 #   Override: --//libs/bsp/bspInterrupts:bsp_interrupts_impl=//path/to:your_impl
@@ -44,7 +45,7 @@ cc_library(
         "mock/gmock/include/interrupts/disableEnableAllInterruptsMock.h",
     ],
     strip_include_prefix = "mock/gmock/include",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         ":bsp_interrupts_mock_headers",
@@ -60,7 +61,7 @@ cc_library(
         "mock/include/interrupts/suspendResumeAllInterrupts.h",
     ],
     strip_include_prefix = "mock/include",
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
 )
 
@@ -70,7 +71,7 @@ cc_library(
         "mock/gmock/src/SuspendResumeAllInterruptsMock.cpp",
         "mock/gmock/src/disableEnableAllInterruptsMock.cpp",
     ],
-    target_compatible_with = ["//bazel/platform/constraints/build_variant:unit_test"],
+    target_compatible_with = unit_test_only(),
     visibility = ["//visibility:public"],
     deps = [
         ":bsp_interrupts_gmock_headers",
