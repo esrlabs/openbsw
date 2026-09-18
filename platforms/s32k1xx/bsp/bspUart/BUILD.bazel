@@ -9,6 +9,8 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 cc_library(
     name = "bsp_uart",
@@ -24,7 +26,18 @@ cc_library(
     deps = [
         "//libs/3rdparty/etl",
         "//libs/bsw/bsp",
-        "//platforms/s32k1xx/bsp/bspIo:bsp_io_impl",
+        "//platforms/s32k1xx/bsp/bspIo:bsp_io",
         "//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
+    ],
+)
+
+cc_test(
+    name = "bsp_uart_test",
+    srcs = ["test/src/IncludeTest.cpp"],
+    target_compatible_with = unit_test_only(),
+    deps = [
+        "//executables/unitTest/bsp/bspIo:bsp_io",
+        "//libs/3rdparty/googletest:gtest_main",
+        "//libs/bsw/bsp:bsp_mock",
     ],
 )

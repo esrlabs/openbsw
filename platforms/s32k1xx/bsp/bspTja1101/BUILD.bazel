@@ -29,6 +29,6 @@ cc_library(
     deps = [
         "//bazel/config/bsp:bsp_configuration",
         "//libs/bsp/bspOutputManager:bsp_output_manager",
-        "//platforms/s32k1xx/bsp/bspIo:bsp_io_impl",
+        "//platforms/s32k1xx/bsp/bspIo:bsp_io",
     ],
 )

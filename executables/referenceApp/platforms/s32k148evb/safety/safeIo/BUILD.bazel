@@ -22,7 +22,7 @@ cc_library(
     ],
     implementation_deps = [
         "//executables/referenceApp/safety/safeSupervisor:safe_supervisor_headers",
-        "//platforms/s32k1xx/bsp/bspIo:bsp_io_impl",
+        "//platforms/s32k1xx/bsp/bspIo:bsp_io",
     ],
     strip_include_prefix = "include",
     target_compatible_with = ["//bazel/platform/constraints/soc:s32k148"],
