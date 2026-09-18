@@ -44,7 +44,7 @@ cc_library(
     deps = [
         ":console_commands_headers",
         "//executables/referenceApp/platforms/s32k148evb/safety/safeIo:safe_io",
-        "//platforms/s32k1xx/bsp/bspIo:bsp_io_impl",
+        "//platforms/s32k1xx/bsp/bspIo:bsp_io",
     ],
 )
 
