@@ -9,6 +9,8 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+load("//bazel/config/build_variant:compatibility.bzl", "unit_test_only")
 
 # CAN device implementations, one per controller type. Each is built only for
 # the SoC family whose CAN controller it drives.
@@ -43,6 +45,70 @@ cc_library(
         "//libs/3rdparty/etl",
         "//libs/bsw/cpp2can",
         "//platforms/stm32/bsp/bspMcu:bsp_mcu",
+    ],
+)
+
+cc_library(
+    name = "bx_can_device_for_test",
+    hdrs = ["include/can/BxCanDevice.h"],
+    includes = [
+        "include",
+        "src",
+    ],
+    textual_hdrs = ["src/can/BxCanDevice.cpp"],
+    visibility = ["//visibility:private"],
+    deps = [
+        "//libs/3rdparty/etl",
+        "//libs/bsw/cpp2can",
+    ],
+)
+
+cc_library(
+    name = "fd_can_device_for_test",
+    hdrs = ["include/can/FdCanDevice.h"],
+    includes = [
+        "include",
+        "src",
+    ],
+    textual_hdrs = ["src/can/FdCanDevice.cpp"],
+    visibility = ["//visibility:private"],
+    deps = [
+        "//libs/3rdparty/etl",
+        "//libs/bsw/cpp2can",
+    ],
+)
+
+cc_test(
+    name = "bx_can_device_test",
+    srcs = [
+        "test/include/mcu/mcu.h",
+        "test/src/can/BxCanDeviceTest.cpp",
+    ],
+    includes = ["test/include"],
+    target_compatible_with = unit_test_only(),
+    deps = [
+        ":bx_can_device_for_test",
+        "//libs/3rdparty/googletest:gtest",
+        "//libs/3rdparty/googletest:gtest_main",
+        "//libs/bsw/bsp:bsp_mock",
+        "//libs/bsw/util:util_mock",
+    ],
+)
+
+cc_test(
+    name = "fd_can_device_test",
+    srcs = [
+        "test/include/mcu/mcu.h",
+        "test/src/can/FdCanDeviceTest.cpp",
+    ],
+    includes = ["test/include"],
+    target_compatible_with = unit_test_only(),
+    deps = [
+        ":fd_can_device_for_test",
+        "//libs/3rdparty/googletest:gtest",
+        "//libs/3rdparty/googletest:gtest_main",
+        "//libs/bsw/bsp:bsp_mock",
+        "//libs/bsw/util:util_mock",
     ],
 )
 
