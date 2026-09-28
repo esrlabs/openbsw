@@ -35,6 +35,7 @@ platform(
         "--//bazel/config/rtos=freertos",
 
         # BSP layer
+        "--//executables/referenceApp/safety/safeSupervisor:bsp_mcu=//platforms/s32k1xx/bsp/bspMcu:bsp_mcu",
         "--//libs/bsp/bspInterrupts:bsp_interrupts_impl=//platforms/s32k1xx/bsp/bspInterruptsImpl:bsp_interrupts_impl",
         "--//bazel/config/bsp:bsp_configuration=//executables/referenceApp/platforms/s32k148evb/bspConfiguration:bsp_configuration_headers",
         "--//bazel/config/eth:eth_configuration=//executables/referenceApp/platforms/s32k148evb/ethConfiguration:eth_configuration",
@@ -77,6 +78,7 @@ platform(
         "--//bazel/config/rtos=freertos",
 
         # BSP layer
+        "--//executables/referenceApp/safety/safeSupervisor:bsp_mcu=//platforms/posix/bsp/bspMcu:bsp_mcu",
         "--//libs/bsp/bspInterrupts:bsp_interrupts_impl=//platforms/posix/bsp/bspInterruptsImpl:bsp_interrupts_impl",
         "--//bazel/config/bsp:bsp_configuration=//executables/referenceApp/platforms/posix/bspConfiguration:bsp_configuration_headers",
         "--//bazel/config/eth:eth_configuration=//executables/referenceApp/platforms/posix/ethConfiguration:eth_configuration",
