@@ -194,13 +194,13 @@ check the following...
 
    .. code-block:: bash
 
-     build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/gapp.referenceApp.elf
+     build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
 
 Then, in the root folder you can run the gdb client to start an interactive debug session...
 
   .. code-block:: bash
 
-   arm-none-eabi-gdb -x tools/gdb/pegdbserver.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/gapp.referenceApp.elf
+   arm-none-eabi-gdb -x tools/gdb/pegdbserver.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
 
 Flash the board on command-line
 -------------------------------
@@ -211,7 +211,19 @@ it may be more convenient to flash it in a single command as follows...
 
   .. code-block:: bash
 
-   arm-none-eabi-gdb -batch -x test/pyTest/flash.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/gapp.referenceApp.elf
+   arm-none-eabi-gdb -batch -x test/pyTest/flash.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
+
+The containerized Josh workflow can build and flash the reference application in
+one command:
+
+  .. code-block:: bash
+
+   JOSH_EXPERIMENTAL_FEATURES=1 josh compose run . :+ws/platform/s32k148-flash
+
+The PEmicro GDB server still runs as a native host process; it is not part of
+the container. The flash job connects from its container to the native server
+at ``host.containers.internal:7224``. On macOS, start the native server and
+leave it running before invoking the job.
 
 Reset the board on command-line
 -------------------------------
@@ -220,4 +232,4 @@ You can reset the board in a single command as follows...
 
   .. code-block:: bash
 
-   arm-none-eabi-gdb -batch -x test/pyTest/reset.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/gapp.referenceApp.elf
+   arm-none-eabi-gdb -batch -x test/pyTest/reset.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf

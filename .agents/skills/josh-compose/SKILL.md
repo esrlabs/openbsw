@@ -12,6 +12,11 @@ description: Run and diagnose OpenBSW formatting, builds, and tests with `josh c
 - Use the installed `josh` binary. This repository does not contain the Josh CLI source, so do not substitute `cargo run --bin josh`.
 - A working Podman installation is required by the current Josh compose backend.
 - Network access is required when images or tool downloads are not cached.
+- The installed Josh release requires `JOSH_EXPERIMENTAL_FEATURES=1` for every `josh compose` command. Export it once per shell:
+
+  ```sh
+  export JOSH_EXPERIMENTAL_FEATURES=1
+  ```
 
 Check availability without mutating state:
 
@@ -35,11 +40,11 @@ The default filter is `:+compose`, which loads `compose.josh`.
 | `clang-tidy-posix` | `ws/clang-tidy/posix.josh` | Builds `tests-posix-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
 | `clang-tidy-s32k1xx` | `ws/clang-tidy/s32k1xx.josh` | Builds `tests-s32k1xx-release` with Clang 17, mounts the build output, and runs `clang-tidy-17` over a relocated, Josh-filtered analysis worktree. |
 | `unit-test` | `ws/test/unit.josh` | Builds and runs the `tests-posix-debug` preset; stale coverage `.gcda` files are removed before CTest. |
-| `s32k148-gcc` | `ws/platform/s32k148-gcc.josh` | Builds the `s32k148-freertos-gcc` preset with the ARM GNU toolchain. |
+| `s32k148-gcc` | `ws/platform/s32k148-gcc.josh` | Builds the `s32k148-freertos-gcc` preset with the ARM GNU toolchain and publishes the reference application ELF for dependent jobs. |
 
 The format workspace uses `docker/fmt` through `ws/format/image.josh`. The documentation workspace uses `docker/Dockerfile.docs` through `ws/docs/image.josh`. The build and test workspaces use `docker/development` through `ws/common/dev-image.josh`. Workspace filters deliberately include only the files needed by each job; changing an excluded file does not invalidate that job.
 
-`ws/test/integration.josh` exists but is not currently an input of `compose.josh`, so the default run does not execute it.
+`ws/test/integration.josh` and `ws/platform/s32k148-flash.josh` exist but are not inputs of `compose.josh`, so the default run does not execute them. The flash workspace consumes the S32K148 GCC build output and connects to a separately running native-host GDB server at `host.containers.internal:7224`; the GDB server does not run in a container.
 
 ## Running the workflow
 
@@ -69,6 +74,7 @@ josh compose run . :+ws/clang-tidy/s32k1xx
 josh compose run . :+ws/platform/posix
 josh compose run . :+ws/test/unit
 josh compose run . :+ws/platform/s32k148-gcc
+josh compose run . :+ws/platform/s32k148-flash
 ```
 
 Prefer the narrowest workspace covering the change while iterating. Before delivery, run the default `josh compose run` when the requested acceptance criterion is the complete repository workflow.
@@ -88,8 +94,8 @@ Source or workflow changes that affect a filtered workspace produce a new hash a
 Inspect the full dependency plan without executing jobs:
 
 ```sh
-josh compose list-jobs --all
-josh compose list-images --all
+JOSH_EXPERIMENTAL_FEATURES=1 josh compose list-jobs --all
+JOSH_EXPERIMENTAL_FEATURES=1 josh compose list-images --all
 ```
 
 Omit `--all` to list only work not pruned by the local cache. Job hashes are dependency-first; image names have the form `josh_ws_image_<hash>`.

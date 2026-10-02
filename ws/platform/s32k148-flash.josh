@@ -1,0 +1,12 @@
+:$label="Flash S32K148 reference application"
+:#image[:+ws/common/dev-image]
+:$output="none"
+:$network="host"
+
+inputs = :[
+    :#firmware[:+ws/platform/s32k148-gcc]
+]
+
+worktree = :[
+    :/ws/platform::run.sh=s32k148-flash.run.sh
+]

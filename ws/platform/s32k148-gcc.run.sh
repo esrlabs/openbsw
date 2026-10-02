@@ -15,3 +15,7 @@ export CC=/opt/arm-gnu-toolchain/bin/arm-none-eabi-gcc
 echo "\nBuilding...\n"
 cmake --preset s32k148-freertos-gcc
 cmake --build --preset s32k148-freertos-gcc -j 5
+
+cp --parents \
+    build/s32k148-freertos-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf \
+    /out
