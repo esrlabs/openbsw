@@ -48,15 +48,9 @@ cc_library(
 
 # Active CAN device implementation. Set by the platform via its flags.
 # Non-STM32 and unit-test platforms resolve to no_implementation and skip this module.
-#   Override: --//platforms/stm32/bsp/bspCan:bsp_can_impl=//path/to:your_impl
+#   Override: --//platforms/stm32/bsp/bspCan:bsp_can=//path/to:your_impl
 label_flag(
-    name = "bsp_can_impl",
-    build_setting_default = "//bazel/config:no_implementation",
-    visibility = ["//visibility:public"],
-)
-
-alias(
     name = "bsp_can",
-    actual = ":bsp_can_impl",
+    build_setting_default = "//bazel/config:no_implementation",
     visibility = ["//visibility:public"],
 )
