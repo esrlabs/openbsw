@@ -1,6 +1,7 @@
-:$label="Flash S32K148 reference application"
+:$label="S32K148 binary artifact commands"
 :#image[:+ws/common/dev-image]
 :$output="none"
+:$cmd="run"
 :$network="host"
 
 inputs = :[
@@ -8,5 +9,6 @@ inputs = :[
 ]
 
 worktree = :[
-    :/ws/platform::run.sh=s32k148-flash.run.sh
+    :/ws/platform::run=s32k148-gdb.run
+    :/ws/platform::flash=s32k148-gdb.flash
 ]

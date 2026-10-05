@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # *******************************************************************************
 # Copyright (c) 2026 Accenture
 #
@@ -10,14 +12,8 @@
 
 set -euo pipefail
 
-readonly ELF=/firmware/build/s32k148-freertos-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
-readonly GDB_SERVER=host.containers.internal:7224
+cat <<'EOF'
+Commands for working with the S32K148 reference application binary artifact:
 
-printf '\nFlashing %s via the native host GDB server at %s...\n\n' "$ELF" "$GDB_SERVER"
-
-exec /opt/arm-gnu-toolchain/bin/arm-none-eabi-gdb \
-    --batch \
-    --eval-command="target remote $GDB_SERVER" \
-    --eval-command=load \
-    --eval-command=quit \
-    "$ELF"
+  flash    Flash the reference application
+EOF

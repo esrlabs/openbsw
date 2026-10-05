@@ -213,17 +213,20 @@ it may be more convenient to flash it in a single command as follows...
 
    arm-none-eabi-gdb -batch -x test/pyTest/flash.gdb build/s32k148-gcc/executables/referenceApp/application/RelWithDebInfo/app.referenceApp.elf
 
-The containerized Josh workflow can build and flash the reference application in
-one command:
+The ``s32k148-gdb`` Josh workspace builds the reference application as a
+dependency and provides commands that operate on the resulting binary artifact.
+Its currently available command, ``flash``, programs that artifact onto the
+board:
 
   .. code-block:: bash
 
-   JOSH_EXPERIMENTAL_FEATURES=1 josh compose run . :+ws/platform/s32k148-flash
+   JOSH_EXPERIMENTAL_FEATURES=1 josh compose run :+ws/platform/s32k148-gdb -- flash
 
-The PEmicro GDB server still runs as a native host process; it is not part of
-the container. The flash job connects from its container to the native server
-at ``host.containers.internal:7224``. On macOS, start the native server and
-leave it running before invoking the job.
+Running the workspace without a command prints the available artifact commands.
+The PEmicro GDB server must already be running as a native host process; it is
+not part of the container. The ``flash`` command connects from its container to
+the server at ``host.containers.internal:7224``. On macOS, start the native
+server and leave it running before invoking the command.
 
 Reset the board on command-line
 -------------------------------

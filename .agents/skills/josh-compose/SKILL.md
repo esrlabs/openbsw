@@ -44,7 +44,7 @@ The default filter is `:+compose`, which loads `compose.josh`.
 
 The format workspace uses `docker/fmt` through `ws/format/image.josh`. The documentation workspace uses `docker/Dockerfile.docs` through `ws/docs/image.josh`. The build and test workspaces use `docker/development` through `ws/common/dev-image.josh`. Workspace filters deliberately include only the files needed by each job; changing an excluded file does not invalidate that job.
 
-`ws/test/integration.josh` and `ws/platform/s32k148-flash.josh` exist but are not inputs of `compose.josh`, so the default run does not execute them. The flash workspace consumes the S32K148 GCC build output and connects to a separately running native-host GDB server at `host.containers.internal:7224`; the GDB server does not run in a container.
+`ws/test/integration.josh` and `ws/platform/s32k148-gdb.josh` exist but are not inputs of `compose.josh`, so the default run does not execute them. The `s32k148-gdb` workspace consumes the S32K148 GCC build output and provides commands that operate on the resulting binary artifact. Its `flash` command connects to a separately running native-host GDB server at `host.containers.internal:7224`; the GDB server does not run in a container.
 
 ## Running the workflow
 
@@ -57,24 +57,24 @@ josh compose run
 Input-reference semantics:
 
 ```sh
-josh compose run .       # working tree; default; workdir outputs may be extracted
-josh compose run +       # Git index only
-josh compose run HEAD    # committed HEAD; ignores local changes
-josh compose run <rev>   # any resolvable Git revision
+josh compose run                 # working tree; default; workdir outputs may be extracted
+josh compose run --revision +    # Git index only
+josh compose run --revision HEAD # committed HEAD; ignores local changes
+josh compose run --revision <rev> # any resolvable Git revision
 ```
 
-The optional second argument is a Josh filter. Use it to run a single workspace:
+The optional positional argument is a Josh filter. Use it to run a single workspace:
 
 ```sh
-josh compose run . :+ws/format/format
-josh compose run . :+ws/docs/sphinx
-josh compose run . :+ws/code-coverage/report
-josh compose run . :+ws/clang-tidy/posix
-josh compose run . :+ws/clang-tidy/s32k1xx
-josh compose run . :+ws/platform/posix
-josh compose run . :+ws/test/unit
-josh compose run . :+ws/platform/s32k148-gcc
-josh compose run . :+ws/platform/s32k148-flash
+josh compose run :+ws/format/format
+josh compose run :+ws/docs/sphinx
+josh compose run :+ws/code-coverage/report
+josh compose run :+ws/clang-tidy/posix
+josh compose run :+ws/clang-tidy/s32k1xx
+josh compose run :+ws/platform/posix
+josh compose run :+ws/test/unit
+josh compose run :+ws/platform/s32k148-gcc
+josh compose run :+ws/platform/s32k148-gdb -- flash
 ```
 
 Prefer the narrowest workspace covering the change while iterating. Before delivery, run the default `josh compose run` when the requested acceptance criterion is the complete repository workflow.
@@ -90,6 +90,8 @@ A successful `$output="none"` job is skipped when its success record exists. Job
 ```
 
 Source or workflow changes that affect a filtered workspace produce a new hash and bypass stale results automatically. `--no-distributed-cache` disables remote filter-cache reads and writes; it does not disable the local successful-job cache.
+
+A command supplied after `--` always executes in the selected workspace without replacing its configured cached result or output artifact. Use this for side-effecting operations. The `s32k148-gdb` workspace's default `run` command lists its binary artifact commands; invoke the existing flash action as `josh compose run :+ws/platform/s32k148-gdb -- flash`, ensuring every invocation flashes the board while its firmware build dependency remains cacheable.
 
 Inspect the full dependency plan without executing jobs:
 
