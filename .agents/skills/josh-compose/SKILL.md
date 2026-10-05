@@ -87,7 +87,7 @@ For size-delta comparisons, use the default invocation to compare the selected i
 
 ## Cache behavior
 
-A job hash is the workspace tree object ID after filtering. Successful records are stored in `.josh/success/<hash>`; failed records are stored in `.josh/failed/<hash>`. The record contains captured stdout and stderr. `.josh/` is gitignored.
+A job hash is the workspace tree object ID after filtering. Successful and failed result metadata, including captured stdout and stderr, is stored in the repository at `refs/josh/compose`. Results are arranged under `success/<AA>/<BBB>/<REST>` and `failed/<AA>/<BBB>/<REST>`, where the job hash is split across those path components.
 
 A successful `$output="none"` job is skipped when its success record exists. Jobs with outputs are skipped only when both the success record and output volume exist. A normal cache hit looks like:
 
@@ -95,7 +95,7 @@ A successful `$output="none"` job is skipped when its success record exists. Job
 [OpenBSW] Using cached output (<hash>)
 ```
 
-Source or workflow changes that affect a filtered workspace produce a new hash and bypass stale results automatically. `--no-distributed-cache` disables remote filter-cache reads and writes; it does not disable the local successful-job cache.
+Source or workflow changes that affect a filtered workspace produce a new hash and bypass stale results automatically. `--no-distributed-cache` disables distributed filter-cache access; it does not disable compose result reuse from `refs/josh/compose`.
 
 A command supplied after `--` always executes in the selected workspace without replacing its configured cached result or output artifact. Use this for side-effecting operations. The `s32k148-gdb` workspace's default `run` command lists its binary artifact commands; invoke the existing flash action as `josh compose run :+ws/platform/s32k148-gdb -- flash`, ensuring every invocation flashes the board while its firmware build dependency remains cacheable.
 
@@ -106,18 +106,32 @@ JOSH_EXPERIMENTAL_FEATURES=1 josh compose list-jobs --all
 JOSH_EXPERIMENTAL_FEATURES=1 josh compose list-images --all
 ```
 
-Omit `--all` to list only work not pruned by the local cache. Job hashes are dependency-first; image names have the form `josh_ws_image_<hash>`.
+Omit `--all` to list only work not pruned by cached successful results. Job hashes are dependency-first; image names have the form `josh_ws_image_<hash>`.
 
-## Do not clear caches during normal work
+Result metadata can be synchronized through Git without transferring runtime output volumes:
 
-Do not pass `--clean` or `--clean-all` merely to force a run. The cache key follows filtered content and is expected to invalidate itself.
+```sh
+josh compose pull --remote origin
+josh compose push --remote origin
+```
 
-These options are destructive cleanup operations, not “clean then run” modes: Josh performs cleanup and returns without executing the workflow.
+Both commands default to `origin`. Pull merges remote and local results; push merges concurrent updates before retrying the remote ref update.
 
-- `--clean` removes compose output volumes, built compose images, and `.josh/success`/`.josh/failed`.
-- `--clean-all` also removes persistent compose cache volumes.
+## Cleaning and disk reclamation
 
-If cleanup is explicitly required, run it as a separate operation, then invoke `josh compose run`. Never use `--clean-all` without an explicit need to discard persistent build caches.
+Do not run `clean` merely to force a workspace to execute. The cache key follows filtered content and invalidates itself. Use a command override after `--` for an intentional uncached action.
+
+Cleaning is a destructive standalone subcommand, not an option to `run`:
+
+```sh
+# Remove output artifacts, workspace images, and refs/josh/compose result metadata
+josh compose clean
+
+# Also remove persistent josh_cache_* volumes
+josh compose clean --all
+```
+
+Normal `run` and `shell` operations automatically monitor runtime storage. At 90% usage, compose removes least-recently-used `josh_ws_image_*` images and `josh_out_*` output artifacts until usage is at most 80%, while protecting resources needed by the pending graph. Automatic reclamation does not remove persistent cache volumes, result metadata, or remote objects.
 
 ## Reading output and diagnosing failures
 
@@ -132,7 +146,7 @@ Workspace status lines identify the label and job hash:
 On failure:
 
 1. Find the first workspace label ending in `FAILED`; sibling inputs may still be attempted before the orchestrator returns failure.
-2. Read `.josh/failed/<hash>` for complete captured stdout and stderr when terminal output is truncated.
+2. Use the stdout and stderr emitted by the failed run. The same captured streams are recorded with the failed result under `refs/josh/compose`.
 3. Re-run only that workspace filter while fixing it.
 4. Fix the source, runner, workspace filter, or image definition that owns the failure. Do not delete success records to mask an incorrect filter.
 5. Re-run the default workflow after the focused workspace succeeds.
