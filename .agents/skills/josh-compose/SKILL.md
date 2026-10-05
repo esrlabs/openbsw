@@ -44,7 +44,9 @@ The default filter is `:+compose`, which loads `compose.josh`.
 
 The format workspace uses `docker/fmt` through `ws/format/image.josh`. The documentation workspace uses `docker/Dockerfile.docs` through `ws/docs/image.josh`. The build and test workspaces use `docker/development` through `ws/common/dev-image.josh`. Workspace filters deliberately include only the files needed by each job; changing an excluded file does not invalidate that job.
 
-`ws/test/integration.josh` and `ws/platform/s32k148-gdb.josh` exist but are not inputs of `compose.josh`, so the default run does not execute them. The `s32k148-gdb` workspace consumes the S32K148 GCC build output and provides commands that operate on the resulting binary artifact. Its `flash` command connects to a separately running native-host GDB server at `host.containers.internal:7224`; the GDB server does not run in a container.
+`ws/test/integration.josh`, `ws/platform/s32k148-gdb.josh`, and `ws/size-delta/s32k148-gcc.josh` exist but are not inputs of `compose.josh`, so the default run does not execute them. The `s32k148-gdb` workspace consumes the S32K148 GCC build output and provides commands that operate on the resulting binary artifact. Its `flash` command connects to a separately running native-host GDB server at `host.containers.internal:7224`; the GDB server does not run in a container.
+
+The `s32k148-gcc` size-delta workspace builds filtered baseline and current source trees, records each ELF's ROM, RAM, binary, and allocated-section sizes, then prints their deltas. Without `--arg baseline=...`, the baseline is the selected input's first parent (`{#^}`). An explicit baseline accepts any Git single-revision expression through `--arg baseline=<revision>`.
 
 ## Running the workflow
 
@@ -75,9 +77,13 @@ josh compose run :+ws/platform/posix
 josh compose run :+ws/test/unit
 josh compose run :+ws/platform/s32k148-gcc
 josh compose run :+ws/platform/s32k148-gdb -- flash
+josh compose run :+ws/size-delta/s32k148-gcc
+josh compose run --arg baseline=origin/main :+ws/size-delta/s32k148-gcc
 ```
 
 Prefer the narrowest workspace covering the change while iterating. Before delivery, run the default `josh compose run` when the requested acceptance criterion is the complete repository workflow.
+
+For size-delta comparisons, use the default invocation to compare the selected input against its first parent. Use `--arg baseline=<revision>` to compare against a branch, tag, or commit explicitly. `--revision <revision>` changes the current side of the comparison; `--arg baseline=<revision>` changes only the baseline.
 
 ## Cache behavior
 
