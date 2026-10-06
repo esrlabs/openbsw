@@ -14,7 +14,7 @@ Analogous to Pigweed's incompatible_with_mcu() pattern. Each helper wraps a
 select() so call sites stay on one line regardless of which variant they target.
 """
 
-def simulation_only():
+def middleware_simulation_only():
     """Compatible only with the middleware_simulation build variant."""
     return select({
         "//bazel/config/build_variant:middleware_simulation": [],

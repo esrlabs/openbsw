@@ -102,7 +102,7 @@ platform(
 # Middleware simulation build. Inherits posix and activates the simulation ETL
 # profile and concurrency lock types.
 platform(
-    name = "simulation",
+    name = "middleware_simulation",
     flags = [
         "--//bazel/config/build_variant=middleware_simulation",
         "--//libs/3rdparty/etl:etl_profile=//libs/bsw/middleware/simulation:simulation_etl_profile",

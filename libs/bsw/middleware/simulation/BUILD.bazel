@@ -10,7 +10,7 @@
 
 load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
-load("//bazel/config/build_variant:compatibility.bzl", "simulation_only")
+load("//bazel/config/build_variant:compatibility.bzl", "middleware_simulation_only")
 load(
     "//libs/bsw/middleware/tools/cpp_generator:middleware_codegen.bzl",
     "middleware_codegen",
@@ -74,7 +74,7 @@ cc_binary(
         "src/ShmWrapper.h",
     ],
     tags = ["manual"],
-    target_compatible_with = simulation_only(),
+    target_compatible_with = middleware_simulation_only(),
     visibility = ["//visibility:public"],
     deps = [
         ":middleware_simulation_generated",
