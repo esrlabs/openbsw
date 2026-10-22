@@ -319,6 +319,9 @@ platform(
         "--//libs/bsw/uds:uds_configuration=//executables/referenceApp/udsConfiguration:uds_configuration",
         "--//libs/bsw/uds:transport_configuration=//executables/referenceApp/transportConfiguration:transport_configuration",
         "--//libs/bsw/transportRouterSimple:transport_configuration=//executables/referenceApp/transportConfiguration:transport_configuration",
+
+        # Application
+        "--//executables/referenceApp/application:uds_demo_services=true",
     ],
 )
 
@@ -396,6 +399,9 @@ platform(
         "--//libs/bsw/uds:uds_configuration=//executables/referenceApp/udsConfiguration:uds_configuration",
         "--//libs/bsw/uds:transport_configuration=//executables/referenceApp/transportConfiguration:transport_configuration",
         "--//libs/bsw/transportRouterSimple:transport_configuration=//executables/referenceApp/transportConfiguration:transport_configuration",
+
+        # Application
+        "--//executables/referenceApp/application:uds_demo_services=true",
     ],
 )
 
