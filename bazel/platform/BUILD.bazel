@@ -283,6 +283,9 @@ platform(
         # lwIP
         "--//libs/3rdparty/lwip:lwip_configuration=//executables/referenceApp/lwipConfiguration:lwip_configuration",
         "--//libs/3rdparty/lwip:exclude_slipif=true",
+
+        # Application
+        "--//executables/referenceApp/application:uds_demo_services=true",
     ],
 )
 
@@ -348,6 +351,9 @@ platform(
         # lwIP
         "--//libs/3rdparty/lwip:lwip_configuration=//executables/referenceApp/lwipConfiguration:lwip_configuration",
         "--//libs/3rdparty/lwip:exclude_slipif=true",
+
+        # Application
+        "--//executables/referenceApp/application:uds_demo_services=true",
     ],
 )
 
