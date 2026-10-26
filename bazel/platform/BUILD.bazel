@@ -61,6 +61,9 @@ platform(
 
         # ETL profile
         "--//libs/3rdparty/etl:etl_profile=//executables/referenceApp/etl_profile",
+
+        # lwIP
+        "--//libs/3rdparty/lwip:exclude_slipif=true",
     ],
     parents = ["@platforms//host:host"],
 )
@@ -88,6 +91,7 @@ platform(
 
         # lwip stack configuration
         "--//libs/3rdparty/lwip:lwip_configuration=//executables/unitTest/lwipConfiguration:lwip_configuration",
+        "--//libs/3rdparty/lwip:exclude_slipif=true",
 
         # transport configuration
         "--//libs/bsw/transportRouterSimple:transport_configuration=//executables/unitTest/transportConfiguration:transport_configuration",
@@ -183,6 +187,9 @@ platform(
 
         # ETL profile
         "--//libs/3rdparty/etl:etl_profile=//executables/referenceApp/etl_profile",
+
+        # lwIP
+        "--//libs/3rdparty/lwip:exclude_slipif=true",
     ],
 )
 
@@ -250,6 +257,9 @@ platform(
 
         # ETL profile
         "--//libs/3rdparty/etl:etl_profile=//executables/referenceApp/etl_profile",
+
+        # lwIP
+        "--//libs/3rdparty/lwip:exclude_slipif=true",
     ],
 )
 
@@ -311,6 +321,9 @@ platform(
 
         # ETL profile
         "--//libs/3rdparty/etl:etl_profile=//executables/referenceApp/etl_profile",
+
+        # lwIP
+        "--//libs/3rdparty/lwip:exclude_slipif=true",
     ],
 )
 
